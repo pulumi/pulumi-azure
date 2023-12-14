@@ -748,7 +748,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -757,7 +757,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
     /**
      * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Output<Optional<List<String>>> zones() {

@@ -168,6 +168,9 @@ namespace Pulumi.Azure.Bot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -359,6 +362,9 @@ namespace Pulumi.Azure.Bot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
         /// <summary>
         /// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         /// </summary>
@@ -512,6 +518,9 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.

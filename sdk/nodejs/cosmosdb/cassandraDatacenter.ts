@@ -139,6 +139,10 @@ export class CassandraDatacenter extends pulumi.CustomResource {
      */
     public readonly nodeCount!: pulumi.Output<number | undefined>;
     /**
+     * A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     */
+    public /*out*/ readonly seedNodeIpAddresses!: pulumi.Output<string[]>;
+    /**
      * Determines the selected sku.
      *
      * > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
@@ -169,6 +173,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
             resourceInputs["managedDiskCustomerKeyUri"] = state ? state.managedDiskCustomerKeyUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
+            resourceInputs["seedNodeIpAddresses"] = state ? state.seedNodeIpAddresses : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
         } else {
             const args = argsOrState as CassandraDatacenterArgs | undefined;
@@ -190,6 +195,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["seedNodeIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CassandraDatacenter.__pulumiType, name, resourceInputs, opts);
@@ -244,6 +250,10 @@ export interface CassandraDatacenterState {
      * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      */
     nodeCount?: pulumi.Input<number>;
+    /**
+     * A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     */
+    seedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines the selected sku.
      *

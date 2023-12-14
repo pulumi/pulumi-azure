@@ -22,16 +22,18 @@ public final class RegistryNetworkRuleSet {
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
-     */
-    private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
-    /**
-     * @return One or more `virtual_network` blocks as defined below.
-     * 
      * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
      * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
+    private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
+    /**
+     * @deprecated
+     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+     * 
+     */
+    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
     private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
 
     private RegistryNetworkRuleSet() {}
@@ -45,18 +47,20 @@ public final class RegistryNetworkRuleSet {
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
-     */
-    public List<RegistryNetworkRuleSetIpRule> ipRules() {
-        return this.ipRules == null ? List.of() : this.ipRules;
-    }
-    /**
-     * @return One or more `virtual_network` blocks as defined below.
-     * 
      * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
      * 
      * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
      * 
      */
+    public List<RegistryNetworkRuleSetIpRule> ipRules() {
+        return this.ipRules == null ? List.of() : this.ipRules;
+    }
+    /**
+     * @deprecated
+     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+     * 
+     */
+    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
     public List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks() {
         return this.virtualNetworks == null ? List.of() : this.virtualNetworks;
     }

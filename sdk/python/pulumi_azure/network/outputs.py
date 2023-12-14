@@ -148,9 +148,14 @@ __all__ = [
     'VirtualNetworkGatewayIpConfiguration',
     'VirtualNetworkGatewayNatRuleExternalMapping',
     'VirtualNetworkGatewayNatRuleInternalMapping',
+    'VirtualNetworkGatewayPolicyGroup',
+    'VirtualNetworkGatewayPolicyGroupPolicyMember',
     'VirtualNetworkGatewayVpnClientConfiguration',
+    'VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy',
+    'VirtualNetworkGatewayVpnClientConfigurationRadiusServer',
     'VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate',
     'VirtualNetworkGatewayVpnClientConfigurationRootCertificate',
+    'VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection',
     'VirtualNetworkSubnet',
     'VnpGatewayNatRuleExternalMapping',
     'VnpGatewayNatRuleInternalMapping',
@@ -10549,6 +10554,118 @@ class VirtualNetworkGatewayNatRuleInternalMapping(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkGatewayPolicyGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyMembers":
+            suggest = "policy_members"
+        elif key == "isDefault":
+            suggest = "is_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayPolicyGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayPolicyGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayPolicyGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 policy_members: Sequence['outputs.VirtualNetworkGatewayPolicyGroupPolicyMember'],
+                 is_default: Optional[bool] = None,
+                 priority: Optional[int] = None):
+        """
+        :param str name: The name of the Virtual Network Gateway Policy Group.
+        :param Sequence['VirtualNetworkGatewayPolicyGroupPolicyMemberArgs'] policy_members: One or more `policy_member` blocks as defined below.
+        :param bool is_default: Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+        :param int priority: The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy_members", policy_members)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Virtual Network Gateway Policy Group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyMembers")
+    def policy_members(self) -> Sequence['outputs.VirtualNetworkGatewayPolicyGroupPolicyMember']:
+        """
+        One or more `policy_member` blocks as defined below.
+        """
+        return pulumi.get(self, "policy_members")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[bool]:
+        """
+        Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayPolicyGroupPolicyMember(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 value: str):
+        """
+        :param str name: The name of the Virtual Network Gateway Policy Group Member.
+        :param str type: The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+        :param str value: The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Virtual Network Gateway Policy Group Member.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class VirtualNetworkGatewayVpnClientConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10561,14 +10678,20 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
             suggest = "aad_issuer"
         elif key == "aadTenant":
             suggest = "aad_tenant"
+        elif key == "ipsecPolicy":
+            suggest = "ipsec_policy"
         elif key == "radiusServerAddress":
             suggest = "radius_server_address"
         elif key == "radiusServerSecret":
             suggest = "radius_server_secret"
+        elif key == "radiusServers":
+            suggest = "radius_servers"
         elif key == "revokedCertificates":
             suggest = "revoked_certificates"
         elif key == "rootCertificates":
             suggest = "root_certificates"
+        elif key == "virtualNetworkGatewayClientConnections":
+            suggest = "virtual_network_gateway_client_connections"
         elif key == "vpnAuthTypes":
             suggest = "vpn_auth_types"
         elif key == "vpnClientProtocols":
@@ -10590,10 +10713,13 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
                  aad_audience: Optional[str] = None,
                  aad_issuer: Optional[str] = None,
                  aad_tenant: Optional[str] = None,
+                 ipsec_policy: Optional['outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy'] = None,
                  radius_server_address: Optional[str] = None,
                  radius_server_secret: Optional[str] = None,
+                 radius_servers: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer']] = None,
                  revoked_certificates: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']] = None,
                  root_certificates: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate']] = None,
+                 virtual_network_gateway_client_connections: Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection']] = None,
                  vpn_auth_types: Optional[Sequence[str]] = None,
                  vpn_client_protocols: Optional[Sequence[str]] = None):
         """
@@ -10602,10 +10728,13 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
                See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
         :param str aad_issuer: The STS url for your tenant
         :param str aad_tenant: AzureAD Tenant URL
+        :param 'VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs' ipsec_policy: An `ipsec_policy` block as defined below.
         :param str radius_server_address: The address of the Radius server.
         :param str radius_server_secret: The secret used by the Radius server.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs'] radius_servers: One or more `radius_server` blocks as defined below.
         :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs'] revoked_certificates: One or more `revoked_certificate` blocks which are defined below.
         :param Sequence['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs'] root_certificates: One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
+        :param Sequence['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs'] virtual_network_gateway_client_connections: One or more `virtual_network_gateway_client_connection` blocks as defined below.
         :param Sequence[str] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
                
@@ -10622,14 +10751,20 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
             pulumi.set(__self__, "aad_issuer", aad_issuer)
         if aad_tenant is not None:
             pulumi.set(__self__, "aad_tenant", aad_tenant)
+        if ipsec_policy is not None:
+            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
         if radius_server_address is not None:
             pulumi.set(__self__, "radius_server_address", radius_server_address)
         if radius_server_secret is not None:
             pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+        if radius_servers is not None:
+            pulumi.set(__self__, "radius_servers", radius_servers)
         if revoked_certificates is not None:
             pulumi.set(__self__, "revoked_certificates", revoked_certificates)
         if root_certificates is not None:
             pulumi.set(__self__, "root_certificates", root_certificates)
+        if virtual_network_gateway_client_connections is not None:
+            pulumi.set(__self__, "virtual_network_gateway_client_connections", virtual_network_gateway_client_connections)
         if vpn_auth_types is not None:
             pulumi.set(__self__, "vpn_auth_types", vpn_auth_types)
         if vpn_client_protocols is not None:
@@ -10669,6 +10804,14 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         return pulumi.get(self, "aad_tenant")
 
     @property
+    @pulumi.getter(name="ipsecPolicy")
+    def ipsec_policy(self) -> Optional['outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy']:
+        """
+        An `ipsec_policy` block as defined below.
+        """
+        return pulumi.get(self, "ipsec_policy")
+
+    @property
     @pulumi.getter(name="radiusServerAddress")
     def radius_server_address(self) -> Optional[str]:
         """
@@ -10685,6 +10828,14 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         return pulumi.get(self, "radius_server_secret")
 
     @property
+    @pulumi.getter(name="radiusServers")
+    def radius_servers(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer']]:
+        """
+        One or more `radius_server` blocks as defined below.
+        """
+        return pulumi.get(self, "radius_servers")
+
+    @property
     @pulumi.getter(name="revokedCertificates")
     def revoked_certificates(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate']]:
         """
@@ -10699,6 +10850,14 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         """
         return pulumi.get(self, "root_certificates")
+
+    @property
+    @pulumi.getter(name="virtualNetworkGatewayClientConnections")
+    def virtual_network_gateway_client_connections(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection']]:
+        """
+        One or more `virtual_network_gateway_client_connection` blocks as defined below.
+        """
+        return pulumi.get(self, "virtual_network_gateway_client_connections")
 
     @property
     @pulumi.getter(name="vpnAuthTypes")
@@ -10721,6 +10880,172 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         `aad_tenant`, `aad_audience` and `aad_issuer`.
         """
         return pulumi.get(self, "vpn_client_protocols")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dhGroup":
+            suggest = "dh_group"
+        elif key == "ikeEncryption":
+            suggest = "ike_encryption"
+        elif key == "ikeIntegrity":
+            suggest = "ike_integrity"
+        elif key == "ipsecEncryption":
+            suggest = "ipsec_encryption"
+        elif key == "ipsecIntegrity":
+            suggest = "ipsec_integrity"
+        elif key == "pfsGroup":
+            suggest = "pfs_group"
+        elif key == "saDataSizeInKilobytes":
+            suggest = "sa_data_size_in_kilobytes"
+        elif key == "saLifetimeInSeconds":
+            suggest = "sa_lifetime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dh_group: str,
+                 ike_encryption: str,
+                 ike_integrity: str,
+                 ipsec_encryption: str,
+                 ipsec_integrity: str,
+                 pfs_group: str,
+                 sa_data_size_in_kilobytes: int,
+                 sa_lifetime_in_seconds: int):
+        """
+        :param str dh_group: The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+        :param str ike_encryption: The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+        :param str ike_integrity: The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+        :param str ipsec_encryption: The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+        :param str ipsec_integrity: The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+        :param str pfs_group: The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+        :param int sa_data_size_in_kilobytes: The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+        :param int sa_lifetime_in_seconds: The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+        """
+        pulumi.set(__self__, "dh_group", dh_group)
+        pulumi.set(__self__, "ike_encryption", ike_encryption)
+        pulumi.set(__self__, "ike_integrity", ike_integrity)
+        pulumi.set(__self__, "ipsec_encryption", ipsec_encryption)
+        pulumi.set(__self__, "ipsec_integrity", ipsec_integrity)
+        pulumi.set(__self__, "pfs_group", pfs_group)
+        pulumi.set(__self__, "sa_data_size_in_kilobytes", sa_data_size_in_kilobytes)
+        pulumi.set(__self__, "sa_lifetime_in_seconds", sa_lifetime_in_seconds)
+
+    @property
+    @pulumi.getter(name="dhGroup")
+    def dh_group(self) -> str:
+        """
+        The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+        """
+        return pulumi.get(self, "dh_group")
+
+    @property
+    @pulumi.getter(name="ikeEncryption")
+    def ike_encryption(self) -> str:
+        """
+        The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+        """
+        return pulumi.get(self, "ike_encryption")
+
+    @property
+    @pulumi.getter(name="ikeIntegrity")
+    def ike_integrity(self) -> str:
+        """
+        The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+        """
+        return pulumi.get(self, "ike_integrity")
+
+    @property
+    @pulumi.getter(name="ipsecEncryption")
+    def ipsec_encryption(self) -> str:
+        """
+        The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+        """
+        return pulumi.get(self, "ipsec_encryption")
+
+    @property
+    @pulumi.getter(name="ipsecIntegrity")
+    def ipsec_integrity(self) -> str:
+        """
+        The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+        """
+        return pulumi.get(self, "ipsec_integrity")
+
+    @property
+    @pulumi.getter(name="pfsGroup")
+    def pfs_group(self) -> str:
+        """
+        The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+        """
+        return pulumi.get(self, "pfs_group")
+
+    @property
+    @pulumi.getter(name="saDataSizeInKilobytes")
+    def sa_data_size_in_kilobytes(self) -> int:
+        """
+        The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+        """
+        return pulumi.get(self, "sa_data_size_in_kilobytes")
+
+    @property
+    @pulumi.getter(name="saLifetimeInSeconds")
+    def sa_lifetime_in_seconds(self) -> int:
+        """
+        The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+        """
+        return pulumi.get(self, "sa_lifetime_in_seconds")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayVpnClientConfigurationRadiusServer(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 score: int,
+                 secret: str):
+        """
+        :param str address: The address of the Radius Server.
+        :param int score: The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+        :param str secret: The secret that is used to communicate with the Radius Server.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "score", score)
+        pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The address of the Radius Server.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def score(self) -> int:
+        """
+        The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+        """
+        return pulumi.get(self, "score")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> str:
+        """
+        The secret that is used to communicate with the Radius Server.
+        """
+        return pulumi.get(self, "secret")
 
 
 @pulumi.output_type
@@ -10796,6 +11121,65 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificate(dict):
         The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
         """
         return pulumi.get(self, "public_cert_data")
+
+
+@pulumi.output_type
+class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "policyGroupNames":
+            suggest = "policy_group_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefixes: Sequence[str],
+                 name: str,
+                 policy_group_names: Sequence[str]):
+        """
+        :param Sequence[str] address_prefixes: A list of address prefixes for P2S VPN Client.
+        :param str name: The name of the Virtual Network Gateway Client Connection.
+        :param Sequence[str] policy_group_names: A list of names of Virtual Network Gateway Policy Groups.
+        """
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy_group_names", policy_group_names)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
+        """
+        A list of address prefixes for P2S VPN Client.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Virtual Network Gateway Client Connection.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyGroupNames")
+    def policy_group_names(self) -> Sequence[str]:
+        """
+        A list of names of Virtual Network Gateway Policy Groups.
+        """
+        return pulumi.get(self, "policy_group_names")
 
 
 @pulumi.output_type

@@ -3,8 +3,11 @@
 
 package com.pulumi.azure.network.outputs;
 
+import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy;
+import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate;
+import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -36,6 +39,11 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private List<String> addressSpaces;
     /**
+     * @return An `ipsec_policy` block as defined below.
+     * 
+     */
+    private @Nullable VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy ipsecPolicy;
+    /**
      * @return The address of the Radius server.
      * 
      */
@@ -46,6 +54,11 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     private @Nullable String radiusServerSecret;
     /**
+     * @return One or more `radius_server` blocks as defined below.
+     * 
+     */
+    private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers;
+    /**
      * @return One or more `revoked_certificate` blocks which are defined below.
      * 
      */
@@ -55,6 +68,11 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      * 
      */
     private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
+    /**
+     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * 
+     */
+    private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections;
     /**
      * @return List of the vpn authentication types for the virtual network gateway.
      * The supported values are `AAD`, `Radius` and `Certificate`.
@@ -103,6 +121,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return this.addressSpaces;
     }
     /**
+     * @return An `ipsec_policy` block as defined below.
+     * 
+     */
+    public Optional<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy> ipsecPolicy() {
+        return Optional.ofNullable(this.ipsecPolicy);
+    }
+    /**
      * @return The address of the Radius server.
      * 
      */
@@ -117,6 +142,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         return Optional.ofNullable(this.radiusServerSecret);
     }
     /**
+     * @return One or more `radius_server` blocks as defined below.
+     * 
+     */
+    public List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers() {
+        return this.radiusServers == null ? List.of() : this.radiusServers;
+    }
+    /**
      * @return One or more `revoked_certificate` blocks which are defined below.
      * 
      */
@@ -129,6 +161,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
      */
     public List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates() {
         return this.rootCertificates == null ? List.of() : this.rootCertificates;
+    }
+    /**
+     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * 
+     */
+    public List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections() {
+        return this.virtualNetworkGatewayClientConnections == null ? List.of() : this.virtualNetworkGatewayClientConnections;
     }
     /**
      * @return List of the vpn authentication types for the virtual network gateway.
@@ -164,10 +203,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         private @Nullable String aadIssuer;
         private @Nullable String aadTenant;
         private List<String> addressSpaces;
+        private @Nullable VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy ipsecPolicy;
         private @Nullable String radiusServerAddress;
         private @Nullable String radiusServerSecret;
+        private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers;
         private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
         private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
+        private @Nullable List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections;
         private @Nullable List<String> vpnAuthTypes;
         private @Nullable List<String> vpnClientProtocols;
         public Builder() {}
@@ -177,10 +219,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
     	      this.aadIssuer = defaults.aadIssuer;
     	      this.aadTenant = defaults.aadTenant;
     	      this.addressSpaces = defaults.addressSpaces;
+    	      this.ipsecPolicy = defaults.ipsecPolicy;
     	      this.radiusServerAddress = defaults.radiusServerAddress;
     	      this.radiusServerSecret = defaults.radiusServerSecret;
+    	      this.radiusServers = defaults.radiusServers;
     	      this.revokedCertificates = defaults.revokedCertificates;
     	      this.rootCertificates = defaults.rootCertificates;
+    	      this.virtualNetworkGatewayClientConnections = defaults.virtualNetworkGatewayClientConnections;
     	      this.vpnAuthTypes = defaults.vpnAuthTypes;
     	      this.vpnClientProtocols = defaults.vpnClientProtocols;
         }
@@ -209,6 +254,11 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
             return addressSpaces(List.of(addressSpaces));
         }
         @CustomType.Setter
+        public Builder ipsecPolicy(@Nullable VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy ipsecPolicy) {
+            this.ipsecPolicy = ipsecPolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder radiusServerAddress(@Nullable String radiusServerAddress) {
             this.radiusServerAddress = radiusServerAddress;
             return this;
@@ -217,6 +267,14 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         public Builder radiusServerSecret(@Nullable String radiusServerSecret) {
             this.radiusServerSecret = radiusServerSecret;
             return this;
+        }
+        @CustomType.Setter
+        public Builder radiusServers(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers) {
+            this.radiusServers = radiusServers;
+            return this;
+        }
+        public Builder radiusServers(VirtualNetworkGatewayVpnClientConfigurationRadiusServer... radiusServers) {
+            return radiusServers(List.of(radiusServers));
         }
         @CustomType.Setter
         public Builder revokedCertificates(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates) {
@@ -233,6 +291,14 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         public Builder rootCertificates(VirtualNetworkGatewayVpnClientConfigurationRootCertificate... rootCertificates) {
             return rootCertificates(List.of(rootCertificates));
+        }
+        @CustomType.Setter
+        public Builder virtualNetworkGatewayClientConnections(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections) {
+            this.virtualNetworkGatewayClientConnections = virtualNetworkGatewayClientConnections;
+            return this;
+        }
+        public Builder virtualNetworkGatewayClientConnections(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection... virtualNetworkGatewayClientConnections) {
+            return virtualNetworkGatewayClientConnections(List.of(virtualNetworkGatewayClientConnections));
         }
         @CustomType.Setter
         public Builder vpnAuthTypes(@Nullable List<String> vpnAuthTypes) {
@@ -256,10 +322,13 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
             _resultValue.aadIssuer = aadIssuer;
             _resultValue.aadTenant = aadTenant;
             _resultValue.addressSpaces = addressSpaces;
+            _resultValue.ipsecPolicy = ipsecPolicy;
             _resultValue.radiusServerAddress = radiusServerAddress;
             _resultValue.radiusServerSecret = radiusServerSecret;
+            _resultValue.radiusServers = radiusServers;
             _resultValue.revokedCertificates = revokedCertificates;
             _resultValue.rootCertificates = rootCertificates;
+            _resultValue.virtualNetworkGatewayClientConnections = virtualNetworkGatewayClientConnections;
             _resultValue.vpnAuthTypes = vpnAuthTypes;
             _resultValue.vpnClientProtocols = vpnClientProtocols;
             return _resultValue;

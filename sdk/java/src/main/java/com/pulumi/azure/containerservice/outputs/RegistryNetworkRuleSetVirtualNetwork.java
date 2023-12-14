@@ -14,10 +14,6 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
      * 
      */
     private String action;
-    /**
-     * @return The subnet id from which requests will match the rule.
-     * 
-     */
     private String subnetId;
 
     private RegistryNetworkRuleSetVirtualNetwork() {}
@@ -28,10 +24,6 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
     public String action() {
         return this.action;
     }
-    /**
-     * @return The subnet id from which requests will match the rule.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

@@ -8349,7 +8349,6 @@ class RegistryNetworkRuleSet(dict):
         """
         :param str default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param Sequence['RegistryNetworkRuleSetIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param Sequence['RegistryNetworkRuleSetVirtualNetworkArgs'] virtual_networks: One or more `virtual_network` blocks as defined below.
                
                > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
@@ -8375,19 +8374,19 @@ class RegistryNetworkRuleSet(dict):
     def ip_rules(self) -> Optional[Sequence['outputs.RegistryNetworkRuleSetIpRule']]:
         """
         One or more `ip_rule` blocks as defined below.
+
+        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+
+        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> Optional[Sequence['outputs.RegistryNetworkRuleSetVirtualNetwork']]:
-        """
-        One or more `virtual_network` blocks as defined below.
+        warnings.warn(""" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""", DeprecationWarning)
+        pulumi.log.warn("""virtual_networks is deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""")
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-        """
         return pulumi.get(self, "virtual_networks")
 
 
@@ -8461,7 +8460,6 @@ class RegistryNetworkRuleSetVirtualNetwork(dict):
                  subnet_id: str):
         """
         :param str action: The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        :param str subnet_id: The subnet id from which requests will match the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -8477,9 +8475,6 @@ class RegistryNetworkRuleSetVirtualNetwork(dict):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
-        """
-        The subnet id from which requests will match the rule.
-        """
         return pulumi.get(self, "subnet_id")
 
 

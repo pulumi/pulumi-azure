@@ -83,6 +83,10 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
      */
     public readonly addonJson!: pulumi.Output<string>;
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The ID of the Spring Cloud Build Result.
      */
     public readonly buildResultId!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudBuildDeploymentState | undefined;
             resourceInputs["addonJson"] = state ? state.addonJson : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["buildResultId"] = state ? state.buildResultId : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
@@ -136,6 +141,7 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
             resourceInputs["addonJson"] = args ? args.addonJson : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["buildResultId"] = args ? args.buildResultId : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
@@ -156,6 +162,10 @@ export interface SpringCloudBuildDeploymentState {
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      */
     addonJson?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Spring Cloud Build Result.
      */
@@ -190,6 +200,10 @@ export interface SpringCloudBuildDeploymentArgs {
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      */
     addonJson?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Spring Cloud Build Result.
      */

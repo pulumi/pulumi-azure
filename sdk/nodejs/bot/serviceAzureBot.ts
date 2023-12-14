@@ -140,6 +140,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
@@ -185,6 +186,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["microsoftAppTenantId"] = state ? state.microsoftAppTenantId : undefined;
             resourceInputs["microsoftAppType"] = state ? state.microsoftAppType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["streamingEndpointEnabled"] = state ? state.streamingEndpointEnabled : undefined;
@@ -215,6 +217,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["microsoftAppTenantId"] = args ? args.microsoftAppTenantId : undefined;
             resourceInputs["microsoftAppType"] = args ? args.microsoftAppType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["streamingEndpointEnabled"] = args ? args.streamingEndpointEnabled : undefined;
@@ -291,6 +294,7 @@ export interface ServiceAzureBotState {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
@@ -373,6 +377,7 @@ export interface ServiceAzureBotArgs {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */

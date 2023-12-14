@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+ * Allows you to manage an Azure SQL Elastic Pool.
  *
  * ## Example Usage
  *
@@ -79,6 +79,14 @@ export class ElasticPool extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     *
+     * > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+     *
+     * > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+     */
+    public readonly enclaveType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -93,7 +101,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      *
-     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+     * > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
@@ -142,6 +150,7 @@ export class ElasticPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
+            resourceInputs["enclaveType"] = state ? state.enclaveType : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceConfigurationName"] = state ? state.maintenanceConfigurationName : undefined;
@@ -168,6 +177,7 @@ export class ElasticPool extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["enclaveType"] = args ? args.enclaveType : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceConfigurationName"] = args ? args.maintenanceConfigurationName : undefined;
@@ -191,6 +201,14 @@ export class ElasticPool extends pulumi.CustomResource {
  */
 export interface ElasticPoolState {
     /**
+     * Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     *
+     * > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+     *
+     * > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+     */
+    enclaveType?: pulumi.Input<string>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     licenseType?: pulumi.Input<string>;
@@ -205,7 +223,7 @@ export interface ElasticPoolState {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      *
-     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+     * > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     maxSizeBytes?: pulumi.Input<number>;
     /**
@@ -247,6 +265,14 @@ export interface ElasticPoolState {
  */
 export interface ElasticPoolArgs {
     /**
+     * Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     *
+     * > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+     *
+     * > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+     */
+    enclaveType?: pulumi.Input<string>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     licenseType?: pulumi.Input<string>;
@@ -261,7 +287,7 @@ export interface ElasticPoolArgs {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      *
-     * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+     * > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
     maxSizeBytes?: pulumi.Input<number>;
     /**

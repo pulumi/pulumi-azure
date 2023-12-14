@@ -65,6 +65,7 @@ import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
 import * as domainservices from "./domainservices";
 import * as elasticcloud from "./elasticcloud";
+import * as elasticsan from "./elasticsan";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as fluidrelay from "./fluidrelay";
@@ -196,6 +197,7 @@ export {
     dns,
     domainservices,
     elasticcloud,
+    elasticsan,
     eventgrid,
     eventhub,
     fluidrelay,

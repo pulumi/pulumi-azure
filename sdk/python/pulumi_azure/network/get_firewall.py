@@ -22,7 +22,10 @@ class GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
-    def __init__(__self__, dns_servers=None, firewall_policy_id=None, id=None, ip_configurations=None, location=None, management_ip_configurations=None, name=None, resource_group_name=None, sku_name=None, sku_tier=None, tags=None, threat_intel_mode=None, virtual_hubs=None, zones=None):
+    def __init__(__self__, dns_proxy_enabled=None, dns_servers=None, firewall_policy_id=None, id=None, ip_configurations=None, location=None, management_ip_configurations=None, name=None, resource_group_name=None, sku_name=None, sku_tier=None, tags=None, threat_intel_mode=None, virtual_hubs=None, zones=None):
+        if dns_proxy_enabled and not isinstance(dns_proxy_enabled, bool):
+            raise TypeError("Expected argument 'dns_proxy_enabled' to be a bool")
+        pulumi.set(__self__, "dns_proxy_enabled", dns_proxy_enabled)
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         pulumi.set(__self__, "dns_servers", dns_servers)
@@ -65,6 +68,14 @@ class GetFirewallResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="dnsProxyEnabled")
+    def dns_proxy_enabled(self) -> bool:
+        """
+        Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        """
+        return pulumi.get(self, "dns_proxy_enabled")
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -179,6 +190,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
         if False:
             yield self
         return GetFirewallResult(
+            dns_proxy_enabled=self.dns_proxy_enabled,
             dns_servers=self.dns_servers,
             firewall_policy_id=self.firewall_policy_id,
             id=self.id,
@@ -195,7 +207,8 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             zones=self.zones)
 
 
-def get_firewall(name: Optional[str] = None,
+def get_firewall(dns_proxy_enabled: Optional[bool] = None,
+                 name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
@@ -213,16 +226,19 @@ def get_firewall(name: Optional[str] = None,
     ```
 
 
+    :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
     :param str name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the Resource Group in which the Azure Firewall exists.
     """
     __args__ = dict()
+    __args__['dnsProxyEnabled'] = dns_proxy_enabled
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:network/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
+        dns_proxy_enabled=pulumi.get(__ret__, 'dns_proxy_enabled'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
         firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -240,7 +256,8 @@ def get_firewall(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_firewall)
-def get_firewall_output(name: Optional[pulumi.Input[str]] = None,
+def get_firewall_output(dns_proxy_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
+                        name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
@@ -258,6 +275,7 @@ def get_firewall_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param bool dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
     :param str name: The name of the Azure Firewall.
     :param str resource_group_name: The name of the Resource Group in which the Azure Firewall exists.
     """

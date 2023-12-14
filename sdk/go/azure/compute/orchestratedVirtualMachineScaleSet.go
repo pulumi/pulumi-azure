@@ -152,7 +152,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	//
-	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -281,7 +281,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	//
-	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -368,7 +368,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	//
-	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -457,7 +457,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	//
-	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -543,7 +543,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	ZoneBalance pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	//
-	// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -846,7 +846,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOu
 
 // Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 //
-// > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o OrchestratedVirtualMachineScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -218,6 +218,22 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string PrimaryBlobHost;
         /// <summary>
+        /// The internet routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryBlobInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryBlobInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryBlobMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryBlobMicrosoftHost;
+        /// <summary>
         /// The connection string associated with the primary location
         /// </summary>
         public readonly string PrimaryConnectionString;
@@ -230,6 +246,22 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string PrimaryDfsHost;
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryDfsInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryDfsInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryDfsMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryDfsMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for file storage in the primary location.
         /// </summary>
         public readonly string PrimaryFileEndpoint;
@@ -237,6 +269,22 @@ namespace Pulumi.Azure.Storage
         /// The hostname with port if applicable for file storage in the primary location.
         /// </summary>
         public readonly string PrimaryFileHost;
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryFileInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryFileInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryFileMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryFileMicrosoftHost;
         /// <summary>
         /// The primary location of the Storage Account.
         /// </summary>
@@ -250,6 +298,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string PrimaryQueueHost;
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryQueueMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryQueueMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for table storage in the primary location.
         /// </summary>
         public readonly string PrimaryTableEndpoint;
@@ -258,6 +314,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string PrimaryTableHost;
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryTableMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryTableMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for web storage in the primary location.
         /// </summary>
         public readonly string PrimaryWebEndpoint;
@@ -265,6 +329,22 @@ namespace Pulumi.Azure.Storage
         /// The hostname with port if applicable for web storage in the primary location.
         /// </summary>
         public readonly string PrimaryWebHost;
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryWebInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryWebInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryWebMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        public readonly string PrimaryWebMicrosoftHost;
         /// <summary>
         /// The encryption key type of the queue.
         /// </summary>
@@ -287,6 +367,22 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryBlobHost;
         /// <summary>
+        /// The internet routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryBlobInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryBlobInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryBlobMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryBlobMicrosoftHost;
+        /// <summary>
         /// The connection string associated with the secondary location
         /// </summary>
         public readonly string SecondaryConnectionString;
@@ -299,6 +395,22 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryDfsHost;
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryDfsInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryDfsInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryDfsMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryDfsMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for file storage in the secondary location.
         /// </summary>
         public readonly string SecondaryFileEndpoint;
@@ -306,6 +418,22 @@ namespace Pulumi.Azure.Storage
         /// The hostname with port if applicable for file storage in the secondary location.
         /// </summary>
         public readonly string SecondaryFileHost;
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryFileInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryFileInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryFileMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryFileMicrosoftHost;
         /// <summary>
         /// The secondary location of the Storage Account.
         /// </summary>
@@ -319,6 +447,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryQueueHost;
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryQueueMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryQueueMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for table storage in the secondary location.
         /// </summary>
         public readonly string SecondaryTableEndpoint;
@@ -327,6 +463,14 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly string SecondaryTableHost;
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryTableMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryTableMicrosoftHost;
+        /// <summary>
         /// The endpoint URL for web storage in the secondary location.
         /// </summary>
         public readonly string SecondaryWebEndpoint;
@@ -334,6 +478,22 @@ namespace Pulumi.Azure.Storage
         /// The hostname with port if applicable for web storage in the secondary location.
         /// </summary>
         public readonly string SecondaryWebHost;
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryWebInternetEndpoint;
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryWebInternetHost;
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryWebMicrosoftEndpoint;
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        public readonly string SecondaryWebMicrosoftHost;
         /// <summary>
         /// The encryption key type of the table.
         /// </summary>
@@ -385,15 +545,39 @@ namespace Pulumi.Azure.Storage
 
             string primaryBlobHost,
 
+            string primaryBlobInternetEndpoint,
+
+            string primaryBlobInternetHost,
+
+            string primaryBlobMicrosoftEndpoint,
+
+            string primaryBlobMicrosoftHost,
+
             string primaryConnectionString,
 
             string primaryDfsEndpoint,
 
             string primaryDfsHost,
 
+            string primaryDfsInternetEndpoint,
+
+            string primaryDfsInternetHost,
+
+            string primaryDfsMicrosoftEndpoint,
+
+            string primaryDfsMicrosoftHost,
+
             string primaryFileEndpoint,
 
             string primaryFileHost,
+
+            string primaryFileInternetEndpoint,
+
+            string primaryFileInternetHost,
+
+            string primaryFileMicrosoftEndpoint,
+
+            string primaryFileMicrosoftHost,
 
             string primaryLocation,
 
@@ -401,13 +585,29 @@ namespace Pulumi.Azure.Storage
 
             string primaryQueueHost,
 
+            string primaryQueueMicrosoftEndpoint,
+
+            string primaryQueueMicrosoftHost,
+
             string primaryTableEndpoint,
 
             string primaryTableHost,
 
+            string primaryTableMicrosoftEndpoint,
+
+            string primaryTableMicrosoftHost,
+
             string primaryWebEndpoint,
 
             string primaryWebHost,
+
+            string primaryWebInternetEndpoint,
+
+            string primaryWebInternetHost,
+
+            string primaryWebMicrosoftEndpoint,
+
+            string primaryWebMicrosoftHost,
 
             string queueEncryptionKeyType,
 
@@ -421,15 +621,39 @@ namespace Pulumi.Azure.Storage
 
             string secondaryBlobHost,
 
+            string secondaryBlobInternetEndpoint,
+
+            string secondaryBlobInternetHost,
+
+            string secondaryBlobMicrosoftEndpoint,
+
+            string secondaryBlobMicrosoftHost,
+
             string secondaryConnectionString,
 
             string secondaryDfsEndpoint,
 
             string secondaryDfsHost,
 
+            string secondaryDfsInternetEndpoint,
+
+            string secondaryDfsInternetHost,
+
+            string secondaryDfsMicrosoftEndpoint,
+
+            string secondaryDfsMicrosoftHost,
+
             string secondaryFileEndpoint,
 
             string secondaryFileHost,
+
+            string secondaryFileInternetEndpoint,
+
+            string secondaryFileInternetHost,
+
+            string secondaryFileMicrosoftEndpoint,
+
+            string secondaryFileMicrosoftHost,
 
             string secondaryLocation,
 
@@ -437,13 +661,29 @@ namespace Pulumi.Azure.Storage
 
             string secondaryQueueHost,
 
+            string secondaryQueueMicrosoftEndpoint,
+
+            string secondaryQueueMicrosoftHost,
+
             string secondaryTableEndpoint,
 
             string secondaryTableHost,
 
+            string secondaryTableMicrosoftEndpoint,
+
+            string secondaryTableMicrosoftHost,
+
             string secondaryWebEndpoint,
 
             string secondaryWebHost,
+
+            string secondaryWebInternetEndpoint,
+
+            string secondaryWebInternetHost,
+
+            string secondaryWebMicrosoftEndpoint,
+
+            string secondaryWebMicrosoftHost,
 
             string tableEncryptionKeyType,
 
@@ -469,36 +709,76 @@ namespace Pulumi.Azure.Storage
             PrimaryBlobConnectionString = primaryBlobConnectionString;
             PrimaryBlobEndpoint = primaryBlobEndpoint;
             PrimaryBlobHost = primaryBlobHost;
+            PrimaryBlobInternetEndpoint = primaryBlobInternetEndpoint;
+            PrimaryBlobInternetHost = primaryBlobInternetHost;
+            PrimaryBlobMicrosoftEndpoint = primaryBlobMicrosoftEndpoint;
+            PrimaryBlobMicrosoftHost = primaryBlobMicrosoftHost;
             PrimaryConnectionString = primaryConnectionString;
             PrimaryDfsEndpoint = primaryDfsEndpoint;
             PrimaryDfsHost = primaryDfsHost;
+            PrimaryDfsInternetEndpoint = primaryDfsInternetEndpoint;
+            PrimaryDfsInternetHost = primaryDfsInternetHost;
+            PrimaryDfsMicrosoftEndpoint = primaryDfsMicrosoftEndpoint;
+            PrimaryDfsMicrosoftHost = primaryDfsMicrosoftHost;
             PrimaryFileEndpoint = primaryFileEndpoint;
             PrimaryFileHost = primaryFileHost;
+            PrimaryFileInternetEndpoint = primaryFileInternetEndpoint;
+            PrimaryFileInternetHost = primaryFileInternetHost;
+            PrimaryFileMicrosoftEndpoint = primaryFileMicrosoftEndpoint;
+            PrimaryFileMicrosoftHost = primaryFileMicrosoftHost;
             PrimaryLocation = primaryLocation;
             PrimaryQueueEndpoint = primaryQueueEndpoint;
             PrimaryQueueHost = primaryQueueHost;
+            PrimaryQueueMicrosoftEndpoint = primaryQueueMicrosoftEndpoint;
+            PrimaryQueueMicrosoftHost = primaryQueueMicrosoftHost;
             PrimaryTableEndpoint = primaryTableEndpoint;
             PrimaryTableHost = primaryTableHost;
+            PrimaryTableMicrosoftEndpoint = primaryTableMicrosoftEndpoint;
+            PrimaryTableMicrosoftHost = primaryTableMicrosoftHost;
             PrimaryWebEndpoint = primaryWebEndpoint;
             PrimaryWebHost = primaryWebHost;
+            PrimaryWebInternetEndpoint = primaryWebInternetEndpoint;
+            PrimaryWebInternetHost = primaryWebInternetHost;
+            PrimaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
+            PrimaryWebMicrosoftHost = primaryWebMicrosoftHost;
             QueueEncryptionKeyType = queueEncryptionKeyType;
             ResourceGroupName = resourceGroupName;
             SecondaryAccessKey = secondaryAccessKey;
             SecondaryBlobConnectionString = secondaryBlobConnectionString;
             SecondaryBlobEndpoint = secondaryBlobEndpoint;
             SecondaryBlobHost = secondaryBlobHost;
+            SecondaryBlobInternetEndpoint = secondaryBlobInternetEndpoint;
+            SecondaryBlobInternetHost = secondaryBlobInternetHost;
+            SecondaryBlobMicrosoftEndpoint = secondaryBlobMicrosoftEndpoint;
+            SecondaryBlobMicrosoftHost = secondaryBlobMicrosoftHost;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryDfsEndpoint = secondaryDfsEndpoint;
             SecondaryDfsHost = secondaryDfsHost;
+            SecondaryDfsInternetEndpoint = secondaryDfsInternetEndpoint;
+            SecondaryDfsInternetHost = secondaryDfsInternetHost;
+            SecondaryDfsMicrosoftEndpoint = secondaryDfsMicrosoftEndpoint;
+            SecondaryDfsMicrosoftHost = secondaryDfsMicrosoftHost;
             SecondaryFileEndpoint = secondaryFileEndpoint;
             SecondaryFileHost = secondaryFileHost;
+            SecondaryFileInternetEndpoint = secondaryFileInternetEndpoint;
+            SecondaryFileInternetHost = secondaryFileInternetHost;
+            SecondaryFileMicrosoftEndpoint = secondaryFileMicrosoftEndpoint;
+            SecondaryFileMicrosoftHost = secondaryFileMicrosoftHost;
             SecondaryLocation = secondaryLocation;
             SecondaryQueueEndpoint = secondaryQueueEndpoint;
             SecondaryQueueHost = secondaryQueueHost;
+            SecondaryQueueMicrosoftEndpoint = secondaryQueueMicrosoftEndpoint;
+            SecondaryQueueMicrosoftHost = secondaryQueueMicrosoftHost;
             SecondaryTableEndpoint = secondaryTableEndpoint;
             SecondaryTableHost = secondaryTableHost;
+            SecondaryTableMicrosoftEndpoint = secondaryTableMicrosoftEndpoint;
+            SecondaryTableMicrosoftHost = secondaryTableMicrosoftHost;
             SecondaryWebEndpoint = secondaryWebEndpoint;
             SecondaryWebHost = secondaryWebHost;
+            SecondaryWebInternetEndpoint = secondaryWebInternetEndpoint;
+            SecondaryWebInternetHost = secondaryWebInternetHost;
+            SecondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
+            SecondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
             TableEncryptionKeyType = tableEncryptionKeyType;
             Tags = tags;
         }

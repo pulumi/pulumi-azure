@@ -44,6 +44,12 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
+        /// An `ipsec_policy` block as defined below.
+        /// </summary>
+        [Input("ipsecPolicy")]
+        public Input<Inputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs>? IpsecPolicy { get; set; }
+
+        /// <summary>
         /// The address of the Radius server.
         /// </summary>
         [Input("radiusServerAddress")]
@@ -54,6 +60,18 @@ namespace Pulumi.Azure.Network.Inputs
         /// </summary>
         [Input("radiusServerSecret")]
         public Input<string>? RadiusServerSecret { get; set; }
+
+        [Input("radiusServers")]
+        private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>? _radiusServers;
+
+        /// <summary>
+        /// One or more `radius_server` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs> RadiusServers
+        {
+            get => _radiusServers ?? (_radiusServers = new InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>());
+            set => _radiusServers = value;
+        }
 
         [Input("revokedCertificates")]
         private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs>? _revokedCertificates;
@@ -77,6 +95,18 @@ namespace Pulumi.Azure.Network.Inputs
         {
             get => _rootCertificates ?? (_rootCertificates = new InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>());
             set => _rootCertificates = value;
+        }
+
+        [Input("virtualNetworkGatewayClientConnections")]
+        private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>? _virtualNetworkGatewayClientConnections;
+
+        /// <summary>
+        /// One or more `virtual_network_gateway_client_connection` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs> VirtualNetworkGatewayClientConnections
+        {
+            get => _virtualNetworkGatewayClientConnections ?? (_virtualNetworkGatewayClientConnections = new InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>());
+            set => _virtualNetworkGatewayClientConnections = value;
         }
 
         [Input("vpnAuthTypes")]

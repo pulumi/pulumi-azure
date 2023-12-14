@@ -22,7 +22,10 @@ class GetElasticPoolResult:
     """
     A collection of values returned by getElasticPool.
     """
-    def __init__(__self__, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, skus=None, tags=None, zone_redundant=None):
+    def __init__(__self__, enclave_type=None, id=None, license_type=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_db_max_capacity=None, per_db_min_capacity=None, resource_group_name=None, server_name=None, skus=None, tags=None, zone_redundant=None):
+        if enclave_type and not isinstance(enclave_type, str):
+            raise TypeError("Expected argument 'enclave_type' to be a str")
+        pulumi.set(__self__, "enclave_type", enclave_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,6 +67,14 @@ class GetElasticPoolResult:
         pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
+    @pulumi.getter(name="enclaveType")
+    def enclave_type(self) -> str:
+        """
+        The type of enclave being used by the elastic pool.
+        """
+        return pulumi.get(self, "enclave_type")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -75,7 +86,7 @@ class GetElasticPoolResult:
     @pulumi.getter(name="licenseType")
     def license_type(self) -> str:
         """
-        The license type to apply for this database.
+        The license type to apply for this elastic pool.
         """
         return pulumi.get(self, "license_type")
 
@@ -168,6 +179,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
         if False:
             yield self
         return GetElasticPoolResult(
+            enclave_type=self.enclave_type,
             id=self.id,
             license_type=self.license_type,
             location=self.location,
@@ -215,6 +227,7 @@ def get_elastic_pool(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:mssql/getElasticPool:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
+        enclave_type=pulumi.get(__ret__, 'enclave_type'),
         id=pulumi.get(__ret__, 'id'),
         license_type=pulumi.get(__ret__, 'license_type'),
         location=pulumi.get(__ret__, 'location'),

@@ -120,6 +120,26 @@ public final class GetAccountResult {
      */
     private String primaryBlobHost;
     /**
+     * @return The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    private String primaryBlobInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    private String primaryBlobInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    private String primaryBlobMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    private String primaryBlobMicrosoftHost;
+    /**
      * @return The connection string associated with the primary location
      * 
      */
@@ -135,6 +155,26 @@ public final class GetAccountResult {
      */
     private String primaryDfsHost;
     /**
+     * @return The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    private String primaryDfsInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    private String primaryDfsInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    private String primaryDfsMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    private String primaryDfsMicrosoftHost;
+    /**
      * @return The endpoint URL for file storage in the primary location.
      * 
      */
@@ -144,6 +184,26 @@ public final class GetAccountResult {
      * 
      */
     private String primaryFileHost;
+    /**
+     * @return The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    private String primaryFileInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    private String primaryFileInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    private String primaryFileMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    private String primaryFileMicrosoftHost;
     /**
      * @return The primary location of the Storage Account.
      * 
@@ -160,6 +220,16 @@ public final class GetAccountResult {
      */
     private String primaryQueueHost;
     /**
+     * @return The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    private String primaryQueueMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    private String primaryQueueMicrosoftHost;
+    /**
      * @return The endpoint URL for table storage in the primary location.
      * 
      */
@@ -170,6 +240,16 @@ public final class GetAccountResult {
      */
     private String primaryTableHost;
     /**
+     * @return The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    private String primaryTableMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    private String primaryTableMicrosoftHost;
+    /**
      * @return The endpoint URL for web storage in the primary location.
      * 
      */
@@ -179,6 +259,26 @@ public final class GetAccountResult {
      * 
      */
     private String primaryWebHost;
+    /**
+     * @return The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    private String primaryWebInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    private String primaryWebInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    private String primaryWebMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    private String primaryWebMicrosoftHost;
     /**
      * @return The encryption key type of the queue.
      * 
@@ -206,6 +306,26 @@ public final class GetAccountResult {
      */
     private String secondaryBlobHost;
     /**
+     * @return The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    private String secondaryBlobInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    private String secondaryBlobInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    private String secondaryBlobMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    private String secondaryBlobMicrosoftHost;
+    /**
      * @return The connection string associated with the secondary location
      * 
      */
@@ -221,6 +341,26 @@ public final class GetAccountResult {
      */
     private String secondaryDfsHost;
     /**
+     * @return The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    private String secondaryDfsInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    private String secondaryDfsInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    private String secondaryDfsMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    private String secondaryDfsMicrosoftHost;
+    /**
      * @return The endpoint URL for file storage in the secondary location.
      * 
      */
@@ -230,6 +370,26 @@ public final class GetAccountResult {
      * 
      */
     private String secondaryFileHost;
+    /**
+     * @return The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    private String secondaryFileInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    private String secondaryFileInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    private String secondaryFileMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    private String secondaryFileMicrosoftHost;
     /**
      * @return The secondary location of the Storage Account.
      * 
@@ -246,6 +406,16 @@ public final class GetAccountResult {
      */
     private String secondaryQueueHost;
     /**
+     * @return The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    private String secondaryQueueMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    private String secondaryQueueMicrosoftHost;
+    /**
      * @return The endpoint URL for table storage in the secondary location.
      * 
      */
@@ -256,6 +426,16 @@ public final class GetAccountResult {
      */
     private String secondaryTableHost;
     /**
+     * @return The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    private String secondaryTableMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    private String secondaryTableMicrosoftHost;
+    /**
      * @return The endpoint URL for web storage in the secondary location.
      * 
      */
@@ -265,6 +445,26 @@ public final class GetAccountResult {
      * 
      */
     private String secondaryWebHost;
+    /**
+     * @return The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    private String secondaryWebInternetEndpoint;
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    private String secondaryWebInternetHost;
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    private String secondaryWebMicrosoftEndpoint;
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    private String secondaryWebMicrosoftHost;
     /**
      * @return The encryption key type of the table.
      * 
@@ -420,6 +620,34 @@ public final class GetAccountResult {
         return this.primaryBlobHost;
     }
     /**
+     * @return The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public String primaryBlobInternetEndpoint() {
+        return this.primaryBlobInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public String primaryBlobInternetHost() {
+        return this.primaryBlobInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public String primaryBlobMicrosoftEndpoint() {
+        return this.primaryBlobMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public String primaryBlobMicrosoftHost() {
+        return this.primaryBlobMicrosoftHost;
+    }
+    /**
      * @return The connection string associated with the primary location
      * 
      */
@@ -441,6 +669,34 @@ public final class GetAccountResult {
         return this.primaryDfsHost;
     }
     /**
+     * @return The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public String primaryDfsInternetEndpoint() {
+        return this.primaryDfsInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public String primaryDfsInternetHost() {
+        return this.primaryDfsInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public String primaryDfsMicrosoftEndpoint() {
+        return this.primaryDfsMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public String primaryDfsMicrosoftHost() {
+        return this.primaryDfsMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for file storage in the primary location.
      * 
      */
@@ -453,6 +709,34 @@ public final class GetAccountResult {
      */
     public String primaryFileHost() {
         return this.primaryFileHost;
+    }
+    /**
+     * @return The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public String primaryFileInternetEndpoint() {
+        return this.primaryFileInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public String primaryFileInternetHost() {
+        return this.primaryFileInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public String primaryFileMicrosoftEndpoint() {
+        return this.primaryFileMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public String primaryFileMicrosoftHost() {
+        return this.primaryFileMicrosoftHost;
     }
     /**
      * @return The primary location of the Storage Account.
@@ -476,6 +760,20 @@ public final class GetAccountResult {
         return this.primaryQueueHost;
     }
     /**
+     * @return The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    public String primaryQueueMicrosoftEndpoint() {
+        return this.primaryQueueMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    public String primaryQueueMicrosoftHost() {
+        return this.primaryQueueMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for table storage in the primary location.
      * 
      */
@@ -490,6 +788,20 @@ public final class GetAccountResult {
         return this.primaryTableHost;
     }
     /**
+     * @return The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    public String primaryTableMicrosoftEndpoint() {
+        return this.primaryTableMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    public String primaryTableMicrosoftHost() {
+        return this.primaryTableMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for web storage in the primary location.
      * 
      */
@@ -502,6 +814,34 @@ public final class GetAccountResult {
      */
     public String primaryWebHost() {
         return this.primaryWebHost;
+    }
+    /**
+     * @return The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public String primaryWebInternetEndpoint() {
+        return this.primaryWebInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public String primaryWebInternetHost() {
+        return this.primaryWebInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public String primaryWebMicrosoftEndpoint() {
+        return this.primaryWebMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public String primaryWebMicrosoftHost() {
+        return this.primaryWebMicrosoftHost;
     }
     /**
      * @return The encryption key type of the queue.
@@ -542,6 +882,34 @@ public final class GetAccountResult {
         return this.secondaryBlobHost;
     }
     /**
+     * @return The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public String secondaryBlobInternetEndpoint() {
+        return this.secondaryBlobInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public String secondaryBlobInternetHost() {
+        return this.secondaryBlobInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public String secondaryBlobMicrosoftEndpoint() {
+        return this.secondaryBlobMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public String secondaryBlobMicrosoftHost() {
+        return this.secondaryBlobMicrosoftHost;
+    }
+    /**
      * @return The connection string associated with the secondary location
      * 
      */
@@ -563,6 +931,34 @@ public final class GetAccountResult {
         return this.secondaryDfsHost;
     }
     /**
+     * @return The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public String secondaryDfsInternetEndpoint() {
+        return this.secondaryDfsInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public String secondaryDfsInternetHost() {
+        return this.secondaryDfsInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public String secondaryDfsMicrosoftEndpoint() {
+        return this.secondaryDfsMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public String secondaryDfsMicrosoftHost() {
+        return this.secondaryDfsMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for file storage in the secondary location.
      * 
      */
@@ -575,6 +971,34 @@ public final class GetAccountResult {
      */
     public String secondaryFileHost() {
         return this.secondaryFileHost;
+    }
+    /**
+     * @return The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public String secondaryFileInternetEndpoint() {
+        return this.secondaryFileInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public String secondaryFileInternetHost() {
+        return this.secondaryFileInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public String secondaryFileMicrosoftEndpoint() {
+        return this.secondaryFileMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public String secondaryFileMicrosoftHost() {
+        return this.secondaryFileMicrosoftHost;
     }
     /**
      * @return The secondary location of the Storage Account.
@@ -598,6 +1022,20 @@ public final class GetAccountResult {
         return this.secondaryQueueHost;
     }
     /**
+     * @return The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    public String secondaryQueueMicrosoftEndpoint() {
+        return this.secondaryQueueMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    public String secondaryQueueMicrosoftHost() {
+        return this.secondaryQueueMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for table storage in the secondary location.
      * 
      */
@@ -612,6 +1050,20 @@ public final class GetAccountResult {
         return this.secondaryTableHost;
     }
     /**
+     * @return The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    public String secondaryTableMicrosoftEndpoint() {
+        return this.secondaryTableMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    public String secondaryTableMicrosoftHost() {
+        return this.secondaryTableMicrosoftHost;
+    }
+    /**
      * @return The endpoint URL for web storage in the secondary location.
      * 
      */
@@ -624,6 +1076,34 @@ public final class GetAccountResult {
      */
     public String secondaryWebHost() {
         return this.secondaryWebHost;
+    }
+    /**
+     * @return The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public String secondaryWebInternetEndpoint() {
+        return this.secondaryWebInternetEndpoint;
+    }
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public String secondaryWebInternetHost() {
+        return this.secondaryWebInternetHost;
+    }
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public String secondaryWebMicrosoftEndpoint() {
+        return this.secondaryWebMicrosoftEndpoint;
+    }
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public String secondaryWebMicrosoftHost() {
+        return this.secondaryWebMicrosoftHost;
     }
     /**
      * @return The encryption key type of the table.
@@ -669,36 +1149,76 @@ public final class GetAccountResult {
         private String primaryBlobConnectionString;
         private String primaryBlobEndpoint;
         private String primaryBlobHost;
+        private String primaryBlobInternetEndpoint;
+        private String primaryBlobInternetHost;
+        private String primaryBlobMicrosoftEndpoint;
+        private String primaryBlobMicrosoftHost;
         private String primaryConnectionString;
         private String primaryDfsEndpoint;
         private String primaryDfsHost;
+        private String primaryDfsInternetEndpoint;
+        private String primaryDfsInternetHost;
+        private String primaryDfsMicrosoftEndpoint;
+        private String primaryDfsMicrosoftHost;
         private String primaryFileEndpoint;
         private String primaryFileHost;
+        private String primaryFileInternetEndpoint;
+        private String primaryFileInternetHost;
+        private String primaryFileMicrosoftEndpoint;
+        private String primaryFileMicrosoftHost;
         private String primaryLocation;
         private String primaryQueueEndpoint;
         private String primaryQueueHost;
+        private String primaryQueueMicrosoftEndpoint;
+        private String primaryQueueMicrosoftHost;
         private String primaryTableEndpoint;
         private String primaryTableHost;
+        private String primaryTableMicrosoftEndpoint;
+        private String primaryTableMicrosoftHost;
         private String primaryWebEndpoint;
         private String primaryWebHost;
+        private String primaryWebInternetEndpoint;
+        private String primaryWebInternetHost;
+        private String primaryWebMicrosoftEndpoint;
+        private String primaryWebMicrosoftHost;
         private String queueEncryptionKeyType;
         private @Nullable String resourceGroupName;
         private String secondaryAccessKey;
         private String secondaryBlobConnectionString;
         private String secondaryBlobEndpoint;
         private String secondaryBlobHost;
+        private String secondaryBlobInternetEndpoint;
+        private String secondaryBlobInternetHost;
+        private String secondaryBlobMicrosoftEndpoint;
+        private String secondaryBlobMicrosoftHost;
         private String secondaryConnectionString;
         private String secondaryDfsEndpoint;
         private String secondaryDfsHost;
+        private String secondaryDfsInternetEndpoint;
+        private String secondaryDfsInternetHost;
+        private String secondaryDfsMicrosoftEndpoint;
+        private String secondaryDfsMicrosoftHost;
         private String secondaryFileEndpoint;
         private String secondaryFileHost;
+        private String secondaryFileInternetEndpoint;
+        private String secondaryFileInternetHost;
+        private String secondaryFileMicrosoftEndpoint;
+        private String secondaryFileMicrosoftHost;
         private String secondaryLocation;
         private String secondaryQueueEndpoint;
         private String secondaryQueueHost;
+        private String secondaryQueueMicrosoftEndpoint;
+        private String secondaryQueueMicrosoftHost;
         private String secondaryTableEndpoint;
         private String secondaryTableHost;
+        private String secondaryTableMicrosoftEndpoint;
+        private String secondaryTableMicrosoftHost;
         private String secondaryWebEndpoint;
         private String secondaryWebHost;
+        private String secondaryWebInternetEndpoint;
+        private String secondaryWebInternetHost;
+        private String secondaryWebMicrosoftEndpoint;
+        private String secondaryWebMicrosoftHost;
         private String tableEncryptionKeyType;
         private Map<String,String> tags;
         public Builder() {}
@@ -724,36 +1244,76 @@ public final class GetAccountResult {
     	      this.primaryBlobConnectionString = defaults.primaryBlobConnectionString;
     	      this.primaryBlobEndpoint = defaults.primaryBlobEndpoint;
     	      this.primaryBlobHost = defaults.primaryBlobHost;
+    	      this.primaryBlobInternetEndpoint = defaults.primaryBlobInternetEndpoint;
+    	      this.primaryBlobInternetHost = defaults.primaryBlobInternetHost;
+    	      this.primaryBlobMicrosoftEndpoint = defaults.primaryBlobMicrosoftEndpoint;
+    	      this.primaryBlobMicrosoftHost = defaults.primaryBlobMicrosoftHost;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
     	      this.primaryDfsEndpoint = defaults.primaryDfsEndpoint;
     	      this.primaryDfsHost = defaults.primaryDfsHost;
+    	      this.primaryDfsInternetEndpoint = defaults.primaryDfsInternetEndpoint;
+    	      this.primaryDfsInternetHost = defaults.primaryDfsInternetHost;
+    	      this.primaryDfsMicrosoftEndpoint = defaults.primaryDfsMicrosoftEndpoint;
+    	      this.primaryDfsMicrosoftHost = defaults.primaryDfsMicrosoftHost;
     	      this.primaryFileEndpoint = defaults.primaryFileEndpoint;
     	      this.primaryFileHost = defaults.primaryFileHost;
+    	      this.primaryFileInternetEndpoint = defaults.primaryFileInternetEndpoint;
+    	      this.primaryFileInternetHost = defaults.primaryFileInternetHost;
+    	      this.primaryFileMicrosoftEndpoint = defaults.primaryFileMicrosoftEndpoint;
+    	      this.primaryFileMicrosoftHost = defaults.primaryFileMicrosoftHost;
     	      this.primaryLocation = defaults.primaryLocation;
     	      this.primaryQueueEndpoint = defaults.primaryQueueEndpoint;
     	      this.primaryQueueHost = defaults.primaryQueueHost;
+    	      this.primaryQueueMicrosoftEndpoint = defaults.primaryQueueMicrosoftEndpoint;
+    	      this.primaryQueueMicrosoftHost = defaults.primaryQueueMicrosoftHost;
     	      this.primaryTableEndpoint = defaults.primaryTableEndpoint;
     	      this.primaryTableHost = defaults.primaryTableHost;
+    	      this.primaryTableMicrosoftEndpoint = defaults.primaryTableMicrosoftEndpoint;
+    	      this.primaryTableMicrosoftHost = defaults.primaryTableMicrosoftHost;
     	      this.primaryWebEndpoint = defaults.primaryWebEndpoint;
     	      this.primaryWebHost = defaults.primaryWebHost;
+    	      this.primaryWebInternetEndpoint = defaults.primaryWebInternetEndpoint;
+    	      this.primaryWebInternetHost = defaults.primaryWebInternetHost;
+    	      this.primaryWebMicrosoftEndpoint = defaults.primaryWebMicrosoftEndpoint;
+    	      this.primaryWebMicrosoftHost = defaults.primaryWebMicrosoftHost;
     	      this.queueEncryptionKeyType = defaults.queueEncryptionKeyType;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
     	      this.secondaryBlobConnectionString = defaults.secondaryBlobConnectionString;
     	      this.secondaryBlobEndpoint = defaults.secondaryBlobEndpoint;
     	      this.secondaryBlobHost = defaults.secondaryBlobHost;
+    	      this.secondaryBlobInternetEndpoint = defaults.secondaryBlobInternetEndpoint;
+    	      this.secondaryBlobInternetHost = defaults.secondaryBlobInternetHost;
+    	      this.secondaryBlobMicrosoftEndpoint = defaults.secondaryBlobMicrosoftEndpoint;
+    	      this.secondaryBlobMicrosoftHost = defaults.secondaryBlobMicrosoftHost;
     	      this.secondaryConnectionString = defaults.secondaryConnectionString;
     	      this.secondaryDfsEndpoint = defaults.secondaryDfsEndpoint;
     	      this.secondaryDfsHost = defaults.secondaryDfsHost;
+    	      this.secondaryDfsInternetEndpoint = defaults.secondaryDfsInternetEndpoint;
+    	      this.secondaryDfsInternetHost = defaults.secondaryDfsInternetHost;
+    	      this.secondaryDfsMicrosoftEndpoint = defaults.secondaryDfsMicrosoftEndpoint;
+    	      this.secondaryDfsMicrosoftHost = defaults.secondaryDfsMicrosoftHost;
     	      this.secondaryFileEndpoint = defaults.secondaryFileEndpoint;
     	      this.secondaryFileHost = defaults.secondaryFileHost;
+    	      this.secondaryFileInternetEndpoint = defaults.secondaryFileInternetEndpoint;
+    	      this.secondaryFileInternetHost = defaults.secondaryFileInternetHost;
+    	      this.secondaryFileMicrosoftEndpoint = defaults.secondaryFileMicrosoftEndpoint;
+    	      this.secondaryFileMicrosoftHost = defaults.secondaryFileMicrosoftHost;
     	      this.secondaryLocation = defaults.secondaryLocation;
     	      this.secondaryQueueEndpoint = defaults.secondaryQueueEndpoint;
     	      this.secondaryQueueHost = defaults.secondaryQueueHost;
+    	      this.secondaryQueueMicrosoftEndpoint = defaults.secondaryQueueMicrosoftEndpoint;
+    	      this.secondaryQueueMicrosoftHost = defaults.secondaryQueueMicrosoftHost;
     	      this.secondaryTableEndpoint = defaults.secondaryTableEndpoint;
     	      this.secondaryTableHost = defaults.secondaryTableHost;
+    	      this.secondaryTableMicrosoftEndpoint = defaults.secondaryTableMicrosoftEndpoint;
+    	      this.secondaryTableMicrosoftHost = defaults.secondaryTableMicrosoftHost;
     	      this.secondaryWebEndpoint = defaults.secondaryWebEndpoint;
     	      this.secondaryWebHost = defaults.secondaryWebHost;
+    	      this.secondaryWebInternetEndpoint = defaults.secondaryWebInternetEndpoint;
+    	      this.secondaryWebInternetHost = defaults.secondaryWebInternetHost;
+    	      this.secondaryWebMicrosoftEndpoint = defaults.secondaryWebMicrosoftEndpoint;
+    	      this.secondaryWebMicrosoftHost = defaults.secondaryWebMicrosoftHost;
     	      this.tableEncryptionKeyType = defaults.tableEncryptionKeyType;
     	      this.tags = defaults.tags;
         }
@@ -868,6 +1428,26 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryBlobInternetEndpoint(String primaryBlobInternetEndpoint) {
+            this.primaryBlobInternetEndpoint = Objects.requireNonNull(primaryBlobInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryBlobInternetHost(String primaryBlobInternetHost) {
+            this.primaryBlobInternetHost = Objects.requireNonNull(primaryBlobInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryBlobMicrosoftEndpoint(String primaryBlobMicrosoftEndpoint) {
+            this.primaryBlobMicrosoftEndpoint = Objects.requireNonNull(primaryBlobMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryBlobMicrosoftHost(String primaryBlobMicrosoftHost) {
+            this.primaryBlobMicrosoftHost = Objects.requireNonNull(primaryBlobMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
@@ -883,6 +1463,26 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryDfsInternetEndpoint(String primaryDfsInternetEndpoint) {
+            this.primaryDfsInternetEndpoint = Objects.requireNonNull(primaryDfsInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryDfsInternetHost(String primaryDfsInternetHost) {
+            this.primaryDfsInternetHost = Objects.requireNonNull(primaryDfsInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryDfsMicrosoftEndpoint(String primaryDfsMicrosoftEndpoint) {
+            this.primaryDfsMicrosoftEndpoint = Objects.requireNonNull(primaryDfsMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryDfsMicrosoftHost(String primaryDfsMicrosoftHost) {
+            this.primaryDfsMicrosoftHost = Objects.requireNonNull(primaryDfsMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryFileEndpoint(String primaryFileEndpoint) {
             this.primaryFileEndpoint = Objects.requireNonNull(primaryFileEndpoint);
             return this;
@@ -890,6 +1490,26 @@ public final class GetAccountResult {
         @CustomType.Setter
         public Builder primaryFileHost(String primaryFileHost) {
             this.primaryFileHost = Objects.requireNonNull(primaryFileHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryFileInternetEndpoint(String primaryFileInternetEndpoint) {
+            this.primaryFileInternetEndpoint = Objects.requireNonNull(primaryFileInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryFileInternetHost(String primaryFileInternetHost) {
+            this.primaryFileInternetHost = Objects.requireNonNull(primaryFileInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryFileMicrosoftEndpoint(String primaryFileMicrosoftEndpoint) {
+            this.primaryFileMicrosoftEndpoint = Objects.requireNonNull(primaryFileMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryFileMicrosoftHost(String primaryFileMicrosoftHost) {
+            this.primaryFileMicrosoftHost = Objects.requireNonNull(primaryFileMicrosoftHost);
             return this;
         }
         @CustomType.Setter
@@ -908,6 +1528,16 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryQueueMicrosoftEndpoint(String primaryQueueMicrosoftEndpoint) {
+            this.primaryQueueMicrosoftEndpoint = Objects.requireNonNull(primaryQueueMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryQueueMicrosoftHost(String primaryQueueMicrosoftHost) {
+            this.primaryQueueMicrosoftHost = Objects.requireNonNull(primaryQueueMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryTableEndpoint(String primaryTableEndpoint) {
             this.primaryTableEndpoint = Objects.requireNonNull(primaryTableEndpoint);
             return this;
@@ -918,6 +1548,16 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryTableMicrosoftEndpoint(String primaryTableMicrosoftEndpoint) {
+            this.primaryTableMicrosoftEndpoint = Objects.requireNonNull(primaryTableMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryTableMicrosoftHost(String primaryTableMicrosoftHost) {
+            this.primaryTableMicrosoftHost = Objects.requireNonNull(primaryTableMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryWebEndpoint(String primaryWebEndpoint) {
             this.primaryWebEndpoint = Objects.requireNonNull(primaryWebEndpoint);
             return this;
@@ -925,6 +1565,26 @@ public final class GetAccountResult {
         @CustomType.Setter
         public Builder primaryWebHost(String primaryWebHost) {
             this.primaryWebHost = Objects.requireNonNull(primaryWebHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryWebInternetEndpoint(String primaryWebInternetEndpoint) {
+            this.primaryWebInternetEndpoint = Objects.requireNonNull(primaryWebInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryWebInternetHost(String primaryWebInternetHost) {
+            this.primaryWebInternetHost = Objects.requireNonNull(primaryWebInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryWebMicrosoftEndpoint(String primaryWebMicrosoftEndpoint) {
+            this.primaryWebMicrosoftEndpoint = Objects.requireNonNull(primaryWebMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryWebMicrosoftHost(String primaryWebMicrosoftHost) {
+            this.primaryWebMicrosoftHost = Objects.requireNonNull(primaryWebMicrosoftHost);
             return this;
         }
         @CustomType.Setter
@@ -958,6 +1618,26 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryBlobInternetEndpoint(String secondaryBlobInternetEndpoint) {
+            this.secondaryBlobInternetEndpoint = Objects.requireNonNull(secondaryBlobInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryBlobInternetHost(String secondaryBlobInternetHost) {
+            this.secondaryBlobInternetHost = Objects.requireNonNull(secondaryBlobInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryBlobMicrosoftEndpoint(String secondaryBlobMicrosoftEndpoint) {
+            this.secondaryBlobMicrosoftEndpoint = Objects.requireNonNull(secondaryBlobMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryBlobMicrosoftHost(String secondaryBlobMicrosoftHost) {
+            this.secondaryBlobMicrosoftHost = Objects.requireNonNull(secondaryBlobMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
@@ -973,6 +1653,26 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryDfsInternetEndpoint(String secondaryDfsInternetEndpoint) {
+            this.secondaryDfsInternetEndpoint = Objects.requireNonNull(secondaryDfsInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryDfsInternetHost(String secondaryDfsInternetHost) {
+            this.secondaryDfsInternetHost = Objects.requireNonNull(secondaryDfsInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryDfsMicrosoftEndpoint(String secondaryDfsMicrosoftEndpoint) {
+            this.secondaryDfsMicrosoftEndpoint = Objects.requireNonNull(secondaryDfsMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryDfsMicrosoftHost(String secondaryDfsMicrosoftHost) {
+            this.secondaryDfsMicrosoftHost = Objects.requireNonNull(secondaryDfsMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryFileEndpoint(String secondaryFileEndpoint) {
             this.secondaryFileEndpoint = Objects.requireNonNull(secondaryFileEndpoint);
             return this;
@@ -980,6 +1680,26 @@ public final class GetAccountResult {
         @CustomType.Setter
         public Builder secondaryFileHost(String secondaryFileHost) {
             this.secondaryFileHost = Objects.requireNonNull(secondaryFileHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryFileInternetEndpoint(String secondaryFileInternetEndpoint) {
+            this.secondaryFileInternetEndpoint = Objects.requireNonNull(secondaryFileInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryFileInternetHost(String secondaryFileInternetHost) {
+            this.secondaryFileInternetHost = Objects.requireNonNull(secondaryFileInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryFileMicrosoftEndpoint(String secondaryFileMicrosoftEndpoint) {
+            this.secondaryFileMicrosoftEndpoint = Objects.requireNonNull(secondaryFileMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryFileMicrosoftHost(String secondaryFileMicrosoftHost) {
+            this.secondaryFileMicrosoftHost = Objects.requireNonNull(secondaryFileMicrosoftHost);
             return this;
         }
         @CustomType.Setter
@@ -998,6 +1718,16 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryQueueMicrosoftEndpoint(String secondaryQueueMicrosoftEndpoint) {
+            this.secondaryQueueMicrosoftEndpoint = Objects.requireNonNull(secondaryQueueMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryQueueMicrosoftHost(String secondaryQueueMicrosoftHost) {
+            this.secondaryQueueMicrosoftHost = Objects.requireNonNull(secondaryQueueMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryTableEndpoint(String secondaryTableEndpoint) {
             this.secondaryTableEndpoint = Objects.requireNonNull(secondaryTableEndpoint);
             return this;
@@ -1008,6 +1738,16 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryTableMicrosoftEndpoint(String secondaryTableMicrosoftEndpoint) {
+            this.secondaryTableMicrosoftEndpoint = Objects.requireNonNull(secondaryTableMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryTableMicrosoftHost(String secondaryTableMicrosoftHost) {
+            this.secondaryTableMicrosoftHost = Objects.requireNonNull(secondaryTableMicrosoftHost);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryWebEndpoint(String secondaryWebEndpoint) {
             this.secondaryWebEndpoint = Objects.requireNonNull(secondaryWebEndpoint);
             return this;
@@ -1015,6 +1755,26 @@ public final class GetAccountResult {
         @CustomType.Setter
         public Builder secondaryWebHost(String secondaryWebHost) {
             this.secondaryWebHost = Objects.requireNonNull(secondaryWebHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryWebInternetEndpoint(String secondaryWebInternetEndpoint) {
+            this.secondaryWebInternetEndpoint = Objects.requireNonNull(secondaryWebInternetEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryWebInternetHost(String secondaryWebInternetHost) {
+            this.secondaryWebInternetHost = Objects.requireNonNull(secondaryWebInternetHost);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryWebMicrosoftEndpoint(String secondaryWebMicrosoftEndpoint) {
+            this.secondaryWebMicrosoftEndpoint = Objects.requireNonNull(secondaryWebMicrosoftEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryWebMicrosoftHost(String secondaryWebMicrosoftHost) {
+            this.secondaryWebMicrosoftHost = Objects.requireNonNull(secondaryWebMicrosoftHost);
             return this;
         }
         @CustomType.Setter
@@ -1049,36 +1809,76 @@ public final class GetAccountResult {
             _resultValue.primaryBlobConnectionString = primaryBlobConnectionString;
             _resultValue.primaryBlobEndpoint = primaryBlobEndpoint;
             _resultValue.primaryBlobHost = primaryBlobHost;
+            _resultValue.primaryBlobInternetEndpoint = primaryBlobInternetEndpoint;
+            _resultValue.primaryBlobInternetHost = primaryBlobInternetHost;
+            _resultValue.primaryBlobMicrosoftEndpoint = primaryBlobMicrosoftEndpoint;
+            _resultValue.primaryBlobMicrosoftHost = primaryBlobMicrosoftHost;
             _resultValue.primaryConnectionString = primaryConnectionString;
             _resultValue.primaryDfsEndpoint = primaryDfsEndpoint;
             _resultValue.primaryDfsHost = primaryDfsHost;
+            _resultValue.primaryDfsInternetEndpoint = primaryDfsInternetEndpoint;
+            _resultValue.primaryDfsInternetHost = primaryDfsInternetHost;
+            _resultValue.primaryDfsMicrosoftEndpoint = primaryDfsMicrosoftEndpoint;
+            _resultValue.primaryDfsMicrosoftHost = primaryDfsMicrosoftHost;
             _resultValue.primaryFileEndpoint = primaryFileEndpoint;
             _resultValue.primaryFileHost = primaryFileHost;
+            _resultValue.primaryFileInternetEndpoint = primaryFileInternetEndpoint;
+            _resultValue.primaryFileInternetHost = primaryFileInternetHost;
+            _resultValue.primaryFileMicrosoftEndpoint = primaryFileMicrosoftEndpoint;
+            _resultValue.primaryFileMicrosoftHost = primaryFileMicrosoftHost;
             _resultValue.primaryLocation = primaryLocation;
             _resultValue.primaryQueueEndpoint = primaryQueueEndpoint;
             _resultValue.primaryQueueHost = primaryQueueHost;
+            _resultValue.primaryQueueMicrosoftEndpoint = primaryQueueMicrosoftEndpoint;
+            _resultValue.primaryQueueMicrosoftHost = primaryQueueMicrosoftHost;
             _resultValue.primaryTableEndpoint = primaryTableEndpoint;
             _resultValue.primaryTableHost = primaryTableHost;
+            _resultValue.primaryTableMicrosoftEndpoint = primaryTableMicrosoftEndpoint;
+            _resultValue.primaryTableMicrosoftHost = primaryTableMicrosoftHost;
             _resultValue.primaryWebEndpoint = primaryWebEndpoint;
             _resultValue.primaryWebHost = primaryWebHost;
+            _resultValue.primaryWebInternetEndpoint = primaryWebInternetEndpoint;
+            _resultValue.primaryWebInternetHost = primaryWebInternetHost;
+            _resultValue.primaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
+            _resultValue.primaryWebMicrosoftHost = primaryWebMicrosoftHost;
             _resultValue.queueEncryptionKeyType = queueEncryptionKeyType;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryAccessKey = secondaryAccessKey;
             _resultValue.secondaryBlobConnectionString = secondaryBlobConnectionString;
             _resultValue.secondaryBlobEndpoint = secondaryBlobEndpoint;
             _resultValue.secondaryBlobHost = secondaryBlobHost;
+            _resultValue.secondaryBlobInternetEndpoint = secondaryBlobInternetEndpoint;
+            _resultValue.secondaryBlobInternetHost = secondaryBlobInternetHost;
+            _resultValue.secondaryBlobMicrosoftEndpoint = secondaryBlobMicrosoftEndpoint;
+            _resultValue.secondaryBlobMicrosoftHost = secondaryBlobMicrosoftHost;
             _resultValue.secondaryConnectionString = secondaryConnectionString;
             _resultValue.secondaryDfsEndpoint = secondaryDfsEndpoint;
             _resultValue.secondaryDfsHost = secondaryDfsHost;
+            _resultValue.secondaryDfsInternetEndpoint = secondaryDfsInternetEndpoint;
+            _resultValue.secondaryDfsInternetHost = secondaryDfsInternetHost;
+            _resultValue.secondaryDfsMicrosoftEndpoint = secondaryDfsMicrosoftEndpoint;
+            _resultValue.secondaryDfsMicrosoftHost = secondaryDfsMicrosoftHost;
             _resultValue.secondaryFileEndpoint = secondaryFileEndpoint;
             _resultValue.secondaryFileHost = secondaryFileHost;
+            _resultValue.secondaryFileInternetEndpoint = secondaryFileInternetEndpoint;
+            _resultValue.secondaryFileInternetHost = secondaryFileInternetHost;
+            _resultValue.secondaryFileMicrosoftEndpoint = secondaryFileMicrosoftEndpoint;
+            _resultValue.secondaryFileMicrosoftHost = secondaryFileMicrosoftHost;
             _resultValue.secondaryLocation = secondaryLocation;
             _resultValue.secondaryQueueEndpoint = secondaryQueueEndpoint;
             _resultValue.secondaryQueueHost = secondaryQueueHost;
+            _resultValue.secondaryQueueMicrosoftEndpoint = secondaryQueueMicrosoftEndpoint;
+            _resultValue.secondaryQueueMicrosoftHost = secondaryQueueMicrosoftHost;
             _resultValue.secondaryTableEndpoint = secondaryTableEndpoint;
             _resultValue.secondaryTableHost = secondaryTableHost;
+            _resultValue.secondaryTableMicrosoftEndpoint = secondaryTableMicrosoftEndpoint;
+            _resultValue.secondaryTableMicrosoftHost = secondaryTableMicrosoftHost;
             _resultValue.secondaryWebEndpoint = secondaryWebEndpoint;
             _resultValue.secondaryWebHost = secondaryWebHost;
+            _resultValue.secondaryWebInternetEndpoint = secondaryWebInternetEndpoint;
+            _resultValue.secondaryWebInternetHost = secondaryWebInternetHost;
+            _resultValue.secondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
+            _resultValue.secondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
             _resultValue.tableEncryptionKeyType = tableEncryptionKeyType;
             _resultValue.tags = tags;
             return _resultValue;

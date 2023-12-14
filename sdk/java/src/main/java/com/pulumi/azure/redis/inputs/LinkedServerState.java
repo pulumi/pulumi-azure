@@ -16,6 +16,21 @@ public final class LinkedServerState extends com.pulumi.resources.ResourceArgs {
     public static final LinkedServerState Empty = new LinkedServerState();
 
     /**
+     * The geo-replicated primary hostname for this linked server.
+     * 
+     */
+    @Import(name="geoReplicatedPrimaryHostName")
+    private @Nullable Output<String> geoReplicatedPrimaryHostName;
+
+    /**
+     * @return The geo-replicated primary hostname for this linked server.
+     * 
+     */
+    public Optional<Output<String>> geoReplicatedPrimaryHostName() {
+        return Optional.ofNullable(this.geoReplicatedPrimaryHostName);
+    }
+
+    /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      * 
      */
@@ -108,6 +123,7 @@ public final class LinkedServerState extends com.pulumi.resources.ResourceArgs {
     private LinkedServerState() {}
 
     private LinkedServerState(LinkedServerState $) {
+        this.geoReplicatedPrimaryHostName = $.geoReplicatedPrimaryHostName;
         this.linkedRedisCacheId = $.linkedRedisCacheId;
         this.linkedRedisCacheLocation = $.linkedRedisCacheLocation;
         this.name = $.name;
@@ -132,6 +148,27 @@ public final class LinkedServerState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(LinkedServerState defaults) {
             $ = new LinkedServerState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param geoReplicatedPrimaryHostName The geo-replicated primary hostname for this linked server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoReplicatedPrimaryHostName(@Nullable Output<String> geoReplicatedPrimaryHostName) {
+            $.geoReplicatedPrimaryHostName = geoReplicatedPrimaryHostName;
+            return this;
+        }
+
+        /**
+         * @param geoReplicatedPrimaryHostName The geo-replicated primary hostname for this linked server.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder geoReplicatedPrimaryHostName(String geoReplicatedPrimaryHostName) {
+            return geoReplicatedPrimaryHostName(Output.of(geoReplicatedPrimaryHostName));
         }
 
         /**

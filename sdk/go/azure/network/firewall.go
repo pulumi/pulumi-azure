@@ -98,6 +98,8 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+	DnsProxyEnabled pulumi.BoolOutput `pulumi:"dnsProxyEnabled"`
 	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
@@ -169,6 +171,8 @@ func GetFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Firewall resources.
 type firewallState struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+	DnsProxyEnabled *bool `pulumi:"dnsProxyEnabled"`
 	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
@@ -202,6 +206,8 @@ type firewallState struct {
 }
 
 type FirewallState struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+	DnsProxyEnabled pulumi.BoolPtrInput
 	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
 	DnsServers pulumi.StringArrayInput
 	// The ID of the Firewall Policy applied to this Firewall.
@@ -239,6 +245,8 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+	DnsProxyEnabled *bool `pulumi:"dnsProxyEnabled"`
 	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to this Firewall.
@@ -273,6 +281,8 @@ type firewallArgs struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+	DnsProxyEnabled pulumi.BoolPtrInput
 	// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
 	DnsServers pulumi.StringArrayInput
 	// The ID of the Firewall Policy applied to this Firewall.
@@ -390,6 +400,11 @@ func (o FirewallOutput) ToFirewallOutput() FirewallOutput {
 
 func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) FirewallOutput {
 	return o
+}
+
+// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+func (o FirewallOutput) DnsProxyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Firewall) pulumi.BoolOutput { return v.DnsProxyEnabled }).(pulumi.BoolOutput)
 }
 
 // A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.

@@ -295,12 +295,14 @@ type KubernetesCluster struct {
 	//
 	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
 	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrOutput `pulumi:"storageProfile"`
+	// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+	SupportPlan pulumi.StringPtrOutput `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -577,12 +579,14 @@ type kubernetesClusterState struct {
 	//
 	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
 	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
+	// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+	SupportPlan *string `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -817,12 +821,14 @@ type KubernetesClusterState struct {
 	//
 	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
 	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
+	// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+	SupportPlan pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `webAppRouting` block as defined below.
@@ -1041,12 +1047,14 @@ type kubernetesClusterArgs struct {
 	//
 	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
 	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier *string `pulumi:"skuTier"`
 	// A `storageProfile` block as defined below.
 	StorageProfile *KubernetesClusterStorageProfile `pulumi:"storageProfile"`
+	// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+	SupportPlan *string `pulumi:"supportPlan"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `webAppRouting` block as defined below.
@@ -1262,12 +1270,14 @@ type KubernetesClusterArgs struct {
 	//
 	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
-	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
 	// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 	SkuTier pulumi.StringPtrInput
 	// A `storageProfile` block as defined below.
 	StorageProfile KubernetesClusterStorageProfilePtrInput
+	// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+	SupportPlan pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `webAppRouting` block as defined below.
@@ -1784,7 +1794,7 @@ func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrin
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(KubernetesClusterServicePrincipalPtrOutput)
 }
 
-// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 //
 // > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
 func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
@@ -1794,6 +1804,11 @@ func (o KubernetesClusterOutput) SkuTier() pulumi.StringPtrOutput {
 // A `storageProfile` block as defined below.
 func (o KubernetesClusterOutput) StorageProfile() KubernetesClusterStorageProfilePtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterStorageProfilePtrOutput { return v.StorageProfile }).(KubernetesClusterStorageProfilePtrOutput)
+}
+
+// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+func (o KubernetesClusterOutput) SupportPlan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.SupportPlan }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

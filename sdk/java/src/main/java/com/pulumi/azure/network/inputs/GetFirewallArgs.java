@@ -5,13 +5,31 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFirewallArgs Empty = new GetFirewallArgs();
+
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    @Import(name="dnsProxyEnabled")
+    private @Nullable Output<Boolean> dnsProxyEnabled;
+
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> dnsProxyEnabled() {
+        return Optional.ofNullable(this.dnsProxyEnabled);
+    }
 
     /**
      * The name of the Azure Firewall.
@@ -46,6 +64,7 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
     private GetFirewallArgs() {}
 
     private GetFirewallArgs(GetFirewallArgs $) {
+        this.dnsProxyEnabled = $.dnsProxyEnabled;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -66,6 +85,27 @@ public final class GetFirewallArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetFirewallArgs defaults) {
             $ = new GetFirewallArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsProxyEnabled(@Nullable Output<Boolean> dnsProxyEnabled) {
+            $.dnsProxyEnabled = dnsProxyEnabled;
+            return this;
+        }
+
+        /**
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsProxyEnabled(Boolean dnsProxyEnabled) {
+            return dnsProxyEnabled(Output.of(dnsProxyEnabled));
         }
 
         /**

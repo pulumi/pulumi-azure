@@ -24,10 +24,15 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.AppService.StaticSite("example", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
     ///         Location = "West Europe",
-    ///         ResourceGroupName = "example",
+    ///     });
+    /// 
+    ///     var exampleStaticSite = new Azure.AppService.StaticSite("exampleStaticSite", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
     /// });

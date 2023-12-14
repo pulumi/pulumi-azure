@@ -61,7 +61,9 @@ type LookupAccountArgs struct {
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// Capabilities enabled on this Cosmos DB account.
-	Capabilities        []GetAccountCapability        `pulumi:"capabilities"`
+	Capabilities []GetAccountCapability `pulumi:"capabilities"`
+	// A list of connection strings available for this CosmosDB account.
+	ConnectionStrings   []string                      `pulumi:"connectionStrings"`
 	ConsistencyPolicies []GetAccountConsistencyPolicy `pulumi:"consistencyPolicies"`
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover bool `pulumi:"enableAutomaticFailover"`
@@ -89,15 +91,31 @@ type LookupAccountResult struct {
 	OfferType string `pulumi:"offerType"`
 	// The primary key for the CosmosDB account.
 	PrimaryKey string `pulumi:"primaryKey"`
+	// The primary Mongodb connection string for the CosmosDB account.
+	PrimaryMongodbConnectionString string `pulumi:"primaryMongodbConnectionString"`
 	// The primary read-only Key for the CosmosDB account.
 	PrimaryReadonlyKey string `pulumi:"primaryReadonlyKey"`
+	// The primary readonly Mongodb connection string for the CosmosDB account.
+	PrimaryReadonlyMongodbConnectionString string `pulumi:"primaryReadonlyMongodbConnectionString"`
+	// The primary read-only SQL connection string for the CosmosDB account.
+	PrimaryReadonlySqlConnectionString string `pulumi:"primaryReadonlySqlConnectionString"`
+	// The primary SQL connection string for the CosmosDB Account.
+	PrimarySqlConnectionString string `pulumi:"primarySqlConnectionString"`
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints     []string `pulumi:"readEndpoints"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The secondary key for the CosmosDB account.
 	SecondaryKey string `pulumi:"secondaryKey"`
+	// The secondary Mongodb connection string for the CosmosDB account.
+	SecondaryMongodbConnectionString string `pulumi:"secondaryMongodbConnectionString"`
 	// The secondary read-only key for the CosmosDB account.
 	SecondaryReadonlyKey string `pulumi:"secondaryReadonlyKey"`
+	// The secondary readonly Mongodb connection string for the CosmosDB account.
+	SecondaryReadonlyMongodbConnectionString string `pulumi:"secondaryReadonlyMongodbConnectionString"`
+	// The secondary read-only SQL connection string for the CosmosDB account.
+	SecondaryReadonlySqlConnectionString string `pulumi:"secondaryReadonlySqlConnectionString"`
+	// The secondary SQL connection string for the CosmosDB Account.
+	SecondarySqlConnectionString string `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Subnets that are allowed to access this CosmosDB account.
@@ -149,6 +167,11 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 // Capabilities enabled on this Cosmos DB account.
 func (o LookupAccountResultOutput) Capabilities() GetAccountCapabilityArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCapability { return v.Capabilities }).(GetAccountCapabilityArrayOutput)
+}
+
+// A list of connection strings available for this CosmosDB account.
+func (o LookupAccountResultOutput) ConnectionStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupAccountResultOutput) ConsistencyPolicies() GetAccountConsistencyPolicyArrayOutput {
@@ -223,9 +246,29 @@ func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
 }
 
+// The primary Mongodb connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) PrimaryMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryMongodbConnectionString }).(pulumi.StringOutput)
+}
+
 // The primary read-only Key for the CosmosDB account.
 func (o LookupAccountResultOutput) PrimaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyKey }).(pulumi.StringOutput)
+}
+
+// The primary readonly Mongodb connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) PrimaryReadonlyMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlyMongodbConnectionString }).(pulumi.StringOutput)
+}
+
+// The primary read-only SQL connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) PrimaryReadonlySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryReadonlySqlConnectionString }).(pulumi.StringOutput)
+}
+
+// The primary SQL connection string for the CosmosDB Account.
+func (o LookupAccountResultOutput) PrimarySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimarySqlConnectionString }).(pulumi.StringOutput)
 }
 
 // A list of read endpoints available for this CosmosDB account.
@@ -242,9 +285,29 @@ func (o LookupAccountResultOutput) SecondaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
+// The secondary Mongodb connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) SecondaryMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryMongodbConnectionString }).(pulumi.StringOutput)
+}
+
 // The secondary read-only key for the CosmosDB account.
 func (o LookupAccountResultOutput) SecondaryReadonlyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyKey }).(pulumi.StringOutput)
+}
+
+// The secondary readonly Mongodb connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) SecondaryReadonlyMongodbConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlyMongodbConnectionString }).(pulumi.StringOutput)
+}
+
+// The secondary read-only SQL connection string for the CosmosDB account.
+func (o LookupAccountResultOutput) SecondaryReadonlySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondaryReadonlySqlConnectionString }).(pulumi.StringOutput)
+}
+
+// The secondary SQL connection string for the CosmosDB Account.
+func (o LookupAccountResultOutput) SecondarySqlConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SecondarySqlConnectionString }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the resource.

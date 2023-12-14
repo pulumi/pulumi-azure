@@ -16,12 +16,17 @@ import java.util.Objects;
 @CustomType
 public final class GetElasticPoolResult {
     /**
+     * @return The type of enclave being used by the elastic pool.
+     * 
+     */
+    private String enclaveType;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The license type to apply for this database.
+     * @return The license type to apply for this elastic pool.
      * 
      */
     private String licenseType;
@@ -75,6 +80,13 @@ public final class GetElasticPoolResult {
 
     private GetElasticPoolResult() {}
     /**
+     * @return The type of enclave being used by the elastic pool.
+     * 
+     */
+    public String enclaveType() {
+        return this.enclaveType;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -82,7 +94,7 @@ public final class GetElasticPoolResult {
         return this.id;
     }
     /**
-     * @return The license type to apply for this database.
+     * @return The license type to apply for this elastic pool.
      * 
      */
     public String licenseType() {
@@ -167,6 +179,7 @@ public final class GetElasticPoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String enclaveType;
         private String id;
         private String licenseType;
         private String location;
@@ -183,6 +196,7 @@ public final class GetElasticPoolResult {
         public Builder() {}
         public Builder(GetElasticPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enclaveType = defaults.enclaveType;
     	      this.id = defaults.id;
     	      this.licenseType = defaults.licenseType;
     	      this.location = defaults.location;
@@ -198,6 +212,11 @@ public final class GetElasticPoolResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
+        public Builder enclaveType(String enclaveType) {
+            this.enclaveType = Objects.requireNonNull(enclaveType);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -268,6 +287,7 @@ public final class GetElasticPoolResult {
         }
         public GetElasticPoolResult build() {
             final var _resultValue = new GetElasticPoolResult();
+            _resultValue.enclaveType = enclaveType;
             _resultValue.id = id;
             _resultValue.licenseType = licenseType;
             _resultValue.location = location;

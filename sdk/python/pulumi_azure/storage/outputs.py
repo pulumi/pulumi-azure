@@ -64,6 +64,7 @@ __all__ = [
     'GetAccountSASPermissionsResult',
     'GetAccountSASResourceTypesResult',
     'GetAccountSASServicesResult',
+    'GetContainersContainerResult',
     'GetPolicyRuleResult',
     'GetPolicyRuleActionResult',
     'GetPolicyRuleActionBaseBlobResult',
@@ -3651,6 +3652,46 @@ class GetAccountSASServicesResult(dict):
         Should permission be granted to `table` services within this storage account?
         """
         return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class GetContainersContainerResult(dict):
+    def __init__(__self__, *,
+                 data_plane_id: str,
+                 name: str,
+                 resource_manager_id: str):
+        """
+        :param str data_plane_id: The data plane ID of the Storage Container.
+        :param str name: The name of this Storage Container.
+        :param str resource_manager_id: The resource manager ID of the Storage Container.
+        """
+        pulumi.set(__self__, "data_plane_id", data_plane_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+
+    @property
+    @pulumi.getter(name="dataPlaneId")
+    def data_plane_id(self) -> str:
+        """
+        The data plane ID of the Storage Container.
+        """
+        return pulumi.get(self, "data_plane_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Storage Container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> str:
+        """
+        The resource manager ID of the Storage Container.
+        """
+        return pulumi.get(self, "resource_manager_id")
 
 
 @pulumi.output_type

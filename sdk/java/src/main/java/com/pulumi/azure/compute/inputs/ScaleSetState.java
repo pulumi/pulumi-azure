@@ -444,7 +444,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Import(name="zones")
@@ -453,7 +453,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -1125,7 +1125,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1138,7 +1138,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1150,7 +1150,7 @@ public final class ScaleSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 

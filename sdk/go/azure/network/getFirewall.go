@@ -52,6 +52,8 @@ func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulum
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallArgs struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+	DnsProxyEnabled *bool `pulumi:"dnsProxyEnabled"`
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
@@ -60,6 +62,8 @@ type LookupFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type LookupFirewallResult struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+	DnsProxyEnabled bool `pulumi:"dnsProxyEnabled"`
 	// The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
 	DnsServers []string `pulumi:"dnsServers"`
 	// The ID of the Firewall Policy applied to the Azure Firewall.
@@ -103,6 +107,8 @@ func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, op
 
 // A collection of arguments for invoking getFirewall.
 type LookupFirewallOutputArgs struct {
+	// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+	DnsProxyEnabled pulumi.BoolPtrInput `pulumi:"dnsProxyEnabled"`
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group in which the Azure Firewall exists.
@@ -126,6 +132,11 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutput() LookupFirewal
 
 func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx context.Context) LookupFirewallResultOutput {
 	return o
+}
+
+// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+func (o LookupFirewallResultOutput) DnsProxyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupFirewallResult) bool { return v.DnsProxyEnabled }).(pulumi.BoolOutput)
 }
 
 // The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.

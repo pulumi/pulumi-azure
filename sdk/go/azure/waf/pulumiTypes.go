@@ -708,9 +708,9 @@ func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyM
 type PolicyManagedRulesExclusionExcludedRuleSet struct {
 	// One or more `ruleGroup` block defined below.
 	RuleGroups []PolicyManagedRulesExclusionExcludedRuleSetRuleGroup `pulumi:"ruleGroups"`
-	// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+	// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type *string `pulumi:"type"`
-	// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+	// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 	Version *string `pulumi:"version"`
 }
 
@@ -728,9 +728,9 @@ type PolicyManagedRulesExclusionExcludedRuleSetInput interface {
 type PolicyManagedRulesExclusionExcludedRuleSetArgs struct {
 	// One or more `ruleGroup` block defined below.
 	RuleGroups PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput `pulumi:"ruleGroups"`
-	// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+	// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+	// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -818,12 +818,12 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) RuleGroups() PolicyMan
 	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
 }
 
-// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -862,7 +862,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) RuleGroups() Policy
 	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
 }
 
-// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
 		if v == nil {
@@ -872,7 +872,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Type() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
 		if v == nil {
@@ -885,7 +885,8 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.St
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroup struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules []string `pulumi:"excludedRules"`
-	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+	// `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 }
 
@@ -903,7 +904,8 @@ type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput interface {
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs struct {
 	// One or more Rule IDs for exclusion.
 	ExcludedRules pulumi.StringArrayInput `pulumi:"excludedRules"`
-	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+	// `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 }
 
@@ -963,7 +965,8 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ExcludedRules
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) []string { return v.ExcludedRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+// The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+// `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -991,9 +994,9 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) Index(i 
 type PolicyManagedRulesManagedRuleSet struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides []PolicyManagedRulesManagedRuleSetRuleGroupOverride `pulumi:"ruleGroupOverrides"`
-	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type *string `pulumi:"type"`
-	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version string `pulumi:"version"`
 }
 
@@ -1011,9 +1014,9 @@ type PolicyManagedRulesManagedRuleSetInput interface {
 type PolicyManagedRulesManagedRuleSetArgs struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
-	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -1075,12 +1078,12 @@ func (o PolicyManagedRulesManagedRuleSetOutput) RuleGroupOverrides() PolicyManag
 	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
 }
 
-// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+// The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+// The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -1108,7 +1111,7 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) Po
 type PolicyManagedRulesManagedRuleSetRuleGroupOverride struct {
 	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules []string `pulumi:"disabledRules"`
-	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
 	Rules []PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule `pulumi:"rules"`
@@ -1128,7 +1131,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput interface {
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs struct {
 	// Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
 	DisabledRules pulumi.StringArrayInput `pulumi:"disabledRules"`
-	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// One or more `rule` block defined below.
 	Rules PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput `pulumi:"rules"`
@@ -1190,7 +1193,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) DisabledRules()
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) []string { return v.DisabledRules }).(pulumi.StringArrayOutput)
 }
 
-// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+// The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }

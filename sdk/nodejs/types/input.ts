@@ -21643,6 +21643,19 @@ export namespace containerapp {
         value: pulumi.Input<string>;
     }
 
+    export interface EnvironmentWorkloadProfile {
+        maximumCount: pulumi.Input<number>;
+        minimumCount: pulumi.Input<number>;
+        /**
+         * The name of the workload profile.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+         */
+        workloadProfileType: pulumi.Input<string>;
+    }
+
 }
 
 export namespace containerservice {
@@ -23889,14 +23902,14 @@ export namespace containerservice {
         defaultAction?: pulumi.Input<string>;
         /**
          * One or more `ipRule` blocks as defined below.
-         */
-        ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
-        /**
-         * One or more `virtualNetwork` blocks as defined below.
          *
          * > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
          *
          * > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
+        /**
+         * @deprecated  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
          */
         virtualNetworks?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetVirtualNetwork>[]>;
     }
@@ -23917,9 +23930,6 @@ export namespace containerservice {
          * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
          */
         action: pulumi.Input<string>;
-        /**
-         * The subnet id from which requests will match the rule.
-         */
         subnetId: pulumi.Input<string>;
     }
 
@@ -28069,6 +28079,21 @@ export namespace elasticcloud {
          * The value of the Tag which should be filtered.
          */
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace elasticsan {
+    export interface ElasticSanSku {
+        /**
+         * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+         *
+         * > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The SKU tier. The only possible value is `Premium`.
+         */
+        tier?: pulumi.Input<string>;
     }
 }
 
@@ -34350,6 +34375,25 @@ export namespace keyvault {
          * The Default Action to use. Possible values are `Allow` and `Deny`.
          */
         defaultAction: pulumi.Input<string>;
+    }
+
+    export interface ManagedHardwareSecurityModuleRoleDefinitionPermission {
+        /**
+         * One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+         */
+        actions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+         */
+        dataActions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+         */
+        notActions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+         */
+        notDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -40787,7 +40831,7 @@ export namespace mssql {
          */
         family?: pulumi.Input<string>;
         /**
-         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. Possible values are `BasicPool`, `StandardPool`, `PremiumPool`, `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, or `HS_Gen5`.
+         * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, or `HS_Gen5`.
          */
         name: pulumi.Input<string>;
         /**
@@ -44551,6 +44595,40 @@ export namespace network {
         portRange?: pulumi.Input<string>;
     }
 
+    export interface VirtualNetworkGatewayPolicyGroup {
+        /**
+         * Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+         */
+        isDefault?: pulumi.Input<boolean>;
+        /**
+         * The name of the Virtual Network Gateway Policy Group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * One or more `policyMember` blocks as defined below.
+         */
+        policyMembers: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroupPolicyMember>[]>;
+        /**
+         * The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+         */
+        priority?: pulumi.Input<number>;
+    }
+
+    export interface VirtualNetworkGatewayPolicyGroupPolicyMember {
+        /**
+         * The name of the Virtual Network Gateway Policy Group Member.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface VirtualNetworkGatewayVpnClientConfiguration {
         /**
          * The client id of the Azure VPN application.
@@ -44570,6 +44648,10 @@ export namespace network {
          */
         addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * An `ipsecPolicy` block as defined below.
+         */
+        ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy>;
+        /**
          * The address of the Radius server.
          */
         radiusServerAddress?: pulumi.Input<string>;
@@ -44578,6 +44660,10 @@ export namespace network {
          */
         radiusServerSecret?: pulumi.Input<string>;
         /**
+         * One or more `radiusServer` blocks as defined below.
+         */
+        radiusServers?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRadiusServer>[]>;
+        /**
          * One or more `revokedCertificate` blocks which are defined below.
          */
         revokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate>[]>;
@@ -44585,6 +44671,10 @@ export namespace network {
          * One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
          */
         rootCertificates?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationRootCertificate>[]>;
+        /**
+         * One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
+         */
+        virtualNetworkGatewayClientConnections?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection>[]>;
         /**
          * List of the vpn authentication types for the virtual network gateway.
          * The supported values are `AAD`, `Radius` and `Certificate`.
@@ -44599,6 +44689,56 @@ export namespace network {
          * `aadTenant`, `aadAudience` and `aadIssuer`.
          */
         vpnClientProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
+        /**
+         * The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+         */
+        dhGroup: pulumi.Input<string>;
+        /**
+         * The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+         */
+        ikeEncryption: pulumi.Input<string>;
+        /**
+         * The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+         */
+        ikeIntegrity: pulumi.Input<string>;
+        /**
+         * The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+         */
+        ipsecEncryption: pulumi.Input<string>;
+        /**
+         * The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+         */
+        ipsecIntegrity: pulumi.Input<string>;
+        /**
+         * The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+         */
+        pfsGroup: pulumi.Input<string>;
+        /**
+         * The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+         */
+        saDataSizeInKilobytes: pulumi.Input<number>;
+        /**
+         * The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+         */
+        saLifetimeInSeconds: pulumi.Input<number>;
+    }
+
+    export interface VirtualNetworkGatewayVpnClientConfigurationRadiusServer {
+        /**
+         * The address of the Radius Server.
+         */
+        address: pulumi.Input<string>;
+        /**
+         * The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+         */
+        score: pulumi.Input<number>;
+        /**
+         * The secret that is used to communicate with the Radius Server.
+         */
+        secret: pulumi.Input<string>;
     }
 
     export interface VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
@@ -44621,6 +44761,21 @@ export namespace network {
          * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
          */
         publicCertData: pulumi.Input<string>;
+    }
+
+    export interface VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection {
+        /**
+         * A list of address prefixes for P2S VPN Client.
+         */
+        addressPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the Virtual Network Gateway Client Connection.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A list of names of Virtual Network Gateway Policy Groups.
+         */
+        policyGroupNames: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VirtualNetworkSubnet {
@@ -50678,11 +50833,11 @@ export namespace waf {
          */
         ruleGroups?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup>[]>;
         /**
-         * The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+         * The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
          */
         type?: pulumi.Input<string>;
         /**
-         * The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+         * The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
          */
         version?: pulumi.Input<string>;
     }
@@ -50693,7 +50848,8 @@ export namespace waf {
          */
         excludedRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+         * `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
          */
         ruleGroupName: pulumi.Input<string>;
     }
@@ -50704,11 +50860,11 @@ export namespace waf {
          */
         ruleGroupOverrides?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesManagedRuleSetRuleGroupOverride>[]>;
         /**
-         * The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
          */
         type?: pulumi.Input<string>;
         /**
-         * The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         version: pulumi.Input<string>;
     }
@@ -50719,7 +50875,7 @@ export namespace waf {
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
          */
         ruleGroupName: pulumi.Input<string>;
         /**

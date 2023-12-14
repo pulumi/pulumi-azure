@@ -1144,7 +1144,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.servicePrincipal);
     }
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      * 
      * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      * 
@@ -1153,7 +1153,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      * 
      * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      * 
@@ -1174,6 +1174,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<KubernetesClusterStorageProfile>> storageProfile() {
         return Codegen.optional(this.storageProfile);
+    }
+    /**
+     * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     * 
+     */
+    @Export(name="supportPlan", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> supportPlan;
+
+    /**
+     * @return Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     * 
+     */
+    public Output<Optional<String>> supportPlan() {
+        return Codegen.optional(this.supportPlan);
     }
     /**
      * A mapping of tags to assign to the resource.

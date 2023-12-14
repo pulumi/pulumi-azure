@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -108,6 +109,20 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      */
     public Output<String> addonJson() {
         return this.addonJson;
+    }
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    @Export(name="applicationPerformanceMonitoringIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> applicationPerformanceMonitoringIds;
+
+    /**
+     * @return Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    public Output<Optional<List<String>>> applicationPerformanceMonitoringIds() {
+        return Codegen.optional(this.applicationPerformanceMonitoringIds);
     }
     /**
      * The ID of the Spring Cloud Build Result.

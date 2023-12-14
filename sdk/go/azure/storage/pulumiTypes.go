@@ -8212,6 +8212,121 @@ func (o GetAccountSASServicesOutput) Table() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAccountSASServices) bool { return v.Table }).(pulumi.BoolOutput)
 }
 
+type GetContainersContainer struct {
+	// The data plane ID of the Storage Container.
+	DataPlaneId string `pulumi:"dataPlaneId"`
+	// The name of this Storage Container.
+	Name string `pulumi:"name"`
+	// The resource manager ID of the Storage Container.
+	ResourceManagerId string `pulumi:"resourceManagerId"`
+}
+
+// GetContainersContainerInput is an input type that accepts GetContainersContainerArgs and GetContainersContainerOutput values.
+// You can construct a concrete instance of `GetContainersContainerInput` via:
+//
+//	GetContainersContainerArgs{...}
+type GetContainersContainerInput interface {
+	pulumi.Input
+
+	ToGetContainersContainerOutput() GetContainersContainerOutput
+	ToGetContainersContainerOutputWithContext(context.Context) GetContainersContainerOutput
+}
+
+type GetContainersContainerArgs struct {
+	// The data plane ID of the Storage Container.
+	DataPlaneId pulumi.StringInput `pulumi:"dataPlaneId"`
+	// The name of this Storage Container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource manager ID of the Storage Container.
+	ResourceManagerId pulumi.StringInput `pulumi:"resourceManagerId"`
+}
+
+func (GetContainersContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainersContainer)(nil)).Elem()
+}
+
+func (i GetContainersContainerArgs) ToGetContainersContainerOutput() GetContainersContainerOutput {
+	return i.ToGetContainersContainerOutputWithContext(context.Background())
+}
+
+func (i GetContainersContainerArgs) ToGetContainersContainerOutputWithContext(ctx context.Context) GetContainersContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainersContainerOutput)
+}
+
+// GetContainersContainerArrayInput is an input type that accepts GetContainersContainerArray and GetContainersContainerArrayOutput values.
+// You can construct a concrete instance of `GetContainersContainerArrayInput` via:
+//
+//	GetContainersContainerArray{ GetContainersContainerArgs{...} }
+type GetContainersContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetContainersContainerArrayOutput() GetContainersContainerArrayOutput
+	ToGetContainersContainerArrayOutputWithContext(context.Context) GetContainersContainerArrayOutput
+}
+
+type GetContainersContainerArray []GetContainersContainerInput
+
+func (GetContainersContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainersContainer)(nil)).Elem()
+}
+
+func (i GetContainersContainerArray) ToGetContainersContainerArrayOutput() GetContainersContainerArrayOutput {
+	return i.ToGetContainersContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetContainersContainerArray) ToGetContainersContainerArrayOutputWithContext(ctx context.Context) GetContainersContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetContainersContainerArrayOutput)
+}
+
+type GetContainersContainerOutput struct{ *pulumi.OutputState }
+
+func (GetContainersContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetContainersContainer)(nil)).Elem()
+}
+
+func (o GetContainersContainerOutput) ToGetContainersContainerOutput() GetContainersContainerOutput {
+	return o
+}
+
+func (o GetContainersContainerOutput) ToGetContainersContainerOutputWithContext(ctx context.Context) GetContainersContainerOutput {
+	return o
+}
+
+// The data plane ID of the Storage Container.
+func (o GetContainersContainerOutput) DataPlaneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainersContainer) string { return v.DataPlaneId }).(pulumi.StringOutput)
+}
+
+// The name of this Storage Container.
+func (o GetContainersContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainersContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource manager ID of the Storage Container.
+func (o GetContainersContainerOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainersContainer) string { return v.ResourceManagerId }).(pulumi.StringOutput)
+}
+
+type GetContainersContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetContainersContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetContainersContainer)(nil)).Elem()
+}
+
+func (o GetContainersContainerArrayOutput) ToGetContainersContainerArrayOutput() GetContainersContainerArrayOutput {
+	return o
+}
+
+func (o GetContainersContainerArrayOutput) ToGetContainersContainerArrayOutputWithContext(ctx context.Context) GetContainersContainerArrayOutput {
+	return o
+}
+
+func (o GetContainersContainerArrayOutput) Index(i pulumi.IntInput) GetContainersContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainersContainer {
+		return vs[0].([]GetContainersContainer)[vs[1].(int)]
+	}).(GetContainersContainerOutput)
+}
+
 type GetPolicyRule struct {
 	// An `actions` block as documented below.
 	Actions []GetPolicyRuleAction `pulumi:"actions"`
@@ -9482,6 +9597,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASPermissionsInput)(nil)).Elem(), GetAccountSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASResourceTypesInput)(nil)).Elem(), GetAccountSASResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountSASServicesInput)(nil)).Elem(), GetAccountSASServicesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainersContainerInput)(nil)).Elem(), GetContainersContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetContainersContainerArrayInput)(nil)).Elem(), GetContainersContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleInput)(nil)).Elem(), GetPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleArrayInput)(nil)).Elem(), GetPolicyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleActionInput)(nil)).Elem(), GetPolicyRuleActionArgs{})
@@ -9599,6 +9716,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountSASResourceTypesOutput{})
 	pulumi.RegisterOutputType(GetAccountSASServicesOutput{})
+	pulumi.RegisterOutputType(GetContainersContainerOutput{})
+	pulumi.RegisterOutputType(GetContainersContainerArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleActionOutput{})

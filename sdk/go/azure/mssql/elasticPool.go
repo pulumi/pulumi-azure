@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+// Allows you to manage an Azure SQL Elastic Pool.
 //
 // ## Example Usage
 //
@@ -83,6 +83,12 @@ import (
 type ElasticPool struct {
 	pulumi.CustomResourceState
 
+	// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+	//
+	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+	//
+	// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+	EnclaveType pulumi.StringPtrOutput `pulumi:"enclaveType"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -91,7 +97,7 @@ type ElasticPool struct {
 	MaintenanceConfigurationName pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationName"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	//
-	// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+	// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 	MaxSizeBytes pulumi.IntOutput `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64Output `pulumi:"maxSizeGb"`
@@ -153,6 +159,12 @@ func GetElasticPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElasticPool resources.
 type elasticPoolState struct {
+	// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+	//
+	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+	//
+	// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+	EnclaveType *string `pulumi:"enclaveType"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -161,7 +173,7 @@ type elasticPoolState struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	//
-	// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+	// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
@@ -182,6 +194,12 @@ type elasticPoolState struct {
 }
 
 type ElasticPoolState struct {
+	// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+	//
+	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+	//
+	// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+	EnclaveType pulumi.StringPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -190,7 +208,7 @@ type ElasticPoolState struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	//
-	// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+	// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 	MaxSizeBytes pulumi.IntPtrInput
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64PtrInput
@@ -215,6 +233,12 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
+	// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+	//
+	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+	//
+	// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+	EnclaveType *string `pulumi:"enclaveType"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -223,7 +247,7 @@ type elasticPoolArgs struct {
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	//
-	// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+	// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 	MaxSizeBytes *int `pulumi:"maxSizeBytes"`
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb *float64 `pulumi:"maxSizeGb"`
@@ -245,6 +269,12 @@ type elasticPoolArgs struct {
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
+	// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+	//
+	// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+	//
+	// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+	EnclaveType pulumi.StringPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -253,7 +283,7 @@ type ElasticPoolArgs struct {
 	MaintenanceConfigurationName pulumi.StringPtrInput
 	// The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 	//
-	// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+	// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 	MaxSizeBytes pulumi.IntPtrInput
 	// The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
 	MaxSizeGb pulumi.Float64PtrInput
@@ -360,6 +390,15 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+//
+// > **NOTE:** All databases that are added to the elastic pool must have the same `enclaveType` as the elastic pool.
+//
+// > **NOTE:** `enclaveType` is not supported for DC-series SKUs.
+func (o ElasticPoolOutput) EnclaveType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.EnclaveType }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 func (o ElasticPoolOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
@@ -377,7 +416,7 @@ func (o ElasticPoolOutput) MaintenanceConfigurationName() pulumi.StringPtrOutput
 
 // The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
 //
-// > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
+// > **NOTE:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
 func (o ElasticPoolOutput) MaxSizeBytes() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElasticPool) pulumi.IntOutput { return v.MaxSizeBytes }).(pulumi.IntOutput)
 }

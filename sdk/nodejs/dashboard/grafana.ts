@@ -120,7 +120,7 @@ export class Grafana extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface GrafanaState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface GrafanaArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      */
     sku?: pulumi.Input<string>;
     /**

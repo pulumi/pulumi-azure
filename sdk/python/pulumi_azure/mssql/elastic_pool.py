@@ -20,6 +20,7 @@ class ElasticPoolArgs:
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  sku: pulumi.Input['ElasticPoolSkuArgs'],
+                 enclave_type: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -34,12 +35,17 @@ class ElasticPoolArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticPoolSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+               
+               > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+               
+               > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
                
-               > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+               > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -49,6 +55,8 @@ class ElasticPoolArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "sku", sku)
+        if enclave_type is not None:
+            pulumi.set(__self__, "enclave_type", enclave_type)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -115,6 +123,22 @@ class ElasticPoolArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="enclaveType")
+    def enclave_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+
+        > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+
+        > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        """
+        return pulumi.get(self, "enclave_type")
+
+    @enclave_type.setter
+    def enclave_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enclave_type", value)
+
+    @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -156,7 +180,7 @@ class ElasticPoolArgs:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 
-        > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         """
         return pulumi.get(self, "max_size_bytes")
 
@@ -216,6 +240,7 @@ class ElasticPoolArgs:
 @pulumi.input_type
 class _ElasticPoolState:
     def __init__(__self__, *,
+                 enclave_type: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -230,12 +255,17 @@ class _ElasticPoolState:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering ElasticPool resources.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+               
+               > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+               
+               > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
                
-               > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+               > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticPoolPerDatabaseSettingsArgs'] per_database_settings: A `per_database_settings` block as defined below.
@@ -245,6 +275,8 @@ class _ElasticPoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         """
+        if enclave_type is not None:
+            pulumi.set(__self__, "enclave_type", enclave_type)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -269,6 +301,22 @@ class _ElasticPoolState:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="enclaveType")
+    def enclave_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+
+        > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+
+        > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        """
+        return pulumi.get(self, "enclave_type")
+
+    @enclave_type.setter
+    def enclave_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enclave_type", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -312,7 +360,7 @@ class _ElasticPoolState:
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 
-        > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         """
         return pulumi.get(self, "max_size_bytes")
 
@@ -422,6 +470,7 @@ class ElasticPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enclave_type: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -436,7 +485,7 @@ class ElasticPool(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+        Allows you to manage an Azure SQL Elastic Pool.
 
         ## Example Usage
 
@@ -479,12 +528,17 @@ class ElasticPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+               
+               > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+               
+               > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
                
-               > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+               > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
@@ -501,7 +555,7 @@ class ElasticPool(pulumi.CustomResource):
                  args: ElasticPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+        Allows you to manage an Azure SQL Elastic Pool.
 
         ## Example Usage
 
@@ -557,6 +611,7 @@ class ElasticPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enclave_type: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -578,6 +633,7 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
+            __props__.__dict__["enclave_type"] = enclave_type
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
@@ -608,6 +664,7 @@ class ElasticPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            enclave_type: Optional[pulumi.Input[str]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -627,12 +684,17 @@ class ElasticPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enclave_type: Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+               
+               > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+               
+               > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
                
-               > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+               > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
@@ -646,6 +708,7 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__ = _ElasticPoolState.__new__(_ElasticPoolState)
 
+        __props__.__dict__["enclave_type"] = enclave_type
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
@@ -659,6 +722,18 @@ class ElasticPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zone_redundant"] = zone_redundant
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="enclaveType")
+    def enclave_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+
+        > **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+
+        > **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        """
+        return pulumi.get(self, "enclave_type")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -690,7 +765,7 @@ class ElasticPool(pulumi.CustomResource):
         """
         The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 
-        > **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         """
         return pulumi.get(self, "max_size_bytes")
 

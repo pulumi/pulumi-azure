@@ -507,7 +507,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
         /// 
         /// &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         /// </summary>
@@ -519,6 +519,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("storageProfile")]
         public Output<Outputs.KubernetesClusterStorageProfile?> StorageProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        /// </summary>
+        [Output("supportPlan")]
+        public Output<string?> SupportPlan { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -997,7 +1003,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
         /// 
         /// &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         /// </summary>
@@ -1009,6 +1015,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("storageProfile")]
         public Input<Inputs.KubernetesClusterStorageProfileArgs>? StorageProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        /// </summary>
+        [Input("supportPlan")]
+        public Input<string>? SupportPlan { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -1548,7 +1560,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }
 
         /// <summary>
-        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
         /// 
         /// &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         /// </summary>
@@ -1560,6 +1572,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("storageProfile")]
         public Input<Inputs.KubernetesClusterStorageProfileGetArgs>? StorageProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        /// </summary>
+        [Input("supportPlan")]
+        public Input<string>? SupportPlan { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

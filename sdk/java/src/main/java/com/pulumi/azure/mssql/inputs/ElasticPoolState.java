@@ -22,6 +22,29 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     public static final ElasticPoolState Empty = new ElasticPoolState();
 
     /**
+     * Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * 
+     * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+     * 
+     */
+    @Import(name="enclaveType")
+    private @Nullable Output<String> enclaveType;
+
+    /**
+     * @return Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * 
+     * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+     * 
+     */
+    public Optional<Output<String>> enclaveType() {
+        return Optional.ofNullable(this.enclaveType);
+    }
+
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
@@ -69,7 +92,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     @Import(name="maxSizeBytes")
@@ -78,7 +101,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     public Optional<Output<Integer>> maxSizeBytes() {
@@ -208,6 +231,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     private ElasticPoolState() {}
 
     private ElasticPoolState(ElasticPoolState $) {
+        this.enclaveType = $.enclaveType;
         this.licenseType = $.licenseType;
         this.location = $.location;
         this.maintenanceConfigurationName = $.maintenanceConfigurationName;
@@ -238,6 +262,35 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ElasticPoolState defaults) {
             $ = new ElasticPoolState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enclaveType Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+         * 
+         * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+         * 
+         * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enclaveType(@Nullable Output<String> enclaveType) {
+            $.enclaveType = enclaveType;
+            return this;
+        }
+
+        /**
+         * @param enclaveType Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+         * 
+         * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+         * 
+         * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enclaveType(String enclaveType) {
+            return enclaveType(Output.of(enclaveType));
         }
 
         /**
@@ -306,7 +359,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxSizeBytes The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
          * 
-         * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+         * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
          * 
          * @return builder
          * 
@@ -319,7 +372,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param maxSizeBytes The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
          * 
-         * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+         * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
          * 
          * @return builder
          * 

@@ -82,6 +82,10 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+     */
+    public readonly dnsProxyEnabled!: pulumi.Output<boolean>;
+    /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
@@ -153,6 +157,7 @@ export class Firewall extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
+            resourceInputs["dnsProxyEnabled"] = state ? state.dnsProxyEnabled : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
             resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
@@ -178,6 +183,7 @@ export class Firewall extends pulumi.CustomResource {
             if ((!args || args.skuTier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuTier'");
             }
+            resourceInputs["dnsProxyEnabled"] = args ? args.dnsProxyEnabled : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
             resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
@@ -202,6 +208,10 @@ export class Firewall extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Firewall resources.
  */
 export interface FirewallState {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+     */
+    dnsProxyEnabled?: pulumi.Input<boolean>;
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
@@ -266,6 +276,10 @@ export interface FirewallState {
  * The set of arguments for constructing a Firewall resource.
  */
 export interface FirewallArgs {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
+     */
+    dnsProxyEnabled?: pulumi.Input<boolean>;
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */

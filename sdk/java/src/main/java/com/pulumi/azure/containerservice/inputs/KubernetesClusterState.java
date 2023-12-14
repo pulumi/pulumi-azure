@@ -1153,7 +1153,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      * 
      * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      * 
@@ -1162,7 +1162,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * @return The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      * 
      * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      * 
@@ -1184,6 +1184,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<KubernetesClusterStorageProfileArgs>> storageProfile() {
         return Optional.ofNullable(this.storageProfile);
+    }
+
+    /**
+     * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     * 
+     */
+    @Import(name="supportPlan")
+    private @Nullable Output<String> supportPlan;
+
+    /**
+     * @return Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     * 
+     */
+    public Optional<Output<String>> supportPlan() {
+        return Optional.ofNullable(this.supportPlan);
     }
 
     /**
@@ -1333,6 +1348,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.servicePrincipal = $.servicePrincipal;
         this.skuTier = $.skuTier;
         this.storageProfile = $.storageProfile;
+        this.supportPlan = $.supportPlan;
         this.tags = $.tags;
         this.webAppRouting = $.webAppRouting;
         this.windowsProfile = $.windowsProfile;
@@ -2862,7 +2878,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
          * 
          * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
          * 
@@ -2875,7 +2891,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+         * @param skuTier The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
          * 
          * &gt; **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
          * 
@@ -2905,6 +2921,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder storageProfile(KubernetesClusterStorageProfileArgs storageProfile) {
             return storageProfile(Output.of(storageProfile));
+        }
+
+        /**
+         * @param supportPlan Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportPlan(@Nullable Output<String> supportPlan) {
+            $.supportPlan = supportPlan;
+            return this;
+        }
+
+        /**
+         * @param supportPlan Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportPlan(String supportPlan) {
+            return supportPlan(Output.of(supportPlan));
         }
 
         /**

@@ -478,6 +478,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    @Import(name="primaryBlobInternetEndpoint")
+    private @Nullable Output<String> primaryBlobInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryBlobInternetEndpoint() {
+        return Optional.ofNullable(this.primaryBlobInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    @Import(name="primaryBlobInternetHost")
+    private @Nullable Output<String> primaryBlobInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryBlobInternetHost() {
+        return Optional.ofNullable(this.primaryBlobInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    @Import(name="primaryBlobMicrosoftEndpoint")
+    private @Nullable Output<String> primaryBlobMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryBlobMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryBlobMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    @Import(name="primaryBlobMicrosoftHost")
+    private @Nullable Output<String> primaryBlobMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryBlobMicrosoftHost() {
+        return Optional.ofNullable(this.primaryBlobMicrosoftHost);
+    }
+
+    /**
      * The connection string associated with the primary location.
      * 
      */
@@ -523,6 +583,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    @Import(name="primaryDfsInternetEndpoint")
+    private @Nullable Output<String> primaryDfsInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryDfsInternetEndpoint() {
+        return Optional.ofNullable(this.primaryDfsInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    @Import(name="primaryDfsInternetHost")
+    private @Nullable Output<String> primaryDfsInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryDfsInternetHost() {
+        return Optional.ofNullable(this.primaryDfsInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    @Import(name="primaryDfsMicrosoftEndpoint")
+    private @Nullable Output<String> primaryDfsMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryDfsMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryDfsMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    @Import(name="primaryDfsMicrosoftHost")
+    private @Nullable Output<String> primaryDfsMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryDfsMicrosoftHost() {
+        return Optional.ofNullable(this.primaryDfsMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for file storage in the primary location.
      * 
      */
@@ -550,6 +670,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> primaryFileHost() {
         return Optional.ofNullable(this.primaryFileHost);
+    }
+
+    /**
+     * The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    @Import(name="primaryFileInternetEndpoint")
+    private @Nullable Output<String> primaryFileInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryFileInternetEndpoint() {
+        return Optional.ofNullable(this.primaryFileInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    @Import(name="primaryFileInternetHost")
+    private @Nullable Output<String> primaryFileInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryFileInternetHost() {
+        return Optional.ofNullable(this.primaryFileInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    @Import(name="primaryFileMicrosoftEndpoint")
+    private @Nullable Output<String> primaryFileMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryFileMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryFileMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    @Import(name="primaryFileMicrosoftHost")
+    private @Nullable Output<String> primaryFileMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryFileMicrosoftHost() {
+        return Optional.ofNullable(this.primaryFileMicrosoftHost);
     }
 
     /**
@@ -598,6 +778,36 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    @Import(name="primaryQueueMicrosoftEndpoint")
+    private @Nullable Output<String> primaryQueueMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryQueueMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryQueueMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    @Import(name="primaryQueueMicrosoftHost")
+    private @Nullable Output<String> primaryQueueMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryQueueMicrosoftHost() {
+        return Optional.ofNullable(this.primaryQueueMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for table storage in the primary location.
      * 
      */
@@ -628,6 +838,36 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    @Import(name="primaryTableMicrosoftEndpoint")
+    private @Nullable Output<String> primaryTableMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryTableMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryTableMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    @Import(name="primaryTableMicrosoftHost")
+    private @Nullable Output<String> primaryTableMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryTableMicrosoftHost() {
+        return Optional.ofNullable(this.primaryTableMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for web storage in the primary location.
      * 
      */
@@ -655,6 +895,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> primaryWebHost() {
         return Optional.ofNullable(this.primaryWebHost);
+    }
+
+    /**
+     * The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    @Import(name="primaryWebInternetEndpoint")
+    private @Nullable Output<String> primaryWebInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryWebInternetEndpoint() {
+        return Optional.ofNullable(this.primaryWebInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    @Import(name="primaryWebInternetHost")
+    private @Nullable Output<String> primaryWebInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryWebInternetHost() {
+        return Optional.ofNullable(this.primaryWebInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    @Import(name="primaryWebMicrosoftEndpoint")
+    private @Nullable Output<String> primaryWebMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryWebMicrosoftEndpoint() {
+        return Optional.ofNullable(this.primaryWebMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    @Import(name="primaryWebMicrosoftHost")
+    private @Nullable Output<String> primaryWebMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public Optional<Output<String>> primaryWebMicrosoftHost() {
+        return Optional.ofNullable(this.primaryWebMicrosoftHost);
     }
 
     /**
@@ -812,6 +1112,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryBlobInternetEndpoint")
+    private @Nullable Output<String> secondaryBlobInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryBlobInternetEndpoint() {
+        return Optional.ofNullable(this.secondaryBlobInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryBlobInternetHost")
+    private @Nullable Output<String> secondaryBlobInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryBlobInternetHost() {
+        return Optional.ofNullable(this.secondaryBlobInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryBlobMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryBlobMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryBlobMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryBlobMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryBlobMicrosoftHost")
+    private @Nullable Output<String> secondaryBlobMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryBlobMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryBlobMicrosoftHost);
+    }
+
+    /**
      * The connection string associated with the secondary location.
      * 
      */
@@ -857,6 +1217,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryDfsInternetEndpoint")
+    private @Nullable Output<String> secondaryDfsInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryDfsInternetEndpoint() {
+        return Optional.ofNullable(this.secondaryDfsInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryDfsInternetHost")
+    private @Nullable Output<String> secondaryDfsInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryDfsInternetHost() {
+        return Optional.ofNullable(this.secondaryDfsInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryDfsMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryDfsMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryDfsMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryDfsMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryDfsMicrosoftHost")
+    private @Nullable Output<String> secondaryDfsMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryDfsMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryDfsMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for file storage in the secondary location.
      * 
      */
@@ -884,6 +1304,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> secondaryFileHost() {
         return Optional.ofNullable(this.secondaryFileHost);
+    }
+
+    /**
+     * The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryFileInternetEndpoint")
+    private @Nullable Output<String> secondaryFileInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryFileInternetEndpoint() {
+        return Optional.ofNullable(this.secondaryFileInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryFileInternetHost")
+    private @Nullable Output<String> secondaryFileInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryFileInternetHost() {
+        return Optional.ofNullable(this.secondaryFileInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryFileMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryFileMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryFileMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryFileMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryFileMicrosoftHost")
+    private @Nullable Output<String> secondaryFileMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryFileMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryFileMicrosoftHost);
     }
 
     /**
@@ -932,6 +1412,36 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryQueueMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryQueueMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryQueueMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryQueueMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryQueueMicrosoftHost")
+    private @Nullable Output<String> secondaryQueueMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryQueueMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryQueueMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for table storage in the secondary location.
      * 
      */
@@ -962,6 +1472,36 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryTableMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryTableMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryTableMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryTableMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryTableMicrosoftHost")
+    private @Nullable Output<String> secondaryTableMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryTableMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryTableMicrosoftHost);
+    }
+
+    /**
      * The endpoint URL for web storage in the secondary location.
      * 
      */
@@ -989,6 +1529,66 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> secondaryWebHost() {
         return Optional.ofNullable(this.secondaryWebHost);
+    }
+
+    /**
+     * The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryWebInternetEndpoint")
+    private @Nullable Output<String> secondaryWebInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryWebInternetEndpoint() {
+        return Optional.ofNullable(this.secondaryWebInternetEndpoint);
+    }
+
+    /**
+     * The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryWebInternetHost")
+    private @Nullable Output<String> secondaryWebInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryWebInternetHost() {
+        return Optional.ofNullable(this.secondaryWebInternetHost);
+    }
+
+    /**
+     * The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryWebMicrosoftEndpoint")
+    private @Nullable Output<String> secondaryWebMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryWebMicrosoftEndpoint() {
+        return Optional.ofNullable(this.secondaryWebMicrosoftEndpoint);
+    }
+
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    @Import(name="secondaryWebMicrosoftHost")
+    private @Nullable Output<String> secondaryWebMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public Optional<Output<String>> secondaryWebMicrosoftHost() {
+        return Optional.ofNullable(this.secondaryWebMicrosoftHost);
     }
 
     /**
@@ -1116,18 +1716,38 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.primaryBlobConnectionString = $.primaryBlobConnectionString;
         this.primaryBlobEndpoint = $.primaryBlobEndpoint;
         this.primaryBlobHost = $.primaryBlobHost;
+        this.primaryBlobInternetEndpoint = $.primaryBlobInternetEndpoint;
+        this.primaryBlobInternetHost = $.primaryBlobInternetHost;
+        this.primaryBlobMicrosoftEndpoint = $.primaryBlobMicrosoftEndpoint;
+        this.primaryBlobMicrosoftHost = $.primaryBlobMicrosoftHost;
         this.primaryConnectionString = $.primaryConnectionString;
         this.primaryDfsEndpoint = $.primaryDfsEndpoint;
         this.primaryDfsHost = $.primaryDfsHost;
+        this.primaryDfsInternetEndpoint = $.primaryDfsInternetEndpoint;
+        this.primaryDfsInternetHost = $.primaryDfsInternetHost;
+        this.primaryDfsMicrosoftEndpoint = $.primaryDfsMicrosoftEndpoint;
+        this.primaryDfsMicrosoftHost = $.primaryDfsMicrosoftHost;
         this.primaryFileEndpoint = $.primaryFileEndpoint;
         this.primaryFileHost = $.primaryFileHost;
+        this.primaryFileInternetEndpoint = $.primaryFileInternetEndpoint;
+        this.primaryFileInternetHost = $.primaryFileInternetHost;
+        this.primaryFileMicrosoftEndpoint = $.primaryFileMicrosoftEndpoint;
+        this.primaryFileMicrosoftHost = $.primaryFileMicrosoftHost;
         this.primaryLocation = $.primaryLocation;
         this.primaryQueueEndpoint = $.primaryQueueEndpoint;
         this.primaryQueueHost = $.primaryQueueHost;
+        this.primaryQueueMicrosoftEndpoint = $.primaryQueueMicrosoftEndpoint;
+        this.primaryQueueMicrosoftHost = $.primaryQueueMicrosoftHost;
         this.primaryTableEndpoint = $.primaryTableEndpoint;
         this.primaryTableHost = $.primaryTableHost;
+        this.primaryTableMicrosoftEndpoint = $.primaryTableMicrosoftEndpoint;
+        this.primaryTableMicrosoftHost = $.primaryTableMicrosoftHost;
         this.primaryWebEndpoint = $.primaryWebEndpoint;
         this.primaryWebHost = $.primaryWebHost;
+        this.primaryWebInternetEndpoint = $.primaryWebInternetEndpoint;
+        this.primaryWebInternetHost = $.primaryWebInternetHost;
+        this.primaryWebMicrosoftEndpoint = $.primaryWebMicrosoftEndpoint;
+        this.primaryWebMicrosoftHost = $.primaryWebMicrosoftHost;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
         this.queueProperties = $.queueProperties;
@@ -1138,18 +1758,38 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.secondaryBlobConnectionString = $.secondaryBlobConnectionString;
         this.secondaryBlobEndpoint = $.secondaryBlobEndpoint;
         this.secondaryBlobHost = $.secondaryBlobHost;
+        this.secondaryBlobInternetEndpoint = $.secondaryBlobInternetEndpoint;
+        this.secondaryBlobInternetHost = $.secondaryBlobInternetHost;
+        this.secondaryBlobMicrosoftEndpoint = $.secondaryBlobMicrosoftEndpoint;
+        this.secondaryBlobMicrosoftHost = $.secondaryBlobMicrosoftHost;
         this.secondaryConnectionString = $.secondaryConnectionString;
         this.secondaryDfsEndpoint = $.secondaryDfsEndpoint;
         this.secondaryDfsHost = $.secondaryDfsHost;
+        this.secondaryDfsInternetEndpoint = $.secondaryDfsInternetEndpoint;
+        this.secondaryDfsInternetHost = $.secondaryDfsInternetHost;
+        this.secondaryDfsMicrosoftEndpoint = $.secondaryDfsMicrosoftEndpoint;
+        this.secondaryDfsMicrosoftHost = $.secondaryDfsMicrosoftHost;
         this.secondaryFileEndpoint = $.secondaryFileEndpoint;
         this.secondaryFileHost = $.secondaryFileHost;
+        this.secondaryFileInternetEndpoint = $.secondaryFileInternetEndpoint;
+        this.secondaryFileInternetHost = $.secondaryFileInternetHost;
+        this.secondaryFileMicrosoftEndpoint = $.secondaryFileMicrosoftEndpoint;
+        this.secondaryFileMicrosoftHost = $.secondaryFileMicrosoftHost;
         this.secondaryLocation = $.secondaryLocation;
         this.secondaryQueueEndpoint = $.secondaryQueueEndpoint;
         this.secondaryQueueHost = $.secondaryQueueHost;
+        this.secondaryQueueMicrosoftEndpoint = $.secondaryQueueMicrosoftEndpoint;
+        this.secondaryQueueMicrosoftHost = $.secondaryQueueMicrosoftHost;
         this.secondaryTableEndpoint = $.secondaryTableEndpoint;
         this.secondaryTableHost = $.secondaryTableHost;
+        this.secondaryTableMicrosoftEndpoint = $.secondaryTableMicrosoftEndpoint;
+        this.secondaryTableMicrosoftHost = $.secondaryTableMicrosoftHost;
         this.secondaryWebEndpoint = $.secondaryWebEndpoint;
         this.secondaryWebHost = $.secondaryWebHost;
+        this.secondaryWebInternetEndpoint = $.secondaryWebInternetEndpoint;
+        this.secondaryWebInternetHost = $.secondaryWebInternetHost;
+        this.secondaryWebMicrosoftEndpoint = $.secondaryWebMicrosoftEndpoint;
+        this.secondaryWebMicrosoftHost = $.secondaryWebMicrosoftHost;
         this.sftpEnabled = $.sftpEnabled;
         this.shareProperties = $.shareProperties;
         this.sharedAccessKeyEnabled = $.sharedAccessKeyEnabled;
@@ -1793,6 +2433,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryBlobInternetEndpoint The internet routing endpoint URL for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobInternetEndpoint(@Nullable Output<String> primaryBlobInternetEndpoint) {
+            $.primaryBlobInternetEndpoint = primaryBlobInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryBlobInternetEndpoint The internet routing endpoint URL for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobInternetEndpoint(String primaryBlobInternetEndpoint) {
+            return primaryBlobInternetEndpoint(Output.of(primaryBlobInternetEndpoint));
+        }
+
+        /**
+         * @param primaryBlobInternetHost The internet routing hostname with port if applicable for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobInternetHost(@Nullable Output<String> primaryBlobInternetHost) {
+            $.primaryBlobInternetHost = primaryBlobInternetHost;
+            return this;
+        }
+
+        /**
+         * @param primaryBlobInternetHost The internet routing hostname with port if applicable for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobInternetHost(String primaryBlobInternetHost) {
+            return primaryBlobInternetHost(Output.of(primaryBlobInternetHost));
+        }
+
+        /**
+         * @param primaryBlobMicrosoftEndpoint The microsoft routing endpoint URL for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobMicrosoftEndpoint(@Nullable Output<String> primaryBlobMicrosoftEndpoint) {
+            $.primaryBlobMicrosoftEndpoint = primaryBlobMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryBlobMicrosoftEndpoint The microsoft routing endpoint URL for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobMicrosoftEndpoint(String primaryBlobMicrosoftEndpoint) {
+            return primaryBlobMicrosoftEndpoint(Output.of(primaryBlobMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryBlobMicrosoftHost The microsoft routing hostname with port if applicable for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobMicrosoftHost(@Nullable Output<String> primaryBlobMicrosoftHost) {
+            $.primaryBlobMicrosoftHost = primaryBlobMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryBlobMicrosoftHost The microsoft routing hostname with port if applicable for blob storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryBlobMicrosoftHost(String primaryBlobMicrosoftHost) {
+            return primaryBlobMicrosoftHost(Output.of(primaryBlobMicrosoftHost));
+        }
+
+        /**
          * @param primaryConnectionString The connection string associated with the primary location.
          * 
          * @return builder
@@ -1856,6 +2580,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryDfsInternetEndpoint The internet routing endpoint URL for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsInternetEndpoint(@Nullable Output<String> primaryDfsInternetEndpoint) {
+            $.primaryDfsInternetEndpoint = primaryDfsInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryDfsInternetEndpoint The internet routing endpoint URL for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsInternetEndpoint(String primaryDfsInternetEndpoint) {
+            return primaryDfsInternetEndpoint(Output.of(primaryDfsInternetEndpoint));
+        }
+
+        /**
+         * @param primaryDfsInternetHost The internet routing hostname with port if applicable for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsInternetHost(@Nullable Output<String> primaryDfsInternetHost) {
+            $.primaryDfsInternetHost = primaryDfsInternetHost;
+            return this;
+        }
+
+        /**
+         * @param primaryDfsInternetHost The internet routing hostname with port if applicable for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsInternetHost(String primaryDfsInternetHost) {
+            return primaryDfsInternetHost(Output.of(primaryDfsInternetHost));
+        }
+
+        /**
+         * @param primaryDfsMicrosoftEndpoint The microsoft routing endpoint URL for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsMicrosoftEndpoint(@Nullable Output<String> primaryDfsMicrosoftEndpoint) {
+            $.primaryDfsMicrosoftEndpoint = primaryDfsMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryDfsMicrosoftEndpoint The microsoft routing endpoint URL for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsMicrosoftEndpoint(String primaryDfsMicrosoftEndpoint) {
+            return primaryDfsMicrosoftEndpoint(Output.of(primaryDfsMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryDfsMicrosoftHost The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsMicrosoftHost(@Nullable Output<String> primaryDfsMicrosoftHost) {
+            $.primaryDfsMicrosoftHost = primaryDfsMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryDfsMicrosoftHost The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryDfsMicrosoftHost(String primaryDfsMicrosoftHost) {
+            return primaryDfsMicrosoftHost(Output.of(primaryDfsMicrosoftHost));
+        }
+
+        /**
          * @param primaryFileEndpoint The endpoint URL for file storage in the primary location.
          * 
          * @return builder
@@ -1895,6 +2703,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primaryFileHost(String primaryFileHost) {
             return primaryFileHost(Output.of(primaryFileHost));
+        }
+
+        /**
+         * @param primaryFileInternetEndpoint The internet routing endpoint URL for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileInternetEndpoint(@Nullable Output<String> primaryFileInternetEndpoint) {
+            $.primaryFileInternetEndpoint = primaryFileInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryFileInternetEndpoint The internet routing endpoint URL for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileInternetEndpoint(String primaryFileInternetEndpoint) {
+            return primaryFileInternetEndpoint(Output.of(primaryFileInternetEndpoint));
+        }
+
+        /**
+         * @param primaryFileInternetHost The internet routing hostname with port if applicable for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileInternetHost(@Nullable Output<String> primaryFileInternetHost) {
+            $.primaryFileInternetHost = primaryFileInternetHost;
+            return this;
+        }
+
+        /**
+         * @param primaryFileInternetHost The internet routing hostname with port if applicable for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileInternetHost(String primaryFileInternetHost) {
+            return primaryFileInternetHost(Output.of(primaryFileInternetHost));
+        }
+
+        /**
+         * @param primaryFileMicrosoftEndpoint The microsoft routing endpoint URL for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileMicrosoftEndpoint(@Nullable Output<String> primaryFileMicrosoftEndpoint) {
+            $.primaryFileMicrosoftEndpoint = primaryFileMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryFileMicrosoftEndpoint The microsoft routing endpoint URL for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileMicrosoftEndpoint(String primaryFileMicrosoftEndpoint) {
+            return primaryFileMicrosoftEndpoint(Output.of(primaryFileMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryFileMicrosoftHost The microsoft routing hostname with port if applicable for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileMicrosoftHost(@Nullable Output<String> primaryFileMicrosoftHost) {
+            $.primaryFileMicrosoftHost = primaryFileMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryFileMicrosoftHost The microsoft routing hostname with port if applicable for file storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryFileMicrosoftHost(String primaryFileMicrosoftHost) {
+            return primaryFileMicrosoftHost(Output.of(primaryFileMicrosoftHost));
         }
 
         /**
@@ -1961,6 +2853,48 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryQueueMicrosoftEndpoint The microsoft routing endpoint URL for queue storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryQueueMicrosoftEndpoint(@Nullable Output<String> primaryQueueMicrosoftEndpoint) {
+            $.primaryQueueMicrosoftEndpoint = primaryQueueMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryQueueMicrosoftEndpoint The microsoft routing endpoint URL for queue storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryQueueMicrosoftEndpoint(String primaryQueueMicrosoftEndpoint) {
+            return primaryQueueMicrosoftEndpoint(Output.of(primaryQueueMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryQueueMicrosoftHost The microsoft routing hostname with port if applicable for queue storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryQueueMicrosoftHost(@Nullable Output<String> primaryQueueMicrosoftHost) {
+            $.primaryQueueMicrosoftHost = primaryQueueMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryQueueMicrosoftHost The microsoft routing hostname with port if applicable for queue storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryQueueMicrosoftHost(String primaryQueueMicrosoftHost) {
+            return primaryQueueMicrosoftHost(Output.of(primaryQueueMicrosoftHost));
+        }
+
+        /**
          * @param primaryTableEndpoint The endpoint URL for table storage in the primary location.
          * 
          * @return builder
@@ -2003,6 +2937,48 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param primaryTableMicrosoftEndpoint The microsoft routing endpoint URL for table storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryTableMicrosoftEndpoint(@Nullable Output<String> primaryTableMicrosoftEndpoint) {
+            $.primaryTableMicrosoftEndpoint = primaryTableMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryTableMicrosoftEndpoint The microsoft routing endpoint URL for table storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryTableMicrosoftEndpoint(String primaryTableMicrosoftEndpoint) {
+            return primaryTableMicrosoftEndpoint(Output.of(primaryTableMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryTableMicrosoftHost The microsoft routing hostname with port if applicable for table storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryTableMicrosoftHost(@Nullable Output<String> primaryTableMicrosoftHost) {
+            $.primaryTableMicrosoftHost = primaryTableMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryTableMicrosoftHost The microsoft routing hostname with port if applicable for table storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryTableMicrosoftHost(String primaryTableMicrosoftHost) {
+            return primaryTableMicrosoftHost(Output.of(primaryTableMicrosoftHost));
+        }
+
+        /**
          * @param primaryWebEndpoint The endpoint URL for web storage in the primary location.
          * 
          * @return builder
@@ -2042,6 +3018,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primaryWebHost(String primaryWebHost) {
             return primaryWebHost(Output.of(primaryWebHost));
+        }
+
+        /**
+         * @param primaryWebInternetEndpoint The internet routing endpoint URL for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebInternetEndpoint(@Nullable Output<String> primaryWebInternetEndpoint) {
+            $.primaryWebInternetEndpoint = primaryWebInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryWebInternetEndpoint The internet routing endpoint URL for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebInternetEndpoint(String primaryWebInternetEndpoint) {
+            return primaryWebInternetEndpoint(Output.of(primaryWebInternetEndpoint));
+        }
+
+        /**
+         * @param primaryWebInternetHost The internet routing hostname with port if applicable for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebInternetHost(@Nullable Output<String> primaryWebInternetHost) {
+            $.primaryWebInternetHost = primaryWebInternetHost;
+            return this;
+        }
+
+        /**
+         * @param primaryWebInternetHost The internet routing hostname with port if applicable for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebInternetHost(String primaryWebInternetHost) {
+            return primaryWebInternetHost(Output.of(primaryWebInternetHost));
+        }
+
+        /**
+         * @param primaryWebMicrosoftEndpoint The microsoft routing endpoint URL for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebMicrosoftEndpoint(@Nullable Output<String> primaryWebMicrosoftEndpoint) {
+            $.primaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param primaryWebMicrosoftEndpoint The microsoft routing endpoint URL for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebMicrosoftEndpoint(String primaryWebMicrosoftEndpoint) {
+            return primaryWebMicrosoftEndpoint(Output.of(primaryWebMicrosoftEndpoint));
+        }
+
+        /**
+         * @param primaryWebMicrosoftHost The microsoft routing hostname with port if applicable for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebMicrosoftHost(@Nullable Output<String> primaryWebMicrosoftHost) {
+            $.primaryWebMicrosoftHost = primaryWebMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param primaryWebMicrosoftHost The microsoft routing hostname with port if applicable for web storage in the primary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryWebMicrosoftHost(String primaryWebMicrosoftHost) {
+            return primaryWebMicrosoftHost(Output.of(primaryWebMicrosoftHost));
         }
 
         /**
@@ -2259,6 +3319,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param secondaryBlobInternetEndpoint The internet routing endpoint URL for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobInternetEndpoint(@Nullable Output<String> secondaryBlobInternetEndpoint) {
+            $.secondaryBlobInternetEndpoint = secondaryBlobInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryBlobInternetEndpoint The internet routing endpoint URL for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobInternetEndpoint(String secondaryBlobInternetEndpoint) {
+            return secondaryBlobInternetEndpoint(Output.of(secondaryBlobInternetEndpoint));
+        }
+
+        /**
+         * @param secondaryBlobInternetHost The internet routing hostname with port if applicable for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobInternetHost(@Nullable Output<String> secondaryBlobInternetHost) {
+            $.secondaryBlobInternetHost = secondaryBlobInternetHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryBlobInternetHost The internet routing hostname with port if applicable for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobInternetHost(String secondaryBlobInternetHost) {
+            return secondaryBlobInternetHost(Output.of(secondaryBlobInternetHost));
+        }
+
+        /**
+         * @param secondaryBlobMicrosoftEndpoint The microsoft routing endpoint URL for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobMicrosoftEndpoint(@Nullable Output<String> secondaryBlobMicrosoftEndpoint) {
+            $.secondaryBlobMicrosoftEndpoint = secondaryBlobMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryBlobMicrosoftEndpoint The microsoft routing endpoint URL for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobMicrosoftEndpoint(String secondaryBlobMicrosoftEndpoint) {
+            return secondaryBlobMicrosoftEndpoint(Output.of(secondaryBlobMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryBlobMicrosoftHost The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobMicrosoftHost(@Nullable Output<String> secondaryBlobMicrosoftHost) {
+            $.secondaryBlobMicrosoftHost = secondaryBlobMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryBlobMicrosoftHost The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryBlobMicrosoftHost(String secondaryBlobMicrosoftHost) {
+            return secondaryBlobMicrosoftHost(Output.of(secondaryBlobMicrosoftHost));
+        }
+
+        /**
          * @param secondaryConnectionString The connection string associated with the secondary location.
          * 
          * @return builder
@@ -2322,6 +3466,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param secondaryDfsInternetEndpoint The internet routing endpoint URL for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsInternetEndpoint(@Nullable Output<String> secondaryDfsInternetEndpoint) {
+            $.secondaryDfsInternetEndpoint = secondaryDfsInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryDfsInternetEndpoint The internet routing endpoint URL for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsInternetEndpoint(String secondaryDfsInternetEndpoint) {
+            return secondaryDfsInternetEndpoint(Output.of(secondaryDfsInternetEndpoint));
+        }
+
+        /**
+         * @param secondaryDfsInternetHost The internet routing hostname with port if applicable for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsInternetHost(@Nullable Output<String> secondaryDfsInternetHost) {
+            $.secondaryDfsInternetHost = secondaryDfsInternetHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryDfsInternetHost The internet routing hostname with port if applicable for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsInternetHost(String secondaryDfsInternetHost) {
+            return secondaryDfsInternetHost(Output.of(secondaryDfsInternetHost));
+        }
+
+        /**
+         * @param secondaryDfsMicrosoftEndpoint The microsoft routing endpoint URL for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsMicrosoftEndpoint(@Nullable Output<String> secondaryDfsMicrosoftEndpoint) {
+            $.secondaryDfsMicrosoftEndpoint = secondaryDfsMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryDfsMicrosoftEndpoint The microsoft routing endpoint URL for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsMicrosoftEndpoint(String secondaryDfsMicrosoftEndpoint) {
+            return secondaryDfsMicrosoftEndpoint(Output.of(secondaryDfsMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryDfsMicrosoftHost The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsMicrosoftHost(@Nullable Output<String> secondaryDfsMicrosoftHost) {
+            $.secondaryDfsMicrosoftHost = secondaryDfsMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryDfsMicrosoftHost The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryDfsMicrosoftHost(String secondaryDfsMicrosoftHost) {
+            return secondaryDfsMicrosoftHost(Output.of(secondaryDfsMicrosoftHost));
+        }
+
+        /**
          * @param secondaryFileEndpoint The endpoint URL for file storage in the secondary location.
          * 
          * @return builder
@@ -2361,6 +3589,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaryFileHost(String secondaryFileHost) {
             return secondaryFileHost(Output.of(secondaryFileHost));
+        }
+
+        /**
+         * @param secondaryFileInternetEndpoint The internet routing endpoint URL for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileInternetEndpoint(@Nullable Output<String> secondaryFileInternetEndpoint) {
+            $.secondaryFileInternetEndpoint = secondaryFileInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryFileInternetEndpoint The internet routing endpoint URL for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileInternetEndpoint(String secondaryFileInternetEndpoint) {
+            return secondaryFileInternetEndpoint(Output.of(secondaryFileInternetEndpoint));
+        }
+
+        /**
+         * @param secondaryFileInternetHost The internet routing hostname with port if applicable for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileInternetHost(@Nullable Output<String> secondaryFileInternetHost) {
+            $.secondaryFileInternetHost = secondaryFileInternetHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryFileInternetHost The internet routing hostname with port if applicable for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileInternetHost(String secondaryFileInternetHost) {
+            return secondaryFileInternetHost(Output.of(secondaryFileInternetHost));
+        }
+
+        /**
+         * @param secondaryFileMicrosoftEndpoint The microsoft routing endpoint URL for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileMicrosoftEndpoint(@Nullable Output<String> secondaryFileMicrosoftEndpoint) {
+            $.secondaryFileMicrosoftEndpoint = secondaryFileMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryFileMicrosoftEndpoint The microsoft routing endpoint URL for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileMicrosoftEndpoint(String secondaryFileMicrosoftEndpoint) {
+            return secondaryFileMicrosoftEndpoint(Output.of(secondaryFileMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryFileMicrosoftHost The microsoft routing hostname with port if applicable for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileMicrosoftHost(@Nullable Output<String> secondaryFileMicrosoftHost) {
+            $.secondaryFileMicrosoftHost = secondaryFileMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryFileMicrosoftHost The microsoft routing hostname with port if applicable for file storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryFileMicrosoftHost(String secondaryFileMicrosoftHost) {
+            return secondaryFileMicrosoftHost(Output.of(secondaryFileMicrosoftHost));
         }
 
         /**
@@ -2427,6 +3739,48 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param secondaryQueueMicrosoftEndpoint The microsoft routing endpoint URL for queue storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryQueueMicrosoftEndpoint(@Nullable Output<String> secondaryQueueMicrosoftEndpoint) {
+            $.secondaryQueueMicrosoftEndpoint = secondaryQueueMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryQueueMicrosoftEndpoint The microsoft routing endpoint URL for queue storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryQueueMicrosoftEndpoint(String secondaryQueueMicrosoftEndpoint) {
+            return secondaryQueueMicrosoftEndpoint(Output.of(secondaryQueueMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryQueueMicrosoftHost The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryQueueMicrosoftHost(@Nullable Output<String> secondaryQueueMicrosoftHost) {
+            $.secondaryQueueMicrosoftHost = secondaryQueueMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryQueueMicrosoftHost The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryQueueMicrosoftHost(String secondaryQueueMicrosoftHost) {
+            return secondaryQueueMicrosoftHost(Output.of(secondaryQueueMicrosoftHost));
+        }
+
+        /**
          * @param secondaryTableEndpoint The endpoint URL for table storage in the secondary location.
          * 
          * @return builder
@@ -2469,6 +3823,48 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param secondaryTableMicrosoftEndpoint The microsoft routing endpoint URL for table storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryTableMicrosoftEndpoint(@Nullable Output<String> secondaryTableMicrosoftEndpoint) {
+            $.secondaryTableMicrosoftEndpoint = secondaryTableMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryTableMicrosoftEndpoint The microsoft routing endpoint URL for table storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryTableMicrosoftEndpoint(String secondaryTableMicrosoftEndpoint) {
+            return secondaryTableMicrosoftEndpoint(Output.of(secondaryTableMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryTableMicrosoftHost The microsoft routing hostname with port if applicable for table storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryTableMicrosoftHost(@Nullable Output<String> secondaryTableMicrosoftHost) {
+            $.secondaryTableMicrosoftHost = secondaryTableMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryTableMicrosoftHost The microsoft routing hostname with port if applicable for table storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryTableMicrosoftHost(String secondaryTableMicrosoftHost) {
+            return secondaryTableMicrosoftHost(Output.of(secondaryTableMicrosoftHost));
+        }
+
+        /**
          * @param secondaryWebEndpoint The endpoint URL for web storage in the secondary location.
          * 
          * @return builder
@@ -2508,6 +3904,90 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder secondaryWebHost(String secondaryWebHost) {
             return secondaryWebHost(Output.of(secondaryWebHost));
+        }
+
+        /**
+         * @param secondaryWebInternetEndpoint The internet routing endpoint URL for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebInternetEndpoint(@Nullable Output<String> secondaryWebInternetEndpoint) {
+            $.secondaryWebInternetEndpoint = secondaryWebInternetEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryWebInternetEndpoint The internet routing endpoint URL for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebInternetEndpoint(String secondaryWebInternetEndpoint) {
+            return secondaryWebInternetEndpoint(Output.of(secondaryWebInternetEndpoint));
+        }
+
+        /**
+         * @param secondaryWebInternetHost The internet routing hostname with port if applicable for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebInternetHost(@Nullable Output<String> secondaryWebInternetHost) {
+            $.secondaryWebInternetHost = secondaryWebInternetHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryWebInternetHost The internet routing hostname with port if applicable for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebInternetHost(String secondaryWebInternetHost) {
+            return secondaryWebInternetHost(Output.of(secondaryWebInternetHost));
+        }
+
+        /**
+         * @param secondaryWebMicrosoftEndpoint The microsoft routing endpoint URL for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebMicrosoftEndpoint(@Nullable Output<String> secondaryWebMicrosoftEndpoint) {
+            $.secondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
+            return this;
+        }
+
+        /**
+         * @param secondaryWebMicrosoftEndpoint The microsoft routing endpoint URL for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebMicrosoftEndpoint(String secondaryWebMicrosoftEndpoint) {
+            return secondaryWebMicrosoftEndpoint(Output.of(secondaryWebMicrosoftEndpoint));
+        }
+
+        /**
+         * @param secondaryWebMicrosoftHost The microsoft routing hostname with port if applicable for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebMicrosoftHost(@Nullable Output<String> secondaryWebMicrosoftHost) {
+            $.secondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
+            return this;
+        }
+
+        /**
+         * @param secondaryWebMicrosoftHost The microsoft routing hostname with port if applicable for web storage in the secondary location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryWebMicrosoftHost(String secondaryWebMicrosoftHost) {
+            return secondaryWebMicrosoftHost(Output.of(secondaryWebMicrosoftHost));
         }
 
         /**

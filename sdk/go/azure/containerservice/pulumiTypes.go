@@ -17700,12 +17700,12 @@ type RegistryNetworkRuleSet struct {
 	// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
-	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
-	// One or more `virtualNetwork` blocks as defined below.
 	//
 	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
+	// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
 	VirtualNetworks []RegistryNetworkRuleSetVirtualNetwork `pulumi:"virtualNetworks"`
 }
 
@@ -17724,12 +17724,12 @@ type RegistryNetworkRuleSetArgs struct {
 	// The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
-	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
-	// One or more `virtualNetwork` blocks as defined below.
 	//
 	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
 	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
+	// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
 	VirtualNetworks RegistryNetworkRuleSetVirtualNetworkArrayInput `pulumi:"virtualNetworks"`
 }
 
@@ -17816,15 +17816,15 @@ func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 }
 
 // One or more `ipRule` blocks as defined below.
-func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
-	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
-}
-
-// One or more `virtualNetwork` blocks as defined below.
 //
 // > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
 // > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
+	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
+}
+
+// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
 func (o RegistryNetworkRuleSetOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork { return v.VirtualNetworks }).(RegistryNetworkRuleSetVirtualNetworkArrayOutput)
 }
@@ -17864,6 +17864,10 @@ func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput 
 }
 
 // One or more `ipRule` blocks as defined below.
+//
+// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+//
+// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule {
 		if v == nil {
@@ -17873,11 +17877,7 @@ func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleA
 	}).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
 
-// One or more `virtualNetwork` blocks as defined below.
-//
-// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
-//
-// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// Deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
 func (o RegistryNetworkRuleSetPtrOutput) VirtualNetworks() RegistryNetworkRuleSetVirtualNetworkArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetVirtualNetwork {
 		if v == nil {
@@ -17995,8 +17995,7 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) Regist
 
 type RegistryNetworkRuleSetVirtualNetwork struct {
 	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-	Action string `pulumi:"action"`
-	// The subnet id from which requests will match the rule.
+	Action   string `pulumi:"action"`
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -18013,8 +18012,7 @@ type RegistryNetworkRuleSetVirtualNetworkInput interface {
 
 type RegistryNetworkRuleSetVirtualNetworkArgs struct {
 	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-	Action pulumi.StringInput `pulumi:"action"`
-	// The subnet id from which requests will match the rule.
+	Action   pulumi.StringInput `pulumi:"action"`
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -18074,7 +18072,6 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput
 	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// The subnet id from which requests will match the rule.
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.SubnetId }).(pulumi.StringOutput)
 }

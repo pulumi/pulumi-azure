@@ -70,6 +70,11 @@ export const getBlob: typeof import("./getBlob").getBlob = null as any;
 export const getBlobOutput: typeof import("./getBlob").getBlobOutput = null as any;
 utilities.lazyLoad(exports, ["getBlob","getBlobOutput"], () => require("./getBlob"));
 
+export { GetContainersArgs, GetContainersResult, GetContainersOutputArgs } from "./getContainers";
+export const getContainers: typeof import("./getContainers").getContainers = null as any;
+export const getContainersOutput: typeof import("./getContainers").getContainersOutput = null as any;
+utilities.lazyLoad(exports, ["getContainers","getContainersOutput"], () => require("./getContainers"));
+
 export { GetEncryptionScopeArgs, GetEncryptionScopeResult, GetEncryptionScopeOutputArgs } from "./getEncryptionScope";
 export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryptionScope = null as any;
 export const getEncryptionScopeOutput: typeof import("./getEncryptionScope").getEncryptionScopeOutput = null as any;

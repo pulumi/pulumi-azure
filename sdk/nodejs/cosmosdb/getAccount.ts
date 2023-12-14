@@ -53,6 +53,10 @@ export interface GetAccountResult {
      * Capabilities enabled on this Cosmos DB account.
      */
     readonly capabilities: outputs.cosmosdb.GetAccountCapability[];
+    /**
+     * A list of connection strings available for this CosmosDB account.
+     */
+    readonly connectionStrings: string[];
     readonly consistencyPolicies: outputs.cosmosdb.GetAccountConsistencyPolicy[];
     /**
      * If automatic failover is enabled for this CosmosDB Account.
@@ -105,9 +109,25 @@ export interface GetAccountResult {
      */
     readonly primaryKey: string;
     /**
+     * The primary Mongodb connection string for the CosmosDB account.
+     */
+    readonly primaryMongodbConnectionString: string;
+    /**
      * The primary read-only Key for the CosmosDB account.
      */
     readonly primaryReadonlyKey: string;
+    /**
+     * The primary readonly Mongodb connection string for the CosmosDB account.
+     */
+    readonly primaryReadonlyMongodbConnectionString: string;
+    /**
+     * The primary read-only SQL connection string for the CosmosDB account.
+     */
+    readonly primaryReadonlySqlConnectionString: string;
+    /**
+     * The primary SQL connection string for the CosmosDB Account.
+     */
+    readonly primarySqlConnectionString: string;
     /**
      * A list of read endpoints available for this CosmosDB account.
      */
@@ -118,9 +138,25 @@ export interface GetAccountResult {
      */
     readonly secondaryKey: string;
     /**
+     * The secondary Mongodb connection string for the CosmosDB account.
+     */
+    readonly secondaryMongodbConnectionString: string;
+    /**
      * The secondary read-only key for the CosmosDB account.
      */
     readonly secondaryReadonlyKey: string;
+    /**
+     * The secondary readonly Mongodb connection string for the CosmosDB account.
+     */
+    readonly secondaryReadonlyMongodbConnectionString: string;
+    /**
+     * The secondary read-only SQL connection string for the CosmosDB account.
+     */
+    readonly secondaryReadonlySqlConnectionString: string;
+    /**
+     * The secondary SQL connection string for the CosmosDB Account.
+     */
+    readonly secondarySqlConnectionString: string;
     /**
      * A mapping of tags assigned to the resource.
      */

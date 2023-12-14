@@ -4015,6 +4015,124 @@ func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) Envi
 	}).(EnvironmentDaprComponentSecretOutput)
 }
 
+type EnvironmentWorkloadProfile struct {
+	MaximumCount int `pulumi:"maximumCount"`
+	MinimumCount int `pulumi:"minimumCount"`
+	// The name of the workload profile.
+	Name string `pulumi:"name"`
+	// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	WorkloadProfileType string `pulumi:"workloadProfileType"`
+}
+
+// EnvironmentWorkloadProfileInput is an input type that accepts EnvironmentWorkloadProfileArgs and EnvironmentWorkloadProfileOutput values.
+// You can construct a concrete instance of `EnvironmentWorkloadProfileInput` via:
+//
+//	EnvironmentWorkloadProfileArgs{...}
+type EnvironmentWorkloadProfileInput interface {
+	pulumi.Input
+
+	ToEnvironmentWorkloadProfileOutput() EnvironmentWorkloadProfileOutput
+	ToEnvironmentWorkloadProfileOutputWithContext(context.Context) EnvironmentWorkloadProfileOutput
+}
+
+type EnvironmentWorkloadProfileArgs struct {
+	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
+	// The name of the workload profile.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+	WorkloadProfileType pulumi.StringInput `pulumi:"workloadProfileType"`
+}
+
+func (EnvironmentWorkloadProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentWorkloadProfile)(nil)).Elem()
+}
+
+func (i EnvironmentWorkloadProfileArgs) ToEnvironmentWorkloadProfileOutput() EnvironmentWorkloadProfileOutput {
+	return i.ToEnvironmentWorkloadProfileOutputWithContext(context.Background())
+}
+
+func (i EnvironmentWorkloadProfileArgs) ToEnvironmentWorkloadProfileOutputWithContext(ctx context.Context) EnvironmentWorkloadProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentWorkloadProfileOutput)
+}
+
+// EnvironmentWorkloadProfileArrayInput is an input type that accepts EnvironmentWorkloadProfileArray and EnvironmentWorkloadProfileArrayOutput values.
+// You can construct a concrete instance of `EnvironmentWorkloadProfileArrayInput` via:
+//
+//	EnvironmentWorkloadProfileArray{ EnvironmentWorkloadProfileArgs{...} }
+type EnvironmentWorkloadProfileArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentWorkloadProfileArrayOutput() EnvironmentWorkloadProfileArrayOutput
+	ToEnvironmentWorkloadProfileArrayOutputWithContext(context.Context) EnvironmentWorkloadProfileArrayOutput
+}
+
+type EnvironmentWorkloadProfileArray []EnvironmentWorkloadProfileInput
+
+func (EnvironmentWorkloadProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentWorkloadProfile)(nil)).Elem()
+}
+
+func (i EnvironmentWorkloadProfileArray) ToEnvironmentWorkloadProfileArrayOutput() EnvironmentWorkloadProfileArrayOutput {
+	return i.ToEnvironmentWorkloadProfileArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentWorkloadProfileArray) ToEnvironmentWorkloadProfileArrayOutputWithContext(ctx context.Context) EnvironmentWorkloadProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentWorkloadProfileArrayOutput)
+}
+
+type EnvironmentWorkloadProfileOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentWorkloadProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentWorkloadProfile)(nil)).Elem()
+}
+
+func (o EnvironmentWorkloadProfileOutput) ToEnvironmentWorkloadProfileOutput() EnvironmentWorkloadProfileOutput {
+	return o
+}
+
+func (o EnvironmentWorkloadProfileOutput) ToEnvironmentWorkloadProfileOutputWithContext(ctx context.Context) EnvironmentWorkloadProfileOutput {
+	return o
+}
+
+func (o EnvironmentWorkloadProfileOutput) MaximumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MaximumCount }).(pulumi.IntOutput)
+}
+
+func (o EnvironmentWorkloadProfileOutput) MinimumCount() pulumi.IntOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MinimumCount }).(pulumi.IntOutput)
+}
+
+// The name of the workload profile.
+func (o EnvironmentWorkloadProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+func (o EnvironmentWorkloadProfileOutput) WorkloadProfileType() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentWorkloadProfile) string { return v.WorkloadProfileType }).(pulumi.StringOutput)
+}
+
+type EnvironmentWorkloadProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentWorkloadProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentWorkloadProfile)(nil)).Elem()
+}
+
+func (o EnvironmentWorkloadProfileArrayOutput) ToEnvironmentWorkloadProfileArrayOutput() EnvironmentWorkloadProfileArrayOutput {
+	return o
+}
+
+func (o EnvironmentWorkloadProfileArrayOutput) ToEnvironmentWorkloadProfileArrayOutputWithContext(ctx context.Context) EnvironmentWorkloadProfileArrayOutput {
+	return o
+}
+
+func (o EnvironmentWorkloadProfileArrayOutput) Index(i pulumi.IntInput) EnvironmentWorkloadProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentWorkloadProfile {
+		return vs[0].([]EnvironmentWorkloadProfile)[vs[1].(int)]
+	}).(EnvironmentWorkloadProfileOutput)
+}
+
 type GetAppDapr struct {
 	// The Dapr Application Identifier.
 	AppId string `pulumi:"appId"`
@@ -7328,6 +7446,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentMetadataArrayInput)(nil)).Elem(), EnvironmentDaprComponentMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretInput)(nil)).Elem(), EnvironmentDaprComponentSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDaprComponentSecretArrayInput)(nil)).Elem(), EnvironmentDaprComponentSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileInput)(nil)).Elem(), EnvironmentWorkloadProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWorkloadProfileArrayInput)(nil)).Elem(), EnvironmentWorkloadProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprInput)(nil)).Elem(), GetAppDaprArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppDaprArrayInput)(nil)).Elem(), GetAppDaprArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIdentityInput)(nil)).Elem(), GetAppIdentityArgs{})
@@ -7436,6 +7556,8 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentDaprComponentMetadataArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretOutput{})
 	pulumi.RegisterOutputType(EnvironmentDaprComponentSecretArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentWorkloadProfileOutput{})
+	pulumi.RegisterOutputType(EnvironmentWorkloadProfileArrayOutput{})
 	pulumi.RegisterOutputType(GetAppDaprOutput{})
 	pulumi.RegisterOutputType(GetAppDaprArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIdentityOutput{})

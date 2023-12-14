@@ -19,6 +19,7 @@ class FirewallArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  sku_tier: pulumi.Input[str],
+                 dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
@@ -35,6 +36,7 @@ class FirewallArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
+        :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as documented below.
@@ -52,6 +54,8 @@ class FirewallArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
         pulumi.set(__self__, "sku_tier", sku_tier)
+        if dns_proxy_enabled is not None:
+            pulumi.set(__self__, "dns_proxy_enabled", dns_proxy_enabled)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if firewall_policy_id is not None:
@@ -110,6 +114,18 @@ class FirewallArgs:
     @sku_tier.setter
     def sku_tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "sku_tier", value)
+
+    @property
+    @pulumi.getter(name="dnsProxyEnabled")
+    def dns_proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        """
+        return pulumi.get(self, "dns_proxy_enabled")
+
+    @dns_proxy_enabled.setter
+    def dns_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dns_proxy_enabled", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -249,6 +265,7 @@ class FirewallArgs:
 @pulumi.input_type
 class _FirewallState:
     def __init__(__self__, *,
+                 dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
@@ -265,6 +282,7 @@ class _FirewallState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Firewall resources.
+        :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as documented below.
@@ -282,6 +300,8 @@ class _FirewallState:
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
+        if dns_proxy_enabled is not None:
+            pulumi.set(__self__, "dns_proxy_enabled", dns_proxy_enabled)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if firewall_policy_id is not None:
@@ -310,6 +330,18 @@ class _FirewallState:
             pulumi.set(__self__, "virtual_hub", virtual_hub)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="dnsProxyEnabled")
+    def dns_proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        """
+        return pulumi.get(self, "dns_proxy_enabled")
+
+    @dns_proxy_enabled.setter
+    def dns_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dns_proxy_enabled", value)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -487,6 +519,7 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
@@ -547,6 +580,7 @@ class Firewall(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
@@ -628,6 +662,7 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
@@ -651,6 +686,7 @@ class Firewall(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallArgs.__new__(FirewallArgs)
 
+            __props__.__dict__["dns_proxy_enabled"] = dns_proxy_enabled
             __props__.__dict__["dns_servers"] = dns_servers
             __props__.__dict__["firewall_policy_id"] = firewall_policy_id
             __props__.__dict__["ip_configurations"] = ip_configurations
@@ -681,6 +717,7 @@ class Firewall(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            dns_proxy_enabled: Optional[pulumi.Input[bool]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             firewall_policy_id: Optional[pulumi.Input[str]] = None,
             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]]] = None,
@@ -702,6 +739,7 @@ class Firewall(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] dns_proxy_enabled: Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallIpConfigurationArgs']]]] ip_configurations: An `ip_configuration` block as documented below.
@@ -723,6 +761,7 @@ class Firewall(pulumi.CustomResource):
 
         __props__ = _FirewallState.__new__(_FirewallState)
 
+        __props__.__dict__["dns_proxy_enabled"] = dns_proxy_enabled
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["firewall_policy_id"] = firewall_policy_id
         __props__.__dict__["ip_configurations"] = ip_configurations
@@ -738,6 +777,14 @@ class Firewall(pulumi.CustomResource):
         __props__.__dict__["virtual_hub"] = virtual_hub
         __props__.__dict__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dnsProxyEnabled")
+    def dns_proxy_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        """
+        return pulumi.get(self, "dns_proxy_enabled")
 
     @property
     @pulumi.getter(name="dnsServers")

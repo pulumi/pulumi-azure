@@ -31,6 +31,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AddressSpaces;
         /// <summary>
+        /// An `ipsec_policy` block as defined below.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy? IpsecPolicy;
+        /// <summary>
         /// The address of the Radius server.
         /// </summary>
         public readonly string? RadiusServerAddress;
@@ -39,6 +43,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? RadiusServerSecret;
         /// <summary>
+        /// One or more `radius_server` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer> RadiusServers;
+        /// <summary>
         /// One or more `revoked_certificate` blocks which are defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> RevokedCertificates;
@@ -46,6 +54,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> RootCertificates;
+        /// <summary>
+        /// One or more `virtual_network_gateway_client_connection` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> VirtualNetworkGatewayClientConnections;
         /// <summary>
         /// List of the vpn authentication types for the virtual network gateway.
         /// The supported values are `AAD`, `Radius` and `Certificate`.
@@ -71,13 +83,19 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> addressSpaces,
 
+            Outputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy? ipsecPolicy,
+
             string? radiusServerAddress,
 
             string? radiusServerSecret,
 
+            ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers,
+
             ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates,
 
             ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates,
+
+            ImmutableArray<Outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections,
 
             ImmutableArray<string> vpnAuthTypes,
 
@@ -87,10 +105,13 @@ namespace Pulumi.Azure.Network.Outputs
             AadIssuer = aadIssuer;
             AadTenant = aadTenant;
             AddressSpaces = addressSpaces;
+            IpsecPolicy = ipsecPolicy;
             RadiusServerAddress = radiusServerAddress;
             RadiusServerSecret = radiusServerSecret;
+            RadiusServers = radiusServers;
             RevokedCertificates = revokedCertificates;
             RootCertificates = rootCertificates;
+            VirtualNetworkGatewayClientConnections = virtualNetworkGatewayClientConnections;
             VpnAuthTypes = vpnAuthTypes;
             VpnClientProtocols = vpnClientProtocols;
         }

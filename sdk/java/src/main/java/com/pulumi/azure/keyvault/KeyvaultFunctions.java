@@ -22,6 +22,8 @@ import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
 import com.pulumi.azure.keyvault.inputs.GetKeyVaultPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleArgs;
 import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModulePlainArgs;
+import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetSecretArgs;
 import com.pulumi.azure.keyvault.inputs.GetSecretPlainArgs;
 import com.pulumi.azure.keyvault.inputs.GetSecretsArgs;
@@ -35,6 +37,7 @@ import com.pulumi.azure.keyvault.outputs.GetEncryptedValueResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyResult;
 import com.pulumi.azure.keyvault.outputs.GetKeyVaultResult;
 import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleResult;
+import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleRoleDefinitionResult;
 import com.pulumi.azure.keyvault.outputs.GetSecretResult;
 import com.pulumi.azure.keyvault.outputs.GetSecretsResult;
 import com.pulumi.core.Output;
@@ -1267,6 +1270,170 @@ public final class KeyvaultFunctions {
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing KeyVault Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .scope(&#34;/&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args) {
+        return getManagedHardwareSecurityModuleRoleDefinition(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing KeyVault Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .scope(&#34;/&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinitionPlain(GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs args) {
+        return getManagedHardwareSecurityModuleRoleDefinitionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing KeyVault Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .scope(&#34;/&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing KeyVault Role Definition.
+     * 
+     * ## Example Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+     * import com.pulumi.azure.keyvault.inputs.GetManagedHardwareSecurityModuleRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
+     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
+     *             .scope(&#34;/&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -&gt; getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetManagedHardwareSecurityModuleRoleDefinitionResult> getManagedHardwareSecurityModuleRoleDefinitionPlain(GetManagedHardwareSecurityModuleRoleDefinitionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Key Vault Secret.

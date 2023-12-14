@@ -207,30 +207,70 @@ type Account struct {
 	PrimaryBlobEndpoint pulumi.StringOutput `pulumi:"primaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the primary location.
 	PrimaryBlobHost pulumi.StringOutput `pulumi:"primaryBlobHost"`
+	// The internet routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobInternetEndpoint pulumi.StringOutput `pulumi:"primaryBlobInternetEndpoint"`
+	// The internet routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobInternetHost pulumi.StringOutput `pulumi:"primaryBlobInternetHost"`
+	// The microsoft routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryBlobMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobMicrosoftHost pulumi.StringOutput `pulumi:"primaryBlobMicrosoftHost"`
 	// The connection string associated with the primary location.
 	PrimaryConnectionString pulumi.StringOutput `pulumi:"primaryConnectionString"`
 	// The endpoint URL for DFS storage in the primary location.
 	PrimaryDfsEndpoint pulumi.StringOutput `pulumi:"primaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the primary location.
 	PrimaryDfsHost pulumi.StringOutput `pulumi:"primaryDfsHost"`
+	// The internet routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsInternetEndpoint pulumi.StringOutput `pulumi:"primaryDfsInternetEndpoint"`
+	// The internet routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsInternetHost pulumi.StringOutput `pulumi:"primaryDfsInternetHost"`
+	// The microsoft routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryDfsMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsMicrosoftHost pulumi.StringOutput `pulumi:"primaryDfsMicrosoftHost"`
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint pulumi.StringOutput `pulumi:"primaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the primary location.
 	PrimaryFileHost pulumi.StringOutput `pulumi:"primaryFileHost"`
+	// The internet routing endpoint URL for file storage in the primary location.
+	PrimaryFileInternetEndpoint pulumi.StringOutput `pulumi:"primaryFileInternetEndpoint"`
+	// The internet routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileInternetHost pulumi.StringOutput `pulumi:"primaryFileInternetHost"`
+	// The microsoft routing endpoint URL for file storage in the primary location.
+	PrimaryFileMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryFileMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileMicrosoftHost pulumi.StringOutput `pulumi:"primaryFileMicrosoftHost"`
 	// The primary location of the storage account.
 	PrimaryLocation pulumi.StringOutput `pulumi:"primaryLocation"`
 	// The endpoint URL for queue storage in the primary location.
 	PrimaryQueueEndpoint pulumi.StringOutput `pulumi:"primaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the primary location.
 	PrimaryQueueHost pulumi.StringOutput `pulumi:"primaryQueueHost"`
+	// The microsoft routing endpoint URL for queue storage in the primary location.
+	PrimaryQueueMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryQueueMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueMicrosoftHost pulumi.StringOutput `pulumi:"primaryQueueMicrosoftHost"`
 	// The endpoint URL for table storage in the primary location.
 	PrimaryTableEndpoint pulumi.StringOutput `pulumi:"primaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost pulumi.StringOutput `pulumi:"primaryTableHost"`
+	// The microsoft routing endpoint URL for table storage in the primary location.
+	PrimaryTableMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryTableMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for table storage in the primary location.
+	PrimaryTableMicrosoftHost pulumi.StringOutput `pulumi:"primaryTableMicrosoftHost"`
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint pulumi.StringOutput `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringOutput `pulumi:"primaryWebHost"`
+	// The internet routing endpoint URL for web storage in the primary location.
+	PrimaryWebInternetEndpoint pulumi.StringOutput `pulumi:"primaryWebInternetEndpoint"`
+	// The internet routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebInternetHost pulumi.StringOutput `pulumi:"primaryWebInternetHost"`
+	// The microsoft routing endpoint URL for web storage in the primary location.
+	PrimaryWebMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryWebMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebMicrosoftHost pulumi.StringOutput `pulumi:"primaryWebMicrosoftHost"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -253,30 +293,70 @@ type Account struct {
 	SecondaryBlobEndpoint pulumi.StringOutput `pulumi:"secondaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the secondary location.
 	SecondaryBlobHost pulumi.StringOutput `pulumi:"secondaryBlobHost"`
+	// The internet routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobInternetEndpoint pulumi.StringOutput `pulumi:"secondaryBlobInternetEndpoint"`
+	// The internet routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobInternetHost pulumi.StringOutput `pulumi:"secondaryBlobInternetHost"`
+	// The microsoft routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryBlobMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobMicrosoftHost pulumi.StringOutput `pulumi:"secondaryBlobMicrosoftHost"`
 	// The connection string associated with the secondary location.
 	SecondaryConnectionString pulumi.StringOutput `pulumi:"secondaryConnectionString"`
 	// The endpoint URL for DFS storage in the secondary location.
 	SecondaryDfsEndpoint pulumi.StringOutput `pulumi:"secondaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the secondary location.
 	SecondaryDfsHost pulumi.StringOutput `pulumi:"secondaryDfsHost"`
+	// The internet routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsInternetEndpoint pulumi.StringOutput `pulumi:"secondaryDfsInternetEndpoint"`
+	// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsInternetHost pulumi.StringOutput `pulumi:"secondaryDfsInternetHost"`
+	// The microsoft routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryDfsMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftHost pulumi.StringOutput `pulumi:"secondaryDfsMicrosoftHost"`
 	// The endpoint URL for file storage in the secondary location.
 	SecondaryFileEndpoint pulumi.StringOutput `pulumi:"secondaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the secondary location.
 	SecondaryFileHost pulumi.StringOutput `pulumi:"secondaryFileHost"`
+	// The internet routing endpoint URL for file storage in the secondary location.
+	SecondaryFileInternetEndpoint pulumi.StringOutput `pulumi:"secondaryFileInternetEndpoint"`
+	// The internet routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileInternetHost pulumi.StringOutput `pulumi:"secondaryFileInternetHost"`
+	// The microsoft routing endpoint URL for file storage in the secondary location.
+	SecondaryFileMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryFileMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileMicrosoftHost pulumi.StringOutput `pulumi:"secondaryFileMicrosoftHost"`
 	// The secondary location of the storage account.
 	SecondaryLocation pulumi.StringOutput `pulumi:"secondaryLocation"`
 	// The endpoint URL for queue storage in the secondary location.
 	SecondaryQueueEndpoint pulumi.StringOutput `pulumi:"secondaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the secondary location.
 	SecondaryQueueHost pulumi.StringOutput `pulumi:"secondaryQueueHost"`
+	// The microsoft routing endpoint URL for queue storage in the secondary location.
+	SecondaryQueueMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryQueueMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueMicrosoftHost pulumi.StringOutput `pulumi:"secondaryQueueMicrosoftHost"`
 	// The endpoint URL for table storage in the secondary location.
 	SecondaryTableEndpoint pulumi.StringOutput `pulumi:"secondaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the secondary location.
 	SecondaryTableHost pulumi.StringOutput `pulumi:"secondaryTableHost"`
+	// The microsoft routing endpoint URL for table storage in the secondary location.
+	SecondaryTableMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryTableMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableMicrosoftHost pulumi.StringOutput `pulumi:"secondaryTableMicrosoftHost"`
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
+	// The internet routing endpoint URL for web storage in the secondary location.
+	SecondaryWebInternetEndpoint pulumi.StringOutput `pulumi:"secondaryWebInternetEndpoint"`
+	// The internet routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebInternetHost pulumi.StringOutput `pulumi:"secondaryWebInternetHost"`
+	// The microsoft routing endpoint URL for web storage in the secondary location.
+	SecondaryWebMicrosoftEndpoint pulumi.StringOutput `pulumi:"secondaryWebMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebMicrosoftHost pulumi.StringOutput `pulumi:"secondaryWebMicrosoftHost"`
 	// Boolean, enable SFTP for the storage account
 	//
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
@@ -414,30 +494,70 @@ type accountState struct {
 	PrimaryBlobEndpoint *string `pulumi:"primaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the primary location.
 	PrimaryBlobHost *string `pulumi:"primaryBlobHost"`
+	// The internet routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobInternetEndpoint *string `pulumi:"primaryBlobInternetEndpoint"`
+	// The internet routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobInternetHost *string `pulumi:"primaryBlobInternetHost"`
+	// The microsoft routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobMicrosoftEndpoint *string `pulumi:"primaryBlobMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobMicrosoftHost *string `pulumi:"primaryBlobMicrosoftHost"`
 	// The connection string associated with the primary location.
 	PrimaryConnectionString *string `pulumi:"primaryConnectionString"`
 	// The endpoint URL for DFS storage in the primary location.
 	PrimaryDfsEndpoint *string `pulumi:"primaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the primary location.
 	PrimaryDfsHost *string `pulumi:"primaryDfsHost"`
+	// The internet routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsInternetEndpoint *string `pulumi:"primaryDfsInternetEndpoint"`
+	// The internet routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsInternetHost *string `pulumi:"primaryDfsInternetHost"`
+	// The microsoft routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsMicrosoftEndpoint *string `pulumi:"primaryDfsMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsMicrosoftHost *string `pulumi:"primaryDfsMicrosoftHost"`
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint *string `pulumi:"primaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the primary location.
 	PrimaryFileHost *string `pulumi:"primaryFileHost"`
+	// The internet routing endpoint URL for file storage in the primary location.
+	PrimaryFileInternetEndpoint *string `pulumi:"primaryFileInternetEndpoint"`
+	// The internet routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileInternetHost *string `pulumi:"primaryFileInternetHost"`
+	// The microsoft routing endpoint URL for file storage in the primary location.
+	PrimaryFileMicrosoftEndpoint *string `pulumi:"primaryFileMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileMicrosoftHost *string `pulumi:"primaryFileMicrosoftHost"`
 	// The primary location of the storage account.
 	PrimaryLocation *string `pulumi:"primaryLocation"`
 	// The endpoint URL for queue storage in the primary location.
 	PrimaryQueueEndpoint *string `pulumi:"primaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the primary location.
 	PrimaryQueueHost *string `pulumi:"primaryQueueHost"`
+	// The microsoft routing endpoint URL for queue storage in the primary location.
+	PrimaryQueueMicrosoftEndpoint *string `pulumi:"primaryQueueMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueMicrosoftHost *string `pulumi:"primaryQueueMicrosoftHost"`
 	// The endpoint URL for table storage in the primary location.
 	PrimaryTableEndpoint *string `pulumi:"primaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost *string `pulumi:"primaryTableHost"`
+	// The microsoft routing endpoint URL for table storage in the primary location.
+	PrimaryTableMicrosoftEndpoint *string `pulumi:"primaryTableMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for table storage in the primary location.
+	PrimaryTableMicrosoftHost *string `pulumi:"primaryTableMicrosoftHost"`
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint *string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost *string `pulumi:"primaryWebHost"`
+	// The internet routing endpoint URL for web storage in the primary location.
+	PrimaryWebInternetEndpoint *string `pulumi:"primaryWebInternetEndpoint"`
+	// The internet routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebInternetHost *string `pulumi:"primaryWebInternetHost"`
+	// The microsoft routing endpoint URL for web storage in the primary location.
+	PrimaryWebMicrosoftEndpoint *string `pulumi:"primaryWebMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebMicrosoftHost *string `pulumi:"primaryWebMicrosoftHost"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -460,30 +580,70 @@ type accountState struct {
 	SecondaryBlobEndpoint *string `pulumi:"secondaryBlobEndpoint"`
 	// The hostname with port if applicable for blob storage in the secondary location.
 	SecondaryBlobHost *string `pulumi:"secondaryBlobHost"`
+	// The internet routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobInternetEndpoint *string `pulumi:"secondaryBlobInternetEndpoint"`
+	// The internet routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobInternetHost *string `pulumi:"secondaryBlobInternetHost"`
+	// The microsoft routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobMicrosoftEndpoint *string `pulumi:"secondaryBlobMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobMicrosoftHost *string `pulumi:"secondaryBlobMicrosoftHost"`
 	// The connection string associated with the secondary location.
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 	// The endpoint URL for DFS storage in the secondary location.
 	SecondaryDfsEndpoint *string `pulumi:"secondaryDfsEndpoint"`
 	// The hostname with port if applicable for DFS storage in the secondary location.
 	SecondaryDfsHost *string `pulumi:"secondaryDfsHost"`
+	// The internet routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsInternetEndpoint *string `pulumi:"secondaryDfsInternetEndpoint"`
+	// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsInternetHost *string `pulumi:"secondaryDfsInternetHost"`
+	// The microsoft routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftEndpoint *string `pulumi:"secondaryDfsMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftHost *string `pulumi:"secondaryDfsMicrosoftHost"`
 	// The endpoint URL for file storage in the secondary location.
 	SecondaryFileEndpoint *string `pulumi:"secondaryFileEndpoint"`
 	// The hostname with port if applicable for file storage in the secondary location.
 	SecondaryFileHost *string `pulumi:"secondaryFileHost"`
+	// The internet routing endpoint URL for file storage in the secondary location.
+	SecondaryFileInternetEndpoint *string `pulumi:"secondaryFileInternetEndpoint"`
+	// The internet routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileInternetHost *string `pulumi:"secondaryFileInternetHost"`
+	// The microsoft routing endpoint URL for file storage in the secondary location.
+	SecondaryFileMicrosoftEndpoint *string `pulumi:"secondaryFileMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileMicrosoftHost *string `pulumi:"secondaryFileMicrosoftHost"`
 	// The secondary location of the storage account.
 	SecondaryLocation *string `pulumi:"secondaryLocation"`
 	// The endpoint URL for queue storage in the secondary location.
 	SecondaryQueueEndpoint *string `pulumi:"secondaryQueueEndpoint"`
 	// The hostname with port if applicable for queue storage in the secondary location.
 	SecondaryQueueHost *string `pulumi:"secondaryQueueHost"`
+	// The microsoft routing endpoint URL for queue storage in the secondary location.
+	SecondaryQueueMicrosoftEndpoint *string `pulumi:"secondaryQueueMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueMicrosoftHost *string `pulumi:"secondaryQueueMicrosoftHost"`
 	// The endpoint URL for table storage in the secondary location.
 	SecondaryTableEndpoint *string `pulumi:"secondaryTableEndpoint"`
 	// The hostname with port if applicable for table storage in the secondary location.
 	SecondaryTableHost *string `pulumi:"secondaryTableHost"`
+	// The microsoft routing endpoint URL for table storage in the secondary location.
+	SecondaryTableMicrosoftEndpoint *string `pulumi:"secondaryTableMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableMicrosoftHost *string `pulumi:"secondaryTableMicrosoftHost"`
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint *string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost *string `pulumi:"secondaryWebHost"`
+	// The internet routing endpoint URL for web storage in the secondary location.
+	SecondaryWebInternetEndpoint *string `pulumi:"secondaryWebInternetEndpoint"`
+	// The internet routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebInternetHost *string `pulumi:"secondaryWebInternetHost"`
+	// The microsoft routing endpoint URL for web storage in the secondary location.
+	SecondaryWebMicrosoftEndpoint *string `pulumi:"secondaryWebMicrosoftEndpoint"`
+	// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebMicrosoftHost *string `pulumi:"secondaryWebMicrosoftHost"`
 	// Boolean, enable SFTP for the storage account
 	//
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
@@ -574,30 +734,70 @@ type AccountState struct {
 	PrimaryBlobEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for blob storage in the primary location.
 	PrimaryBlobHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for blob storage in the primary location.
+	PrimaryBlobMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobMicrosoftHost pulumi.StringPtrInput
 	// The connection string associated with the primary location.
 	PrimaryConnectionString pulumi.StringPtrInput
 	// The endpoint URL for DFS storage in the primary location.
 	PrimaryDfsEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for DFS storage in the primary location.
 	PrimaryDfsHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for DFS storage in the primary location.
+	PrimaryDfsMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for file storage in the primary location.
 	PrimaryFileHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for file storage in the primary location.
+	PrimaryFileInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for file storage in the primary location.
+	PrimaryFileMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for file storage in the primary location.
+	PrimaryFileMicrosoftHost pulumi.StringPtrInput
 	// The primary location of the storage account.
 	PrimaryLocation pulumi.StringPtrInput
 	// The endpoint URL for queue storage in the primary location.
 	PrimaryQueueEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for queue storage in the primary location.
 	PrimaryQueueHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for queue storage in the primary location.
+	PrimaryQueueMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for table storage in the primary location.
 	PrimaryTableEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for table storage in the primary location.
+	PrimaryTableMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for table storage in the primary location.
+	PrimaryTableMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for web storage in the primary location.
 	PrimaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for web storage in the primary location.
+	PrimaryWebInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for web storage in the primary location.
+	PrimaryWebMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for web storage in the primary location.
+	PrimaryWebMicrosoftHost pulumi.StringPtrInput
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -620,30 +820,70 @@ type AccountState struct {
 	SecondaryBlobEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for blob storage in the secondary location.
 	SecondaryBlobHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for blob storage in the secondary location.
+	SecondaryBlobMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobMicrosoftHost pulumi.StringPtrInput
 	// The connection string associated with the secondary location.
 	SecondaryConnectionString pulumi.StringPtrInput
 	// The endpoint URL for DFS storage in the secondary location.
 	SecondaryDfsEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for DFS storage in the secondary location.
 	SecondaryDfsHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for file storage in the secondary location.
 	SecondaryFileEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for file storage in the secondary location.
 	SecondaryFileHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for file storage in the secondary location.
+	SecondaryFileInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for file storage in the secondary location.
+	SecondaryFileMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileMicrosoftHost pulumi.StringPtrInput
 	// The secondary location of the storage account.
 	SecondaryLocation pulumi.StringPtrInput
 	// The endpoint URL for queue storage in the secondary location.
 	SecondaryQueueEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for queue storage in the secondary location.
 	SecondaryQueueHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for queue storage in the secondary location.
+	SecondaryQueueMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for table storage in the secondary location.
 	SecondaryTableEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for table storage in the secondary location.
 	SecondaryTableHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for table storage in the secondary location.
+	SecondaryTableMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableMicrosoftHost pulumi.StringPtrInput
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
+	// The internet routing endpoint URL for web storage in the secondary location.
+	SecondaryWebInternetEndpoint pulumi.StringPtrInput
+	// The internet routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebInternetHost pulumi.StringPtrInput
+	// The microsoft routing endpoint URL for web storage in the secondary location.
+	SecondaryWebMicrosoftEndpoint pulumi.StringPtrInput
+	// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebMicrosoftHost pulumi.StringPtrInput
 	// Boolean, enable SFTP for the storage account
 	//
 	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
@@ -1101,6 +1341,26 @@ func (o AccountOutput) PrimaryBlobHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryBlobHost }).(pulumi.StringOutput)
 }
 
+// The internet routing endpoint URL for blob storage in the primary location.
+func (o AccountOutput) PrimaryBlobInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryBlobInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for blob storage in the primary location.
+func (o AccountOutput) PrimaryBlobInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryBlobInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for blob storage in the primary location.
+func (o AccountOutput) PrimaryBlobMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryBlobMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+func (o AccountOutput) PrimaryBlobMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryBlobMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The connection string associated with the primary location.
 func (o AccountOutput) PrimaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryConnectionString }).(pulumi.StringOutput)
@@ -1116,6 +1376,26 @@ func (o AccountOutput) PrimaryDfsHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryDfsHost }).(pulumi.StringOutput)
 }
 
+// The internet routing endpoint URL for DFS storage in the primary location.
+func (o AccountOutput) PrimaryDfsInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryDfsInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for DFS storage in the primary location.
+func (o AccountOutput) PrimaryDfsInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryDfsInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for DFS storage in the primary location.
+func (o AccountOutput) PrimaryDfsMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryDfsMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+func (o AccountOutput) PrimaryDfsMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryDfsMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for file storage in the primary location.
 func (o AccountOutput) PrimaryFileEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileEndpoint }).(pulumi.StringOutput)
@@ -1124,6 +1404,26 @@ func (o AccountOutput) PrimaryFileEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for file storage in the primary location.
 func (o AccountOutput) PrimaryFileHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileHost }).(pulumi.StringOutput)
+}
+
+// The internet routing endpoint URL for file storage in the primary location.
+func (o AccountOutput) PrimaryFileInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for file storage in the primary location.
+func (o AccountOutput) PrimaryFileInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for file storage in the primary location.
+func (o AccountOutput) PrimaryFileMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for file storage in the primary location.
+func (o AccountOutput) PrimaryFileMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryFileMicrosoftHost }).(pulumi.StringOutput)
 }
 
 // The primary location of the storage account.
@@ -1141,6 +1441,16 @@ func (o AccountOutput) PrimaryQueueHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryQueueHost }).(pulumi.StringOutput)
 }
 
+// The microsoft routing endpoint URL for queue storage in the primary location.
+func (o AccountOutput) PrimaryQueueMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryQueueMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+func (o AccountOutput) PrimaryQueueMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryQueueMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for table storage in the primary location.
 func (o AccountOutput) PrimaryTableEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryTableEndpoint }).(pulumi.StringOutput)
@@ -1151,6 +1461,16 @@ func (o AccountOutput) PrimaryTableHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryTableHost }).(pulumi.StringOutput)
 }
 
+// The microsoft routing endpoint URL for table storage in the primary location.
+func (o AccountOutput) PrimaryTableMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryTableMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for table storage in the primary location.
+func (o AccountOutput) PrimaryTableMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryTableMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for web storage in the primary location.
 func (o AccountOutput) PrimaryWebEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebEndpoint }).(pulumi.StringOutput)
@@ -1159,6 +1479,26 @@ func (o AccountOutput) PrimaryWebEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for web storage in the primary location.
 func (o AccountOutput) PrimaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebHost }).(pulumi.StringOutput)
+}
+
+// The internet routing endpoint URL for web storage in the primary location.
+func (o AccountOutput) PrimaryWebInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for web storage in the primary location.
+func (o AccountOutput) PrimaryWebInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for web storage in the primary location.
+func (o AccountOutput) PrimaryWebMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for web storage in the primary location.
+func (o AccountOutput) PrimaryWebMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebMicrosoftHost }).(pulumi.StringOutput)
 }
 
 // Whether the public network access is enabled? Defaults to `true`.
@@ -1213,6 +1553,26 @@ func (o AccountOutput) SecondaryBlobHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryBlobHost }).(pulumi.StringOutput)
 }
 
+// The internet routing endpoint URL for blob storage in the secondary location.
+func (o AccountOutput) SecondaryBlobInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryBlobInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for blob storage in the secondary location.
+func (o AccountOutput) SecondaryBlobInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryBlobInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for blob storage in the secondary location.
+func (o AccountOutput) SecondaryBlobMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryBlobMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+func (o AccountOutput) SecondaryBlobMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryBlobMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The connection string associated with the secondary location.
 func (o AccountOutput) SecondaryConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryConnectionString }).(pulumi.StringOutput)
@@ -1228,6 +1588,26 @@ func (o AccountOutput) SecondaryDfsHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryDfsHost }).(pulumi.StringOutput)
 }
 
+// The internet routing endpoint URL for DFS storage in the secondary location.
+func (o AccountOutput) SecondaryDfsInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryDfsInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+func (o AccountOutput) SecondaryDfsInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryDfsInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for DFS storage in the secondary location.
+func (o AccountOutput) SecondaryDfsMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryDfsMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+func (o AccountOutput) SecondaryDfsMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryDfsMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for file storage in the secondary location.
 func (o AccountOutput) SecondaryFileEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileEndpoint }).(pulumi.StringOutput)
@@ -1236,6 +1616,26 @@ func (o AccountOutput) SecondaryFileEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for file storage in the secondary location.
 func (o AccountOutput) SecondaryFileHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileHost }).(pulumi.StringOutput)
+}
+
+// The internet routing endpoint URL for file storage in the secondary location.
+func (o AccountOutput) SecondaryFileInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for file storage in the secondary location.
+func (o AccountOutput) SecondaryFileInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for file storage in the secondary location.
+func (o AccountOutput) SecondaryFileMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+func (o AccountOutput) SecondaryFileMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryFileMicrosoftHost }).(pulumi.StringOutput)
 }
 
 // The secondary location of the storage account.
@@ -1253,6 +1653,16 @@ func (o AccountOutput) SecondaryQueueHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryQueueHost }).(pulumi.StringOutput)
 }
 
+// The microsoft routing endpoint URL for queue storage in the secondary location.
+func (o AccountOutput) SecondaryQueueMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryQueueMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+func (o AccountOutput) SecondaryQueueMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryQueueMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for table storage in the secondary location.
 func (o AccountOutput) SecondaryTableEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryTableEndpoint }).(pulumi.StringOutput)
@@ -1263,6 +1673,16 @@ func (o AccountOutput) SecondaryTableHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryTableHost }).(pulumi.StringOutput)
 }
 
+// The microsoft routing endpoint URL for table storage in the secondary location.
+func (o AccountOutput) SecondaryTableMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryTableMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+func (o AccountOutput) SecondaryTableMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryTableMicrosoftHost }).(pulumi.StringOutput)
+}
+
 // The endpoint URL for web storage in the secondary location.
 func (o AccountOutput) SecondaryWebEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebEndpoint }).(pulumi.StringOutput)
@@ -1271,6 +1691,26 @@ func (o AccountOutput) SecondaryWebEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for web storage in the secondary location.
 func (o AccountOutput) SecondaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebHost }).(pulumi.StringOutput)
+}
+
+// The internet routing endpoint URL for web storage in the secondary location.
+func (o AccountOutput) SecondaryWebInternetEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebInternetEndpoint }).(pulumi.StringOutput)
+}
+
+// The internet routing hostname with port if applicable for web storage in the secondary location.
+func (o AccountOutput) SecondaryWebInternetHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebInternetHost }).(pulumi.StringOutput)
+}
+
+// The microsoft routing endpoint URL for web storage in the secondary location.
+func (o AccountOutput) SecondaryWebMicrosoftEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebMicrosoftEndpoint }).(pulumi.StringOutput)
+}
+
+// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+func (o AccountOutput) SecondaryWebMicrosoftHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryWebMicrosoftHost }).(pulumi.StringOutput)
 }
 
 // Boolean, enable SFTP for the storage account

@@ -103,6 +103,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:redis/linkedServer:LinkedServer")
 public class LinkedServer extends com.pulumi.resources.CustomResource {
     /**
+     * The geo-replicated primary hostname for this linked server.
+     * 
+     */
+    @Export(name="geoReplicatedPrimaryHostName", refs={String.class}, tree="[0]")
+    private Output<String> geoReplicatedPrimaryHostName;
+
+    /**
+     * @return The geo-replicated primary hostname for this linked server.
+     * 
+     */
+    public Output<String> geoReplicatedPrimaryHostName() {
+        return this.geoReplicatedPrimaryHostName;
+    }
+    /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      * 
      */

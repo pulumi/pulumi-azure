@@ -17,9 +17,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
         /// </summary>
         public readonly string Action;
-        /// <summary>
-        /// The subnet id from which requests will match the rule.
-        /// </summary>
         public readonly string SubnetId;
 
         [OutputConstructor]

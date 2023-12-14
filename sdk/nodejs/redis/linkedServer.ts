@@ -87,6 +87,10 @@ export class LinkedServer extends pulumi.CustomResource {
     }
 
     /**
+     * The geo-replicated primary hostname for this linked server.
+     */
+    public /*out*/ readonly geoReplicatedPrimaryHostName!: pulumi.Output<string>;
+    /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */
     public readonly linkedRedisCacheId!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class LinkedServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServerState | undefined;
+            resourceInputs["geoReplicatedPrimaryHostName"] = state ? state.geoReplicatedPrimaryHostName : undefined;
             resourceInputs["linkedRedisCacheId"] = state ? state.linkedRedisCacheId : undefined;
             resourceInputs["linkedRedisCacheLocation"] = state ? state.linkedRedisCacheLocation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -152,6 +157,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverRole"] = args ? args.serverRole : undefined;
             resourceInputs["targetRedisCacheName"] = args ? args.targetRedisCacheName : undefined;
+            resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -163,6 +169,10 @@ export class LinkedServer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LinkedServer resources.
  */
 export interface LinkedServerState {
+    /**
+     * The geo-replicated primary hostname for this linked server.
+     */
+    geoReplicatedPrimaryHostName?: pulumi.Input<string>;
     /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */

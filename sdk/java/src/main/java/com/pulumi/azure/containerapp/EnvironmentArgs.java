@@ -3,10 +3,12 @@
 
 package com.pulumi.azure.containerapp;
 
+import com.pulumi.azure.containerapp.inputs.EnvironmentWorkloadProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -146,6 +148,21 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * 
+     */
+    @Import(name="workloadProfiles")
+    private @Nullable Output<List<EnvironmentWorkloadProfileArgs>> workloadProfiles;
+
+    /**
+     * @return The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<List<EnvironmentWorkloadProfileArgs>>> workloadProfiles() {
+        return Optional.ofNullable(this.workloadProfiles);
+    }
+
+    /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -175,6 +192,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
+        this.workloadProfiles = $.workloadProfiles;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
 
@@ -370,6 +388,37 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadProfiles(@Nullable Output<List<EnvironmentWorkloadProfileArgs>> workloadProfiles) {
+            $.workloadProfiles = workloadProfiles;
+            return this;
+        }
+
+        /**
+         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadProfiles(List<EnvironmentWorkloadProfileArgs> workloadProfiles) {
+            return workloadProfiles(Output.of(workloadProfiles));
+        }
+
+        /**
+         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadProfiles(EnvironmentWorkloadProfileArgs... workloadProfiles) {
+            return workloadProfiles(List.of(workloadProfiles));
         }
 
         /**

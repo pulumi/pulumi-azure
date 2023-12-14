@@ -302,6 +302,30 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryBlobHost { get; private set; } = null!;
 
         /// <summary>
+        /// The internet routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        [Output("primaryBlobInternetEndpoint")]
+        public Output<string> PrimaryBlobInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        [Output("primaryBlobInternetHost")]
+        public Output<string> PrimaryBlobInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        [Output("primaryBlobMicrosoftEndpoint")]
+        public Output<string> PrimaryBlobMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        [Output("primaryBlobMicrosoftHost")]
+        public Output<string> PrimaryBlobMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The connection string associated with the primary location.
         /// </summary>
         [Output("primaryConnectionString")]
@@ -320,6 +344,30 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryDfsHost { get; private set; } = null!;
 
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        [Output("primaryDfsInternetEndpoint")]
+        public Output<string> PrimaryDfsInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        [Output("primaryDfsInternetHost")]
+        public Output<string> PrimaryDfsInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        [Output("primaryDfsMicrosoftEndpoint")]
+        public Output<string> PrimaryDfsMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        [Output("primaryDfsMicrosoftHost")]
+        public Output<string> PrimaryDfsMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for file storage in the primary location.
         /// </summary>
         [Output("primaryFileEndpoint")]
@@ -330,6 +378,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("primaryFileHost")]
         public Output<string> PrimaryFileHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        [Output("primaryFileInternetEndpoint")]
+        public Output<string> PrimaryFileInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        [Output("primaryFileInternetHost")]
+        public Output<string> PrimaryFileInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        [Output("primaryFileMicrosoftEndpoint")]
+        public Output<string> PrimaryFileMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        [Output("primaryFileMicrosoftHost")]
+        public Output<string> PrimaryFileMicrosoftHost { get; private set; } = null!;
 
         /// <summary>
         /// The primary location of the storage account.
@@ -350,6 +422,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryQueueHost { get; private set; } = null!;
 
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the primary location.
+        /// </summary>
+        [Output("primaryQueueMicrosoftEndpoint")]
+        public Output<string> PrimaryQueueMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+        /// </summary>
+        [Output("primaryQueueMicrosoftHost")]
+        public Output<string> PrimaryQueueMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for table storage in the primary location.
         /// </summary>
         [Output("primaryTableEndpoint")]
@@ -362,6 +446,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryTableHost { get; private set; } = null!;
 
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the primary location.
+        /// </summary>
+        [Output("primaryTableMicrosoftEndpoint")]
+        public Output<string> PrimaryTableMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the primary location.
+        /// </summary>
+        [Output("primaryTableMicrosoftHost")]
+        public Output<string> PrimaryTableMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for web storage in the primary location.
         /// </summary>
         [Output("primaryWebEndpoint")]
@@ -372,6 +468,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("primaryWebHost")]
         public Output<string> PrimaryWebHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        [Output("primaryWebInternetEndpoint")]
+        public Output<string> PrimaryWebInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        [Output("primaryWebInternetHost")]
+        public Output<string> PrimaryWebInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        [Output("primaryWebMicrosoftEndpoint")]
+        public Output<string> PrimaryWebMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        [Output("primaryWebMicrosoftHost")]
+        public Output<string> PrimaryWebMicrosoftHost { get; private set; } = null!;
 
         /// <summary>
         /// Whether the public network access is enabled? Defaults to `true`.
@@ -436,6 +556,30 @@ namespace Pulumi.Azure.Storage
         public Output<string> SecondaryBlobHost { get; private set; } = null!;
 
         /// <summary>
+        /// The internet routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        [Output("secondaryBlobInternetEndpoint")]
+        public Output<string> SecondaryBlobInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        [Output("secondaryBlobInternetHost")]
+        public Output<string> SecondaryBlobInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        [Output("secondaryBlobMicrosoftEndpoint")]
+        public Output<string> SecondaryBlobMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        [Output("secondaryBlobMicrosoftHost")]
+        public Output<string> SecondaryBlobMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The connection string associated with the secondary location.
         /// </summary>
         [Output("secondaryConnectionString")]
@@ -454,6 +598,30 @@ namespace Pulumi.Azure.Storage
         public Output<string> SecondaryDfsHost { get; private set; } = null!;
 
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        [Output("secondaryDfsInternetEndpoint")]
+        public Output<string> SecondaryDfsInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        [Output("secondaryDfsInternetHost")]
+        public Output<string> SecondaryDfsInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        [Output("secondaryDfsMicrosoftEndpoint")]
+        public Output<string> SecondaryDfsMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        [Output("secondaryDfsMicrosoftHost")]
+        public Output<string> SecondaryDfsMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for file storage in the secondary location.
         /// </summary>
         [Output("secondaryFileEndpoint")]
@@ -464,6 +632,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("secondaryFileHost")]
         public Output<string> SecondaryFileHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        [Output("secondaryFileInternetEndpoint")]
+        public Output<string> SecondaryFileInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        [Output("secondaryFileInternetHost")]
+        public Output<string> SecondaryFileInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        [Output("secondaryFileMicrosoftEndpoint")]
+        public Output<string> SecondaryFileMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        [Output("secondaryFileMicrosoftHost")]
+        public Output<string> SecondaryFileMicrosoftHost { get; private set; } = null!;
 
         /// <summary>
         /// The secondary location of the storage account.
@@ -484,6 +676,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> SecondaryQueueHost { get; private set; } = null!;
 
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the secondary location.
+        /// </summary>
+        [Output("secondaryQueueMicrosoftEndpoint")]
+        public Output<string> SecondaryQueueMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+        /// </summary>
+        [Output("secondaryQueueMicrosoftHost")]
+        public Output<string> SecondaryQueueMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for table storage in the secondary location.
         /// </summary>
         [Output("secondaryTableEndpoint")]
@@ -496,6 +700,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> SecondaryTableHost { get; private set; } = null!;
 
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the secondary location.
+        /// </summary>
+        [Output("secondaryTableMicrosoftEndpoint")]
+        public Output<string> SecondaryTableMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+        /// </summary>
+        [Output("secondaryTableMicrosoftHost")]
+        public Output<string> SecondaryTableMicrosoftHost { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint URL for web storage in the secondary location.
         /// </summary>
         [Output("secondaryWebEndpoint")]
@@ -506,6 +722,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("secondaryWebHost")]
         public Output<string> SecondaryWebHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        [Output("secondaryWebInternetEndpoint")]
+        public Output<string> SecondaryWebInternetEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        [Output("secondaryWebInternetHost")]
+        public Output<string> SecondaryWebInternetHost { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        [Output("secondaryWebMicrosoftEndpoint")]
+        public Output<string> SecondaryWebMicrosoftEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        [Output("secondaryWebMicrosoftHost")]
+        public Output<string> SecondaryWebMicrosoftHost { get; private set; } = null!;
 
         /// <summary>
         /// Boolean, enable SFTP for the storage account
@@ -1052,6 +1292,30 @@ namespace Pulumi.Azure.Storage
         [Input("primaryBlobHost")]
         public Input<string>? PrimaryBlobHost { get; set; }
 
+        /// <summary>
+        /// The internet routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        [Input("primaryBlobInternetEndpoint")]
+        public Input<string>? PrimaryBlobInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        [Input("primaryBlobInternetHost")]
+        public Input<string>? PrimaryBlobInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the primary location.
+        /// </summary>
+        [Input("primaryBlobMicrosoftEndpoint")]
+        public Input<string>? PrimaryBlobMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the primary location.
+        /// </summary>
+        [Input("primaryBlobMicrosoftHost")]
+        public Input<string>? PrimaryBlobMicrosoftHost { get; set; }
+
         [Input("primaryConnectionString")]
         private Input<string>? _primaryConnectionString;
 
@@ -1081,6 +1345,30 @@ namespace Pulumi.Azure.Storage
         public Input<string>? PrimaryDfsHost { get; set; }
 
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        [Input("primaryDfsInternetEndpoint")]
+        public Input<string>? PrimaryDfsInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        [Input("primaryDfsInternetHost")]
+        public Input<string>? PrimaryDfsInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the primary location.
+        /// </summary>
+        [Input("primaryDfsMicrosoftEndpoint")]
+        public Input<string>? PrimaryDfsMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+        /// </summary>
+        [Input("primaryDfsMicrosoftHost")]
+        public Input<string>? PrimaryDfsMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for file storage in the primary location.
         /// </summary>
         [Input("primaryFileEndpoint")]
@@ -1091,6 +1379,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("primaryFileHost")]
         public Input<string>? PrimaryFileHost { get; set; }
+
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        [Input("primaryFileInternetEndpoint")]
+        public Input<string>? PrimaryFileInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        [Input("primaryFileInternetHost")]
+        public Input<string>? PrimaryFileInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the primary location.
+        /// </summary>
+        [Input("primaryFileMicrosoftEndpoint")]
+        public Input<string>? PrimaryFileMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the primary location.
+        /// </summary>
+        [Input("primaryFileMicrosoftHost")]
+        public Input<string>? PrimaryFileMicrosoftHost { get; set; }
 
         /// <summary>
         /// The primary location of the storage account.
@@ -1111,6 +1423,18 @@ namespace Pulumi.Azure.Storage
         public Input<string>? PrimaryQueueHost { get; set; }
 
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the primary location.
+        /// </summary>
+        [Input("primaryQueueMicrosoftEndpoint")]
+        public Input<string>? PrimaryQueueMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the primary location.
+        /// </summary>
+        [Input("primaryQueueMicrosoftHost")]
+        public Input<string>? PrimaryQueueMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for table storage in the primary location.
         /// </summary>
         [Input("primaryTableEndpoint")]
@@ -1123,6 +1447,18 @@ namespace Pulumi.Azure.Storage
         public Input<string>? PrimaryTableHost { get; set; }
 
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the primary location.
+        /// </summary>
+        [Input("primaryTableMicrosoftEndpoint")]
+        public Input<string>? PrimaryTableMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the primary location.
+        /// </summary>
+        [Input("primaryTableMicrosoftHost")]
+        public Input<string>? PrimaryTableMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for web storage in the primary location.
         /// </summary>
         [Input("primaryWebEndpoint")]
@@ -1133,6 +1469,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("primaryWebHost")]
         public Input<string>? PrimaryWebHost { get; set; }
+
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        [Input("primaryWebInternetEndpoint")]
+        public Input<string>? PrimaryWebInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        [Input("primaryWebInternetHost")]
+        public Input<string>? PrimaryWebInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the primary location.
+        /// </summary>
+        [Input("primaryWebMicrosoftEndpoint")]
+        public Input<string>? PrimaryWebMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the primary location.
+        /// </summary>
+        [Input("primaryWebMicrosoftHost")]
+        public Input<string>? PrimaryWebMicrosoftHost { get; set; }
 
         /// <summary>
         /// Whether the public network access is enabled? Defaults to `true`.
@@ -1216,6 +1576,30 @@ namespace Pulumi.Azure.Storage
         [Input("secondaryBlobHost")]
         public Input<string>? SecondaryBlobHost { get; set; }
 
+        /// <summary>
+        /// The internet routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        [Input("secondaryBlobInternetEndpoint")]
+        public Input<string>? SecondaryBlobInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        [Input("secondaryBlobInternetHost")]
+        public Input<string>? SecondaryBlobInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for blob storage in the secondary location.
+        /// </summary>
+        [Input("secondaryBlobMicrosoftEndpoint")]
+        public Input<string>? SecondaryBlobMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+        /// </summary>
+        [Input("secondaryBlobMicrosoftHost")]
+        public Input<string>? SecondaryBlobMicrosoftHost { get; set; }
+
         [Input("secondaryConnectionString")]
         private Input<string>? _secondaryConnectionString;
 
@@ -1245,6 +1629,30 @@ namespace Pulumi.Azure.Storage
         public Input<string>? SecondaryDfsHost { get; set; }
 
         /// <summary>
+        /// The internet routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        [Input("secondaryDfsInternetEndpoint")]
+        public Input<string>? SecondaryDfsInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        [Input("secondaryDfsInternetHost")]
+        public Input<string>? SecondaryDfsInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for DFS storage in the secondary location.
+        /// </summary>
+        [Input("secondaryDfsMicrosoftEndpoint")]
+        public Input<string>? SecondaryDfsMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+        /// </summary>
+        [Input("secondaryDfsMicrosoftHost")]
+        public Input<string>? SecondaryDfsMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for file storage in the secondary location.
         /// </summary>
         [Input("secondaryFileEndpoint")]
@@ -1255,6 +1663,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("secondaryFileHost")]
         public Input<string>? SecondaryFileHost { get; set; }
+
+        /// <summary>
+        /// The internet routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        [Input("secondaryFileInternetEndpoint")]
+        public Input<string>? SecondaryFileInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        [Input("secondaryFileInternetHost")]
+        public Input<string>? SecondaryFileInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for file storage in the secondary location.
+        /// </summary>
+        [Input("secondaryFileMicrosoftEndpoint")]
+        public Input<string>? SecondaryFileMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for file storage in the secondary location.
+        /// </summary>
+        [Input("secondaryFileMicrosoftHost")]
+        public Input<string>? SecondaryFileMicrosoftHost { get; set; }
 
         /// <summary>
         /// The secondary location of the storage account.
@@ -1275,6 +1707,18 @@ namespace Pulumi.Azure.Storage
         public Input<string>? SecondaryQueueHost { get; set; }
 
         /// <summary>
+        /// The microsoft routing endpoint URL for queue storage in the secondary location.
+        /// </summary>
+        [Input("secondaryQueueMicrosoftEndpoint")]
+        public Input<string>? SecondaryQueueMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+        /// </summary>
+        [Input("secondaryQueueMicrosoftHost")]
+        public Input<string>? SecondaryQueueMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for table storage in the secondary location.
         /// </summary>
         [Input("secondaryTableEndpoint")]
@@ -1287,6 +1731,18 @@ namespace Pulumi.Azure.Storage
         public Input<string>? SecondaryTableHost { get; set; }
 
         /// <summary>
+        /// The microsoft routing endpoint URL for table storage in the secondary location.
+        /// </summary>
+        [Input("secondaryTableMicrosoftEndpoint")]
+        public Input<string>? SecondaryTableMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for table storage in the secondary location.
+        /// </summary>
+        [Input("secondaryTableMicrosoftHost")]
+        public Input<string>? SecondaryTableMicrosoftHost { get; set; }
+
+        /// <summary>
         /// The endpoint URL for web storage in the secondary location.
         /// </summary>
         [Input("secondaryWebEndpoint")]
@@ -1297,6 +1753,30 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("secondaryWebHost")]
         public Input<string>? SecondaryWebHost { get; set; }
+
+        /// <summary>
+        /// The internet routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        [Input("secondaryWebInternetEndpoint")]
+        public Input<string>? SecondaryWebInternetEndpoint { get; set; }
+
+        /// <summary>
+        /// The internet routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        [Input("secondaryWebInternetHost")]
+        public Input<string>? SecondaryWebInternetHost { get; set; }
+
+        /// <summary>
+        /// The microsoft routing endpoint URL for web storage in the secondary location.
+        /// </summary>
+        [Input("secondaryWebMicrosoftEndpoint")]
+        public Input<string>? SecondaryWebMicrosoftEndpoint { get; set; }
+
+        /// <summary>
+        /// The microsoft routing hostname with port if applicable for web storage in the secondary location.
+        /// </summary>
+        [Input("secondaryWebMicrosoftHost")]
+        public Input<string>? SecondaryWebMicrosoftHost { get; set; }
 
         /// <summary>
         /// Boolean, enable SFTP for the storage account

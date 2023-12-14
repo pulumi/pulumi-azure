@@ -88,6 +88,8 @@ type SpringCloudBuildDeployment struct {
 
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson pulumi.StringOutput `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringIds"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringOutput `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -140,6 +142,8 @@ func GetSpringCloudBuildDeployment(ctx *pulumi.Context,
 type springCloudBuildDeploymentState struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson *string `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId *string `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -157,6 +161,8 @@ type springCloudBuildDeploymentState struct {
 type SpringCloudBuildDeploymentState struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson pulumi.StringPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringPtrInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -178,6 +184,8 @@ func (SpringCloudBuildDeploymentState) ElementType() reflect.Type {
 type springCloudBuildDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson *string `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId string `pulumi:"buildResultId"`
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -196,6 +204,8 @@ type springCloudBuildDeploymentArgs struct {
 type SpringCloudBuildDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 	AddonJson pulumi.StringPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// The ID of the Spring Cloud Build Result.
 	BuildResultId pulumi.StringInput
 	// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -300,6 +310,13 @@ func (o SpringCloudBuildDeploymentOutput) ToSpringCloudBuildDeploymentOutputWith
 // A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
 func (o SpringCloudBuildDeploymentOutput) AddonJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudBuildDeployment) pulumi.StringOutput { return v.AddonJson }).(pulumi.StringOutput)
+}
+
+// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+func (o SpringCloudBuildDeploymentOutput) ApplicationPerformanceMonitoringIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudBuildDeployment) pulumi.StringArrayOutput {
+		return v.ApplicationPerformanceMonitoringIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Spring Cloud Build Result.

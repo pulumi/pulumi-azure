@@ -379,7 +379,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      *
      * > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      */
@@ -388,6 +388,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * A `storageProfile` block as defined below.
      */
     public readonly storageProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterStorageProfile | undefined>;
+    /**
+     * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     */
+    public readonly supportPlan!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -487,6 +491,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
+            resourceInputs["supportPlan"] = state ? state.supportPlan : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["webAppRouting"] = state ? state.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
@@ -551,6 +556,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["supportPlan"] = args ? args.supportPlan : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["webAppRouting"] = args ? args.webAppRouting : undefined;
             resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
@@ -883,7 +889,7 @@ export interface KubernetesClusterState {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      *
      * > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      */
@@ -892,6 +898,10 @@ export interface KubernetesClusterState {
      * A `storageProfile` block as defined below.
      */
     storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
+    /**
+     * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     */
+    supportPlan?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -1187,7 +1197,7 @@ export interface KubernetesClusterArgs {
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
-     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+     * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      *
      * > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      */
@@ -1196,6 +1206,10 @@ export interface KubernetesClusterArgs {
      * A `storageProfile` block as defined below.
      */
     storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
+    /**
+     * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+     */
+    supportPlan?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

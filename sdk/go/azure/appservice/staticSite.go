@@ -24,15 +24,22 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appservice.NewStaticSite(ctx, "example", &appservice.StaticSiteArgs{
-//				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: pulumi.String("example"),
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewStaticSite(ctx, "exampleStaticSite", &appservice.StaticSiteArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err

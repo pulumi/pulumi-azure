@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
-    /// Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+    /// Allows you to manage an Azure SQL Elastic Pool.
     /// 
     /// ## Example Usage
     /// 
@@ -72,6 +72,16 @@ namespace Pulumi.Azure.MSSql
     public partial class ElasticPool : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+        /// 
+        /// &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// 
+        /// &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        /// </summary>
+        [Output("enclaveType")]
+        public Output<string?> EnclaveType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -92,7 +102,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Output("maxSizeBytes")]
         public Output<int> MaxSizeBytes { get; private set; } = null!;
@@ -192,6 +202,16 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+        /// 
+        /// &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// 
+        /// &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        /// </summary>
+        [Input("enclaveType")]
+        public Input<string>? EnclaveType { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -212,7 +232,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }
@@ -280,6 +300,16 @@ namespace Pulumi.Azure.MSSql
     public sealed class ElasticPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+        /// 
+        /// &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+        /// 
+        /// &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+        /// </summary>
+        [Input("enclaveType")]
+        public Input<string>? EnclaveType { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -300,7 +330,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         /// 
-        /// &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+        /// &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         /// </summary>
         [Input("maxSizeBytes")]
         public Input<int>? MaxSizeBytes { get; set; }

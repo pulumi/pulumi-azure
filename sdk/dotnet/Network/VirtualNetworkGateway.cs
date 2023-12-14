@@ -141,6 +141,12 @@ namespace Pulumi.Azure.Network
         public Output<bool> ActiveActive { get; private set; } = null!;
 
         /// <summary>
+        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// </summary>
+        [Output("bgpRouteTranslationForNatEnabled")]
+        public Output<bool?> BgpRouteTranslationForNatEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Output("bgpSettings")]
@@ -157,6 +163,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("defaultLocalNetworkGatewayId")]
         public Output<string?> DefaultLocalNetworkGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// Is DNS forwarding enabled?
+        /// </summary>
+        [Output("dnsForwardingEnabled")]
+        public Output<bool?> DnsForwardingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -188,6 +200,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIpConfiguration>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// </summary>
+        [Output("ipSecReplayProtectionEnabled")]
+        public Output<bool?> IpSecReplayProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -200,10 +218,22 @@ namespace Pulumi.Azure.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `policy_group` blocks as defined below.
+        /// </summary>
+        [Output("policyGroups")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroup>> PolicyGroups { get; private set; } = null!;
+
+        /// <summary>
         /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         /// </summary>
         [Output("privateIpAddressEnabled")]
         public Output<bool?> PrivateIpAddressEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// </summary>
+        [Output("remoteVnetTrafficEnabled")]
+        public Output<bool?> RemoteVnetTrafficEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
@@ -232,6 +262,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// </summary>
+        [Output("virtualWanTrafficEnabled")]
+        public Output<bool?> VirtualWanTrafficEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
@@ -298,6 +334,12 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// </summary>
+        [Input("bgpRouteTranslationForNatEnabled")]
+        public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
+
+        /// <summary>
         /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
@@ -314,6 +356,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
+
+        /// <summary>
+        /// Is DNS forwarding enabled?
+        /// </summary>
+        [Input("dnsForwardingEnabled")]
+        public Input<bool>? DnsForwardingEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -351,6 +399,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// </summary>
+        [Input("ipSecReplayProtectionEnabled")]
+        public Input<bool>? IpSecReplayProtectionEnabled { get; set; }
+
+        /// <summary>
         /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -362,11 +416,29 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("policyGroups")]
+        private InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>? _policyGroups;
+
+        /// <summary>
+        /// One or more `policy_group` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs> PolicyGroups
+        {
+            get => _policyGroups ?? (_policyGroups = new InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>());
+            set => _policyGroups = value;
+        }
+
         /// <summary>
         /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateIpAddressEnabled")]
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
+
+        /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// </summary>
+        [Input("remoteVnetTrafficEnabled")]
+        public Input<bool>? RemoteVnetTrafficEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
@@ -403,6 +475,12 @@ namespace Pulumi.Azure.Network
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// </summary>
+        [Input("virtualWanTrafficEnabled")]
+        public Input<bool>? VirtualWanTrafficEnabled { get; set; }
+
+        /// <summary>
         /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         /// </summary>
         [Input("vpnClientConfiguration")]
@@ -429,6 +507,12 @@ namespace Pulumi.Azure.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
+        /// </summary>
+        [Input("bgpRouteTranslationForNatEnabled")]
+        public Input<bool>? BgpRouteTranslationForNatEnabled { get; set; }
+
+        /// <summary>
         /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         /// </summary>
         [Input("bgpSettings")]
@@ -445,6 +529,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("defaultLocalNetworkGatewayId")]
         public Input<string>? DefaultLocalNetworkGatewayId { get; set; }
+
+        /// <summary>
+        /// Is DNS forwarding enabled?
+        /// </summary>
+        [Input("dnsForwardingEnabled")]
+        public Input<bool>? DnsForwardingEnabled { get; set; }
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -482,6 +572,12 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Is IP Sec Replay Protection enabled? Defaults to `true`.
+        /// </summary>
+        [Input("ipSecReplayProtectionEnabled")]
+        public Input<bool>? IpSecReplayProtectionEnabled { get; set; }
+
+        /// <summary>
         /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -493,11 +589,29 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("policyGroups")]
+        private InputList<Inputs.VirtualNetworkGatewayPolicyGroupGetArgs>? _policyGroups;
+
+        /// <summary>
+        /// One or more `policy_group` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayPolicyGroupGetArgs> PolicyGroups
+        {
+            get => _policyGroups ?? (_policyGroups = new InputList<Inputs.VirtualNetworkGatewayPolicyGroupGetArgs>());
+            set => _policyGroups = value;
+        }
+
         /// <summary>
         /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateIpAddressEnabled")]
         public Input<bool>? PrivateIpAddressEnabled { get; set; }
+
+        /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+        /// </summary>
+        [Input("remoteVnetTrafficEnabled")]
+        public Input<bool>? RemoteVnetTrafficEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
@@ -532,6 +646,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+        /// </summary>
+        [Input("virtualWanTrafficEnabled")]
+        public Input<bool>? VirtualWanTrafficEnabled { get; set; }
 
         /// <summary>
         /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.

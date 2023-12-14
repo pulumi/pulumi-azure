@@ -138,11 +138,15 @@ namespace Pulumi.Azure.MSSql
     public sealed class GetElasticPoolResult
     {
         /// <summary>
+        /// The type of enclave being used by the elastic pool.
+        /// </summary>
+        public readonly string EnclaveType;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The license type to apply for this database.
+        /// The license type to apply for this elastic pool.
         /// </summary>
         public readonly string LicenseType;
         /// <summary>
@@ -186,6 +190,8 @@ namespace Pulumi.Azure.MSSql
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            string enclaveType,
+
             string id,
 
             string licenseType,
@@ -212,6 +218,7 @@ namespace Pulumi.Azure.MSSql
 
             bool zoneRedundant)
         {
+            EnclaveType = enclaveType;
             Id = id;
             LicenseType = licenseType;
             Location = location;

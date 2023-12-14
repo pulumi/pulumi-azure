@@ -127,6 +127,10 @@ namespace Pulumi.Azure.CosmosDB
         /// Capabilities enabled on this Cosmos DB account.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCapabilityResult> Capabilities;
+        /// <summary>
+        /// A list of connection strings available for this CosmosDB account.
+        /// </summary>
+        public readonly ImmutableArray<string> ConnectionStrings;
         public readonly ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> ConsistencyPolicies;
         /// <summary>
         /// If automatic failover is enabled for this CosmosDB Account.
@@ -179,9 +183,25 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string PrimaryKey;
         /// <summary>
+        /// The primary Mongodb connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string PrimaryMongodbConnectionString;
+        /// <summary>
         /// The primary read-only Key for the CosmosDB account.
         /// </summary>
         public readonly string PrimaryReadonlyKey;
+        /// <summary>
+        /// The primary readonly Mongodb connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string PrimaryReadonlyMongodbConnectionString;
+        /// <summary>
+        /// The primary read-only SQL connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string PrimaryReadonlySqlConnectionString;
+        /// <summary>
+        /// The primary SQL connection string for the CosmosDB Account.
+        /// </summary>
+        public readonly string PrimarySqlConnectionString;
         /// <summary>
         /// A list of read endpoints available for this CosmosDB account.
         /// </summary>
@@ -192,9 +212,25 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         public readonly string SecondaryKey;
         /// <summary>
+        /// The secondary Mongodb connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string SecondaryMongodbConnectionString;
+        /// <summary>
         /// The secondary read-only key for the CosmosDB account.
         /// </summary>
         public readonly string SecondaryReadonlyKey;
+        /// <summary>
+        /// The secondary readonly Mongodb connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string SecondaryReadonlyMongodbConnectionString;
+        /// <summary>
+        /// The secondary read-only SQL connection string for the CosmosDB account.
+        /// </summary>
+        public readonly string SecondaryReadonlySqlConnectionString;
+        /// <summary>
+        /// The secondary SQL connection string for the CosmosDB Account.
+        /// </summary>
+        public readonly string SecondarySqlConnectionString;
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
@@ -211,6 +247,8 @@ namespace Pulumi.Azure.CosmosDB
         [OutputConstructor]
         private GetAccountResult(
             ImmutableArray<Outputs.GetAccountCapabilityResult> capabilities,
+
+            ImmutableArray<string> connectionStrings,
 
             ImmutableArray<Outputs.GetAccountConsistencyPolicyResult> consistencyPolicies,
 
@@ -242,7 +280,15 @@ namespace Pulumi.Azure.CosmosDB
 
             string primaryKey,
 
+            string primaryMongodbConnectionString,
+
             string primaryReadonlyKey,
+
+            string primaryReadonlyMongodbConnectionString,
+
+            string primaryReadonlySqlConnectionString,
+
+            string primarySqlConnectionString,
 
             ImmutableArray<string> readEndpoints,
 
@@ -250,7 +296,15 @@ namespace Pulumi.Azure.CosmosDB
 
             string secondaryKey,
 
+            string secondaryMongodbConnectionString,
+
             string secondaryReadonlyKey,
+
+            string secondaryReadonlyMongodbConnectionString,
+
+            string secondaryReadonlySqlConnectionString,
+
+            string secondarySqlConnectionString,
 
             ImmutableDictionary<string, string> tags,
 
@@ -259,6 +313,7 @@ namespace Pulumi.Azure.CosmosDB
             ImmutableArray<string> writeEndpoints)
         {
             Capabilities = capabilities;
+            ConnectionStrings = connectionStrings;
             ConsistencyPolicies = consistencyPolicies;
             EnableAutomaticFailover = enableAutomaticFailover;
             EnableFreeTier = enableFreeTier;
@@ -274,11 +329,19 @@ namespace Pulumi.Azure.CosmosDB
             Name = name;
             OfferType = offerType;
             PrimaryKey = primaryKey;
+            PrimaryMongodbConnectionString = primaryMongodbConnectionString;
             PrimaryReadonlyKey = primaryReadonlyKey;
+            PrimaryReadonlyMongodbConnectionString = primaryReadonlyMongodbConnectionString;
+            PrimaryReadonlySqlConnectionString = primaryReadonlySqlConnectionString;
+            PrimarySqlConnectionString = primarySqlConnectionString;
             ReadEndpoints = readEndpoints;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
+            SecondaryMongodbConnectionString = secondaryMongodbConnectionString;
             SecondaryReadonlyKey = secondaryReadonlyKey;
+            SecondaryReadonlyMongodbConnectionString = secondaryReadonlyMongodbConnectionString;
+            SecondaryReadonlySqlConnectionString = secondaryReadonlySqlConnectionString;
+            SecondarySqlConnectionString = secondarySqlConnectionString;
             Tags = tags;
             VirtualNetworkRules = virtualNetworkRules;
             WriteEndpoints = writeEndpoints;

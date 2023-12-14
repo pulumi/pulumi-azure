@@ -112,6 +112,8 @@ if typing.TYPE_CHECKING:
     domainservices = __domainservices
     import pulumi_azure.elasticcloud as __elasticcloud
     elasticcloud = __elasticcloud
+    import pulumi_azure.elasticsan as __elasticsan
+    elasticsan = __elasticsan
     import pulumi_azure.eventgrid as __eventgrid
     eventgrid = __eventgrid
     import pulumi_azure.eventhub as __eventhub
@@ -318,6 +320,7 @@ else:
     dns = _utilities.lazy_import('pulumi_azure.dns')
     domainservices = _utilities.lazy_import('pulumi_azure.domainservices')
     elasticcloud = _utilities.lazy_import('pulumi_azure.elasticcloud')
+    elasticsan = _utilities.lazy_import('pulumi_azure.elasticsan')
     eventgrid = _utilities.lazy_import('pulumi_azure.eventgrid')
     eventhub = _utilities.lazy_import('pulumi_azure.eventhub')
     fluidrelay = _utilities.lazy_import('pulumi_azure.fluidrelay')
@@ -3953,6 +3956,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "elasticsan/elasticSan",
+  "fqn": "pulumi_azure.elasticsan",
+  "classes": {
+   "azure:elasticsan/elasticSan:ElasticSan": "ElasticSan"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "eventgrid/domain",
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
@@ -4653,6 +4664,22 @@ _utilities.register(
   "fqn": "pulumi_azure.keyvault",
   "classes": {
    "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule": "ManagedHardwareSecurityModule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "keyvault/managedHardwareSecurityModuleRoleAssignment",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment": "ManagedHardwareSecurityModuleRoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "keyvault/managedHardwareSecurityModuleRoleDefinition",
+  "fqn": "pulumi_azure.keyvault",
+  "classes": {
+   "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition": "ManagedHardwareSecurityModuleRoleDefinition"
   }
  },
  {

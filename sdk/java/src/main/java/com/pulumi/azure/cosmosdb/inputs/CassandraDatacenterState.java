@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -183,6 +184,21 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     * 
+     */
+    @Import(name="seedNodeIpAddresses")
+    private @Nullable Output<List<String>> seedNodeIpAddresses;
+
+    /**
+     * @return A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     * 
+     */
+    public Optional<Output<List<String>>> seedNodeIpAddresses() {
+        return Optional.ofNullable(this.seedNodeIpAddresses);
+    }
+
+    /**
      * Determines the selected sku.
      * 
      * &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
@@ -215,6 +231,7 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
         this.managedDiskCustomerKeyUri = $.managedDiskCustomerKeyUri;
         this.name = $.name;
         this.nodeCount = $.nodeCount;
+        this.seedNodeIpAddresses = $.seedNodeIpAddresses;
         this.skuName = $.skuName;
     }
 
@@ -465,6 +482,37 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
          */
         public Builder nodeCount(Integer nodeCount) {
             return nodeCount(Output.of(nodeCount));
+        }
+
+        /**
+         * @param seedNodeIpAddresses A list of IP Address for the seed nodes in this Cassandra Datacenter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder seedNodeIpAddresses(@Nullable Output<List<String>> seedNodeIpAddresses) {
+            $.seedNodeIpAddresses = seedNodeIpAddresses;
+            return this;
+        }
+
+        /**
+         * @param seedNodeIpAddresses A list of IP Address for the seed nodes in this Cassandra Datacenter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder seedNodeIpAddresses(List<String> seedNodeIpAddresses) {
+            return seedNodeIpAddresses(Output.of(seedNodeIpAddresses));
+        }
+
+        /**
+         * @param seedNodeIpAddresses A list of IP Address for the seed nodes in this Cassandra Datacenter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder seedNodeIpAddresses(String... seedNodeIpAddresses) {
+            return seedNodeIpAddresses(List.of(seedNodeIpAddresses));
         }
 
         /**

@@ -438,7 +438,7 @@ type ScaleSet struct {
 	UpgradePolicyMode pulumi.StringOutput `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -548,7 +548,7 @@ type scaleSetState struct {
 	UpgradePolicyMode *string `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -611,7 +611,7 @@ type ScaleSetState struct {
 	UpgradePolicyMode pulumi.StringPtrInput
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -678,7 +678,7 @@ type scaleSetArgs struct {
 	UpgradePolicyMode string `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -742,7 +742,7 @@ type ScaleSetArgs struct {
 	UpgradePolicyMode pulumi.StringInput
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -972,7 +972,7 @@ func (o ScaleSetOutput) UpgradePolicyMode() pulumi.StringOutput {
 
 // A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 //
-// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o ScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

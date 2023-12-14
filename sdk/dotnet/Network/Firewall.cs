@@ -87,6 +87,12 @@ namespace Pulumi.Azure.Network
     public partial class Firewall : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// </summary>
+        [Output("dnsProxyEnabled")]
+        public Output<bool> DnsProxyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
         /// </summary>
         [Output("dnsServers")]
@@ -218,6 +224,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// </summary>
+        [Input("dnsProxyEnabled")]
+        public Input<bool>? DnsProxyEnabled { get; set; }
+
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
 
@@ -342,6 +354,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class FirewallState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+        /// </summary>
+        [Input("dnsProxyEnabled")]
+        public Input<bool>? DnsProxyEnabled { get; set; }
+
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
 

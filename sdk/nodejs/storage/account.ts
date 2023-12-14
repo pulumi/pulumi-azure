@@ -226,6 +226,22 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryBlobHost!: pulumi.Output<string>;
     /**
+     * The internet routing endpoint URL for blob storage in the primary location.
+     */
+    public /*out*/ readonly primaryBlobInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the primary location.
+     */
+    public /*out*/ readonly primaryBlobInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the primary location.
+     */
+    public /*out*/ readonly primaryBlobMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     */
+    public /*out*/ readonly primaryBlobMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The connection string associated with the primary location.
      */
     public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
@@ -238,6 +254,22 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryDfsHost!: pulumi.Output<string>;
     /**
+     * The internet routing endpoint URL for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     public /*out*/ readonly primaryFileEndpoint!: pulumi.Output<string>;
@@ -245,6 +277,22 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for file storage in the primary location.
      */
     public /*out*/ readonly primaryFileHost!: pulumi.Output<string>;
+    /**
+     * The internet routing endpoint URL for file storage in the primary location.
+     */
+    public /*out*/ readonly primaryFileInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the primary location.
+     */
+    public /*out*/ readonly primaryFileInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for file storage in the primary location.
+     */
+    public /*out*/ readonly primaryFileMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the primary location.
+     */
+    public /*out*/ readonly primaryFileMicrosoftHost!: pulumi.Output<string>;
     /**
      * The primary location of the storage account.
      */
@@ -258,6 +306,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryQueueHost!: pulumi.Output<string>;
     /**
+     * The microsoft routing endpoint URL for queue storage in the primary location.
+     */
+    public /*out*/ readonly primaryQueueMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     */
+    public /*out*/ readonly primaryQueueMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     public /*out*/ readonly primaryTableEndpoint!: pulumi.Output<string>;
@@ -266,6 +322,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryTableHost!: pulumi.Output<string>;
     /**
+     * The microsoft routing endpoint URL for table storage in the primary location.
+     */
+    public /*out*/ readonly primaryTableMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the primary location.
+     */
+    public /*out*/ readonly primaryTableMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for web storage in the primary location.
      */
     public /*out*/ readonly primaryWebEndpoint!: pulumi.Output<string>;
@@ -273,6 +337,22 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the primary location.
      */
     public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
+    /**
+     * The internet routing endpoint URL for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebMicrosoftHost!: pulumi.Output<string>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
@@ -316,6 +396,22 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryBlobHost!: pulumi.Output<string>;
     /**
+     * The internet routing endpoint URL for blob storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryBlobInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryBlobInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryBlobMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryBlobMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The connection string associated with the secondary location.
      */
     public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
@@ -328,6 +424,22 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryDfsHost!: pulumi.Output<string>;
     /**
+     * The internet routing endpoint URL for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for file storage in the secondary location.
      */
     public /*out*/ readonly secondaryFileEndpoint!: pulumi.Output<string>;
@@ -335,6 +447,22 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for file storage in the secondary location.
      */
     public /*out*/ readonly secondaryFileHost!: pulumi.Output<string>;
+    /**
+     * The internet routing endpoint URL for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileMicrosoftHost!: pulumi.Output<string>;
     /**
      * The secondary location of the storage account.
      */
@@ -348,6 +476,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryQueueHost!: pulumi.Output<string>;
     /**
+     * The microsoft routing endpoint URL for queue storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryQueueMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryQueueMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     public /*out*/ readonly secondaryTableEndpoint!: pulumi.Output<string>;
@@ -356,6 +492,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryTableHost!: pulumi.Output<string>;
     /**
+     * The microsoft routing endpoint URL for table storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryTableMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryTableMicrosoftHost!: pulumi.Output<string>;
+    /**
      * The endpoint URL for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebEndpoint!: pulumi.Output<string>;
@@ -363,6 +507,22 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    /**
+     * The internet routing endpoint URL for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebInternetEndpoint!: pulumi.Output<string>;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebInternetHost!: pulumi.Output<string>;
+    /**
+     * The microsoft routing endpoint URL for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebMicrosoftEndpoint!: pulumi.Output<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebMicrosoftHost!: pulumi.Output<string>;
     /**
      * Boolean, enable SFTP for the storage account
      *
@@ -432,18 +592,38 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryBlobConnectionString"] = state ? state.primaryBlobConnectionString : undefined;
             resourceInputs["primaryBlobEndpoint"] = state ? state.primaryBlobEndpoint : undefined;
             resourceInputs["primaryBlobHost"] = state ? state.primaryBlobHost : undefined;
+            resourceInputs["primaryBlobInternetEndpoint"] = state ? state.primaryBlobInternetEndpoint : undefined;
+            resourceInputs["primaryBlobInternetHost"] = state ? state.primaryBlobInternetHost : undefined;
+            resourceInputs["primaryBlobMicrosoftEndpoint"] = state ? state.primaryBlobMicrosoftEndpoint : undefined;
+            resourceInputs["primaryBlobMicrosoftHost"] = state ? state.primaryBlobMicrosoftHost : undefined;
             resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             resourceInputs["primaryDfsEndpoint"] = state ? state.primaryDfsEndpoint : undefined;
             resourceInputs["primaryDfsHost"] = state ? state.primaryDfsHost : undefined;
+            resourceInputs["primaryDfsInternetEndpoint"] = state ? state.primaryDfsInternetEndpoint : undefined;
+            resourceInputs["primaryDfsInternetHost"] = state ? state.primaryDfsInternetHost : undefined;
+            resourceInputs["primaryDfsMicrosoftEndpoint"] = state ? state.primaryDfsMicrosoftEndpoint : undefined;
+            resourceInputs["primaryDfsMicrosoftHost"] = state ? state.primaryDfsMicrosoftHost : undefined;
             resourceInputs["primaryFileEndpoint"] = state ? state.primaryFileEndpoint : undefined;
             resourceInputs["primaryFileHost"] = state ? state.primaryFileHost : undefined;
+            resourceInputs["primaryFileInternetEndpoint"] = state ? state.primaryFileInternetEndpoint : undefined;
+            resourceInputs["primaryFileInternetHost"] = state ? state.primaryFileInternetHost : undefined;
+            resourceInputs["primaryFileMicrosoftEndpoint"] = state ? state.primaryFileMicrosoftEndpoint : undefined;
+            resourceInputs["primaryFileMicrosoftHost"] = state ? state.primaryFileMicrosoftHost : undefined;
             resourceInputs["primaryLocation"] = state ? state.primaryLocation : undefined;
             resourceInputs["primaryQueueEndpoint"] = state ? state.primaryQueueEndpoint : undefined;
             resourceInputs["primaryQueueHost"] = state ? state.primaryQueueHost : undefined;
+            resourceInputs["primaryQueueMicrosoftEndpoint"] = state ? state.primaryQueueMicrosoftEndpoint : undefined;
+            resourceInputs["primaryQueueMicrosoftHost"] = state ? state.primaryQueueMicrosoftHost : undefined;
             resourceInputs["primaryTableEndpoint"] = state ? state.primaryTableEndpoint : undefined;
             resourceInputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
+            resourceInputs["primaryTableMicrosoftEndpoint"] = state ? state.primaryTableMicrosoftEndpoint : undefined;
+            resourceInputs["primaryTableMicrosoftHost"] = state ? state.primaryTableMicrosoftHost : undefined;
             resourceInputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
             resourceInputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
+            resourceInputs["primaryWebInternetEndpoint"] = state ? state.primaryWebInternetEndpoint : undefined;
+            resourceInputs["primaryWebInternetHost"] = state ? state.primaryWebInternetHost : undefined;
+            resourceInputs["primaryWebMicrosoftEndpoint"] = state ? state.primaryWebMicrosoftEndpoint : undefined;
+            resourceInputs["primaryWebMicrosoftHost"] = state ? state.primaryWebMicrosoftHost : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["queueEncryptionKeyType"] = state ? state.queueEncryptionKeyType : undefined;
             resourceInputs["queueProperties"] = state ? state.queueProperties : undefined;
@@ -454,18 +634,38 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
             resourceInputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
             resourceInputs["secondaryBlobHost"] = state ? state.secondaryBlobHost : undefined;
+            resourceInputs["secondaryBlobInternetEndpoint"] = state ? state.secondaryBlobInternetEndpoint : undefined;
+            resourceInputs["secondaryBlobInternetHost"] = state ? state.secondaryBlobInternetHost : undefined;
+            resourceInputs["secondaryBlobMicrosoftEndpoint"] = state ? state.secondaryBlobMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryBlobMicrosoftHost"] = state ? state.secondaryBlobMicrosoftHost : undefined;
             resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             resourceInputs["secondaryDfsEndpoint"] = state ? state.secondaryDfsEndpoint : undefined;
             resourceInputs["secondaryDfsHost"] = state ? state.secondaryDfsHost : undefined;
+            resourceInputs["secondaryDfsInternetEndpoint"] = state ? state.secondaryDfsInternetEndpoint : undefined;
+            resourceInputs["secondaryDfsInternetHost"] = state ? state.secondaryDfsInternetHost : undefined;
+            resourceInputs["secondaryDfsMicrosoftEndpoint"] = state ? state.secondaryDfsMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryDfsMicrosoftHost"] = state ? state.secondaryDfsMicrosoftHost : undefined;
             resourceInputs["secondaryFileEndpoint"] = state ? state.secondaryFileEndpoint : undefined;
             resourceInputs["secondaryFileHost"] = state ? state.secondaryFileHost : undefined;
+            resourceInputs["secondaryFileInternetEndpoint"] = state ? state.secondaryFileInternetEndpoint : undefined;
+            resourceInputs["secondaryFileInternetHost"] = state ? state.secondaryFileInternetHost : undefined;
+            resourceInputs["secondaryFileMicrosoftEndpoint"] = state ? state.secondaryFileMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryFileMicrosoftHost"] = state ? state.secondaryFileMicrosoftHost : undefined;
             resourceInputs["secondaryLocation"] = state ? state.secondaryLocation : undefined;
             resourceInputs["secondaryQueueEndpoint"] = state ? state.secondaryQueueEndpoint : undefined;
             resourceInputs["secondaryQueueHost"] = state ? state.secondaryQueueHost : undefined;
+            resourceInputs["secondaryQueueMicrosoftEndpoint"] = state ? state.secondaryQueueMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryQueueMicrosoftHost"] = state ? state.secondaryQueueMicrosoftHost : undefined;
             resourceInputs["secondaryTableEndpoint"] = state ? state.secondaryTableEndpoint : undefined;
             resourceInputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
+            resourceInputs["secondaryTableMicrosoftEndpoint"] = state ? state.secondaryTableMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryTableMicrosoftHost"] = state ? state.secondaryTableMicrosoftHost : undefined;
             resourceInputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
             resourceInputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
+            resourceInputs["secondaryWebInternetEndpoint"] = state ? state.secondaryWebInternetEndpoint : undefined;
+            resourceInputs["secondaryWebInternetHost"] = state ? state.secondaryWebInternetHost : undefined;
+            resourceInputs["secondaryWebMicrosoftEndpoint"] = state ? state.secondaryWebMicrosoftEndpoint : undefined;
+            resourceInputs["secondaryWebMicrosoftHost"] = state ? state.secondaryWebMicrosoftHost : undefined;
             resourceInputs["sftpEnabled"] = state ? state.sftpEnabled : undefined;
             resourceInputs["shareProperties"] = state ? state.shareProperties : undefined;
             resourceInputs["sharedAccessKeyEnabled"] = state ? state.sharedAccessKeyEnabled : undefined;
@@ -523,34 +723,74 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryBlobConnectionString"] = undefined /*out*/;
             resourceInputs["primaryBlobEndpoint"] = undefined /*out*/;
             resourceInputs["primaryBlobHost"] = undefined /*out*/;
+            resourceInputs["primaryBlobInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryBlobInternetHost"] = undefined /*out*/;
+            resourceInputs["primaryBlobMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryBlobMicrosoftHost"] = undefined /*out*/;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryDfsEndpoint"] = undefined /*out*/;
             resourceInputs["primaryDfsHost"] = undefined /*out*/;
+            resourceInputs["primaryDfsInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryDfsInternetHost"] = undefined /*out*/;
+            resourceInputs["primaryDfsMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryDfsMicrosoftHost"] = undefined /*out*/;
             resourceInputs["primaryFileEndpoint"] = undefined /*out*/;
             resourceInputs["primaryFileHost"] = undefined /*out*/;
+            resourceInputs["primaryFileInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryFileInternetHost"] = undefined /*out*/;
+            resourceInputs["primaryFileMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryFileMicrosoftHost"] = undefined /*out*/;
             resourceInputs["primaryLocation"] = undefined /*out*/;
             resourceInputs["primaryQueueEndpoint"] = undefined /*out*/;
             resourceInputs["primaryQueueHost"] = undefined /*out*/;
+            resourceInputs["primaryQueueMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryQueueMicrosoftHost"] = undefined /*out*/;
             resourceInputs["primaryTableEndpoint"] = undefined /*out*/;
             resourceInputs["primaryTableHost"] = undefined /*out*/;
+            resourceInputs["primaryTableMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryTableMicrosoftHost"] = undefined /*out*/;
             resourceInputs["primaryWebEndpoint"] = undefined /*out*/;
             resourceInputs["primaryWebHost"] = undefined /*out*/;
+            resourceInputs["primaryWebInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryWebInternetHost"] = undefined /*out*/;
+            resourceInputs["primaryWebMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["primaryWebMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryBlobConnectionString"] = undefined /*out*/;
             resourceInputs["secondaryBlobEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryBlobHost"] = undefined /*out*/;
+            resourceInputs["secondaryBlobInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryBlobInternetHost"] = undefined /*out*/;
+            resourceInputs["secondaryBlobMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryBlobMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;
             resourceInputs["secondaryDfsEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryDfsHost"] = undefined /*out*/;
+            resourceInputs["secondaryDfsInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryDfsInternetHost"] = undefined /*out*/;
+            resourceInputs["secondaryDfsMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryDfsMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryFileEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryFileHost"] = undefined /*out*/;
+            resourceInputs["secondaryFileInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryFileInternetHost"] = undefined /*out*/;
+            resourceInputs["secondaryFileMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryFileMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryLocation"] = undefined /*out*/;
             resourceInputs["secondaryQueueEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryQueueHost"] = undefined /*out*/;
+            resourceInputs["secondaryQueueMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryQueueMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryTableEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryTableHost"] = undefined /*out*/;
+            resourceInputs["secondaryTableMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryTableMicrosoftHost"] = undefined /*out*/;
             resourceInputs["secondaryWebEndpoint"] = undefined /*out*/;
             resourceInputs["secondaryWebHost"] = undefined /*out*/;
+            resourceInputs["secondaryWebInternetEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryWebInternetHost"] = undefined /*out*/;
+            resourceInputs["secondaryWebMicrosoftEndpoint"] = undefined /*out*/;
+            resourceInputs["secondaryWebMicrosoftHost"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "primaryBlobConnectionString", "primaryConnectionString", "secondaryAccessKey", "secondaryBlobConnectionString", "secondaryConnectionString"] };
@@ -690,6 +930,22 @@ export interface AccountState {
      */
     primaryBlobHost?: pulumi.Input<string>;
     /**
+     * The internet routing endpoint URL for blob storage in the primary location.
+     */
+    primaryBlobInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the primary location.
+     */
+    primaryBlobInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the primary location.
+     */
+    primaryBlobMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     */
+    primaryBlobMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The connection string associated with the primary location.
      */
     primaryConnectionString?: pulumi.Input<string>;
@@ -702,6 +958,22 @@ export interface AccountState {
      */
     primaryDfsHost?: pulumi.Input<string>;
     /**
+     * The internet routing endpoint URL for DFS storage in the primary location.
+     */
+    primaryDfsInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    primaryDfsInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the primary location.
+     */
+    primaryDfsMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    primaryDfsMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     primaryFileEndpoint?: pulumi.Input<string>;
@@ -709,6 +981,22 @@ export interface AccountState {
      * The hostname with port if applicable for file storage in the primary location.
      */
     primaryFileHost?: pulumi.Input<string>;
+    /**
+     * The internet routing endpoint URL for file storage in the primary location.
+     */
+    primaryFileInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the primary location.
+     */
+    primaryFileInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for file storage in the primary location.
+     */
+    primaryFileMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the primary location.
+     */
+    primaryFileMicrosoftHost?: pulumi.Input<string>;
     /**
      * The primary location of the storage account.
      */
@@ -722,6 +1010,14 @@ export interface AccountState {
      */
     primaryQueueHost?: pulumi.Input<string>;
     /**
+     * The microsoft routing endpoint URL for queue storage in the primary location.
+     */
+    primaryQueueMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     */
+    primaryQueueMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     primaryTableEndpoint?: pulumi.Input<string>;
@@ -730,6 +1026,14 @@ export interface AccountState {
      */
     primaryTableHost?: pulumi.Input<string>;
     /**
+     * The microsoft routing endpoint URL for table storage in the primary location.
+     */
+    primaryTableMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the primary location.
+     */
+    primaryTableMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for web storage in the primary location.
      */
     primaryWebEndpoint?: pulumi.Input<string>;
@@ -737,6 +1041,22 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the primary location.
      */
     primaryWebHost?: pulumi.Input<string>;
+    /**
+     * The internet routing endpoint URL for web storage in the primary location.
+     */
+    primaryWebInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the primary location.
+     */
+    primaryWebInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for web storage in the primary location.
+     */
+    primaryWebMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the primary location.
+     */
+    primaryWebMicrosoftHost?: pulumi.Input<string>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
@@ -780,6 +1100,22 @@ export interface AccountState {
      */
     secondaryBlobHost?: pulumi.Input<string>;
     /**
+     * The internet routing endpoint URL for blob storage in the secondary location.
+     */
+    secondaryBlobInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    secondaryBlobInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the secondary location.
+     */
+    secondaryBlobMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    secondaryBlobMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The connection string associated with the secondary location.
      */
     secondaryConnectionString?: pulumi.Input<string>;
@@ -792,6 +1128,22 @@ export interface AccountState {
      */
     secondaryDfsHost?: pulumi.Input<string>;
     /**
+     * The internet routing endpoint URL for DFS storage in the secondary location.
+     */
+    secondaryDfsInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    secondaryDfsInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the secondary location.
+     */
+    secondaryDfsMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    secondaryDfsMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for file storage in the secondary location.
      */
     secondaryFileEndpoint?: pulumi.Input<string>;
@@ -799,6 +1151,22 @@ export interface AccountState {
      * The hostname with port if applicable for file storage in the secondary location.
      */
     secondaryFileHost?: pulumi.Input<string>;
+    /**
+     * The internet routing endpoint URL for file storage in the secondary location.
+     */
+    secondaryFileInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the secondary location.
+     */
+    secondaryFileInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for file storage in the secondary location.
+     */
+    secondaryFileMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     */
+    secondaryFileMicrosoftHost?: pulumi.Input<string>;
     /**
      * The secondary location of the storage account.
      */
@@ -812,6 +1180,14 @@ export interface AccountState {
      */
     secondaryQueueHost?: pulumi.Input<string>;
     /**
+     * The microsoft routing endpoint URL for queue storage in the secondary location.
+     */
+    secondaryQueueMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     */
+    secondaryQueueMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     secondaryTableEndpoint?: pulumi.Input<string>;
@@ -820,6 +1196,14 @@ export interface AccountState {
      */
     secondaryTableHost?: pulumi.Input<string>;
     /**
+     * The microsoft routing endpoint URL for table storage in the secondary location.
+     */
+    secondaryTableMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     */
+    secondaryTableMicrosoftHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for web storage in the secondary location.
      */
     secondaryWebEndpoint?: pulumi.Input<string>;
@@ -827,6 +1211,22 @@ export interface AccountState {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     secondaryWebHost?: pulumi.Input<string>;
+    /**
+     * The internet routing endpoint URL for web storage in the secondary location.
+     */
+    secondaryWebInternetEndpoint?: pulumi.Input<string>;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the secondary location.
+     */
+    secondaryWebInternetHost?: pulumi.Input<string>;
+    /**
+     * The microsoft routing endpoint URL for web storage in the secondary location.
+     */
+    secondaryWebMicrosoftEndpoint?: pulumi.Input<string>;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     */
+    secondaryWebMicrosoftHost?: pulumi.Input<string>;
     /**
      * Boolean, enable SFTP for the storage account
      *

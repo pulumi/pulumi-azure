@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -291,6 +292,20 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> nodeCount() {
         return Codegen.optional(this.nodeCount);
+    }
+    /**
+     * A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     * 
+     */
+    @Export(name="seedNodeIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> seedNodeIpAddresses;
+
+    /**
+     * @return A list of IP Address for the seed nodes in this Cassandra Datacenter.
+     * 
+     */
+    public Output<List<String>> seedNodeIpAddresses() {
+        return this.seedNodeIpAddresses;
     }
     /**
      * Determines the selected sku.

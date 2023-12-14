@@ -21484,6 +21484,247 @@ func (o VirtualNetworkGatewayNatRuleInternalMappingArrayOutput) Index(i pulumi.I
 	}).(VirtualNetworkGatewayNatRuleInternalMappingOutput)
 }
 
+type VirtualNetworkGatewayPolicyGroup struct {
+	// Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+	IsDefault *bool `pulumi:"isDefault"`
+	// The name of the Virtual Network Gateway Policy Group.
+	Name string `pulumi:"name"`
+	// One or more `policyMember` blocks as defined below.
+	PolicyMembers []VirtualNetworkGatewayPolicyGroupPolicyMember `pulumi:"policyMembers"`
+	// The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+	Priority *int `pulumi:"priority"`
+}
+
+// VirtualNetworkGatewayPolicyGroupInput is an input type that accepts VirtualNetworkGatewayPolicyGroupArgs and VirtualNetworkGatewayPolicyGroupOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayPolicyGroupInput` via:
+//
+//	VirtualNetworkGatewayPolicyGroupArgs{...}
+type VirtualNetworkGatewayPolicyGroupInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayPolicyGroupOutput() VirtualNetworkGatewayPolicyGroupOutput
+	ToVirtualNetworkGatewayPolicyGroupOutputWithContext(context.Context) VirtualNetworkGatewayPolicyGroupOutput
+}
+
+type VirtualNetworkGatewayPolicyGroupArgs struct {
+	// Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// The name of the Virtual Network Gateway Policy Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `policyMember` blocks as defined below.
+	PolicyMembers VirtualNetworkGatewayPolicyGroupPolicyMemberArrayInput `pulumi:"policyMembers"`
+	// The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+}
+
+func (VirtualNetworkGatewayPolicyGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayPolicyGroup)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayPolicyGroupArgs) ToVirtualNetworkGatewayPolicyGroupOutput() VirtualNetworkGatewayPolicyGroupOutput {
+	return i.ToVirtualNetworkGatewayPolicyGroupOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayPolicyGroupArgs) ToVirtualNetworkGatewayPolicyGroupOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayPolicyGroupOutput)
+}
+
+// VirtualNetworkGatewayPolicyGroupArrayInput is an input type that accepts VirtualNetworkGatewayPolicyGroupArray and VirtualNetworkGatewayPolicyGroupArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayPolicyGroupArrayInput` via:
+//
+//	VirtualNetworkGatewayPolicyGroupArray{ VirtualNetworkGatewayPolicyGroupArgs{...} }
+type VirtualNetworkGatewayPolicyGroupArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayPolicyGroupArrayOutput() VirtualNetworkGatewayPolicyGroupArrayOutput
+	ToVirtualNetworkGatewayPolicyGroupArrayOutputWithContext(context.Context) VirtualNetworkGatewayPolicyGroupArrayOutput
+}
+
+type VirtualNetworkGatewayPolicyGroupArray []VirtualNetworkGatewayPolicyGroupInput
+
+func (VirtualNetworkGatewayPolicyGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayPolicyGroup)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayPolicyGroupArray) ToVirtualNetworkGatewayPolicyGroupArrayOutput() VirtualNetworkGatewayPolicyGroupArrayOutput {
+	return i.ToVirtualNetworkGatewayPolicyGroupArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayPolicyGroupArray) ToVirtualNetworkGatewayPolicyGroupArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayPolicyGroupArrayOutput)
+}
+
+type VirtualNetworkGatewayPolicyGroupOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayPolicyGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayPolicyGroup)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayPolicyGroupOutput) ToVirtualNetworkGatewayPolicyGroupOutput() VirtualNetworkGatewayPolicyGroupOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupOutput) ToVirtualNetworkGatewayPolicyGroupOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupOutput {
+	return o
+}
+
+// Is this a Default Virtual Network Gateway Policy Group? Defaults to `false`.
+func (o VirtualNetworkGatewayPolicyGroupOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroup) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Virtual Network Gateway Policy Group.
+func (o VirtualNetworkGatewayPolicyGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `policyMember` blocks as defined below.
+func (o VirtualNetworkGatewayPolicyGroupOutput) PolicyMembers() VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroup) []VirtualNetworkGatewayPolicyGroupPolicyMember {
+		return v.PolicyMembers
+	}).(VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput)
+}
+
+// The priority for the Virtual Network Gateway Policy Group. Defaults to `0`.
+func (o VirtualNetworkGatewayPolicyGroupOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroup) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+type VirtualNetworkGatewayPolicyGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayPolicyGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayPolicyGroup)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayPolicyGroupArrayOutput) ToVirtualNetworkGatewayPolicyGroupArrayOutput() VirtualNetworkGatewayPolicyGroupArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupArrayOutput) ToVirtualNetworkGatewayPolicyGroupArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayPolicyGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayPolicyGroup {
+		return vs[0].([]VirtualNetworkGatewayPolicyGroup)[vs[1].(int)]
+	}).(VirtualNetworkGatewayPolicyGroupOutput)
+}
+
+type VirtualNetworkGatewayPolicyGroupPolicyMember struct {
+	// The name of the Virtual Network Gateway Policy Group Member.
+	Name string `pulumi:"name"`
+	// The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+	Type string `pulumi:"type"`
+	// The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+	Value string `pulumi:"value"`
+}
+
+// VirtualNetworkGatewayPolicyGroupPolicyMemberInput is an input type that accepts VirtualNetworkGatewayPolicyGroupPolicyMemberArgs and VirtualNetworkGatewayPolicyGroupPolicyMemberOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayPolicyGroupPolicyMemberInput` via:
+//
+//	VirtualNetworkGatewayPolicyGroupPolicyMemberArgs{...}
+type VirtualNetworkGatewayPolicyGroupPolicyMemberInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberOutput
+	ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutputWithContext(context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberOutput
+}
+
+type VirtualNetworkGatewayPolicyGroupPolicyMemberArgs struct {
+	// The name of the Virtual Network Gateway Policy Group Member.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VirtualNetworkGatewayPolicyGroupPolicyMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupPolicyMember)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayPolicyGroupPolicyMemberArgs) ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberOutput {
+	return i.ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayPolicyGroupPolicyMemberArgs) ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayPolicyGroupPolicyMemberOutput)
+}
+
+// VirtualNetworkGatewayPolicyGroupPolicyMemberArrayInput is an input type that accepts VirtualNetworkGatewayPolicyGroupPolicyMemberArray and VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayPolicyGroupPolicyMemberArrayInput` via:
+//
+//	VirtualNetworkGatewayPolicyGroupPolicyMemberArray{ VirtualNetworkGatewayPolicyGroupPolicyMemberArgs{...} }
+type VirtualNetworkGatewayPolicyGroupPolicyMemberArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput
+	ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutputWithContext(context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput
+}
+
+type VirtualNetworkGatewayPolicyGroupPolicyMemberArray []VirtualNetworkGatewayPolicyGroupPolicyMemberInput
+
+func (VirtualNetworkGatewayPolicyGroupPolicyMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayPolicyGroupPolicyMember)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayPolicyGroupPolicyMemberArray) ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput {
+	return i.ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayPolicyGroupPolicyMemberArray) ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput)
+}
+
+type VirtualNetworkGatewayPolicyGroupPolicyMemberOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupPolicyMember)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) ToVirtualNetworkGatewayPolicyGroupPolicyMemberOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberOutput {
+	return o
+}
+
+// The name of the Virtual Network Gateway Policy Group Member.
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroupPolicyMember) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The VPN Policy Member attribute type. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroupPolicyMember) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of attribute that is used for this Virtual Network Gateway Policy Group Member.
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayPolicyGroupPolicyMember) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayPolicyGroupPolicyMember)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput) ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput() VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput) ToVirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayPolicyGroupPolicyMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayPolicyGroupPolicyMember {
+		return vs[0].([]VirtualNetworkGatewayPolicyGroupPolicyMember)[vs[1].(int)]
+	}).(VirtualNetworkGatewayPolicyGroupPolicyMemberOutput)
+}
+
 type VirtualNetworkGatewayVpnClientConfiguration struct {
 	// The client id of the Azure VPN application.
 	// See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
@@ -21494,14 +21735,20 @@ type VirtualNetworkGatewayVpnClientConfiguration struct {
 	AadTenant *string `pulumi:"aadTenant"`
 	// The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
 	AddressSpaces []string `pulumi:"addressSpaces"`
+	// An `ipsecPolicy` block as defined below.
+	IpsecPolicy *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy `pulumi:"ipsecPolicy"`
 	// The address of the Radius server.
 	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
 	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
+	// One or more `radiusServer` blocks as defined below.
+	RadiusServers []VirtualNetworkGatewayVpnClientConfigurationRadiusServer `pulumi:"radiusServers"`
 	// One or more `revokedCertificate` blocks which are defined below.
 	RevokedCertificates []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 	RootCertificates []VirtualNetworkGatewayVpnClientConfigurationRootCertificate `pulumi:"rootCertificates"`
+	// One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
+	VirtualNetworkGatewayClientConnections []VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection `pulumi:"virtualNetworkGatewayClientConnections"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
 	//
@@ -21535,14 +21782,20 @@ type VirtualNetworkGatewayVpnClientConfigurationArgs struct {
 	AadTenant pulumi.StringPtrInput `pulumi:"aadTenant"`
 	// The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.
 	AddressSpaces pulumi.StringArrayInput `pulumi:"addressSpaces"`
+	// An `ipsecPolicy` block as defined below.
+	IpsecPolicy VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput `pulumi:"ipsecPolicy"`
 	// The address of the Radius server.
 	RadiusServerAddress pulumi.StringPtrInput `pulumi:"radiusServerAddress"`
 	// The secret used by the Radius server.
 	RadiusServerSecret pulumi.StringPtrInput `pulumi:"radiusServerSecret"`
+	// One or more `radiusServer` blocks as defined below.
+	RadiusServers VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayInput `pulumi:"radiusServers"`
 	// One or more `revokedCertificate` blocks which are defined below.
 	RevokedCertificates VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput `pulumi:"revokedCertificates"`
 	// One or more `rootCertificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
 	RootCertificates VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput `pulumi:"rootCertificates"`
+	// One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
+	VirtualNetworkGatewayClientConnections VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput `pulumi:"virtualNetworkGatewayClientConnections"`
 	// List of the vpn authentication types for the virtual network gateway.
 	// The supported values are `AAD`, `Radius` and `Certificate`.
 	//
@@ -21653,6 +21906,13 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) AddressSpaces() pulum
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []string { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }
 
+// An `ipsecPolicy` block as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) IpsecPolicy() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
+		return v.IpsecPolicy
+	}).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput)
+}
+
 // The address of the Radius server.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
@@ -21661,6 +21921,13 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerAddress()
 // The secret used by the Radius server.
 func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServerSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) *string { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
+}
+
+// One or more `radiusServer` blocks as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RadiusServers() VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRadiusServer {
+		return v.RadiusServers
+	}).(VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput)
 }
 
 // One or more `revokedCertificate` blocks which are defined below.
@@ -21675,6 +21942,13 @@ func (o VirtualNetworkGatewayVpnClientConfigurationOutput) RootCertificates() Vi
 	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return v.RootCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
+}
+
+// One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationOutput) VirtualNetworkGatewayClientConnections() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection {
+		return v.VirtualNetworkGatewayClientConnections
+	}).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput)
 }
 
 // List of the vpn authentication types for the virtual network gateway.
@@ -21758,6 +22032,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) AddressSpaces() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+// An `ipsecPolicy` block as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) IpsecPolicy() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.IpsecPolicy
+	}).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput)
+}
+
 // The address of the Radius server.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) *string {
@@ -21778,6 +22062,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServerSecret
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more `radiusServer` blocks as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RadiusServers() VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRadiusServer {
+		if v == nil {
+			return nil
+		}
+		return v.RadiusServers
+	}).(VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput)
+}
+
 // One or more `revokedCertificate` blocks which are defined below.
 func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RevokedCertificates() VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate {
@@ -21796,6 +22090,16 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) RootCertificates()
 		}
 		return v.RootCertificates
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput)
+}
+
+// One or more `virtualNetworkGatewayClientConnection` blocks as defined below.
+func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VirtualNetworkGatewayClientConnections() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfiguration) []VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkGatewayClientConnections
+	}).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput)
 }
 
 // List of the vpn authentication types for the virtual network gateway.
@@ -21822,6 +22126,391 @@ func (o VirtualNetworkGatewayVpnClientConfigurationPtrOutput) VpnClientProtocols
 		}
 		return v.VpnClientProtocols
 	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy struct {
+	// The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+	DhGroup string `pulumi:"dhGroup"`
+	// The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+	IkeEncryption string `pulumi:"ikeEncryption"`
+	// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+	IkeIntegrity string `pulumi:"ikeIntegrity"`
+	// The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+	IpsecEncryption string `pulumi:"ipsecEncryption"`
+	// The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
+	// The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+	PfsGroup string `pulumi:"pfsGroup"`
+	// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+	SaDataSizeInKilobytes int `pulumi:"saDataSizeInKilobytes"`
+	// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+	SaLifetimeInSeconds int `pulumi:"saLifetimeInSeconds"`
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs and VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyInput` via:
+//
+//	VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs{...}
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs struct {
+	// The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+	DhGroup pulumi.StringInput `pulumi:"dhGroup"`
+	// The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+	IkeEncryption pulumi.StringInput `pulumi:"ikeEncryption"`
+	// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+	IkeIntegrity pulumi.StringInput `pulumi:"ikeIntegrity"`
+	// The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+	IpsecEncryption pulumi.StringInput `pulumi:"ipsecEncryption"`
+	// The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+	IpsecIntegrity pulumi.StringInput `pulumi:"ipsecIntegrity"`
+	// The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+	PfsGroup pulumi.StringInput `pulumi:"pfsGroup"`
+	// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+	SaDataSizeInKilobytes pulumi.IntInput `pulumi:"saDataSizeInKilobytes"`
+	// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+	SaLifetimeInSeconds pulumi.IntInput `pulumi:"saLifetimeInSeconds"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput)
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput).ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs, VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtr and VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput` via:
+//
+//	        VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput
+}
+
+type virtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrType VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs
+
+func VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtr(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput {
+	return (*virtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrType)(v)
+}
+
+func (*virtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (i *virtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrType) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrType) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o.ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
+		return &v
+	}).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput)
+}
+
+// The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) DhGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.DhGroup }).(pulumi.StringOutput)
+}
+
+// The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) IkeEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.IkeEncryption }).(pulumi.StringOutput)
+}
+
+// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) IkeIntegrity() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.IkeIntegrity }).(pulumi.StringOutput)
+}
+
+// The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) IpsecEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.IpsecEncryption }).(pulumi.StringOutput)
+}
+
+// The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) IpsecIntegrity() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.IpsecIntegrity }).(pulumi.StringOutput)
+}
+
+// The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) PfsGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
+}
+
+// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) SaDataSizeInKilobytes() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) int { return v.SaDataSizeInKilobytes }).(pulumi.IntOutput)
+}
+
+// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput) SaLifetimeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) int { return v.SaLifetimeInSeconds }).(pulumi.IntOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) ToVirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) Elem() VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy
+		return ret
+	}).(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput)
+}
+
+// The DH Group, used in IKE Phase 1. Possible values are `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) DhGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DhGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IKE encryption algorithm, used for IKE Phase 2. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IkeIntegrity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPSec encryption algorithm, used for IKE phase 1. Possible values are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) IpsecEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPSec integrity algorithm, used for IKE phase 1. Possible values are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) IpsecIntegrity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpsecIntegrity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Pfs Group, used in IKE Phase 2. Possible values are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) PfsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PfsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between `1024` and `2147483647`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) SaDataSizeInKilobytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SaDataSizeInKilobytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between `300` and `172799`.
+func (o VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput) SaLifetimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SaLifetimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServer struct {
+	// The address of the Radius Server.
+	Address string `pulumi:"address"`
+	// The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+	Score int `pulumi:"score"`
+	// The secret that is used to communicate with the Radius Server.
+	Secret string `pulumi:"secret"`
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationRadiusServerInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs and VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRadiusServerInput` via:
+//
+//	VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs{...}
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs struct {
+	// The address of the Radius Server.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+	Score pulumi.IntInput `pulumi:"score"`
+	// The secret that is used to communicate with the Radius Server.
+	Secret pulumi.StringInput `pulumi:"secret"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput)
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray and VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayInput` via:
+//
+//	VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray{ VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs{...} }
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray []VirtualNetworkGatewayVpnClientConfigurationRadiusServerInput
+
+func (VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput {
+	return o
+}
+
+// The address of the Radius Server.
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRadiusServer) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The score of the Radius Server determines the priority of the server. Possible values are between `1` and `30`.
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) Score() pulumi.IntOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRadiusServer) int { return v.Score }).(pulumi.IntOutput)
+}
+
+// The secret that is used to communicate with the Radius Server.
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput) Secret() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationRadiusServer) string { return v.Secret }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationRadiusServer)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput() VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayVpnClientConfigurationRadiusServer {
+		return vs[0].([]VirtualNetworkGatewayVpnClientConfigurationRadiusServer)[vs[1].(int)]
+	}).(VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput)
 }
 
 type VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate struct {
@@ -22034,6 +22723,127 @@ func (o VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput) I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
 		return vs[0].([]VirtualNetworkGatewayVpnClientConfigurationRootCertificate)[vs[1].(int)]
 	}).(VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection struct {
+	// A list of address prefixes for P2S VPN Client.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// The name of the Virtual Network Gateway Client Connection.
+	Name string `pulumi:"name"`
+	// A list of names of Virtual Network Gateway Policy Groups.
+	PolicyGroupNames []string `pulumi:"policyGroupNames"`
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs and VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput` via:
+//
+//	VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs{...}
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs struct {
+	// A list of address prefixes for P2S VPN Client.
+	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
+	// The name of the Virtual Network Gateway Client Connection.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of names of Virtual Network Gateway Policy Groups.
+	PolicyGroupNames pulumi.StringArrayInput `pulumi:"policyGroupNames"`
+}
+
+func (VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput)
+}
+
+// VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput is an input type that accepts VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray and VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput` via:
+//
+//	VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray{ VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs{...} }
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput
+	ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutputWithContext(context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray []VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput
+
+func (VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection)(nil)).Elem()
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return i.ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput {
+	return o
+}
+
+// A list of address prefixes for P2S VPN Client.
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection) []string {
+		return v.AddressPrefixes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the Virtual Network Gateway Client Connection.
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// A list of names of Virtual Network Gateway Policy Groups.
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput) PolicyGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection) []string {
+		return v.PolicyGroupNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection)(nil)).Elem()
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput() VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput) ToVirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput) Index(i pulumi.IntInput) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection {
+		return vs[0].([]VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection)[vs[1].(int)]
+	}).(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput)
 }
 
 type VirtualNetworkSubnet struct {
@@ -35518,12 +36328,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleExternalMappingArrayInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleExternalMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMappingInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleInternalMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayNatRuleInternalMappingArrayInput)(nil)).Elem(), VirtualNetworkGatewayNatRuleInternalMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupInput)(nil)).Elem(), VirtualNetworkGatewayPolicyGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupArrayInput)(nil)).Elem(), VirtualNetworkGatewayPolicyGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupPolicyMemberInput)(nil)).Elem(), VirtualNetworkGatewayPolicyGroupPolicyMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayPolicyGroupPolicyMemberArrayInput)(nil)).Elem(), VirtualNetworkGatewayPolicyGroupPolicyMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationPtrInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRadiusServerInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRadiusServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRootCertificateInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayInput)(nil)).Elem(), VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetArrayInput)(nil)).Elem(), VirtualNetworkSubnetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArgs{})
@@ -35988,12 +36808,22 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleExternalMappingArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleInternalMappingOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleInternalMappingArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayPolicyGroupOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayPolicyGroupArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayPolicyGroupPolicyMemberOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayPolicyGroupPolicyMemberArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRadiusServerOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRadiusServerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificateOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetArrayOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingOutput{})

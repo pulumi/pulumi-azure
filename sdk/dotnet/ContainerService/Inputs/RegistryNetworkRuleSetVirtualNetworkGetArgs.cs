@@ -18,9 +18,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// The subnet id from which requests will match the rule.
-        /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 

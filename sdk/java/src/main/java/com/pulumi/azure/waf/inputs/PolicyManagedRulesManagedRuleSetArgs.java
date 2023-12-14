@@ -33,14 +33,14 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
     }
 
     /**
-     * The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -48,14 +48,14 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
     }
 
     /**
-     * The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public Output<String> version() {
@@ -120,7 +120,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param version The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 

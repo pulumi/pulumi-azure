@@ -568,6 +568,62 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryBlobHost;
     }
     /**
+     * The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    @Export(name="primaryBlobInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryBlobInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public Output<String> primaryBlobInternetEndpoint() {
+        return this.primaryBlobInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    @Export(name="primaryBlobInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryBlobInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public Output<String> primaryBlobInternetHost() {
+        return this.primaryBlobInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    @Export(name="primaryBlobMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryBlobMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the primary location.
+     * 
+     */
+    public Output<String> primaryBlobMicrosoftEndpoint() {
+        return this.primaryBlobMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    @Export(name="primaryBlobMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryBlobMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     * 
+     */
+    public Output<String> primaryBlobMicrosoftHost() {
+        return this.primaryBlobMicrosoftHost;
+    }
+    /**
      * The connection string associated with the primary location.
      * 
      */
@@ -610,6 +666,62 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryDfsHost;
     }
     /**
+     * The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    @Export(name="primaryDfsInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryDfsInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public Output<String> primaryDfsInternetEndpoint() {
+        return this.primaryDfsInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    @Export(name="primaryDfsInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryDfsInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public Output<String> primaryDfsInternetHost() {
+        return this.primaryDfsInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    @Export(name="primaryDfsMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryDfsMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the primary location.
+     * 
+     */
+    public Output<String> primaryDfsMicrosoftEndpoint() {
+        return this.primaryDfsMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    @Export(name="primaryDfsMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryDfsMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     * 
+     */
+    public Output<String> primaryDfsMicrosoftHost() {
+        return this.primaryDfsMicrosoftHost;
+    }
+    /**
      * The endpoint URL for file storage in the primary location.
      * 
      */
@@ -636,6 +748,62 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> primaryFileHost() {
         return this.primaryFileHost;
+    }
+    /**
+     * The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    @Export(name="primaryFileInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryFileInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public Output<String> primaryFileInternetEndpoint() {
+        return this.primaryFileInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    @Export(name="primaryFileInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryFileInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public Output<String> primaryFileInternetHost() {
+        return this.primaryFileInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    @Export(name="primaryFileMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryFileMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the primary location.
+     * 
+     */
+    public Output<String> primaryFileMicrosoftEndpoint() {
+        return this.primaryFileMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    @Export(name="primaryFileMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryFileMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the primary location.
+     * 
+     */
+    public Output<String> primaryFileMicrosoftHost() {
+        return this.primaryFileMicrosoftHost;
     }
     /**
      * The primary location of the storage account.
@@ -680,6 +848,34 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryQueueHost;
     }
     /**
+     * The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    @Export(name="primaryQueueMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryQueueMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for queue storage in the primary location.
+     * 
+     */
+    public Output<String> primaryQueueMicrosoftEndpoint() {
+        return this.primaryQueueMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    @Export(name="primaryQueueMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryQueueMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     * 
+     */
+    public Output<String> primaryQueueMicrosoftHost() {
+        return this.primaryQueueMicrosoftHost;
+    }
+    /**
      * The endpoint URL for table storage in the primary location.
      * 
      */
@@ -708,6 +904,34 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.primaryTableHost;
     }
     /**
+     * The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    @Export(name="primaryTableMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryTableMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for table storage in the primary location.
+     * 
+     */
+    public Output<String> primaryTableMicrosoftEndpoint() {
+        return this.primaryTableMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    @Export(name="primaryTableMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryTableMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the primary location.
+     * 
+     */
+    public Output<String> primaryTableMicrosoftHost() {
+        return this.primaryTableMicrosoftHost;
+    }
+    /**
      * The endpoint URL for web storage in the primary location.
      * 
      */
@@ -734,6 +958,62 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> primaryWebHost() {
         return this.primaryWebHost;
+    }
+    /**
+     * The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    @Export(name="primaryWebInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryWebInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public Output<String> primaryWebInternetEndpoint() {
+        return this.primaryWebInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    @Export(name="primaryWebInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryWebInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public Output<String> primaryWebInternetHost() {
+        return this.primaryWebInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    @Export(name="primaryWebMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> primaryWebMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the primary location.
+     * 
+     */
+    public Output<String> primaryWebMicrosoftEndpoint() {
+        return this.primaryWebMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    @Export(name="primaryWebMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> primaryWebMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the primary location.
+     * 
+     */
+    public Output<String> primaryWebMicrosoftHost() {
+        return this.primaryWebMicrosoftHost;
     }
     /**
      * Whether the public network access is enabled? Defaults to `true`.
@@ -880,6 +1160,62 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryBlobHost;
     }
     /**
+     * The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryBlobInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryBlobInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryBlobInternetEndpoint() {
+        return this.secondaryBlobInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryBlobInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryBlobInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryBlobInternetHost() {
+        return this.secondaryBlobInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryBlobMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryBlobMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for blob storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryBlobMicrosoftEndpoint() {
+        return this.secondaryBlobMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryBlobMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryBlobMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryBlobMicrosoftHost() {
+        return this.secondaryBlobMicrosoftHost;
+    }
+    /**
      * The connection string associated with the secondary location.
      * 
      */
@@ -922,6 +1258,62 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryDfsHost;
     }
     /**
+     * The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryDfsInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryDfsInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryDfsInternetEndpoint() {
+        return this.secondaryDfsInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryDfsInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryDfsInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryDfsInternetHost() {
+        return this.secondaryDfsInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryDfsMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryDfsMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for DFS storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryDfsMicrosoftEndpoint() {
+        return this.secondaryDfsMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryDfsMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryDfsMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryDfsMicrosoftHost() {
+        return this.secondaryDfsMicrosoftHost;
+    }
+    /**
      * The endpoint URL for file storage in the secondary location.
      * 
      */
@@ -948,6 +1340,62 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> secondaryFileHost() {
         return this.secondaryFileHost;
+    }
+    /**
+     * The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryFileInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryFileInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryFileInternetEndpoint() {
+        return this.secondaryFileInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryFileInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryFileInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryFileInternetHost() {
+        return this.secondaryFileInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryFileMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryFileMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for file storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryFileMicrosoftEndpoint() {
+        return this.secondaryFileMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryFileMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryFileMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryFileMicrosoftHost() {
+        return this.secondaryFileMicrosoftHost;
     }
     /**
      * The secondary location of the storage account.
@@ -992,6 +1440,34 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryQueueHost;
     }
     /**
+     * The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryQueueMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryQueueMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for queue storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryQueueMicrosoftEndpoint() {
+        return this.secondaryQueueMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryQueueMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryQueueMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryQueueMicrosoftHost() {
+        return this.secondaryQueueMicrosoftHost;
+    }
+    /**
      * The endpoint URL for table storage in the secondary location.
      * 
      */
@@ -1020,6 +1496,34 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryTableHost;
     }
     /**
+     * The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryTableMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryTableMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for table storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryTableMicrosoftEndpoint() {
+        return this.secondaryTableMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryTableMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryTableMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryTableMicrosoftHost() {
+        return this.secondaryTableMicrosoftHost;
+    }
+    /**
      * The endpoint URL for web storage in the secondary location.
      * 
      */
@@ -1046,6 +1550,62 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> secondaryWebHost() {
         return this.secondaryWebHost;
+    }
+    /**
+     * The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryWebInternetEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryWebInternetEndpoint;
+
+    /**
+     * @return The internet routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryWebInternetEndpoint() {
+        return this.secondaryWebInternetEndpoint;
+    }
+    /**
+     * The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryWebInternetHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryWebInternetHost;
+
+    /**
+     * @return The internet routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryWebInternetHost() {
+        return this.secondaryWebInternetHost;
+    }
+    /**
+     * The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryWebMicrosoftEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> secondaryWebMicrosoftEndpoint;
+
+    /**
+     * @return The microsoft routing endpoint URL for web storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryWebMicrosoftEndpoint() {
+        return this.secondaryWebMicrosoftEndpoint;
+    }
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    @Export(name="secondaryWebMicrosoftHost", refs={String.class}, tree="[0]")
+    private Output<String> secondaryWebMicrosoftHost;
+
+    /**
+     * @return The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     * 
+     */
+    public Output<String> secondaryWebMicrosoftHost() {
+        return this.secondaryWebMicrosoftHost;
     }
     /**
      * Boolean, enable SFTP for the storage account

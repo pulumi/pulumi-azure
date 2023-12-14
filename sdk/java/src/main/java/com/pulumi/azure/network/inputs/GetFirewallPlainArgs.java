@@ -4,13 +4,31 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFirewallPlainArgs Empty = new GetFirewallPlainArgs();
+
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    @Import(name="dnsProxyEnabled")
+    private @Nullable Boolean dnsProxyEnabled;
+
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    public Optional<Boolean> dnsProxyEnabled() {
+        return Optional.ofNullable(this.dnsProxyEnabled);
+    }
 
     /**
      * The name of the Azure Firewall.
@@ -45,6 +63,7 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetFirewallPlainArgs() {}
 
     private GetFirewallPlainArgs(GetFirewallPlainArgs $) {
+        this.dnsProxyEnabled = $.dnsProxyEnabled;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -65,6 +84,17 @@ public final class GetFirewallPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetFirewallPlainArgs defaults) {
             $ = new GetFirewallPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsProxyEnabled(@Nullable Boolean dnsProxyEnabled) {
+            $.dnsProxyEnabled = dnsProxyEnabled;
+            return this;
         }
 
         /**

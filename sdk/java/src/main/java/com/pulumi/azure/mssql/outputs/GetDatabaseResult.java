@@ -23,6 +23,11 @@ public final class GetDatabaseResult {
      */
     private String elasticPoolId;
     /**
+     * @return The type of enclave being used by the database.
+     * 
+     */
+    private String enclaveType;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -84,6 +89,13 @@ public final class GetDatabaseResult {
      */
     public String elasticPoolId() {
         return this.elasticPoolId;
+    }
+    /**
+     * @return The type of enclave being used by the database.
+     * 
+     */
+    public String enclaveType() {
+        return this.enclaveType;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -166,6 +178,7 @@ public final class GetDatabaseResult {
     public static final class Builder {
         private String collation;
         private String elasticPoolId;
+        private String enclaveType;
         private String id;
         private String licenseType;
         private Integer maxSizeGb;
@@ -182,6 +195,7 @@ public final class GetDatabaseResult {
     	      Objects.requireNonNull(defaults);
     	      this.collation = defaults.collation;
     	      this.elasticPoolId = defaults.elasticPoolId;
+    	      this.enclaveType = defaults.enclaveType;
     	      this.id = defaults.id;
     	      this.licenseType = defaults.licenseType;
     	      this.maxSizeGb = defaults.maxSizeGb;
@@ -203,6 +217,11 @@ public final class GetDatabaseResult {
         @CustomType.Setter
         public Builder elasticPoolId(String elasticPoolId) {
             this.elasticPoolId = Objects.requireNonNull(elasticPoolId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enclaveType(String enclaveType) {
+            this.enclaveType = Objects.requireNonNull(enclaveType);
             return this;
         }
         @CustomType.Setter
@@ -264,6 +283,7 @@ public final class GetDatabaseResult {
             final var _resultValue = new GetDatabaseResult();
             _resultValue.collation = collation;
             _resultValue.elasticPoolId = elasticPoolId;
+            _resultValue.enclaveType = enclaveType;
             _resultValue.id = id;
             _resultValue.licenseType = licenseType;
             _resultValue.maxSizeGb = maxSizeGb;

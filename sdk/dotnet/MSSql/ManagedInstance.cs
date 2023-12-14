@@ -376,7 +376,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> TimezoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `8`, `16`, `24`, `32`, `40`, `64`, or `80` for Gen5 SKUs.
+        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         /// </summary>
         [Output("vcores")]
         public Output<int> Vcores { get; private set; } = null!;
@@ -562,7 +562,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? TimezoneId { get; set; }
 
         /// <summary>
-        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `8`, `16`, `24`, `32`, `40`, `64`, or `80` for Gen5 SKUs.
+        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         /// </summary>
         [Input("vcores", required: true)]
         public Input<int> Vcores { get; set; } = null!;
@@ -712,7 +712,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? TimezoneId { get; set; }
 
         /// <summary>
-        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `8`, `16`, `24`, `32`, `40`, `64`, or `80` for Gen5 SKUs.
+        /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         /// </summary>
         [Input("vcores")]
         public Input<int>? Vcores { get; set; }
