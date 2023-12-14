@@ -39,6 +39,7 @@ __all__ = [
     'AppTemplateVolume',
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
+    'EnvironmentWorkloadProfile',
     'GetAppDaprResult',
     'GetAppIdentityResult',
     'GetAppIngressResult',
@@ -2096,6 +2097,70 @@ class EnvironmentDaprComponentSecret(dict):
         The value for this secret.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentWorkloadProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumCount":
+            suggest = "maximum_count"
+        elif key == "minimumCount":
+            suggest = "minimum_count"
+        elif key == "workloadProfileType":
+            suggest = "workload_profile_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentWorkloadProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentWorkloadProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentWorkloadProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_count: int,
+                 minimum_count: int,
+                 name: str,
+                 workload_profile_type: str):
+        """
+        :param str name: The name of the workload profile.
+        :param str workload_profile_type: Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        """
+        pulumi.set(__self__, "maximum_count", maximum_count)
+        pulumi.set(__self__, "minimum_count", minimum_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> int:
+        return pulumi.get(self, "maximum_count")
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> int:
+        return pulumi.get(self, "minimum_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the workload profile.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="workloadProfileType")
+    def workload_profile_type(self) -> str:
+        """
+        Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        """
+        return pulumi.get(self, "workload_profile_type")
 
 
 @pulumi.output_type

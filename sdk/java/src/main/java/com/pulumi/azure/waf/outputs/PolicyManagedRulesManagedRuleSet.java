@@ -19,12 +19,12 @@ public final class PolicyManagedRulesManagedRuleSet {
      */
     private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     private @Nullable String type;
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     private String version;
@@ -38,14 +38,14 @@ public final class PolicyManagedRulesManagedRuleSet {
         return this.ruleGroupOverrides == null ? List.of() : this.ruleGroupOverrides;
     }
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public String version() {

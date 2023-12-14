@@ -7,6 +7,7 @@ import com.pulumi.azure.network.outputs.GetFirewallIpConfiguration;
 import com.pulumi.azure.network.outputs.GetFirewallManagementIpConfiguration;
 import com.pulumi.azure.network.outputs.GetFirewallVirtualHub;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallResult {
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    private Boolean dnsProxyEnabled;
     /**
      * @return The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      * 
@@ -78,6 +84,13 @@ public final class GetFirewallResult {
     private List<String> zones;
 
     private GetFirewallResult() {}
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     * 
+     */
+    public Boolean dnsProxyEnabled() {
+        return this.dnsProxyEnabled;
+    }
     /**
      * @return The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      * 
@@ -178,6 +191,7 @@ public final class GetFirewallResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean dnsProxyEnabled;
         private List<String> dnsServers;
         private String firewallPolicyId;
         private String id;
@@ -195,6 +209,7 @@ public final class GetFirewallResult {
         public Builder() {}
         public Builder(GetFirewallResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dnsProxyEnabled = defaults.dnsProxyEnabled;
     	      this.dnsServers = defaults.dnsServers;
     	      this.firewallPolicyId = defaults.firewallPolicyId;
     	      this.id = defaults.id;
@@ -211,6 +226,11 @@ public final class GetFirewallResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder dnsProxyEnabled(Boolean dnsProxyEnabled) {
+            this.dnsProxyEnabled = Objects.requireNonNull(dnsProxyEnabled);
+            return this;
+        }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
@@ -298,6 +318,7 @@ public final class GetFirewallResult {
         }
         public GetFirewallResult build() {
             final var _resultValue = new GetFirewallResult();
+            _resultValue.dnsProxyEnabled = dnsProxyEnabled;
             _resultValue.dnsServers = dnsServers;
             _resultValue.firewallPolicyId = firewallPolicyId;
             _resultValue.id = id;

@@ -82,6 +82,12 @@ namespace Pulumi.Azure.Network
     public sealed class GetFirewallArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// </summary>
+        [Input("dnsProxyEnabled")]
+        public bool? DnsProxyEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
         [Input("name", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class GetFirewallInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// </summary>
+        [Input("dnsProxyEnabled")]
+        public Input<bool>? DnsProxyEnabled { get; set; }
+
         /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
@@ -123,6 +135,10 @@ namespace Pulumi.Azure.Network
     [OutputType]
     public sealed class GetFirewallResult
     {
+        /// <summary>
+        /// Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+        /// </summary>
+        public readonly bool DnsProxyEnabled;
         /// <summary>
         /// The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
         /// </summary>
@@ -176,6 +192,8 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetFirewallResult(
+            bool dnsProxyEnabled,
+
             ImmutableArray<string> dnsServers,
 
             string firewallPolicyId,
@@ -204,6 +222,7 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> zones)
         {
+            DnsProxyEnabled = dnsProxyEnabled;
             DnsServers = dnsServers;
             FirewallPolicyId = firewallPolicyId;
             Id = id;

@@ -23,6 +23,10 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         /// <summary>
         /// One or more `ip_rule` blocks as defined below.
+        /// 
+        /// &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        /// 
+        /// &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         /// </summary>
         public InputList<Inputs.RegistryNetworkRuleSetIpRuleArgs> IpRules
         {
@@ -32,14 +36,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("virtualNetworks")]
         private InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkArgs>? _virtualNetworks;
-
-        /// <summary>
-        /// One or more `virtual_network` blocks as defined below.
-        /// 
-        /// &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-        /// 
-        /// &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-        /// </summary>
+        [Obsolete(@" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead")]
         public InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkArgs> VirtualNetworks
         {
             get => _virtualNetworks ?? (_virtualNetworks = new InputList<Inputs.RegistryNetworkRuleSetVirtualNetworkArgs>());

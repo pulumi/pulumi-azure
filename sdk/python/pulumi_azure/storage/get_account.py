@@ -22,7 +22,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -83,6 +83,18 @@ class GetAccountResult:
         if primary_blob_host and not isinstance(primary_blob_host, str):
             raise TypeError("Expected argument 'primary_blob_host' to be a str")
         pulumi.set(__self__, "primary_blob_host", primary_blob_host)
+        if primary_blob_internet_endpoint and not isinstance(primary_blob_internet_endpoint, str):
+            raise TypeError("Expected argument 'primary_blob_internet_endpoint' to be a str")
+        pulumi.set(__self__, "primary_blob_internet_endpoint", primary_blob_internet_endpoint)
+        if primary_blob_internet_host and not isinstance(primary_blob_internet_host, str):
+            raise TypeError("Expected argument 'primary_blob_internet_host' to be a str")
+        pulumi.set(__self__, "primary_blob_internet_host", primary_blob_internet_host)
+        if primary_blob_microsoft_endpoint and not isinstance(primary_blob_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_blob_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_blob_microsoft_endpoint", primary_blob_microsoft_endpoint)
+        if primary_blob_microsoft_host and not isinstance(primary_blob_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_blob_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_blob_microsoft_host", primary_blob_microsoft_host)
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         pulumi.set(__self__, "primary_connection_string", primary_connection_string)
@@ -92,12 +104,36 @@ class GetAccountResult:
         if primary_dfs_host and not isinstance(primary_dfs_host, str):
             raise TypeError("Expected argument 'primary_dfs_host' to be a str")
         pulumi.set(__self__, "primary_dfs_host", primary_dfs_host)
+        if primary_dfs_internet_endpoint and not isinstance(primary_dfs_internet_endpoint, str):
+            raise TypeError("Expected argument 'primary_dfs_internet_endpoint' to be a str")
+        pulumi.set(__self__, "primary_dfs_internet_endpoint", primary_dfs_internet_endpoint)
+        if primary_dfs_internet_host and not isinstance(primary_dfs_internet_host, str):
+            raise TypeError("Expected argument 'primary_dfs_internet_host' to be a str")
+        pulumi.set(__self__, "primary_dfs_internet_host", primary_dfs_internet_host)
+        if primary_dfs_microsoft_endpoint and not isinstance(primary_dfs_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_dfs_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_dfs_microsoft_endpoint", primary_dfs_microsoft_endpoint)
+        if primary_dfs_microsoft_host and not isinstance(primary_dfs_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_dfs_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_dfs_microsoft_host", primary_dfs_microsoft_host)
         if primary_file_endpoint and not isinstance(primary_file_endpoint, str):
             raise TypeError("Expected argument 'primary_file_endpoint' to be a str")
         pulumi.set(__self__, "primary_file_endpoint", primary_file_endpoint)
         if primary_file_host and not isinstance(primary_file_host, str):
             raise TypeError("Expected argument 'primary_file_host' to be a str")
         pulumi.set(__self__, "primary_file_host", primary_file_host)
+        if primary_file_internet_endpoint and not isinstance(primary_file_internet_endpoint, str):
+            raise TypeError("Expected argument 'primary_file_internet_endpoint' to be a str")
+        pulumi.set(__self__, "primary_file_internet_endpoint", primary_file_internet_endpoint)
+        if primary_file_internet_host and not isinstance(primary_file_internet_host, str):
+            raise TypeError("Expected argument 'primary_file_internet_host' to be a str")
+        pulumi.set(__self__, "primary_file_internet_host", primary_file_internet_host)
+        if primary_file_microsoft_endpoint and not isinstance(primary_file_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_file_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_file_microsoft_endpoint", primary_file_microsoft_endpoint)
+        if primary_file_microsoft_host and not isinstance(primary_file_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_file_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_file_microsoft_host", primary_file_microsoft_host)
         if primary_location and not isinstance(primary_location, str):
             raise TypeError("Expected argument 'primary_location' to be a str")
         pulumi.set(__self__, "primary_location", primary_location)
@@ -107,18 +143,42 @@ class GetAccountResult:
         if primary_queue_host and not isinstance(primary_queue_host, str):
             raise TypeError("Expected argument 'primary_queue_host' to be a str")
         pulumi.set(__self__, "primary_queue_host", primary_queue_host)
+        if primary_queue_microsoft_endpoint and not isinstance(primary_queue_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_queue_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_queue_microsoft_endpoint", primary_queue_microsoft_endpoint)
+        if primary_queue_microsoft_host and not isinstance(primary_queue_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_queue_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_queue_microsoft_host", primary_queue_microsoft_host)
         if primary_table_endpoint and not isinstance(primary_table_endpoint, str):
             raise TypeError("Expected argument 'primary_table_endpoint' to be a str")
         pulumi.set(__self__, "primary_table_endpoint", primary_table_endpoint)
         if primary_table_host and not isinstance(primary_table_host, str):
             raise TypeError("Expected argument 'primary_table_host' to be a str")
         pulumi.set(__self__, "primary_table_host", primary_table_host)
+        if primary_table_microsoft_endpoint and not isinstance(primary_table_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_table_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_table_microsoft_endpoint", primary_table_microsoft_endpoint)
+        if primary_table_microsoft_host and not isinstance(primary_table_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_table_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_table_microsoft_host", primary_table_microsoft_host)
         if primary_web_endpoint and not isinstance(primary_web_endpoint, str):
             raise TypeError("Expected argument 'primary_web_endpoint' to be a str")
         pulumi.set(__self__, "primary_web_endpoint", primary_web_endpoint)
         if primary_web_host and not isinstance(primary_web_host, str):
             raise TypeError("Expected argument 'primary_web_host' to be a str")
         pulumi.set(__self__, "primary_web_host", primary_web_host)
+        if primary_web_internet_endpoint and not isinstance(primary_web_internet_endpoint, str):
+            raise TypeError("Expected argument 'primary_web_internet_endpoint' to be a str")
+        pulumi.set(__self__, "primary_web_internet_endpoint", primary_web_internet_endpoint)
+        if primary_web_internet_host and not isinstance(primary_web_internet_host, str):
+            raise TypeError("Expected argument 'primary_web_internet_host' to be a str")
+        pulumi.set(__self__, "primary_web_internet_host", primary_web_internet_host)
+        if primary_web_microsoft_endpoint and not isinstance(primary_web_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'primary_web_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "primary_web_microsoft_endpoint", primary_web_microsoft_endpoint)
+        if primary_web_microsoft_host and not isinstance(primary_web_microsoft_host, str):
+            raise TypeError("Expected argument 'primary_web_microsoft_host' to be a str")
+        pulumi.set(__self__, "primary_web_microsoft_host", primary_web_microsoft_host)
         if queue_encryption_key_type and not isinstance(queue_encryption_key_type, str):
             raise TypeError("Expected argument 'queue_encryption_key_type' to be a str")
         pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
@@ -137,6 +197,18 @@ class GetAccountResult:
         if secondary_blob_host and not isinstance(secondary_blob_host, str):
             raise TypeError("Expected argument 'secondary_blob_host' to be a str")
         pulumi.set(__self__, "secondary_blob_host", secondary_blob_host)
+        if secondary_blob_internet_endpoint and not isinstance(secondary_blob_internet_endpoint, str):
+            raise TypeError("Expected argument 'secondary_blob_internet_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_blob_internet_endpoint", secondary_blob_internet_endpoint)
+        if secondary_blob_internet_host and not isinstance(secondary_blob_internet_host, str):
+            raise TypeError("Expected argument 'secondary_blob_internet_host' to be a str")
+        pulumi.set(__self__, "secondary_blob_internet_host", secondary_blob_internet_host)
+        if secondary_blob_microsoft_endpoint and not isinstance(secondary_blob_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_blob_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_blob_microsoft_endpoint", secondary_blob_microsoft_endpoint)
+        if secondary_blob_microsoft_host and not isinstance(secondary_blob_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_blob_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_blob_microsoft_host", secondary_blob_microsoft_host)
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError("Expected argument 'secondary_connection_string' to be a str")
         pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
@@ -146,12 +218,36 @@ class GetAccountResult:
         if secondary_dfs_host and not isinstance(secondary_dfs_host, str):
             raise TypeError("Expected argument 'secondary_dfs_host' to be a str")
         pulumi.set(__self__, "secondary_dfs_host", secondary_dfs_host)
+        if secondary_dfs_internet_endpoint and not isinstance(secondary_dfs_internet_endpoint, str):
+            raise TypeError("Expected argument 'secondary_dfs_internet_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_dfs_internet_endpoint", secondary_dfs_internet_endpoint)
+        if secondary_dfs_internet_host and not isinstance(secondary_dfs_internet_host, str):
+            raise TypeError("Expected argument 'secondary_dfs_internet_host' to be a str")
+        pulumi.set(__self__, "secondary_dfs_internet_host", secondary_dfs_internet_host)
+        if secondary_dfs_microsoft_endpoint and not isinstance(secondary_dfs_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_dfs_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_dfs_microsoft_endpoint", secondary_dfs_microsoft_endpoint)
+        if secondary_dfs_microsoft_host and not isinstance(secondary_dfs_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_dfs_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_dfs_microsoft_host", secondary_dfs_microsoft_host)
         if secondary_file_endpoint and not isinstance(secondary_file_endpoint, str):
             raise TypeError("Expected argument 'secondary_file_endpoint' to be a str")
         pulumi.set(__self__, "secondary_file_endpoint", secondary_file_endpoint)
         if secondary_file_host and not isinstance(secondary_file_host, str):
             raise TypeError("Expected argument 'secondary_file_host' to be a str")
         pulumi.set(__self__, "secondary_file_host", secondary_file_host)
+        if secondary_file_internet_endpoint and not isinstance(secondary_file_internet_endpoint, str):
+            raise TypeError("Expected argument 'secondary_file_internet_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_file_internet_endpoint", secondary_file_internet_endpoint)
+        if secondary_file_internet_host and not isinstance(secondary_file_internet_host, str):
+            raise TypeError("Expected argument 'secondary_file_internet_host' to be a str")
+        pulumi.set(__self__, "secondary_file_internet_host", secondary_file_internet_host)
+        if secondary_file_microsoft_endpoint and not isinstance(secondary_file_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_file_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_file_microsoft_endpoint", secondary_file_microsoft_endpoint)
+        if secondary_file_microsoft_host and not isinstance(secondary_file_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_file_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_file_microsoft_host", secondary_file_microsoft_host)
         if secondary_location and not isinstance(secondary_location, str):
             raise TypeError("Expected argument 'secondary_location' to be a str")
         pulumi.set(__self__, "secondary_location", secondary_location)
@@ -161,18 +257,42 @@ class GetAccountResult:
         if secondary_queue_host and not isinstance(secondary_queue_host, str):
             raise TypeError("Expected argument 'secondary_queue_host' to be a str")
         pulumi.set(__self__, "secondary_queue_host", secondary_queue_host)
+        if secondary_queue_microsoft_endpoint and not isinstance(secondary_queue_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_queue_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_queue_microsoft_endpoint", secondary_queue_microsoft_endpoint)
+        if secondary_queue_microsoft_host and not isinstance(secondary_queue_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_queue_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_queue_microsoft_host", secondary_queue_microsoft_host)
         if secondary_table_endpoint and not isinstance(secondary_table_endpoint, str):
             raise TypeError("Expected argument 'secondary_table_endpoint' to be a str")
         pulumi.set(__self__, "secondary_table_endpoint", secondary_table_endpoint)
         if secondary_table_host and not isinstance(secondary_table_host, str):
             raise TypeError("Expected argument 'secondary_table_host' to be a str")
         pulumi.set(__self__, "secondary_table_host", secondary_table_host)
+        if secondary_table_microsoft_endpoint and not isinstance(secondary_table_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_table_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_table_microsoft_endpoint", secondary_table_microsoft_endpoint)
+        if secondary_table_microsoft_host and not isinstance(secondary_table_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_table_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_table_microsoft_host", secondary_table_microsoft_host)
         if secondary_web_endpoint and not isinstance(secondary_web_endpoint, str):
             raise TypeError("Expected argument 'secondary_web_endpoint' to be a str")
         pulumi.set(__self__, "secondary_web_endpoint", secondary_web_endpoint)
         if secondary_web_host and not isinstance(secondary_web_host, str):
             raise TypeError("Expected argument 'secondary_web_host' to be a str")
         pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+        if secondary_web_internet_endpoint and not isinstance(secondary_web_internet_endpoint, str):
+            raise TypeError("Expected argument 'secondary_web_internet_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_web_internet_endpoint", secondary_web_internet_endpoint)
+        if secondary_web_internet_host and not isinstance(secondary_web_internet_host, str):
+            raise TypeError("Expected argument 'secondary_web_internet_host' to be a str")
+        pulumi.set(__self__, "secondary_web_internet_host", secondary_web_internet_host)
+        if secondary_web_microsoft_endpoint and not isinstance(secondary_web_microsoft_endpoint, str):
+            raise TypeError("Expected argument 'secondary_web_microsoft_endpoint' to be a str")
+        pulumi.set(__self__, "secondary_web_microsoft_endpoint", secondary_web_microsoft_endpoint)
+        if secondary_web_microsoft_host and not isinstance(secondary_web_microsoft_host, str):
+            raise TypeError("Expected argument 'secondary_web_microsoft_host' to be a str")
+        pulumi.set(__self__, "secondary_web_microsoft_host", secondary_web_microsoft_host)
         if table_encryption_key_type and not isinstance(table_encryption_key_type, str):
             raise TypeError("Expected argument 'table_encryption_key_type' to be a str")
         pulumi.set(__self__, "table_encryption_key_type", table_encryption_key_type)
@@ -343,6 +463,38 @@ class GetAccountResult:
         return pulumi.get(self, "primary_blob_host")
 
     @property
+    @pulumi.getter(name="primaryBlobInternetEndpoint")
+    def primary_blob_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryBlobInternetHost")
+    def primary_blob_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_internet_host")
+
+    @property
+    @pulumi.getter(name="primaryBlobMicrosoftEndpoint")
+    def primary_blob_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryBlobMicrosoftHost")
+    def primary_blob_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_microsoft_host")
+
+    @property
     @pulumi.getter(name="primaryConnectionString")
     def primary_connection_string(self) -> str:
         """
@@ -367,6 +519,38 @@ class GetAccountResult:
         return pulumi.get(self, "primary_dfs_host")
 
     @property
+    @pulumi.getter(name="primaryDfsInternetEndpoint")
+    def primary_dfs_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryDfsInternetHost")
+    def primary_dfs_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_internet_host")
+
+    @property
+    @pulumi.getter(name="primaryDfsMicrosoftEndpoint")
+    def primary_dfs_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryDfsMicrosoftHost")
+    def primary_dfs_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_microsoft_host")
+
+    @property
     @pulumi.getter(name="primaryFileEndpoint")
     def primary_file_endpoint(self) -> str:
         """
@@ -381,6 +565,38 @@ class GetAccountResult:
         The hostname with port if applicable for file storage in the primary location.
         """
         return pulumi.get(self, "primary_file_host")
+
+    @property
+    @pulumi.getter(name="primaryFileInternetEndpoint")
+    def primary_file_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryFileInternetHost")
+    def primary_file_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_internet_host")
+
+    @property
+    @pulumi.getter(name="primaryFileMicrosoftEndpoint")
+    def primary_file_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryFileMicrosoftHost")
+    def primary_file_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_microsoft_host")
 
     @property
     @pulumi.getter(name="primaryLocation")
@@ -407,6 +623,22 @@ class GetAccountResult:
         return pulumi.get(self, "primary_queue_host")
 
     @property
+    @pulumi.getter(name="primaryQueueMicrosoftEndpoint")
+    def primary_queue_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for queue storage in the primary location.
+        """
+        return pulumi.get(self, "primary_queue_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryQueueMicrosoftHost")
+    def primary_queue_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for queue storage in the primary location.
+        """
+        return pulumi.get(self, "primary_queue_microsoft_host")
+
+    @property
     @pulumi.getter(name="primaryTableEndpoint")
     def primary_table_endpoint(self) -> str:
         """
@@ -423,6 +655,22 @@ class GetAccountResult:
         return pulumi.get(self, "primary_table_host")
 
     @property
+    @pulumi.getter(name="primaryTableMicrosoftEndpoint")
+    def primary_table_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for table storage in the primary location.
+        """
+        return pulumi.get(self, "primary_table_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryTableMicrosoftHost")
+    def primary_table_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for table storage in the primary location.
+        """
+        return pulumi.get(self, "primary_table_microsoft_host")
+
+    @property
     @pulumi.getter(name="primaryWebEndpoint")
     def primary_web_endpoint(self) -> str:
         """
@@ -437,6 +685,38 @@ class GetAccountResult:
         The hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_host")
+
+    @property
+    @pulumi.getter(name="primaryWebInternetEndpoint")
+    def primary_web_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryWebInternetHost")
+    def primary_web_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_internet_host")
+
+    @property
+    @pulumi.getter(name="primaryWebMicrosoftEndpoint")
+    def primary_web_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="primaryWebMicrosoftHost")
+    def primary_web_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_microsoft_host")
 
     @property
     @pulumi.getter(name="queueEncryptionKeyType")
@@ -484,6 +764,38 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_blob_host")
 
     @property
+    @pulumi.getter(name="secondaryBlobInternetEndpoint")
+    def secondary_blob_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryBlobInternetHost")
+    def secondary_blob_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_internet_host")
+
+    @property
+    @pulumi.getter(name="secondaryBlobMicrosoftEndpoint")
+    def secondary_blob_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryBlobMicrosoftHost")
+    def secondary_blob_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_microsoft_host")
+
+    @property
     @pulumi.getter(name="secondaryConnectionString")
     def secondary_connection_string(self) -> str:
         """
@@ -508,6 +820,38 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_dfs_host")
 
     @property
+    @pulumi.getter(name="secondaryDfsInternetEndpoint")
+    def secondary_dfs_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryDfsInternetHost")
+    def secondary_dfs_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_internet_host")
+
+    @property
+    @pulumi.getter(name="secondaryDfsMicrosoftEndpoint")
+    def secondary_dfs_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryDfsMicrosoftHost")
+    def secondary_dfs_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_microsoft_host")
+
+    @property
     @pulumi.getter(name="secondaryFileEndpoint")
     def secondary_file_endpoint(self) -> str:
         """
@@ -522,6 +866,38 @@ class GetAccountResult:
         The hostname with port if applicable for file storage in the secondary location.
         """
         return pulumi.get(self, "secondary_file_host")
+
+    @property
+    @pulumi.getter(name="secondaryFileInternetEndpoint")
+    def secondary_file_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryFileInternetHost")
+    def secondary_file_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_internet_host")
+
+    @property
+    @pulumi.getter(name="secondaryFileMicrosoftEndpoint")
+    def secondary_file_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryFileMicrosoftHost")
+    def secondary_file_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_microsoft_host")
 
     @property
     @pulumi.getter(name="secondaryLocation")
@@ -548,6 +924,22 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_queue_host")
 
     @property
+    @pulumi.getter(name="secondaryQueueMicrosoftEndpoint")
+    def secondary_queue_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for queue storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_queue_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryQueueMicrosoftHost")
+    def secondary_queue_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_queue_microsoft_host")
+
+    @property
     @pulumi.getter(name="secondaryTableEndpoint")
     def secondary_table_endpoint(self) -> str:
         """
@@ -564,6 +956,22 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_table_host")
 
     @property
+    @pulumi.getter(name="secondaryTableMicrosoftEndpoint")
+    def secondary_table_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for table storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_table_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryTableMicrosoftHost")
+    def secondary_table_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for table storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_table_microsoft_host")
+
+    @property
     @pulumi.getter(name="secondaryWebEndpoint")
     def secondary_web_endpoint(self) -> str:
         """
@@ -578,6 +986,38 @@ class GetAccountResult:
         The hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_host")
+
+    @property
+    @pulumi.getter(name="secondaryWebInternetEndpoint")
+    def secondary_web_internet_endpoint(self) -> str:
+        """
+        The internet routing endpoint URL for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_internet_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryWebInternetHost")
+    def secondary_web_internet_host(self) -> str:
+        """
+        The internet routing hostname with port if applicable for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_internet_host")
+
+    @property
+    @pulumi.getter(name="secondaryWebMicrosoftEndpoint")
+    def secondary_web_microsoft_endpoint(self) -> str:
+        """
+        The microsoft routing endpoint URL for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_microsoft_endpoint")
+
+    @property
+    @pulumi.getter(name="secondaryWebMicrosoftHost")
+    def secondary_web_microsoft_host(self) -> str:
+        """
+        The microsoft routing hostname with port if applicable for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_microsoft_host")
 
     @property
     @pulumi.getter(name="tableEncryptionKeyType")
@@ -622,36 +1062,76 @@ class AwaitableGetAccountResult(GetAccountResult):
             primary_blob_connection_string=self.primary_blob_connection_string,
             primary_blob_endpoint=self.primary_blob_endpoint,
             primary_blob_host=self.primary_blob_host,
+            primary_blob_internet_endpoint=self.primary_blob_internet_endpoint,
+            primary_blob_internet_host=self.primary_blob_internet_host,
+            primary_blob_microsoft_endpoint=self.primary_blob_microsoft_endpoint,
+            primary_blob_microsoft_host=self.primary_blob_microsoft_host,
             primary_connection_string=self.primary_connection_string,
             primary_dfs_endpoint=self.primary_dfs_endpoint,
             primary_dfs_host=self.primary_dfs_host,
+            primary_dfs_internet_endpoint=self.primary_dfs_internet_endpoint,
+            primary_dfs_internet_host=self.primary_dfs_internet_host,
+            primary_dfs_microsoft_endpoint=self.primary_dfs_microsoft_endpoint,
+            primary_dfs_microsoft_host=self.primary_dfs_microsoft_host,
             primary_file_endpoint=self.primary_file_endpoint,
             primary_file_host=self.primary_file_host,
+            primary_file_internet_endpoint=self.primary_file_internet_endpoint,
+            primary_file_internet_host=self.primary_file_internet_host,
+            primary_file_microsoft_endpoint=self.primary_file_microsoft_endpoint,
+            primary_file_microsoft_host=self.primary_file_microsoft_host,
             primary_location=self.primary_location,
             primary_queue_endpoint=self.primary_queue_endpoint,
             primary_queue_host=self.primary_queue_host,
+            primary_queue_microsoft_endpoint=self.primary_queue_microsoft_endpoint,
+            primary_queue_microsoft_host=self.primary_queue_microsoft_host,
             primary_table_endpoint=self.primary_table_endpoint,
             primary_table_host=self.primary_table_host,
+            primary_table_microsoft_endpoint=self.primary_table_microsoft_endpoint,
+            primary_table_microsoft_host=self.primary_table_microsoft_host,
             primary_web_endpoint=self.primary_web_endpoint,
             primary_web_host=self.primary_web_host,
+            primary_web_internet_endpoint=self.primary_web_internet_endpoint,
+            primary_web_internet_host=self.primary_web_internet_host,
+            primary_web_microsoft_endpoint=self.primary_web_microsoft_endpoint,
+            primary_web_microsoft_host=self.primary_web_microsoft_host,
             queue_encryption_key_type=self.queue_encryption_key_type,
             resource_group_name=self.resource_group_name,
             secondary_access_key=self.secondary_access_key,
             secondary_blob_connection_string=self.secondary_blob_connection_string,
             secondary_blob_endpoint=self.secondary_blob_endpoint,
             secondary_blob_host=self.secondary_blob_host,
+            secondary_blob_internet_endpoint=self.secondary_blob_internet_endpoint,
+            secondary_blob_internet_host=self.secondary_blob_internet_host,
+            secondary_blob_microsoft_endpoint=self.secondary_blob_microsoft_endpoint,
+            secondary_blob_microsoft_host=self.secondary_blob_microsoft_host,
             secondary_connection_string=self.secondary_connection_string,
             secondary_dfs_endpoint=self.secondary_dfs_endpoint,
             secondary_dfs_host=self.secondary_dfs_host,
+            secondary_dfs_internet_endpoint=self.secondary_dfs_internet_endpoint,
+            secondary_dfs_internet_host=self.secondary_dfs_internet_host,
+            secondary_dfs_microsoft_endpoint=self.secondary_dfs_microsoft_endpoint,
+            secondary_dfs_microsoft_host=self.secondary_dfs_microsoft_host,
             secondary_file_endpoint=self.secondary_file_endpoint,
             secondary_file_host=self.secondary_file_host,
+            secondary_file_internet_endpoint=self.secondary_file_internet_endpoint,
+            secondary_file_internet_host=self.secondary_file_internet_host,
+            secondary_file_microsoft_endpoint=self.secondary_file_microsoft_endpoint,
+            secondary_file_microsoft_host=self.secondary_file_microsoft_host,
             secondary_location=self.secondary_location,
             secondary_queue_endpoint=self.secondary_queue_endpoint,
             secondary_queue_host=self.secondary_queue_host,
+            secondary_queue_microsoft_endpoint=self.secondary_queue_microsoft_endpoint,
+            secondary_queue_microsoft_host=self.secondary_queue_microsoft_host,
             secondary_table_endpoint=self.secondary_table_endpoint,
             secondary_table_host=self.secondary_table_host,
+            secondary_table_microsoft_endpoint=self.secondary_table_microsoft_endpoint,
+            secondary_table_microsoft_host=self.secondary_table_microsoft_host,
             secondary_web_endpoint=self.secondary_web_endpoint,
             secondary_web_host=self.secondary_web_host,
+            secondary_web_internet_endpoint=self.secondary_web_internet_endpoint,
+            secondary_web_internet_host=self.secondary_web_internet_host,
+            secondary_web_microsoft_endpoint=self.secondary_web_microsoft_endpoint,
+            secondary_web_microsoft_host=self.secondary_web_microsoft_host,
             table_encryption_key_type=self.table_encryption_key_type,
             tags=self.tags)
 
@@ -707,36 +1187,76 @@ def get_account(min_tls_version: Optional[str] = None,
         primary_blob_connection_string=pulumi.get(__ret__, 'primary_blob_connection_string'),
         primary_blob_endpoint=pulumi.get(__ret__, 'primary_blob_endpoint'),
         primary_blob_host=pulumi.get(__ret__, 'primary_blob_host'),
+        primary_blob_internet_endpoint=pulumi.get(__ret__, 'primary_blob_internet_endpoint'),
+        primary_blob_internet_host=pulumi.get(__ret__, 'primary_blob_internet_host'),
+        primary_blob_microsoft_endpoint=pulumi.get(__ret__, 'primary_blob_microsoft_endpoint'),
+        primary_blob_microsoft_host=pulumi.get(__ret__, 'primary_blob_microsoft_host'),
         primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
         primary_dfs_endpoint=pulumi.get(__ret__, 'primary_dfs_endpoint'),
         primary_dfs_host=pulumi.get(__ret__, 'primary_dfs_host'),
+        primary_dfs_internet_endpoint=pulumi.get(__ret__, 'primary_dfs_internet_endpoint'),
+        primary_dfs_internet_host=pulumi.get(__ret__, 'primary_dfs_internet_host'),
+        primary_dfs_microsoft_endpoint=pulumi.get(__ret__, 'primary_dfs_microsoft_endpoint'),
+        primary_dfs_microsoft_host=pulumi.get(__ret__, 'primary_dfs_microsoft_host'),
         primary_file_endpoint=pulumi.get(__ret__, 'primary_file_endpoint'),
         primary_file_host=pulumi.get(__ret__, 'primary_file_host'),
+        primary_file_internet_endpoint=pulumi.get(__ret__, 'primary_file_internet_endpoint'),
+        primary_file_internet_host=pulumi.get(__ret__, 'primary_file_internet_host'),
+        primary_file_microsoft_endpoint=pulumi.get(__ret__, 'primary_file_microsoft_endpoint'),
+        primary_file_microsoft_host=pulumi.get(__ret__, 'primary_file_microsoft_host'),
         primary_location=pulumi.get(__ret__, 'primary_location'),
         primary_queue_endpoint=pulumi.get(__ret__, 'primary_queue_endpoint'),
         primary_queue_host=pulumi.get(__ret__, 'primary_queue_host'),
+        primary_queue_microsoft_endpoint=pulumi.get(__ret__, 'primary_queue_microsoft_endpoint'),
+        primary_queue_microsoft_host=pulumi.get(__ret__, 'primary_queue_microsoft_host'),
         primary_table_endpoint=pulumi.get(__ret__, 'primary_table_endpoint'),
         primary_table_host=pulumi.get(__ret__, 'primary_table_host'),
+        primary_table_microsoft_endpoint=pulumi.get(__ret__, 'primary_table_microsoft_endpoint'),
+        primary_table_microsoft_host=pulumi.get(__ret__, 'primary_table_microsoft_host'),
         primary_web_endpoint=pulumi.get(__ret__, 'primary_web_endpoint'),
         primary_web_host=pulumi.get(__ret__, 'primary_web_host'),
+        primary_web_internet_endpoint=pulumi.get(__ret__, 'primary_web_internet_endpoint'),
+        primary_web_internet_host=pulumi.get(__ret__, 'primary_web_internet_host'),
+        primary_web_microsoft_endpoint=pulumi.get(__ret__, 'primary_web_microsoft_endpoint'),
+        primary_web_microsoft_host=pulumi.get(__ret__, 'primary_web_microsoft_host'),
         queue_encryption_key_type=pulumi.get(__ret__, 'queue_encryption_key_type'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'),
         secondary_blob_connection_string=pulumi.get(__ret__, 'secondary_blob_connection_string'),
         secondary_blob_endpoint=pulumi.get(__ret__, 'secondary_blob_endpoint'),
         secondary_blob_host=pulumi.get(__ret__, 'secondary_blob_host'),
+        secondary_blob_internet_endpoint=pulumi.get(__ret__, 'secondary_blob_internet_endpoint'),
+        secondary_blob_internet_host=pulumi.get(__ret__, 'secondary_blob_internet_host'),
+        secondary_blob_microsoft_endpoint=pulumi.get(__ret__, 'secondary_blob_microsoft_endpoint'),
+        secondary_blob_microsoft_host=pulumi.get(__ret__, 'secondary_blob_microsoft_host'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_dfs_endpoint=pulumi.get(__ret__, 'secondary_dfs_endpoint'),
         secondary_dfs_host=pulumi.get(__ret__, 'secondary_dfs_host'),
+        secondary_dfs_internet_endpoint=pulumi.get(__ret__, 'secondary_dfs_internet_endpoint'),
+        secondary_dfs_internet_host=pulumi.get(__ret__, 'secondary_dfs_internet_host'),
+        secondary_dfs_microsoft_endpoint=pulumi.get(__ret__, 'secondary_dfs_microsoft_endpoint'),
+        secondary_dfs_microsoft_host=pulumi.get(__ret__, 'secondary_dfs_microsoft_host'),
         secondary_file_endpoint=pulumi.get(__ret__, 'secondary_file_endpoint'),
         secondary_file_host=pulumi.get(__ret__, 'secondary_file_host'),
+        secondary_file_internet_endpoint=pulumi.get(__ret__, 'secondary_file_internet_endpoint'),
+        secondary_file_internet_host=pulumi.get(__ret__, 'secondary_file_internet_host'),
+        secondary_file_microsoft_endpoint=pulumi.get(__ret__, 'secondary_file_microsoft_endpoint'),
+        secondary_file_microsoft_host=pulumi.get(__ret__, 'secondary_file_microsoft_host'),
         secondary_location=pulumi.get(__ret__, 'secondary_location'),
         secondary_queue_endpoint=pulumi.get(__ret__, 'secondary_queue_endpoint'),
         secondary_queue_host=pulumi.get(__ret__, 'secondary_queue_host'),
+        secondary_queue_microsoft_endpoint=pulumi.get(__ret__, 'secondary_queue_microsoft_endpoint'),
+        secondary_queue_microsoft_host=pulumi.get(__ret__, 'secondary_queue_microsoft_host'),
         secondary_table_endpoint=pulumi.get(__ret__, 'secondary_table_endpoint'),
         secondary_table_host=pulumi.get(__ret__, 'secondary_table_host'),
+        secondary_table_microsoft_endpoint=pulumi.get(__ret__, 'secondary_table_microsoft_endpoint'),
+        secondary_table_microsoft_host=pulumi.get(__ret__, 'secondary_table_microsoft_host'),
         secondary_web_endpoint=pulumi.get(__ret__, 'secondary_web_endpoint'),
         secondary_web_host=pulumi.get(__ret__, 'secondary_web_host'),
+        secondary_web_internet_endpoint=pulumi.get(__ret__, 'secondary_web_internet_endpoint'),
+        secondary_web_internet_host=pulumi.get(__ret__, 'secondary_web_internet_host'),
+        secondary_web_microsoft_endpoint=pulumi.get(__ret__, 'secondary_web_microsoft_endpoint'),
+        secondary_web_microsoft_host=pulumi.get(__ret__, 'secondary_web_microsoft_host'),
         table_encryption_key_type=pulumi.get(__ret__, 'table_encryption_key_type'),
         tags=pulumi.get(__ret__, 'tags'))
 

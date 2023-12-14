@@ -56,11 +56,15 @@ export interface GetElasticPoolArgs {
  */
 export interface GetElasticPoolResult {
     /**
+     * The type of enclave being used by the elastic pool.
+     */
+    readonly enclaveType: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The license type to apply for this database.
+     * The license type to apply for this elastic pool.
      */
     readonly licenseType: string;
     /**

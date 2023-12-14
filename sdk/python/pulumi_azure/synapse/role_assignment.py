@@ -16,6 +16,7 @@ class RoleAssignmentArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  role_name: pulumi.Input[str],
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None):
         """
@@ -26,6 +27,9 @@ class RoleAssignmentArgs:
                > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
                
                > **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+        :param pulumi.Input[str] principal_type: The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
         :param pulumi.Input[str] synapse_spark_pool_id: The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
                
                > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
@@ -33,6 +37,8 @@ class RoleAssignmentArgs:
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_name", role_name)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
         if synapse_spark_pool_id is not None:
             pulumi.set(__self__, "synapse_spark_pool_id", synapse_spark_pool_id)
         if synapse_workspace_id is not None:
@@ -67,6 +73,20 @@ class RoleAssignmentArgs:
         pulumi.set(self, "role_name", value)
 
     @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+
+        > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
     @pulumi.getter(name="synapseSparkPoolId")
     def synapse_spark_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -97,12 +117,16 @@ class RoleAssignmentArgs:
 class _RoleAssignmentState:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RoleAssignment resources.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
         :param pulumi.Input[str] role_name: The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
                
                > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
@@ -115,6 +139,8 @@ class _RoleAssignmentState:
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if synapse_spark_pool_id is not None:
@@ -133,6 +159,20 @@ class _RoleAssignmentState:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+
+        > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_type", value)
 
     @property
     @pulumi.getter(name="roleName")
@@ -183,6 +223,7 @@ class RoleAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -237,6 +278,9 @@ class RoleAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
         :param pulumi.Input[str] role_name: The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
                
                > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
@@ -316,6 +360,7 @@ class RoleAssignment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -331,6 +376,7 @@ class RoleAssignment(pulumi.CustomResource):
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__.__dict__["principal_id"] = principal_id
+            __props__.__dict__["principal_type"] = principal_type
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
@@ -347,6 +393,7 @@ class RoleAssignment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
+            principal_type: Optional[pulumi.Input[str]] = None,
             role_name: Optional[pulumi.Input[str]] = None,
             synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
             synapse_workspace_id: Optional[pulumi.Input[str]] = None) -> 'RoleAssignment':
@@ -358,6 +405,9 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
         :param pulumi.Input[str] role_name: The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
                
                > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
@@ -373,6 +423,7 @@ class RoleAssignment(pulumi.CustomResource):
         __props__ = _RoleAssignmentState.__new__(_RoleAssignmentState)
 
         __props__.__dict__["principal_id"] = principal_id
+        __props__.__dict__["principal_type"] = principal_type
         __props__.__dict__["role_name"] = role_name
         __props__.__dict__["synapse_spark_pool_id"] = synapse_spark_pool_id
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
@@ -385,6 +436,16 @@ class RoleAssignment(pulumi.CustomResource):
         The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+
+        > **NOTE:** While `principal_type` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+        """
+        return pulumi.get(self, "principal_type")
 
     @property
     @pulumi.getter(name="roleName")

@@ -154,6 +154,8 @@ type CassandraDatacenter struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
+	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+	SeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku.
 	//
 	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
@@ -218,6 +220,8 @@ type cassandraDatacenterState struct {
 	Name *string `pulumi:"name"`
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
+	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+	SeedNodeIpAddresses []string `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku.
 	//
 	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
@@ -247,6 +251,8 @@ type CassandraDatacenterState struct {
 	Name pulumi.StringPtrInput
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
+	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+	SeedNodeIpAddresses pulumi.StringArrayInput
 	// Determines the selected sku.
 	//
 	// > **NOTE:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
@@ -456,6 +462,11 @@ func (o CassandraDatacenterOutput) Name() pulumi.StringOutput {
 // The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 func (o CassandraDatacenterOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.IntPtrOutput { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+func (o CassandraDatacenterOutput) SeedNodeIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringArrayOutput { return v.SeedNodeIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Determines the selected sku.

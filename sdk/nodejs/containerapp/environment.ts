@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -120,6 +122,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     */
+    public readonly workloadProfiles!: pulumi.Output<outputs.containerapp.EnvironmentWorkloadProfile[] | undefined>;
+    /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -152,6 +158,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["staticIpAddress"] = state ? state.staticIpAddress : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["workloadProfiles"] = state ? state.workloadProfiles : undefined;
             resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
@@ -166,6 +173,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workloadProfiles"] = args ? args.workloadProfiles : undefined;
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["dockerBridgeCidr"] = undefined /*out*/;
@@ -241,6 +249,10 @@ export interface EnvironmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     */
+    workloadProfiles?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentWorkloadProfile>[]>;
+    /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -288,6 +300,10 @@ export interface EnvironmentArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+     */
+    workloadProfiles?: pulumi.Input<pulumi.Input<inputs.containerapp.EnvironmentWorkloadProfile>[]>;
     /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *

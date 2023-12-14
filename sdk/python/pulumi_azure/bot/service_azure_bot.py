@@ -31,6 +31,7 @@ class ServiceAzureBotArgs:
                  microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
                  microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -86,6 +87,8 @@ class ServiceAzureBotArgs:
             pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if streaming_endpoint_enabled is not None:
             pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
@@ -296,6 +299,15 @@ class ServiceAzureBotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="streamingEndpointEnabled")
     def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -338,6 +350,7 @@ class _ServiceAzureBotState:
                  microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
                  microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -394,6 +407,8 @@ class _ServiceAzureBotState:
             pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
@@ -584,6 +599,15 @@ class _ServiceAzureBotState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -652,6 +676,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
                  microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -805,6 +830,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
                  microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -835,6 +861,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
             __props__.__dict__["microsoft_app_type"] = microsoft_app_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -870,6 +897,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
             microsoft_app_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -920,6 +948,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
         __props__.__dict__["microsoft_app_type"] = microsoft_app_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
@@ -1045,6 +1074,11 @@ class ServiceAzureBot(pulumi.CustomResource):
         The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

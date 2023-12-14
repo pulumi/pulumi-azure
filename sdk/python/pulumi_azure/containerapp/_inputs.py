@@ -38,6 +38,7 @@ __all__ = [
     'AppTemplateVolumeArgs',
     'EnvironmentDaprComponentMetadataArgs',
     'EnvironmentDaprComponentSecretArgs',
+    'EnvironmentWorkloadProfileArgs',
 ]
 
 @pulumi.input_type
@@ -2099,5 +2100,64 @@ class EnvironmentDaprComponentSecretArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EnvironmentWorkloadProfileArgs:
+    def __init__(__self__, *,
+                 maximum_count: pulumi.Input[int],
+                 minimum_count: pulumi.Input[int],
+                 name: pulumi.Input[str],
+                 workload_profile_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the workload profile.
+        :param pulumi.Input[str] workload_profile_type: Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        """
+        pulumi.set(__self__, "maximum_count", maximum_count)
+        pulumi.set(__self__, "minimum_count", minimum_count)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+
+    @property
+    @pulumi.getter(name="maximumCount")
+    def maximum_count(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "maximum_count")
+
+    @maximum_count.setter
+    def maximum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_count", value)
+
+    @property
+    @pulumi.getter(name="minimumCount")
+    def minimum_count(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "minimum_count")
+
+    @minimum_count.setter
+    def minimum_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_count", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the workload profile.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="workloadProfileType")
+    def workload_profile_type(self) -> pulumi.Input[str]:
+        """
+        Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
+        """
+        return pulumi.get(self, "workload_profile_type")
+
+    @workload_profile_type.setter
+    def workload_profile_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workload_profile_type", value)
 
 

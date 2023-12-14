@@ -22,10 +22,13 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_readonly_key=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_readonly_key=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, capabilities=None, connection_strings=None, consistency_policies=None, enable_automatic_failover=None, enable_free_tier=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, name=None, offer_type=None, primary_key=None, primary_mongodb_connection_string=None, primary_readonly_key=None, primary_readonly_mongodb_connection_string=None, primary_readonly_sql_connection_string=None, primary_sql_connection_string=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_mongodb_connection_string=None, secondary_readonly_key=None, secondary_readonly_mongodb_connection_string=None, secondary_readonly_sql_connection_string=None, secondary_sql_connection_string=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
+        if connection_strings and not isinstance(connection_strings, list):
+            raise TypeError("Expected argument 'connection_strings' to be a list")
+        pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policies and not isinstance(consistency_policies, list):
             raise TypeError("Expected argument 'consistency_policies' to be a list")
         pulumi.set(__self__, "consistency_policies", consistency_policies)
@@ -71,9 +74,21 @@ class GetAccountResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
+        if primary_mongodb_connection_string and not isinstance(primary_mongodb_connection_string, str):
+            raise TypeError("Expected argument 'primary_mongodb_connection_string' to be a str")
+        pulumi.set(__self__, "primary_mongodb_connection_string", primary_mongodb_connection_string)
         if primary_readonly_key and not isinstance(primary_readonly_key, str):
             raise TypeError("Expected argument 'primary_readonly_key' to be a str")
         pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
+        if primary_readonly_mongodb_connection_string and not isinstance(primary_readonly_mongodb_connection_string, str):
+            raise TypeError("Expected argument 'primary_readonly_mongodb_connection_string' to be a str")
+        pulumi.set(__self__, "primary_readonly_mongodb_connection_string", primary_readonly_mongodb_connection_string)
+        if primary_readonly_sql_connection_string and not isinstance(primary_readonly_sql_connection_string, str):
+            raise TypeError("Expected argument 'primary_readonly_sql_connection_string' to be a str")
+        pulumi.set(__self__, "primary_readonly_sql_connection_string", primary_readonly_sql_connection_string)
+        if primary_sql_connection_string and not isinstance(primary_sql_connection_string, str):
+            raise TypeError("Expected argument 'primary_sql_connection_string' to be a str")
+        pulumi.set(__self__, "primary_sql_connection_string", primary_sql_connection_string)
         if read_endpoints and not isinstance(read_endpoints, list):
             raise TypeError("Expected argument 'read_endpoints' to be a list")
         pulumi.set(__self__, "read_endpoints", read_endpoints)
@@ -83,9 +98,21 @@ class GetAccountResult:
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
+        if secondary_mongodb_connection_string and not isinstance(secondary_mongodb_connection_string, str):
+            raise TypeError("Expected argument 'secondary_mongodb_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_mongodb_connection_string", secondary_mongodb_connection_string)
         if secondary_readonly_key and not isinstance(secondary_readonly_key, str):
             raise TypeError("Expected argument 'secondary_readonly_key' to be a str")
         pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
+        if secondary_readonly_mongodb_connection_string and not isinstance(secondary_readonly_mongodb_connection_string, str):
+            raise TypeError("Expected argument 'secondary_readonly_mongodb_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_readonly_mongodb_connection_string", secondary_readonly_mongodb_connection_string)
+        if secondary_readonly_sql_connection_string and not isinstance(secondary_readonly_sql_connection_string, str):
+            raise TypeError("Expected argument 'secondary_readonly_sql_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_readonly_sql_connection_string", secondary_readonly_sql_connection_string)
+        if secondary_sql_connection_string and not isinstance(secondary_sql_connection_string, str):
+            raise TypeError("Expected argument 'secondary_sql_connection_string' to be a str")
+        pulumi.set(__self__, "secondary_sql_connection_string", secondary_sql_connection_string)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -103,6 +130,14 @@ class GetAccountResult:
         Capabilities enabled on this Cosmos DB account.
         """
         return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Sequence[str]:
+        """
+        A list of connection strings available for this CosmosDB account.
+        """
+        return pulumi.get(self, "connection_strings")
 
     @property
     @pulumi.getter(name="consistencyPolicies")
@@ -216,12 +251,44 @@ class GetAccountResult:
         return pulumi.get(self, "primary_key")
 
     @property
+    @pulumi.getter(name="primaryMongodbConnectionString")
+    def primary_mongodb_connection_string(self) -> str:
+        """
+        The primary Mongodb connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "primary_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="primaryReadonlyKey")
     def primary_readonly_key(self) -> str:
         """
         The primary read-only Key for the CosmosDB account.
         """
         return pulumi.get(self, "primary_readonly_key")
+
+    @property
+    @pulumi.getter(name="primaryReadonlyMongodbConnectionString")
+    def primary_readonly_mongodb_connection_string(self) -> str:
+        """
+        The primary readonly Mongodb connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "primary_readonly_mongodb_connection_string")
+
+    @property
+    @pulumi.getter(name="primaryReadonlySqlConnectionString")
+    def primary_readonly_sql_connection_string(self) -> str:
+        """
+        The primary read-only SQL connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "primary_readonly_sql_connection_string")
+
+    @property
+    @pulumi.getter(name="primarySqlConnectionString")
+    def primary_sql_connection_string(self) -> str:
+        """
+        The primary SQL connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_sql_connection_string")
 
     @property
     @pulumi.getter(name="readEndpoints")
@@ -245,12 +312,44 @@ class GetAccountResult:
         return pulumi.get(self, "secondary_key")
 
     @property
+    @pulumi.getter(name="secondaryMongodbConnectionString")
+    def secondary_mongodb_connection_string(self) -> str:
+        """
+        The secondary Mongodb connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "secondary_mongodb_connection_string")
+
+    @property
     @pulumi.getter(name="secondaryReadonlyKey")
     def secondary_readonly_key(self) -> str:
         """
         The secondary read-only key for the CosmosDB account.
         """
         return pulumi.get(self, "secondary_readonly_key")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyMongodbConnectionString")
+    def secondary_readonly_mongodb_connection_string(self) -> str:
+        """
+        The secondary readonly Mongodb connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "secondary_readonly_mongodb_connection_string")
+
+    @property
+    @pulumi.getter(name="secondaryReadonlySqlConnectionString")
+    def secondary_readonly_sql_connection_string(self) -> str:
+        """
+        The secondary read-only SQL connection string for the CosmosDB account.
+        """
+        return pulumi.get(self, "secondary_readonly_sql_connection_string")
+
+    @property
+    @pulumi.getter(name="secondarySqlConnectionString")
+    def secondary_sql_connection_string(self) -> str:
+        """
+        The secondary SQL connection string for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_sql_connection_string")
 
     @property
     @pulumi.getter
@@ -284,6 +383,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             capabilities=self.capabilities,
+            connection_strings=self.connection_strings,
             consistency_policies=self.consistency_policies,
             enable_automatic_failover=self.enable_automatic_failover,
             enable_free_tier=self.enable_free_tier,
@@ -299,11 +399,19 @@ class AwaitableGetAccountResult(GetAccountResult):
             name=self.name,
             offer_type=self.offer_type,
             primary_key=self.primary_key,
+            primary_mongodb_connection_string=self.primary_mongodb_connection_string,
             primary_readonly_key=self.primary_readonly_key,
+            primary_readonly_mongodb_connection_string=self.primary_readonly_mongodb_connection_string,
+            primary_readonly_sql_connection_string=self.primary_readonly_sql_connection_string,
+            primary_sql_connection_string=self.primary_sql_connection_string,
             read_endpoints=self.read_endpoints,
             resource_group_name=self.resource_group_name,
             secondary_key=self.secondary_key,
+            secondary_mongodb_connection_string=self.secondary_mongodb_connection_string,
             secondary_readonly_key=self.secondary_readonly_key,
+            secondary_readonly_mongodb_connection_string=self.secondary_readonly_mongodb_connection_string,
+            secondary_readonly_sql_connection_string=self.secondary_readonly_sql_connection_string,
+            secondary_sql_connection_string=self.secondary_sql_connection_string,
             tags=self.tags,
             virtual_network_rules=self.virtual_network_rules,
             write_endpoints=self.write_endpoints)
@@ -338,6 +446,7 @@ def get_account(name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         capabilities=pulumi.get(__ret__, 'capabilities'),
+        connection_strings=pulumi.get(__ret__, 'connection_strings'),
         consistency_policies=pulumi.get(__ret__, 'consistency_policies'),
         enable_automatic_failover=pulumi.get(__ret__, 'enable_automatic_failover'),
         enable_free_tier=pulumi.get(__ret__, 'enable_free_tier'),
@@ -353,11 +462,19 @@ def get_account(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         offer_type=pulumi.get(__ret__, 'offer_type'),
         primary_key=pulumi.get(__ret__, 'primary_key'),
+        primary_mongodb_connection_string=pulumi.get(__ret__, 'primary_mongodb_connection_string'),
         primary_readonly_key=pulumi.get(__ret__, 'primary_readonly_key'),
+        primary_readonly_mongodb_connection_string=pulumi.get(__ret__, 'primary_readonly_mongodb_connection_string'),
+        primary_readonly_sql_connection_string=pulumi.get(__ret__, 'primary_readonly_sql_connection_string'),
+        primary_sql_connection_string=pulumi.get(__ret__, 'primary_sql_connection_string'),
         read_endpoints=pulumi.get(__ret__, 'read_endpoints'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        secondary_mongodb_connection_string=pulumi.get(__ret__, 'secondary_mongodb_connection_string'),
         secondary_readonly_key=pulumi.get(__ret__, 'secondary_readonly_key'),
+        secondary_readonly_mongodb_connection_string=pulumi.get(__ret__, 'secondary_readonly_mongodb_connection_string'),
+        secondary_readonly_sql_connection_string=pulumi.get(__ret__, 'secondary_readonly_sql_connection_string'),
+        secondary_sql_connection_string=pulumi.get(__ret__, 'secondary_sql_connection_string'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'),
         write_endpoints=pulumi.get(__ret__, 'write_endpoints'))

@@ -89,6 +89,12 @@ export class RoleAssignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
+     * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** While `principalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
+     */
+    public readonly principalType!: pulumi.Output<string | undefined>;
+    /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
@@ -121,6 +127,7 @@ export class RoleAssignment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RoleAssignmentState | undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["principalType"] = state ? state.principalType : undefined;
             resourceInputs["roleName"] = state ? state.roleName : undefined;
             resourceInputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
             resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
@@ -133,6 +140,7 @@ export class RoleAssignment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleName'");
             }
             resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
@@ -150,6 +158,12 @@ export interface RoleAssignmentState {
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      */
     principalId?: pulumi.Input<string>;
+    /**
+     * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** While `principalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
+     */
+    principalType?: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      *
@@ -178,6 +192,12 @@ export interface RoleAssignmentArgs {
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      */
     principalId: pulumi.Input<string>;
+    /**
+     * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** While `principalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
+     */
+    principalType?: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      *

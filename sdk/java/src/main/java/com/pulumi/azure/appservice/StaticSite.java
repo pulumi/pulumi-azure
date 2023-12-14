@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.appservice.StaticSite;
  * import com.pulumi.azure.appservice.StaticSiteArgs;
  * import java.util.List;
@@ -44,9 +46,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new StaticSite(&#34;example&#34;, StaticSiteArgs.builder()        
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
  *             .location(&#34;West Europe&#34;)
- *             .resourceGroupName(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *     }

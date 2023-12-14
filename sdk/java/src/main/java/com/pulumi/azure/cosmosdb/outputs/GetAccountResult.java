@@ -21,6 +21,11 @@ public final class GetAccountResult {
      * 
      */
     private List<GetAccountCapability> capabilities;
+    /**
+     * @return A list of connection strings available for this CosmosDB account.
+     * 
+     */
+    private List<String> connectionStrings;
     private List<GetAccountConsistencyPolicy> consistencyPolicies;
     /**
      * @return If automatic failover is enabled for this CosmosDB Account.
@@ -85,10 +90,30 @@ public final class GetAccountResult {
      */
     private String primaryKey;
     /**
+     * @return The primary Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    private String primaryMongodbConnectionString;
+    /**
      * @return The primary read-only Key for the CosmosDB account.
      * 
      */
     private String primaryReadonlyKey;
+    /**
+     * @return The primary readonly Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    private String primaryReadonlyMongodbConnectionString;
+    /**
+     * @return The primary read-only SQL connection string for the CosmosDB account.
+     * 
+     */
+    private String primaryReadonlySqlConnectionString;
+    /**
+     * @return The primary SQL connection string for the CosmosDB Account.
+     * 
+     */
+    private String primarySqlConnectionString;
     /**
      * @return A list of read endpoints available for this CosmosDB account.
      * 
@@ -101,10 +126,30 @@ public final class GetAccountResult {
      */
     private String secondaryKey;
     /**
+     * @return The secondary Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    private String secondaryMongodbConnectionString;
+    /**
      * @return The secondary read-only key for the CosmosDB account.
      * 
      */
     private String secondaryReadonlyKey;
+    /**
+     * @return The secondary readonly Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    private String secondaryReadonlyMongodbConnectionString;
+    /**
+     * @return The secondary read-only SQL connection string for the CosmosDB account.
+     * 
+     */
+    private String secondaryReadonlySqlConnectionString;
+    /**
+     * @return The secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
+    private String secondarySqlConnectionString;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
@@ -128,6 +173,13 @@ public final class GetAccountResult {
      */
     public List<GetAccountCapability> capabilities() {
         return this.capabilities;
+    }
+    /**
+     * @return A list of connection strings available for this CosmosDB account.
+     * 
+     */
+    public List<String> connectionStrings() {
+        return this.connectionStrings;
     }
     public List<GetAccountConsistencyPolicy> consistencyPolicies() {
         return this.consistencyPolicies;
@@ -223,11 +275,39 @@ public final class GetAccountResult {
         return this.primaryKey;
     }
     /**
+     * @return The primary Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    public String primaryMongodbConnectionString() {
+        return this.primaryMongodbConnectionString;
+    }
+    /**
      * @return The primary read-only Key for the CosmosDB account.
      * 
      */
     public String primaryReadonlyKey() {
         return this.primaryReadonlyKey;
+    }
+    /**
+     * @return The primary readonly Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    public String primaryReadonlyMongodbConnectionString() {
+        return this.primaryReadonlyMongodbConnectionString;
+    }
+    /**
+     * @return The primary read-only SQL connection string for the CosmosDB account.
+     * 
+     */
+    public String primaryReadonlySqlConnectionString() {
+        return this.primaryReadonlySqlConnectionString;
+    }
+    /**
+     * @return The primary SQL connection string for the CosmosDB Account.
+     * 
+     */
+    public String primarySqlConnectionString() {
+        return this.primarySqlConnectionString;
     }
     /**
      * @return A list of read endpoints available for this CosmosDB account.
@@ -247,11 +327,39 @@ public final class GetAccountResult {
         return this.secondaryKey;
     }
     /**
+     * @return The secondary Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    public String secondaryMongodbConnectionString() {
+        return this.secondaryMongodbConnectionString;
+    }
+    /**
      * @return The secondary read-only key for the CosmosDB account.
      * 
      */
     public String secondaryReadonlyKey() {
         return this.secondaryReadonlyKey;
+    }
+    /**
+     * @return The secondary readonly Mongodb connection string for the CosmosDB account.
+     * 
+     */
+    public String secondaryReadonlyMongodbConnectionString() {
+        return this.secondaryReadonlyMongodbConnectionString;
+    }
+    /**
+     * @return The secondary read-only SQL connection string for the CosmosDB account.
+     * 
+     */
+    public String secondaryReadonlySqlConnectionString() {
+        return this.secondaryReadonlySqlConnectionString;
+    }
+    /**
+     * @return The secondary SQL connection string for the CosmosDB Account.
+     * 
+     */
+    public String secondarySqlConnectionString() {
+        return this.secondarySqlConnectionString;
     }
     /**
      * @return A mapping of tags assigned to the resource.
@@ -285,6 +393,7 @@ public final class GetAccountResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetAccountCapability> capabilities;
+        private List<String> connectionStrings;
         private List<GetAccountConsistencyPolicy> consistencyPolicies;
         private Boolean enableAutomaticFailover;
         private Boolean enableFreeTier;
@@ -300,11 +409,19 @@ public final class GetAccountResult {
         private String name;
         private String offerType;
         private String primaryKey;
+        private String primaryMongodbConnectionString;
         private String primaryReadonlyKey;
+        private String primaryReadonlyMongodbConnectionString;
+        private String primaryReadonlySqlConnectionString;
+        private String primarySqlConnectionString;
         private List<String> readEndpoints;
         private String resourceGroupName;
         private String secondaryKey;
+        private String secondaryMongodbConnectionString;
         private String secondaryReadonlyKey;
+        private String secondaryReadonlyMongodbConnectionString;
+        private String secondaryReadonlySqlConnectionString;
+        private String secondarySqlConnectionString;
         private Map<String,String> tags;
         private List<GetAccountVirtualNetworkRule> virtualNetworkRules;
         private List<String> writeEndpoints;
@@ -312,6 +429,7 @@ public final class GetAccountResult {
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capabilities = defaults.capabilities;
+    	      this.connectionStrings = defaults.connectionStrings;
     	      this.consistencyPolicies = defaults.consistencyPolicies;
     	      this.enableAutomaticFailover = defaults.enableAutomaticFailover;
     	      this.enableFreeTier = defaults.enableFreeTier;
@@ -327,11 +445,19 @@ public final class GetAccountResult {
     	      this.name = defaults.name;
     	      this.offerType = defaults.offerType;
     	      this.primaryKey = defaults.primaryKey;
+    	      this.primaryMongodbConnectionString = defaults.primaryMongodbConnectionString;
     	      this.primaryReadonlyKey = defaults.primaryReadonlyKey;
+    	      this.primaryReadonlyMongodbConnectionString = defaults.primaryReadonlyMongodbConnectionString;
+    	      this.primaryReadonlySqlConnectionString = defaults.primaryReadonlySqlConnectionString;
+    	      this.primarySqlConnectionString = defaults.primarySqlConnectionString;
     	      this.readEndpoints = defaults.readEndpoints;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryKey = defaults.secondaryKey;
+    	      this.secondaryMongodbConnectionString = defaults.secondaryMongodbConnectionString;
     	      this.secondaryReadonlyKey = defaults.secondaryReadonlyKey;
+    	      this.secondaryReadonlyMongodbConnectionString = defaults.secondaryReadonlyMongodbConnectionString;
+    	      this.secondaryReadonlySqlConnectionString = defaults.secondaryReadonlySqlConnectionString;
+    	      this.secondarySqlConnectionString = defaults.secondarySqlConnectionString;
     	      this.tags = defaults.tags;
     	      this.virtualNetworkRules = defaults.virtualNetworkRules;
     	      this.writeEndpoints = defaults.writeEndpoints;
@@ -344,6 +470,14 @@ public final class GetAccountResult {
         }
         public Builder capabilities(GetAccountCapability... capabilities) {
             return capabilities(List.of(capabilities));
+        }
+        @CustomType.Setter
+        public Builder connectionStrings(List<String> connectionStrings) {
+            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            return this;
+        }
+        public Builder connectionStrings(String... connectionStrings) {
+            return connectionStrings(List.of(connectionStrings));
         }
         @CustomType.Setter
         public Builder consistencyPolicies(List<GetAccountConsistencyPolicy> consistencyPolicies) {
@@ -427,8 +561,28 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryMongodbConnectionString(String primaryMongodbConnectionString) {
+            this.primaryMongodbConnectionString = Objects.requireNonNull(primaryMongodbConnectionString);
+            return this;
+        }
+        @CustomType.Setter
         public Builder primaryReadonlyKey(String primaryReadonlyKey) {
             this.primaryReadonlyKey = Objects.requireNonNull(primaryReadonlyKey);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryReadonlyMongodbConnectionString(String primaryReadonlyMongodbConnectionString) {
+            this.primaryReadonlyMongodbConnectionString = Objects.requireNonNull(primaryReadonlyMongodbConnectionString);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primaryReadonlySqlConnectionString(String primaryReadonlySqlConnectionString) {
+            this.primaryReadonlySqlConnectionString = Objects.requireNonNull(primaryReadonlySqlConnectionString);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder primarySqlConnectionString(String primarySqlConnectionString) {
+            this.primarySqlConnectionString = Objects.requireNonNull(primarySqlConnectionString);
             return this;
         }
         @CustomType.Setter
@@ -450,8 +604,28 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryMongodbConnectionString(String secondaryMongodbConnectionString) {
+            this.secondaryMongodbConnectionString = Objects.requireNonNull(secondaryMongodbConnectionString);
+            return this;
+        }
+        @CustomType.Setter
         public Builder secondaryReadonlyKey(String secondaryReadonlyKey) {
             this.secondaryReadonlyKey = Objects.requireNonNull(secondaryReadonlyKey);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryReadonlyMongodbConnectionString(String secondaryReadonlyMongodbConnectionString) {
+            this.secondaryReadonlyMongodbConnectionString = Objects.requireNonNull(secondaryReadonlyMongodbConnectionString);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryReadonlySqlConnectionString(String secondaryReadonlySqlConnectionString) {
+            this.secondaryReadonlySqlConnectionString = Objects.requireNonNull(secondaryReadonlySqlConnectionString);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondarySqlConnectionString(String secondarySqlConnectionString) {
+            this.secondarySqlConnectionString = Objects.requireNonNull(secondarySqlConnectionString);
             return this;
         }
         @CustomType.Setter
@@ -478,6 +652,7 @@ public final class GetAccountResult {
         public GetAccountResult build() {
             final var _resultValue = new GetAccountResult();
             _resultValue.capabilities = capabilities;
+            _resultValue.connectionStrings = connectionStrings;
             _resultValue.consistencyPolicies = consistencyPolicies;
             _resultValue.enableAutomaticFailover = enableAutomaticFailover;
             _resultValue.enableFreeTier = enableFreeTier;
@@ -493,11 +668,19 @@ public final class GetAccountResult {
             _resultValue.name = name;
             _resultValue.offerType = offerType;
             _resultValue.primaryKey = primaryKey;
+            _resultValue.primaryMongodbConnectionString = primaryMongodbConnectionString;
             _resultValue.primaryReadonlyKey = primaryReadonlyKey;
+            _resultValue.primaryReadonlyMongodbConnectionString = primaryReadonlyMongodbConnectionString;
+            _resultValue.primaryReadonlySqlConnectionString = primaryReadonlySqlConnectionString;
+            _resultValue.primarySqlConnectionString = primarySqlConnectionString;
             _resultValue.readEndpoints = readEndpoints;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryKey = secondaryKey;
+            _resultValue.secondaryMongodbConnectionString = secondaryMongodbConnectionString;
             _resultValue.secondaryReadonlyKey = secondaryReadonlyKey;
+            _resultValue.secondaryReadonlyMongodbConnectionString = secondaryReadonlyMongodbConnectionString;
+            _resultValue.secondaryReadonlySqlConnectionString = secondaryReadonlySqlConnectionString;
+            _resultValue.secondarySqlConnectionString = secondarySqlConnectionString;
             _resultValue.tags = tags;
             _resultValue.virtualNetworkRules = virtualNetworkRules;
             _resultValue.writeEndpoints = writeEndpoints;

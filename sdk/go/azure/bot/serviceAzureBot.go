@@ -123,7 +123,8 @@ type ServiceAzureBot struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	MicrosoftAppType pulumi.StringPtrOutput `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                       pulumi.StringOutput  `pulumi:"name"`
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -213,7 +214,8 @@ type serviceAzureBotState struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -254,7 +256,8 @@ type ServiceAzureBotState struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -299,7 +302,8 @@ type serviceAzureBotArgs struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	MicrosoftAppType *string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -341,7 +345,8 @@ type ServiceAzureBotArgs struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	MicrosoftAppType pulumi.StringPtrInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
@@ -512,6 +517,10 @@ func (o ServiceAzureBotOutput) MicrosoftAppType() pulumi.StringPtrOutput {
 // The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 func (o ServiceAzureBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServiceAzureBotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceAzureBot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.

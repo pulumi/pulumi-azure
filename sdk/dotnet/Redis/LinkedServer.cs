@@ -88,6 +88,12 @@ namespace Pulumi.Azure.Redis
     public partial class LinkedServer : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The geo-replicated primary hostname for this linked server.
+        /// </summary>
+        [Output("geoReplicatedPrimaryHostName")]
+        public Output<string> GeoReplicatedPrimaryHostName { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         /// </summary>
         [Output("linkedRedisCacheId")]
@@ -207,6 +213,12 @@ namespace Pulumi.Azure.Redis
 
     public sealed class LinkedServerState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The geo-replicated primary hostname for this linked server.
+        /// </summary>
+        [Input("geoReplicatedPrimaryHostName")]
+        public Input<string>? GeoReplicatedPrimaryHostName { get; set; }
+
         /// <summary>
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         /// </summary>

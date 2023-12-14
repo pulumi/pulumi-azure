@@ -19,6 +19,7 @@ class SpringCloudBuildDeploymentArgs:
                  build_result_id: pulumi.Input[str],
                  spring_cloud_app_id: pulumi.Input[str],
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class SpringCloudBuildDeploymentArgs:
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
@@ -37,6 +39,8 @@ class SpringCloudBuildDeploymentArgs:
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if addon_json is not None:
             pulumi.set(__self__, "addon_json", addon_json)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if instance_count is not None:
@@ -81,6 +85,18 @@ class SpringCloudBuildDeploymentArgs:
     @addon_json.setter
     def addon_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "addon_json", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -135,6 +151,7 @@ class SpringCloudBuildDeploymentArgs:
 class _SpringCloudBuildDeploymentState:
     def __init__(__self__, *,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -144,6 +161,7 @@ class _SpringCloudBuildDeploymentState:
         """
         Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -153,6 +171,8 @@ class _SpringCloudBuildDeploymentState:
         """
         if addon_json is not None:
             pulumi.set(__self__, "addon_json", addon_json)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if build_result_id is not None:
             pulumi.set(__self__, "build_result_id", build_result_id)
         if environment_variables is not None:
@@ -177,6 +197,18 @@ class _SpringCloudBuildDeploymentState:
     @addon_json.setter
     def addon_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "addon_json", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter(name="buildResultId")
@@ -257,6 +289,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -308,6 +341,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -378,6 +412,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -394,6 +429,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             __props__ = SpringCloudBuildDeploymentArgs.__new__(SpringCloudBuildDeploymentArgs)
 
             __props__.__dict__["addon_json"] = addon_json
+            __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
             if build_result_id is None and not opts.urn:
                 raise TypeError("Missing required property 'build_result_id'")
             __props__.__dict__["build_result_id"] = build_result_id
@@ -415,6 +451,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             addon_json: Optional[pulumi.Input[str]] = None,
+            application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             build_result_id: Optional[pulumi.Input[str]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
@@ -429,6 +466,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -441,6 +479,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         __props__ = _SpringCloudBuildDeploymentState.__new__(_SpringCloudBuildDeploymentState)
 
         __props__.__dict__["addon_json"] = addon_json
+        __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
         __props__.__dict__["build_result_id"] = build_result_id
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["instance_count"] = instance_count
@@ -456,6 +495,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         """
         return pulumi.get(self, "addon_json")
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
 
     @property
     @pulumi.getter(name="buildResultId")

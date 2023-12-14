@@ -80,6 +80,8 @@ type LookupDatabaseResult struct {
 	Collation string `pulumi:"collation"`
 	// The id of the elastic pool containing this database.
 	ElasticPoolId string `pulumi:"elasticPoolId"`
+	// The type of enclave being used by the database.
+	EnclaveType string `pulumi:"enclaveType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The license type to apply for this database.
@@ -150,6 +152,11 @@ func (o LookupDatabaseResultOutput) Collation() pulumi.StringOutput {
 // The id of the elastic pool containing this database.
 func (o LookupDatabaseResultOutput) ElasticPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.ElasticPoolId }).(pulumi.StringOutput)
+}
+
+// The type of enclave being used by the database.
+func (o LookupDatabaseResultOutput) EnclaveType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.EnclaveType }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

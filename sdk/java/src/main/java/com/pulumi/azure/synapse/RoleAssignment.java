@@ -126,6 +126,24 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
         return this.principalId;
     }
     /**
+     * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * 
+     */
+    @Export(name="principalType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> principalType;
+
+    /**
+     * @return The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * 
+     */
+    public Output<Optional<String>> principalType() {
+        return Codegen.optional(this.principalType);
+    }
+    /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.

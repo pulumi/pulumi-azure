@@ -217,7 +217,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      *
-     * > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -475,7 +475,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      *
-     * > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -631,7 +631,7 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      *
-     * > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

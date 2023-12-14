@@ -67,6 +67,7 @@ class KubernetesClusterArgs:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+                 support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
@@ -183,10 +184,11 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -306,6 +308,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "sku_tier", sku_tier)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if support_plan is not None:
+            pulumi.set(__self__, "support_plan", support_plan)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if web_app_routing is not None:
@@ -974,7 +978,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 
         > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         """
@@ -995,6 +999,18 @@ class KubernetesClusterArgs:
     @storage_profile.setter
     def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        """
+        return pulumi.get(self, "support_plan")
+
+    @support_plan.setter
+    def support_plan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "support_plan", value)
 
     @property
     @pulumi.getter
@@ -1125,6 +1141,7 @@ class _KubernetesClusterState:
                  service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+                 support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
                  windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
@@ -1251,10 +1268,11 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -1396,6 +1414,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "sku_tier", sku_tier)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
+        if support_plan is not None:
+            pulumi.set(__self__, "support_plan", support_plan)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if web_app_routing is not None:
@@ -2184,7 +2204,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 
         > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         """
@@ -2205,6 +2225,18 @@ class _KubernetesClusterState:
     @storage_profile.setter
     def storage_profile(self, value: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']]):
         pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        """
+        return pulumi.get(self, "support_plan")
+
+    @support_plan.setter
+    def support_plan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "support_plan", value)
 
     @property
     @pulumi.getter
@@ -2327,6 +2359,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+                 support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -2483,10 +2516,11 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -2608,6 +2642,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+                 support_plan: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -2677,6 +2712,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["support_plan"] = support_plan
             __props__.__dict__["tags"] = tags
             __props__.__dict__["web_app_routing"] = web_app_routing
             __props__.__dict__["windows_profile"] = windows_profile
@@ -2765,6 +2801,7 @@ class KubernetesCluster(pulumi.CustomResource):
             service_principal: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']]] = None,
             sku_tier: Optional[pulumi.Input[str]] = None,
             storage_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']]] = None,
+            support_plan: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             web_app_routing: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']]] = None,
             windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']]] = None,
@@ -2896,10 +2933,11 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
                
                !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
+        :param pulumi.Input[str] support_plan: Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -2975,6 +3013,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["service_principal"] = service_principal
         __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["storage_profile"] = storage_profile
+        __props__.__dict__["support_plan"] = support_plan
         __props__.__dict__["tags"] = tags
         __props__.__dict__["web_app_routing"] = web_app_routing
         __props__.__dict__["windows_profile"] = windows_profile
@@ -3523,7 +3562,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> pulumi.Output[Optional[str]]:
         """
-        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`.
+        The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 
         > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         """
@@ -3536,6 +3575,14 @@ class KubernetesCluster(pulumi.CustomResource):
         A `storage_profile` block as defined below.
         """
         return pulumi.get(self, "storage_profile")
+
+    @property
+    @pulumi.getter(name="supportPlan")
+    def support_plan(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
+        """
+        return pulumi.get(self, "support_plan")
 
     @property
     @pulumi.getter

@@ -19,12 +19,12 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
      */
     private @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups;
     /**
-     * @return The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+     * @return The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     private @Nullable String type;
     /**
-     * @return The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+     * @return The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     private @Nullable String version;
@@ -38,14 +38,14 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
         return this.ruleGroups == null ? List.of() : this.ruleGroups;
     }
     /**
-     * @return The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+     * @return The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
     /**
-     * @return The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+     * @return The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
      * 
      */
     public Optional<String> version() {

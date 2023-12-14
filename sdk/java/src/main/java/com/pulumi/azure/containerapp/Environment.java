@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.containerapp.EnvironmentArgs;
 import com.pulumi.azure.containerapp.inputs.EnvironmentState;
+import com.pulumi.azure.containerapp.outputs.EnvironmentWorkloadProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -267,6 +268,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * 
+     */
+    @Export(name="workloadProfiles", refs={List.class,EnvironmentWorkloadProfile.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<EnvironmentWorkloadProfile>> workloadProfiles;
+
+    /**
+     * @return The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * 
+     */
+    public Output<Optional<List<EnvironmentWorkloadProfile>>> workloadProfiles() {
+        return Codegen.optional(this.workloadProfiles);
     }
     /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.

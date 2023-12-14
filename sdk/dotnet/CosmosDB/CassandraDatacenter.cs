@@ -178,6 +178,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<int?> NodeCount { get; private set; } = null!;
 
         /// <summary>
+        /// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+        /// </summary>
+        [Output("seedNodeIpAddresses")]
+        public Output<ImmutableArray<string>> SeedNodeIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Determines the selected sku.
         /// 
         /// &gt; **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
@@ -378,6 +384,18 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
+
+        [Input("seedNodeIpAddresses")]
+        private InputList<string>? _seedNodeIpAddresses;
+
+        /// <summary>
+        /// A list of IP Address for the seed nodes in this Cassandra Datacenter.
+        /// </summary>
+        public InputList<string> SeedNodeIpAddresses
+        {
+            get => _seedNodeIpAddresses ?? (_seedNodeIpAddresses = new InputList<string>());
+            set => _seedNodeIpAddresses = value;
+        }
 
         /// <summary>
         /// Determines the selected sku.

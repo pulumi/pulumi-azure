@@ -227,6 +227,7 @@ class _CassandraDatacenterState:
                  managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
+                 seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CassandraDatacenter resources.
@@ -241,6 +242,7 @@ class _CassandraDatacenterState:
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[str] sku_name: Determines the selected sku.
                
                > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
@@ -267,6 +269,8 @@ class _CassandraDatacenterState:
             pulumi.set(__self__, "name", name)
         if node_count is not None:
             pulumi.set(__self__, "node_count", node_count)
+        if seed_node_ip_addresses is not None:
+            pulumi.set(__self__, "seed_node_ip_addresses", seed_node_ip_addresses)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
 
@@ -401,6 +405,18 @@ class _CassandraDatacenterState:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="seedNodeIpAddresses")
+    def seed_node_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP Address for the seed nodes in this Cassandra Datacenter.
+        """
+        return pulumi.get(self, "seed_node_ip_addresses")
+
+    @seed_node_ip_addresses.setter
+    def seed_node_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "seed_node_ip_addresses", value)
 
     @property
     @pulumi.getter(name="skuName")
@@ -618,6 +634,7 @@ class CassandraDatacenter(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["seed_node_ip_addresses"] = None
         super(CassandraDatacenter, __self__).__init__(
             'azure:cosmosdb/cassandraDatacenter:CassandraDatacenter',
             resource_name,
@@ -639,6 +656,7 @@ class CassandraDatacenter(pulumi.CustomResource):
             managed_disk_customer_key_uri: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
+            seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sku_name: Optional[pulumi.Input[str]] = None) -> 'CassandraDatacenter':
         """
         Get an existing CassandraDatacenter resource's state with the given name, id, and optional extra
@@ -658,6 +676,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[str] managed_disk_customer_key_uri: The key URI of the customer key to use for the encryption of the Managed Disk.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[str] sku_name: Determines the selected sku.
                
                > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
@@ -677,6 +696,7 @@ class CassandraDatacenter(pulumi.CustomResource):
         __props__.__dict__["managed_disk_customer_key_uri"] = managed_disk_customer_key_uri
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
+        __props__.__dict__["seed_node_ip_addresses"] = seed_node_ip_addresses
         __props__.__dict__["sku_name"] = sku_name
         return CassandraDatacenter(resource_name, opts=opts, __props__=__props__)
 
@@ -767,6 +787,14 @@ class CassandraDatacenter(pulumi.CustomResource):
         The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         """
         return pulumi.get(self, "node_count")
+
+    @property
+    @pulumi.getter(name="seedNodeIpAddresses")
+    def seed_node_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of IP Address for the seed nodes in this Cassandra Datacenter.
+        """
+        return pulumi.get(self, "seed_node_ip_addresses")
 
     @property
     @pulumi.getter(name="skuName")

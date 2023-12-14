@@ -26,6 +26,7 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:network/getFirewall:getFirewall", {
+        "dnsProxyEnabled": args.dnsProxyEnabled,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -35,6 +36,10 @@ export function getFirewall(args: GetFirewallArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getFirewall.
  */
 export interface GetFirewallArgs {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     */
+    dnsProxyEnabled?: boolean;
     /**
      * The name of the Azure Firewall.
      */
@@ -49,6 +54,10 @@ export interface GetFirewallArgs {
  * A collection of values returned by getFirewall.
  */
 export interface GetFirewallResult {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     */
+    readonly dnsProxyEnabled: boolean;
     /**
      * The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      */
@@ -124,6 +133,10 @@ export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getFirewall.
  */
 export interface GetFirewallOutputArgs {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when it is `true`.
+     */
+    dnsProxyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Azure Firewall.
      */

@@ -37,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeyVault{}
 	case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
 		r = &ManagedHardwareSecurityModule{}
+	case "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment":
+		r = &ManagedHardwareSecurityModuleRoleAssignment{}
+	case "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition":
+		r = &ManagedHardwareSecurityModuleRoleDefinition{}
 	case "azure:keyvault/managedStorageAccount:ManagedStorageAccount":
 		r = &ManagedStorageAccount{}
 	case "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition":
@@ -94,6 +98,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"keyvault/managedHardwareSecurityModule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedHardwareSecurityModuleRoleAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedHardwareSecurityModuleRoleDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

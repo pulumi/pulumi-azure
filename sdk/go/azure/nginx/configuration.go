@@ -16,7 +16,7 @@ import (
 //
 // ## Import
 //
-// Nginxs can be imported using the `resource id`, e.g.
+// An Nginx Configuration can be imported using the `resource id`, e.g.
 //
 // ```sh
 //

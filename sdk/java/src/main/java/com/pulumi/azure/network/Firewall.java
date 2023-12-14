@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -103,6 +104,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/firewall:Firewall")
 public class Firewall extends com.pulumi.resources.CustomResource {
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * 
+     */
+    @Export(name="dnsProxyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> dnsProxyEnabled;
+
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * 
+     */
+    public Output<Boolean> dnsProxyEnabled() {
+        return this.dnsProxyEnabled;
+    }
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      * 

@@ -521,7 +521,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -772,7 +772,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {
@@ -988,7 +988,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {

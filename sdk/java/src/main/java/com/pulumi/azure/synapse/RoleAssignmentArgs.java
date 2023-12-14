@@ -31,6 +31,25 @@ public final class RoleAssignmentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * 
+     */
+    @Import(name="principalType")
+    private @Nullable Output<String> principalType;
+
+    /**
+     * @return The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * 
+     */
+    public Optional<Output<String>> principalType() {
+        return Optional.ofNullable(this.principalType);
+    }
+
+    /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
@@ -91,6 +110,7 @@ public final class RoleAssignmentArgs extends com.pulumi.resources.ResourceArgs 
 
     private RoleAssignmentArgs(RoleAssignmentArgs $) {
         this.principalId = $.principalId;
+        this.principalType = $.principalType;
         this.roleName = $.roleName;
         this.synapseSparkPoolId = $.synapseSparkPoolId;
         this.synapseWorkspaceId = $.synapseWorkspaceId;
@@ -133,6 +153,31 @@ public final class RoleAssignmentArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
+        }
+
+        /**
+         * @param principalType The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalType(@Nullable Output<String> principalType) {
+            $.principalType = principalType;
+            return this;
+        }
+
+        /**
+         * @param principalType The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalType(String principalType) {
+            return principalType(Output.of(principalType));
         }
 
         /**

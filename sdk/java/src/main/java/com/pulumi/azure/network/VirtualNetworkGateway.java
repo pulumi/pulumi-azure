@@ -9,6 +9,7 @@ import com.pulumi.azure.network.inputs.VirtualNetworkGatewayState;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayBgpSettings;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayCustomRoute;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayIpConfiguration;
+import com.pulumi.azure.network.outputs.VirtualNetworkGatewayPolicyGroup;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -158,6 +159,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.activeActive;
     }
     /**
+     * Is BGP Route Translation for NAT enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="bgpRouteTranslationForNatEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> bgpRouteTranslationForNatEnabled;
+
+    /**
+     * @return Is BGP Route Translation for NAT enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> bgpRouteTranslationForNatEnabled() {
+        return Codegen.optional(this.bgpRouteTranslationForNatEnabled);
+    }
+    /**
      * A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
      * 
      */
@@ -198,6 +213,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> defaultLocalNetworkGatewayId() {
         return Codegen.optional(this.defaultLocalNetworkGatewayId);
+    }
+    /**
+     * Is DNS forwarding enabled?
+     * 
+     */
+    @Export(name="dnsForwardingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> dnsForwardingEnabled;
+
+    /**
+     * @return Is DNS forwarding enabled?
+     * 
+     */
+    public Output<Optional<Boolean>> dnsForwardingEnabled() {
+        return Codegen.optional(this.dnsForwardingEnabled);
     }
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
@@ -266,6 +295,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.ipConfigurations;
     }
     /**
+     * Is IP Sec Replay Protection enabled? Defaults to `true`.
+     * 
+     */
+    @Export(name="ipSecReplayProtectionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ipSecReplayProtectionEnabled;
+
+    /**
+     * @return Is IP Sec Replay Protection enabled? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> ipSecReplayProtectionEnabled() {
+        return Codegen.optional(this.ipSecReplayProtectionEnabled);
+    }
+    /**
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
@@ -294,6 +337,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * One or more `policy_group` blocks as defined below.
+     * 
+     */
+    @Export(name="policyGroups", refs={List.class,VirtualNetworkGatewayPolicyGroup.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<VirtualNetworkGatewayPolicyGroup>> policyGroups;
+
+    /**
+     * @return One or more `policy_group` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<VirtualNetworkGatewayPolicyGroup>>> policyGroups() {
+        return Codegen.optional(this.policyGroups);
+    }
+    /**
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      * 
      */
@@ -306,6 +363,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> privateIpAddressEnabled() {
         return Codegen.optional(this.privateIpAddressEnabled);
+    }
+    /**
+     * Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="remoteVnetTrafficEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> remoteVnetTrafficEnabled;
+
+    /**
+     * @return Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> remoteVnetTrafficEnabled() {
+        return Codegen.optional(this.remoteVnetTrafficEnabled);
     }
     /**
      * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
@@ -370,6 +441,20 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="virtualWanTrafficEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> virtualWanTrafficEnabled;
+
+    /**
+     * @return Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> virtualWanTrafficEnabled() {
+        return Codegen.optional(this.virtualWanTrafficEnabled);
     }
     /**
      * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.

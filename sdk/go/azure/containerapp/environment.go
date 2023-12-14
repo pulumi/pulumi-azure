@@ -101,6 +101,8 @@ type Environment struct {
 	StaticIpAddress pulumi.StringOutput `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+	WorkloadProfiles EnvironmentWorkloadProfileArrayOutput `pulumi:"workloadProfiles"`
 	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -177,6 +179,8 @@ type environmentState struct {
 	StaticIpAddress *string `pulumi:"staticIpAddress"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+	WorkloadProfiles []EnvironmentWorkloadProfile `pulumi:"workloadProfiles"`
 	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -214,6 +218,8 @@ type EnvironmentState struct {
 	StaticIpAddress pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+	WorkloadProfiles EnvironmentWorkloadProfileArrayInput
 	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -245,6 +251,8 @@ type environmentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+	WorkloadProfiles []EnvironmentWorkloadProfile `pulumi:"workloadProfiles"`
 	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -273,6 +281,8 @@ type EnvironmentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+	WorkloadProfiles EnvironmentWorkloadProfileArrayInput
 	// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
@@ -433,6 +443,11 @@ func (o EnvironmentOutput) StaticIpAddress() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The profile of the workload to scope the container app execution. A `workloadProfile` block as defined below.
+func (o EnvironmentOutput) WorkloadProfiles() EnvironmentWorkloadProfileArrayOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentWorkloadProfileArrayOutput { return v.WorkloadProfiles }).(EnvironmentWorkloadProfileArrayOutput)
 }
 
 // Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.

@@ -137,6 +137,22 @@ export interface GetAccountResult {
      */
     readonly primaryBlobHost: string;
     /**
+     * The internet routing endpoint URL for blob storage in the primary location.
+     */
+    readonly primaryBlobInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the primary location.
+     */
+    readonly primaryBlobInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the primary location.
+     */
+    readonly primaryBlobMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the primary location.
+     */
+    readonly primaryBlobMicrosoftHost: string;
+    /**
      * The connection string associated with the primary location
      */
     readonly primaryConnectionString: string;
@@ -149,6 +165,22 @@ export interface GetAccountResult {
      */
     readonly primaryDfsHost: string;
     /**
+     * The internet routing endpoint URL for DFS storage in the primary location.
+     */
+    readonly primaryDfsInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    readonly primaryDfsInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the primary location.
+     */
+    readonly primaryDfsMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
+     */
+    readonly primaryDfsMicrosoftHost: string;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     readonly primaryFileEndpoint: string;
@@ -156,6 +188,22 @@ export interface GetAccountResult {
      * The hostname with port if applicable for file storage in the primary location.
      */
     readonly primaryFileHost: string;
+    /**
+     * The internet routing endpoint URL for file storage in the primary location.
+     */
+    readonly primaryFileInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the primary location.
+     */
+    readonly primaryFileInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for file storage in the primary location.
+     */
+    readonly primaryFileMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the primary location.
+     */
+    readonly primaryFileMicrosoftHost: string;
     /**
      * The primary location of the Storage Account.
      */
@@ -169,6 +217,14 @@ export interface GetAccountResult {
      */
     readonly primaryQueueHost: string;
     /**
+     * The microsoft routing endpoint URL for queue storage in the primary location.
+     */
+    readonly primaryQueueMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the primary location.
+     */
+    readonly primaryQueueMicrosoftHost: string;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     readonly primaryTableEndpoint: string;
@@ -177,6 +233,14 @@ export interface GetAccountResult {
      */
     readonly primaryTableHost: string;
     /**
+     * The microsoft routing endpoint URL for table storage in the primary location.
+     */
+    readonly primaryTableMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the primary location.
+     */
+    readonly primaryTableMicrosoftHost: string;
+    /**
      * The endpoint URL for web storage in the primary location.
      */
     readonly primaryWebEndpoint: string;
@@ -184,6 +248,22 @@ export interface GetAccountResult {
      * The hostname with port if applicable for web storage in the primary location.
      */
     readonly primaryWebHost: string;
+    /**
+     * The internet routing endpoint URL for web storage in the primary location.
+     */
+    readonly primaryWebInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the primary location.
+     */
+    readonly primaryWebInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for web storage in the primary location.
+     */
+    readonly primaryWebMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the primary location.
+     */
+    readonly primaryWebMicrosoftHost: string;
     /**
      * The encryption key type of the queue.
      */
@@ -206,6 +286,22 @@ export interface GetAccountResult {
      */
     readonly secondaryBlobHost: string;
     /**
+     * The internet routing endpoint URL for blob storage in the secondary location.
+     */
+    readonly secondaryBlobInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    readonly secondaryBlobInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for blob storage in the secondary location.
+     */
+    readonly secondaryBlobMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
+     */
+    readonly secondaryBlobMicrosoftHost: string;
+    /**
      * The connection string associated with the secondary location
      */
     readonly secondaryConnectionString: string;
@@ -218,6 +314,22 @@ export interface GetAccountResult {
      */
     readonly secondaryDfsHost: string;
     /**
+     * The internet routing endpoint URL for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsMicrosoftHost: string;
+    /**
      * The endpoint URL for file storage in the secondary location.
      */
     readonly secondaryFileEndpoint: string;
@@ -225,6 +337,22 @@ export interface GetAccountResult {
      * The hostname with port if applicable for file storage in the secondary location.
      */
     readonly secondaryFileHost: string;
+    /**
+     * The internet routing endpoint URL for file storage in the secondary location.
+     */
+    readonly secondaryFileInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for file storage in the secondary location.
+     */
+    readonly secondaryFileInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for file storage in the secondary location.
+     */
+    readonly secondaryFileMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for file storage in the secondary location.
+     */
+    readonly secondaryFileMicrosoftHost: string;
     /**
      * The secondary location of the Storage Account.
      */
@@ -238,6 +366,14 @@ export interface GetAccountResult {
      */
     readonly secondaryQueueHost: string;
     /**
+     * The microsoft routing endpoint URL for queue storage in the secondary location.
+     */
+    readonly secondaryQueueMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
+     */
+    readonly secondaryQueueMicrosoftHost: string;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     readonly secondaryTableEndpoint: string;
@@ -246,6 +382,14 @@ export interface GetAccountResult {
      */
     readonly secondaryTableHost: string;
     /**
+     * The microsoft routing endpoint URL for table storage in the secondary location.
+     */
+    readonly secondaryTableMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for table storage in the secondary location.
+     */
+    readonly secondaryTableMicrosoftHost: string;
+    /**
      * The endpoint URL for web storage in the secondary location.
      */
     readonly secondaryWebEndpoint: string;
@@ -253,6 +397,22 @@ export interface GetAccountResult {
      * The hostname with port if applicable for web storage in the secondary location.
      */
     readonly secondaryWebHost: string;
+    /**
+     * The internet routing endpoint URL for web storage in the secondary location.
+     */
+    readonly secondaryWebInternetEndpoint: string;
+    /**
+     * The internet routing hostname with port if applicable for web storage in the secondary location.
+     */
+    readonly secondaryWebInternetHost: string;
+    /**
+     * The microsoft routing endpoint URL for web storage in the secondary location.
+     */
+    readonly secondaryWebMicrosoftEndpoint: string;
+    /**
+     * The microsoft routing hostname with port if applicable for web storage in the secondary location.
+     */
+    readonly secondaryWebMicrosoftHost: string;
     /**
      * The encryption key type of the table.
      */

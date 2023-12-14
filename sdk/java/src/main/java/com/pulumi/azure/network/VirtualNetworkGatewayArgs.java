@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayBgpSettingsArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayCustomRouteArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkGatewayPolicyGroupArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -35,6 +36,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<Boolean>> activeActive() {
         return Optional.ofNullable(this.activeActive);
+    }
+
+    /**
+     * Is BGP Route Translation for NAT enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="bgpRouteTranslationForNatEnabled")
+    private @Nullable Output<Boolean> bgpRouteTranslationForNatEnabled;
+
+    /**
+     * @return Is BGP Route Translation for NAT enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> bgpRouteTranslationForNatEnabled() {
+        return Optional.ofNullable(this.bgpRouteTranslationForNatEnabled);
     }
 
     /**
@@ -80,6 +96,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<String>> defaultLocalNetworkGatewayId() {
         return Optional.ofNullable(this.defaultLocalNetworkGatewayId);
+    }
+
+    /**
+     * Is DNS forwarding enabled?
+     * 
+     */
+    @Import(name="dnsForwardingEnabled")
+    private @Nullable Output<Boolean> dnsForwardingEnabled;
+
+    /**
+     * @return Is DNS forwarding enabled?
+     * 
+     */
+    public Optional<Output<Boolean>> dnsForwardingEnabled() {
+        return Optional.ofNullable(this.dnsForwardingEnabled);
     }
 
     /**
@@ -153,6 +184,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Is IP Sec Replay Protection enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="ipSecReplayProtectionEnabled")
+    private @Nullable Output<Boolean> ipSecReplayProtectionEnabled;
+
+    /**
+     * @return Is IP Sec Replay Protection enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipSecReplayProtectionEnabled() {
+        return Optional.ofNullable(this.ipSecReplayProtectionEnabled);
+    }
+
+    /**
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      * 
      */
@@ -183,6 +229,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * One or more `policy_group` blocks as defined below.
+     * 
+     */
+    @Import(name="policyGroups")
+    private @Nullable Output<List<VirtualNetworkGatewayPolicyGroupArgs>> policyGroups;
+
+    /**
+     * @return One or more `policy_group` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<VirtualNetworkGatewayPolicyGroupArgs>>> policyGroups() {
+        return Optional.ofNullable(this.policyGroups);
+    }
+
+    /**
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      * 
      */
@@ -195,6 +256,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<Boolean>> privateIpAddressEnabled() {
         return Optional.ofNullable(this.privateIpAddressEnabled);
+    }
+
+    /**
+     * Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="remoteVnetTrafficEnabled")
+    private @Nullable Output<Boolean> remoteVnetTrafficEnabled;
+
+    /**
+     * @return Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> remoteVnetTrafficEnabled() {
+        return Optional.ofNullable(this.remoteVnetTrafficEnabled);
     }
 
     /**
@@ -266,6 +342,21 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="virtualWanTrafficEnabled")
+    private @Nullable Output<Boolean> virtualWanTrafficEnabled;
+
+    /**
+     * @return Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> virtualWanTrafficEnabled() {
+        return Optional.ofNullable(this.virtualWanTrafficEnabled);
+    }
+
+    /**
      * A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      * 
      */
@@ -299,20 +390,26 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
 
     private VirtualNetworkGatewayArgs(VirtualNetworkGatewayArgs $) {
         this.activeActive = $.activeActive;
+        this.bgpRouteTranslationForNatEnabled = $.bgpRouteTranslationForNatEnabled;
         this.bgpSettings = $.bgpSettings;
         this.customRoute = $.customRoute;
         this.defaultLocalNetworkGatewayId = $.defaultLocalNetworkGatewayId;
+        this.dnsForwardingEnabled = $.dnsForwardingEnabled;
         this.edgeZone = $.edgeZone;
         this.enableBgp = $.enableBgp;
         this.generation = $.generation;
         this.ipConfigurations = $.ipConfigurations;
+        this.ipSecReplayProtectionEnabled = $.ipSecReplayProtectionEnabled;
         this.location = $.location;
         this.name = $.name;
+        this.policyGroups = $.policyGroups;
         this.privateIpAddressEnabled = $.privateIpAddressEnabled;
+        this.remoteVnetTrafficEnabled = $.remoteVnetTrafficEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.tags = $.tags;
         this.type = $.type;
+        this.virtualWanTrafficEnabled = $.virtualWanTrafficEnabled;
         this.vpnClientConfiguration = $.vpnClientConfiguration;
         this.vpnType = $.vpnType;
     }
@@ -354,6 +451,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder activeActive(Boolean activeActive) {
             return activeActive(Output.of(activeActive));
+        }
+
+        /**
+         * @param bgpRouteTranslationForNatEnabled Is BGP Route Translation for NAT enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpRouteTranslationForNatEnabled(@Nullable Output<Boolean> bgpRouteTranslationForNatEnabled) {
+            $.bgpRouteTranslationForNatEnabled = bgpRouteTranslationForNatEnabled;
+            return this;
+        }
+
+        /**
+         * @param bgpRouteTranslationForNatEnabled Is BGP Route Translation for NAT enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpRouteTranslationForNatEnabled(Boolean bgpRouteTranslationForNatEnabled) {
+            return bgpRouteTranslationForNatEnabled(Output.of(bgpRouteTranslationForNatEnabled));
         }
 
         /**
@@ -417,6 +535,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder defaultLocalNetworkGatewayId(String defaultLocalNetworkGatewayId) {
             return defaultLocalNetworkGatewayId(Output.of(defaultLocalNetworkGatewayId));
+        }
+
+        /**
+         * @param dnsForwardingEnabled Is DNS forwarding enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsForwardingEnabled(@Nullable Output<Boolean> dnsForwardingEnabled) {
+            $.dnsForwardingEnabled = dnsForwardingEnabled;
+            return this;
+        }
+
+        /**
+         * @param dnsForwardingEnabled Is DNS forwarding enabled?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsForwardingEnabled(Boolean dnsForwardingEnabled) {
+            return dnsForwardingEnabled(Output.of(dnsForwardingEnabled));
         }
 
         /**
@@ -527,6 +666,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param ipSecReplayProtectionEnabled Is IP Sec Replay Protection enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSecReplayProtectionEnabled(@Nullable Output<Boolean> ipSecReplayProtectionEnabled) {
+            $.ipSecReplayProtectionEnabled = ipSecReplayProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param ipSecReplayProtectionEnabled Is IP Sec Replay Protection enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSecReplayProtectionEnabled(Boolean ipSecReplayProtectionEnabled) {
+            return ipSecReplayProtectionEnabled(Output.of(ipSecReplayProtectionEnabled));
+        }
+
+        /**
          * @param location The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -569,6 +729,37 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyGroups(@Nullable Output<List<VirtualNetworkGatewayPolicyGroupArgs>> policyGroups) {
+            $.policyGroups = policyGroups;
+            return this;
+        }
+
+        /**
+         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyGroups(List<VirtualNetworkGatewayPolicyGroupArgs> policyGroups) {
+            return policyGroups(Output.of(policyGroups));
+        }
+
+        /**
+         * @param policyGroups One or more `policy_group` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyGroups(VirtualNetworkGatewayPolicyGroupArgs... policyGroups) {
+            return policyGroups(List.of(policyGroups));
+        }
+
+        /**
          * @param privateIpAddressEnabled Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -587,6 +778,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder privateIpAddressEnabled(Boolean privateIpAddressEnabled) {
             return privateIpAddressEnabled(Output.of(privateIpAddressEnabled));
+        }
+
+        /**
+         * @param remoteVnetTrafficEnabled Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteVnetTrafficEnabled(@Nullable Output<Boolean> remoteVnetTrafficEnabled) {
+            $.remoteVnetTrafficEnabled = remoteVnetTrafficEnabled;
+            return this;
+        }
+
+        /**
+         * @param remoteVnetTrafficEnabled Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteVnetTrafficEnabled(Boolean remoteVnetTrafficEnabled) {
+            return remoteVnetTrafficEnabled(Output.of(remoteVnetTrafficEnabled));
         }
 
         /**
@@ -679,6 +891,27 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param virtualWanTrafficEnabled Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualWanTrafficEnabled(@Nullable Output<Boolean> virtualWanTrafficEnabled) {
+            $.virtualWanTrafficEnabled = virtualWanTrafficEnabled;
+            return this;
+        }
+
+        /**
+         * @param virtualWanTrafficEnabled Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualWanTrafficEnabled(Boolean virtualWanTrafficEnabled) {
+            return virtualWanTrafficEnabled(Output.of(virtualWanTrafficEnabled));
         }
 
         /**

@@ -277,7 +277,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         /// 
-        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -582,7 +582,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         /// 
-        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {
@@ -854,7 +854,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         /// 
-        /// &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {

@@ -8290,7 +8290,6 @@ class RegistryNetworkRuleSetArgs:
         """
         :param pulumi.Input[str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]] virtual_networks: One or more `virtual_network` blocks as defined below.
                
                > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
@@ -8300,6 +8299,9 @@ class RegistryNetworkRuleSetArgs:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_networks is not None:
+            warnings.warn(""" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""", DeprecationWarning)
+            pulumi.log.warn("""virtual_networks is deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""")
         if virtual_networks is not None:
             pulumi.set(__self__, "virtual_networks", virtual_networks)
 
@@ -8320,6 +8322,10 @@ class RegistryNetworkRuleSetArgs:
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
+
+        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+
+        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -8330,13 +8336,9 @@ class RegistryNetworkRuleSetArgs:
     @property
     @pulumi.getter(name="virtualNetworks")
     def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
-        """
-        One or more `virtual_network` blocks as defined below.
+        warnings.warn(""" This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""", DeprecationWarning)
+        pulumi.log.warn("""virtual_networks is deprecated:  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead""")
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-        """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
@@ -8388,7 +8390,6 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
                  subnet_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] action: The behaviour for requests matching this rule. At this time the only supported value is `Allow`
-        :param pulumi.Input[str] subnet_id: The subnet id from which requests will match the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -8408,9 +8409,6 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The subnet id from which requests will match the rule.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter

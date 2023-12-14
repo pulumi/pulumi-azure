@@ -254,6 +254,7 @@ var moduleMap = map[string]string{
 	"dns":                     azureDNS,
 	"active_directory_domain": azureDomainServices,
 	"elastic_cloud":           azureElasticCloud,
+	"elastic_san":             "ElasticSan",
 	"fluid_relay":             azureFluidRelay,
 	"frontdoor":               azureFrontdoor,
 	"function":                azureAppService,

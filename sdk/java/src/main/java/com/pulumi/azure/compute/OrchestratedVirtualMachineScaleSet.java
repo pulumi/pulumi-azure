@@ -594,7 +594,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
-     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -603,7 +603,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
-     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Output<Optional<List<String>>> zones() {

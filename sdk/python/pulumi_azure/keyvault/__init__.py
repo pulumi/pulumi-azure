@@ -19,11 +19,14 @@ from .get_encrypted_value import *
 from .get_key import *
 from .get_key_vault import *
 from .get_managed_hardware_security_module import *
+from .get_managed_hardware_security_module_role_definition import *
 from .get_secret import *
 from .get_secrets import *
 from .key import *
 from .key_vault import *
 from .managed_hardware_security_module import *
+from .managed_hardware_security_module_role_assignment import *
+from .managed_hardware_security_module_role_definition import *
 from .managed_storage_account import *
 from .managed_storage_account_sas_token_definition import *
 from .secret import *

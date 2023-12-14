@@ -307,6 +307,12 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      * 

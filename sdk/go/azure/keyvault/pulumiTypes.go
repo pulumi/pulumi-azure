@@ -4613,6 +4613,130 @@ func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) DefaultAction() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedHardwareSecurityModuleRoleDefinitionPermission struct {
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+	Actions []string `pulumi:"actions"`
+	// Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+	DataActions []string `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+	NotActions []string `pulumi:"notActions"`
+	// Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+	NotDataActions []string `pulumi:"notDataActions"`
+}
+
+// ManagedHardwareSecurityModuleRoleDefinitionPermissionInput is an input type that accepts ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs and ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput values.
+// You can construct a concrete instance of `ManagedHardwareSecurityModuleRoleDefinitionPermissionInput` via:
+//
+//	ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{...}
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionInput interface {
+	pulumi.Input
+
+	ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput
+	ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput
+}
+
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs struct {
+	// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+	// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
+}
+
+func (ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return i.ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(context.Background())
+}
+
+func (i ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput)
+}
+
+// ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput is an input type that accepts ManagedHardwareSecurityModuleRoleDefinitionPermissionArray and ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput values.
+// You can construct a concrete instance of `ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput` via:
+//
+//	ManagedHardwareSecurityModuleRoleDefinitionPermissionArray{ ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{...} }
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput interface {
+	pulumi.Input
+
+	ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput
+	ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput
+}
+
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionArray []ManagedHardwareSecurityModuleRoleDefinitionPermissionInput
+
+func (ManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i ManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return i.ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput)
+}
+
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
+
+func (ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ToManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return o
+}
+
+// One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
+// One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+}
+
+type ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ToManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedHardwareSecurityModuleRoleDefinitionPermission {
+		return vs[0].([]ManagedHardwareSecurityModuleRoleDefinitionPermission)[vs[1].(int)]
+	}).(ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput)
+}
+
 type GetCertificateCertificatePolicy struct {
 	// A `issuerParameters` block as defined below.
 	IssuerParameters []GetCertificateCertificatePolicyIssuerParameter `pulumi:"issuerParameters"`
@@ -6148,6 +6272,130 @@ func (o GetKeyVaultNetworkAclArrayOutput) Index(i pulumi.IntInput) GetKeyVaultNe
 	}).(GetKeyVaultNetworkAclOutput)
 }
 
+type GetManagedHardwareSecurityModuleRoleDefinitionPermission struct {
+	// A list of action permission granted.
+	Actions []string `pulumi:"actions"`
+	// A list of data action permission granted.
+	DataActions []string `pulumi:"dataActions"`
+	// A list of action permission excluded (but not denied).
+	NotActions []string `pulumi:"notActions"`
+	// (Optional) A list of data action permission granted.
+	NotDataActions []string `pulumi:"notDataActions"`
+}
+
+// GetManagedHardwareSecurityModuleRoleDefinitionPermissionInput is an input type that accepts GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs and GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput values.
+// You can construct a concrete instance of `GetManagedHardwareSecurityModuleRoleDefinitionPermissionInput` via:
+//
+//	GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{...}
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionInput interface {
+	pulumi.Input
+
+	ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput
+	ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput
+}
+
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs struct {
+	// A list of action permission granted.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// A list of data action permission granted.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+	// A list of action permission excluded (but not denied).
+	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
+	// (Optional) A list of data action permission granted.
+	NotDataActions pulumi.StringArrayInput `pulumi:"notDataActions"`
+}
+
+func (GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return i.ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(context.Background())
+}
+
+func (i GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput)
+}
+
+// GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput is an input type that accepts GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray and GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput values.
+// You can construct a concrete instance of `GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput` via:
+//
+//	GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray{ GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{...} }
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput
+	ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput
+}
+
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray []GetManagedHardwareSecurityModuleRoleDefinitionPermissionInput
+
+func (GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return i.ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput)
+}
+
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return o
+}
+
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return o
+}
+
+// A list of action permission granted.
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// A list of data action permission granted.
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
+// A list of action permission excluded (but not denied).
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotActions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of data action permission granted.
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput) NotDataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedHardwareSecurityModuleRoleDefinitionPermission) []string { return v.NotDataActions }).(pulumi.StringArrayOutput)
+}
+
+type GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedHardwareSecurityModuleRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput() GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) ToGetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedHardwareSecurityModuleRoleDefinitionPermission {
+		return vs[0].([]GetManagedHardwareSecurityModuleRoleDefinitionPermission)[vs[1].(int)]
+	}).(GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput)
+}
+
 type GetSecretsSecret struct {
 	// Whether this secret is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -6320,6 +6568,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyVaultNetworkAclsPtrInput)(nil)).Elem(), KeyVaultNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAclsInput)(nil)).Elem(), ManagedHardwareSecurityModuleNetworkAclsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleNetworkAclsPtrInput)(nil)).Elem(), ManagedHardwareSecurityModuleNetworkAclsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleRoleDefinitionPermissionInput)(nil)).Elem(), ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput)(nil)).Elem(), ManagedHardwareSecurityModuleRoleDefinitionPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyInput)(nil)).Elem(), GetCertificateCertificatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyArrayInput)(nil)).Elem(), GetCertificateCertificatePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateCertificatePolicyIssuerParameterInput)(nil)).Elem(), GetCertificateCertificatePolicyIssuerParameterArgs{})
@@ -6346,6 +6596,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultAccessPolicyArrayInput)(nil)).Elem(), GetKeyVaultAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultNetworkAclInput)(nil)).Elem(), GetKeyVaultNetworkAclArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyVaultNetworkAclArrayInput)(nil)).Elem(), GetKeyVaultNetworkAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedHardwareSecurityModuleRoleDefinitionPermissionInput)(nil)).Elem(), GetManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput)(nil)).Elem(), GetManagedHardwareSecurityModuleRoleDefinitionPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretArrayInput)(nil)).Elem(), GetSecretsSecretArray{})
 	pulumi.RegisterOutputType(CertifiateCertificateOutput{})
@@ -6404,6 +6656,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleNetworkAclsOutput{})
 	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleNetworkAclsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleRoleDefinitionPermissionOutput{})
+	pulumi.RegisterOutputType(ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateCertificatePolicyIssuerParameterOutput{})
@@ -6430,6 +6684,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKeyVaultAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclOutput{})
 	pulumi.RegisterOutputType(GetKeyVaultNetworkAclArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedHardwareSecurityModuleRoleDefinitionPermissionOutput{})
+	pulumi.RegisterOutputType(GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretsSecretOutput{})
 	pulumi.RegisterOutputType(GetSecretsSecretArrayOutput{})
 }

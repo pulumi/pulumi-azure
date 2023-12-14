@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
- *         var test = new Database(&#34;test&#34;, DatabaseArgs.builder()        
+ *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
  *             .serverId(exampleServer.id())
  *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
  *             .licenseType(&#34;LicenseIncluded&#34;)
@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *             .readScale(true)
  *             .skuName(&#34;S0&#34;)
  *             .zoneRedundant(true)
+ *             .enclaveType(&#34;VBS&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *             .build());
  * 
@@ -143,7 +144,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
+     * &gt; **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
      * 
      */
     @Export(name="creationSourceDatabaseId", refs={String.class}, tree="[0]")
@@ -152,7 +153,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
+     * &gt; **NOTE:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
      * 
      */
     public Output<String> creationSourceDatabaseId() {
@@ -173,9 +174,31 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.elasticPoolId);
     }
     /**
+     * Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
+     * 
+     * &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+     * 
+     */
+    @Export(name="enclaveType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> enclaveType;
+
+    /**
+     * @return Specifies the type of enclave to be used by the database. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** `enclave_type` is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs.
+     * 
+     * &gt; **NOTE:** Geo Replicated and Failover databases must have the same `enclave_type`.
+     * 
+     */
+    public Output<Optional<String>> enclaveType() {
+        return Codegen.optional(this.enclaveType);
+    }
+    /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+     * &gt; **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      * 
      */
     @Export(name="geoBackupEnabled", refs={Boolean.class}, tree="[0]")
@@ -184,7 +207,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      * 
-     * &gt; **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+     * &gt; **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      * 
      */
     public Output<Optional<Boolean>> geoBackupEnabled() {
@@ -249,7 +272,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
      * 
-     * &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
+     * &gt; **NOTE:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
      * 
      */
     @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
@@ -258,7 +281,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
      * 
-     * &gt; **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
+     * &gt; **NOTE:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
      * 
      */
     public Output<String> maintenanceConfigurationName() {
@@ -267,7 +290,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **NOTE:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
      * 
      */
     @Export(name="maxSizeGb", refs={Integer.class}, tree="[0]")
@@ -276,7 +299,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The max size of the database in gigabytes.
      * 
-     * &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * &gt; **NOTE:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
      * 
      */
     public Output<Integer> maxSizeGb() {
@@ -397,7 +420,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This setting is still required for &#34;Serverless&#34; SKUs
+     * &gt; **NOTE:** This setting is still required for &#34;Serverless&#34; SKUs
      * 
      */
     @Export(name="serverId", refs={String.class}, tree="[0]")
@@ -406,7 +429,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This setting is still required for &#34;Serverless&#34; SKUs
+     * &gt; **NOTE:** This setting is still required for &#34;Serverless&#34; SKUs
      * 
      */
     public Output<String> serverId() {
@@ -429,7 +452,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
      * 
-     * &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
+     * &gt; **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -438,7 +461,7 @@ public class Database extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
      * 
-     * &gt; **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
+     * &gt; **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it&#39;s recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
      * 
      */
     public Output<String> skuName() {

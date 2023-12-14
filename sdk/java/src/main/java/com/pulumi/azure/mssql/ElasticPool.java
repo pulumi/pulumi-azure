@@ -21,7 +21,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
+ * Allows you to manage an Azure SQL Elastic Pool.
  * 
  * ## Example Usage
  * ```java
@@ -97,6 +97,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/elasticPool:ElasticPool")
 public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * 
+     * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+     * 
+     */
+    @Export(name="enclaveType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> enclaveType;
+
+    /**
+     * @return Specifies the type of enclave to be used by the elastic pool. Possible value `VBS`.
+     * 
+     * &gt; **NOTE:** All databases that are added to the elastic pool must have the same `enclave_type` as the elastic pool.
+     * 
+     * &gt; **NOTE:** `enclave_type` is not supported for DC-series SKUs.
+     * 
+     */
+    public Output<Optional<String>> enclaveType() {
+        return Codegen.optional(this.enclaveType);
+    }
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      * 
      */
@@ -141,7 +163,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     @Export(name="maxSizeBytes", refs={Integer.class}, tree="[0]")
@@ -150,7 +172,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
     /**
      * @return The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
-     * &gt; **Note:** One of either `max_size_gb` or `max_size_bytes` must be specified.
+     * &gt; **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
      * 
      */
     public Output<Integer> maxSizeBytes() {

@@ -160,6 +160,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string ElasticPoolId;
         /// <summary>
+        /// The type of enclave being used by the database.
+        /// </summary>
+        public readonly string EnclaveType;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -204,6 +208,8 @@ namespace Pulumi.Azure.MSSql
 
             string elasticPoolId,
 
+            string enclaveType,
+
             string id,
 
             string licenseType,
@@ -228,6 +234,7 @@ namespace Pulumi.Azure.MSSql
         {
             Collation = collation;
             ElasticPoolId = elasticPoolId;
+            EnclaveType = enclaveType;
             Id = id;
             LicenseType = licenseType;
             MaxSizeGb = maxSizeGb;

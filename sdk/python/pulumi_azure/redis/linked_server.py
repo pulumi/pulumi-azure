@@ -97,6 +97,7 @@ class LinkedServerArgs:
 @pulumi.input_type
 class _LinkedServerState:
     def __init__(__self__, *,
+                 geo_replicated_primary_host_name: Optional[pulumi.Input[str]] = None,
                  linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
                  linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -105,6 +106,7 @@ class _LinkedServerState:
                  target_redis_cache_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinkedServer resources.
+        :param pulumi.Input[str] geo_replicated_primary_host_name: The geo-replicated primary hostname for this linked server.
         :param pulumi.Input[str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] name: The name of the linked server.
@@ -112,6 +114,8 @@ class _LinkedServerState:
         :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
+        if geo_replicated_primary_host_name is not None:
+            pulumi.set(__self__, "geo_replicated_primary_host_name", geo_replicated_primary_host_name)
         if linked_redis_cache_id is not None:
             pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
         if linked_redis_cache_location is not None:
@@ -124,6 +128,18 @@ class _LinkedServerState:
             pulumi.set(__self__, "server_role", server_role)
         if target_redis_cache_name is not None:
             pulumi.set(__self__, "target_redis_cache_name", target_redis_cache_name)
+
+    @property
+    @pulumi.getter(name="geoReplicatedPrimaryHostName")
+    def geo_replicated_primary_host_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The geo-replicated primary hostname for this linked server.
+        """
+        return pulumi.get(self, "geo_replicated_primary_host_name")
+
+    @geo_replicated_primary_host_name.setter
+    def geo_replicated_primary_host_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_replicated_primary_host_name", value)
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -369,6 +385,7 @@ class LinkedServer(pulumi.CustomResource):
             if target_redis_cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_redis_cache_name'")
             __props__.__dict__["target_redis_cache_name"] = target_redis_cache_name
+            __props__.__dict__["geo_replicated_primary_host_name"] = None
             __props__.__dict__["name"] = None
         super(LinkedServer, __self__).__init__(
             'azure:redis/linkedServer:LinkedServer',
@@ -380,6 +397,7 @@ class LinkedServer(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            geo_replicated_primary_host_name: Optional[pulumi.Input[str]] = None,
             linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
             linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -393,6 +411,7 @@ class LinkedServer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] geo_replicated_primary_host_name: The geo-replicated primary hostname for this linked server.
         :param pulumi.Input[str] linked_redis_cache_id: The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] linked_redis_cache_location: The location of the linked Redis cache. Changing this forces a new Redis to be created.
         :param pulumi.Input[str] name: The name of the linked server.
@@ -404,6 +423,7 @@ class LinkedServer(pulumi.CustomResource):
 
         __props__ = _LinkedServerState.__new__(_LinkedServerState)
 
+        __props__.__dict__["geo_replicated_primary_host_name"] = geo_replicated_primary_host_name
         __props__.__dict__["linked_redis_cache_id"] = linked_redis_cache_id
         __props__.__dict__["linked_redis_cache_location"] = linked_redis_cache_location
         __props__.__dict__["name"] = name
@@ -411,6 +431,14 @@ class LinkedServer(pulumi.CustomResource):
         __props__.__dict__["server_role"] = server_role
         __props__.__dict__["target_redis_cache_name"] = target_redis_cache_name
         return LinkedServer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="geoReplicatedPrimaryHostName")
+    def geo_replicated_primary_host_name(self) -> pulumi.Output[str]:
+        """
+        The geo-replicated primary hostname for this linked server.
+        """
+        return pulumi.get(self, "geo_replicated_primary_host_name")
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")

@@ -80,6 +80,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> AddonJson { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        [Output("applicationPerformanceMonitoringIds")]
+        public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringIds { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Spring Cloud Build Result.
         /// </summary>
         [Output("buildResultId")]
@@ -167,6 +173,18 @@ namespace Pulumi.Azure.AppPlatform
         [Input("addonJson")]
         public Input<string>? AddonJson { get; set; }
 
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
+
         /// <summary>
         /// The ID of the Spring Cloud Build Result.
         /// </summary>
@@ -222,6 +240,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("addonJson")]
         public Input<string>? AddonJson { get; set; }
+
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
 
         /// <summary>
         /// The ID of the Spring Cloud Build Result.

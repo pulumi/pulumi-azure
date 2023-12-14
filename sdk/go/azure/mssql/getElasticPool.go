@@ -63,9 +63,11 @@ type LookupElasticPoolArgs struct {
 
 // A collection of values returned by getElasticPool.
 type LookupElasticPoolResult struct {
+	// The type of enclave being used by the elastic pool.
+	EnclaveType string `pulumi:"enclaveType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The license type to apply for this database.
+	// The license type to apply for this elastic pool.
 	LicenseType string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists.
 	Location string `pulumi:"location"`
@@ -131,12 +133,17 @@ func (o LookupElasticPoolResultOutput) ToLookupElasticPoolResultOutputWithContex
 	return o
 }
 
+// The type of enclave being used by the elastic pool.
+func (o LookupElasticPoolResultOutput) EnclaveType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.EnclaveType }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupElasticPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The license type to apply for this database.
+// The license type to apply for this elastic pool.
 func (o LookupElasticPoolResultOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticPoolResult) string { return v.LicenseType }).(pulumi.StringOutput)
 }

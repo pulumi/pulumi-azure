@@ -139,6 +139,12 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// </summary>
+        [Output("workloadProfiles")]
+        public Output<ImmutableArray<Outputs.EnvironmentWorkloadProfile>> WorkloadProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -264,6 +270,18 @@ namespace Pulumi.Azure.ContainerApp
             set => _tags = value;
         }
 
+        [Input("workloadProfiles")]
+        private InputList<Inputs.EnvironmentWorkloadProfileArgs>? _workloadProfiles;
+
+        /// <summary>
+        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// </summary>
+        public InputList<Inputs.EnvironmentWorkloadProfileArgs> WorkloadProfiles
+        {
+            get => _workloadProfiles ?? (_workloadProfiles = new InputList<Inputs.EnvironmentWorkloadProfileArgs>());
+            set => _workloadProfiles = value;
+        }
+
         /// <summary>
         /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
         /// 
@@ -376,6 +394,18 @@ namespace Pulumi.Azure.ContainerApp
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workloadProfiles")]
+        private InputList<Inputs.EnvironmentWorkloadProfileGetArgs>? _workloadProfiles;
+
+        /// <summary>
+        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// </summary>
+        public InputList<Inputs.EnvironmentWorkloadProfileGetArgs> WorkloadProfiles
+        {
+            get => _workloadProfiles ?? (_workloadProfiles = new InputList<Inputs.EnvironmentWorkloadProfileGetArgs>());
+            set => _workloadProfiles = value;
         }
 
         /// <summary>

@@ -3,8 +3,11 @@
 
 package com.pulumi.azure.network.inputs;
 
+import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -81,6 +84,21 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
+     * An `ipsec_policy` block as defined below.
+     * 
+     */
+    @Import(name="ipsecPolicy")
+    private @Nullable Output<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs> ipsecPolicy;
+
+    /**
+     * @return An `ipsec_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs>> ipsecPolicy() {
+        return Optional.ofNullable(this.ipsecPolicy);
+    }
+
+    /**
      * The address of the Radius server.
      * 
      */
@@ -111,6 +129,21 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
     }
 
     /**
+     * One or more `radius_server` blocks as defined below.
+     * 
+     */
+    @Import(name="radiusServers")
+    private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>> radiusServers;
+
+    /**
+     * @return One or more `radius_server` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>>> radiusServers() {
+        return Optional.ofNullable(this.radiusServers);
+    }
+
+    /**
      * One or more `revoked_certificate` blocks which are defined below.
      * 
      */
@@ -138,6 +171,21 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
      */
     public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs>>> rootCertificates() {
         return Optional.ofNullable(this.rootCertificates);
+    }
+
+    /**
+     * One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * 
+     */
+    @Import(name="virtualNetworkGatewayClientConnections")
+    private @Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>> virtualNetworkGatewayClientConnections;
+
+    /**
+     * @return One or more `virtual_network_gateway_client_connection` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>>> virtualNetworkGatewayClientConnections() {
+        return Optional.ofNullable(this.virtualNetworkGatewayClientConnections);
     }
 
     /**
@@ -189,10 +237,13 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         this.aadIssuer = $.aadIssuer;
         this.aadTenant = $.aadTenant;
         this.addressSpaces = $.addressSpaces;
+        this.ipsecPolicy = $.ipsecPolicy;
         this.radiusServerAddress = $.radiusServerAddress;
         this.radiusServerSecret = $.radiusServerSecret;
+        this.radiusServers = $.radiusServers;
         this.revokedCertificates = $.revokedCertificates;
         this.rootCertificates = $.rootCertificates;
+        this.virtualNetworkGatewayClientConnections = $.virtualNetworkGatewayClientConnections;
         this.vpnAuthTypes = $.vpnAuthTypes;
         this.vpnClientProtocols = $.vpnClientProtocols;
     }
@@ -312,6 +363,27 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         /**
+         * @param ipsecPolicy An `ipsec_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipsecPolicy(@Nullable Output<VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs> ipsecPolicy) {
+            $.ipsecPolicy = ipsecPolicy;
+            return this;
+        }
+
+        /**
+         * @param ipsecPolicy An `ipsec_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipsecPolicy(VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs ipsecPolicy) {
+            return ipsecPolicy(Output.of(ipsecPolicy));
+        }
+
+        /**
          * @param radiusServerAddress The address of the Radius server.
          * 
          * @return builder
@@ -351,6 +423,37 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          */
         public Builder radiusServerSecret(String radiusServerSecret) {
             return radiusServerSecret(Output.of(radiusServerSecret));
+        }
+
+        /**
+         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder radiusServers(@Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>> radiusServers) {
+            $.radiusServers = radiusServers;
+            return this;
+        }
+
+        /**
+         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder radiusServers(List<VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs> radiusServers) {
+            return radiusServers(Output.of(radiusServers));
+        }
+
+        /**
+         * @param radiusServers One or more `radius_server` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder radiusServers(VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs... radiusServers) {
+            return radiusServers(List.of(radiusServers));
         }
 
         /**
@@ -413,6 +516,37 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
          */
         public Builder rootCertificates(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs... rootCertificates) {
             return rootCertificates(List.of(rootCertificates));
+        }
+
+        /**
+         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkGatewayClientConnections(@Nullable Output<List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs>> virtualNetworkGatewayClientConnections) {
+            $.virtualNetworkGatewayClientConnections = virtualNetworkGatewayClientConnections;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkGatewayClientConnections(List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs> virtualNetworkGatewayClientConnections) {
+            return virtualNetworkGatewayClientConnections(Output.of(virtualNetworkGatewayClientConnections));
+        }
+
+        /**
+         * @param virtualNetworkGatewayClientConnections One or more `virtual_network_gateway_client_connection` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkGatewayClientConnections(VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs... virtualNetworkGatewayClientConnections) {
+            return virtualNetworkGatewayClientConnections(List.of(virtualNetworkGatewayClientConnections));
         }
 
         /**

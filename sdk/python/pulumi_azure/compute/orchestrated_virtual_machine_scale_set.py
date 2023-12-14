@@ -99,7 +99,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
                
-               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -582,7 +582,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 
-        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -679,7 +679,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
                
-               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -1178,7 +1178,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 
-        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -1307,7 +1307,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
                
-               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         ...
     @overload
@@ -1545,7 +1545,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** This can only be set to `true` when one or more `zones` are configured.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
                
-               > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1878,7 +1878,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         """
         Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 
-        > **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 

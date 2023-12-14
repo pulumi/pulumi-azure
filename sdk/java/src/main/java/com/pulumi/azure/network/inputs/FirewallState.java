@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.FirewallManagementIpConfigurationArgs;
 import com.pulumi.azure.network.inputs.FirewallVirtualHubArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class FirewallState extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallState Empty = new FirewallState();
+
+    /**
+     * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * 
+     */
+    @Import(name="dnsProxyEnabled")
+    private @Nullable Output<Boolean> dnsProxyEnabled;
+
+    /**
+     * @return Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+     * 
+     */
+    public Optional<Output<Boolean>> dnsProxyEnabled() {
+        return Optional.ofNullable(this.dnsProxyEnabled);
+    }
 
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
@@ -237,6 +253,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     private FirewallState() {}
 
     private FirewallState(FirewallState $) {
+        this.dnsProxyEnabled = $.dnsProxyEnabled;
         this.dnsServers = $.dnsServers;
         this.firewallPolicyId = $.firewallPolicyId;
         this.ipConfigurations = $.ipConfigurations;
@@ -269,6 +286,27 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(FirewallState defaults) {
             $ = new FirewallState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsProxyEnabled(@Nullable Output<Boolean> dnsProxyEnabled) {
+            $.dnsProxyEnabled = dnsProxyEnabled;
+            return this;
+        }
+
+        /**
+         * @param dnsProxyEnabled Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dns_servers` provided with a not empty list.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsProxyEnabled(Boolean dnsProxyEnabled) {
+            return dnsProxyEnabled(Output.of(dnsProxyEnabled));
         }
 
         /**

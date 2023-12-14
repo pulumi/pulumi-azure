@@ -36,6 +36,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
     /**
      * One or more `ip_rule` blocks as defined below.
      * 
+     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * 
+     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<RegistryNetworkRuleSetIpRuleArgs>> ipRules;
@@ -43,30 +47,30 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
+     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+     * 
+     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * 
      */
     public Optional<Output<List<RegistryNetworkRuleSetIpRuleArgs>>> ipRules() {
         return Optional.ofNullable(this.ipRules);
     }
 
     /**
-     * One or more `virtual_network` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-     * 
-     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * @deprecated
+     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
      * 
      */
+    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
     @Import(name="virtualNetworks")
     private @Nullable Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>> virtualNetworks;
 
     /**
-     * @return One or more `virtual_network` blocks as defined below.
-     * 
-     * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-     * 
-     * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+     * @deprecated
+     *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
      * 
      */
+    @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
     public Optional<Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>>> virtualNetworks() {
         return Optional.ofNullable(this.virtualNetworks);
     }
@@ -121,6 +125,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * 
          * @return builder
          * 
          */
@@ -132,6 +140,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * 
          * @return builder
          * 
          */
@@ -142,6 +154,10 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
+         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+         * 
+         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+         * 
          * @return builder
          * 
          */
@@ -150,44 +166,38 @@ public final class RegistryNetworkRuleSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param virtualNetworks One or more `virtual_network` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-         * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+         * 
          */
+        @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
         public Builder virtualNetworks(@Nullable Output<List<RegistryNetworkRuleSetVirtualNetworkArgs>> virtualNetworks) {
             $.virtualNetworks = virtualNetworks;
             return this;
         }
 
         /**
-         * @param virtualNetworks One or more `virtual_network` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-         * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+         * 
          */
+        @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
         public Builder virtualNetworks(List<RegistryNetworkRuleSetVirtualNetworkArgs> virtualNetworks) {
             return virtualNetworks(Output.of(virtualNetworks));
         }
 
         /**
-         * @param virtualNetworks One or more `virtual_network` blocks as defined below.
-         * 
-         * &gt; **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
-         * 
-         * &gt; **NOTE:** Azure automatically configures Network Rules - to remove these you&#39;ll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         *  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead
+         * 
          */
+        @Deprecated /*  This is only used exclusively for service endpoints (which is a feature being deprecated). Users are expected to use Private Endpoints instead */
         public Builder virtualNetworks(RegistryNetworkRuleSetVirtualNetworkArgs... virtualNetworks) {
             return virtualNetworks(List.of(virtualNetworks));
         }

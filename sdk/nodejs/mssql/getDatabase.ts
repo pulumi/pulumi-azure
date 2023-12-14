@@ -64,6 +64,10 @@ export interface GetDatabaseResult {
      */
     readonly elasticPoolId: string;
     /**
+     * The type of enclave being used by the database.
+     */
+    readonly enclaveType: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

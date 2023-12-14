@@ -21,13 +21,16 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, collation=None, elastic_pool_id=None, id=None, license_type=None, max_size_gb=None, name=None, read_replica_count=None, read_scale=None, server_id=None, sku_name=None, storage_account_type=None, tags=None, zone_redundant=None):
+    def __init__(__self__, collation=None, elastic_pool_id=None, enclave_type=None, id=None, license_type=None, max_size_gb=None, name=None, read_replica_count=None, read_scale=None, server_id=None, sku_name=None, storage_account_type=None, tags=None, zone_redundant=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
         if elastic_pool_id and not isinstance(elastic_pool_id, str):
             raise TypeError("Expected argument 'elastic_pool_id' to be a str")
         pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+        if enclave_type and not isinstance(enclave_type, str):
+            raise TypeError("Expected argument 'enclave_type' to be a str")
+        pulumi.set(__self__, "enclave_type", enclave_type)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -77,6 +80,14 @@ class GetDatabaseResult:
         The id of the elastic pool containing this database.
         """
         return pulumi.get(self, "elastic_pool_id")
+
+    @property
+    @pulumi.getter(name="enclaveType")
+    def enclave_type(self) -> str:
+        """
+        The type of enclave being used by the database.
+        """
+        return pulumi.get(self, "enclave_type")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         return GetDatabaseResult(
             collation=self.collation,
             elastic_pool_id=self.elastic_pool_id,
+            enclave_type=self.enclave_type,
             id=self.id,
             license_type=self.license_type,
             max_size_gb=self.max_size_gb,
@@ -219,6 +231,7 @@ def get_database(name: Optional[str] = None,
     return AwaitableGetDatabaseResult(
         collation=pulumi.get(__ret__, 'collation'),
         elastic_pool_id=pulumi.get(__ret__, 'elastic_pool_id'),
+        enclave_type=pulumi.get(__ret__, 'enclave_type'),
         id=pulumi.get(__ret__, 'id'),
         license_type=pulumi.get(__ret__, 'license_type'),
         max_size_gb=pulumi.get(__ret__, 'max_size_gb'),

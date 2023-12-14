@@ -75,6 +75,11 @@ export const getManagedHardwareSecurityModule: typeof import("./getManagedHardwa
 export const getManagedHardwareSecurityModuleOutput: typeof import("./getManagedHardwareSecurityModule").getManagedHardwareSecurityModuleOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedHardwareSecurityModule","getManagedHardwareSecurityModuleOutput"], () => require("./getManagedHardwareSecurityModule"));
 
+export { GetManagedHardwareSecurityModuleRoleDefinitionArgs, GetManagedHardwareSecurityModuleRoleDefinitionResult, GetManagedHardwareSecurityModuleRoleDefinitionOutputArgs } from "./getManagedHardwareSecurityModuleRoleDefinition";
+export const getManagedHardwareSecurityModuleRoleDefinition: typeof import("./getManagedHardwareSecurityModuleRoleDefinition").getManagedHardwareSecurityModuleRoleDefinition = null as any;
+export const getManagedHardwareSecurityModuleRoleDefinitionOutput: typeof import("./getManagedHardwareSecurityModuleRoleDefinition").getManagedHardwareSecurityModuleRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedHardwareSecurityModuleRoleDefinition","getManagedHardwareSecurityModuleRoleDefinitionOutput"], () => require("./getManagedHardwareSecurityModuleRoleDefinition"));
+
 export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
 export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
@@ -99,6 +104,16 @@ export { ManagedHardwareSecurityModuleArgs, ManagedHardwareSecurityModuleState }
 export type ManagedHardwareSecurityModule = import("./managedHardwareSecurityModule").ManagedHardwareSecurityModule;
 export const ManagedHardwareSecurityModule: typeof import("./managedHardwareSecurityModule").ManagedHardwareSecurityModule = null as any;
 utilities.lazyLoad(exports, ["ManagedHardwareSecurityModule"], () => require("./managedHardwareSecurityModule"));
+
+export { ManagedHardwareSecurityModuleRoleAssignmentArgs, ManagedHardwareSecurityModuleRoleAssignmentState } from "./managedHardwareSecurityModuleRoleAssignment";
+export type ManagedHardwareSecurityModuleRoleAssignment = import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment;
+export const ManagedHardwareSecurityModuleRoleAssignment: typeof import("./managedHardwareSecurityModuleRoleAssignment").ManagedHardwareSecurityModuleRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["ManagedHardwareSecurityModuleRoleAssignment"], () => require("./managedHardwareSecurityModuleRoleAssignment"));
+
+export { ManagedHardwareSecurityModuleRoleDefinitionArgs, ManagedHardwareSecurityModuleRoleDefinitionState } from "./managedHardwareSecurityModuleRoleDefinition";
+export type ManagedHardwareSecurityModuleRoleDefinition = import("./managedHardwareSecurityModuleRoleDefinition").ManagedHardwareSecurityModuleRoleDefinition;
+export const ManagedHardwareSecurityModuleRoleDefinition: typeof import("./managedHardwareSecurityModuleRoleDefinition").ManagedHardwareSecurityModuleRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["ManagedHardwareSecurityModuleRoleDefinition"], () => require("./managedHardwareSecurityModuleRoleDefinition"));
 
 export { ManagedStorageAccountArgs, ManagedStorageAccountState } from "./managedStorageAccount";
 export type ManagedStorageAccount = import("./managedStorageAccount").ManagedStorageAccount;
@@ -136,6 +151,10 @@ const _module = {
                 return new KeyVault(name, <any>undefined, { urn })
             case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
                 return new ManagedHardwareSecurityModule(name, <any>undefined, { urn })
+            case "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment":
+                return new ManagedHardwareSecurityModuleRoleAssignment(name, <any>undefined, { urn })
+            case "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition":
+                return new ManagedHardwareSecurityModuleRoleDefinition(name, <any>undefined, { urn })
             case "azure:keyvault/managedStorageAccount:ManagedStorageAccount":
                 return new ManagedStorageAccount(name, <any>undefined, { urn })
             case "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition":
@@ -155,6 +174,8 @@ pulumi.runtime.registerResourceModule("azure", "keyvault/certificateIssuer", _mo
 pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModule", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModuleRoleDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/managedStorageAccountSasTokenDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/secret", _module)

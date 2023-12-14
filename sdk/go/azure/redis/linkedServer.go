@@ -101,6 +101,8 @@ import (
 type LinkedServer struct {
 	pulumi.CustomResourceState
 
+	// The geo-replicated primary hostname for this linked server.
+	GeoReplicatedPrimaryHostName pulumi.StringOutput `pulumi:"geoReplicatedPrimaryHostName"`
 	// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
 	LinkedRedisCacheId pulumi.StringOutput `pulumi:"linkedRedisCacheId"`
 	// The location of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -160,6 +162,8 @@ func GetLinkedServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedServer resources.
 type linkedServerState struct {
+	// The geo-replicated primary hostname for this linked server.
+	GeoReplicatedPrimaryHostName *string `pulumi:"geoReplicatedPrimaryHostName"`
 	// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
 	LinkedRedisCacheId *string `pulumi:"linkedRedisCacheId"`
 	// The location of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -175,6 +179,8 @@ type linkedServerState struct {
 }
 
 type LinkedServerState struct {
+	// The geo-replicated primary hostname for this linked server.
+	GeoReplicatedPrimaryHostName pulumi.StringPtrInput
 	// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
 	LinkedRedisCacheId pulumi.StringPtrInput
 	// The location of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -305,6 +311,11 @@ func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
 
 func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
 	return o
+}
+
+// The geo-replicated primary hostname for this linked server.
+func (o LinkedServerOutput) GeoReplicatedPrimaryHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedServer) pulumi.StringOutput { return v.GeoReplicatedPrimaryHostName }).(pulumi.StringOutput)
 }
 
 // The ID of the linked Redis cache. Changing this forces a new Redis to be created.

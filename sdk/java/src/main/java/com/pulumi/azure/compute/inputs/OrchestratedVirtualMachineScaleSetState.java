@@ -570,7 +570,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
-     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Import(name="zones")
@@ -579,7 +579,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * @return Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
      * 
-     * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -1415,7 +1415,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
          * 
-         * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1428,7 +1428,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
          * 
-         * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1440,7 +1440,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
          * 
-         * &gt; **NOTE:** Due to a limitation of the Azure API at this time only one Availability Zone can be defined.
+         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 

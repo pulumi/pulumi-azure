@@ -28,17 +28,9 @@ public final class RegistryNetworkRuleSetVirtualNetworkArgs extends com.pulumi.r
         return this.action;
     }
 
-    /**
-     * The subnet id from which requests will match the rule.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The subnet id from which requests will match the rule.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -89,23 +81,11 @@ public final class RegistryNetworkRuleSetVirtualNetworkArgs extends com.pulumi.r
             return action(Output.of(action));
         }
 
-        /**
-         * @param subnetId The subnet id from which requests will match the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The subnet id from which requests will match the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
