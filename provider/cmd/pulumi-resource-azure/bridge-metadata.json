@@ -3961,7 +3961,12 @@
             },
             "azurerm_container_app_environment": {
                 "current": "azure:containerapp/environment:Environment",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "workload_profile": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_container_app_environment_certificate": {
                 "current": "azure:containerapp/environmentCertificate:EnvironmentCertificate",
@@ -4400,7 +4405,12 @@
             },
             "azurerm_cosmosdb_cassandra_datacenter": {
                 "current": "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "seed_node_ip_addresses": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_cosmosdb_cassandra_keyspace": {
                 "current": "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace",
@@ -6181,6 +6191,18 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_elastic_san": {
+                "current": "azure:elasticsan/elasticSan:ElasticSan",
+                "majorVersion": 5,
+                "fields": {
+                    "sku": {
+                        "maxItemsOne": true
+                    },
+                    "zones": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -9493,6 +9515,35 @@
                     },
                     "security_domain_key_vault_certificate_ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_key_vault_managed_hardware_security_module_role_assignment": {
+                "current": "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment",
+                "majorVersion": 5
+            },
+            "azurerm_key_vault_managed_hardware_security_module_role_definition": {
+                "current": "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition",
+                "majorVersion": 5,
+                "fields": {
+                    "permission": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false
+                                },
+                                "data_actions": {
+                                    "maxItemsOne": false
+                                },
+                                "not_actions": {
+                                    "maxItemsOne": false
+                                },
+                                "not_data_actions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -18574,6 +18625,9 @@
                 "current": "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment",
                 "majorVersion": 5,
                 "fields": {
+                    "application_performance_monitoring_ids": {
+                        "maxItemsOne": false
+                    },
                     "quota": {
                         "maxItemsOne": true
                     }
@@ -20647,6 +20701,16 @@
                     "ip_configuration": {
                         "maxItemsOne": false
                     },
+                    "policy_group": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "policy_member": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "vpn_client_configuration": {
                         "maxItemsOne": true,
                         "elem": {
@@ -20654,11 +20718,30 @@
                                 "address_space": {
                                     "maxItemsOne": false
                                 },
+                                "ipsec_policy": {
+                                    "maxItemsOne": true
+                                },
+                                "radius_server": {
+                                    "maxItemsOne": false
+                                },
                                 "revoked_certificate": {
                                     "maxItemsOne": false
                                 },
                                 "root_certificate": {
                                     "maxItemsOne": false
+                                },
+                                "virtual_network_gateway_client_connection": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "address_prefixes": {
+                                                "maxItemsOne": false
+                                            },
+                                            "policy_group_names": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "vpn_auth_types": {
                                     "maxItemsOne": false
@@ -24192,6 +24275,9 @@
                     "capabilities": {
                         "maxItemsOne": false
                     },
+                    "connection_strings": {
+                        "maxItemsOne": false
+                    },
                     "consistency_policy": {
                         "maxItemsOne": false
                     },
@@ -25244,6 +25330,34 @@
                 "fields": {
                     "admin_object_ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_key_vault_managed_hardware_security_module_role_definition": {
+                "current": "azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition",
+                "majorVersion": 5,
+                "fields": {
+                    "assignable_scopes": {
+                        "maxItemsOne": false
+                    },
+                    "permission": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false
+                                },
+                                "data_actions": {
+                                    "maxItemsOne": false
+                                },
+                                "not_actions": {
+                                    "maxItemsOne": false
+                                },
+                                "not_data_actions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -28197,6 +28311,15 @@
                 "current": "azure:storage/getStorageContainer:getStorageContainer",
                 "majorVersion": 5
             },
+            "azurerm_storage_containers": {
+                "current": "azure:storage/getContainers:getContainers",
+                "majorVersion": 5,
+                "fields": {
+                    "containers": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_storage_encryption_scope": {
                 "current": "azure:storage/getEncryptionScope:getEncryptionScope",
                 "majorVersion": 5
@@ -29857,6 +29980,7 @@
             "azure:domainservices/service:Service": "azurerm_active_directory_domain_service",
             "azure:domainservices/serviceTrust:ServiceTrust": "azurerm_active_directory_domain_service_trust",
             "azure:elasticcloud/elasticsearch:Elasticsearch": "azurerm_elastic_cloud_elasticsearch",
+            "azure:elasticsan/elasticSan:ElasticSan": "azurerm_elastic_san",
             "azure:eventgrid/domain:Domain": "azurerm_eventgrid_domain",
             "azure:eventgrid/domainTopic:DomainTopic": "azurerm_eventgrid_domain_topic",
             "azure:eventgrid/eventSubscription:EventSubscription": "azurerm_eventgrid_event_subscription",
@@ -29945,6 +30069,8 @@
             "azure:keyvault/key:Key": "azurerm_key_vault_key",
             "azure:keyvault/keyVault:KeyVault": "azurerm_key_vault",
             "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule": "azurerm_key_vault_managed_hardware_security_module",
+            "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment": "azurerm_key_vault_managed_hardware_security_module_role_assignment",
+            "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition": "azurerm_key_vault_managed_hardware_security_module_role_definition",
             "azure:keyvault/managedStorageAccount:ManagedStorageAccount": "azurerm_key_vault_managed_storage_account",
             "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition": "azurerm_key_vault_managed_storage_account_sas_token_definition",
             "azure:keyvault/secret:Secret": "azurerm_key_vault_secret",
@@ -30655,6 +30781,7 @@
             "azure:keyvault/getKey:getKey": "azurerm_key_vault_key",
             "azure:keyvault/getKeyVault:getKeyVault": "azurerm_key_vault",
             "azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule": "azurerm_key_vault_managed_hardware_security_module",
+            "azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition": "azurerm_key_vault_managed_hardware_security_module_role_definition",
             "azure:keyvault/getSecret:getSecret": "azurerm_key_vault_secret",
             "azure:keyvault/getSecrets:getSecrets": "azurerm_key_vault_secrets",
             "azure:kusto/getCluster:getCluster": "azurerm_kusto_cluster",
@@ -30800,6 +30927,7 @@
             "azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS": "azurerm_storage_account_blob_container_sas",
             "azure:storage/getAccountSAS:getAccountSAS": "azurerm_storage_account_sas",
             "azure:storage/getBlob:getBlob": "azurerm_storage_blob",
+            "azure:storage/getContainers:getContainers": "azurerm_storage_containers",
             "azure:storage/getEncryptionScope:getEncryptionScope": "azurerm_storage_encryption_scope",
             "azure:storage/getPolicy:getPolicy": "azurerm_storage_management_policy",
             "azure:storage/getShare:getShare": "azurerm_storage_share",
@@ -32156,6 +32284,7 @@
             },
             "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment": {
                 "addonJson": "addon_json",
+                "applicationPerformanceMonitoringIds": "application_performance_monitoring_ids",
                 "buildResultId": "build_result_id",
                 "environmentVariables": "environment_variables",
                 "instanceCount": "instance_count",
@@ -38293,6 +38422,7 @@
                 "microsoftAppMsiId": "microsoft_app_msi_id",
                 "microsoftAppTenantId": "microsoft_app_tenant_id",
                 "microsoftAppType": "microsoft_app_type",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "resourceGroupName": "resource_group_name",
                 "streamingEndpointEnabled": "streaming_endpoint_enabled"
             },
@@ -40582,6 +40712,11 @@
             "azure:containerapp/EnvironmentDaprComponentMetadata:EnvironmentDaprComponentMetadata": {
                 "secretName": "secret_name"
             },
+            "azure:containerapp/EnvironmentWorkloadProfile:EnvironmentWorkloadProfile": {
+                "maximumCount": "maximum_count",
+                "minimumCount": "minimum_count",
+                "workloadProfileType": "workload_profile_type"
+            },
             "azure:containerapp/app:App": {
                 "containerAppEnvironmentId": "container_app_environment_id",
                 "customDomainVerificationId": "custom_domain_verification_id",
@@ -40604,6 +40739,7 @@
                 "platformReservedDnsIpAddress": "platform_reserved_dns_ip_address",
                 "resourceGroupName": "resource_group_name",
                 "staticIpAddress": "static_ip_address",
+                "workloadProfiles": "workload_profile",
                 "zoneRedundancyEnabled": "zone_redundancy_enabled"
             },
             "azure:containerapp/environmentCertificate:EnvironmentCertificate": {
@@ -41673,6 +41809,7 @@
                 "servicePrincipal": "service_principal",
                 "skuTier": "sku_tier",
                 "storageProfile": "storage_profile",
+                "supportPlan": "support_plan",
                 "webAppRouting": "web_app_routing",
                 "windowsProfile": "windows_profile",
                 "workloadAutoscalerProfile": "workload_autoscaler_profile",
@@ -42325,6 +42462,7 @@
                 "diskSku": "disk_sku",
                 "managedDiskCustomerKeyUri": "managed_disk_customer_key_uri",
                 "nodeCount": "node_count",
+                "seedNodeIpAddresses": "seed_node_ip_addresses",
                 "skuName": "sku_name"
             },
             "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace": {
@@ -42339,6 +42477,7 @@
                 "defaultTtl": "default_ttl"
             },
             "azure:cosmosdb/getAccount:getAccount": {
+                "connectionStrings": "connection_strings",
                 "consistencyPolicies": "consistency_policy",
                 "enableAutomaticFailover": "enable_automatic_failover",
                 "enableFreeTier": "enable_free_tier",
@@ -42349,11 +42488,19 @@
                 "keyVaultKeyId": "key_vault_key_id",
                 "offerType": "offer_type",
                 "primaryKey": "primary_key",
+                "primaryMongodbConnectionString": "primary_mongodb_connection_string",
                 "primaryReadonlyKey": "primary_readonly_key",
+                "primaryReadonlyMongodbConnectionString": "primary_readonly_mongodb_connection_string",
+                "primaryReadonlySqlConnectionString": "primary_readonly_sql_connection_string",
+                "primarySqlConnectionString": "primary_sql_connection_string",
                 "readEndpoints": "read_endpoints",
                 "resourceGroupName": "resource_group_name",
                 "secondaryKey": "secondary_key",
+                "secondaryMongodbConnectionString": "secondary_mongodb_connection_string",
                 "secondaryReadonlyKey": "secondary_readonly_key",
+                "secondaryReadonlyMongodbConnectionString": "secondary_readonly_mongodb_connection_string",
+                "secondaryReadonlySqlConnectionString": "secondary_readonly_sql_connection_string",
+                "secondarySqlConnectionString": "secondary_sql_connection_string",
                 "virtualNetworkRules": "virtual_network_rule",
                 "writeEndpoints": "write_endpoints"
             },
@@ -44160,6 +44307,16 @@
                 "sendActivityLogs": "send_activity_logs",
                 "sendAzureadLogs": "send_azuread_logs",
                 "sendSubscriptionLogs": "send_subscription_logs"
+            },
+            "azure:elasticsan/elasticSan:ElasticSan": {
+                "baseSizeInTib": "base_size_in_tib",
+                "extendedSizeInTib": "extended_size_in_tib",
+                "resourceGroupName": "resource_group_name",
+                "totalIops": "total_iops",
+                "totalMbps": "total_mbps",
+                "totalSizeInTib": "total_size_in_tib",
+                "totalVolumeSizeInGib": "total_volume_size_in_gib",
+                "volumeGroupCount": "volume_group_count"
             },
             "azure:eventgrid/DomainIdentity:DomainIdentity": {
                 "identityIds": "identity_ids",
@@ -46538,6 +46695,11 @@
             "azure:keyvault/ManagedHardwareSecurityModuleNetworkAcls:ManagedHardwareSecurityModuleNetworkAcls": {
                 "defaultAction": "default_action"
             },
+            "azure:keyvault/ManagedHardwareSecurityModuleRoleDefinitionPermission:ManagedHardwareSecurityModuleRoleDefinitionPermission": {
+                "dataActions": "data_actions",
+                "notActions": "not_actions",
+                "notDataActions": "not_data_actions"
+            },
             "azure:keyvault/accessPolicy:AccessPolicy": {
                 "applicationId": "application_id",
                 "certificatePermissions": "certificate_permissions",
@@ -46710,6 +46872,19 @@
                 "softDeleteRetentionDays": "soft_delete_retention_days",
                 "tenantId": "tenant_id"
             },
+            "azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition": {
+                "assignableScopes": "assignable_scopes",
+                "permissions": "permission",
+                "resourceManagerId": "resource_manager_id",
+                "roleName": "role_name",
+                "roleType": "role_type",
+                "vaultBaseUrl": "vault_base_url"
+            },
+            "azure:keyvault/getManagedHardwareSecurityModuleRoleDefinitionPermission:getManagedHardwareSecurityModuleRoleDefinitionPermission": {
+                "dataActions": "data_actions",
+                "notActions": "not_actions",
+                "notDataActions": "not_data_actions"
+            },
             "azure:keyvault/getSecret:getSecret": {
                 "contentType": "content_type",
                 "expirationDate": "expiration_date",
@@ -46765,6 +46940,19 @@
                 "skuName": "sku_name",
                 "softDeleteRetentionDays": "soft_delete_retention_days",
                 "tenantId": "tenant_id"
+            },
+            "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment": {
+                "principalId": "principal_id",
+                "resourceId": "resource_id",
+                "roleDefinitionId": "role_definition_id",
+                "vaultBaseUrl": "vault_base_url"
+            },
+            "azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition": {
+                "permissions": "permission",
+                "resourceManagerId": "resource_manager_id",
+                "roleName": "role_name",
+                "roleType": "role_type",
+                "vaultBaseUrl": "vault_base_url"
             },
             "azure:keyvault/managedStorageAccount:ManagedStorageAccount": {
                 "keyVaultId": "key_vault_id",
@@ -49854,6 +50042,7 @@
                 "createMode": "create_mode",
                 "creationSourceDatabaseId": "creation_source_database_id",
                 "elasticPoolId": "elastic_pool_id",
+                "enclaveType": "enclave_type",
                 "geoBackupEnabled": "geo_backup_enabled",
                 "ledgerEnabled": "ledger_enabled",
                 "licenseType": "license_type",
@@ -49891,6 +50080,7 @@
                 "serverVulnerabilityAssessmentId": "server_vulnerability_assessment_id"
             },
             "azure:mssql/elasticPool:ElasticPool": {
+                "enclaveType": "enclave_type",
                 "licenseType": "license_type",
                 "maintenanceConfigurationName": "maintenance_configuration_name",
                 "maxSizeBytes": "max_size_bytes",
@@ -49913,6 +50103,7 @@
             },
             "azure:mssql/getDatabase:getDatabase": {
                 "elasticPoolId": "elastic_pool_id",
+                "enclaveType": "enclave_type",
                 "licenseType": "license_type",
                 "maxSizeGb": "max_size_gb",
                 "readReplicaCount": "read_replica_count",
@@ -49923,6 +50114,7 @@
                 "zoneRedundant": "zone_redundant"
             },
             "azure:mssql/getElasticPool:getElasticPool": {
+                "enclaveType": "enclave_type",
                 "licenseType": "license_type",
                 "maxSizeBytes": "max_size_bytes",
                 "maxSizeGb": "max_size_gb",
@@ -51132,20 +51324,41 @@
                 "addressSpace": "address_space",
                 "portRange": "port_range"
             },
+            "azure:network/VirtualNetworkGatewayPolicyGroup:VirtualNetworkGatewayPolicyGroup": {
+                "isDefault": "is_default",
+                "policyMembers": "policy_member"
+            },
             "azure:network/VirtualNetworkGatewayVpnClientConfiguration:VirtualNetworkGatewayVpnClientConfiguration": {
                 "aadAudience": "aad_audience",
                 "aadIssuer": "aad_issuer",
                 "aadTenant": "aad_tenant",
                 "addressSpaces": "address_space",
+                "ipsecPolicy": "ipsec_policy",
                 "radiusServerAddress": "radius_server_address",
                 "radiusServerSecret": "radius_server_secret",
+                "radiusServers": "radius_server",
                 "revokedCertificates": "revoked_certificate",
                 "rootCertificates": "root_certificate",
+                "virtualNetworkGatewayClientConnections": "virtual_network_gateway_client_connection",
                 "vpnAuthTypes": "vpn_auth_types",
                 "vpnClientProtocols": "vpn_client_protocols"
             },
+            "azure:network/VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy:VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy": {
+                "dhGroup": "dh_group",
+                "ikeEncryption": "ike_encryption",
+                "ikeIntegrity": "ike_integrity",
+                "ipsecEncryption": "ipsec_encryption",
+                "ipsecIntegrity": "ipsec_integrity",
+                "pfsGroup": "pfs_group",
+                "saDataSizeInKilobytes": "sa_data_size_in_kilobytes",
+                "saLifetimeInSeconds": "sa_lifetime_in_seconds"
+            },
             "azure:network/VirtualNetworkGatewayVpnClientConfigurationRootCertificate:VirtualNetworkGatewayVpnClientConfigurationRootCertificate": {
                 "publicCertData": "public_cert_data"
+            },
+            "azure:network/VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection:VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection": {
+                "addressPrefixes": "address_prefixes",
+                "policyGroupNames": "policy_group_names"
             },
             "azure:network/VirtualNetworkSubnet:VirtualNetworkSubnet": {
                 "addressPrefix": "address_prefix",
@@ -51367,6 +51580,7 @@
                 "resourceGroupName": "resource_group_name"
             },
             "azure:network/firewall:Firewall": {
+                "dnsProxyEnabled": "dns_proxy_enabled",
                 "dnsServers": "dns_servers",
                 "firewallPolicyId": "firewall_policy_id",
                 "ipConfigurations": "ip_configuration",
@@ -51662,6 +51876,7 @@
                 "serviceProviderName": "service_provider_name"
             },
             "azure:network/getFirewall:getFirewall": {
+                "dnsProxyEnabled": "dns_proxy_enabled",
                 "dnsServers": "dns_servers",
                 "firewallPolicyId": "firewall_policy_id",
                 "ipConfigurations": "ip_configuration",
@@ -52371,14 +52586,20 @@
             },
             "azure:network/virtualNetworkGateway:VirtualNetworkGateway": {
                 "activeActive": "active_active",
+                "bgpRouteTranslationForNatEnabled": "bgp_route_translation_for_nat_enabled",
                 "bgpSettings": "bgp_settings",
                 "customRoute": "custom_route",
                 "defaultLocalNetworkGatewayId": "default_local_network_gateway_id",
+                "dnsForwardingEnabled": "dns_forwarding_enabled",
                 "edgeZone": "edge_zone",
                 "enableBgp": "enable_bgp",
                 "ipConfigurations": "ip_configuration",
+                "ipSecReplayProtectionEnabled": "ip_sec_replay_protection_enabled",
+                "policyGroups": "policy_group",
                 "privateIpAddressEnabled": "private_ip_address_enabled",
+                "remoteVnetTrafficEnabled": "remote_vnet_traffic_enabled",
                 "resourceGroupName": "resource_group_name",
+                "virtualWanTrafficEnabled": "virtual_wan_traffic_enabled",
                 "vpnClientConfiguration": "vpn_client_configuration",
                 "vpnType": "vpn_type"
             },
@@ -53624,6 +53845,7 @@
                 "secondaryAccessKey": "secondary_access_key"
             },
             "azure:redis/linkedServer:LinkedServer": {
+                "geoReplicatedPrimaryHostName": "geo_replicated_primary_host_name",
                 "linkedRedisCacheId": "linked_redis_cache_id",
                 "linkedRedisCacheLocation": "linked_redis_cache_location",
                 "resourceGroupName": "resource_group_name",
@@ -55343,18 +55565,38 @@
                 "primaryBlobConnectionString": "primary_blob_connection_string",
                 "primaryBlobEndpoint": "primary_blob_endpoint",
                 "primaryBlobHost": "primary_blob_host",
+                "primaryBlobInternetEndpoint": "primary_blob_internet_endpoint",
+                "primaryBlobInternetHost": "primary_blob_internet_host",
+                "primaryBlobMicrosoftEndpoint": "primary_blob_microsoft_endpoint",
+                "primaryBlobMicrosoftHost": "primary_blob_microsoft_host",
                 "primaryConnectionString": "primary_connection_string",
                 "primaryDfsEndpoint": "primary_dfs_endpoint",
                 "primaryDfsHost": "primary_dfs_host",
+                "primaryDfsInternetEndpoint": "primary_dfs_internet_endpoint",
+                "primaryDfsInternetHost": "primary_dfs_internet_host",
+                "primaryDfsMicrosoftEndpoint": "primary_dfs_microsoft_endpoint",
+                "primaryDfsMicrosoftHost": "primary_dfs_microsoft_host",
                 "primaryFileEndpoint": "primary_file_endpoint",
                 "primaryFileHost": "primary_file_host",
+                "primaryFileInternetEndpoint": "primary_file_internet_endpoint",
+                "primaryFileInternetHost": "primary_file_internet_host",
+                "primaryFileMicrosoftEndpoint": "primary_file_microsoft_endpoint",
+                "primaryFileMicrosoftHost": "primary_file_microsoft_host",
                 "primaryLocation": "primary_location",
                 "primaryQueueEndpoint": "primary_queue_endpoint",
                 "primaryQueueHost": "primary_queue_host",
+                "primaryQueueMicrosoftEndpoint": "primary_queue_microsoft_endpoint",
+                "primaryQueueMicrosoftHost": "primary_queue_microsoft_host",
                 "primaryTableEndpoint": "primary_table_endpoint",
                 "primaryTableHost": "primary_table_host",
+                "primaryTableMicrosoftEndpoint": "primary_table_microsoft_endpoint",
+                "primaryTableMicrosoftHost": "primary_table_microsoft_host",
                 "primaryWebEndpoint": "primary_web_endpoint",
                 "primaryWebHost": "primary_web_host",
+                "primaryWebInternetEndpoint": "primary_web_internet_endpoint",
+                "primaryWebInternetHost": "primary_web_internet_host",
+                "primaryWebMicrosoftEndpoint": "primary_web_microsoft_endpoint",
+                "primaryWebMicrosoftHost": "primary_web_microsoft_host",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "queueEncryptionKeyType": "queue_encryption_key_type",
                 "queueProperties": "queue_properties",
@@ -55364,18 +55606,38 @@
                 "secondaryBlobConnectionString": "secondary_blob_connection_string",
                 "secondaryBlobEndpoint": "secondary_blob_endpoint",
                 "secondaryBlobHost": "secondary_blob_host",
+                "secondaryBlobInternetEndpoint": "secondary_blob_internet_endpoint",
+                "secondaryBlobInternetHost": "secondary_blob_internet_host",
+                "secondaryBlobMicrosoftEndpoint": "secondary_blob_microsoft_endpoint",
+                "secondaryBlobMicrosoftHost": "secondary_blob_microsoft_host",
                 "secondaryConnectionString": "secondary_connection_string",
                 "secondaryDfsEndpoint": "secondary_dfs_endpoint",
                 "secondaryDfsHost": "secondary_dfs_host",
+                "secondaryDfsInternetEndpoint": "secondary_dfs_internet_endpoint",
+                "secondaryDfsInternetHost": "secondary_dfs_internet_host",
+                "secondaryDfsMicrosoftEndpoint": "secondary_dfs_microsoft_endpoint",
+                "secondaryDfsMicrosoftHost": "secondary_dfs_microsoft_host",
                 "secondaryFileEndpoint": "secondary_file_endpoint",
                 "secondaryFileHost": "secondary_file_host",
+                "secondaryFileInternetEndpoint": "secondary_file_internet_endpoint",
+                "secondaryFileInternetHost": "secondary_file_internet_host",
+                "secondaryFileMicrosoftEndpoint": "secondary_file_microsoft_endpoint",
+                "secondaryFileMicrosoftHost": "secondary_file_microsoft_host",
                 "secondaryLocation": "secondary_location",
                 "secondaryQueueEndpoint": "secondary_queue_endpoint",
                 "secondaryQueueHost": "secondary_queue_host",
+                "secondaryQueueMicrosoftEndpoint": "secondary_queue_microsoft_endpoint",
+                "secondaryQueueMicrosoftHost": "secondary_queue_microsoft_host",
                 "secondaryTableEndpoint": "secondary_table_endpoint",
                 "secondaryTableHost": "secondary_table_host",
+                "secondaryTableMicrosoftEndpoint": "secondary_table_microsoft_endpoint",
+                "secondaryTableMicrosoftHost": "secondary_table_microsoft_host",
                 "secondaryWebEndpoint": "secondary_web_endpoint",
                 "secondaryWebHost": "secondary_web_host",
+                "secondaryWebInternetEndpoint": "secondary_web_internet_endpoint",
+                "secondaryWebInternetHost": "secondary_web_internet_host",
+                "secondaryWebMicrosoftEndpoint": "secondary_web_microsoft_endpoint",
+                "secondaryWebMicrosoftHost": "secondary_web_microsoft_host",
                 "sftpEnabled": "sftp_enabled",
                 "shareProperties": "share_properties",
                 "sharedAccessKeyEnabled": "shared_access_key_enabled",
@@ -55451,36 +55713,76 @@
                 "primaryBlobConnectionString": "primary_blob_connection_string",
                 "primaryBlobEndpoint": "primary_blob_endpoint",
                 "primaryBlobHost": "primary_blob_host",
+                "primaryBlobInternetEndpoint": "primary_blob_internet_endpoint",
+                "primaryBlobInternetHost": "primary_blob_internet_host",
+                "primaryBlobMicrosoftEndpoint": "primary_blob_microsoft_endpoint",
+                "primaryBlobMicrosoftHost": "primary_blob_microsoft_host",
                 "primaryConnectionString": "primary_connection_string",
                 "primaryDfsEndpoint": "primary_dfs_endpoint",
                 "primaryDfsHost": "primary_dfs_host",
+                "primaryDfsInternetEndpoint": "primary_dfs_internet_endpoint",
+                "primaryDfsInternetHost": "primary_dfs_internet_host",
+                "primaryDfsMicrosoftEndpoint": "primary_dfs_microsoft_endpoint",
+                "primaryDfsMicrosoftHost": "primary_dfs_microsoft_host",
                 "primaryFileEndpoint": "primary_file_endpoint",
                 "primaryFileHost": "primary_file_host",
+                "primaryFileInternetEndpoint": "primary_file_internet_endpoint",
+                "primaryFileInternetHost": "primary_file_internet_host",
+                "primaryFileMicrosoftEndpoint": "primary_file_microsoft_endpoint",
+                "primaryFileMicrosoftHost": "primary_file_microsoft_host",
                 "primaryLocation": "primary_location",
                 "primaryQueueEndpoint": "primary_queue_endpoint",
                 "primaryQueueHost": "primary_queue_host",
+                "primaryQueueMicrosoftEndpoint": "primary_queue_microsoft_endpoint",
+                "primaryQueueMicrosoftHost": "primary_queue_microsoft_host",
                 "primaryTableEndpoint": "primary_table_endpoint",
                 "primaryTableHost": "primary_table_host",
+                "primaryTableMicrosoftEndpoint": "primary_table_microsoft_endpoint",
+                "primaryTableMicrosoftHost": "primary_table_microsoft_host",
                 "primaryWebEndpoint": "primary_web_endpoint",
                 "primaryWebHost": "primary_web_host",
+                "primaryWebInternetEndpoint": "primary_web_internet_endpoint",
+                "primaryWebInternetHost": "primary_web_internet_host",
+                "primaryWebMicrosoftEndpoint": "primary_web_microsoft_endpoint",
+                "primaryWebMicrosoftHost": "primary_web_microsoft_host",
                 "queueEncryptionKeyType": "queue_encryption_key_type",
                 "resourceGroupName": "resource_group_name",
                 "secondaryAccessKey": "secondary_access_key",
                 "secondaryBlobConnectionString": "secondary_blob_connection_string",
                 "secondaryBlobEndpoint": "secondary_blob_endpoint",
                 "secondaryBlobHost": "secondary_blob_host",
+                "secondaryBlobInternetEndpoint": "secondary_blob_internet_endpoint",
+                "secondaryBlobInternetHost": "secondary_blob_internet_host",
+                "secondaryBlobMicrosoftEndpoint": "secondary_blob_microsoft_endpoint",
+                "secondaryBlobMicrosoftHost": "secondary_blob_microsoft_host",
                 "secondaryConnectionString": "secondary_connection_string",
                 "secondaryDfsEndpoint": "secondary_dfs_endpoint",
                 "secondaryDfsHost": "secondary_dfs_host",
+                "secondaryDfsInternetEndpoint": "secondary_dfs_internet_endpoint",
+                "secondaryDfsInternetHost": "secondary_dfs_internet_host",
+                "secondaryDfsMicrosoftEndpoint": "secondary_dfs_microsoft_endpoint",
+                "secondaryDfsMicrosoftHost": "secondary_dfs_microsoft_host",
                 "secondaryFileEndpoint": "secondary_file_endpoint",
                 "secondaryFileHost": "secondary_file_host",
+                "secondaryFileInternetEndpoint": "secondary_file_internet_endpoint",
+                "secondaryFileInternetHost": "secondary_file_internet_host",
+                "secondaryFileMicrosoftEndpoint": "secondary_file_microsoft_endpoint",
+                "secondaryFileMicrosoftHost": "secondary_file_microsoft_host",
                 "secondaryLocation": "secondary_location",
                 "secondaryQueueEndpoint": "secondary_queue_endpoint",
                 "secondaryQueueHost": "secondary_queue_host",
+                "secondaryQueueMicrosoftEndpoint": "secondary_queue_microsoft_endpoint",
+                "secondaryQueueMicrosoftHost": "secondary_queue_microsoft_host",
                 "secondaryTableEndpoint": "secondary_table_endpoint",
                 "secondaryTableHost": "secondary_table_host",
+                "secondaryTableMicrosoftEndpoint": "secondary_table_microsoft_endpoint",
+                "secondaryTableMicrosoftHost": "secondary_table_microsoft_host",
                 "secondaryWebEndpoint": "secondary_web_endpoint",
                 "secondaryWebHost": "secondary_web_host",
+                "secondaryWebInternetEndpoint": "secondary_web_internet_endpoint",
+                "secondaryWebInternetHost": "secondary_web_internet_host",
+                "secondaryWebMicrosoftEndpoint": "secondary_web_microsoft_endpoint",
+                "secondaryWebMicrosoftHost": "secondary_web_microsoft_host",
                 "tableEncryptionKeyType": "table_encryption_key_type"
             },
             "azure:storage/getAccountAzureFilesAuthentication:getAccountAzureFilesAuthentication": {
@@ -55524,6 +55826,14 @@
                 "contentType": "content_type",
                 "storageAccountName": "storage_account_name",
                 "storageContainerName": "storage_container_name"
+            },
+            "azure:storage/getContainers:getContainers": {
+                "namePrefix": "name_prefix",
+                "storageAccountId": "storage_account_id"
+            },
+            "azure:storage/getContainersContainer:getContainersContainer": {
+                "dataPlaneId": "data_plane_id",
+                "resourceManagerId": "resource_manager_id"
             },
             "azure:storage/getEncryptionScope:getEncryptionScope": {
                 "keyVaultKeyId": "key_vault_key_id",
@@ -56052,6 +56362,7 @@
             },
             "azure:synapse/roleAssignment:RoleAssignment": {
                 "principalId": "principal_id",
+                "principalType": "principal_type",
                 "roleName": "role_name",
                 "synapseSparkPoolId": "synapse_spark_pool_id",
                 "synapseWorkspaceId": "synapse_workspace_id"
