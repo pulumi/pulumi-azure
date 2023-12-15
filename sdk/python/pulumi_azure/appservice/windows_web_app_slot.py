@@ -62,6 +62,8 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -350,6 +352,8 @@ class WindowsWebAppSlotArgs:
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -484,6 +488,8 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         :param pulumi.Input['WindowsWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -878,6 +884,8 @@ class _WindowsWebAppSlotState:
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -1055,6 +1063,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
                
@@ -1270,6 +1280,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -1531,6 +1543,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     def service_plan_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         """
         return pulumi.get(self, "service_plan_id")
 

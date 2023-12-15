@@ -30,6 +30,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppTemplateHttpScaleRule> HttpScaleRules;
         /// <summary>
+        /// The definition of an init container that is part of the group as documented in the `init_container` block below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppTemplateInitContainer> InitContainers;
+        /// <summary>
         /// The maximum number of replicas for this container.
         /// </summary>
         public readonly int? MaxReplicas;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.AppTemplateHttpScaleRule> httpScaleRules,
 
+            ImmutableArray<Outputs.AppTemplateInitContainer> initContainers,
+
             int? maxReplicas,
 
             int? minReplicas,
@@ -74,6 +80,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             Containers = containers;
             CustomScaleRules = customScaleRules;
             HttpScaleRules = httpScaleRules;
+            InitContainers = initContainers;
             MaxReplicas = maxReplicas;
             MinReplicas = minReplicas;
             RevisionSuffix = revisionSuffix;

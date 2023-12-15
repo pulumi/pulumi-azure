@@ -22,6 +22,7 @@ class AnalyticsWorkspaceArgs:
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
+                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +42,7 @@ class AnalyticsWorkspaceArgs:
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -72,6 +74,8 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immediate_data_purge_on30_days_enabled is not None:
+            pulumi.set(__self__, "immediate_data_purge_on30_days_enabled", immediate_data_purge_on30_days_enabled)
         if internet_ingestion_enabled is not None:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
@@ -164,6 +168,18 @@ class AnalyticsWorkspaceArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="immediateDataPurgeOn30DaysEnabled")
+    def immediate_data_purge_on30_days_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        """
+        return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
+
+    @immediate_data_purge_on30_days_enabled.setter
+    def immediate_data_purge_on30_days_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")
@@ -292,6 +308,7 @@ class _AnalyticsWorkspaceState:
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
+                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -314,6 +331,7 @@ class _AnalyticsWorkspaceState:
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -348,6 +366,8 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if immediate_data_purge_on30_days_enabled is not None:
+            pulumi.set(__self__, "immediate_data_purge_on30_days_enabled", immediate_data_purge_on30_days_enabled)
         if internet_ingestion_enabled is not None:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
@@ -436,6 +456,18 @@ class _AnalyticsWorkspaceState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="immediateDataPurgeOn30DaysEnabled")
+    def immediate_data_purge_on30_days_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        """
+        return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
+
+    @immediate_data_purge_on30_days_enabled.setter
+    def immediate_data_purge_on30_days_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "immediate_data_purge_on30_days_enabled", value)
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")
@@ -614,6 +646,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -659,6 +692,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -731,6 +765,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+                 immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -755,6 +790,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["daily_quota_gb"] = daily_quota_gb
             __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["immediate_data_purge_on30_days_enabled"] = immediate_data_purge_on30_days_enabled
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
@@ -787,6 +823,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             daily_quota_gb: Optional[pulumi.Input[float]] = None,
             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
+            immediate_data_purge_on30_days_enabled: Optional[pulumi.Input[bool]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -814,6 +851,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -847,6 +885,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["daily_quota_gb"] = daily_quota_gb
         __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["immediate_data_purge_on30_days_enabled"] = immediate_data_purge_on30_days_enabled
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
@@ -903,6 +942,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="immediateDataPurgeOn30DaysEnabled")
+    def immediate_data_purge_on30_days_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        """
+        return pulumi.get(self, "immediate_data_purge_on30_days_enabled")
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")

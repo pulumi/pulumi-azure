@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
- *
  * ## Example Usage
  *
  * ```typescript

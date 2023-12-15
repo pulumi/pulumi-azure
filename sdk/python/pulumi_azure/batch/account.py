@@ -50,7 +50,7 @@ class AccountArgs:
                > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
                
-               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
                
                > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
@@ -217,7 +217,7 @@ class AccountArgs:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 
-        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 
@@ -307,7 +307,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
                
-               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
                
                > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
@@ -517,7 +517,7 @@ class _AccountState:
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 
-        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 
@@ -638,7 +638,7 @@ class Account(pulumi.CustomResource):
                > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
                
-               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
                
                > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
@@ -799,7 +799,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
                
-               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
                
                > **NOTE:** When using `storage_account_id`, the `storage_account_authentication_mode` must be specified as well.
@@ -945,7 +945,7 @@ class Account(pulumi.CustomResource):
         """
         Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 
-        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         """
         return pulumi.get(self, "storage_account_authentication_mode")
 

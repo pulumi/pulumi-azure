@@ -66,6 +66,11 @@ namespace Pulumi.Azure.Network
     ///         FlowTimeoutInMinutes = 10,
     ///     });
     /// 
+    ///     var example2 = new Azure.Network.NetworkManagerNetworkGroup("example2", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
     ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", new()
     ///     {
     ///         NetworkManagerId = exampleNetworkManager.Id,
@@ -76,6 +81,11 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 GroupConnectivity = "DirectlyConnected",
     ///                 NetworkGroupId = exampleNetworkManagerNetworkGroup.Id,
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs
+    ///             {
+    ///                 GroupConnectivity = "DirectlyConnected",
+    ///                 NetworkGroupId = example2.Id,
     ///             },
     ///         },
     ///         Hub = new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationHubArgs
@@ -100,7 +110,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerConnectivityConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `applies_to_group` block as defined below.
+        /// One or more `applies_to_group` blocks as defined below.
         /// </summary>
         [Output("appliesToGroups")]
         public Output<ImmutableArray<Outputs.NetworkManagerConnectivityConfigurationAppliesToGroup>> AppliesToGroups { get; private set; } = null!;
@@ -197,7 +207,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs>? _appliesToGroups;
 
         /// <summary>
-        /// An `applies_to_group` block as defined below.
+        /// One or more `applies_to_group` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs> AppliesToGroups
         {
@@ -259,7 +269,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupGetArgs>? _appliesToGroups;
 
         /// <summary>
-        /// An `applies_to_group` block as defined below.
+        /// One or more `applies_to_group` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupGetArgs> AppliesToGroups
         {

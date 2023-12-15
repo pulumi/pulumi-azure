@@ -14,8 +14,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a MariaDB Database within a MariaDB Server
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

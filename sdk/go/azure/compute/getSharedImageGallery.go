@@ -62,10 +62,12 @@ type LookupSharedImageGalleryResult struct {
 	// A description for the Shared Image Gallery.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Id string `pulumi:"id"`
+	// A list of Shared Image names within this Shared Image Gallery.
+	ImageNames        []string `pulumi:"imageNames"`
+	Location          string   `pulumi:"location"`
+	Name              string   `pulumi:"name"`
+	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// A mapping of tags which are assigned to the Shared Image Gallery.
 	Tags map[string]string `pulumi:"tags"`
 	// The unique name assigned to the Shared Image Gallery.
@@ -120,6 +122,11 @@ func (o LookupSharedImageGalleryResultOutput) Description() pulumi.StringOutput 
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSharedImageGalleryResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSharedImageGalleryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of Shared Image names within this Shared Image Gallery.
+func (o LookupSharedImageGalleryResultOutput) ImageNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSharedImageGalleryResult) []string { return v.ImageNames }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupSharedImageGalleryResultOutput) Location() pulumi.StringOutput {

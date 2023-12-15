@@ -153,13 +153,13 @@ func (o AccountEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 type AccountIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -177,13 +177,13 @@ type AccountIdentityInput interface {
 type AccountIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -266,7 +266,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -281,7 +281,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -312,7 +312,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -342,7 +342,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {

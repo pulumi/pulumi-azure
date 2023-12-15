@@ -187,7 +187,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
-     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
      * 
      */
     @Import(name="storageAccountAuthenticationMode")
@@ -196,7 +196,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
-     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
      * 
      */
     public Optional<Output<String>> storageAccountAuthenticationMode() {
@@ -524,7 +524,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountAuthenticationMode Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
          * 
-         * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountAuthenticationMode Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
          * 
-         * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
          * 
          * @return builder
          * 

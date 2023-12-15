@@ -132,6 +132,8 @@ type LinuxWebAppSlot struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigOutput `pulumi:"siteConfig"`
@@ -247,6 +249,8 @@ type linuxWebAppSlotState struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -322,6 +326,8 @@ type LinuxWebAppSlotState struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigPtrInput
@@ -383,6 +389,8 @@ type linuxWebAppSlotArgs struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -439,6 +447,8 @@ type LinuxWebAppSlotArgs struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigInput
@@ -679,6 +689,8 @@ func (o LinuxWebAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput
 }
 
 // The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+//
+// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Linux Web App.
 func (o LinuxWebAppSlotOutput) ServicePlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.ServicePlanId }).(pulumi.StringPtrOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Dns.Outputs
     public sealed class TxtRecordRecord
     {
         /// <summary>
-        /// The value of the record. Max length: 1024 characters
+        /// The value of the record. Max length: 4096 characters
         /// </summary>
         public readonly string Value;
 

@@ -19,7 +19,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -28,7 +28,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -66,14 +66,14 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -110,7 +110,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 

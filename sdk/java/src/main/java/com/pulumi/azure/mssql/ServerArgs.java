@@ -221,8 +221,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
      * 
-     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
-     * 
      * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
      * 
      * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
@@ -235,8 +233,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
-     * 
-     * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
      * 
      * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
      * 
@@ -582,8 +578,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
          * 
-         * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
-         * 
          * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
          * 
          * &gt; **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
@@ -600,8 +594,6 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
-         * 
-         * &gt; **NOTE:**  To use `transparent_data_encryption_key_vault_key_id` a User Assigned identity must be specified in `primary_user_assigned_identity_id`. System Assigned Identities are not supported.
          * 
          * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
          * 

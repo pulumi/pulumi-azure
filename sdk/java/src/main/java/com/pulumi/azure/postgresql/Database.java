@@ -14,8 +14,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a PostgreSQL Database within a PostgreSQL Server
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

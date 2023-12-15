@@ -25,7 +25,9 @@ class BackupVaultArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
-        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+               
+               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
@@ -49,7 +51,9 @@ class BackupVaultArgs:
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+
+        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         """
         return pulumi.get(self, "datastore_type")
 
@@ -142,7 +146,9 @@ class _BackupVaultState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering BackupVault resources.
-        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+               
+               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -169,7 +175,9 @@ class _BackupVaultState:
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+
+        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         """
         return pulumi.get(self, "datastore_type")
 
@@ -290,7 +298,9 @@ class BackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+               
+               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -397,7 +407,9 @@ class BackupVault(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+               
+               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         :param pulumi.Input[pulumi.InputType['BackupVaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
@@ -422,7 +434,9 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+
+        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         """
         return pulumi.get(self, "datastore_type")
 

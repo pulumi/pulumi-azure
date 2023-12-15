@@ -146,7 +146,7 @@ class TxtRecordRecord(dict):
     def __init__(__self__, *,
                  value: str):
         """
-        :param str value: The value of the record. Max length: 1024 characters
+        :param str value: The value of the record. Max length: 4096 characters
         """
         pulumi.set(__self__, "value", value)
 
@@ -154,7 +154,7 @@ class TxtRecordRecord(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the record. Max length: 1024 characters
+        The value of the record. Max length: 4096 characters
         """
         return pulumi.get(self, "value")
 

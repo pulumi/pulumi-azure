@@ -181,6 +181,11 @@ func GetTenantId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:tenantId")
 }
 
+// Allow Azure AKS Workload Identity to be used for Authentication.
+func GetUseAksWorkloadIdentity(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azure:useAksWorkloadIdentity")
+}
+
 // Allow Azure CLI to be used for Authentication.
 func GetUseCli(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:useCli")

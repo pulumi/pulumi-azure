@@ -291,12 +291,16 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
+     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+     * 
      */
     @Import(name="servicePlanId")
     private @Nullable Output<String> servicePlanId;
 
     /**
      * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+     * 
+     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      * 
      */
     public Optional<Output<String>> servicePlanId() {
@@ -820,6 +824,8 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
          * 
+         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+         * 
          * @return builder
          * 
          */
@@ -830,6 +836,8 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param servicePlanId The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+         * 
+         * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
          * 
          * @return builder
          * 

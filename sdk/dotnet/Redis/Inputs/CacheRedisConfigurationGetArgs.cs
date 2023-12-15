@@ -162,6 +162,12 @@ namespace Pulumi.Azure.Redis.Inputs
             }
         }
 
+        /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        [Input("storageAccountSubscriptionId")]
+        public Input<string>? StorageAccountSubscriptionId { get; set; }
+
         public CacheRedisConfigurationGetArgs()
         {
         }

@@ -2718,6 +2718,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mobile_network_sim_policy":   {Tok: azureResource(azureMobile, "NetworkSimPolicy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},
+
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},
 
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

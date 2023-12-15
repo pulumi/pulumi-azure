@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a MySQL Database within a MySQL Server
- *
  * ## Example Usage
  *
  * ```typescript

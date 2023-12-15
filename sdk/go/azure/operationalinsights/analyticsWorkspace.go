@@ -74,6 +74,8 @@ type AnalyticsWorkspace struct {
 	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
 	// An `identity` block as defined below.
 	Identity AnalyticsWorkspaceIdentityPtrOutput `pulumi:"identity"`
+	// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+	ImmediateDataPurgeOn30DaysEnabled pulumi.BoolPtrOutput `pulumi:"immediateDataPurgeOn30DaysEnabled"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -162,6 +164,8 @@ type analyticsWorkspaceState struct {
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// An `identity` block as defined below.
 	Identity *AnalyticsWorkspaceIdentity `pulumi:"identity"`
+	// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+	ImmediateDataPurgeOn30DaysEnabled *bool `pulumi:"immediateDataPurgeOn30DaysEnabled"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -213,6 +217,8 @@ type AnalyticsWorkspaceState struct {
 	DataCollectionRuleId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AnalyticsWorkspaceIdentityPtrInput
+	// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+	ImmediateDataPurgeOn30DaysEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -268,6 +274,8 @@ type analyticsWorkspaceArgs struct {
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
 	// An `identity` block as defined below.
 	Identity *AnalyticsWorkspaceIdentity `pulumi:"identity"`
+	// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+	ImmediateDataPurgeOn30DaysEnabled *bool `pulumi:"immediateDataPurgeOn30DaysEnabled"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -314,6 +322,8 @@ type AnalyticsWorkspaceArgs struct {
 	DataCollectionRuleId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AnalyticsWorkspaceIdentityPtrInput
+	// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+	ImmediateDataPurgeOn30DaysEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -458,6 +468,11 @@ func (o AnalyticsWorkspaceOutput) DataCollectionRuleId() pulumi.StringPtrOutput 
 // An `identity` block as defined below.
 func (o AnalyticsWorkspaceOutput) Identity() AnalyticsWorkspaceIdentityPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) AnalyticsWorkspaceIdentityPtrOutput { return v.Identity }).(AnalyticsWorkspaceIdentityPtrOutput)
+}
+
+// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+func (o AnalyticsWorkspaceOutput) ImmediateDataPurgeOn30DaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.ImmediateDataPurgeOn30DaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

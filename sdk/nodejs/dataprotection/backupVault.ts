@@ -61,7 +61,9 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      */
     public readonly datastoreType!: pulumi.Output<string>;
     /**
@@ -138,7 +140,9 @@ export class BackupVault extends pulumi.CustomResource {
  */
 export interface BackupVaultState {
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      */
     datastoreType?: pulumi.Input<string>;
     /**
@@ -172,7 +176,9 @@ export interface BackupVaultState {
  */
 export interface BackupVaultArgs {
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      */
     datastoreType: pulumi.Input<string>;
     /**

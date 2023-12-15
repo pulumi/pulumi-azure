@@ -123,6 +123,10 @@ namespace Pulumi.Azure.Compute
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list of Shared Image names within this Shared Image Gallery.
+        /// </summary>
+        public readonly ImmutableArray<string> ImageNames;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -141,6 +145,8 @@ namespace Pulumi.Azure.Compute
 
             string id,
 
+            ImmutableArray<string> imageNames,
+
             string location,
 
             string name,
@@ -153,6 +159,7 @@ namespace Pulumi.Azure.Compute
         {
             Description = description;
             Id = id;
+            ImageNames = imageNames;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

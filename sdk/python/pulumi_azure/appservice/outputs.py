@@ -7386,9 +7386,6 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -7471,11 +7468,6 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -10966,9 +10958,6 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -11051,11 +11040,6 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -14812,9 +14796,6 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -14897,11 +14878,6 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -18953,9 +18929,6 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -19038,11 +19011,6 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -25865,9 +25833,6 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -25950,11 +25915,6 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -29298,9 +29258,6 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -29383,11 +29340,6 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -32993,9 +32945,6 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -33078,11 +33027,6 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -37423,9 +37367,6 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
-        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
-               
-               > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -37508,11 +37449,6 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
-        """
-        The thumbprint of the certificate used for signing purposes.
-
-        > **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property

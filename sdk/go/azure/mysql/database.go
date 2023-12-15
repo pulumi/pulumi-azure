@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a MySQL Database within a MySQL Server
-//
 // ## Example Usage
 //
 // ```go

@@ -87,6 +87,8 @@ type LookupAppResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `template` block as detailed below.
 	Templates []GetAppTemplate `pulumi:"templates"`
+	// The name of the Workload Profile in the Container App Environment in which this Container App is running.
+	WorkloadProfileName string `pulumi:"workloadProfileName"`
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
@@ -206,6 +208,11 @@ func (o LookupAppResultOutput) Tags() pulumi.StringMapOutput {
 // A `template` block as detailed below.
 func (o LookupAppResultOutput) Templates() GetAppTemplateArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []GetAppTemplate { return v.Templates }).(GetAppTemplateArrayOutput)
+}
+
+// The name of the Workload Profile in the Container App Environment in which this Container App is running.
+func (o LookupAppResultOutput) WorkloadProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.WorkloadProfileName }).(pulumi.StringOutput)
 }
 
 func init() {

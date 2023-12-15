@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,6 +62,10 @@ export interface GetAccountResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.cognitive.GetAccountIdentity[];
     /**
      * The kind of the Cognitive Services Account
      */

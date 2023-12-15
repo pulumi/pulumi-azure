@@ -183,6 +183,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
+    def use_aks_workload_identity(self) -> Optional[bool]:
+        """
+        Allow Azure AKS Workload Identity to be used for Authentication.
+        """
+        return __config__.get_bool('useAksWorkloadIdentity')
+
+    @property
     def use_cli(self) -> Optional[bool]:
         """
         Allow Azure CLI to be used for Authentication.

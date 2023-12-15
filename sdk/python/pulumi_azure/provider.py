@@ -38,6 +38,7 @@ class ProviderArgs:
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_aks_workload_identity: Optional[pulumi.Input[bool]] = None,
                  use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None):
@@ -71,6 +72,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.
         :param pulumi.Input[bool] use_cli: Allow Azure CLI to be used for Authentication.
         :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
@@ -131,6 +133,8 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_aks_workload_identity is not None:
+            pulumi.set(__self__, "use_aks_workload_identity", use_aks_workload_identity)
         if use_cli is not None:
             pulumi.set(__self__, "use_cli", use_cli)
         if use_msi is not None:
@@ -416,6 +420,18 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @property
+    @pulumi.getter(name="useAksWorkloadIdentity")
+    def use_aks_workload_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow Azure AKS Workload Identity to be used for Authentication.
+        """
+        return pulumi.get(self, "use_aks_workload_identity")
+
+    @use_aks_workload_identity.setter
+    def use_aks_workload_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_aks_workload_identity", value)
+
+    @property
     @pulumi.getter(name="useCli")
     def use_cli(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -480,6 +496,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_aks_workload_identity: Optional[pulumi.Input[bool]] = None,
                  use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None,
@@ -520,6 +537,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.
         :param pulumi.Input[bool] use_cli: Allow Azure CLI to be used for Authentication.
         :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
@@ -574,6 +592,7 @@ class Provider(pulumi.ProviderResource):
                  storage_use_azuread: Optional[pulumi.Input[bool]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_aks_workload_identity: Optional[pulumi.Input[bool]] = None,
                  use_cli: Optional[pulumi.Input[bool]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
                  use_oidc: Optional[pulumi.Input[bool]] = None,
@@ -619,6 +638,7 @@ class Provider(pulumi.ProviderResource):
                 subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["use_aks_workload_identity"] = pulumi.Output.from_input(use_aks_workload_identity).apply(pulumi.runtime.to_json) if use_aks_workload_identity is not None else None
             __props__.__dict__["use_cli"] = pulumi.Output.from_input(use_cli).apply(pulumi.runtime.to_json) if use_cli is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
             __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None

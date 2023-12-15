@@ -61,6 +61,11 @@ public final class GetCacheRedisConfiguration {
      * 
      */
     private String rdbStorageConnectionString;
+    /**
+     * @return The ID of the Subscription containing the Storage Account.
+     * 
+     */
+    private String storageAccountSubscriptionId;
 
     private GetCacheRedisConfiguration() {}
     public Boolean aofBackupEnabled() {
@@ -141,6 +146,13 @@ public final class GetCacheRedisConfiguration {
     public String rdbStorageConnectionString() {
         return this.rdbStorageConnectionString;
     }
+    /**
+     * @return The ID of the Subscription containing the Storage Account.
+     * 
+     */
+    public String storageAccountSubscriptionId() {
+        return this.storageAccountSubscriptionId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -165,6 +177,7 @@ public final class GetCacheRedisConfiguration {
         private Integer rdbBackupFrequency;
         private Integer rdbBackupMaxSnapshotCount;
         private String rdbStorageConnectionString;
+        private String storageAccountSubscriptionId;
         public Builder() {}
         public Builder(GetCacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -182,6 +195,7 @@ public final class GetCacheRedisConfiguration {
     	      this.rdbBackupFrequency = defaults.rdbBackupFrequency;
     	      this.rdbBackupMaxSnapshotCount = defaults.rdbBackupMaxSnapshotCount;
     	      this.rdbStorageConnectionString = defaults.rdbStorageConnectionString;
+    	      this.storageAccountSubscriptionId = defaults.storageAccountSubscriptionId;
         }
 
         @CustomType.Setter
@@ -254,6 +268,11 @@ public final class GetCacheRedisConfiguration {
             this.rdbStorageConnectionString = Objects.requireNonNull(rdbStorageConnectionString);
             return this;
         }
+        @CustomType.Setter
+        public Builder storageAccountSubscriptionId(String storageAccountSubscriptionId) {
+            this.storageAccountSubscriptionId = Objects.requireNonNull(storageAccountSubscriptionId);
+            return this;
+        }
         public GetCacheRedisConfiguration build() {
             final var _resultValue = new GetCacheRedisConfiguration();
             _resultValue.aofBackupEnabled = aofBackupEnabled;
@@ -270,6 +289,7 @@ public final class GetCacheRedisConfiguration {
             _resultValue.rdbBackupFrequency = rdbBackupFrequency;
             _resultValue.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             _resultValue.rdbStorageConnectionString = rdbStorageConnectionString;
+            _resultValue.storageAccountSubscriptionId = storageAccountSubscriptionId;
             return _resultValue;
         }
     }

@@ -270,6 +270,16 @@ namespace Pulumi.Azure
             set => _tenantId.Set(value);
         }
 
+        private static readonly __Value<bool?> _useAksWorkloadIdentity = new __Value<bool?>(() => __config.GetBoolean("useAksWorkloadIdentity"));
+        /// <summary>
+        /// Allow Azure AKS Workload Identity to be used for Authentication.
+        /// </summary>
+        public static bool? UseAksWorkloadIdentity
+        {
+            get => _useAksWorkloadIdentity.Get();
+            set => _useAksWorkloadIdentity.Set(value);
+        }
+
         private static readonly __Value<bool?> _useCli = new __Value<bool?>(() => __config.GetBoolean("useCli"));
         /// <summary>
         /// Allow Azure CLI to be used for Authentication.

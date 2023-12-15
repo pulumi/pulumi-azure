@@ -172,6 +172,14 @@ namespace Pulumi.Azure.ContainerApp
         [Output("template")]
         public Output<Outputs.AppTemplate> Template { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Workload Profile in the Container App Environment to place this Container App.
+        /// 
+        /// &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        /// </summary>
+        [Output("workloadProfileName")]
+        public Output<string?> WorkloadProfileName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a App resource with the given unique name, arguments, and options.
@@ -310,6 +318,14 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("template", required: true)]
         public Input<Inputs.AppTemplateArgs> Template { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Workload Profile in the Container App Environment to place this Container App.
+        /// 
+        /// &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        /// </summary>
+        [Input("workloadProfileName")]
+        public Input<string>? WorkloadProfileName { get; set; }
 
         public AppArgs()
         {
@@ -452,6 +468,14 @@ namespace Pulumi.Azure.ContainerApp
         /// </summary>
         [Input("template")]
         public Input<Inputs.AppTemplateGetArgs>? Template { get; set; }
+
+        /// <summary>
+        /// The name of the Workload Profile in the Container App Environment to place this Container App.
+        /// 
+        /// &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        /// </summary>
+        [Input("workloadProfileName")]
+        public Input<string>? WorkloadProfileName { get; set; }
 
         public AppState()
         {

@@ -4841,11 +4841,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -5807,11 +5802,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -6850,11 +6840,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -7957,11 +7942,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -9795,11 +9775,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -10720,11 +10695,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11720,11 +11690,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -12916,11 +12881,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -15067,7 +15027,7 @@ export namespace batch {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -15079,7 +15039,7 @@ export namespace batch {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -17505,6 +17465,7 @@ export namespace cognitive {
          */
         type: pulumi.Input<string>;
     }
+
 }
 
 export namespace compute {
@@ -21230,6 +21191,10 @@ export namespace containerapp {
          */
         httpScaleRules?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateHttpScaleRule>[]>;
         /**
+         * The definition of an init container that is part of the group as documented in the `initContainer` block below.
+         */
+        initContainers?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateInitContainer>[]>;
+        /**
          * The maximum number of replicas for this container.
          */
         maxReplicas?: pulumi.Input<number>;
@@ -21574,6 +21539,79 @@ export namespace containerapp {
          * The Trigger Parameter name to use the supply the value retrieved from the `secretName`.
          */
         triggerParameter?: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateInitContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateInitContainerEnv>[]>;
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage?: pulumi.Input<string>;
+        /**
+         * The image to use to create the container.
+         */
+        image: pulumi.Input<string>;
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory?: pulumi.Input<string>;
+        /**
+         * The name of the container
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.containerapp.AppTemplateInitContainerVolumeMount>[]>;
+    }
+
+    export interface AppTemplateInitContainerEnv {
+        /**
+         * The name of the environment variable for the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The name of the secret that contains the value for this environment variable.
+         */
+        secretName?: pulumi.Input<string>;
+        /**
+         * The value for this environment variable.
+         *
+         * > **NOTE:** This value is ignored if `secretName` is used
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface AppTemplateInitContainerVolumeMount {
+        /**
+         * The name of the Volume to be mounted in the container.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: pulumi.Input<string>;
     }
 
     export interface AppTemplateTcpScaleRule {
@@ -27826,7 +27864,7 @@ export namespace dns {
 
     export interface TxtRecordRecord {
         /**
-         * The value of the record. Max length: 1024 characters
+         * The value of the record. Max length: 4096 characters
          */
         value: pulumi.Input<string>;
     }
@@ -43821,6 +43859,8 @@ export namespace network {
     export interface NetworkManagerScope {
         /**
          * A list of management group IDs.
+         *
+         * **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
          */
         managementGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -46660,6 +46700,10 @@ export namespace redis {
          * > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
          */
         rdbStorageConnectionString?: pulumi.Input<string>;
+        /**
+         * The ID of the Subscription containing the Storage Account.
+         */
+        storageAccountSubscriptionId?: pulumi.Input<string>;
     }
 
     export interface EnterpriseDatabaseModule {
@@ -50875,7 +50919,7 @@ export namespace waf {
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`,
          */
         ruleGroupName: pulumi.Input<string>;
         /**

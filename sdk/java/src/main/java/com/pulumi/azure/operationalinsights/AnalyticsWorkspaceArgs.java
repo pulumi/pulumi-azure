@@ -100,6 +100,21 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     * 
+     */
+    @Import(name="immediateDataPurgeOn30DaysEnabled")
+    private @Nullable Output<Boolean> immediateDataPurgeOn30DaysEnabled;
+
+    /**
+     * @return Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     * 
+     */
+    public Optional<Output<Boolean>> immediateDataPurgeOn30DaysEnabled() {
+        return Optional.ofNullable(this.immediateDataPurgeOn30DaysEnabled);
+    }
+
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      * 
      */
@@ -277,6 +292,7 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
         this.dailyQuotaGb = $.dailyQuotaGb;
         this.dataCollectionRuleId = $.dataCollectionRuleId;
         this.identity = $.identity;
+        this.immediateDataPurgeOn30DaysEnabled = $.immediateDataPurgeOn30DaysEnabled;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
@@ -414,6 +430,27 @@ public final class AnalyticsWorkspaceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder identity(AnalyticsWorkspaceIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param immediateDataPurgeOn30DaysEnabled Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immediateDataPurgeOn30DaysEnabled(@Nullable Output<Boolean> immediateDataPurgeOn30DaysEnabled) {
+            $.immediateDataPurgeOn30DaysEnabled = immediateDataPurgeOn30DaysEnabled;
+            return this;
+        }
+
+        /**
+         * @param immediateDataPurgeOn30DaysEnabled Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immediateDataPurgeOn30DaysEnabled(Boolean immediateDataPurgeOn30DaysEnabled) {
+            return immediateDataPurgeOn30DaysEnabled(Output.of(immediateDataPurgeOn30DaysEnabled));
         }
 
         /**

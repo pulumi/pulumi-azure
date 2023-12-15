@@ -3941,6 +3941,25 @@
                                         }
                                     }
                                 },
+                                "init_container": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "args": {
+                                                "maxItemsOne": false
+                                            },
+                                            "command": {
+                                                "maxItemsOne": false
+                                            },
+                                            "env": {
+                                                "maxItemsOne": false
+                                            },
+                                            "volume_mounts": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "tcp_scale_rule": {
                                     "maxItemsOne": false,
                                     "elem": {
@@ -23905,7 +23924,19 @@
             },
             "azurerm_cognitive_account": {
                 "current": "azure:cognitive/getAccount:getAccount",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_communication_service": {
                 "current": "azure:communication/getService:getService",
@@ -24198,6 +24229,25 @@
                                     "elem": {
                                         "fields": {
                                             "authentication": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "init_container": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "args": {
+                                                "maxItemsOne": false
+                                            },
+                                            "command": {
+                                                "maxItemsOne": false
+                                            },
+                                            "env": {
+                                                "maxItemsOne": false
+                                            },
+                                            "volume_mounts": {
                                                 "maxItemsOne": false
                                             }
                                         }
@@ -26287,6 +26337,15 @@
                     }
                 }
             },
+            "azurerm_location": {
+                "current": "azure:core/getLocation:getLocation",
+                "majorVersion": 5,
+                "fields": {
+                    "zone_mappings": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_log_analytics_workspace": {
                 "current": "azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace",
                 "majorVersion": 5
@@ -28023,7 +28082,12 @@
             },
             "azurerm_shared_image_gallery": {
                 "current": "azure:compute/getSharedImageGallery:getSharedImageGallery",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "image_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_shared_image_version": {
                 "current": "azure:compute/getSharedImageVersion:getSharedImageVersion",
@@ -30703,6 +30767,7 @@
             "azure:containerservice/getRegistryToken:getRegistryToken": "azurerm_container_registry_token",
             "azure:core/getClientConfig:getClientConfig": "azurerm_client_config",
             "azure:core/getExtendedLocations:getExtendedLocations": "azurerm_extended_locations",
+            "azure:core/getLocation:getLocation": "azurerm_location",
             "azure:core/getResourceGroup:getResourceGroup": "azurerm_resource_group",
             "azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment": "azurerm_resource_group_template_deployment",
             "azure:core/getResources:getResources": "azurerm_resources",
@@ -38999,11 +39064,17 @@
                 "versionUpgradeOption": "version_upgrade_option"
             },
             "azure:cognitive/getAccount:getAccount": {
+                "identities": "identity",
                 "primaryAccessKey": "primary_access_key",
                 "qnaRuntimeEndpoint": "qna_runtime_endpoint",
                 "resourceGroupName": "resource_group_name",
                 "secondaryAccessKey": "secondary_access_key",
                 "skuName": "sku_name"
+            },
+            "azure:cognitive/getAccountIdentity:getAccountIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:communication/emailService:EmailService": {
                 "dataLocation": "data_location",
@@ -39899,6 +39970,7 @@
                 "resourceGroupName": "resource_group_name"
             },
             "azure:compute/getSharedImageGallery:getSharedImageGallery": {
+                "imageNames": "image_names",
                 "resourceGroupName": "resource_group_name",
                 "uniqueName": "unique_name"
             },
@@ -40635,6 +40707,7 @@
                 "containers": "container",
                 "customScaleRules": "custom_scale_rule",
                 "httpScaleRules": "http_scale_rule",
+                "initContainers": "init_container",
                 "maxReplicas": "max_replicas",
                 "minReplicas": "min_replicas",
                 "revisionSuffix": "revision_suffix",
@@ -40697,6 +40770,15 @@
                 "secretName": "secret_name",
                 "triggerParameter": "trigger_parameter"
             },
+            "azure:containerapp/AppTemplateInitContainer:AppTemplateInitContainer": {
+                "commands": "command",
+                "envs": "env",
+                "ephemeralStorage": "ephemeral_storage",
+                "volumeMounts": "volume_mounts"
+            },
+            "azure:containerapp/AppTemplateInitContainerEnv:AppTemplateInitContainerEnv": {
+                "secretName": "secret_name"
+            },
             "azure:containerapp/AppTemplateTcpScaleRule:AppTemplateTcpScaleRule": {
                 "authentications": "authentication",
                 "concurrentRequests": "concurrent_requests"
@@ -40726,7 +40808,8 @@
                 "registries": "registry",
                 "resourceGroupName": "resource_group_name",
                 "revisionMode": "revision_mode",
-                "secrets": "secret"
+                "secrets": "secret",
+                "workloadProfileName": "workload_profile_name"
             },
             "azure:containerapp/environment:Environment": {
                 "daprApplicationInsightsConnectionString": "dapr_application_insights_connection_string",
@@ -40778,7 +40861,8 @@
                 "resourceGroupName": "resource_group_name",
                 "revisionMode": "revision_mode",
                 "secrets": "secret",
-                "templates": "template"
+                "templates": "template",
+                "workloadProfileName": "workload_profile_name"
             },
             "azure:containerapp/getAppDapr:getAppDapr": {
                 "appId": "app_id",
@@ -40814,6 +40898,7 @@
                 "containers": "container",
                 "customScaleRules": "custom_scale_rule",
                 "httpScaleRules": "http_scale_rule",
+                "initContainers": "init_container",
                 "maxReplicas": "max_replicas",
                 "minReplicas": "min_replicas",
                 "revisionSuffix": "revision_suffix",
@@ -40875,6 +40960,15 @@
             "azure:containerapp/getAppTemplateHttpScaleRuleAuthentication:getAppTemplateHttpScaleRuleAuthentication": {
                 "secretName": "secret_name",
                 "triggerParameter": "trigger_parameter"
+            },
+            "azure:containerapp/getAppTemplateInitContainer:getAppTemplateInitContainer": {
+                "commands": "command",
+                "envs": "env",
+                "ephemeralStorage": "ephemeral_storage",
+                "volumeMounts": "volume_mounts"
+            },
+            "azure:containerapp/getAppTemplateInitContainerEnv:getAppTemplateInitContainerEnv": {
+                "secretName": "secret_name"
             },
             "azure:containerapp/getAppTemplateTcpScaleRule:getAppTemplateTcpScaleRule": {
                 "authentications": "authentication",
@@ -42048,6 +42142,14 @@
             },
             "azure:core/getExtendedLocations:getExtendedLocations": {
                 "extendedLocations": "extended_locations"
+            },
+            "azure:core/getLocation:getLocation": {
+                "displayName": "display_name",
+                "zoneMappings": "zone_mappings"
+            },
+            "azure:core/getLocationZoneMapping:getLocationZoneMapping": {
+                "logicalZone": "logical_zone",
+                "physicalZone": "physical_zone"
             },
             "azure:core/getResourceGroup:getResourceGroup": {
                 "managedBy": "managed_by"
@@ -46022,7 +46124,9 @@
                 "namespacePath": "namespace_path",
                 "resourceGroupName": "resource_group_name",
                 "storageContainerId": "storage_container_id",
-                "usageModel": "usage_model"
+                "usageModel": "usage_model",
+                "verificationTimerInSeconds": "verification_timer_in_seconds",
+                "writeBackTimerInSeconds": "write_back_timer_in_seconds"
             },
             "azure:hpc/cacheBlobTarget:CacheBlobTarget": {
                 "accessPolicyName": "access_policy_name",
@@ -46036,7 +46140,9 @@
                 "namespaceJunctions": "namespace_junction",
                 "resourceGroupName": "resource_group_name",
                 "targetHostName": "target_host_name",
-                "usageModel": "usage_model"
+                "usageModel": "usage_model",
+                "verificationTimerInSeconds": "verification_timer_in_seconds",
+                "writeBackTimerInSeconds": "write_back_timer_in_seconds"
             },
             "azure:hsm/ModuleManagementNetworkProfile:ModuleManagementNetworkProfile": {
                 "networkInterfacePrivateIpAddresses": "network_interface_private_ip_addresses",
@@ -46214,6 +46320,7 @@
                 "storageUseAzuread": "storage_use_azuread",
                 "subscriptionId": "subscription_id",
                 "tenantId": "tenant_id",
+                "useAksWorkloadIdentity": "use_aks_workload_identity",
                 "useCli": "use_cli",
                 "useMsi": "use_msi",
                 "useOidc": "use_oidc"
@@ -49774,6 +49881,8 @@
                 "metricName": "metric_name"
             },
             "azure:monitoring/getWorkspace:getWorkspace": {
+                "defaultDataCollectionEndpointId": "default_data_collection_endpoint_id",
+                "defaultDataCollectionRuleId": "default_data_collection_rule_id",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "queryEndpoint": "query_endpoint",
                 "resourceGroupName": "resource_group_name"
@@ -49863,6 +49972,8 @@
                 "throttlingDuration": "throttling_duration"
             },
             "azure:monitoring/workspace:Workspace": {
+                "defaultDataCollectionEndpointId": "default_data_collection_endpoint_id",
+                "defaultDataCollectionRuleId": "default_data_collection_rule_id",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "queryEndpoint": "query_endpoint",
                 "resourceGroupName": "resource_group_name"
@@ -52855,6 +52966,7 @@
                 "cmkForQueryForced": "cmk_for_query_forced",
                 "dailyQuotaGb": "daily_quota_gb",
                 "dataCollectionRuleId": "data_collection_rule_id",
+                "immediateDataPurgeOn30DaysEnabled": "immediate_data_purge_on_30_days_enabled",
                 "internetIngestionEnabled": "internet_ingestion_enabled",
                 "internetQueryEnabled": "internet_query_enabled",
                 "localAuthenticationDisabled": "local_authentication_disabled",
@@ -53754,7 +53866,8 @@
                 "rdbBackupEnabled": "rdb_backup_enabled",
                 "rdbBackupFrequency": "rdb_backup_frequency",
                 "rdbBackupMaxSnapshotCount": "rdb_backup_max_snapshot_count",
-                "rdbStorageConnectionString": "rdb_storage_connection_string"
+                "rdbStorageConnectionString": "rdb_storage_connection_string",
+                "storageAccountSubscriptionId": "storage_account_subscription_id"
             },
             "azure:redis/cache:Cache": {
                 "enableNonSslPort": "enable_non_ssl_port",
@@ -53834,7 +53947,8 @@
                 "rdbBackupEnabled": "rdb_backup_enabled",
                 "rdbBackupFrequency": "rdb_backup_frequency",
                 "rdbBackupMaxSnapshotCount": "rdb_backup_max_snapshot_count",
-                "rdbStorageConnectionString": "rdb_storage_connection_string"
+                "rdbStorageConnectionString": "rdb_storage_connection_string",
+                "storageAccountSubscriptionId": "storage_account_subscription_id"
             },
             "azure:redis/getEnterpriseDatabase:getEnterpriseDatabase": {
                 "clusterId": "cluster_id",
@@ -56736,6 +56850,7 @@
             "storageUseAzuread": "storage_use_azuread",
             "subscriptionId": "subscription_id",
             "tenantId": "tenant_id",
+            "useAksWorkloadIdentity": "use_aks_workload_identity",
             "useCli": "use_cli",
             "useMsi": "use_msi",
             "useOidc": "use_oidc"

@@ -50,7 +50,9 @@ namespace Pulumi.Azure.DataProtection
     public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         /// </summary>
         [Output("datastoreType")]
         public Output<string> DatastoreType { get; private set; } = null!;
@@ -138,7 +140,9 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         /// </summary>
         [Input("datastoreType", required: true)]
         public Input<string> DatastoreType { get; set; } = null!;
@@ -194,7 +198,9 @@ namespace Pulumi.Azure.DataProtection
     public sealed class BackupVaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         /// </summary>
         [Input("datastoreType")]
         public Input<string>? DatastoreType { get; set; }

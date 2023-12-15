@@ -78,6 +78,11 @@ public final class GetAppResult {
      * 
      */
     private List<GetAppTemplate> templates;
+    /**
+     * @return The name of the Workload Profile in the Container App Environment in which this Container App is running.
+     * 
+     */
+    private String workloadProfileName;
 
     private GetAppResult() {}
     /**
@@ -175,6 +180,13 @@ public final class GetAppResult {
     public List<GetAppTemplate> templates() {
         return this.templates;
     }
+    /**
+     * @return The name of the Workload Profile in the Container App Environment in which this Container App is running.
+     * 
+     */
+    public String workloadProfileName() {
+        return this.workloadProfileName;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -202,6 +214,7 @@ public final class GetAppResult {
         private List<GetAppSecret> secrets;
         private Map<String,String> tags;
         private List<GetAppTemplate> templates;
+        private String workloadProfileName;
         public Builder() {}
         public Builder(GetAppResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -222,6 +235,7 @@ public final class GetAppResult {
     	      this.secrets = defaults.secrets;
     	      this.tags = defaults.tags;
     	      this.templates = defaults.templates;
+    	      this.workloadProfileName = defaults.workloadProfileName;
         }
 
         @CustomType.Setter
@@ -330,6 +344,11 @@ public final class GetAppResult {
         public Builder templates(GetAppTemplate... templates) {
             return templates(List.of(templates));
         }
+        @CustomType.Setter
+        public Builder workloadProfileName(String workloadProfileName) {
+            this.workloadProfileName = Objects.requireNonNull(workloadProfileName);
+            return this;
+        }
         public GetAppResult build() {
             final var _resultValue = new GetAppResult();
             _resultValue.containerAppEnvironmentId = containerAppEnvironmentId;
@@ -349,6 +368,7 @@ public final class GetAppResult {
             _resultValue.secrets = secrets;
             _resultValue.tags = tags;
             _resultValue.templates = templates;
+            _resultValue.workloadProfileName = workloadProfileName;
             return _resultValue;
         }
     }

@@ -20,6 +20,11 @@ export const getExtendedLocations: typeof import("./getExtendedLocations").getEx
 export const getExtendedLocationsOutput: typeof import("./getExtendedLocations").getExtendedLocationsOutput = null as any;
 utilities.lazyLoad(exports, ["getExtendedLocations","getExtendedLocationsOutput"], () => require("./getExtendedLocations"));
 
+export { GetLocationArgs, GetLocationResult, GetLocationOutputArgs } from "./getLocation";
+export const getLocation: typeof import("./getLocation").getLocation = null as any;
+export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
+
 export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
 export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
 export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;

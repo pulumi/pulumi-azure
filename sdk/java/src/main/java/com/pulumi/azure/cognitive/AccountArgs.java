@@ -57,14 +57,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="customSubdomainName")
     private @Nullable Output<String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> customSubdomainName() {
@@ -264,14 +264,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `network_acls` block as defined below.
+     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
      * 
      */
     @Import(name="networkAcls")
     private @Nullable Output<AccountNetworkAclsArgs> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
      * 
      */
     public Optional<Output<AccountNetworkAclsArgs>> networkAcls() {
@@ -480,7 +480,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customSubdomainName The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+         * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -775,7 +775,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
          * 
          * @return builder
          * 
@@ -786,7 +786,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkAcls A `network_acls` block as defined below.
+         * @param networkAcls A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
          * 
          * @return builder
          * 

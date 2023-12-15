@@ -178,6 +178,13 @@ public final class Config {
         return Codegen.stringProp("tenantId").config(config).get();
     }
 /**
+ * Allow Azure AKS Workload Identity to be used for Authentication.
+ * 
+ */
+    public Optional<Boolean> useAksWorkloadIdentity() {
+        return Codegen.booleanProp("useAksWorkloadIdentity").config(config).get();
+    }
+/**
  * Allow Azure CLI to be used for Authentication.
  * 
  */

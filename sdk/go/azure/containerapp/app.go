@@ -121,6 +121,10 @@ type App struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `template` block as detailed below.
 	Template AppTemplateOutput `pulumi:"template"`
+	// The name of the Workload Profile in the Container App Environment to place this Container App.
+	//
+	// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+	WorkloadProfileName pulumi.StringPtrOutput `pulumi:"workloadProfileName"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -205,6 +209,10 @@ type appState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `template` block as detailed below.
 	Template *AppTemplate `pulumi:"template"`
+	// The name of the Workload Profile in the Container App Environment to place this Container App.
+	//
+	// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+	WorkloadProfileName *string `pulumi:"workloadProfileName"`
 }
 
 type AppState struct {
@@ -240,6 +248,10 @@ type AppState struct {
 	Tags pulumi.StringMapInput
 	// A `template` block as detailed below.
 	Template AppTemplatePtrInput
+	// The name of the Workload Profile in the Container App Environment to place this Container App.
+	//
+	// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+	WorkloadProfileName pulumi.StringPtrInput
 }
 
 func (AppState) ElementType() reflect.Type {
@@ -269,6 +281,10 @@ type appArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `template` block as detailed below.
 	Template AppTemplate `pulumi:"template"`
+	// The name of the Workload Profile in the Container App Environment to place this Container App.
+	//
+	// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+	WorkloadProfileName *string `pulumi:"workloadProfileName"`
 }
 
 // The set of arguments for constructing a App resource.
@@ -295,6 +311,10 @@ type AppArgs struct {
 	Tags pulumi.StringMapInput
 	// A `template` block as detailed below.
 	Template AppTemplateInput
+	// The name of the Workload Profile in the Container App Environment to place this Container App.
+	//
+	// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+	WorkloadProfileName pulumi.StringPtrInput
 }
 
 func (AppArgs) ElementType() reflect.Type {
@@ -462,6 +482,13 @@ func (o AppOutput) Tags() pulumi.StringMapOutput {
 // A `template` block as detailed below.
 func (o AppOutput) Template() AppTemplateOutput {
 	return o.ApplyT(func(v *App) AppTemplateOutput { return v.Template }).(AppTemplateOutput)
+}
+
+// The name of the Workload Profile in the Container App Environment to place this Container App.
+//
+// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+func (o AppOutput) WorkloadProfileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.WorkloadProfileName }).(pulumi.StringPtrOutput)
 }
 
 type AppArrayOutput struct{ *pulumi.OutputState }

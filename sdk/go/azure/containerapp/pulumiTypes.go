@@ -1216,6 +1216,8 @@ type AppTemplate struct {
 	CustomScaleRules []AppTemplateCustomScaleRule `pulumi:"customScaleRules"`
 	// One or more `httpScaleRule` blocks as defined below.
 	HttpScaleRules []AppTemplateHttpScaleRule `pulumi:"httpScaleRules"`
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below.
+	InitContainers []AppTemplateInitContainer `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas *int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -1248,6 +1250,8 @@ type AppTemplateArgs struct {
 	CustomScaleRules AppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
 	// One or more `httpScaleRule` blocks as defined below.
 	HttpScaleRules AppTemplateHttpScaleRuleArrayInput `pulumi:"httpScaleRules"`
+	// The definition of an init container that is part of the group as documented in the `initContainer` block below.
+	InitContainers AppTemplateInitContainerArrayInput `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntPtrInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -1357,6 +1361,11 @@ func (o AppTemplateOutput) HttpScaleRules() AppTemplateHttpScaleRuleArrayOutput 
 	return o.ApplyT(func(v AppTemplate) []AppTemplateHttpScaleRule { return v.HttpScaleRules }).(AppTemplateHttpScaleRuleArrayOutput)
 }
 
+// The definition of an init container that is part of the group as documented in the `initContainer` block below.
+func (o AppTemplateOutput) InitContainers() AppTemplateInitContainerArrayOutput {
+	return o.ApplyT(func(v AppTemplate) []AppTemplateInitContainer { return v.InitContainers }).(AppTemplateInitContainerArrayOutput)
+}
+
 // The maximum number of replicas for this container.
 func (o AppTemplateOutput) MaxReplicas() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppTemplate) *int { return v.MaxReplicas }).(pulumi.IntPtrOutput)
@@ -1444,6 +1453,16 @@ func (o AppTemplatePtrOutput) HttpScaleRules() AppTemplateHttpScaleRuleArrayOutp
 		}
 		return v.HttpScaleRules
 	}).(AppTemplateHttpScaleRuleArrayOutput)
+}
+
+// The definition of an init container that is part of the group as documented in the `initContainer` block below.
+func (o AppTemplatePtrOutput) InitContainers() AppTemplateInitContainerArrayOutput {
+	return o.ApplyT(func(v *AppTemplate) []AppTemplateInitContainer {
+		if v == nil {
+			return nil
+		}
+		return v.InitContainers
+	}).(AppTemplateInitContainerArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -3458,6 +3477,420 @@ func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInp
 	}).(AppTemplateHttpScaleRuleAuthenticationOutput)
 }
 
+type AppTemplateInitContainer struct {
+	// A list of extra arguments to pass to the container.
+	Args []string `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands []string `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu *float64 `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs []AppTemplateInitContainerEnv `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage *string `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image string `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory *string `pulumi:"memory"`
+	// The name of the container
+	Name string `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts []AppTemplateInitContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// AppTemplateInitContainerInput is an input type that accepts AppTemplateInitContainerArgs and AppTemplateInitContainerOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerInput` via:
+//
+//	AppTemplateInitContainerArgs{...}
+type AppTemplateInitContainerInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerOutput() AppTemplateInitContainerOutput
+	ToAppTemplateInitContainerOutputWithContext(context.Context) AppTemplateInitContainerOutput
+}
+
+type AppTemplateInitContainerArgs struct {
+	// A list of extra arguments to pass to the container.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs AppTemplateInitContainerEnvArrayInput `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	//
+	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	//
+	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	Memory pulumi.StringPtrInput `pulumi:"memory"`
+	// The name of the container
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts AppTemplateInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (AppTemplateInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainer)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerArgs) ToAppTemplateInitContainerOutput() AppTemplateInitContainerOutput {
+	return i.ToAppTemplateInitContainerOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerArgs) ToAppTemplateInitContainerOutputWithContext(ctx context.Context) AppTemplateInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerOutput)
+}
+
+// AppTemplateInitContainerArrayInput is an input type that accepts AppTemplateInitContainerArray and AppTemplateInitContainerArrayOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerArrayInput` via:
+//
+//	AppTemplateInitContainerArray{ AppTemplateInitContainerArgs{...} }
+type AppTemplateInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerArrayOutput() AppTemplateInitContainerArrayOutput
+	ToAppTemplateInitContainerArrayOutputWithContext(context.Context) AppTemplateInitContainerArrayOutput
+}
+
+type AppTemplateInitContainerArray []AppTemplateInitContainerInput
+
+func (AppTemplateInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainer)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerArray) ToAppTemplateInitContainerArrayOutput() AppTemplateInitContainerArrayOutput {
+	return i.ToAppTemplateInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerArray) ToAppTemplateInitContainerArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerArrayOutput)
+}
+
+type AppTemplateInitContainerOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainer)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerOutput) ToAppTemplateInitContainerOutput() AppTemplateInitContainerOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerOutput) ToAppTemplateInitContainerOutputWithContext(ctx context.Context) AppTemplateInitContainerOutput {
+	return o
+}
+
+// A list of extra arguments to pass to the container.
+func (o AppTemplateInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+func (o AppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+func (o AppTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
+}
+
+// One or more `env` blocks as detailed below.
+func (o AppTemplateInitContainerOutput) Envs() AppTemplateInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) []AppTemplateInitContainerEnv { return v.Envs }).(AppTemplateInitContainerEnvArrayOutput)
+}
+
+// The amount of ephemeral storage available to the Container App.
+//
+// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+func (o AppTemplateInitContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
+}
+
+// The image to use to create the container.
+func (o AppTemplateInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+//
+// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+func (o AppTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+// The name of the container
+func (o AppTemplateInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `volumeMounts` block as detailed below.
+func (o AppTemplateInitContainerOutput) VolumeMounts() AppTemplateInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v AppTemplateInitContainer) []AppTemplateInitContainerVolumeMount { return v.VolumeMounts }).(AppTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type AppTemplateInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainer)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerArrayOutput) ToAppTemplateInitContainerArrayOutput() AppTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerArrayOutput) ToAppTemplateInitContainerArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerArrayOutput) Index(i pulumi.IntInput) AppTemplateInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateInitContainer {
+		return vs[0].([]AppTemplateInitContainer)[vs[1].(int)]
+	}).(AppTemplateInitContainerOutput)
+}
+
+type AppTemplateInitContainerEnv struct {
+	// The name of the environment variable for the container.
+	Name string `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName *string `pulumi:"secretName"`
+	// The value for this environment variable.
+	//
+	// > **NOTE:** This value is ignored if `secretName` is used
+	Value *string `pulumi:"value"`
+}
+
+// AppTemplateInitContainerEnvInput is an input type that accepts AppTemplateInitContainerEnvArgs and AppTemplateInitContainerEnvOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerEnvInput` via:
+//
+//	AppTemplateInitContainerEnvArgs{...}
+type AppTemplateInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerEnvOutput() AppTemplateInitContainerEnvOutput
+	ToAppTemplateInitContainerEnvOutputWithContext(context.Context) AppTemplateInitContainerEnvOutput
+}
+
+type AppTemplateInitContainerEnvArgs struct {
+	// The name of the environment variable for the container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
+	// The value for this environment variable.
+	//
+	// > **NOTE:** This value is ignored if `secretName` is used
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AppTemplateInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerEnvArgs) ToAppTemplateInitContainerEnvOutput() AppTemplateInitContainerEnvOutput {
+	return i.ToAppTemplateInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerEnvArgs) ToAppTemplateInitContainerEnvOutputWithContext(ctx context.Context) AppTemplateInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerEnvOutput)
+}
+
+// AppTemplateInitContainerEnvArrayInput is an input type that accepts AppTemplateInitContainerEnvArray and AppTemplateInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerEnvArrayInput` via:
+//
+//	AppTemplateInitContainerEnvArray{ AppTemplateInitContainerEnvArgs{...} }
+type AppTemplateInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerEnvArrayOutput() AppTemplateInitContainerEnvArrayOutput
+	ToAppTemplateInitContainerEnvArrayOutputWithContext(context.Context) AppTemplateInitContainerEnvArrayOutput
+}
+
+type AppTemplateInitContainerEnvArray []AppTemplateInitContainerEnvInput
+
+func (AppTemplateInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerEnvArray) ToAppTemplateInitContainerEnvArrayOutput() AppTemplateInitContainerEnvArrayOutput {
+	return i.ToAppTemplateInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerEnvArray) ToAppTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerEnvArrayOutput)
+}
+
+type AppTemplateInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerEnvOutput) ToAppTemplateInitContainerEnvOutput() AppTemplateInitContainerEnvOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerEnvOutput) ToAppTemplateInitContainerEnvOutputWithContext(ctx context.Context) AppTemplateInitContainerEnvOutput {
+	return o
+}
+
+// The name of the environment variable for the container.
+func (o AppTemplateInitContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o AppTemplateInitContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerEnv) *string { return v.SecretName }).(pulumi.StringPtrOutput)
+}
+
+// The value for this environment variable.
+//
+// > **NOTE:** This value is ignored if `secretName` is used
+func (o AppTemplateInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AppTemplateInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerEnvArrayOutput) ToAppTemplateInitContainerEnvArrayOutput() AppTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerEnvArrayOutput) ToAppTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerEnvArrayOutput) Index(i pulumi.IntInput) AppTemplateInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateInitContainerEnv {
+		return vs[0].([]AppTemplateInitContainerEnv)[vs[1].(int)]
+	}).(AppTemplateInitContainerEnvOutput)
+}
+
+type AppTemplateInitContainerVolumeMount struct {
+	// The name of the Volume to be mounted in the container.
+	Name string `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+}
+
+// AppTemplateInitContainerVolumeMountInput is an input type that accepts AppTemplateInitContainerVolumeMountArgs and AppTemplateInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerVolumeMountInput` via:
+//
+//	AppTemplateInitContainerVolumeMountArgs{...}
+type AppTemplateInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerVolumeMountOutput() AppTemplateInitContainerVolumeMountOutput
+	ToAppTemplateInitContainerVolumeMountOutputWithContext(context.Context) AppTemplateInitContainerVolumeMountOutput
+}
+
+type AppTemplateInitContainerVolumeMountArgs struct {
+	// The name of the Volume to be mounted in the container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (AppTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerVolumeMountArgs) ToAppTemplateInitContainerVolumeMountOutput() AppTemplateInitContainerVolumeMountOutput {
+	return i.ToAppTemplateInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerVolumeMountArgs) ToAppTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) AppTemplateInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerVolumeMountOutput)
+}
+
+// AppTemplateInitContainerVolumeMountArrayInput is an input type that accepts AppTemplateInitContainerVolumeMountArray and AppTemplateInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `AppTemplateInitContainerVolumeMountArrayInput` via:
+//
+//	AppTemplateInitContainerVolumeMountArray{ AppTemplateInitContainerVolumeMountArgs{...} }
+type AppTemplateInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToAppTemplateInitContainerVolumeMountArrayOutput() AppTemplateInitContainerVolumeMountArrayOutput
+	ToAppTemplateInitContainerVolumeMountArrayOutputWithContext(context.Context) AppTemplateInitContainerVolumeMountArrayOutput
+}
+
+type AppTemplateInitContainerVolumeMountArray []AppTemplateInitContainerVolumeMountInput
+
+func (AppTemplateInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i AppTemplateInitContainerVolumeMountArray) ToAppTemplateInitContainerVolumeMountArrayOutput() AppTemplateInitContainerVolumeMountArrayOutput {
+	return i.ToAppTemplateInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i AppTemplateInitContainerVolumeMountArray) ToAppTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type AppTemplateInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerVolumeMountOutput) ToAppTemplateInitContainerVolumeMountOutput() AppTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerVolumeMountOutput) ToAppTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) AppTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+// The name of the Volume to be mounted in the container.
+func (o AppTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o AppTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type AppTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTemplateInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o AppTemplateInitContainerVolumeMountArrayOutput) ToAppTemplateInitContainerVolumeMountArrayOutput() AppTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerVolumeMountArrayOutput) ToAppTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) AppTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o AppTemplateInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) AppTemplateInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateInitContainerVolumeMount {
+		return vs[0].([]AppTemplateInitContainerVolumeMount)[vs[1].(int)]
+	}).(AppTemplateInitContainerVolumeMountOutput)
+}
+
 type AppTemplateTcpScaleRule struct {
 	// Zero or more `authentication` blocks as defined below.
 	Authentications []AppTemplateTcpScaleRuleAuthentication `pulumi:"authentications"`
@@ -4998,6 +5431,8 @@ type GetAppTemplate struct {
 	Containers       []GetAppTemplateContainer       `pulumi:"containers"`
 	CustomScaleRules []GetAppTemplateCustomScaleRule `pulumi:"customScaleRules"`
 	HttpScaleRules   []GetAppTemplateHttpScaleRule   `pulumi:"httpScaleRules"`
+	// One or more `initContainer` blocks as detailed below.
+	InitContainers []GetAppTemplateInitContainer `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas int `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -5026,6 +5461,8 @@ type GetAppTemplateArgs struct {
 	Containers       GetAppTemplateContainerArrayInput       `pulumi:"containers"`
 	CustomScaleRules GetAppTemplateCustomScaleRuleArrayInput `pulumi:"customScaleRules"`
 	HttpScaleRules   GetAppTemplateHttpScaleRuleArrayInput   `pulumi:"httpScaleRules"`
+	// One or more `initContainer` blocks as detailed below.
+	InitContainers GetAppTemplateInitContainerArrayInput `pulumi:"initContainers"`
 	// The maximum number of replicas for this container.
 	MaxReplicas pulumi.IntInput `pulumi:"maxReplicas"`
 	// The minimum number of replicas for this container.
@@ -5103,6 +5540,11 @@ func (o GetAppTemplateOutput) CustomScaleRules() GetAppTemplateCustomScaleRuleAr
 
 func (o GetAppTemplateOutput) HttpScaleRules() GetAppTemplateHttpScaleRuleArrayOutput {
 	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateHttpScaleRule { return v.HttpScaleRules }).(GetAppTemplateHttpScaleRuleArrayOutput)
+}
+
+// One or more `initContainer` blocks as detailed below.
+func (o GetAppTemplateOutput) InitContainers() GetAppTemplateInitContainerArrayOutput {
+	return o.ApplyT(func(v GetAppTemplate) []GetAppTemplateInitContainer { return v.InitContainers }).(GetAppTemplateInitContainerArrayOutput)
 }
 
 // The maximum number of replicas for this container.
@@ -7060,6 +7502,396 @@ func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.Int
 	}).(GetAppTemplateHttpScaleRuleAuthenticationOutput)
 }
 
+type GetAppTemplateInitContainer struct {
+	// A list of extra arguments to pass to the container.
+	Args []string `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands []string `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	Cpu float64 `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs []GetAppTemplateInitContainerEnv `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	EphemeralStorage string `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image string `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	Memory string `pulumi:"memory"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts []GetAppTemplateInitContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// GetAppTemplateInitContainerInput is an input type that accepts GetAppTemplateInitContainerArgs and GetAppTemplateInitContainerOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerInput` via:
+//
+//	GetAppTemplateInitContainerArgs{...}
+type GetAppTemplateInitContainerInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerOutput() GetAppTemplateInitContainerOutput
+	ToGetAppTemplateInitContainerOutputWithContext(context.Context) GetAppTemplateInitContainerOutput
+}
+
+type GetAppTemplateInitContainerArgs struct {
+	// A list of extra arguments to pass to the container.
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	Cpu pulumi.Float64Input `pulumi:"cpu"`
+	// One or more `env` blocks as detailed below.
+	Envs GetAppTemplateInitContainerEnvArrayInput `pulumi:"envs"`
+	// The amount of ephemeral storage available to the Container App.
+	EphemeralStorage pulumi.StringInput `pulumi:"ephemeralStorage"`
+	// The image to use to create the container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+	Memory pulumi.StringInput `pulumi:"memory"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `volumeMounts` block as detailed below.
+	VolumeMounts GetAppTemplateInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (GetAppTemplateInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainer)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerArgs) ToGetAppTemplateInitContainerOutput() GetAppTemplateInitContainerOutput {
+	return i.ToGetAppTemplateInitContainerOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerArgs) ToGetAppTemplateInitContainerOutputWithContext(ctx context.Context) GetAppTemplateInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerOutput)
+}
+
+// GetAppTemplateInitContainerArrayInput is an input type that accepts GetAppTemplateInitContainerArray and GetAppTemplateInitContainerArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerArrayInput` via:
+//
+//	GetAppTemplateInitContainerArray{ GetAppTemplateInitContainerArgs{...} }
+type GetAppTemplateInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerArrayOutput() GetAppTemplateInitContainerArrayOutput
+	ToGetAppTemplateInitContainerArrayOutputWithContext(context.Context) GetAppTemplateInitContainerArrayOutput
+}
+
+type GetAppTemplateInitContainerArray []GetAppTemplateInitContainerInput
+
+func (GetAppTemplateInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainer)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerArray) ToGetAppTemplateInitContainerArrayOutput() GetAppTemplateInitContainerArrayOutput {
+	return i.ToGetAppTemplateInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerArray) ToGetAppTemplateInitContainerArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerArrayOutput)
+}
+
+type GetAppTemplateInitContainerOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainer)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerOutput) ToGetAppTemplateInitContainerOutput() GetAppTemplateInitContainerOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerOutput) ToGetAppTemplateInitContainerOutputWithContext(ctx context.Context) GetAppTemplateInitContainerOutput {
+	return o
+}
+
+// A list of extra arguments to pass to the container.
+func (o GetAppTemplateInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+func (o GetAppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+func (o GetAppTemplateInitContainerOutput) Cpu() pulumi.Float64Output {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
+}
+
+// One or more `env` blocks as detailed below.
+func (o GetAppTemplateInitContainerOutput) Envs() GetAppTemplateInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) []GetAppTemplateInitContainerEnv { return v.Envs }).(GetAppTemplateInitContainerEnvArrayOutput)
+}
+
+// The amount of ephemeral storage available to the Container App.
+func (o GetAppTemplateInitContainerOutput) EphemeralStorage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.EphemeralStorage }).(pulumi.StringOutput)
+}
+
+// The image to use to create the container.
+func (o GetAppTemplateInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+func (o GetAppTemplateInitContainerOutput) Memory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.Memory }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppTemplateInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `volumeMounts` block as detailed below.
+func (o GetAppTemplateInitContainerOutput) VolumeMounts() GetAppTemplateInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainer) []GetAppTemplateInitContainerVolumeMount { return v.VolumeMounts }).(GetAppTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type GetAppTemplateInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainer)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerArrayOutput) ToGetAppTemplateInitContainerArrayOutput() GetAppTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerArrayOutput) ToGetAppTemplateInitContainerArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerArrayOutput) Index(i pulumi.IntInput) GetAppTemplateInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateInitContainer {
+		return vs[0].([]GetAppTemplateInitContainer)[vs[1].(int)]
+	}).(GetAppTemplateInitContainerOutput)
+}
+
+type GetAppTemplateInitContainerEnv struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName string `pulumi:"secretName"`
+	// The HTTP Header value.
+	Value string `pulumi:"value"`
+}
+
+// GetAppTemplateInitContainerEnvInput is an input type that accepts GetAppTemplateInitContainerEnvArgs and GetAppTemplateInitContainerEnvOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerEnvInput` via:
+//
+//	GetAppTemplateInitContainerEnvArgs{...}
+type GetAppTemplateInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerEnvOutput() GetAppTemplateInitContainerEnvOutput
+	ToGetAppTemplateInitContainerEnvOutputWithContext(context.Context) GetAppTemplateInitContainerEnvOutput
+}
+
+type GetAppTemplateInitContainerEnvArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the secret that contains the value for this environment variable.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+	// The HTTP Header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAppTemplateInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerEnvArgs) ToGetAppTemplateInitContainerEnvOutput() GetAppTemplateInitContainerEnvOutput {
+	return i.ToGetAppTemplateInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerEnvArgs) ToGetAppTemplateInitContainerEnvOutputWithContext(ctx context.Context) GetAppTemplateInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerEnvOutput)
+}
+
+// GetAppTemplateInitContainerEnvArrayInput is an input type that accepts GetAppTemplateInitContainerEnvArray and GetAppTemplateInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerEnvArrayInput` via:
+//
+//	GetAppTemplateInitContainerEnvArray{ GetAppTemplateInitContainerEnvArgs{...} }
+type GetAppTemplateInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerEnvArrayOutput() GetAppTemplateInitContainerEnvArrayOutput
+	ToGetAppTemplateInitContainerEnvArrayOutputWithContext(context.Context) GetAppTemplateInitContainerEnvArrayOutput
+}
+
+type GetAppTemplateInitContainerEnvArray []GetAppTemplateInitContainerEnvInput
+
+func (GetAppTemplateInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerEnvArray) ToGetAppTemplateInitContainerEnvArrayOutput() GetAppTemplateInitContainerEnvArrayOutput {
+	return i.ToGetAppTemplateInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerEnvArray) ToGetAppTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerEnvArrayOutput)
+}
+
+type GetAppTemplateInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerEnvOutput) ToGetAppTemplateInitContainerEnvOutput() GetAppTemplateInitContainerEnvOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerEnvOutput) ToGetAppTemplateInitContainerEnvOutputWithContext(ctx context.Context) GetAppTemplateInitContainerEnvOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateInitContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the secret that contains the value for this environment variable.
+func (o GetAppTemplateInitContainerEnvOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerEnv) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+// The HTTP Header value.
+func (o GetAppTemplateInitContainerEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainerEnv)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerEnvArrayOutput) ToGetAppTemplateInitContainerEnvArrayOutput() GetAppTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerEnvArrayOutput) ToGetAppTemplateInitContainerEnvArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerEnvArrayOutput) Index(i pulumi.IntInput) GetAppTemplateInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateInitContainerEnv {
+		return vs[0].([]GetAppTemplateInitContainerEnv)[vs[1].(int)]
+	}).(GetAppTemplateInitContainerEnvOutput)
+}
+
+type GetAppTemplateInitContainerVolumeMount struct {
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path string `pulumi:"path"`
+}
+
+// GetAppTemplateInitContainerVolumeMountInput is an input type that accepts GetAppTemplateInitContainerVolumeMountArgs and GetAppTemplateInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerVolumeMountInput` via:
+//
+//	GetAppTemplateInitContainerVolumeMountArgs{...}
+type GetAppTemplateInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerVolumeMountOutput() GetAppTemplateInitContainerVolumeMountOutput
+	ToGetAppTemplateInitContainerVolumeMountOutputWithContext(context.Context) GetAppTemplateInitContainerVolumeMountOutput
+}
+
+type GetAppTemplateInitContainerVolumeMountArgs struct {
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path in the container at which to mount this volume.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetAppTemplateInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerVolumeMountArgs) ToGetAppTemplateInitContainerVolumeMountOutput() GetAppTemplateInitContainerVolumeMountOutput {
+	return i.ToGetAppTemplateInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerVolumeMountArgs) ToGetAppTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) GetAppTemplateInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerVolumeMountOutput)
+}
+
+// GetAppTemplateInitContainerVolumeMountArrayInput is an input type that accepts GetAppTemplateInitContainerVolumeMountArray and GetAppTemplateInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `GetAppTemplateInitContainerVolumeMountArrayInput` via:
+//
+//	GetAppTemplateInitContainerVolumeMountArray{ GetAppTemplateInitContainerVolumeMountArgs{...} }
+type GetAppTemplateInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToGetAppTemplateInitContainerVolumeMountArrayOutput() GetAppTemplateInitContainerVolumeMountArrayOutput
+	ToGetAppTemplateInitContainerVolumeMountArrayOutputWithContext(context.Context) GetAppTemplateInitContainerVolumeMountArrayOutput
+}
+
+type GetAppTemplateInitContainerVolumeMountArray []GetAppTemplateInitContainerVolumeMountInput
+
+func (GetAppTemplateInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetAppTemplateInitContainerVolumeMountArray) ToGetAppTemplateInitContainerVolumeMountArrayOutput() GetAppTemplateInitContainerVolumeMountArrayOutput {
+	return i.ToGetAppTemplateInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppTemplateInitContainerVolumeMountArray) ToGetAppTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateInitContainerVolumeMountArrayOutput)
+}
+
+type GetAppTemplateInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerVolumeMountOutput) ToGetAppTemplateInitContainerVolumeMountOutput() GetAppTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerVolumeMountOutput) ToGetAppTemplateInitContainerVolumeMountOutputWithContext(ctx context.Context) GetAppTemplateInitContainerVolumeMountOutput {
+	return o
+}
+
+// The name of the Container App.
+func (o GetAppTemplateInitContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path in the container at which to mount this volume.
+func (o GetAppTemplateInitContainerVolumeMountOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppTemplateInitContainerVolumeMount) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetAppTemplateInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppTemplateInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppTemplateInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetAppTemplateInitContainerVolumeMountArrayOutput) ToGetAppTemplateInitContainerVolumeMountArrayOutput() GetAppTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerVolumeMountArrayOutput) ToGetAppTemplateInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetAppTemplateInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetAppTemplateInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) GetAppTemplateInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateInitContainerVolumeMount {
+		return vs[0].([]GetAppTemplateInitContainerVolumeMount)[vs[1].(int)]
+	}).(GetAppTemplateInitContainerVolumeMountOutput)
+}
+
 type GetAppTemplateTcpScaleRule struct {
 	Authentications    []GetAppTemplateTcpScaleRuleAuthentication `pulumi:"authentications"`
 	ConcurrentRequests string                                     `pulumi:"concurrentRequests"`
@@ -7436,6 +8268,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleArrayInput)(nil)).Elem(), AppTemplateHttpScaleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateHttpScaleRuleAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateHttpScaleRuleAuthenticationArrayInput)(nil)).Elem(), AppTemplateHttpScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerInput)(nil)).Elem(), AppTemplateInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerArrayInput)(nil)).Elem(), AppTemplateInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerEnvInput)(nil)).Elem(), AppTemplateInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerEnvArrayInput)(nil)).Elem(), AppTemplateInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerVolumeMountInput)(nil)).Elem(), AppTemplateInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateInitContainerVolumeMountArrayInput)(nil)).Elem(), AppTemplateInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleInput)(nil)).Elem(), AppTemplateTcpScaleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleArrayInput)(nil)).Elem(), AppTemplateTcpScaleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTemplateTcpScaleRuleAuthenticationInput)(nil)).Elem(), AppTemplateTcpScaleRuleAuthenticationArgs{})
@@ -7494,6 +8332,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateHttpScaleRuleAuthenticationArrayInput)(nil)).Elem(), GetAppTemplateHttpScaleRuleAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerInput)(nil)).Elem(), GetAppTemplateInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerArrayInput)(nil)).Elem(), GetAppTemplateInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerEnvInput)(nil)).Elem(), GetAppTemplateInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerEnvArrayInput)(nil)).Elem(), GetAppTemplateInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerVolumeMountInput)(nil)).Elem(), GetAppTemplateInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateInitContainerVolumeMountArrayInput)(nil)).Elem(), GetAppTemplateInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleArrayInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppTemplateTcpScaleRuleAuthenticationInput)(nil)).Elem(), GetAppTemplateTcpScaleRuleAuthenticationArgs{})
@@ -7546,6 +8390,12 @@ func init() {
 	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleAuthenticationOutput{})
 	pulumi.RegisterOutputType(AppTemplateHttpScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(AppTemplateInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleOutput{})
 	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppTemplateTcpScaleRuleAuthenticationOutput{})
@@ -7604,6 +8454,12 @@ func init() {
 	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleAuthenticationOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateHttpScaleRuleAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(GetAppTemplateInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetAppTemplateTcpScaleRuleAuthenticationOutput{})

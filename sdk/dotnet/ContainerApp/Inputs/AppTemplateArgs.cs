@@ -60,6 +60,18 @@ namespace Pulumi.Azure.ContainerApp.Inputs
             set => _httpScaleRules = value;
         }
 
+        [Input("initContainers")]
+        private InputList<Inputs.AppTemplateInitContainerArgs>? _initContainers;
+
+        /// <summary>
+        /// The definition of an init container that is part of the group as documented in the `init_container` block below.
+        /// </summary>
+        public InputList<Inputs.AppTemplateInitContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.AppTemplateInitContainerArgs>());
+            set => _initContainers = value;
+        }
+
         /// <summary>
         /// The maximum number of replicas for this container.
         /// </summary>

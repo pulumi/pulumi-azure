@@ -136,6 +136,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args ? args.subscriptionId : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["useAksWorkloadIdentity"] = pulumi.output(args ? args.useAksWorkloadIdentity : undefined).apply(JSON.stringify);
             resourceInputs["useCli"] = pulumi.output(args ? args.useCli : undefined).apply(JSON.stringify);
             resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
             resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
@@ -242,6 +243,10 @@ export interface ProviderArgs {
      * The Tenant ID which should be used.
      */
     tenantId?: pulumi.Input<string>;
+    /**
+     * Allow Azure AKS Workload Identity to be used for Authentication.
+     */
+    useAksWorkloadIdentity?: pulumi.Input<boolean>;
     /**
      * Allow Azure CLI to be used for Authentication.
      */

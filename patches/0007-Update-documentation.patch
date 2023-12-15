@@ -186,15 +186,19 @@ index 96e5faf55a..8d6316a6e8 100644
  
  * `parameter_values` - The parameter values for the referenced policy rule. This field is a JSON object.
 diff --git a/website/docs/d/redis_cache.html.markdown b/website/docs/d/redis_cache.html.markdown
-index 0448d9004a..3f87368621 100644
+index d9f34055f6..df3d50e65f 100644
 --- a/website/docs/d/redis_cache.html.markdown
 +++ b/website/docs/d/redis_cache.html.markdown
-@@ -106,8 +106,6 @@ A `redis_configuration` block exports the following:
+@@ -106,10 +106,10 @@ A `redis_configuration` block exports the following:
  
  * `rdb_storage_connection_string` - The Connection String to the Storage Account. Only supported for Premium SKUs.
  
 -~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignore_changes` attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.:
 -
+ * `storage_account_subscription_id` - The ID of the Subscription containing the Storage Account.
+ 
++~> **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` resource option to ignore changes to `storage_account_subscription_id`.
++
  ## Timeouts
  
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
@@ -743,7 +747,7 @@ index 0000000000..067d552662
 +
 +-> **NOTE:** This ID format is unique to this provider and is composed of the Service Principal's Object ID and the Service Principal Password's Key ID in the format `{ServicePrincipalObjectId}/{ServicePrincipalPasswordKeyId}`.
 diff --git a/website/docs/r/batch_account.html.markdown b/website/docs/r/batch_account.html.markdown
-index 71a784a1d5..2e0c3f6b0c 100644
+index 6866de1647..5103ff4b1b 100644
 --- a/website/docs/r/batch_account.html.markdown
 +++ b/website/docs/r/batch_account.html.markdown
 @@ -49,7 +49,7 @@ The following arguments are supported:
@@ -993,7 +997,7 @@ index f989739c54..d1e5387d51 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index c45421c25f..5ea881d4cc 100644
+index 328b67fb87..2f2c859f4e 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1795,7 +1799,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 06705f0efa..299ac83d56 100644
+index 9befebd866..ecb02d78da 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1815,7 +1819,7 @@ index 06705f0efa..299ac83d56 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -390,7 +384,7 @@ A `default_node_pool` block supports the following:
+@@ -392,7 +386,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1824,7 +1828,7 @@ index 06705f0efa..299ac83d56 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -450,7 +444,7 @@ A `default_node_pool` block supports the following:
+@@ -452,7 +446,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1833,7 +1837,7 @@ index 06705f0efa..299ac83d56 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -476,7 +470,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -478,7 +472,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1842,7 +1846,7 @@ index 06705f0efa..299ac83d56 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -701,8 +695,6 @@ A `network_profile` block supports the following:
+@@ -703,8 +697,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1851,7 +1855,7 @@ index 06705f0efa..299ac83d56 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1035,19 +1027,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1037,19 +1029,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2141,7 +2145,7 @@ index 03f2f27deb..f48028f10c 100644
 --> **NOTE:** This is a Terraform specific Resource ID which uses the format `{resourceId}|{diagnosticSettingName}`
 +-> **NOTE:** This is an ID specific to this resource provider which uses the format `{resourceId}|{diagnosticSettingName}`
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index 4a5511387c..0600716333 100644
+index b38cae631a..a552d77504 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -2403,7 +2407,7 @@ index 0cea957b79..afd6bbc42f 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index 7dd1cc421b..8862c65667 100644
+index 858fed9239..88800f0aba 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2422,8 +2426,8 @@ index 7dd1cc421b..8862c65667 100644
 -~> **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignore_changes` attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.:
 +~> **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
  
- ```hcl
- resource "azurerm_redis_cache" "example" {
+ * `storage_account_subscription_id` - (Optional) The ID of the Subscription containing the Storage Account.
+ 
 diff --git a/website/docs/r/relay_hybrid_connection.html.markdown b/website/docs/r/relay_hybrid_connection.html.markdown
 index feea509704..d9bdbe11fc 100644
 --- a/website/docs/r/relay_hybrid_connection.html.markdown
@@ -2832,10 +2836,10 @@ index 90c527a40a..785001d398 100644
 +!> **NOTE:** When importing a Subscription that was not created programmatically, either by this provider resource or using the Alias API, it will have no Alias ID to import via `pulumi import`.
 +In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 diff --git a/website/docs/r/synapse_role_assignment.html.markdown b/website/docs/r/synapse_role_assignment.html.markdown
-index 9c824bfc0e..7fc6576a11 100644
+index ae32a169ea..8e5bc03cdc 100644
 --- a/website/docs/r/synapse_role_assignment.html.markdown
 +++ b/website/docs/r/synapse_role_assignment.html.markdown
-@@ -104,4 +104,4 @@ Synapse Role Assignment can be imported using the `resource id`, e.g.
+@@ -108,4 +108,4 @@ Synapse Role Assignment can be imported using the `resource id`, e.g.
  terraform import azurerm_synapse_role_assignment.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000"
  ```
  
@@ -2984,7 +2988,7 @@ index 27d85b90e1..f69bf23dc6 100644
 --> **Please Note:** This is a Terraform Unique ID matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 +-> **Please Note:** This is a ID (specific to this provider) matching the format: `{virtualMachineID}/dataDisks/{diskName}`
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 0000865894..885fc7632e 100644
+index f96d4cc7bd..416bf679b8 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-

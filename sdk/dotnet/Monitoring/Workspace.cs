@@ -52,6 +52,18 @@ namespace Pulumi.Azure.Monitoring
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        /// </summary>
+        [Output("defaultDataCollectionEndpointId")]
+        public Output<string> DefaultDataCollectionEndpointId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        /// </summary>
+        [Output("defaultDataCollectionRuleId")]
+        public Output<string> DefaultDataCollectionRuleId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -177,6 +189,18 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        /// </summary>
+        [Input("defaultDataCollectionEndpointId")]
+        public Input<string>? DefaultDataCollectionEndpointId { get; set; }
+
+        /// <summary>
+        /// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        /// </summary>
+        [Input("defaultDataCollectionRuleId")]
+        public Input<string>? DefaultDataCollectionRuleId { get; set; }
+
         /// <summary>
         /// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         /// </summary>

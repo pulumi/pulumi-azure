@@ -124,6 +124,14 @@ namespace Pulumi.Azure.Monitoring
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        /// </summary>
+        public readonly string DefaultDataCollectionEndpointId;
+        /// <summary>
+        /// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        /// </summary>
+        public readonly string DefaultDataCollectionRuleId;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -148,6 +156,10 @@ namespace Pulumi.Azure.Monitoring
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string defaultDataCollectionEndpointId,
+
+            string defaultDataCollectionRuleId,
+
             string id,
 
             string location,
@@ -162,6 +174,8 @@ namespace Pulumi.Azure.Monitoring
 
             ImmutableDictionary<string, string> tags)
         {
+            DefaultDataCollectionEndpointId = defaultDataCollectionEndpointId;
+            DefaultDataCollectionRuleId = defaultDataCollectionRuleId;
             Id = id;
             Location = location;
             Name = name;

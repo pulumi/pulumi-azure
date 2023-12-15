@@ -41,12 +41,6 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
      * 
      */
     private String clientId;
-    /**
-     * @return The thumbprint of the certificate used for signing purposes.
-     * 
-     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-     * 
-     */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
@@ -117,12 +111,6 @@ public final class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The thumbprint of the certificate used for signing purposes.
-     * 
-     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-     * 
-     */
     public Optional<String> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }

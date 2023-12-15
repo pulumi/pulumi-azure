@@ -165,8 +165,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
                  server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a PostgreSQL Flexible Server Database.
-
         ## Example Usage
 
         ```python
@@ -210,8 +208,6 @@ class FlexibleServerDatabase(pulumi.CustomResource):
                  args: FlexibleServerDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a PostgreSQL Flexible Server Database.
-
         ## Example Usage
 
         ```python

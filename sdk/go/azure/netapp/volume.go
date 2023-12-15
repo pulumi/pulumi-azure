@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a NetApp Volume.
-//
 // ## Import
 //
 // NetApp Volumes can be imported using the `resource id`, e.g.

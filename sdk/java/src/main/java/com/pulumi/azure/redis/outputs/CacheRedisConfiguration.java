@@ -140,6 +140,11 @@ public final class CacheRedisConfiguration {
      * 
      * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
      * 
+     */
+    private @Nullable String rdbStorageConnectionString;
+    /**
+     * @return The ID of the Subscription containing the Storage Account.
+     * 
      * ```java
      * package generated_program;
      * 
@@ -170,7 +175,7 @@ public final class CacheRedisConfiguration {
      * ```
      * 
      */
-    private @Nullable String rdbStorageConnectionString;
+    private @Nullable String storageAccountSubscriptionId;
 
     private CacheRedisConfiguration() {}
     /**
@@ -328,6 +333,13 @@ public final class CacheRedisConfiguration {
      * 
      * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
      * 
+     */
+    public Optional<String> rdbStorageConnectionString() {
+        return Optional.ofNullable(this.rdbStorageConnectionString);
+    }
+    /**
+     * @return The ID of the Subscription containing the Storage Account.
+     * 
      * ```java
      * package generated_program;
      * 
@@ -358,8 +370,8 @@ public final class CacheRedisConfiguration {
      * ```
      * 
      */
-    public Optional<String> rdbStorageConnectionString() {
-        return Optional.ofNullable(this.rdbStorageConnectionString);
+    public Optional<String> storageAccountSubscriptionId() {
+        return Optional.ofNullable(this.storageAccountSubscriptionId);
     }
 
     public static Builder builder() {
@@ -386,6 +398,7 @@ public final class CacheRedisConfiguration {
         private @Nullable Integer rdbBackupFrequency;
         private @Nullable Integer rdbBackupMaxSnapshotCount;
         private @Nullable String rdbStorageConnectionString;
+        private @Nullable String storageAccountSubscriptionId;
         public Builder() {}
         public Builder(CacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -404,6 +417,7 @@ public final class CacheRedisConfiguration {
     	      this.rdbBackupFrequency = defaults.rdbBackupFrequency;
     	      this.rdbBackupMaxSnapshotCount = defaults.rdbBackupMaxSnapshotCount;
     	      this.rdbStorageConnectionString = defaults.rdbStorageConnectionString;
+    	      this.storageAccountSubscriptionId = defaults.storageAccountSubscriptionId;
         }
 
         @CustomType.Setter
@@ -481,6 +495,11 @@ public final class CacheRedisConfiguration {
             this.rdbStorageConnectionString = rdbStorageConnectionString;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageAccountSubscriptionId(@Nullable String storageAccountSubscriptionId) {
+            this.storageAccountSubscriptionId = storageAccountSubscriptionId;
+            return this;
+        }
         public CacheRedisConfiguration build() {
             final var _resultValue = new CacheRedisConfiguration();
             _resultValue.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
@@ -498,6 +517,7 @@ public final class CacheRedisConfiguration {
             _resultValue.rdbBackupFrequency = rdbBackupFrequency;
             _resultValue.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             _resultValue.rdbStorageConnectionString = rdbStorageConnectionString;
+            _resultValue.storageAccountSubscriptionId = storageAccountSubscriptionId;
             return _resultValue;
         }
     }

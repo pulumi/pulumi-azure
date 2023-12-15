@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAccountResult',
@@ -21,13 +22,16 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, id=None, kind=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
+    def __init__(__self__, endpoint=None, id=None, identities=None, kind=None, location=None, name=None, primary_access_key=None, qna_runtime_endpoint=None, resource_group_name=None, secondary_access_key=None, sku_name=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -71,6 +75,14 @@ class GetAccountResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetAccountIdentityResult']:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -147,6 +159,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             endpoint=self.endpoint,
             id=self.id,
+            identities=self.identities,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -191,6 +204,7 @@ def get_account(name: Optional[str] = None,
     return AwaitableGetAccountResult(
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),

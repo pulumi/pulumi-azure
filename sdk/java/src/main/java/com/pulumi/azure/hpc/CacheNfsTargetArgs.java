@@ -6,6 +6,7 @@ package com.pulumi.azure.hpc;
 import com.pulumi.azure.hpc.inputs.CacheNfsTargetNamespaceJunctionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -107,6 +108,36 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         return this.usageModel;
     }
 
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Import(name="verificationTimerInSeconds")
+    private @Nullable Output<Integer> verificationTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Optional<Output<Integer>> verificationTimerInSeconds() {
+        return Optional.ofNullable(this.verificationTimerInSeconds);
+    }
+
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Import(name="writeBackTimerInSeconds")
+    private @Nullable Output<Integer> writeBackTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Optional<Output<Integer>> writeBackTimerInSeconds() {
+        return Optional.ofNullable(this.writeBackTimerInSeconds);
+    }
+
     private CacheNfsTargetArgs() {}
 
     private CacheNfsTargetArgs(CacheNfsTargetArgs $) {
@@ -116,6 +147,8 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         this.resourceGroupName = $.resourceGroupName;
         this.targetHostName = $.targetHostName;
         this.usageModel = $.usageModel;
+        this.verificationTimerInSeconds = $.verificationTimerInSeconds;
+        this.writeBackTimerInSeconds = $.writeBackTimerInSeconds;
     }
 
     public static Builder builder() {
@@ -270,6 +303,48 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder usageModel(String usageModel) {
             return usageModel(Output.of(usageModel));
+        }
+
+        /**
+         * @param verificationTimerInSeconds The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationTimerInSeconds(@Nullable Output<Integer> verificationTimerInSeconds) {
+            $.verificationTimerInSeconds = verificationTimerInSeconds;
+            return this;
+        }
+
+        /**
+         * @param verificationTimerInSeconds The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationTimerInSeconds(Integer verificationTimerInSeconds) {
+            return verificationTimerInSeconds(Output.of(verificationTimerInSeconds));
+        }
+
+        /**
+         * @param writeBackTimerInSeconds The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeBackTimerInSeconds(@Nullable Output<Integer> writeBackTimerInSeconds) {
+            $.writeBackTimerInSeconds = writeBackTimerInSeconds;
+            return this;
+        }
+
+        /**
+         * @param writeBackTimerInSeconds The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeBackTimerInSeconds(Integer writeBackTimerInSeconds) {
+            return writeBackTimerInSeconds(Output.of(writeBackTimerInSeconds));
         }
 
         public CacheNfsTargetArgs build() {

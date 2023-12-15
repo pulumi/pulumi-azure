@@ -263,6 +263,25 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.template);
     }
 
+    /**
+     * The name of the Workload Profile in the Container App Environment to place this Container App.
+     * 
+     * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     * 
+     */
+    @Import(name="workloadProfileName")
+    private @Nullable Output<String> workloadProfileName;
+
+    /**
+     * @return The name of the Workload Profile in the Container App Environment to place this Container App.
+     * 
+     * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     * 
+     */
+    public Optional<Output<String>> workloadProfileName() {
+        return Optional.ofNullable(this.workloadProfileName);
+    }
+
     private AppState() {}
 
     private AppState(AppState $) {
@@ -282,6 +301,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         this.secrets = $.secrets;
         this.tags = $.tags;
         this.template = $.template;
+        this.workloadProfileName = $.workloadProfileName;
     }
 
     public static Builder builder() {
@@ -666,6 +686,31 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder template(AppTemplateArgs template) {
             return template(Output.of(template));
+        }
+
+        /**
+         * @param workloadProfileName The name of the Workload Profile in the Container App Environment to place this Container App.
+         * 
+         * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadProfileName(@Nullable Output<String> workloadProfileName) {
+            $.workloadProfileName = workloadProfileName;
+            return this;
+        }
+
+        /**
+         * @param workloadProfileName The name of the Workload Profile in the Container App Environment to place this Container App.
+         * 
+         * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadProfileName(String workloadProfileName) {
+            return workloadProfileName(Output.of(workloadProfileName));
         }
 
         public AppState build() {

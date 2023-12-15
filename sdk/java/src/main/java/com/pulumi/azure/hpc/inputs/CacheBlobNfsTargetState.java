@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -124,6 +125,36 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.usageModel);
     }
 
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Import(name="verificationTimerInSeconds")
+    private @Nullable Output<Integer> verificationTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Optional<Output<Integer>> verificationTimerInSeconds() {
+        return Optional.ofNullable(this.verificationTimerInSeconds);
+    }
+
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Import(name="writeBackTimerInSeconds")
+    private @Nullable Output<Integer> writeBackTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Optional<Output<Integer>> writeBackTimerInSeconds() {
+        return Optional.ofNullable(this.writeBackTimerInSeconds);
+    }
+
     private CacheBlobNfsTargetState() {}
 
     private CacheBlobNfsTargetState(CacheBlobNfsTargetState $) {
@@ -134,6 +165,8 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
         this.resourceGroupName = $.resourceGroupName;
         this.storageContainerId = $.storageContainerId;
         this.usageModel = $.usageModel;
+        this.verificationTimerInSeconds = $.verificationTimerInSeconds;
+        this.writeBackTimerInSeconds = $.writeBackTimerInSeconds;
     }
 
     public static Builder builder() {
@@ -303,6 +336,48 @@ public final class CacheBlobNfsTargetState extends com.pulumi.resources.Resource
          */
         public Builder usageModel(String usageModel) {
             return usageModel(Output.of(usageModel));
+        }
+
+        /**
+         * @param verificationTimerInSeconds The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationTimerInSeconds(@Nullable Output<Integer> verificationTimerInSeconds) {
+            $.verificationTimerInSeconds = verificationTimerInSeconds;
+            return this;
+        }
+
+        /**
+         * @param verificationTimerInSeconds The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verificationTimerInSeconds(Integer verificationTimerInSeconds) {
+            return verificationTimerInSeconds(Output.of(verificationTimerInSeconds));
+        }
+
+        /**
+         * @param writeBackTimerInSeconds The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeBackTimerInSeconds(@Nullable Output<Integer> writeBackTimerInSeconds) {
+            $.writeBackTimerInSeconds = writeBackTimerInSeconds;
+            return this;
+        }
+
+        /**
+         * @param writeBackTimerInSeconds The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder writeBackTimerInSeconds(Integer writeBackTimerInSeconds) {
+            return writeBackTimerInSeconds(Output.of(writeBackTimerInSeconds));
         }
 
         public CacheBlobNfsTargetState build() {

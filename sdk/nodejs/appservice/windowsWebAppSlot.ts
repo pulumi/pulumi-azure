@@ -173,6 +173,8 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+     *
+     * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
     public readonly servicePlanId!: pulumi.Output<string | undefined>;
     /**
@@ -409,6 +411,8 @@ export interface WindowsWebAppSlotState {
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+     *
+     * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
     servicePlanId?: pulumi.Input<string>;
     /**
@@ -517,6 +521,8 @@ export interface WindowsWebAppSlotArgs {
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+     *
+     * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
     servicePlanId?: pulumi.Input<string>;
     /**

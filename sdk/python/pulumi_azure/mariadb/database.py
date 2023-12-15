@@ -195,8 +195,6 @@ class Database(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a MariaDB Database within a MariaDB Server
-
         ## Example Usage
 
         ```python
@@ -245,8 +243,6 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a MariaDB Database within a MariaDB Server
-
         ## Example Usage
 
         ```python

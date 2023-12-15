@@ -62,6 +62,8 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
@@ -350,6 +352,8 @@ class LinuxWebAppSlotArgs:
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -486,6 +490,8 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -894,6 +900,8 @@ class _LinuxWebAppSlotState:
     def service_plan_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         """
         return pulumi.get(self, "service_plan_id")
 
@@ -1071,6 +1079,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
@@ -1289,6 +1299,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+               
+               > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -1559,6 +1571,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     def service_plan_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
+
+        > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         """
         return pulumi.get(self, "service_plan_id")
 

@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

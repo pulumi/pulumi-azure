@@ -7,6 +7,7 @@ import com.pulumi.azure.containerapp.inputs.AppTemplateAzureQueueScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateContainerArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateCustomScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateHttpScaleRuleArgs;
+import com.pulumi.azure.containerapp.inputs.AppTemplateInitContainerArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateTcpScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateVolumeArgs;
 import com.pulumi.core.Output;
@@ -81,6 +82,21 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<AppTemplateHttpScaleRuleArgs>>> httpScaleRules() {
         return Optional.ofNullable(this.httpScaleRules);
+    }
+
+    /**
+     * The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * 
+     */
+    @Import(name="initContainers")
+    private @Nullable Output<List<AppTemplateInitContainerArgs>> initContainers;
+
+    /**
+     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * 
+     */
+    public Optional<Output<List<AppTemplateInitContainerArgs>>> initContainers() {
+        return Optional.ofNullable(this.initContainers);
     }
 
     /**
@@ -165,6 +181,7 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         this.containers = $.containers;
         this.customScaleRules = $.customScaleRules;
         this.httpScaleRules = $.httpScaleRules;
+        this.initContainers = $.initContainers;
         this.maxReplicas = $.maxReplicas;
         this.minReplicas = $.minReplicas;
         this.revisionSuffix = $.revisionSuffix;
@@ -312,6 +329,37 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder httpScaleRules(AppTemplateHttpScaleRuleArgs... httpScaleRules) {
             return httpScaleRules(List.of(httpScaleRules));
+        }
+
+        /**
+         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(@Nullable Output<List<AppTemplateInitContainerArgs>> initContainers) {
+            $.initContainers = initContainers;
+            return this;
+        }
+
+        /**
+         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(List<AppTemplateInitContainerArgs> initContainers) {
+            return initContainers(Output.of(initContainers));
+        }
+
+        /**
+         * @param initContainers The definition of an init container that is part of the group as documented in the `init_container` block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initContainers(AppTemplateInitContainerArgs... initContainers) {
+            return initContainers(List.of(initContainers));
         }
 
         /**

@@ -14,8 +14,6 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a MySQL Database within a MySQL Server
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

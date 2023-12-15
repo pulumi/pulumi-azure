@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp
 {
     /// <summary>
-    /// Manages a NetApp Volume.
-    /// 
     /// ## Import
     /// 
     /// NetApp Volumes can be imported using the `resource id`, e.g.

@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a MariaDB Database within a MariaDB Server
- *
  * ## Example Usage
  *
  * ```typescript

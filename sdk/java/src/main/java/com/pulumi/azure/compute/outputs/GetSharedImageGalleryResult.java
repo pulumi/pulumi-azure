@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -20,6 +21,11 @@ public final class GetSharedImageGalleryResult {
      * 
      */
     private String id;
+    /**
+     * @return A list of Shared Image names within this Shared Image Gallery.
+     * 
+     */
+    private List<String> imageNames;
     private String location;
     private String name;
     private String resourceGroupName;
@@ -48,6 +54,13 @@ public final class GetSharedImageGalleryResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A list of Shared Image names within this Shared Image Gallery.
+     * 
+     */
+    public List<String> imageNames() {
+        return this.imageNames;
     }
     public String location() {
         return this.location;
@@ -84,6 +97,7 @@ public final class GetSharedImageGalleryResult {
     public static final class Builder {
         private String description;
         private String id;
+        private List<String> imageNames;
         private String location;
         private String name;
         private String resourceGroupName;
@@ -94,6 +108,7 @@ public final class GetSharedImageGalleryResult {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.imageNames = defaults.imageNames;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -110,6 +125,14 @@ public final class GetSharedImageGalleryResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder imageNames(List<String> imageNames) {
+            this.imageNames = Objects.requireNonNull(imageNames);
+            return this;
+        }
+        public Builder imageNames(String... imageNames) {
+            return imageNames(List.of(imageNames));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -140,6 +163,7 @@ public final class GetSharedImageGalleryResult {
             final var _resultValue = new GetSharedImageGalleryResult();
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.imageNames = imageNames;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;

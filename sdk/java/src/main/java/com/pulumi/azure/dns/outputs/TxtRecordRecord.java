@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class TxtRecordRecord {
     /**
-     * @return The value of the record. Max length: 1024 characters
+     * @return The value of the record. Max length: 4096 characters
      * 
      */
     private String value;
 
     private TxtRecordRecord() {}
     /**
-     * @return The value of the record. Max length: 1024 characters
+     * @return The value of the record. Max length: 4096 characters
      * 
      */
     public String value() {

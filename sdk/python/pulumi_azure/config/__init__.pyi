@@ -128,6 +128,11 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
+useAksWorkloadIdentity: Optional[bool]
+"""
+Allow Azure AKS Workload Identity to be used for Authentication.
+"""
+
 useCli: Optional[bool]
 """
 Allow Azure CLI to be used for Authentication.

@@ -1146,6 +1146,130 @@ func (o DeploymentScalePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAccountIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Cognitive Account.
+	Type string `pulumi:"type"`
+}
+
+// GetAccountIdentityInput is an input type that accepts GetAccountIdentityArgs and GetAccountIdentityOutput values.
+// You can construct a concrete instance of `GetAccountIdentityInput` via:
+//
+//	GetAccountIdentityArgs{...}
+type GetAccountIdentityInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityOutput() GetAccountIdentityOutput
+	ToGetAccountIdentityOutputWithContext(context.Context) GetAccountIdentityOutput
+}
+
+type GetAccountIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Cognitive Account.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return i.ToGetAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
+}
+
+// GetAccountIdentityArrayInput is an input type that accepts GetAccountIdentityArray and GetAccountIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAccountIdentityArrayInput` via:
+//
+//	GetAccountIdentityArray{ GetAccountIdentityArgs{...} }
+type GetAccountIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput
+	ToGetAccountIdentityArrayOutputWithContext(context.Context) GetAccountIdentityArrayOutput
+}
+
+type GetAccountIdentityArray []GetAccountIdentityInput
+
+func (GetAccountIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountIdentity)(nil)).Elem()
+}
+
+func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput {
+	return i.ToGetAccountIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityArrayOutput)
+}
+
+type GetAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return o
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+func (o GetAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Cognitive Account.
+func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAccountIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutput() GetAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountIdentity {
+		return vs[0].([]GetAccountIdentity)[vs[1].(int)]
+	}).(GetAccountIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypeInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypePtrInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
@@ -1161,6 +1285,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentModelPtrInput)(nil)).Elem(), DeploymentModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScaleInput)(nil)).Elem(), DeploymentScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentScalePtrInput)(nil)).Elem(), DeploymentScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityArrayInput)(nil)).Elem(), GetAccountIdentityArray{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypeOutput{})
 	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
@@ -1175,4 +1301,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentModelPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentScaleOutput{})
 	pulumi.RegisterOutputType(DeploymentScalePtrOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityArrayOutput{})
 }

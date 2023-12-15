@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a PostgreSQL Database within a PostgreSQL Server
-//
 // ## Example Usage
 //
 // ```go

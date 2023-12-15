@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a MS SQL Database.
- *
  * ## Example Usage
  *
  * ```typescript

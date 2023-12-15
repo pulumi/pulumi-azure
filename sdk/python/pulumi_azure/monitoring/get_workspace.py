@@ -21,7 +21,13 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, location=None, name=None, public_network_access_enabled=None, query_endpoint=None, resource_group_name=None, tags=None):
+    def __init__(__self__, default_data_collection_endpoint_id=None, default_data_collection_rule_id=None, id=None, location=None, name=None, public_network_access_enabled=None, query_endpoint=None, resource_group_name=None, tags=None):
+        if default_data_collection_endpoint_id and not isinstance(default_data_collection_endpoint_id, str):
+            raise TypeError("Expected argument 'default_data_collection_endpoint_id' to be a str")
+        pulumi.set(__self__, "default_data_collection_endpoint_id", default_data_collection_endpoint_id)
+        if default_data_collection_rule_id and not isinstance(default_data_collection_rule_id, str):
+            raise TypeError("Expected argument 'default_data_collection_rule_id' to be a str")
+        pulumi.set(__self__, "default_data_collection_rule_id", default_data_collection_rule_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +49,22 @@ class GetWorkspaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionEndpointId")
+    def default_data_collection_endpoint_id(self) -> str:
+        """
+        The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_endpoint_id")
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionRuleId")
+    def default_data_collection_rule_id(self) -> str:
+        """
+        The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_rule_id")
 
     @property
     @pulumi.getter
@@ -101,6 +123,8 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            default_data_collection_endpoint_id=self.default_data_collection_endpoint_id,
+            default_data_collection_rule_id=self.default_data_collection_rule_id,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -138,6 +162,8 @@ def get_workspace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        default_data_collection_endpoint_id=pulumi.get(__ret__, 'default_data_collection_endpoint_id'),
+        default_data_collection_rule_id=pulumi.get(__ret__, 'default_data_collection_rule_id'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),

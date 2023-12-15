@@ -9798,11 +9798,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -10764,11 +10759,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11807,11 +11797,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -12914,11 +12899,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -14752,11 +14732,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -15677,11 +15652,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -16677,11 +16647,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -17873,11 +17838,6 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
-        /**
-         * The thumbprint of the certificate used for signing purposes.
-         *
-         * > **NOTE:** One of `clientSecretSettingName` or `clientSecretCertificateThumbprint` must be specified.
-         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -20428,7 +20388,7 @@ export namespace batch {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         identityIds?: string[];
         /**
@@ -20440,7 +20400,7 @@ export namespace batch {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
          */
         type: string;
     }
@@ -23461,6 +23421,25 @@ export namespace cognitive {
         tier?: string;
         /**
          * The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
+         */
+        type: string;
+    }
+
+    export interface GetAccountIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this Cognitive Account.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Cognitive Account.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Cognitive Account.
          */
         type: string;
     }
@@ -28167,6 +28146,10 @@ export namespace containerapp {
          */
         httpScaleRules?: outputs.containerapp.AppTemplateHttpScaleRule[];
         /**
+         * The definition of an init container that is part of the group as documented in the `initContainer` block below.
+         */
+        initContainers?: outputs.containerapp.AppTemplateInitContainer[];
+        /**
          * The maximum number of replicas for this container.
          */
         maxReplicas?: number;
@@ -28513,6 +28496,79 @@ export namespace containerapp {
         triggerParameter?: string;
     }
 
+    export interface AppTemplateInitContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args?: string[];
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands?: string[];
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         */
+        cpu?: number;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs?: outputs.containerapp.AppTemplateInitContainerEnv[];
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         *
+         * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+         */
+        ephemeralStorage: string;
+        /**
+         * The image to use to create the container.
+         */
+        image: string;
+        /**
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         *
+         * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         */
+        memory?: string;
+        /**
+         * The name of the container
+         */
+        name: string;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts?: outputs.containerapp.AppTemplateInitContainerVolumeMount[];
+    }
+
+    export interface AppTemplateInitContainerEnv {
+        /**
+         * The name of the environment variable for the container.
+         */
+        name: string;
+        /**
+         * The name of the secret that contains the value for this environment variable.
+         */
+        secretName?: string;
+        /**
+         * The value for this environment variable.
+         *
+         * > **NOTE:** This value is ignored if `secretName` is used
+         */
+        value?: string;
+    }
+
+    export interface AppTemplateInitContainerVolumeMount {
+        /**
+         * The name of the Volume to be mounted in the container.
+         */
+        name: string;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
+    }
+
     export interface AppTemplateTcpScaleRule {
         /**
          * Zero or more `authentication` blocks as defined below.
@@ -28725,6 +28781,10 @@ export namespace containerapp {
         containers: outputs.containerapp.GetAppTemplateContainer[];
         customScaleRules?: outputs.containerapp.GetAppTemplateCustomScaleRule[];
         httpScaleRules: outputs.containerapp.GetAppTemplateHttpScaleRule[];
+        /**
+         * One or more `initContainer` blocks as detailed below.
+         */
+        initContainers: outputs.containerapp.GetAppTemplateInitContainer[];
         /**
          * The maximum number of replicas for this container.
          */
@@ -29026,6 +29086,71 @@ export namespace containerapp {
          */
         secretName: string;
         triggerParameter: string;
+    }
+
+    export interface GetAppTemplateInitContainer {
+        /**
+         * A list of extra arguments to pass to the container.
+         */
+        args: string[];
+        /**
+         * A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+         */
+        commands: string[];
+        /**
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         */
+        cpu: number;
+        /**
+         * One or more `env` blocks as detailed below.
+         */
+        envs: outputs.containerapp.GetAppTemplateInitContainerEnv[];
+        /**
+         * The amount of ephemeral storage available to the Container App.
+         */
+        ephemeralStorage: string;
+        /**
+         * The image to use to create the container.
+         */
+        image: string;
+        /**
+         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+         */
+        memory: string;
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * A `volumeMounts` block as detailed below.
+         */
+        volumeMounts: outputs.containerapp.GetAppTemplateInitContainerVolumeMount[];
+    }
+
+    export interface GetAppTemplateInitContainerEnv {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The name of the secret that contains the value for this environment variable.
+         */
+        secretName: string;
+        /**
+         * The HTTP Header value.
+         */
+        value: string;
+    }
+
+    export interface GetAppTemplateInitContainerVolumeMount {
+        /**
+         * The name of the Container App.
+         */
+        name: string;
+        /**
+         * The path in the container at which to mount this volume.
+         */
+        path: string;
     }
 
     export interface GetAppTemplateTcpScaleRule {
@@ -32119,6 +32244,17 @@ export namespace core {
          * The endpoint where the validation specification is located.
          */
         specification: string;
+    }
+
+    export interface GetLocationZoneMapping {
+        /**
+         * The logical zone id for the availability zone
+         */
+        logicalZone: string;
+        /**
+         * The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+         */
+        physicalZone: string;
     }
 
     export interface GetResourcesResource {
@@ -36195,7 +36331,7 @@ export namespace dns {
 
     export interface TxtRecordRecord {
         /**
-         * The value of the record. Max length: 1024 characters
+         * The value of the record. Max length: 4096 characters
          */
         value: string;
     }
@@ -56199,6 +56335,8 @@ export namespace network {
     export interface NetworkManagerScope {
         /**
          * A list of management group IDs.
+         *
+         * **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
          */
         managementGroupIds?: string[];
         /**
@@ -59334,6 +59472,10 @@ export namespace redis {
          * > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
          */
         rdbStorageConnectionString?: string;
+        /**
+         * The ID of the Subscription containing the Storage Account.
+         */
+        storageAccountSubscriptionId?: string;
     }
 
     export interface EnterpriseDatabaseModule {
@@ -59405,6 +59547,10 @@ export namespace redis {
          * The Connection String to the Storage Account. Only supported for Premium SKUs.
          */
         rdbStorageConnectionString: string;
+        /**
+         * The ID of the Subscription containing the Storage Account.
+         */
+        storageAccountSubscriptionId: string;
     }
 
 }
@@ -64083,7 +64229,7 @@ export namespace waf {
          */
         disabledRules: string[];
         /**
-         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`,
          */
         ruleGroupName: string;
         /**

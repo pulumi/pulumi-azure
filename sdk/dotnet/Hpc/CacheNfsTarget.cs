@@ -61,6 +61,18 @@ namespace Pulumi.Azure.Hpc
         [Output("usageModel")]
         public Output<string> UsageModel { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Output("verificationTimerInSeconds")]
+        public Output<int?> VerificationTimerInSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Output("writeBackTimerInSeconds")]
+        public Output<int?> WriteBackTimerInSeconds { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CacheNfsTarget resource with the given unique name, arguments, and options.
@@ -149,6 +161,18 @@ namespace Pulumi.Azure.Hpc
         [Input("usageModel", required: true)]
         public Input<string> UsageModel { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Input("verificationTimerInSeconds")]
+        public Input<int>? VerificationTimerInSeconds { get; set; }
+
+        /// <summary>
+        /// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Input("writeBackTimerInSeconds")]
+        public Input<int>? WriteBackTimerInSeconds { get; set; }
+
         public CacheNfsTargetArgs()
         {
         }
@@ -198,6 +222,18 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("usageModel")]
         public Input<string>? UsageModel { get; set; }
+
+        /// <summary>
+        /// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Input("verificationTimerInSeconds")]
+        public Input<int>? VerificationTimerInSeconds { get; set; }
+
+        /// <summary>
+        /// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        /// </summary>
+        [Input("writeBackTimerInSeconds")]
+        public Input<int>? WriteBackTimerInSeconds { get; set; }
 
         public CacheNfsTargetState()
         {

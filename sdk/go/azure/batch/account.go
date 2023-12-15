@@ -110,7 +110,7 @@ type Account struct {
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 	//
-	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 	StorageAccountAuthenticationMode pulumi.StringPtrOutput `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	//
@@ -194,7 +194,7 @@ type accountState struct {
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 	//
-	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 	StorageAccountAuthenticationMode *string `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	//
@@ -241,7 +241,7 @@ type AccountState struct {
 	SecondaryAccessKey pulumi.StringPtrInput
 	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 	//
-	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 	StorageAccountAuthenticationMode pulumi.StringPtrInput
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	//
@@ -286,7 +286,7 @@ type accountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 	//
-	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 	StorageAccountAuthenticationMode *string `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	//
@@ -328,7 +328,7 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 	//
-	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 	StorageAccountAuthenticationMode pulumi.StringPtrInput
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	//
@@ -500,7 +500,7 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 
 // Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
 //
-// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
 func (o AccountOutput) StorageAccountAuthenticationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.StorageAccountAuthenticationMode }).(pulumi.StringPtrOutput)
 }

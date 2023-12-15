@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

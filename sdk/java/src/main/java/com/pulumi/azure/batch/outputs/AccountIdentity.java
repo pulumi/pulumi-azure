@@ -15,7 +15,7 @@ public final class AccountIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -30,7 +30,7 @@ public final class AccountIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     private String type;
@@ -39,7 +39,7 @@ public final class AccountIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {
@@ -60,7 +60,7 @@ public final class AccountIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     public String type() {

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
-//
 // ## Example Usage
 //
 // ```go

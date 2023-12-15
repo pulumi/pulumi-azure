@@ -53,7 +53,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
+        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("settingName")]
         public Output<string> SettingName { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
+        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("settingName", required: true)]
         public Input<string> SettingName { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
+        /// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("settingName")]
         public Input<string>? SettingName { get; set; }
