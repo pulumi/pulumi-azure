@@ -272,6 +272,17 @@ Object.defineProperty(exports, "tenantId", {
 });
 
 /**
+ * Allow Azure AKS Workload Identity to be used for Authentication.
+ */
+export declare const useAksWorkloadIdentity: boolean | undefined;
+Object.defineProperty(exports, "useAksWorkloadIdentity", {
+    get() {
+        return __config.getObject<boolean>("useAksWorkloadIdentity");
+    },
+    enumerable: true,
+});
+
+/**
  * Allow Azure CLI to be used for Authentication.
  */
 export declare const useCli: boolean | undefined;

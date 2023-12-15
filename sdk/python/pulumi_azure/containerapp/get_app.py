@@ -22,7 +22,7 @@ class GetAppResult:
     """
     A collection of values returned by getApp.
     """
-    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, name=None, outbound_ip_addresses=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None):
+    def __init__(__self__, container_app_environment_id=None, custom_domain_verification_id=None, daprs=None, id=None, identities=None, ingresses=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, name=None, outbound_ip_addresses=None, registries=None, resource_group_name=None, revision_mode=None, secrets=None, tags=None, templates=None, workload_profile_name=None):
         if container_app_environment_id and not isinstance(container_app_environment_id, str):
             raise TypeError("Expected argument 'container_app_environment_id' to be a str")
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -74,6 +74,9 @@ class GetAppResult:
         if templates and not isinstance(templates, list):
             raise TypeError("Expected argument 'templates' to be a list")
         pulumi.set(__self__, "templates", templates)
+        if workload_profile_name and not isinstance(workload_profile_name, str):
+            raise TypeError("Expected argument 'workload_profile_name' to be a str")
+        pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -193,6 +196,14 @@ class GetAppResult:
         """
         return pulumi.get(self, "templates")
 
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> str:
+        """
+        The name of the Workload Profile in the Container App Environment in which this Container App is running.
+        """
+        return pulumi.get(self, "workload_profile_name")
+
 
 class AwaitableGetAppResult(GetAppResult):
     # pylint: disable=using-constant-test
@@ -216,7 +227,8 @@ class AwaitableGetAppResult(GetAppResult):
             revision_mode=self.revision_mode,
             secrets=self.secrets,
             tags=self.tags,
-            templates=self.templates)
+            templates=self.templates,
+            workload_profile_name=self.workload_profile_name)
 
 
 def get_app(name: Optional[str] = None,
@@ -262,7 +274,8 @@ def get_app(name: Optional[str] = None,
         revision_mode=pulumi.get(__ret__, 'revision_mode'),
         secrets=pulumi.get(__ret__, 'secrets'),
         tags=pulumi.get(__ret__, 'tags'),
-        templates=pulumi.get(__ret__, 'templates'))
+        templates=pulumi.get(__ret__, 'templates'),
+        workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 
 
 @_utilities.lift_output_func(get_app)

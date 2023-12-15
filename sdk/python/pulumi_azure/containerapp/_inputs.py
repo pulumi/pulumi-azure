@@ -33,6 +33,9 @@ __all__ = [
     'AppTemplateCustomScaleRuleAuthenticationArgs',
     'AppTemplateHttpScaleRuleArgs',
     'AppTemplateHttpScaleRuleAuthenticationArgs',
+    'AppTemplateInitContainerArgs',
+    'AppTemplateInitContainerEnvArgs',
+    'AppTemplateInitContainerVolumeMountArgs',
     'AppTemplateTcpScaleRuleArgs',
     'AppTemplateTcpScaleRuleAuthenticationArgs',
     'AppTemplateVolumeArgs',
@@ -547,6 +550,7 @@ class AppTemplateArgs:
                  azure_queue_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]] = None,
                  custom_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]] = None,
                  http_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]]] = None,
                  max_replicas: Optional[pulumi.Input[int]] = None,
                  min_replicas: Optional[pulumi.Input[int]] = None,
                  revision_suffix: Optional[pulumi.Input[str]] = None,
@@ -557,6 +561,7 @@ class AppTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below.
         :param pulumi.Input[int] max_replicas: The maximum number of replicas for this container.
         :param pulumi.Input[int] min_replicas: The minimum number of replicas for this container.
         :param pulumi.Input[str] revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
@@ -570,6 +575,8 @@ class AppTemplateArgs:
             pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
             pulumi.set(__self__, "http_scale_rules", http_scale_rules)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
@@ -628,6 +635,18 @@ class AppTemplateArgs:
     @http_scale_rules.setter
     def http_scale_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]]):
         pulumi.set(self, "http_scale_rules", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]]]:
+        """
+        The definition of an init container that is part of the group as documented in the `init_container` block below.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -1864,6 +1883,262 @@ class AppTemplateHttpScaleRuleAuthenticationArgs:
     @trigger_parameter.setter
     def trigger_parameter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "trigger_parameter", value)
+
+
+@pulumi.input_type
+class AppTemplateInitContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cpu: Optional[pulumi.Input[float]] = None,
+                 envs: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[str]] = None,
+                 memory: Optional[pulumi.Input[str]] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]]] = None):
+        """
+        :param pulumi.Input[str] image: The image to use to create the container.
+        :param pulumi.Input[str] name: The name of the container
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: A list of extra arguments to pass to the container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param pulumi.Input[float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
+        :param pulumi.Input[str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
+               
+               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        :param pulumi.Input[str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the container
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        """
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]]]:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @envs.setter
+    def envs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]]]):
+        pulumi.set(self, "envs", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input[str]]:
+        """
+        The amount of ephemeral storage available to the Container App.
+
+        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ephemeral_storage", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memory", value)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]]]:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
+
+
+@pulumi.input_type
+class AppTemplateInitContainerEnvArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 secret_name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the environment variable for the container.
+        :param pulumi.Input[str] secret_name: The name of the secret that contains the value for this environment variable.
+        :param pulumi.Input[str] value: The value for this environment variable.
+               
+               > **NOTE:** This value is ignored if `secret_name` is used
+        """
+        pulumi.set(__self__, "name", name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the environment variable for the container.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for this environment variable.
+
+        > **NOTE:** This value is ignored if `secret_name` is used
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AppTemplateInitContainerVolumeMountArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Volume to be mounted in the container.
+        :param pulumi.Input[str] path: The path in the container at which to mount this volume.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Volume to be mounted in the container.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

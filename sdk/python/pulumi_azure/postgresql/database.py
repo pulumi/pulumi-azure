@@ -195,8 +195,6 @@ class Database(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a PostgreSQL Database within a PostgreSQL Server
-
         ## Example Usage
 
         ```python
@@ -246,8 +244,6 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a PostgreSQL Database within a PostgreSQL Server
-
         ## Example Usage
 
         ```python

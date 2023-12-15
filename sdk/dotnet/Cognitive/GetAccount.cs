@@ -156,6 +156,10 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
+        /// <summary>
         /// The kind of the Cognitive Services Account
         /// </summary>
         public readonly string Kind;
@@ -192,6 +196,8 @@ namespace Pulumi.Azure.Cognitive
 
             string id,
 
+            ImmutableArray<Outputs.GetAccountIdentityResult> identities,
+
             string kind,
 
             string location,
@@ -212,6 +218,7 @@ namespace Pulumi.Azure.Cognitive
         {
             Endpoint = endpoint;
             Id = id;
+            Identities = identities;
             Kind = kind;
             Location = location;
             Name = name;

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Dns.Inputs
     public sealed class TxtRecordRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value of the record. Max length: 1024 characters
+        /// The value of the record. Max length: 4096 characters
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

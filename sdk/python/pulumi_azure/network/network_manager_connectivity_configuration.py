@@ -26,7 +26,7 @@ class NetworkManagerConnectivityConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkManagerConnectivityConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: An `applies_to_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -53,7 +53,7 @@ class NetworkManagerConnectivityConfigurationArgs:
     @pulumi.getter(name="appliesToGroups")
     def applies_to_groups(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]:
         """
-        An `applies_to_group` block as defined below.
+        One or more `applies_to_group` blocks as defined below.
         """
         return pulumi.get(self, "applies_to_groups")
 
@@ -159,7 +159,7 @@ class _NetworkManagerConnectivityConfigurationState:
                  network_manager_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NetworkManagerConnectivityConfiguration resources.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: An `applies_to_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[str] description: A description of the Connectivity Configuration.
@@ -189,7 +189,7 @@ class _NetworkManagerConnectivityConfigurationState:
     @pulumi.getter(name="appliesToGroups")
     def applies_to_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]:
         """
-        An `applies_to_group` block as defined below.
+        One or more `applies_to_group` blocks as defined below.
         """
         return pulumi.get(self, "applies_to_groups")
 
@@ -326,13 +326,20 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
+        example2 = azure.network.NetworkManagerNetworkGroup("example2", network_manager_id=example_network_manager.id)
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="DirectlyConnected",
-                network_group_id=example_network_manager_network_group.id,
-            )],
+            applies_to_groups=[
+                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                    group_connectivity="DirectlyConnected",
+                    network_group_id=example_network_manager_network_group.id,
+                ),
+                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                    group_connectivity="DirectlyConnected",
+                    network_group_id=example2.id,
+                ),
+            ],
             hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
@@ -349,7 +356,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: An `applies_to_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[str] description: A description of the Connectivity Configuration.
@@ -394,13 +401,20 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
+        example2 = azure.network.NetworkManagerNetworkGroup("example2", network_manager_id=example_network_manager.id)
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                group_connectivity="DirectlyConnected",
-                network_group_id=example_network_manager_network_group.id,
-            )],
+            applies_to_groups=[
+                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                    group_connectivity="DirectlyConnected",
+                    network_group_id=example_network_manager_network_group.id,
+                ),
+                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+                    group_connectivity="DirectlyConnected",
+                    network_group_id=example2.id,
+                ),
+            ],
             hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
@@ -486,7 +500,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: An `applies_to_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[str] description: A description of the Connectivity Configuration.
@@ -513,7 +527,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="appliesToGroups")
     def applies_to_groups(self) -> pulumi.Output[Sequence['outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]:
         """
-        An `applies_to_group` block as defined below.
+        One or more `applies_to_group` blocks as defined below.
         """
         return pulumi.get(self, "applies_to_groups")
 

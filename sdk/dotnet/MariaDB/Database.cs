@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MariaDB
 {
     /// <summary>
-    /// Manages a MariaDB Database within a MariaDB Server
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

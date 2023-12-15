@@ -189,6 +189,8 @@ class CacheRedisConfiguration(dict):
             suggest = "rdb_backup_max_snapshot_count"
         elif key == "rdbStorageConnectionString":
             suggest = "rdb_storage_connection_string"
+        elif key == "storageAccountSubscriptionId":
+            suggest = "storage_account_subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheRedisConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -216,7 +218,8 @@ class CacheRedisConfiguration(dict):
                  rdb_backup_enabled: Optional[bool] = None,
                  rdb_backup_frequency: Optional[int] = None,
                  rdb_backup_max_snapshot_count: Optional[int] = None,
-                 rdb_storage_connection_string: Optional[str] = None):
+                 rdb_storage_connection_string: Optional[str] = None,
+                 storage_account_subscription_id: Optional[str] = None):
         """
         :param bool active_directory_authentication_enabled: Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
         :param bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
@@ -251,6 +254,7 @@ class CacheRedisConfiguration(dict):
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
                
                > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+        :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
         if active_directory_authentication_enabled is not None:
             pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
@@ -282,6 +286,8 @@ class CacheRedisConfiguration(dict):
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
 
     @property
     @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
@@ -421,6 +427,14 @@ class CacheRedisConfiguration(dict):
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[str]:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
+
 
 @pulumi.output_type
 class EnterpriseDatabaseModule(dict):
@@ -516,7 +530,8 @@ class GetCacheRedisConfigurationResult(dict):
                  rdb_backup_enabled: bool,
                  rdb_backup_frequency: int,
                  rdb_backup_max_snapshot_count: int,
-                 rdb_storage_connection_string: str):
+                 rdb_storage_connection_string: str,
+                 storage_account_subscription_id: str):
         """
         :param bool enable_authentication: Specifies if authentication is enabled
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
@@ -527,6 +542,7 @@ class GetCacheRedisConfigurationResult(dict):
         :param int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs.
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
+        :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
@@ -542,6 +558,7 @@ class GetCacheRedisConfigurationResult(dict):
         pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
         pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -639,5 +656,13 @@ class GetCacheRedisConfigurationResult(dict):
         The Connection String to the Storage Account. Only supported for Premium SKUs.
         """
         return pulumi.get(self, "rdb_storage_connection_string")
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> str:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
 
 

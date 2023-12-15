@@ -34,6 +34,9 @@ __all__ = [
     'AppTemplateCustomScaleRuleAuthentication',
     'AppTemplateHttpScaleRule',
     'AppTemplateHttpScaleRuleAuthentication',
+    'AppTemplateInitContainer',
+    'AppTemplateInitContainerEnv',
+    'AppTemplateInitContainerVolumeMount',
     'AppTemplateTcpScaleRule',
     'AppTemplateTcpScaleRuleAuthentication',
     'AppTemplateVolume',
@@ -63,6 +66,9 @@ __all__ = [
     'GetAppTemplateCustomScaleRuleAuthenticationResult',
     'GetAppTemplateHttpScaleRuleResult',
     'GetAppTemplateHttpScaleRuleAuthenticationResult',
+    'GetAppTemplateInitContainerResult',
+    'GetAppTemplateInitContainerEnvResult',
+    'GetAppTemplateInitContainerVolumeMountResult',
     'GetAppTemplateTcpScaleRuleResult',
     'GetAppTemplateTcpScaleRuleAuthenticationResult',
     'GetAppTemplateVolumeResult',
@@ -590,6 +596,8 @@ class AppTemplate(dict):
             suggest = "custom_scale_rules"
         elif key == "httpScaleRules":
             suggest = "http_scale_rules"
+        elif key == "initContainers":
+            suggest = "init_containers"
         elif key == "maxReplicas":
             suggest = "max_replicas"
         elif key == "minReplicas":
@@ -615,6 +623,7 @@ class AppTemplate(dict):
                  azure_queue_scale_rules: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']] = None,
                  custom_scale_rules: Optional[Sequence['outputs.AppTemplateCustomScaleRule']] = None,
                  http_scale_rules: Optional[Sequence['outputs.AppTemplateHttpScaleRule']] = None,
+                 init_containers: Optional[Sequence['outputs.AppTemplateInitContainer']] = None,
                  max_replicas: Optional[int] = None,
                  min_replicas: Optional[int] = None,
                  revision_suffix: Optional[str] = None,
@@ -625,6 +634,7 @@ class AppTemplate(dict):
         :param Sequence['AppTemplateAzureQueueScaleRuleArgs'] azure_queue_scale_rules: One or more `azure_queue_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateCustomScaleRuleArgs'] custom_scale_rules: One or more `custom_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateHttpScaleRuleArgs'] http_scale_rules: One or more `http_scale_rule` blocks as defined below.
+        :param Sequence['AppTemplateInitContainerArgs'] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
@@ -638,6 +648,8 @@ class AppTemplate(dict):
             pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
             pulumi.set(__self__, "http_scale_rules", http_scale_rules)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if max_replicas is not None:
             pulumi.set(__self__, "max_replicas", max_replicas)
         if min_replicas is not None:
@@ -680,6 +692,14 @@ class AppTemplate(dict):
         One or more `http_scale_rule` blocks as defined below.
         """
         return pulumi.get(self, "http_scale_rules")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[Sequence['outputs.AppTemplateInitContainer']]:
+        """
+        The definition of an init container that is part of the group as documented in the `init_container` block below.
+        """
+        return pulumi.get(self, "init_containers")
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -1844,6 +1864,242 @@ class AppTemplateHttpScaleRuleAuthentication(dict):
 
 
 @pulumi.output_type
+class AppTemplateInitContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ephemeralStorage":
+            suggest = "ephemeral_storage"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateInitContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateInitContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateInitContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 name: str,
+                 args: Optional[Sequence[str]] = None,
+                 commands: Optional[Sequence[str]] = None,
+                 cpu: Optional[float] = None,
+                 envs: Optional[Sequence['outputs.AppTemplateInitContainerEnv']] = None,
+                 ephemeral_storage: Optional[str] = None,
+                 memory: Optional[str] = None,
+                 volume_mounts: Optional[Sequence['outputs.AppTemplateInitContainerVolumeMount']] = None):
+        """
+        :param str image: The image to use to create the container.
+        :param str name: The name of the container
+        :param Sequence[str] args: A list of extra arguments to pass to the container.
+        :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        :param Sequence['AppTemplateInitContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+               
+               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        :param str memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+               
+               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        :param Sequence['AppTemplateInitContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the container
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[Sequence['outputs.AppTemplateInitContainerEnv']]:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[str]:
+        """
+        The amount of ephemeral storage available to the Container App.
+
+        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+
+        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.AppTemplateInitContainerVolumeMount']]:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class AppTemplateInitContainerEnv(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppTemplateInitContainerEnv. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppTemplateInitContainerEnv.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppTemplateInitContainerEnv.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 secret_name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of the environment variable for the container.
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        :param str value: The value for this environment variable.
+               
+               > **NOTE:** This value is ignored if `secret_name` is used
+        """
+        pulumi.set(__self__, "name", name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the environment variable for the container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[str]:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for this environment variable.
+
+        > **NOTE:** This value is ignored if `secret_name` is used
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AppTemplateInitContainerVolumeMount(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: str):
+        """
+        :param str name: The name of the Volume to be mounted in the container.
+        :param str path: The path in the container at which to mount this volume.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Volume to be mounted in the container.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class AppTemplateTcpScaleRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2514,6 +2770,7 @@ class GetAppTemplateResult(dict):
                  azure_queue_scale_rules: Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult'],
                  containers: Sequence['outputs.GetAppTemplateContainerResult'],
                  http_scale_rules: Sequence['outputs.GetAppTemplateHttpScaleRuleResult'],
+                 init_containers: Sequence['outputs.GetAppTemplateInitContainerResult'],
                  max_replicas: int,
                  min_replicas: int,
                  revision_suffix: str,
@@ -2522,6 +2779,7 @@ class GetAppTemplateResult(dict):
                  custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None):
         """
         :param Sequence['GetAppTemplateContainerArgs'] containers: One or more `container` blocks as detailed below.
+        :param Sequence['GetAppTemplateInitContainerArgs'] init_containers: One or more `init_container` blocks as detailed below.
         :param int max_replicas: The maximum number of replicas for this container.
         :param int min_replicas: The minimum number of replicas for this container.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
@@ -2530,6 +2788,7 @@ class GetAppTemplateResult(dict):
         pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "http_scale_rules", http_scale_rules)
+        pulumi.set(__self__, "init_containers", init_containers)
         pulumi.set(__self__, "max_replicas", max_replicas)
         pulumi.set(__self__, "min_replicas", min_replicas)
         pulumi.set(__self__, "revision_suffix", revision_suffix)
@@ -2555,6 +2814,14 @@ class GetAppTemplateResult(dict):
     @pulumi.getter(name="httpScaleRules")
     def http_scale_rules(self) -> Sequence['outputs.GetAppTemplateHttpScaleRuleResult']:
         return pulumi.get(self, "http_scale_rules")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Sequence['outputs.GetAppTemplateInitContainerResult']:
+        """
+        One or more `init_container` blocks as detailed below.
+        """
+        return pulumi.get(self, "init_containers")
 
     @property
     @pulumi.getter(name="maxReplicas")
@@ -3406,6 +3673,181 @@ class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
     @pulumi.getter(name="triggerParameter")
     def trigger_parameter(self) -> str:
         return pulumi.get(self, "trigger_parameter")
+
+
+@pulumi.output_type
+class GetAppTemplateInitContainerResult(dict):
+    def __init__(__self__, *,
+                 args: Sequence[str],
+                 commands: Sequence[str],
+                 cpu: float,
+                 envs: Sequence['outputs.GetAppTemplateInitContainerEnvResult'],
+                 ephemeral_storage: str,
+                 image: str,
+                 memory: str,
+                 name: str,
+                 volume_mounts: Sequence['outputs.GetAppTemplateInitContainerVolumeMountResult']):
+        """
+        :param Sequence[str] args: A list of extra arguments to pass to the container.
+        :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        :param Sequence['GetAppTemplateInitContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
+        :param str image: The image to use to create the container.
+        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+        :param str name: The name of the Container App.
+        :param Sequence['GetAppTemplateInitContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
+        """
+        pulumi.set(__self__, "args", args)
+        pulumi.set(__self__, "commands", commands)
+        pulumi.set(__self__, "cpu", cpu)
+        pulumi.set(__self__, "envs", envs)
+        pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "memory", memory)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Sequence[str]:
+        """
+        A list of extra arguments to pass to the container.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Sequence[str]:
+        """
+        A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> float:
+        """
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Sequence['outputs.GetAppTemplateInitContainerEnvResult']:
+        """
+        One or more `env` blocks as detailed below.
+        """
+        return pulumi.get(self, "envs")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> str:
+        """
+        The amount of ephemeral storage available to the Container App.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The image to use to create the container.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> str:
+        """
+        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi`, and `4Gi`.
+        """
+        return pulumi.get(self, "memory")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Sequence['outputs.GetAppTemplateInitContainerVolumeMountResult']:
+        """
+        A `volume_mounts` block as detailed below.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class GetAppTemplateInitContainerEnvResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 secret_name: str,
+                 value: str):
+        """
+        :param str name: The name of the Container App.
+        :param str secret_name: The name of the secret that contains the value for this environment variable.
+        :param str value: The HTTP Header value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret that contains the value for this environment variable.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The HTTP Header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAppTemplateInitContainerVolumeMountResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 path: str):
+        """
+        :param str name: The name of the Container App.
+        :param str path: The path in the container at which to mount this volume.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        The path in the container at which to mount this volume.
+        """
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type

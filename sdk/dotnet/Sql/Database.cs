@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
-    /// Allows you to manage an Azure SQL Database
-    /// 
-    /// &gt; **Note:** The `azure.sql.Database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.Database` resource instead.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

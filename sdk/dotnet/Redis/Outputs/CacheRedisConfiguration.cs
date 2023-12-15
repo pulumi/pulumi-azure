@@ -103,6 +103,10 @@ namespace Pulumi.Azure.Redis.Outputs
         /// &gt; **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         /// </summary>
         public readonly string? RdbStorageConnectionString;
+        /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        public readonly string? StorageAccountSubscriptionId;
 
         [OutputConstructor]
         private CacheRedisConfiguration(
@@ -134,7 +138,9 @@ namespace Pulumi.Azure.Redis.Outputs
 
             int? rdbBackupMaxSnapshotCount,
 
-            string? rdbStorageConnectionString)
+            string? rdbStorageConnectionString,
+
+            string? storageAccountSubscriptionId)
         {
             ActiveDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             AofBackupEnabled = aofBackupEnabled;
@@ -151,6 +157,7 @@ namespace Pulumi.Azure.Redis.Outputs
             RdbBackupFrequency = rdbBackupFrequency;
             RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             RdbStorageConnectionString = rdbStorageConnectionString;
+            StorageAccountSubscriptionId = storageAccountSubscriptionId;
         }
     }
 }

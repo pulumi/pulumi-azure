@@ -60,6 +60,14 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     */
+    public /*out*/ readonly defaultDataCollectionEndpointId!: pulumi.Output<string>;
+    /**
+     * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     */
+    public /*out*/ readonly defaultDataCollectionRuleId!: pulumi.Output<string>;
+    /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -97,6 +105,8 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
+            resourceInputs["defaultDataCollectionEndpointId"] = state ? state.defaultDataCollectionEndpointId : undefined;
+            resourceInputs["defaultDataCollectionRuleId"] = state ? state.defaultDataCollectionRuleId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
@@ -113,6 +123,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultDataCollectionEndpointId"] = undefined /*out*/;
+            resourceInputs["defaultDataCollectionRuleId"] = undefined /*out*/;
             resourceInputs["queryEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +136,14 @@ export class Workspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workspace resources.
  */
 export interface WorkspaceState {
+    /**
+     * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     */
+    defaultDataCollectionEndpointId?: pulumi.Input<string>;
+    /**
+     * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     */
+    defaultDataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      */

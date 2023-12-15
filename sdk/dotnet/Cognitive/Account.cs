@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> CustomQuestionAnsweringSearchServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("customSubdomainName")]
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.AccountNetworkAcls?> NetworkAcls { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsArgs>? NetworkAcls { get; set; }
@@ -482,7 +482,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `network_acls` block as defined below.
+        /// A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.AccountNetworkAclsGetArgs>? NetworkAcls { get; set; }

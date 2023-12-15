@@ -20,7 +20,9 @@ class CacheBlobNfsTargetArgs:
                  storage_container_id: pulumi.Input[str],
                  usage_model: pulumi.Input[str],
                  access_policy_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 verification_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+                 write_back_timer_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a CacheBlobNfsTarget resource.
         :param pulumi.Input[str] cache_name: The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
@@ -32,6 +34,8 @@ class CacheBlobNfsTargetArgs:
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
+        :param pulumi.Input[int] verification_timer_in_seconds: The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        :param pulumi.Input[int] write_back_timer_in_seconds: The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "namespace_path", namespace_path)
@@ -42,6 +46,10 @@ class CacheBlobNfsTargetArgs:
             pulumi.set(__self__, "access_policy_name", access_policy_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if verification_timer_in_seconds is not None:
+            pulumi.set(__self__, "verification_timer_in_seconds", verification_timer_in_seconds)
+        if write_back_timer_in_seconds is not None:
+            pulumi.set(__self__, "write_back_timer_in_seconds", write_back_timer_in_seconds)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -129,6 +137,30 @@ class CacheBlobNfsTargetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="verificationTimerInSeconds")
+    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "verification_timer_in_seconds")
+
+    @verification_timer_in_seconds.setter
+    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimerInSeconds")
+    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "write_back_timer_in_seconds")
+
+    @write_back_timer_in_seconds.setter
+    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer_in_seconds", value)
+
 
 @pulumi.input_type
 class _CacheBlobNfsTargetState:
@@ -139,7 +171,9 @@ class _CacheBlobNfsTargetState:
                  namespace_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_container_id: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+                 write_back_timer_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CacheBlobNfsTarget resources.
         :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
@@ -151,6 +185,8 @@ class _CacheBlobNfsTargetState:
                
                > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
+        :param pulumi.Input[int] verification_timer_in_seconds: The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        :param pulumi.Input[int] write_back_timer_in_seconds: The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         if access_policy_name is not None:
             pulumi.set(__self__, "access_policy_name", access_policy_name)
@@ -166,6 +202,10 @@ class _CacheBlobNfsTargetState:
             pulumi.set(__self__, "storage_container_id", storage_container_id)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer_in_seconds is not None:
+            pulumi.set(__self__, "verification_timer_in_seconds", verification_timer_in_seconds)
+        if write_back_timer_in_seconds is not None:
+            pulumi.set(__self__, "write_back_timer_in_seconds", write_back_timer_in_seconds)
 
     @property
     @pulumi.getter(name="accessPolicyName")
@@ -253,6 +293,30 @@ class _CacheBlobNfsTargetState:
     def usage_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_model", value)
 
+    @property
+    @pulumi.getter(name="verificationTimerInSeconds")
+    def verification_timer_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "verification_timer_in_seconds")
+
+    @verification_timer_in_seconds.setter
+    def verification_timer_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimerInSeconds")
+    def write_back_timer_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "write_back_timer_in_seconds")
+
+    @write_back_timer_in_seconds.setter
+    def write_back_timer_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer_in_seconds", value)
+
 
 class CacheBlobNfsTarget(pulumi.CustomResource):
     @overload
@@ -266,6 +330,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_container_id: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+                 write_back_timer_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Manages a Blob NFSv3 Target within a HPC Cache.
@@ -293,6 +359,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
                
                > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
+        :param pulumi.Input[int] verification_timer_in_seconds: The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        :param pulumi.Input[int] write_back_timer_in_seconds: The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         ...
     @overload
@@ -337,6 +405,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_container_id: Optional[pulumi.Input[str]] = None,
                  usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+                 write_back_timer_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -363,6 +433,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
             if usage_model is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_model'")
             __props__.__dict__["usage_model"] = usage_model
+            __props__.__dict__["verification_timer_in_seconds"] = verification_timer_in_seconds
+            __props__.__dict__["write_back_timer_in_seconds"] = write_back_timer_in_seconds
         super(CacheBlobNfsTarget, __self__).__init__(
             'azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget',
             resource_name,
@@ -379,7 +451,9 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
             namespace_path: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             storage_container_id: Optional[pulumi.Input[str]] = None,
-            usage_model: Optional[pulumi.Input[str]] = None) -> 'CacheBlobNfsTarget':
+            usage_model: Optional[pulumi.Input[str]] = None,
+            verification_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+            write_back_timer_in_seconds: Optional[pulumi.Input[int]] = None) -> 'CacheBlobNfsTarget':
         """
         Get an existing CacheBlobNfsTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -396,6 +470,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
                
                > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
+        :param pulumi.Input[int] verification_timer_in_seconds: The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        :param pulumi.Input[int] write_back_timer_in_seconds: The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -408,6 +484,8 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["storage_container_id"] = storage_container_id
         __props__.__dict__["usage_model"] = usage_model
+        __props__.__dict__["verification_timer_in_seconds"] = verification_timer_in_seconds
+        __props__.__dict__["write_back_timer_in_seconds"] = write_back_timer_in_seconds
         return CacheBlobNfsTarget(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -467,4 +545,20 @@ class CacheBlobNfsTarget(pulumi.CustomResource):
         The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
         return pulumi.get(self, "usage_model")
+
+    @property
+    @pulumi.getter(name="verificationTimerInSeconds")
+    def verification_timer_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "verification_timer_in_seconds")
+
+    @property
+    @pulumi.getter(name="writeBackTimerInSeconds")
+    def write_back_timer_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+        """
+        return pulumi.get(self, "write_back_timer_in_seconds")
 

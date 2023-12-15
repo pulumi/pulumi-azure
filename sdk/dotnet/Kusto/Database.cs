@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto
 {
     /// <summary>
-    /// Manages a Kusto (also known as Azure Data Explorer) Database
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql
 {
     /// <summary>
-    /// Manages a MySQL Database within a MySQL Server
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

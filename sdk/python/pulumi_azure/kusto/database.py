@@ -246,8 +246,6 @@ class Database(pulumi.CustomResource):
                  soft_delete_period: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Kusto (also known as Azure Data Explorer) Database
-
         ## Example Usage
 
         ```python
@@ -294,8 +292,6 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Kusto (also known as Azure Data Explorer) Database
-
         ## Example Usage
 
         ```python

@@ -140,12 +140,16 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note** The file specified with `source` can not be empty.
+     * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
      * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note** The file specified with `source` can not be empty.
      * 
      */
     public Optional<Output<String>> source() {
@@ -371,6 +375,8 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note** The file specified with `source` can not be empty.
+         * 
          * @return builder
          * 
          */
@@ -381,6 +387,8 @@ public final class ShareFileState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param source An absolute path to a file on the local system. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note** The file specified with `source` can not be empty.
          * 
          * @return builder
          * 

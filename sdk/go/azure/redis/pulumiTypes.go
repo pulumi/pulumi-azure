@@ -397,6 +397,8 @@ type CacheRedisConfiguration struct {
 	//
 	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
+	// The ID of the Subscription containing the Storage Account.
+	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
 }
 
 // CacheRedisConfigurationInput is an input type that accepts CacheRedisConfigurationArgs and CacheRedisConfigurationOutput values.
@@ -479,6 +481,8 @@ type CacheRedisConfigurationArgs struct {
 	//
 	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
+	// The ID of the Subscription containing the Storage Account.
+	StorageAccountSubscriptionId pulumi.StringPtrInput `pulumi:"storageAccountSubscriptionId"`
 }
 
 func (CacheRedisConfigurationArgs) ElementType() reflect.Type {
@@ -675,6 +679,11 @@ func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtr
 // > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
 func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subscription containing the Storage Account.
+func (o CacheRedisConfigurationOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 type CacheRedisConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -892,6 +901,16 @@ func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.St
 			return nil
 		}
 		return v.RdbStorageConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subscription containing the Storage Account.
+func (o CacheRedisConfigurationPtrOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountSubscriptionId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1146,6 +1165,8 @@ type GetCacheRedisConfiguration struct {
 	RdbBackupMaxSnapshotCount int `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs.
 	RdbStorageConnectionString string `pulumi:"rdbStorageConnectionString"`
+	// The ID of the Subscription containing the Storage Account.
+	StorageAccountSubscriptionId string `pulumi:"storageAccountSubscriptionId"`
 }
 
 // GetCacheRedisConfigurationInput is an input type that accepts GetCacheRedisConfigurationArgs and GetCacheRedisConfigurationOutput values.
@@ -1183,6 +1204,8 @@ type GetCacheRedisConfigurationArgs struct {
 	RdbBackupMaxSnapshotCount pulumi.IntInput `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs.
 	RdbStorageConnectionString pulumi.StringInput `pulumi:"rdbStorageConnectionString"`
+	// The ID of the Subscription containing the Storage Account.
+	StorageAccountSubscriptionId pulumi.StringInput `pulumi:"storageAccountSubscriptionId"`
 }
 
 func (GetCacheRedisConfigurationArgs) ElementType() reflect.Type {
@@ -1299,6 +1322,11 @@ func (o GetCacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.Int
 // The Connection String to the Storage Account. Only supported for Premium SKUs.
 func (o GetCacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.RdbStorageConnectionString }).(pulumi.StringOutput)
+}
+
+// The ID of the Subscription containing the Storage Account.
+func (o GetCacheRedisConfigurationOutput) StorageAccountSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCacheRedisConfiguration) string { return v.StorageAccountSubscriptionId }).(pulumi.StringOutput)
 }
 
 type GetCacheRedisConfigurationArrayOutput struct{ *pulumi.OutputState }

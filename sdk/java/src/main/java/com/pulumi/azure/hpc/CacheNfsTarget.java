@@ -11,8 +11,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -114,6 +116,34 @@ public class CacheNfsTarget extends com.pulumi.resources.CustomResource {
      */
     public Output<String> usageModel() {
         return this.usageModel;
+    }
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Export(name="verificationTimerInSeconds", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> verificationTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Output<Optional<Integer>> verificationTimerInSeconds() {
+        return Codegen.optional(this.verificationTimerInSeconds);
+    }
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    @Export(name="writeBackTimerInSeconds", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> writeBackTimerInSeconds;
+
+    /**
+     * @return The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     * 
+     */
+    public Output<Optional<Integer>> writeBackTimerInSeconds() {
+        return Codegen.optional(this.writeBackTimerInSeconds);
     }
 
     /**

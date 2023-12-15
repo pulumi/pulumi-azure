@@ -26,7 +26,8 @@ class AppArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
@@ -40,6 +41,9 @@ class AppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
+        :param pulumi.Input[str] workload_profile_name: The name of the Workload Profile in the Container App Environment to place this Container App.
+               
+               > **Note:** Omit this value to use the default `Consumption` Workload Profile.
         """
         pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -59,6 +63,8 @@ class AppArgs:
             pulumi.set(__self__, "secrets", secrets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workload_profile_name is not None:
+            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -192,6 +198,20 @@ class AppArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Workload Profile in the Container App Environment to place this Container App.
+
+        > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        """
+        return pulumi.get(self, "workload_profile_name")
+
+    @workload_profile_name.setter
+    def workload_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_profile_name", value)
+
 
 @pulumi.input_type
 class _AppState:
@@ -211,7 +231,8 @@ class _AppState:
                  revision_mode: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input['AppTemplateArgs']] = None):
+                 template: Optional[pulumi.Input['AppTemplateArgs']] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering App resources.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
@@ -230,6 +251,9 @@ class _AppState:
         :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
+        :param pulumi.Input[str] workload_profile_name: The name of the Workload Profile in the Container App Environment to place this Container App.
+               
+               > **Note:** Omit this value to use the default `Consumption` Workload Profile.
         """
         if container_app_environment_id is not None:
             pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
@@ -263,6 +287,8 @@ class _AppState:
             pulumi.set(__self__, "tags", tags)
         if template is not None:
             pulumi.set(__self__, "template", template)
+        if workload_profile_name is not None:
+            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -456,6 +482,20 @@ class _AppState:
     def template(self, value: Optional[pulumi.Input['AppTemplateArgs']]):
         pulumi.set(self, "template", value)
 
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Workload Profile in the Container App Environment to place this Container App.
+
+        > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        """
+        return pulumi.get(self, "workload_profile_name")
+
+    @workload_profile_name.setter
+    def workload_profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_profile_name", value)
+
 
 class App(pulumi.CustomResource):
     @overload
@@ -473,6 +513,7 @@ class App(pulumi.CustomResource):
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Container App.
@@ -528,6 +569,9 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         :param pulumi.Input[pulumi.InputType['AppTemplateArgs']] template: A `template` block as detailed below.
+        :param pulumi.Input[str] workload_profile_name: The name of the Workload Profile in the Container App Environment to place this Container App.
+               
+               > **Note:** Omit this value to use the default `Consumption` Workload Profile.
         """
         ...
     @overload
@@ -602,6 +646,7 @@ class App(pulumi.CustomResource):
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None,
+                 workload_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -630,6 +675,7 @@ class App(pulumi.CustomResource):
             if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__.__dict__["template"] = template
+            __props__.__dict__["workload_profile_name"] = workload_profile_name
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["latest_revision_fqdn"] = None
             __props__.__dict__["latest_revision_name"] = None
@@ -662,7 +708,8 @@ class App(pulumi.CustomResource):
             revision_mode: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None) -> 'App':
+            template: Optional[pulumi.Input[pulumi.InputType['AppTemplateArgs']]] = None,
+            workload_profile_name: Optional[pulumi.Input[str]] = None) -> 'App':
         """
         Get an existing App resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -686,6 +733,9 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppSecretArgs']]]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         :param pulumi.Input[pulumi.InputType['AppTemplateArgs']] template: A `template` block as detailed below.
+        :param pulumi.Input[str] workload_profile_name: The name of the Workload Profile in the Container App Environment to place this Container App.
+               
+               > **Note:** Omit this value to use the default `Consumption` Workload Profile.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -707,6 +757,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["tags"] = tags
         __props__.__dict__["template"] = template
+        __props__.__dict__["workload_profile_name"] = workload_profile_name
         return App(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -836,4 +887,14 @@ class App(pulumi.CustomResource):
         A `template` block as detailed below.
         """
         return pulumi.get(self, "template")
+
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Workload Profile in the Container App Environment to place this Container App.
+
+        > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+        """
+        return pulumi.get(self, "workload_profile_name")
 

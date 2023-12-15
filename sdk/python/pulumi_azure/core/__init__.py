@@ -8,6 +8,7 @@ import typing
 from .custom_provider import *
 from .get_client_config import *
 from .get_extended_locations import *
+from .get_location import *
 from .get_resource_group import *
 from .get_resource_group_template_deployment import *
 from .get_resources import *

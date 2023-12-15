@@ -101,6 +101,8 @@ class WorkspaceArgs:
 @pulumi.input_type
 class _WorkspaceState:
     def __init__(__self__, *,
+                 default_data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 default_data_collection_rule_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -109,6 +111,8 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
+        :param pulumi.Input[str] default_data_collection_endpoint_id: The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        :param pulumi.Input[str] default_data_collection_rule_id: The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
@@ -116,6 +120,10 @@ class _WorkspaceState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Monitor Workspace.
         """
+        if default_data_collection_endpoint_id is not None:
+            pulumi.set(__self__, "default_data_collection_endpoint_id", default_data_collection_endpoint_id)
+        if default_data_collection_rule_id is not None:
+            pulumi.set(__self__, "default_data_collection_rule_id", default_data_collection_rule_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -128,6 +136,30 @@ class _WorkspaceState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionEndpointId")
+    def default_data_collection_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_endpoint_id")
+
+    @default_data_collection_endpoint_id.setter
+    def default_data_collection_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_data_collection_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionRuleId")
+    def default_data_collection_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_rule_id")
+
+    @default_data_collection_rule_id.setter
+    def default_data_collection_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_data_collection_rule_id", value)
 
     @property
     @pulumi.getter
@@ -315,6 +347,8 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["default_data_collection_endpoint_id"] = None
+            __props__.__dict__["default_data_collection_rule_id"] = None
             __props__.__dict__["query_endpoint"] = None
         super(Workspace, __self__).__init__(
             'azure:monitoring/workspace:Workspace',
@@ -326,6 +360,8 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            default_data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
+            default_data_collection_rule_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -339,6 +375,8 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_data_collection_endpoint_id: The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        :param pulumi.Input[str] default_data_collection_rule_id: The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled? Defaults to `true`.
@@ -350,6 +388,8 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = _WorkspaceState.__new__(_WorkspaceState)
 
+        __props__.__dict__["default_data_collection_endpoint_id"] = default_data_collection_endpoint_id
+        __props__.__dict__["default_data_collection_rule_id"] = default_data_collection_rule_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -357,6 +397,22 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionEndpointId")
+    def default_data_collection_endpoint_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_endpoint_id")
+
+    @property
+    @pulumi.getter(name="defaultDataCollectionRuleId")
+    def default_data_collection_rule_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+        """
+        return pulumi.get(self, "default_data_collection_rule_id")
 
     @property
     @pulumi.getter

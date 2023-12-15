@@ -69,6 +69,34 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
+     * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    @Export(name="defaultDataCollectionEndpointId", refs={String.class}, tree="[0]")
+    private Output<String> defaultDataCollectionEndpointId;
+
+    /**
+     * @return The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    public Output<String> defaultDataCollectionEndpointId() {
+        return this.defaultDataCollectionEndpointId;
+    }
+    /**
+     * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    @Export(name="defaultDataCollectionRuleId", refs={String.class}, tree="[0]")
+    private Output<String> defaultDataCollectionRuleId;
+
+    /**
+     * @return The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    public Output<String> defaultDataCollectionRuleId() {
+        return this.defaultDataCollectionRuleId;
+    }
+    /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */

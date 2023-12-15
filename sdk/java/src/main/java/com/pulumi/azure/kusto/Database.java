@@ -16,8 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Kusto (also known as Azure Data Explorer) Database
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -324,6 +324,24 @@ public class App extends com.pulumi.resources.CustomResource {
     public Output<AppTemplate> template() {
         return this.template;
     }
+    /**
+     * The name of the Workload Profile in the Container App Environment to place this Container App.
+     * 
+     * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     * 
+     */
+    @Export(name="workloadProfileName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> workloadProfileName;
+
+    /**
+     * @return The name of the Workload Profile in the Container App Environment to place this Container App.
+     * 
+     * &gt; **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     * 
+     */
+    public Output<Optional<String>> workloadProfileName() {
+        return Codegen.optional(this.workloadProfileName);
+    }
 
     /**
      *

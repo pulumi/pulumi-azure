@@ -62,7 +62,9 @@ import (
 type BackupVault struct {
 	pulumi.CustomResourceState
 
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 	DatastoreType pulumi.StringOutput `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrOutput `pulumi:"identity"`
@@ -117,7 +119,9 @@ func GetBackupVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupVault resources.
 type backupVaultState struct {
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 	DatastoreType *string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
@@ -134,7 +138,9 @@ type backupVaultState struct {
 }
 
 type BackupVaultState struct {
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 	DatastoreType pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
@@ -155,7 +161,9 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 	DatastoreType string `pulumi:"datastoreType"`
 	// An `identity` block as defined below.
 	Identity *BackupVaultIdentity `pulumi:"identity"`
@@ -173,7 +181,9 @@ type backupVaultArgs struct {
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
-	// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 	DatastoreType pulumi.StringInput
 	// An `identity` block as defined below.
 	Identity BackupVaultIdentityPtrInput
@@ -276,7 +286,9 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 	return o
 }
 
-// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+//
+// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
 func (o BackupVaultOutput) DatastoreType() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.DatastoreType }).(pulumi.StringOutput)
 }

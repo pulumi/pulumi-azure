@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a NetApp Volume.
- *
  * ## Import
  *
  * NetApp Volumes can be imported using the `resource id`, e.g.

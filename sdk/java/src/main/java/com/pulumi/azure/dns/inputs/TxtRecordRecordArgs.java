@@ -14,14 +14,14 @@ public final class TxtRecordRecordArgs extends com.pulumi.resources.ResourceArgs
     public static final TxtRecordRecordArgs Empty = new TxtRecordRecordArgs();
 
     /**
-     * The value of the record. Max length: 1024 characters
+     * The value of the record. Max length: 4096 characters
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the record. Max length: 1024 characters
+     * @return The value of the record. Max length: 4096 characters
      * 
      */
     public Output<String> value() {
@@ -53,7 +53,7 @@ public final class TxtRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param value The value of the record. Max length: 1024 characters
+         * @param value The value of the record. Max length: 4096 characters
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class TxtRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param value The value of the record. Max length: 1024 characters
+         * @param value The value of the record. Max length: 4096 characters
          * 
          * @return builder
          * 

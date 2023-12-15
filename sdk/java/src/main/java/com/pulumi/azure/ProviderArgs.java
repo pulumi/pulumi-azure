@@ -363,6 +363,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Allow Azure AKS Workload Identity to be used for Authentication.
+     * 
+     */
+    @Import(name="useAksWorkloadIdentity", json=true)
+    private @Nullable Output<Boolean> useAksWorkloadIdentity;
+
+    /**
+     * @return Allow Azure AKS Workload Identity to be used for Authentication.
+     * 
+     */
+    public Optional<Output<Boolean>> useAksWorkloadIdentity() {
+        return Optional.ofNullable(this.useAksWorkloadIdentity);
+    }
+
+    /**
      * Allow Azure CLI to be used for Authentication.
      * 
      */
@@ -433,6 +448,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.storageUseAzuread = $.storageUseAzuread;
         this.subscriptionId = $.subscriptionId;
         this.tenantId = $.tenantId;
+        this.useAksWorkloadIdentity = $.useAksWorkloadIdentity;
         this.useCli = $.useCli;
         this.useMsi = $.useMsi;
         this.useOidc = $.useOidc;
@@ -931,6 +947,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
+        }
+
+        /**
+         * @param useAksWorkloadIdentity Allow Azure AKS Workload Identity to be used for Authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAksWorkloadIdentity(@Nullable Output<Boolean> useAksWorkloadIdentity) {
+            $.useAksWorkloadIdentity = useAksWorkloadIdentity;
+            return this;
+        }
+
+        /**
+         * @param useAksWorkloadIdentity Allow Azure AKS Workload Identity to be used for Authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAksWorkloadIdentity(Boolean useAksWorkloadIdentity) {
+            return useAksWorkloadIdentity(Output.of(useAksWorkloadIdentity));
         }
 
         /**

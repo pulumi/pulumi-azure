@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Kusto (also known as Azure Data Explorer) Database
-//
 // ## Example Usage
 //
 // ```go

@@ -83,6 +83,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
     /**
+     * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     */
+    public readonly immediateDataPurgeOn30DaysEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
     public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
@@ -163,6 +167,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             resourceInputs["dataCollectionRuleId"] = state ? state.dataCollectionRuleId : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = state ? state.immediateDataPurgeOn30DaysEnabled : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
@@ -186,6 +191,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = args ? args.immediateDataPurgeOn30DaysEnabled : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
@@ -233,6 +239,10 @@ export interface AnalyticsWorkspaceState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
+    /**
+     * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     */
+    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
@@ -323,6 +333,10 @@ export interface AnalyticsWorkspaceArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
+    /**
+     * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     */
+    immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */

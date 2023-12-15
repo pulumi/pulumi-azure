@@ -18,6 +18,36 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceState Empty = new WorkspaceState();
 
     /**
+     * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    @Import(name="defaultDataCollectionEndpointId")
+    private @Nullable Output<String> defaultDataCollectionEndpointId;
+
+    /**
+     * @return The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    public Optional<Output<String>> defaultDataCollectionEndpointId() {
+        return Optional.ofNullable(this.defaultDataCollectionEndpointId);
+    }
+
+    /**
+     * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    @Import(name="defaultDataCollectionRuleId")
+    private @Nullable Output<String> defaultDataCollectionRuleId;
+
+    /**
+     * @return The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    public Optional<Output<String>> defaultDataCollectionRuleId() {
+        return Optional.ofNullable(this.defaultDataCollectionRuleId);
+    }
+
+    /**
      * Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
      * 
      */
@@ -110,6 +140,8 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     private WorkspaceState() {}
 
     private WorkspaceState(WorkspaceState $) {
+        this.defaultDataCollectionEndpointId = $.defaultDataCollectionEndpointId;
+        this.defaultDataCollectionRuleId = $.defaultDataCollectionRuleId;
         this.location = $.location;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
@@ -134,6 +166,48 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(WorkspaceState defaults) {
             $ = new WorkspaceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param defaultDataCollectionEndpointId The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultDataCollectionEndpointId(@Nullable Output<String> defaultDataCollectionEndpointId) {
+            $.defaultDataCollectionEndpointId = defaultDataCollectionEndpointId;
+            return this;
+        }
+
+        /**
+         * @param defaultDataCollectionEndpointId The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultDataCollectionEndpointId(String defaultDataCollectionEndpointId) {
+            return defaultDataCollectionEndpointId(Output.of(defaultDataCollectionEndpointId));
+        }
+
+        /**
+         * @param defaultDataCollectionRuleId The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultDataCollectionRuleId(@Nullable Output<String> defaultDataCollectionRuleId) {
+            $.defaultDataCollectionRuleId = defaultDataCollectionRuleId;
+            return this;
+        }
+
+        /**
+         * @param defaultDataCollectionRuleId The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultDataCollectionRuleId(String defaultDataCollectionRuleId) {
+            return defaultDataCollectionRuleId(Output.of(defaultDataCollectionRuleId));
         }
 
         /**

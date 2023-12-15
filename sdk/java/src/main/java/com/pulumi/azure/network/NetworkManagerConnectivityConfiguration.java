@@ -87,13 +87,22 @@ import javax.annotation.Nullable;
  *             .flowTimeoutInMinutes(10)
  *             .build());
  * 
+ *         var example2 = new NetworkManagerNetworkGroup(&#34;example2&#34;, NetworkManagerNetworkGroupArgs.builder()        
+ *             .networkManagerId(exampleNetworkManager.id())
+ *             .build());
+ * 
  *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration(&#34;exampleNetworkManagerConnectivityConfiguration&#34;, NetworkManagerConnectivityConfigurationArgs.builder()        
  *             .networkManagerId(exampleNetworkManager.id())
  *             .connectivityTopology(&#34;HubAndSpoke&#34;)
- *             .appliesToGroups(NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
- *                 .groupConnectivity(&#34;DirectlyConnected&#34;)
- *                 .networkGroupId(exampleNetworkManagerNetworkGroup.id())
- *                 .build())
+ *             .appliesToGroups(            
+ *                 NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
+ *                     .groupConnectivity(&#34;DirectlyConnected&#34;)
+ *                     .networkGroupId(exampleNetworkManagerNetworkGroup.id())
+ *                     .build(),
+ *                 NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
+ *                     .groupConnectivity(&#34;DirectlyConnected&#34;)
+ *                     .networkGroupId(example2.id())
+ *                     .build())
  *             .hub(NetworkManagerConnectivityConfigurationHubArgs.builder()
  *                 .resourceId(exampleVirtualNetwork.id())
  *                 .resourceType(&#34;Microsoft.Network/virtualNetworks&#34;)
@@ -116,14 +125,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration")
 public class NetworkManagerConnectivityConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * An `applies_to_group` block as defined below.
+     * One or more `applies_to_group` blocks as defined below.
      * 
      */
     @Export(name="appliesToGroups", refs={List.class,NetworkManagerConnectivityConfigurationAppliesToGroup.class}, tree="[0,1]")
     private Output<List<NetworkManagerConnectivityConfigurationAppliesToGroup>> appliesToGroups;
 
     /**
-     * @return An `applies_to_group` block as defined below.
+     * @return One or more `applies_to_group` blocks as defined below.
      * 
      */
     public Output<List<NetworkManagerConnectivityConfigurationAppliesToGroup>> appliesToGroups() {

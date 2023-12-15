@@ -66,6 +66,8 @@ type LookupAccountResult struct {
 	Endpoint string `pulumi:"endpoint"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities []GetAccountIdentity `pulumi:"identities"`
 	// The kind of the Cognitive Services Account
 	Kind string `pulumi:"kind"`
 	// The Azure location where the Cognitive Services Account exists
@@ -134,6 +136,11 @@ func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A `identity` block as defined below.
+func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountIdentity { return v.Identities }).(GetAccountIdentityArrayOutput)
 }
 
 // The kind of the Cognitive Services Account

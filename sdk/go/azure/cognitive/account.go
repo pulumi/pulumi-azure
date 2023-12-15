@@ -73,7 +73,7 @@ type Account struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
@@ -107,7 +107,7 @@ type Account struct {
 	MetricsAdvisorWebsiteName pulumi.StringPtrOutput `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkAcls` block as defined below.
+	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrOutput `pulumi:"networkAcls"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestricted"`
@@ -185,7 +185,7 @@ type accountState struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
@@ -219,7 +219,7 @@ type accountState struct {
 	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkAcls` block as defined below.
+	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
@@ -250,7 +250,7 @@ type AccountState struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
@@ -284,7 +284,7 @@ type AccountState struct {
 	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkAcls` block as defined below.
+	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrInput
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
@@ -319,7 +319,7 @@ type accountArgs struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
@@ -351,7 +351,7 @@ type accountArgs struct {
 	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkAcls` block as defined below.
+	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls *AccountNetworkAcls `pulumi:"networkAcls"`
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
@@ -379,7 +379,7 @@ type AccountArgs struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
@@ -411,7 +411,7 @@ type AccountArgs struct {
 	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkAcls` block as defined below.
+	// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 	NetworkAcls AccountNetworkAclsPtrInput
 	// Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
@@ -530,7 +530,7 @@ func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPt
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceKey }).(pulumi.StringPtrOutput)
 }
 
-// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
 func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
 }
@@ -606,7 +606,7 @@ func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkAcls` block as defined below.
+// A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
 func (o AccountOutput) NetworkAcls() AccountNetworkAclsPtrOutput {
 	return o.ApplyT(func(v *Account) AccountNetworkAclsPtrOutput { return v.NetworkAcls }).(AccountNetworkAclsPtrOutput)
 }

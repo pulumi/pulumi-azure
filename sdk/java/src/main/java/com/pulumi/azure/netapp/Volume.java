@@ -23,8 +23,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a NetApp Volume.
- * 
  * ## Import
  * 
  * NetApp Volumes can be imported using the `resource id`, e.g.

@@ -60,6 +60,10 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
+	// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+	DefaultDataCollectionEndpointId string `pulumi:"defaultDataCollectionEndpointId"`
+	// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+	DefaultDataCollectionRuleId string `pulumi:"defaultDataCollectionRuleId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the Workspace is located.
@@ -112,6 +116,16 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorks
 
 func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
 	return o
+}
+
+// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+func (o LookupWorkspaceResultOutput) DefaultDataCollectionEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.DefaultDataCollectionEndpointId }).(pulumi.StringOutput)
+}
+
+// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+func (o LookupWorkspaceResultOutput) DefaultDataCollectionRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.DefaultDataCollectionRuleId }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

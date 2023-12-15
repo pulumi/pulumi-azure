@@ -57,6 +57,7 @@ __all__ = [
     'SubscriptionPolicyAssignmentOverrideSelector',
     'SubscriptionPolicyAssignmentResourceSelector',
     'SubscriptionPolicyAssignmentResourceSelectorSelector',
+    'GetLocationZoneMappingResult',
     'GetResourcesResourceResult',
     'GetSubscriptionsSubscriptionResult',
 ]
@@ -2048,6 +2049,35 @@ class SubscriptionPolicyAssignmentResourceSelectorSelector(dict):
         Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
         return pulumi.get(self, "not_ins")
+
+
+@pulumi.output_type
+class GetLocationZoneMappingResult(dict):
+    def __init__(__self__, *,
+                 logical_zone: str,
+                 physical_zone: str):
+        """
+        :param str logical_zone: The logical zone id for the availability zone
+        :param str physical_zone: The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+        """
+        pulumi.set(__self__, "logical_zone", logical_zone)
+        pulumi.set(__self__, "physical_zone", physical_zone)
+
+    @property
+    @pulumi.getter(name="logicalZone")
+    def logical_zone(self) -> str:
+        """
+        The logical zone id for the availability zone
+        """
+        return pulumi.get(self, "logical_zone")
+
+    @property
+    @pulumi.getter(name="physicalZone")
+    def physical_zone(self) -> str:
+        """
+        The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+        """
+        return pulumi.get(self, "physical_zone")
 
 
 @pulumi.output_type

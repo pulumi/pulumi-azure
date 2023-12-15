@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PostgreSql
 {
     /// <summary>
-    /// Manages a PostgreSQL Flexible Server Database.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

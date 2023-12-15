@@ -77,6 +77,14 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     public readonly usageModel!: pulumi.Output<string>;
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     */
+    public readonly verificationTimerInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     */
+    public readonly writeBackTimerInSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a CacheBlobNfsTarget resource with the given unique name, arguments, and options.
@@ -98,6 +106,8 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
             resourceInputs["usageModel"] = state ? state.usageModel : undefined;
+            resourceInputs["verificationTimerInSeconds"] = state ? state.verificationTimerInSeconds : undefined;
+            resourceInputs["writeBackTimerInSeconds"] = state ? state.writeBackTimerInSeconds : undefined;
         } else {
             const args = argsOrState as CacheBlobNfsTargetArgs | undefined;
             if ((!args || args.cacheName === undefined) && !opts.urn) {
@@ -122,6 +132,8 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
             resourceInputs["usageModel"] = args ? args.usageModel : undefined;
+            resourceInputs["verificationTimerInSeconds"] = args ? args.verificationTimerInSeconds : undefined;
+            resourceInputs["writeBackTimerInSeconds"] = args ? args.writeBackTimerInSeconds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CacheBlobNfsTarget.__pulumiType, name, resourceInputs, opts);
@@ -162,6 +174,14 @@ export interface CacheBlobNfsTargetState {
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     usageModel?: pulumi.Input<string>;
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     */
+    verificationTimerInSeconds?: pulumi.Input<number>;
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     */
+    writeBackTimerInSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -198,4 +218,12 @@ export interface CacheBlobNfsTargetArgs {
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     usageModel: pulumi.Input<string>;
+    /**
+     * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+     */
+    verificationTimerInSeconds?: pulumi.Input<number>;
+    /**
+     * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+     */
+    writeBackTimerInSeconds?: pulumi.Input<number>;
 }

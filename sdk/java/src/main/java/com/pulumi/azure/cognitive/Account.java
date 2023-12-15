@@ -110,14 +110,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customQuestionAnsweringSearchServiceKey);
     }
     /**
-     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> customSubdomainName() {
@@ -318,14 +318,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `network_acls` block as defined below.
+     * A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
      * 
      */
     @Export(name="networkAcls", refs={AccountNetworkAcls.class}, tree="[0]")
     private Output</* @Nullable */ AccountNetworkAcls> networkAcls;
 
     /**
-     * @return A `network_acls` block as defined below.
+     * @return A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
      * 
      */
     public Output<Optional<AccountNetworkAcls>> networkAcls() {

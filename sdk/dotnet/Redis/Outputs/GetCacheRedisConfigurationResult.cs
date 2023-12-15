@@ -54,6 +54,10 @@ namespace Pulumi.Azure.Redis.Outputs
         /// The Connection String to the Storage Account. Only supported for Premium SKUs.
         /// </summary>
         public readonly string RdbStorageConnectionString;
+        /// <summary>
+        /// The ID of the Subscription containing the Storage Account.
+        /// </summary>
+        public readonly string StorageAccountSubscriptionId;
 
         [OutputConstructor]
         private GetCacheRedisConfigurationResult(
@@ -83,7 +87,9 @@ namespace Pulumi.Azure.Redis.Outputs
 
             int rdbBackupMaxSnapshotCount,
 
-            string rdbStorageConnectionString)
+            string rdbStorageConnectionString,
+
+            string storageAccountSubscriptionId)
         {
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
@@ -99,6 +105,7 @@ namespace Pulumi.Azure.Redis.Outputs
             RdbBackupFrequency = rdbBackupFrequency;
             RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             RdbStorageConnectionString = rdbStorageConnectionString;
+            StorageAccountSubscriptionId = storageAccountSubscriptionId;
         }
     }
 }

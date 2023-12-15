@@ -98,6 +98,10 @@ export interface GetAppResult {
      * A `template` block as detailed below.
      */
     readonly templates: outputs.containerapp.GetAppTemplate[];
+    /**
+     * The name of the Workload Profile in the Container App Environment in which this Container App is running.
+     */
+    readonly workloadProfileName: string;
 }
 /**
  * Use this data source to access information about an existing Container App.

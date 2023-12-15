@@ -7766,6 +7766,8 @@ class NetworkManagerScopeArgs:
                  subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] management_group_ids: A list of management group IDs.
+               
+               **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of subscription IDs.
         """
         if management_group_ids is not None:
@@ -7778,6 +7780,8 @@ class NetworkManagerScopeArgs:
     def management_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of management group IDs.
+
+        **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         """
         return pulumi.get(self, "management_group_ids")
 

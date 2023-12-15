@@ -93,6 +93,8 @@ type ShareFile struct {
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	//
+	// > **Note** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
@@ -148,6 +150,8 @@ type shareFileState struct {
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	//
+	// > **Note** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId *string `pulumi:"storageShareId"`
@@ -171,6 +175,8 @@ type ShareFileState struct {
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	//
+	// > **Note** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringPtrInput
@@ -196,6 +202,8 @@ type shareFileArgs struct {
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	//
+	// > **Note** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId string `pulumi:"storageShareId"`
@@ -218,6 +226,8 @@ type ShareFileArgs struct {
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
 	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	//
+	// > **Note** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
 	// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareId pulumi.StringInput
@@ -351,6 +361,8 @@ func (o ShareFileOutput) Path() pulumi.StringPtrOutput {
 }
 
 // An absolute path to a file on the local system. Changing this forces a new resource to be created.
+//
+// > **Note** The file specified with `source` can not be empty.
 func (o ShareFileOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }

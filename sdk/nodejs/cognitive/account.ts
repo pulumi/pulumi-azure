@@ -76,7 +76,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customQuestionAnsweringSearchServiceKey!: pulumi.Output<string | undefined>;
     /**
-     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      */
     public readonly customSubdomainName!: pulumi.Output<string | undefined>;
     /**
@@ -138,7 +138,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `networkAcls` block as defined below.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
     public readonly networkAcls!: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
     /**
@@ -279,7 +279,7 @@ export interface AccountState {
      */
     customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
-     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**
@@ -341,7 +341,7 @@ export interface AccountState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkAcls` block as defined below.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
     /**
@@ -399,7 +399,7 @@ export interface AccountArgs {
      */
     customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
-     * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**
@@ -457,7 +457,7 @@ export interface AccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `networkAcls` block as defined below.
+     * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
     networkAcls?: pulumi.Input<inputs.cognitive.AccountNetworkAcls>;
     /**

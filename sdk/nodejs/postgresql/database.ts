@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a PostgreSQL Database within a PostgreSQL Server
- *
  * ## Example Usage
  *
  * ```typescript

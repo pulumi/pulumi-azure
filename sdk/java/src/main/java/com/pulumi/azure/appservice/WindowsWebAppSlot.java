@@ -456,12 +456,16 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      * 
+     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
+     * 
      */
     @Export(name="servicePlanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> servicePlanId;
 
     /**
      * @return The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+     * 
+     * &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      * 
      */
     public Output<Optional<String>> servicePlanId() {

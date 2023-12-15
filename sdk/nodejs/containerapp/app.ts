@@ -142,6 +142,12 @@ export class App extends pulumi.CustomResource {
      * A `template` block as detailed below.
      */
     public readonly template!: pulumi.Output<outputs.containerapp.AppTemplate>;
+    /**
+     * The name of the Workload Profile in the Container App Environment to place this Container App.
+     *
+     * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     */
+    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -172,6 +178,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["secrets"] = state ? state.secrets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["workloadProfileName"] = state ? state.workloadProfileName : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
             if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
@@ -197,6 +204,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["secrets"] = args?.secrets ? pulumi.secret(args.secrets) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
             resourceInputs["latestRevisionName"] = undefined /*out*/;
@@ -278,6 +286,12 @@ export interface AppState {
      * A `template` block as detailed below.
      */
     template?: pulumi.Input<inputs.containerapp.AppTemplate>;
+    /**
+     * The name of the Workload Profile in the Container App Environment to place this Container App.
+     *
+     * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     */
+    workloadProfileName?: pulumi.Input<string>;
 }
 
 /**
@@ -328,4 +342,10 @@ export interface AppArgs {
      * A `template` block as detailed below.
      */
     template: pulumi.Input<inputs.containerapp.AppTemplate>;
+    /**
+     * The name of the Workload Profile in the Container App Environment to place this Container App.
+     *
+     * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
+     */
+    workloadProfileName?: pulumi.Input<string>;
 }

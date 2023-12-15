@@ -48,6 +48,14 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     */
+    readonly defaultDataCollectionEndpointId: string;
+    /**
+     * The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     */
+    readonly defaultDataCollectionRuleId: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

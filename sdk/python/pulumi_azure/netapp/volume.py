@@ -746,8 +746,6 @@ class Volume(pulumi.CustomResource):
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a NetApp Volume.
-
         ## Import
 
         NetApp Volumes can be imported using the `resource id`, e.g.
@@ -789,8 +787,6 @@ class Volume(pulumi.CustomResource):
                  args: VolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a NetApp Volume.
-
         ## Import
 
         NetApp Volumes can be imported using the `resource id`, e.g.

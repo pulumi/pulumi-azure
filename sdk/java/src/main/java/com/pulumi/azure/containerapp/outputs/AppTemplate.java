@@ -7,6 +7,7 @@ import com.pulumi.azure.containerapp.outputs.AppTemplateAzureQueueScaleRule;
 import com.pulumi.azure.containerapp.outputs.AppTemplateContainer;
 import com.pulumi.azure.containerapp.outputs.AppTemplateCustomScaleRule;
 import com.pulumi.azure.containerapp.outputs.AppTemplateHttpScaleRule;
+import com.pulumi.azure.containerapp.outputs.AppTemplateInitContainer;
 import com.pulumi.azure.containerapp.outputs.AppTemplateTcpScaleRule;
 import com.pulumi.azure.containerapp.outputs.AppTemplateVolume;
 import com.pulumi.core.annotations.CustomType;
@@ -39,6 +40,11 @@ public final class AppTemplate {
      * 
      */
     private @Nullable List<AppTemplateHttpScaleRule> httpScaleRules;
+    /**
+     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * 
+     */
+    private @Nullable List<AppTemplateInitContainer> initContainers;
     /**
      * @return The maximum number of replicas for this container.
      * 
@@ -95,6 +101,13 @@ public final class AppTemplate {
         return this.httpScaleRules == null ? List.of() : this.httpScaleRules;
     }
     /**
+     * @return The definition of an init container that is part of the group as documented in the `init_container` block below.
+     * 
+     */
+    public List<AppTemplateInitContainer> initContainers() {
+        return this.initContainers == null ? List.of() : this.initContainers;
+    }
+    /**
      * @return The maximum number of replicas for this container.
      * 
      */
@@ -143,6 +156,7 @@ public final class AppTemplate {
         private List<AppTemplateContainer> containers;
         private @Nullable List<AppTemplateCustomScaleRule> customScaleRules;
         private @Nullable List<AppTemplateHttpScaleRule> httpScaleRules;
+        private @Nullable List<AppTemplateInitContainer> initContainers;
         private @Nullable Integer maxReplicas;
         private @Nullable Integer minReplicas;
         private @Nullable String revisionSuffix;
@@ -155,6 +169,7 @@ public final class AppTemplate {
     	      this.containers = defaults.containers;
     	      this.customScaleRules = defaults.customScaleRules;
     	      this.httpScaleRules = defaults.httpScaleRules;
+    	      this.initContainers = defaults.initContainers;
     	      this.maxReplicas = defaults.maxReplicas;
     	      this.minReplicas = defaults.minReplicas;
     	      this.revisionSuffix = defaults.revisionSuffix;
@@ -195,6 +210,14 @@ public final class AppTemplate {
             return httpScaleRules(List.of(httpScaleRules));
         }
         @CustomType.Setter
+        public Builder initContainers(@Nullable List<AppTemplateInitContainer> initContainers) {
+            this.initContainers = initContainers;
+            return this;
+        }
+        public Builder initContainers(AppTemplateInitContainer... initContainers) {
+            return initContainers(List.of(initContainers));
+        }
+        @CustomType.Setter
         public Builder maxReplicas(@Nullable Integer maxReplicas) {
             this.maxReplicas = maxReplicas;
             return this;
@@ -231,6 +254,7 @@ public final class AppTemplate {
             _resultValue.containers = containers;
             _resultValue.customScaleRules = customScaleRules;
             _resultValue.httpScaleRules = httpScaleRules;
+            _resultValue.initContainers = initContainers;
             _resultValue.maxReplicas = maxReplicas;
             _resultValue.minReplicas = minReplicas;
             _resultValue.revisionSuffix = revisionSuffix;

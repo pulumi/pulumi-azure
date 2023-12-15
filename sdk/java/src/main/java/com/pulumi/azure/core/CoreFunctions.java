@@ -6,6 +6,8 @@ package com.pulumi.azure.core;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.core.inputs.GetExtendedLocationsArgs;
 import com.pulumi.azure.core.inputs.GetExtendedLocationsPlainArgs;
+import com.pulumi.azure.core.inputs.GetLocationArgs;
+import com.pulumi.azure.core.inputs.GetLocationPlainArgs;
 import com.pulumi.azure.core.inputs.GetResourceGroupArgs;
 import com.pulumi.azure.core.inputs.GetResourceGroupPlainArgs;
 import com.pulumi.azure.core.inputs.GetResourceGroupTemplateDeploymentArgs;
@@ -26,6 +28,7 @@ import com.pulumi.azure.core.inputs.GetUserAssignedIdentityArgs;
 import com.pulumi.azure.core.inputs.GetUserAssignedIdentityPlainArgs;
 import com.pulumi.azure.core.outputs.GetClientConfigResult;
 import com.pulumi.azure.core.outputs.GetExtendedLocationsResult;
+import com.pulumi.azure.core.outputs.GetLocationResult;
 import com.pulumi.azure.core.outputs.GetResourceGroupResult;
 import com.pulumi.azure.core.outputs.GetResourceGroupTemplateDeploymentResult;
 import com.pulumi.azure.core.outputs.GetResourcesResult;
@@ -400,6 +403,154 @@ public final class CoreFunctions {
      */
     public static CompletableFuture<GetExtendedLocationsResult> getExtendedLocationsPlain(GetExtendedLocationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:core/getExtendedLocations:getExtendedLocations", TypeShape.of(GetExtendedLocationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information of a specific physical location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args) {
+        return getLocation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information of a specific physical location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args) {
+        return getLocationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information of a specific physical location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:core/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information of a specific physical location.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CoreFunctions.getLocation(GetLocationArgs.builder()
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:core/getLocation:getLocation", TypeShape.of(GetLocationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Resource Group.

@@ -336,35 +336,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
      * 
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.redis.Cache;
-     * import com.pulumi.azure.redis.CacheArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
      */
     @Import(name="rdbStorageConnectionString")
     private @Nullable Output<String> rdbStorageConnectionString;
@@ -374,6 +345,14 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
      * 
+     */
+    public Optional<Output<String>> rdbStorageConnectionString() {
+        return Optional.ofNullable(this.rdbStorageConnectionString);
+    }
+
+    /**
+     * The ID of the Subscription containing the Storage Account.
+     * 
      * ```java
      * package generated_program;
      * 
@@ -404,8 +383,44 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * ```
      * 
      */
-    public Optional<Output<String>> rdbStorageConnectionString() {
-        return Optional.ofNullable(this.rdbStorageConnectionString);
+    @Import(name="storageAccountSubscriptionId")
+    private @Nullable Output<String> storageAccountSubscriptionId;
+
+    /**
+     * @return The ID of the Subscription containing the Storage Account.
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.redis.Cache;
+     * import com.pulumi.azure.redis.CacheArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public Optional<Output<String>> storageAccountSubscriptionId() {
+        return Optional.ofNullable(this.storageAccountSubscriptionId);
     }
 
     private CacheRedisConfigurationArgs() {}
@@ -426,6 +441,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         this.rdbBackupFrequency = $.rdbBackupFrequency;
         this.rdbBackupMaxSnapshotCount = $.rdbBackupMaxSnapshotCount;
         this.rdbStorageConnectionString = $.rdbStorageConnectionString;
+        this.storageAccountSubscriptionId = $.storageAccountSubscriptionId;
     }
 
     public static Builder builder() {
@@ -849,35 +865,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
          * 
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.azure.redis.Cache;
-         * import com.pulumi.azure.redis.CacheArgs;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
-         *             .build());
-         * 
-         *     }
-         * }
-         * ```
-         * 
          * @return builder
          * 
          */
@@ -891,6 +878,16 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
          * 
+         * @return builder
+         * 
+         */
+        public Builder rdbStorageConnectionString(String rdbStorageConnectionString) {
+            return rdbStorageConnectionString(Output.of(rdbStorageConnectionString));
+        }
+
+        /**
+         * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
+         * 
          * ```java
          * package generated_program;
          * 
@@ -923,8 +920,48 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder rdbStorageConnectionString(String rdbStorageConnectionString) {
-            return rdbStorageConnectionString(Output.of(rdbStorageConnectionString));
+        public Builder storageAccountSubscriptionId(@Nullable Output<String> storageAccountSubscriptionId) {
+            $.storageAccountSubscriptionId = storageAccountSubscriptionId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountSubscriptionId The ID of the Subscription containing the Storage Account.
+         * 
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.azure.redis.Cache;
+         * import com.pulumi.azure.redis.CacheArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
+         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountSubscriptionId(String storageAccountSubscriptionId) {
+            return storageAccountSubscriptionId(Output.of(storageAccountSubscriptionId));
         }
 
         public CacheRedisConfigurationArgs build() {

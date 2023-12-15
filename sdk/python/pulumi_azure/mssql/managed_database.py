@@ -167,8 +167,6 @@ class ManagedDatabase(pulumi.CustomResource):
                  short_term_retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
-
         ## Example Usage
 
         ```python
@@ -219,8 +217,6 @@ class ManagedDatabase(pulumi.CustomResource):
                  args: ManagedDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
-
         ## Example Usage
 
         ```python

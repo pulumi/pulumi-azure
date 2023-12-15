@@ -82,6 +82,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<Outputs.AnalyticsWorkspaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        /// </summary>
+        [Output("immediateDataPurgeOn30DaysEnabled")]
+        public Output<bool?> ImmediateDataPurgeOn30DaysEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Output("internetIngestionEnabled")]
@@ -253,6 +259,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<Inputs.AnalyticsWorkspaceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        /// </summary>
+        [Input("immediateDataPurgeOn30DaysEnabled")]
+        public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Input("internetIngestionEnabled")]
@@ -367,6 +379,12 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AnalyticsWorkspaceIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+        /// </summary>
+        [Input("immediateDataPurgeOn30DaysEnabled")]
+        public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
         /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

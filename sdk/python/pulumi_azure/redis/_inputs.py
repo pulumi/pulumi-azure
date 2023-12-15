@@ -157,7 +157,8 @@ class CacheRedisConfigurationArgs:
                  rdb_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  rdb_backup_frequency: Optional[pulumi.Input[int]] = None,
                  rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
-                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
+                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
+                 storage_account_subscription_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] active_directory_authentication_enabled: Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
         :param pulumi.Input[bool] aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
@@ -192,6 +193,7 @@ class CacheRedisConfigurationArgs:
         :param pulumi.Input[str] rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
                
                > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+        :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
         if active_directory_authentication_enabled is not None:
             pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
@@ -223,6 +225,8 @@ class CacheRedisConfigurationArgs:
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        if storage_account_subscription_id is not None:
+            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
 
     @property
     @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
@@ -421,6 +425,18 @@ class CacheRedisConfigurationArgs:
     @rdb_storage_connection_string.setter
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
+
+    @property
+    @pulumi.getter(name="storageAccountSubscriptionId")
+    def storage_account_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription containing the Storage Account.
+        """
+        return pulumi.get(self, "storage_account_subscription_id")
+
+    @storage_account_subscription_id.setter
+    def storage_account_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_subscription_id", value)
 
 
 @pulumi.input_type

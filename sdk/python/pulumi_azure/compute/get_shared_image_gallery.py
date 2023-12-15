@@ -21,13 +21,16 @@ class GetSharedImageGalleryResult:
     """
     A collection of values returned by getSharedImageGallery.
     """
-    def __init__(__self__, description=None, id=None, location=None, name=None, resource_group_name=None, tags=None, unique_name=None):
+    def __init__(__self__, description=None, id=None, image_names=None, location=None, name=None, resource_group_name=None, tags=None, unique_name=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if image_names and not isinstance(image_names, list):
+            raise TypeError("Expected argument 'image_names' to be a list")
+        pulumi.set(__self__, "image_names", image_names)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,6 +62,14 @@ class GetSharedImageGalleryResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="imageNames")
+    def image_names(self) -> Sequence[str]:
+        """
+        A list of Shared Image names within this Shared Image Gallery.
+        """
+        return pulumi.get(self, "image_names")
 
     @property
     @pulumi.getter
@@ -100,6 +111,7 @@ class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
         return GetSharedImageGalleryResult(
             description=self.description,
             id=self.id,
+            image_names=self.image_names,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -136,6 +148,7 @@ def get_shared_image_gallery(name: Optional[str] = None,
     return AwaitableGetSharedImageGalleryResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        image_names=pulumi.get(__ret__, 'image_names'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),

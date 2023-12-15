@@ -18,14 +18,18 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
     public static final BackupVaultArgs Empty = new BackupVaultArgs();
 
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      * 
      */
     @Import(name="datastoreType", required=true)
     private Output<String> datastoreType;
 
     /**
-     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      * 
      */
     public Output<String> datastoreType() {
@@ -153,7 +157,9 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
          * 
          * @return builder
          * 
@@ -164,7 +170,9 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+         * @param datastoreType Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
          * 
          * @return builder
          * 

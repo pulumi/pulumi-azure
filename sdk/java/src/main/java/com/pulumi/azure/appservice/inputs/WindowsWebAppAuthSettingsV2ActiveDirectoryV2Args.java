@@ -97,21 +97,9 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args extends com.
         return this.clientId;
     }
 
-    /**
-     * The thumbprint of the certificate used for signing purposes.
-     * 
-     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-     * 
-     */
     @Import(name="clientSecretCertificateThumbprint")
     private @Nullable Output<String> clientSecretCertificateThumbprint;
 
-    /**
-     * @return The thumbprint of the certificate used for signing purposes.
-     * 
-     * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-     * 
-     */
     public Optional<Output<String>> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
@@ -392,27 +380,11 @@ public final class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args extends com.
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
-         * 
-         * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecretCertificateThumbprint(@Nullable Output<String> clientSecretCertificateThumbprint) {
             $.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             return this;
         }
 
-        /**
-         * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
-         * 
-         * &gt; **NOTE:** One of `client_secret_setting_name` or `client_secret_certificate_thumbprint` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecretCertificateThumbprint(String clientSecretCertificateThumbprint) {
             return clientSecretCertificateThumbprint(Output.of(clientSecretCertificateThumbprint));
         }

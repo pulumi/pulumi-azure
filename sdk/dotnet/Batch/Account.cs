@@ -149,7 +149,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         /// 
-        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         /// </summary>
         [Output("storageAccountAuthenticationMode")]
         public Output<string?> StorageAccountAuthenticationMode { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         /// 
-        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         /// </summary>
         [Input("storageAccountAuthenticationMode")]
         public Input<string>? StorageAccountAuthenticationMode { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.Batch
         /// <summary>
         /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         /// 
-        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        /// &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
         /// </summary>
         [Input("storageAccountAuthenticationMode")]
         public Input<string>? StorageAccountAuthenticationMode { get; set; }

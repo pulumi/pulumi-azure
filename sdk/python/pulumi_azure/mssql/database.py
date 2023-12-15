@@ -1064,8 +1064,6 @@ class Database(pulumi.CustomResource):
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages a MS SQL Database.
-
         ## Example Usage
 
         ```python
@@ -1163,8 +1161,6 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a MS SQL Database.
-
         ## Example Usage
 
         ```python

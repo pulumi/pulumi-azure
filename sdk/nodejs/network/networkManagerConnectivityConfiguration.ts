@@ -38,13 +38,20 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  *     flowTimeoutInMinutes: 10,
  * });
+ * const example2 = new azure.network.NetworkManagerNetworkGroup("example2", {networkManagerId: exampleNetworkManager.id});
  * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", {
  *     networkManagerId: exampleNetworkManager.id,
  *     connectivityTopology: "HubAndSpoke",
- *     appliesToGroups: [{
- *         groupConnectivity: "DirectlyConnected",
- *         networkGroupId: exampleNetworkManagerNetworkGroup.id,
- *     }],
+ *     appliesToGroups: [
+ *         {
+ *             groupConnectivity: "DirectlyConnected",
+ *             networkGroupId: exampleNetworkManagerNetworkGroup.id,
+ *         },
+ *         {
+ *             groupConnectivity: "DirectlyConnected",
+ *             networkGroupId: example2.id,
+ *         },
+ *     ],
  *     hub: {
  *         resourceId: exampleVirtualNetwork.id,
  *         resourceType: "Microsoft.Network/virtualNetworks",
@@ -89,7 +96,7 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
     }
 
     /**
-     * An `appliesToGroup` block as defined below.
+     * One or more `appliesToGroup` blocks as defined below.
      */
     public readonly appliesToGroups!: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup[]>;
     /**
@@ -172,7 +179,7 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
  */
 export interface NetworkManagerConnectivityConfigurationState {
     /**
-     * An `appliesToGroup` block as defined below.
+     * One or more `appliesToGroup` blocks as defined below.
      */
     appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[]>;
     /**
@@ -210,7 +217,7 @@ export interface NetworkManagerConnectivityConfigurationState {
  */
 export interface NetworkManagerConnectivityConfigurationArgs {
     /**
-     * An `appliesToGroup` block as defined below.
+     * One or more `appliesToGroup` blocks as defined below.
      */
     appliesToGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[]>;
     /**

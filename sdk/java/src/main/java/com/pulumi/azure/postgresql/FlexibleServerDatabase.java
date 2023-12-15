@@ -15,8 +15,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a PostgreSQL Flexible Server Database.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

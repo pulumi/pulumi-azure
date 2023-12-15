@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.cognitive.outputs;
 
+import com.pulumi.azure.cognitive.outputs.GetAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -21,6 +23,11 @@ public final class GetAccountResult {
      * 
      */
     private String id;
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    private List<GetAccountIdentity> identities;
     /**
      * @return The kind of the Cognitive Services Account
      * 
@@ -73,6 +80,13 @@ public final class GetAccountResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    public List<GetAccountIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The kind of the Cognitive Services Account
@@ -141,6 +155,7 @@ public final class GetAccountResult {
     public static final class Builder {
         private String endpoint;
         private String id;
+        private List<GetAccountIdentity> identities;
         private String kind;
         private String location;
         private String name;
@@ -155,6 +170,7 @@ public final class GetAccountResult {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -175,6 +191,14 @@ public final class GetAccountResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetAccountIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetAccountIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder kind(String kind) {
@@ -225,6 +249,7 @@ public final class GetAccountResult {
             final var _resultValue = new GetAccountResult();
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.kind = kind;
             _resultValue.location = location;
             _resultValue.name = name;

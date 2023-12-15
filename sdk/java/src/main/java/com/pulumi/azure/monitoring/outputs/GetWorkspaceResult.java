@@ -12,6 +12,16 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     /**
+     * @return The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    private String defaultDataCollectionEndpointId;
+    /**
+     * @return The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    private String defaultDataCollectionRuleId;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -40,6 +50,20 @@ public final class GetWorkspaceResult {
     private Map<String,String> tags;
 
     private GetWorkspaceResult() {}
+    /**
+     * @return The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+     * 
+     */
+    public String defaultDataCollectionEndpointId() {
+        return this.defaultDataCollectionEndpointId;
+    }
+    /**
+     * @return The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+     * 
+     */
+    public String defaultDataCollectionRuleId() {
+        return this.defaultDataCollectionRuleId;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -91,6 +115,8 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String defaultDataCollectionEndpointId;
+        private String defaultDataCollectionRuleId;
         private String id;
         private String location;
         private String name;
@@ -101,6 +127,8 @@ public final class GetWorkspaceResult {
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.defaultDataCollectionEndpointId = defaults.defaultDataCollectionEndpointId;
+    	      this.defaultDataCollectionRuleId = defaults.defaultDataCollectionRuleId;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
@@ -110,6 +138,16 @@ public final class GetWorkspaceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder defaultDataCollectionEndpointId(String defaultDataCollectionEndpointId) {
+            this.defaultDataCollectionEndpointId = Objects.requireNonNull(defaultDataCollectionEndpointId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultDataCollectionRuleId(String defaultDataCollectionRuleId) {
+            this.defaultDataCollectionRuleId = Objects.requireNonNull(defaultDataCollectionRuleId);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
@@ -147,6 +185,8 @@ public final class GetWorkspaceResult {
         }
         public GetWorkspaceResult build() {
             final var _resultValue = new GetWorkspaceResult();
+            _resultValue.defaultDataCollectionEndpointId = defaultDataCollectionEndpointId;
+            _resultValue.defaultDataCollectionRuleId = defaultDataCollectionRuleId;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.name = name;

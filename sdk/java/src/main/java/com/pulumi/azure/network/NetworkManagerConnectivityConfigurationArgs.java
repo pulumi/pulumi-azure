@@ -20,14 +20,14 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
     public static final NetworkManagerConnectivityConfigurationArgs Empty = new NetworkManagerConnectivityConfigurationArgs();
 
     /**
-     * An `applies_to_group` block as defined below.
+     * One or more `applies_to_group` blocks as defined below.
      * 
      */
     @Import(name="appliesToGroups", required=true)
     private Output<List<NetworkManagerConnectivityConfigurationAppliesToGroupArgs>> appliesToGroups;
 
     /**
-     * @return An `applies_to_group` block as defined below.
+     * @return One or more `applies_to_group` blocks as defined below.
      * 
      */
     public Output<List<NetworkManagerConnectivityConfigurationAppliesToGroupArgs>> appliesToGroups() {
@@ -171,7 +171,7 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param appliesToGroups An `applies_to_group` block as defined below.
+         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param appliesToGroups An `applies_to_group` block as defined below.
+         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param appliesToGroups An `applies_to_group` block as defined below.
+         * @param appliesToGroups One or more `applies_to_group` blocks as defined below.
          * 
          * @return builder
          * 

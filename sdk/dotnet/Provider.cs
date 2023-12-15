@@ -299,6 +299,12 @@ namespace Pulumi.Azure
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
+        /// Allow Azure AKS Workload Identity to be used for Authentication.
+        /// </summary>
+        [Input("useAksWorkloadIdentity", json: true)]
+        public Input<bool>? UseAksWorkloadIdentity { get; set; }
+
+        /// <summary>
         /// Allow Azure CLI to be used for Authentication.
         /// </summary>
         [Input("useCli", json: true)]

@@ -130,6 +130,8 @@ type WindowsWebAppSlot struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfigOutput `pulumi:"siteConfig"`
@@ -243,6 +245,8 @@ type windowsWebAppSlotState struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *WindowsWebAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -316,6 +320,8 @@ type WindowsWebAppSlotState struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfigPtrInput
@@ -377,6 +383,8 @@ type windowsWebAppSlotArgs struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 	ServicePlanId *string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -433,6 +441,8 @@ type WindowsWebAppSlotArgs struct {
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+	//
+	// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 	ServicePlanId pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig WindowsWebAppSlotSiteConfigInput
@@ -668,6 +678,8 @@ func (o WindowsWebAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutp
 }
 
 // The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+//
+// > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
 func (o WindowsWebAppSlotOutput) ServicePlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.ServicePlanId }).(pulumi.StringPtrOutput)
 }

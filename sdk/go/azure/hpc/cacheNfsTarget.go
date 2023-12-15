@@ -40,6 +40,10 @@ type CacheNfsTarget struct {
 	TargetHostName pulumi.StringOutput `pulumi:"targetHostName"`
 	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringOutput `pulumi:"usageModel"`
+	// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+	VerificationTimerInSeconds pulumi.IntPtrOutput `pulumi:"verificationTimerInSeconds"`
+	// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+	WriteBackTimerInSeconds pulumi.IntPtrOutput `pulumi:"writeBackTimerInSeconds"`
 }
 
 // NewCacheNfsTarget registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +103,10 @@ type cacheNfsTargetState struct {
 	TargetHostName *string `pulumi:"targetHostName"`
 	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel *string `pulumi:"usageModel"`
+	// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+	VerificationTimerInSeconds *int `pulumi:"verificationTimerInSeconds"`
+	// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+	WriteBackTimerInSeconds *int `pulumi:"writeBackTimerInSeconds"`
 }
 
 type CacheNfsTargetState struct {
@@ -114,6 +122,10 @@ type CacheNfsTargetState struct {
 	TargetHostName pulumi.StringPtrInput
 	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringPtrInput
+	// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+	VerificationTimerInSeconds pulumi.IntPtrInput
+	// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+	WriteBackTimerInSeconds pulumi.IntPtrInput
 }
 
 func (CacheNfsTargetState) ElementType() reflect.Type {
@@ -133,6 +145,10 @@ type cacheNfsTargetArgs struct {
 	TargetHostName string `pulumi:"targetHostName"`
 	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel string `pulumi:"usageModel"`
+	// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+	VerificationTimerInSeconds *int `pulumi:"verificationTimerInSeconds"`
+	// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+	WriteBackTimerInSeconds *int `pulumi:"writeBackTimerInSeconds"`
 }
 
 // The set of arguments for constructing a CacheNfsTarget resource.
@@ -149,6 +165,10 @@ type CacheNfsTargetArgs struct {
 	TargetHostName pulumi.StringInput
 	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringInput
+	// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+	VerificationTimerInSeconds pulumi.IntPtrInput
+	// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+	WriteBackTimerInSeconds pulumi.IntPtrInput
 }
 
 func (CacheNfsTargetArgs) ElementType() reflect.Type {
@@ -266,6 +286,16 @@ func (o CacheNfsTargetOutput) TargetHostName() pulumi.StringOutput {
 // The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 func (o CacheNfsTargetOutput) UsageModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheNfsTarget) pulumi.StringOutput { return v.UsageModel }).(pulumi.StringOutput)
+}
+
+// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
+func (o CacheNfsTargetOutput) VerificationTimerInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheNfsTarget) pulumi.IntPtrOutput { return v.VerificationTimerInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
+func (o CacheNfsTargetOutput) WriteBackTimerInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CacheNfsTarget) pulumi.IntPtrOutput { return v.WriteBackTimerInSeconds }).(pulumi.IntPtrOutput)
 }
 
 type CacheNfsTargetArrayOutput struct{ *pulumi.OutputState }

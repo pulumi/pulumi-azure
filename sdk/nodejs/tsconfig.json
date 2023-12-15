@@ -431,6 +431,7 @@
         "core/customProvider.ts",
         "core/getClientConfig.ts",
         "core/getExtendedLocations.ts",
+        "core/getLocation.ts",
         "core/getResourceGroup.ts",
         "core/getResourceGroupTemplateDeployment.ts",
         "core/getResources.ts",

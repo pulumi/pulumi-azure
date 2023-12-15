@@ -165,6 +165,10 @@ namespace Pulumi.Azure.ContainerApp
         /// A `template` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppTemplateResult> Templates;
+        /// <summary>
+        /// The name of the Workload Profile in the Container App Environment in which this Container App is running.
+        /// </summary>
+        public readonly string WorkloadProfileName;
 
         [OutputConstructor]
         private GetAppResult(
@@ -200,7 +204,9 @@ namespace Pulumi.Azure.ContainerApp
 
             ImmutableDictionary<string, string> tags,
 
-            ImmutableArray<Outputs.GetAppTemplateResult> templates)
+            ImmutableArray<Outputs.GetAppTemplateResult> templates,
+
+            string workloadProfileName)
         {
             ContainerAppEnvironmentId = containerAppEnvironmentId;
             CustomDomainVerificationId = customDomainVerificationId;
@@ -219,6 +225,7 @@ namespace Pulumi.Azure.ContainerApp
             Secrets = secrets;
             Tags = tags;
             Templates = templates;
+            WorkloadProfileName = workloadProfileName;
         }
     }
 }

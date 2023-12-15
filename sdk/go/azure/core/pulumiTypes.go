@@ -5908,6 +5908,112 @@ func (o SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i
 	}).(SubscriptionPolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+type GetLocationZoneMapping struct {
+	// The logical zone id for the availability zone
+	LogicalZone string `pulumi:"logicalZone"`
+	// The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+	PhysicalZone string `pulumi:"physicalZone"`
+}
+
+// GetLocationZoneMappingInput is an input type that accepts GetLocationZoneMappingArgs and GetLocationZoneMappingOutput values.
+// You can construct a concrete instance of `GetLocationZoneMappingInput` via:
+//
+//	GetLocationZoneMappingArgs{...}
+type GetLocationZoneMappingInput interface {
+	pulumi.Input
+
+	ToGetLocationZoneMappingOutput() GetLocationZoneMappingOutput
+	ToGetLocationZoneMappingOutputWithContext(context.Context) GetLocationZoneMappingOutput
+}
+
+type GetLocationZoneMappingArgs struct {
+	// The logical zone id for the availability zone
+	LogicalZone pulumi.StringInput `pulumi:"logicalZone"`
+	// The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+	PhysicalZone pulumi.StringInput `pulumi:"physicalZone"`
+}
+
+func (GetLocationZoneMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationZoneMapping)(nil)).Elem()
+}
+
+func (i GetLocationZoneMappingArgs) ToGetLocationZoneMappingOutput() GetLocationZoneMappingOutput {
+	return i.ToGetLocationZoneMappingOutputWithContext(context.Background())
+}
+
+func (i GetLocationZoneMappingArgs) ToGetLocationZoneMappingOutputWithContext(ctx context.Context) GetLocationZoneMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationZoneMappingOutput)
+}
+
+// GetLocationZoneMappingArrayInput is an input type that accepts GetLocationZoneMappingArray and GetLocationZoneMappingArrayOutput values.
+// You can construct a concrete instance of `GetLocationZoneMappingArrayInput` via:
+//
+//	GetLocationZoneMappingArray{ GetLocationZoneMappingArgs{...} }
+type GetLocationZoneMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetLocationZoneMappingArrayOutput() GetLocationZoneMappingArrayOutput
+	ToGetLocationZoneMappingArrayOutputWithContext(context.Context) GetLocationZoneMappingArrayOutput
+}
+
+type GetLocationZoneMappingArray []GetLocationZoneMappingInput
+
+func (GetLocationZoneMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationZoneMapping)(nil)).Elem()
+}
+
+func (i GetLocationZoneMappingArray) ToGetLocationZoneMappingArrayOutput() GetLocationZoneMappingArrayOutput {
+	return i.ToGetLocationZoneMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetLocationZoneMappingArray) ToGetLocationZoneMappingArrayOutputWithContext(ctx context.Context) GetLocationZoneMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLocationZoneMappingArrayOutput)
+}
+
+type GetLocationZoneMappingOutput struct{ *pulumi.OutputState }
+
+func (GetLocationZoneMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationZoneMapping)(nil)).Elem()
+}
+
+func (o GetLocationZoneMappingOutput) ToGetLocationZoneMappingOutput() GetLocationZoneMappingOutput {
+	return o
+}
+
+func (o GetLocationZoneMappingOutput) ToGetLocationZoneMappingOutputWithContext(ctx context.Context) GetLocationZoneMappingOutput {
+	return o
+}
+
+// The logical zone id for the availability zone
+func (o GetLocationZoneMappingOutput) LogicalZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationZoneMapping) string { return v.LogicalZone }).(pulumi.StringOutput)
+}
+
+// The fully qualified physical zone id of availability zone to which logical zone id is mapped to
+func (o GetLocationZoneMappingOutput) PhysicalZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationZoneMapping) string { return v.PhysicalZone }).(pulumi.StringOutput)
+}
+
+type GetLocationZoneMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLocationZoneMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLocationZoneMapping)(nil)).Elem()
+}
+
+func (o GetLocationZoneMappingArrayOutput) ToGetLocationZoneMappingArrayOutput() GetLocationZoneMappingArrayOutput {
+	return o
+}
+
+func (o GetLocationZoneMappingArrayOutput) ToGetLocationZoneMappingArrayOutputWithContext(ctx context.Context) GetLocationZoneMappingArrayOutput {
+	return o
+}
+
+func (o GetLocationZoneMappingArrayOutput) Index(i pulumi.IntInput) GetLocationZoneMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLocationZoneMapping {
+		return vs[0].([]GetLocationZoneMapping)[vs[1].(int)]
+	}).(GetLocationZoneMappingOutput)
+}
+
 type GetResourcesResource struct {
 	// The ID of this Resource.
 	Id string `pulumi:"id"`
@@ -6312,6 +6418,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentResourceSelectorArrayInput)(nil)).Elem(), SubscriptionPolicyAssignmentResourceSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentResourceSelectorSelectorInput)(nil)).Elem(), SubscriptionPolicyAssignmentResourceSelectorSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionPolicyAssignmentResourceSelectorSelectorArrayInput)(nil)).Elem(), SubscriptionPolicyAssignmentResourceSelectorSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationZoneMappingInput)(nil)).Elem(), GetLocationZoneMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLocationZoneMappingArrayInput)(nil)).Elem(), GetLocationZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceInput)(nil)).Elem(), GetResourcesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceArrayInput)(nil)).Elem(), GetResourcesResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubscriptionsSubscriptionInput)(nil)).Elem(), GetSubscriptionsSubscriptionArgs{})
@@ -6408,6 +6516,8 @@ func init() {
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentResourceSelectorArrayOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentResourceSelectorSelectorOutput{})
 	pulumi.RegisterOutputType(SubscriptionPolicyAssignmentResourceSelectorSelectorArrayOutput{})
+	pulumi.RegisterOutputType(GetLocationZoneMappingOutput{})
+	pulumi.RegisterOutputType(GetLocationZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetSubscriptionsSubscriptionOutput{})

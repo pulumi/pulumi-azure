@@ -63,6 +63,10 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+	DefaultDataCollectionEndpointId pulumi.StringOutput `pulumi:"defaultDataCollectionEndpointId"`
+	// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+	DefaultDataCollectionRuleId pulumi.StringOutput `pulumi:"defaultDataCollectionRuleId"`
 	// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
@@ -110,6 +114,10 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+	DefaultDataCollectionEndpointId *string `pulumi:"defaultDataCollectionEndpointId"`
+	// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+	DefaultDataCollectionRuleId *string `pulumi:"defaultDataCollectionRuleId"`
 	// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
@@ -125,6 +133,10 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
+	// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+	DefaultDataCollectionEndpointId pulumi.StringPtrInput
+	// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+	DefaultDataCollectionRuleId pulumi.StringPtrInput
 	// Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created.
@@ -255,6 +267,16 @@ func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
 
 func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
 	return o
+}
+
+// The ID of the managed default Data Collection Endpoint created with the Azure Monitor Workspace.
+func (o WorkspaceOutput) DefaultDataCollectionEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DefaultDataCollectionEndpointId }).(pulumi.StringOutput)
+}
+
+// The ID of the managed default Data Collection Rule created with the Azure Monitor Workspace.
+func (o WorkspaceOutput) DefaultDataCollectionRuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.DefaultDataCollectionRuleId }).(pulumi.StringOutput)
 }
 
 // Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created.

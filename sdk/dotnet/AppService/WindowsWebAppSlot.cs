@@ -218,6 +218,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// 
+        /// &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         /// </summary>
         [Output("servicePlanId")]
         public Output<string?> ServicePlanId { get; private set; } = null!;
@@ -435,6 +437,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// 
+        /// &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         /// </summary>
         [Input("servicePlanId")]
         public Input<string>? ServicePlanId { get; set; }
@@ -685,6 +689,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
+        /// 
+        /// &gt; **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         /// </summary>
         [Input("servicePlanId")]
         public Input<string>? ServicePlanId { get; set; }

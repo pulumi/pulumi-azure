@@ -153,6 +153,8 @@ type providerArgs struct {
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID which should be used.
 	TenantId *string `pulumi:"tenantId"`
+	// Allow Azure AKS Workload Identity to be used for Authentication.
+	UseAksWorkloadIdentity *bool `pulumi:"useAksWorkloadIdentity"`
 	// Allow Azure CLI to be used for Authentication.
 	UseCli *bool `pulumi:"useCli"`
 	// Allow Managed Service Identity to be used for Authentication.
@@ -214,6 +216,8 @@ type ProviderArgs struct {
 	SubscriptionId pulumi.StringPtrInput
 	// The Tenant ID which should be used.
 	TenantId pulumi.StringPtrInput
+	// Allow Azure AKS Workload Identity to be used for Authentication.
+	UseAksWorkloadIdentity pulumi.BoolPtrInput
 	// Allow Azure CLI to be used for Authentication.
 	UseCli pulumi.BoolPtrInput
 	// Allow Managed Service Identity to be used for Authentication.

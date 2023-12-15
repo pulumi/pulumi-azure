@@ -359,7 +359,7 @@ func (o SrvRecordRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordRecordOutp
 }
 
 type TxtRecordRecord struct {
-	// The value of the record. Max length: 1024 characters
+	// The value of the record. Max length: 4096 characters
 	Value string `pulumi:"value"`
 }
 
@@ -375,7 +375,7 @@ type TxtRecordRecordInput interface {
 }
 
 type TxtRecordRecordArgs struct {
-	// The value of the record. Max length: 1024 characters
+	// The value of the record. Max length: 4096 characters
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -430,7 +430,7 @@ func (o TxtRecordRecordOutput) ToTxtRecordRecordOutputWithContext(ctx context.Co
 	return o
 }
 
-// The value of the record. Max length: 1024 characters
+// The value of the record. Max length: 4096 characters
 func (o TxtRecordRecordOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TxtRecordRecord) string { return v.Value }).(pulumi.StringOutput)
 }

@@ -14569,6 +14569,8 @@ func (o NetworkManagerCrossTenantScopeArrayOutput) Index(i pulumi.IntInput) Netw
 
 type NetworkManagerScope struct {
 	// A list of management group IDs.
+	//
+	// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds []string `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
@@ -14587,6 +14589,8 @@ type NetworkManagerScopeInput interface {
 
 type NetworkManagerScopeArgs struct {
 	// A list of management group IDs.
+	//
+	// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds pulumi.StringArrayInput `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
@@ -14670,6 +14674,8 @@ func (o NetworkManagerScopeOutput) ToNetworkManagerScopePtrOutputWithContext(ctx
 }
 
 // A list of management group IDs.
+//
+// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopeOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkManagerScope) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -14704,6 +14710,8 @@ func (o NetworkManagerScopePtrOutput) Elem() NetworkManagerScopeOutput {
 }
 
 // A list of management group IDs.
+//
+// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopePtrOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkManagerScope) []string {
 		if v == nil {

@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a MariaDB Database within a MariaDB Server
-//
 // ## Example Usage
 //
 // ```go

@@ -148,6 +148,20 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
+     * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     * 
+     */
+    @Export(name="immediateDataPurgeOn30DaysEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> immediateDataPurgeOn30DaysEnabled;
+
+    /**
+     * @return Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
+     * 
+     */
+    public Output<Optional<Boolean>> immediateDataPurgeOn30DaysEnabled() {
+        return Codegen.optional(this.immediateDataPurgeOn30DaysEnabled);
+    }
+    /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      * 
      */

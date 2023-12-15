@@ -75,6 +75,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			example2, err := network.NewNetworkManagerNetworkGroup(ctx, "example2", &network.NetworkManagerNetworkGroupArgs{
+//				NetworkManagerId: exampleNetworkManager.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = network.NewNetworkManagerConnectivityConfiguration(ctx, "exampleNetworkManagerConnectivityConfiguration", &network.NetworkManagerConnectivityConfigurationArgs{
 //				NetworkManagerId:     exampleNetworkManager.ID(),
 //				ConnectivityTopology: pulumi.String("HubAndSpoke"),
@@ -82,6 +88,10 @@ import (
 //					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
 //						GroupConnectivity: pulumi.String("DirectlyConnected"),
 //						NetworkGroupId:    exampleNetworkManagerNetworkGroup.ID(),
+//					},
+//					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
+//						GroupConnectivity: pulumi.String("DirectlyConnected"),
+//						NetworkGroupId:    example2.ID(),
 //					},
 //				},
 //				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
@@ -110,7 +120,7 @@ import (
 type NetworkManagerConnectivityConfiguration struct {
 	pulumi.CustomResourceState
 
-	// An `appliesToGroup` block as defined below.
+	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput `pulumi:"appliesToGroups"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringOutput `pulumi:"connectivityTopology"`
@@ -167,7 +177,7 @@ func GetNetworkManagerConnectivityConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkManagerConnectivityConfiguration resources.
 type networkManagerConnectivityConfigurationState struct {
-	// An `appliesToGroup` block as defined below.
+	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups []NetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology *string `pulumi:"connectivityTopology"`
@@ -186,7 +196,7 @@ type networkManagerConnectivityConfigurationState struct {
 }
 
 type NetworkManagerConnectivityConfigurationState struct {
-	// An `appliesToGroup` block as defined below.
+	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayInput
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringPtrInput
@@ -209,7 +219,7 @@ func (NetworkManagerConnectivityConfigurationState) ElementType() reflect.Type {
 }
 
 type networkManagerConnectivityConfigurationArgs struct {
-	// An `appliesToGroup` block as defined below.
+	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups []NetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology string `pulumi:"connectivityTopology"`
@@ -229,7 +239,7 @@ type networkManagerConnectivityConfigurationArgs struct {
 
 // The set of arguments for constructing a NetworkManagerConnectivityConfiguration resource.
 type NetworkManagerConnectivityConfigurationArgs struct {
-	// An `appliesToGroup` block as defined below.
+	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayInput
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringInput
@@ -334,7 +344,7 @@ func (o NetworkManagerConnectivityConfigurationOutput) ToNetworkManagerConnectiv
 	return o
 }
 
-// An `appliesToGroup` block as defined below.
+// One or more `appliesToGroup` blocks as defined below.
 func (o NetworkManagerConnectivityConfigurationOutput) AppliesToGroups() NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
 	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput {
 		return v.AppliesToGroups

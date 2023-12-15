@@ -23,8 +23,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a MS SQL Database.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

@@ -282,7 +282,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
-     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
      * 
      */
     @Export(name="storageAccountAuthenticationMode", refs={String.class}, tree="[0]")
@@ -291,7 +291,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      * 
-     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
      * 
      */
     public Output<Optional<String>> storageAccountAuthenticationMode() {
