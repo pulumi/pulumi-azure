@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
- *     data: Buffer.from(fs.readFileSync("example.pfx"), 'binary').toString('base64'),
+ *     data: Buffer.from(fs.readFileSync("example.pfx", 'binary')).toString('base64'),
  * });
  * ```
  * ### With Key Vault Certificate)
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: Buffer.from(fs.readFileSync("example_cert.pfx"), 'binary').toString('base64'),
+ *         contents: Buffer.from(fs.readFileSync("example_cert.pfx", 'binary')).toString('base64'),
  *         password: "terraform",
  *     },
  *     certificatePolicy: {
