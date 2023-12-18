@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     assemblyName: "TestAssembly",
- *     content: Buffer.from(fs.readFileSync("testdata/log4net.dll"), 'binary').toString('base64'),
+ *     content: Buffer.from(fs.readFileSync("testdata/log4net.dll", 'binary')).toString('base64'),
  * });
  * ```
  *
