@@ -5,7 +5,7 @@ go 1.21
 replace github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 
 require (
-	github.com/pulumi/pulumi/pkg/v3 v3.96.2
+	github.com/pulumi/pulumi/pkg/v3 v3.97.0
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -143,8 +143,8 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.6.1-0.20231111193429-44b746a5b3b5 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.96.2 // indirect
+	github.com/pulumi/esc v0.6.1 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.97.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
@@ -193,3 +193,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20231218192308-c8bd2585bd6e
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.97.1-0.20231218192308-c8bd2585bd6e
