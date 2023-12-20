@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.batch.Certificate("exampleCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleBatch / accountAccount.name,
- *     certificate: Buffer.from(fs.readFileSync("certificate.pfx"), 'binary').toString('base64'),
+ *     certificate: Buffer.from(fs.readFileSync("certificate.pfx", 'binary')).toString('base64'),
  *     format: "Pfx",
  *     password: "password",
  *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
