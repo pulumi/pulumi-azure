@@ -53,7 +53,6 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	environ := getEnviron(t)
 	azureLocation := getLocation(t)
 	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure:environment": environ,
 			"azure:location":    azureLocation,
