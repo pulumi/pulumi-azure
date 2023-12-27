@@ -94,7 +94,7 @@ func TestAccTable(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
