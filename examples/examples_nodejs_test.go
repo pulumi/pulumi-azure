@@ -43,11 +43,10 @@ func TestAccLoadbalancer(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                      filepath.Join(getCwd(t), "loadbalancer"),
-			RunUpdateTest:            false, // the subresources now longer have a resource group in them
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
-			// TO-DO: (@stack72) there is a strangeness with lb.Loadbalancer and the FrontendIpConfiguration
+			Dir: filepath.Join(getCwd(t), "loadbalancer"),
+
+			// TODO[pulumi/pulumi-azure#1571] various issues with non-empty refresh.
+			SkipRefresh: true,
 		})
 
 	integration.ProgramTest(t, &test)
