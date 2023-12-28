@@ -53,7 +53,6 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	environ := getEnviron(t)
 	azureLocation := getLocation(t)
 	return integration.ProgramTestOptions{
-		ExpectRefreshChanges: true,
 		Config: map[string]string{
 			"azure:environment": environ,
 			"azure:location":    azureLocation,
@@ -82,4 +81,13 @@ func validateAPITest(isValid func(body string)) func(t *testing.T, stack integra
 		assert.NoError(t, err)
 		isValid(string(body))
 	}
+}
+
+// A lot of tests currently generate non-empty diffs upon refresh. While the work of root-causing
+// each individual test has not been done yet, a few common known causes are listed here:
+//
+// TODO[pulumi/pulumi-terraform-bridge#1595]
+// TODO[pulumi/pulumi-azure#1568]
+func skipRefresh(opts *integration.ProgramTestOptions) {
+	opts.SkipRefresh = true
 }

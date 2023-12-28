@@ -43,11 +43,10 @@ func TestAccLoadbalancer(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                      filepath.Join(getCwd(t), "loadbalancer"),
-			RunUpdateTest:            false, // the subresources now longer have a resource group in them
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
-			// TO-DO: (@stack72) there is a strangeness with lb.Loadbalancer and the FrontendIpConfiguration
+			Dir: filepath.Join(getCwd(t), "loadbalancer"),
+
+			// TODO[pulumi/pulumi-azure#1571] various issues with non-empty refresh.
+			SkipRefresh: true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -94,7 +93,7 @@ func TestAccTable(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "table"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -111,7 +110,7 @@ func TestAccServicebusMigration(t *testing.T) {
 				},
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -209,7 +208,7 @@ func TestAccTopic(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "topic"),
 			// RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -219,7 +218,7 @@ func TestAccTimer(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "timer"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -229,7 +228,7 @@ func TestAccQueue(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "queue"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -260,7 +259,7 @@ func TestAccDurableFunctions(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "durable-functions"),
 			RunUpdateTest: false,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -286,7 +285,7 @@ func TestAccEventhub(t *testing.T) {
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -296,7 +295,7 @@ func TestAccHttpExternal(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "http-external"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -306,7 +305,7 @@ func TestAccHttpMulti(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "http-multi"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -321,7 +320,7 @@ func TestAccSecretCapture(t *testing.T) {
 				assert.NotContains(t, "s3cr3t", string(byts))
 			},
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 
@@ -331,7 +330,7 @@ func TestAccLinuxVirtualMachines(t *testing.T) {
 			Dir:           filepath.Join(getCwd(t), "linux-virtual-machine"),
 			RunUpdateTest: true,
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
 

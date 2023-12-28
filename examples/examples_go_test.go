@@ -26,6 +26,9 @@ func TestAccNetworkGo(t *testing.T) {
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "network-go"),
+
+			// TODO[pulumi/pulumi-azure#1569] refresh tries to edit subnets
+			SkipRefresh: true,
 		})
 
 	integration.ProgramTest(t, &test)

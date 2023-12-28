@@ -48,7 +48,7 @@ const backendPool = new azure.lb.BackendAddressPool("backendPool", {
 const tcp = new azure.lb.NatRule("tcp", {
     resourceGroupName: resourceGroup.name,
     loadbalancerId: lb.id,
-    protocol: "tcp",
+    protocol: "Tcp",
     frontendPort: 5000,
     backendPort: 3389,
     frontendIpConfigurationName: "LoadBalancerFrontEnd",
@@ -56,7 +56,7 @@ const tcp = new azure.lb.NatRule("tcp", {
 
 const lbprobe = new azure.lb.Probe("lbprobe", {
     loadbalancerId: lb.id,
-    protocol: "tcp",
+    protocol: "Tcp",
     port: 80,
     intervalInSeconds: 5,
     numberOfProbes: 2,
@@ -64,7 +64,7 @@ const lbprobe = new azure.lb.Probe("lbprobe", {
 
 const lbrule = new azure.lb.Rule("lbrule", {
     loadbalancerId: lb.id,
-    protocol: "tcp",
+    protocol: "Tcp",
     frontendPort: 80,
     backendPort: 80,
     frontendIpConfigurationName: "LoadBalancerFrontEnd",

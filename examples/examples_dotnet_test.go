@@ -31,6 +31,6 @@ func TestAccAppServiceCs(t *testing.T) {
 				assert.Equal(t, body, "Hello Pulumi")
 			}),
 		})
-
+	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
