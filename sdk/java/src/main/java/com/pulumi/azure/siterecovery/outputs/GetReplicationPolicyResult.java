@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -89,32 +90,50 @@ public final class GetReplicationPolicyResult {
 
         @CustomType.Setter
         public Builder applicationConsistentSnapshotFrequencyInMinutes(Integer applicationConsistentSnapshotFrequencyInMinutes) {
-            this.applicationConsistentSnapshotFrequencyInMinutes = Objects.requireNonNull(applicationConsistentSnapshotFrequencyInMinutes);
+            if (applicationConsistentSnapshotFrequencyInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "applicationConsistentSnapshotFrequencyInMinutes");
+            }
+            this.applicationConsistentSnapshotFrequencyInMinutes = applicationConsistentSnapshotFrequencyInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryPointRetentionInMinutes(Integer recoveryPointRetentionInMinutes) {
-            this.recoveryPointRetentionInMinutes = Objects.requireNonNull(recoveryPointRetentionInMinutes);
+            if (recoveryPointRetentionInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "recoveryPointRetentionInMinutes");
+            }
+            this.recoveryPointRetentionInMinutes = recoveryPointRetentionInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryVaultName(String recoveryVaultName) {
-            this.recoveryVaultName = Objects.requireNonNull(recoveryVaultName);
+            if (recoveryVaultName == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "recoveryVaultName");
+            }
+            this.recoveryVaultName = recoveryVaultName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetReplicationPolicyResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetReplicationPolicyResult build() {

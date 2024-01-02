@@ -73,16 +73,19 @@ public final class BackendAddressPoolAddressInboundNatRulePortMapping {
 
         @CustomType.Setter
         public Builder backendPort(@Nullable Integer backendPort) {
+
             this.backendPort = backendPort;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPort(@Nullable Integer frontendPort) {
+
             this.frontendPort = frontendPort;
             return this;
         }
         @CustomType.Setter
         public Builder inboundNatRuleName(@Nullable String inboundNatRuleName) {
+
             this.inboundNatRuleName = inboundNatRuleName;
             return this;
         }

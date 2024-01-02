@@ -5,6 +5,7 @@ package com.pulumi.azure.billing.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetMcaAccountScopeArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetMcaAccountScopeArgs build() {
-            $.billingAccountName = Objects.requireNonNull($.billingAccountName, "expected parameter 'billingAccountName' to be non-null");
-            $.billingProfileName = Objects.requireNonNull($.billingProfileName, "expected parameter 'billingProfileName' to be non-null");
-            $.invoiceSectionName = Objects.requireNonNull($.invoiceSectionName, "expected parameter 'invoiceSectionName' to be non-null");
+            if ($.billingAccountName == null) {
+                throw new MissingRequiredPropertyException("GetMcaAccountScopeArgs", "billingAccountName");
+            }
+            if ($.billingProfileName == null) {
+                throw new MissingRequiredPropertyException("GetMcaAccountScopeArgs", "billingProfileName");
+            }
+            if ($.invoiceSectionName == null) {
+                throw new MissingRequiredPropertyException("GetMcaAccountScopeArgs", "invoiceSectionName");
+            }
             return $;
         }
     }

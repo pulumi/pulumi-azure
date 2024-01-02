@@ -6,6 +6,7 @@ package com.pulumi.azure.synapse;
 import com.pulumi.azure.synapse.inputs.SqlPoolRestoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -449,8 +450,12 @@ public final class SqlPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SqlPoolArgs build() {
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("SqlPoolArgs", "skuName");
+            }
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

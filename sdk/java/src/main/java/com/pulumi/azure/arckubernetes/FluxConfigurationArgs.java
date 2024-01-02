@@ -9,6 +9,7 @@ import com.pulumi.azure.arckubernetes.inputs.FluxConfigurationGitRepositoryArgs;
 import com.pulumi.azure.arckubernetes.inputs.FluxConfigurationKustomizationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -388,9 +389,15 @@ public final class FluxConfigurationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public FluxConfigurationArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.kustomizations = Objects.requireNonNull($.kustomizations, "expected parameter 'kustomizations' to be non-null");
-            $.namespace = Objects.requireNonNull($.namespace, "expected parameter 'namespace' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationArgs", "clusterId");
+            }
+            if ($.kustomizations == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationArgs", "kustomizations");
+            }
+            if ($.namespace == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationArgs", "namespace");
+            }
             return $;
         }
     }

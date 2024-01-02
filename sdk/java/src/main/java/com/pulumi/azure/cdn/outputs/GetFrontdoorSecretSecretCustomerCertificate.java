@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetFrontdoorSecretSecretCustomerCertificate {
 
         @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+            if (expirationDate == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorSecretSecretCustomerCertificate", "expirationDate");
+            }
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
-            this.keyVaultCertificateId = Objects.requireNonNull(keyVaultCertificateId);
+            if (keyVaultCertificateId == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorSecretSecretCustomerCertificate", "keyVaultCertificateId");
+            }
+            this.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorSecretSecretCustomerCertificate", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {

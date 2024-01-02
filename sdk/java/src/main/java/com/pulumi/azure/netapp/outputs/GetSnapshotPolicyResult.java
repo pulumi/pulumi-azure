@@ -8,6 +8,7 @@ import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyHourlySchedule;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyMonthlySchedule;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyWeeklySchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -181,12 +182,18 @@ public final class GetSnapshotPolicyResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder dailySchedules(List<GetSnapshotPolicyDailySchedule> dailySchedules) {
-            this.dailySchedules = Objects.requireNonNull(dailySchedules);
+            if (dailySchedules == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "dailySchedules");
+            }
+            this.dailySchedules = dailySchedules;
             return this;
         }
         public Builder dailySchedules(GetSnapshotPolicyDailySchedule... dailySchedules) {
@@ -194,12 +201,18 @@ public final class GetSnapshotPolicyResult {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder hourlySchedules(List<GetSnapshotPolicyHourlySchedule> hourlySchedules) {
-            this.hourlySchedules = Objects.requireNonNull(hourlySchedules);
+            if (hourlySchedules == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "hourlySchedules");
+            }
+            this.hourlySchedules = hourlySchedules;
             return this;
         }
         public Builder hourlySchedules(GetSnapshotPolicyHourlySchedule... hourlySchedules) {
@@ -207,17 +220,26 @@ public final class GetSnapshotPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder monthlySchedules(List<GetSnapshotPolicyMonthlySchedule> monthlySchedules) {
-            this.monthlySchedules = Objects.requireNonNull(monthlySchedules);
+            if (monthlySchedules == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "monthlySchedules");
+            }
+            this.monthlySchedules = monthlySchedules;
             return this;
         }
         public Builder monthlySchedules(GetSnapshotPolicyMonthlySchedule... monthlySchedules) {
@@ -225,22 +247,34 @@ public final class GetSnapshotPolicyResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder weeklySchedules(List<GetSnapshotPolicyWeeklySchedule> weeklySchedules) {
-            this.weeklySchedules = Objects.requireNonNull(weeklySchedules);
+            if (weeklySchedules == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyResult", "weeklySchedules");
+            }
+            this.weeklySchedules = weeklySchedules;
             return this;
         }
         public Builder weeklySchedules(GetSnapshotPolicyWeeklySchedule... weeklySchedules) {

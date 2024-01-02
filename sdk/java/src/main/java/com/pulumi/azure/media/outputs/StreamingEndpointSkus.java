@@ -59,11 +59,13 @@ public final class StreamingEndpointSkus {
 
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.sentinel.inputs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtIncidentGroupingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class AlertRuleNrtIncidentArgs extends com.pulumi.resources.Resourc
         }
 
         public AlertRuleNrtIncidentArgs build() {
-            $.createIncidentEnabled = Objects.requireNonNull($.createIncidentEnabled, "expected parameter 'createIncidentEnabled' to be non-null");
-            $.grouping = Objects.requireNonNull($.grouping, "expected parameter 'grouping' to be non-null");
+            if ($.createIncidentEnabled == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtIncidentArgs", "createIncidentEnabled");
+            }
+            if ($.grouping == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtIncidentArgs", "grouping");
+            }
             return $;
         }
     }

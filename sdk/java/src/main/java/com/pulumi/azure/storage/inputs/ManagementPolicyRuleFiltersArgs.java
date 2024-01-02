@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -192,7 +193,9 @@ public final class ManagementPolicyRuleFiltersArgs extends com.pulumi.resources.
         }
 
         public ManagementPolicyRuleFiltersArgs build() {
-            $.blobTypes = Objects.requireNonNull($.blobTypes, "expected parameter 'blobTypes' to be non-null");
+            if ($.blobTypes == null) {
+                throw new MissingRequiredPropertyException("ManagementPolicyRuleFiltersArgs", "blobTypes");
+            }
             return $;
         }
     }

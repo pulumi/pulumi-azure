@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.ApplicationGatewayPrivateLinkConfigurationIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,12 +123,16 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfiguration", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(ApplicationGatewayPrivateLinkConfigurationIpConfiguration... ipConfigurations) {
@@ -135,7 +140,10 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         public ApplicationGatewayPrivateLinkConfiguration build() {

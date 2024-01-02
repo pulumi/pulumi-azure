@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileSecretVaultCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class VirtualMachineOsProfileSecretArgs extends com.pulumi.resource
         }
 
         public VirtualMachineOsProfileSecretArgs build() {
-            $.sourceVaultId = Objects.requireNonNull($.sourceVaultId, "expected parameter 'sourceVaultId' to be non-null");
+            if ($.sourceVaultId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileSecretArgs", "sourceVaultId");
+            }
             return $;
         }
     }

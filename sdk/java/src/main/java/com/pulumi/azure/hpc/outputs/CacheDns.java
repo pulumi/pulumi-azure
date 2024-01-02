@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class CacheDns {
 
         @CustomType.Setter
         public Builder searchDomain(@Nullable String searchDomain) {
+
             this.searchDomain = searchDomain;
             return this;
         }
         @CustomType.Setter
         public Builder servers(List<String> servers) {
-            this.servers = Objects.requireNonNull(servers);
+            if (servers == null) {
+              throw new MissingRequiredPropertyException("CacheDns", "servers");
+            }
+            this.servers = servers;
             return this;
         }
         public Builder servers(String... servers) {

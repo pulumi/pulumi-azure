@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -95,21 +96,31 @@ public final class KafkaClusterStorageAccount {
 
         @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = Objects.requireNonNull(isDefault);
+            if (isDefault == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterStorageAccount", "isDefault");
+            }
+            this.isDefault = isDefault;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountKey(String storageAccountKey) {
-            this.storageAccountKey = Objects.requireNonNull(storageAccountKey);
+            if (storageAccountKey == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterStorageAccount", "storageAccountKey");
+            }
+            this.storageAccountKey = storageAccountKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageContainerId(String storageContainerId) {
-            this.storageContainerId = Objects.requireNonNull(storageContainerId);
+            if (storageContainerId == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterStorageAccount", "storageContainerId");
+            }
+            this.storageContainerId = storageContainerId;
             return this;
         }
         @CustomType.Setter
         public Builder storageResourceId(@Nullable String storageResourceId) {
+
             this.storageResourceId = storageResourceId;
             return this;
         }

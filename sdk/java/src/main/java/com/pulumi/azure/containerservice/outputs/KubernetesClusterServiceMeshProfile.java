@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -81,17 +82,22 @@ public final class KubernetesClusterServiceMeshProfile {
 
         @CustomType.Setter
         public Builder externalIngressGatewayEnabled(@Nullable Boolean externalIngressGatewayEnabled) {
+
             this.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder internalIngressGatewayEnabled(@Nullable Boolean internalIngressGatewayEnabled) {
+
             this.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterServiceMeshProfile", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public KubernetesClusterServiceMeshProfile build() {

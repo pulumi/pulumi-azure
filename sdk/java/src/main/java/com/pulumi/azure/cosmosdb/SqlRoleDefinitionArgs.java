@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.cosmosdb.inputs.SqlRoleDefinitionPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -330,10 +331,18 @@ public final class SqlRoleDefinitionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SqlRoleDefinitionArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.assignableScopes = Objects.requireNonNull($.assignableScopes, "expected parameter 'assignableScopes' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("SqlRoleDefinitionArgs", "accountName");
+            }
+            if ($.assignableScopes == null) {
+                throw new MissingRequiredPropertyException("SqlRoleDefinitionArgs", "assignableScopes");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("SqlRoleDefinitionArgs", "permissions");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SqlRoleDefinitionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

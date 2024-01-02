@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -76,22 +77,34 @@ public final class GetGatewayLocationData {
 
         @CustomType.Setter
         public Builder city(String city) {
-            this.city = Objects.requireNonNull(city);
+            if (city == null) {
+              throw new MissingRequiredPropertyException("GetGatewayLocationData", "city");
+            }
+            this.city = city;
             return this;
         }
         @CustomType.Setter
         public Builder district(String district) {
-            this.district = Objects.requireNonNull(district);
+            if (district == null) {
+              throw new MissingRequiredPropertyException("GetGatewayLocationData", "district");
+            }
+            this.district = district;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayLocationData", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetGatewayLocationData", "region");
+            }
+            this.region = region;
             return this;
         }
         public GetGatewayLocationData build() {

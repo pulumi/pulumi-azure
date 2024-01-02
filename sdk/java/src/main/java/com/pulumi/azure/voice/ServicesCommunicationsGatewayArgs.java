@@ -6,6 +6,7 @@ package com.pulumi.azure.voice;
 import com.pulumi.azure.voice.inputs.ServicesCommunicationsGatewayServiceLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -591,12 +592,24 @@ public final class ServicesCommunicationsGatewayArgs extends com.pulumi.resource
         }
 
         public ServicesCommunicationsGatewayArgs build() {
-            $.codecs = Objects.requireNonNull($.codecs, "expected parameter 'codecs' to be non-null");
-            $.connectivity = Objects.requireNonNull($.connectivity, "expected parameter 'connectivity' to be non-null");
-            $.e911Type = Objects.requireNonNull($.e911Type, "expected parameter 'e911Type' to be non-null");
-            $.platforms = Objects.requireNonNull($.platforms, "expected parameter 'platforms' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceLocations = Objects.requireNonNull($.serviceLocations, "expected parameter 'serviceLocations' to be non-null");
+            if ($.codecs == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "codecs");
+            }
+            if ($.connectivity == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "connectivity");
+            }
+            if ($.e911Type == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "e911Type");
+            }
+            if ($.platforms == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "platforms");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "resourceGroupName");
+            }
+            if ($.serviceLocations == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayArgs", "serviceLocations");
+            }
             return $;
         }
     }

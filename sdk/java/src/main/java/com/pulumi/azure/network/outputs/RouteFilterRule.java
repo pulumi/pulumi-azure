@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,12 +86,18 @@ public final class RouteFilterRule {
 
         @CustomType.Setter
         public Builder access(String access) {
-            this.access = Objects.requireNonNull(access);
+            if (access == null) {
+              throw new MissingRequiredPropertyException("RouteFilterRule", "access");
+            }
+            this.access = access;
             return this;
         }
         @CustomType.Setter
         public Builder communities(List<String> communities) {
-            this.communities = Objects.requireNonNull(communities);
+            if (communities == null) {
+              throw new MissingRequiredPropertyException("RouteFilterRule", "communities");
+            }
+            this.communities = communities;
             return this;
         }
         public Builder communities(String... communities) {
@@ -98,12 +105,18 @@ public final class RouteFilterRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RouteFilterRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+            if (ruleType == null) {
+              throw new MissingRequiredPropertyException("RouteFilterRule", "ruleType");
+            }
+            this.ruleType = ruleType;
             return this;
         }
         public RouteFilterRule build() {

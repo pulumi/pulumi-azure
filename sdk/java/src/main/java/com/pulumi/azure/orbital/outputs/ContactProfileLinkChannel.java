@@ -5,6 +5,7 @@ package com.pulumi.azure.orbital.outputs;
 
 import com.pulumi.azure.orbital.outputs.ContactProfileLinkChannelEndPoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -117,22 +118,32 @@ public final class ContactProfileLinkChannel {
 
         @CustomType.Setter
         public Builder bandwidthMhz(Double bandwidthMhz) {
-            this.bandwidthMhz = Objects.requireNonNull(bandwidthMhz);
+            if (bandwidthMhz == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannel", "bandwidthMhz");
+            }
+            this.bandwidthMhz = bandwidthMhz;
             return this;
         }
         @CustomType.Setter
         public Builder centerFrequencyMhz(Double centerFrequencyMhz) {
-            this.centerFrequencyMhz = Objects.requireNonNull(centerFrequencyMhz);
+            if (centerFrequencyMhz == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannel", "centerFrequencyMhz");
+            }
+            this.centerFrequencyMhz = centerFrequencyMhz;
             return this;
         }
         @CustomType.Setter
         public Builder demodulationConfiguration(@Nullable String demodulationConfiguration) {
+
             this.demodulationConfiguration = demodulationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder endPoints(List<ContactProfileLinkChannelEndPoint> endPoints) {
-            this.endPoints = Objects.requireNonNull(endPoints);
+            if (endPoints == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannel", "endPoints");
+            }
+            this.endPoints = endPoints;
             return this;
         }
         public Builder endPoints(ContactProfileLinkChannelEndPoint... endPoints) {
@@ -140,12 +151,16 @@ public final class ContactProfileLinkChannel {
         }
         @CustomType.Setter
         public Builder modulationConfiguration(@Nullable String modulationConfiguration) {
+
             this.modulationConfiguration = modulationConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannel", "name");
+            }
+            this.name = name;
             return this;
         }
         public ContactProfileLinkChannel build() {

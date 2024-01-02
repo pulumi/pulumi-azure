@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetVirtualHubConnectionRoutingPropagatedRouteTable;
 import com.pulumi.azure.network.outputs.GetVirtualHubConnectionRoutingStaticVnetRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,22 +116,34 @@ public final class GetVirtualHubConnectionRouting {
 
         @CustomType.Setter
         public Builder associatedRouteTableId(String associatedRouteTableId) {
-            this.associatedRouteTableId = Objects.requireNonNull(associatedRouteTableId);
+            if (associatedRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "associatedRouteTableId");
+            }
+            this.associatedRouteTableId = associatedRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder inboundRouteMapId(String inboundRouteMapId) {
-            this.inboundRouteMapId = Objects.requireNonNull(inboundRouteMapId);
+            if (inboundRouteMapId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "inboundRouteMapId");
+            }
+            this.inboundRouteMapId = inboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundRouteMapId(String outboundRouteMapId) {
-            this.outboundRouteMapId = Objects.requireNonNull(outboundRouteMapId);
+            if (outboundRouteMapId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "outboundRouteMapId");
+            }
+            this.outboundRouteMapId = outboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder propagatedRouteTables(List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables) {
-            this.propagatedRouteTables = Objects.requireNonNull(propagatedRouteTables);
+            if (propagatedRouteTables == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "propagatedRouteTables");
+            }
+            this.propagatedRouteTables = propagatedRouteTables;
             return this;
         }
         public Builder propagatedRouteTables(GetVirtualHubConnectionRoutingPropagatedRouteTable... propagatedRouteTables) {
@@ -138,12 +151,18 @@ public final class GetVirtualHubConnectionRouting {
         }
         @CustomType.Setter
         public Builder staticVnetLocalRouteOverrideCriteria(String staticVnetLocalRouteOverrideCriteria) {
-            this.staticVnetLocalRouteOverrideCriteria = Objects.requireNonNull(staticVnetLocalRouteOverrideCriteria);
+            if (staticVnetLocalRouteOverrideCriteria == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "staticVnetLocalRouteOverrideCriteria");
+            }
+            this.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
             return this;
         }
         @CustomType.Setter
         public Builder staticVnetRoutes(List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes) {
-            this.staticVnetRoutes = Objects.requireNonNull(staticVnetRoutes);
+            if (staticVnetRoutes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRouting", "staticVnetRoutes");
+            }
+            this.staticVnetRoutes = staticVnetRoutes;
             return this;
         }
         public Builder staticVnetRoutes(GetVirtualHubConnectionRoutingStaticVnetRoute... staticVnetRoutes) {

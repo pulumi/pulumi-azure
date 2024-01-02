@@ -86,21 +86,25 @@ public final class PrivateCloudCircuit {
 
         @CustomType.Setter
         public Builder expressRouteId(@Nullable String expressRouteId) {
+
             this.expressRouteId = expressRouteId;
             return this;
         }
         @CustomType.Setter
         public Builder expressRoutePrivatePeeringId(@Nullable String expressRoutePrivatePeeringId) {
+
             this.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
             return this;
         }
         @CustomType.Setter
         public Builder primarySubnetCidr(@Nullable String primarySubnetCidr) {
+
             this.primarySubnetCidr = primarySubnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder secondarySubnetCidr(@Nullable String secondarySubnetCidr) {
+
             this.secondarySubnetCidr = secondarySubnetCidr;
             return this;
         }

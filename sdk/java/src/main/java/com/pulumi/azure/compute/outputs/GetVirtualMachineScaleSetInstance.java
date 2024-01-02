@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -184,37 +185,58 @@ public final class GetVirtualMachineScaleSetInstance {
 
         @CustomType.Setter
         public Builder computerName(String computerName) {
-            this.computerName = Objects.requireNonNull(computerName);
+            if (computerName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "computerName");
+            }
+            this.computerName = computerName;
             return this;
         }
         @CustomType.Setter
         public Builder instanceId(String instanceId) {
-            this.instanceId = Objects.requireNonNull(instanceId);
+            if (instanceId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "instanceId");
+            }
+            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
         public Builder latestModelApplied(Boolean latestModelApplied) {
-            this.latestModelApplied = Objects.requireNonNull(latestModelApplied);
+            if (latestModelApplied == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "latestModelApplied");
+            }
+            this.latestModelApplied = latestModelApplied;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder powerState(String powerState) {
-            this.powerState = Objects.requireNonNull(powerState);
+            if (powerState == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "powerState");
+            }
+            this.powerState = powerState;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -222,12 +244,18 @@ public final class GetVirtualMachineScaleSetInstance {
         }
         @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
-            this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
+            if (publicIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "publicIpAddress");
+            }
+            this.publicIpAddress = publicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
-            this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
+            if (publicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "publicIpAddresses");
+            }
+            this.publicIpAddresses = publicIpAddresses;
             return this;
         }
         public Builder publicIpAddresses(String... publicIpAddresses) {
@@ -235,12 +263,18 @@ public final class GetVirtualMachineScaleSetInstance {
         }
         @CustomType.Setter
         public Builder virtualMachineId(String virtualMachineId) {
-            this.virtualMachineId = Objects.requireNonNull(virtualMachineId);
+            if (virtualMachineId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "virtualMachineId");
+            }
+            this.virtualMachineId = virtualMachineId;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetInstance", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetVirtualMachineScaleSetInstance build() {

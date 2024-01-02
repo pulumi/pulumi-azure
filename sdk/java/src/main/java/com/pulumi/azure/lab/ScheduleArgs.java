@@ -6,6 +6,7 @@ package com.pulumi.azure.lab;
 import com.pulumi.azure.lab.inputs.ScheduleRecurrenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -299,9 +300,15 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleArgs build() {
-            $.labId = Objects.requireNonNull($.labId, "expected parameter 'labId' to be non-null");
-            $.stopTime = Objects.requireNonNull($.stopTime, "expected parameter 'stopTime' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.labId == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "labId");
+            }
+            if ($.stopTime == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "stopTime");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "timeZone");
+            }
             return $;
         }
     }

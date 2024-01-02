@@ -4,6 +4,7 @@
 package com.pulumi.azure.config.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class FeaturesTemplateDeployment {
 
         @CustomType.Setter
         public Builder deleteNestedItemsDuringDeletion(Boolean deleteNestedItemsDuringDeletion) {
-            this.deleteNestedItemsDuringDeletion = Objects.requireNonNull(deleteNestedItemsDuringDeletion);
+            if (deleteNestedItemsDuringDeletion == null) {
+              throw new MissingRequiredPropertyException("FeaturesTemplateDeployment", "deleteNestedItemsDuringDeletion");
+            }
+            this.deleteNestedItemsDuringDeletion = deleteNestedItemsDuringDeletion;
             return this;
         }
         public FeaturesTemplateDeployment build() {

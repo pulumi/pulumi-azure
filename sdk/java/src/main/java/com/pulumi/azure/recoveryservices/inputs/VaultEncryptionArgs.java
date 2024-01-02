@@ -5,6 +5,7 @@ package com.pulumi.azure.recoveryservices.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -204,8 +205,12 @@ public final class VaultEncryptionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public VaultEncryptionArgs build() {
-            $.infrastructureEncryptionEnabled = Objects.requireNonNull($.infrastructureEncryptionEnabled, "expected parameter 'infrastructureEncryptionEnabled' to be non-null");
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
+            if ($.infrastructureEncryptionEnabled == null) {
+                throw new MissingRequiredPropertyException("VaultEncryptionArgs", "infrastructureEncryptionEnabled");
+            }
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("VaultEncryptionArgs", "keyId");
+            }
             return $;
         }
     }

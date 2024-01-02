@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.azure.netapp.outputs.GetVolumeGroupSapHanaVolume;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -126,42 +127,66 @@ public final class GetVolumeGroupSapHanaResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder applicationIdentifier(String applicationIdentifier) {
-            this.applicationIdentifier = Objects.requireNonNull(applicationIdentifier);
+            if (applicationIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "applicationIdentifier");
+            }
+            this.applicationIdentifier = applicationIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder groupDescription(String groupDescription) {
-            this.groupDescription = Objects.requireNonNull(groupDescription);
+            if (groupDescription == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "groupDescription");
+            }
+            this.groupDescription = groupDescription;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder volumes(List<GetVolumeGroupSapHanaVolume> volumes) {
-            this.volumes = Objects.requireNonNull(volumes);
+            if (volumes == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaResult", "volumes");
+            }
+            this.volumes = volumes;
             return this;
         }
         public Builder volumes(GetVolumeGroupSapHanaVolume... volumes) {

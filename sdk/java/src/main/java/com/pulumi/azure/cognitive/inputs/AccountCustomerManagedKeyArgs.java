@@ -5,6 +5,7 @@ package com.pulumi.azure.cognitive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public AccountCustomerManagedKeyArgs build() {
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
             return $;
         }
     }

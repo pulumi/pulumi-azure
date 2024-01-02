@@ -7,6 +7,7 @@ import com.pulumi.azure.apimanagement.inputs.ApiOperationRequestRepresentationEx
 import com.pulumi.azure.apimanagement.inputs.ApiOperationRequestRepresentationFormParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -273,7 +274,9 @@ public final class ApiOperationRequestRepresentationArgs extends com.pulumi.reso
         }
 
         public ApiOperationRequestRepresentationArgs build() {
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("ApiOperationRequestRepresentationArgs", "contentType");
+            }
             return $;
         }
     }

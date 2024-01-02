@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -390,8 +391,12 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IoTHubFileUploadArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("IoTHubFileUploadArgs", "connectionString");
+            }
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("IoTHubFileUploadArgs", "containerName");
+            }
             return $;
         }
     }

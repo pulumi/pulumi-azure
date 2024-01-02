@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class ExpressRouteCircuitSku {
 
         @CustomType.Setter
         public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+            if (family == null) {
+              throw new MissingRequiredPropertyException("ExpressRouteCircuitSku", "family");
+            }
+            this.family = family;
             return this;
         }
         @CustomType.Setter
         public Builder tier(String tier) {
-            this.tier = Objects.requireNonNull(tier);
+            if (tier == null) {
+              throw new MissingRequiredPropertyException("ExpressRouteCircuitSku", "tier");
+            }
+            this.tier = tier;
             return this;
         }
         public ExpressRouteCircuitSku build() {

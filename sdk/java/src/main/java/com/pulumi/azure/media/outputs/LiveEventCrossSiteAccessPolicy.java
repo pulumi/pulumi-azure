@@ -58,11 +58,13 @@ public final class LiveEventCrossSiteAccessPolicy {
 
         @CustomType.Setter
         public Builder clientAccessPolicy(@Nullable String clientAccessPolicy) {
+
             this.clientAccessPolicy = clientAccessPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder crossDomainPolicy(@Nullable String crossDomainPolicy) {
+
             this.crossDomainPolicy = crossDomainPolicy;
             return this;
         }

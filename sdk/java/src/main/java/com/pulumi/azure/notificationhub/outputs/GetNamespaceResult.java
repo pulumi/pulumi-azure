@@ -5,6 +5,7 @@ package com.pulumi.azure.notificationhub.outputs;
 
 import com.pulumi.azure.notificationhub.outputs.GetNamespaceSku;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -141,47 +142,74 @@ public final class GetNamespaceResult {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceType(String namespaceType) {
-            this.namespaceType = Objects.requireNonNull(namespaceType);
+            if (namespaceType == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "namespaceType");
+            }
+            this.namespaceType = namespaceType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder servicebusEndpoint(String servicebusEndpoint) {
-            this.servicebusEndpoint = Objects.requireNonNull(servicebusEndpoint);
+            if (servicebusEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "servicebusEndpoint");
+            }
+            this.servicebusEndpoint = servicebusEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder sku(GetNamespaceSku sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNamespaceResult build() {

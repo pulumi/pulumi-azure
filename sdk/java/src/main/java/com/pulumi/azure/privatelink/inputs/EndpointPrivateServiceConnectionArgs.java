@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -328,8 +329,12 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         public EndpointPrivateServiceConnectionArgs build() {
-            $.isManualConnection = Objects.requireNonNull($.isManualConnection, "expected parameter 'isManualConnection' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.isManualConnection == null) {
+                throw new MissingRequiredPropertyException("EndpointPrivateServiceConnectionArgs", "isManualConnection");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EndpointPrivateServiceConnectionArgs", "name");
+            }
             return $;
         }
     }

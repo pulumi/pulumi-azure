@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -72,7 +73,10 @@ public final class GetServiceNotification {
 
         @CustomType.Setter
         public Builder additionalRecipients(List<String> additionalRecipients) {
-            this.additionalRecipients = Objects.requireNonNull(additionalRecipients);
+            if (additionalRecipients == null) {
+              throw new MissingRequiredPropertyException("GetServiceNotification", "additionalRecipients");
+            }
+            this.additionalRecipients = additionalRecipients;
             return this;
         }
         public Builder additionalRecipients(String... additionalRecipients) {
@@ -80,12 +84,18 @@ public final class GetServiceNotification {
         }
         @CustomType.Setter
         public Builder notifyDcAdmins(Boolean notifyDcAdmins) {
-            this.notifyDcAdmins = Objects.requireNonNull(notifyDcAdmins);
+            if (notifyDcAdmins == null) {
+              throw new MissingRequiredPropertyException("GetServiceNotification", "notifyDcAdmins");
+            }
+            this.notifyDcAdmins = notifyDcAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder notifyGlobalAdmins(Boolean notifyGlobalAdmins) {
-            this.notifyGlobalAdmins = Objects.requireNonNull(notifyGlobalAdmins);
+            if (notifyGlobalAdmins == null) {
+              throw new MissingRequiredPropertyException("GetServiceNotification", "notifyGlobalAdmins");
+            }
+            this.notifyGlobalAdmins = notifyGlobalAdmins;
             return this;
         }
         public GetServiceNotification build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.iot;
 import com.pulumi.azure.iot.inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -274,8 +275,12 @@ public final class TimeSeriesInsightsReferenceDataSetArgs extends com.pulumi.res
         }
 
         public TimeSeriesInsightsReferenceDataSetArgs build() {
-            $.keyProperties = Objects.requireNonNull($.keyProperties, "expected parameter 'keyProperties' to be non-null");
-            $.timeSeriesInsightsEnvironmentId = Objects.requireNonNull($.timeSeriesInsightsEnvironmentId, "expected parameter 'timeSeriesInsightsEnvironmentId' to be non-null");
+            if ($.keyProperties == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsReferenceDataSetArgs", "keyProperties");
+            }
+            if ($.timeSeriesInsightsEnvironmentId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsReferenceDataSetArgs", "timeSeriesInsightsEnvironmentId");
+            }
             return $;
         }
     }

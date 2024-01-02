@@ -6,6 +6,7 @@ package com.pulumi.azure.sql;
 import com.pulumi.azure.sql.inputs.ManagedInstanceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -746,14 +747,30 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ManagedInstanceArgs build() {
-            $.administratorLogin = Objects.requireNonNull($.administratorLogin, "expected parameter 'administratorLogin' to be non-null");
-            $.administratorLoginPassword = Objects.requireNonNull($.administratorLoginPassword, "expected parameter 'administratorLoginPassword' to be non-null");
-            $.licenseType = Objects.requireNonNull($.licenseType, "expected parameter 'licenseType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.storageSizeInGb = Objects.requireNonNull($.storageSizeInGb, "expected parameter 'storageSizeInGb' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.vcores = Objects.requireNonNull($.vcores, "expected parameter 'vcores' to be non-null");
+            if ($.administratorLogin == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "administratorLogin");
+            }
+            if ($.administratorLoginPassword == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "administratorLoginPassword");
+            }
+            if ($.licenseType == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "licenseType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "skuName");
+            }
+            if ($.storageSizeInGb == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "storageSizeInGb");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "subnetId");
+            }
+            if ($.vcores == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceArgs", "vcores");
+            }
             return $;
         }
     }

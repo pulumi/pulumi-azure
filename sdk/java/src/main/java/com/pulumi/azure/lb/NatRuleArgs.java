@@ -5,6 +5,7 @@ package com.pulumi.azure.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -522,11 +523,21 @@ public final class NatRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NatRuleArgs build() {
-            $.backendPort = Objects.requireNonNull($.backendPort, "expected parameter 'backendPort' to be non-null");
-            $.frontendIpConfigurationName = Objects.requireNonNull($.frontendIpConfigurationName, "expected parameter 'frontendIpConfigurationName' to be non-null");
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.backendPort == null) {
+                throw new MissingRequiredPropertyException("NatRuleArgs", "backendPort");
+            }
+            if ($.frontendIpConfigurationName == null) {
+                throw new MissingRequiredPropertyException("NatRuleArgs", "frontendIpConfigurationName");
+            }
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("NatRuleArgs", "loadbalancerId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NatRuleArgs", "protocol");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NatRuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

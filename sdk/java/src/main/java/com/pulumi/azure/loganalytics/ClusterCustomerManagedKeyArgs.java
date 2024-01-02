@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public ClusterCustomerManagedKeyArgs build() {
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
-            $.logAnalyticsClusterId = Objects.requireNonNull($.logAnalyticsClusterId, "expected parameter 'logAnalyticsClusterId' to be non-null");
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
+            if ($.logAnalyticsClusterId == null) {
+                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "logAnalyticsClusterId");
+            }
             return $;
         }
     }

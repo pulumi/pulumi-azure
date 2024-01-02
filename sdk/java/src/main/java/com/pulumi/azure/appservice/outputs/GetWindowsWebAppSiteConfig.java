@@ -10,6 +10,7 @@ import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigIpRestricti
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigScmIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigVirtualApplication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -491,27 +492,42 @@ public final class GetWindowsWebAppSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
-            this.alwaysOn = Objects.requireNonNull(alwaysOn);
+            if (alwaysOn == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "alwaysOn");
+            }
+            this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
-            this.apiDefinitionUrl = Objects.requireNonNull(apiDefinitionUrl);
+            if (apiDefinitionUrl == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "apiDefinitionUrl");
+            }
+            this.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
         @CustomType.Setter
         public Builder apiManagementApiId(String apiManagementApiId) {
-            this.apiManagementApiId = Objects.requireNonNull(apiManagementApiId);
+            if (apiManagementApiId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "apiManagementApiId");
+            }
+            this.apiManagementApiId = apiManagementApiId;
             return this;
         }
         @CustomType.Setter
         public Builder appCommandLine(String appCommandLine) {
-            this.appCommandLine = Objects.requireNonNull(appCommandLine);
+            if (appCommandLine == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "appCommandLine");
+            }
+            this.appCommandLine = appCommandLine;
             return this;
         }
         @CustomType.Setter
         public Builder applicationStacks(List<GetWindowsWebAppSiteConfigApplicationStack> applicationStacks) {
-            this.applicationStacks = Objects.requireNonNull(applicationStacks);
+            if (applicationStacks == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "applicationStacks");
+            }
+            this.applicationStacks = applicationStacks;
             return this;
         }
         public Builder applicationStacks(GetWindowsWebAppSiteConfigApplicationStack... applicationStacks) {
@@ -519,12 +535,18 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            this.autoHealEnabled = Objects.requireNonNull(autoHealEnabled);
+            if (autoHealEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "autoHealEnabled");
+            }
+            this.autoHealEnabled = autoHealEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder autoHealSettings(List<GetWindowsWebAppSiteConfigAutoHealSetting> autoHealSettings) {
-            this.autoHealSettings = Objects.requireNonNull(autoHealSettings);
+            if (autoHealSettings == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "autoHealSettings");
+            }
+            this.autoHealSettings = autoHealSettings;
             return this;
         }
         public Builder autoHealSettings(GetWindowsWebAppSiteConfigAutoHealSetting... autoHealSettings) {
@@ -532,17 +554,26 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(String containerRegistryManagedIdentityClientId) {
-            this.containerRegistryManagedIdentityClientId = Objects.requireNonNull(containerRegistryManagedIdentityClientId);
+            if (containerRegistryManagedIdentityClientId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "containerRegistryManagedIdentityClientId");
+            }
+            this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(Boolean containerRegistryUseManagedIdentity) {
-            this.containerRegistryUseManagedIdentity = Objects.requireNonNull(containerRegistryUseManagedIdentity);
+            if (containerRegistryUseManagedIdentity == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "containerRegistryUseManagedIdentity");
+            }
+            this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder cors(List<GetWindowsWebAppSiteConfigCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetWindowsWebAppSiteConfigCor... cors) {
@@ -550,7 +581,10 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder defaultDocuments(List<String> defaultDocuments) {
-            this.defaultDocuments = Objects.requireNonNull(defaultDocuments);
+            if (defaultDocuments == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "defaultDocuments");
+            }
+            this.defaultDocuments = defaultDocuments;
             return this;
         }
         public Builder defaultDocuments(String... defaultDocuments) {
@@ -558,32 +592,50 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
-            this.detailedErrorLoggingEnabled = Objects.requireNonNull(detailedErrorLoggingEnabled);
+            if (detailedErrorLoggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "detailedErrorLoggingEnabled");
+            }
+            this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
-            this.ftpsState = Objects.requireNonNull(ftpsState);
+            if (ftpsState == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "ftpsState");
+            }
+            this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(Integer healthCheckEvictionTimeInMin) {
-            this.healthCheckEvictionTimeInMin = Objects.requireNonNull(healthCheckEvictionTimeInMin);
+            if (healthCheckEvictionTimeInMin == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "healthCheckEvictionTimeInMin");
+            }
+            this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
-            this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
+            if (healthCheckPath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "healthCheckPath");
+            }
+            this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(List<GetWindowsWebAppSiteConfigIpRestriction> ipRestrictions) {
-            this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
+            if (ipRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "ipRestrictions");
+            }
+            this.ipRestrictions = ipRestrictions;
             return this;
         }
         public Builder ipRestrictions(GetWindowsWebAppSiteConfigIpRestriction... ipRestrictions) {
@@ -591,37 +643,58 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder loadBalancingMode(String loadBalancingMode) {
-            this.loadBalancingMode = Objects.requireNonNull(loadBalancingMode);
+            if (loadBalancingMode == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "loadBalancingMode");
+            }
+            this.loadBalancingMode = loadBalancingMode;
             return this;
         }
         @CustomType.Setter
         public Builder localMysqlEnabled(Boolean localMysqlEnabled) {
-            this.localMysqlEnabled = Objects.requireNonNull(localMysqlEnabled);
+            if (localMysqlEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "localMysqlEnabled");
+            }
+            this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder managedPipelineMode(String managedPipelineMode) {
-            this.managedPipelineMode = Objects.requireNonNull(managedPipelineMode);
+            if (managedPipelineMode == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "managedPipelineMode");
+            }
+            this.managedPipelineMode = managedPipelineMode;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
-            this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
+            if (minimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "minimumTlsVersion");
+            }
+            this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
-            this.remoteDebuggingEnabled = Objects.requireNonNull(remoteDebuggingEnabled);
+            if (remoteDebuggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "remoteDebuggingEnabled");
+            }
+            this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
-            this.remoteDebuggingVersion = Objects.requireNonNull(remoteDebuggingVersion);
+            if (remoteDebuggingVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "remoteDebuggingVersion");
+            }
+            this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(List<GetWindowsWebAppSiteConfigScmIpRestriction> scmIpRestrictions) {
-            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            if (scmIpRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "scmIpRestrictions");
+            }
+            this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
         public Builder scmIpRestrictions(GetWindowsWebAppSiteConfigScmIpRestriction... scmIpRestrictions) {
@@ -629,27 +702,42 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder scmMinimumTlsVersion(String scmMinimumTlsVersion) {
-            this.scmMinimumTlsVersion = Objects.requireNonNull(scmMinimumTlsVersion);
+            if (scmMinimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "scmMinimumTlsVersion");
+            }
+            this.scmMinimumTlsVersion = scmMinimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmType(String scmType) {
-            this.scmType = Objects.requireNonNull(scmType);
+            if (scmType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "scmType");
+            }
+            this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
-            this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
+            if (scmUseMainIpRestriction == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "scmUseMainIpRestriction");
+            }
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorker(Boolean use32BitWorker) {
-            this.use32BitWorker = Objects.requireNonNull(use32BitWorker);
+            if (use32BitWorker == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "use32BitWorker");
+            }
+            this.use32BitWorker = use32BitWorker;
             return this;
         }
         @CustomType.Setter
         public Builder virtualApplications(List<GetWindowsWebAppSiteConfigVirtualApplication> virtualApplications) {
-            this.virtualApplications = Objects.requireNonNull(virtualApplications);
+            if (virtualApplications == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "virtualApplications");
+            }
+            this.virtualApplications = virtualApplications;
             return this;
         }
         public Builder virtualApplications(GetWindowsWebAppSiteConfigVirtualApplication... virtualApplications) {
@@ -657,22 +745,34 @@ public final class GetWindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
-            this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
+            if (vnetRouteAllEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "vnetRouteAllEnabled");
+            }
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
-            this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
+            if (websocketsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "websocketsEnabled");
+            }
+            this.websocketsEnabled = websocketsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder windowsFxVersion(String windowsFxVersion) {
-            this.windowsFxVersion = Objects.requireNonNull(windowsFxVersion);
+            if (windowsFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "windowsFxVersion");
+            }
+            this.windowsFxVersion = windowsFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
-            this.workerCount = Objects.requireNonNull(workerCount);
+            if (workerCount == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "workerCount");
+            }
+            this.workerCount = workerCount;
             return this;
         }
         public GetWindowsWebAppSiteConfig build() {

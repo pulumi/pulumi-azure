@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform.outputs;
 import com.pulumi.azure.appplatform.outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth;
 import com.pulumi.azure.appplatform.outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -159,47 +160,58 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
 
         @CustomType.Setter
         public Builder basicAuth(@Nullable SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth basicAuth) {
+
             this.basicAuth = basicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
+
             this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder caCertificateId(@Nullable String caCertificateId) {
+
             this.caCertificateId = caCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder commit(@Nullable String commit) {
+
             this.commit = commit;
             return this;
         }
         @CustomType.Setter
         public Builder gitTag(@Nullable String gitTag) {
+
             this.gitTag = gitTag;
             return this;
         }
         @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
+
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudCustomizedAcceleratorGitRepositorySshAuth sshAuth) {
+
             this.sshAuth = sshAuth;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorGitRepository", "url");
+            }
+            this.url = url;
             return this;
         }
         public SpringCloudCustomizedAcceleratorGitRepository build() {

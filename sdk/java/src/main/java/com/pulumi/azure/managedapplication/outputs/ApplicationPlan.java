@@ -4,6 +4,7 @@
 package com.pulumi.azure.managedapplication.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,27 +105,40 @@ public final class ApplicationPlan {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationPlan", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder product(String product) {
-            this.product = Objects.requireNonNull(product);
+            if (product == null) {
+              throw new MissingRequiredPropertyException("ApplicationPlan", "product");
+            }
+            this.product = product;
             return this;
         }
         @CustomType.Setter
         public Builder promotionCode(@Nullable String promotionCode) {
+
             this.promotionCode = promotionCode;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("ApplicationPlan", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("ApplicationPlan", "version");
+            }
+            this.version = version;
             return this;
         }
         public ApplicationPlan build() {

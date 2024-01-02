@@ -4,6 +4,7 @@
 package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -114,67 +115,106 @@ public final class GetLocalRulestackResult {
 
         @CustomType.Setter
         public Builder antiSpywareProfile(String antiSpywareProfile) {
-            this.antiSpywareProfile = Objects.requireNonNull(antiSpywareProfile);
+            if (antiSpywareProfile == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "antiSpywareProfile");
+            }
+            this.antiSpywareProfile = antiSpywareProfile;
             return this;
         }
         @CustomType.Setter
         public Builder antiVirusProfile(String antiVirusProfile) {
-            this.antiVirusProfile = Objects.requireNonNull(antiVirusProfile);
+            if (antiVirusProfile == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "antiVirusProfile");
+            }
+            this.antiVirusProfile = antiVirusProfile;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSubscription(String dnsSubscription) {
-            this.dnsSubscription = Objects.requireNonNull(dnsSubscription);
+            if (dnsSubscription == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "dnsSubscription");
+            }
+            this.dnsSubscription = dnsSubscription;
             return this;
         }
         @CustomType.Setter
         public Builder fileBlockingProfile(String fileBlockingProfile) {
-            this.fileBlockingProfile = Objects.requireNonNull(fileBlockingProfile);
+            if (fileBlockingProfile == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "fileBlockingProfile");
+            }
+            this.fileBlockingProfile = fileBlockingProfile;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundTrustCertificate(String outboundTrustCertificate) {
-            this.outboundTrustCertificate = Objects.requireNonNull(outboundTrustCertificate);
+            if (outboundTrustCertificate == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "outboundTrustCertificate");
+            }
+            this.outboundTrustCertificate = outboundTrustCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder outboundUntrustCertificate(String outboundUntrustCertificate) {
-            this.outboundUntrustCertificate = Objects.requireNonNull(outboundUntrustCertificate);
+            if (outboundUntrustCertificate == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "outboundUntrustCertificate");
+            }
+            this.outboundUntrustCertificate = outboundUntrustCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder urlFilteringProfile(String urlFilteringProfile) {
-            this.urlFilteringProfile = Objects.requireNonNull(urlFilteringProfile);
+            if (urlFilteringProfile == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "urlFilteringProfile");
+            }
+            this.urlFilteringProfile = urlFilteringProfile;
             return this;
         }
         @CustomType.Setter
         public Builder vulnerabilityProfile(String vulnerabilityProfile) {
-            this.vulnerabilityProfile = Objects.requireNonNull(vulnerabilityProfile);
+            if (vulnerabilityProfile == null) {
+              throw new MissingRequiredPropertyException("GetLocalRulestackResult", "vulnerabilityProfile");
+            }
+            this.vulnerabilityProfile = vulnerabilityProfile;
             return this;
         }
         public GetLocalRulestackResult build() {

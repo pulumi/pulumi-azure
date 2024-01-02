@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,6 +103,7 @@ public final class SpringCloudAppCustomPersistentDisk {
 
         @CustomType.Setter
         public Builder mountOptions(@Nullable List<String> mountOptions) {
+
             this.mountOptions = mountOptions;
             return this;
         }
@@ -110,22 +112,32 @@ public final class SpringCloudAppCustomPersistentDisk {
         }
         @CustomType.Setter
         public Builder mountPath(String mountPath) {
-            this.mountPath = Objects.requireNonNull(mountPath);
+            if (mountPath == null) {
+              throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDisk", "mountPath");
+            }
+            this.mountPath = mountPath;
             return this;
         }
         @CustomType.Setter
         public Builder readOnlyEnabled(@Nullable Boolean readOnlyEnabled) {
+
             this.readOnlyEnabled = readOnlyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder shareName(String shareName) {
-            this.shareName = Objects.requireNonNull(shareName);
+            if (shareName == null) {
+              throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDisk", "shareName");
+            }
+            this.shareName = shareName;
             return this;
         }
         @CustomType.Setter
         public Builder storageName(String storageName) {
-            this.storageName = Objects.requireNonNull(storageName);
+            if (storageName == null) {
+              throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDisk", "storageName");
+            }
+            this.storageName = storageName;
             return this;
         }
         public SpringCloudAppCustomPersistentDisk build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -718,22 +719,54 @@ public final class ScalingPlanScheduleArgs extends com.pulumi.resources.Resource
         }
 
         public ScalingPlanScheduleArgs build() {
-            $.daysOfWeeks = Objects.requireNonNull($.daysOfWeeks, "expected parameter 'daysOfWeeks' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.offPeakLoadBalancingAlgorithm = Objects.requireNonNull($.offPeakLoadBalancingAlgorithm, "expected parameter 'offPeakLoadBalancingAlgorithm' to be non-null");
-            $.offPeakStartTime = Objects.requireNonNull($.offPeakStartTime, "expected parameter 'offPeakStartTime' to be non-null");
-            $.peakLoadBalancingAlgorithm = Objects.requireNonNull($.peakLoadBalancingAlgorithm, "expected parameter 'peakLoadBalancingAlgorithm' to be non-null");
-            $.peakStartTime = Objects.requireNonNull($.peakStartTime, "expected parameter 'peakStartTime' to be non-null");
-            $.rampDownCapacityThresholdPercent = Objects.requireNonNull($.rampDownCapacityThresholdPercent, "expected parameter 'rampDownCapacityThresholdPercent' to be non-null");
-            $.rampDownForceLogoffUsers = Objects.requireNonNull($.rampDownForceLogoffUsers, "expected parameter 'rampDownForceLogoffUsers' to be non-null");
-            $.rampDownLoadBalancingAlgorithm = Objects.requireNonNull($.rampDownLoadBalancingAlgorithm, "expected parameter 'rampDownLoadBalancingAlgorithm' to be non-null");
-            $.rampDownMinimumHostsPercent = Objects.requireNonNull($.rampDownMinimumHostsPercent, "expected parameter 'rampDownMinimumHostsPercent' to be non-null");
-            $.rampDownNotificationMessage = Objects.requireNonNull($.rampDownNotificationMessage, "expected parameter 'rampDownNotificationMessage' to be non-null");
-            $.rampDownStartTime = Objects.requireNonNull($.rampDownStartTime, "expected parameter 'rampDownStartTime' to be non-null");
-            $.rampDownStopHostsWhen = Objects.requireNonNull($.rampDownStopHostsWhen, "expected parameter 'rampDownStopHostsWhen' to be non-null");
-            $.rampDownWaitTimeMinutes = Objects.requireNonNull($.rampDownWaitTimeMinutes, "expected parameter 'rampDownWaitTimeMinutes' to be non-null");
-            $.rampUpLoadBalancingAlgorithm = Objects.requireNonNull($.rampUpLoadBalancingAlgorithm, "expected parameter 'rampUpLoadBalancingAlgorithm' to be non-null");
-            $.rampUpStartTime = Objects.requireNonNull($.rampUpStartTime, "expected parameter 'rampUpStartTime' to be non-null");
+            if ($.daysOfWeeks == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "daysOfWeeks");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "name");
+            }
+            if ($.offPeakLoadBalancingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "offPeakLoadBalancingAlgorithm");
+            }
+            if ($.offPeakStartTime == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "offPeakStartTime");
+            }
+            if ($.peakLoadBalancingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "peakLoadBalancingAlgorithm");
+            }
+            if ($.peakStartTime == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "peakStartTime");
+            }
+            if ($.rampDownCapacityThresholdPercent == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownCapacityThresholdPercent");
+            }
+            if ($.rampDownForceLogoffUsers == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownForceLogoffUsers");
+            }
+            if ($.rampDownLoadBalancingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownLoadBalancingAlgorithm");
+            }
+            if ($.rampDownMinimumHostsPercent == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownMinimumHostsPercent");
+            }
+            if ($.rampDownNotificationMessage == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownNotificationMessage");
+            }
+            if ($.rampDownStartTime == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownStartTime");
+            }
+            if ($.rampDownStopHostsWhen == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownStopHostsWhen");
+            }
+            if ($.rampDownWaitTimeMinutes == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampDownWaitTimeMinutes");
+            }
+            if ($.rampUpLoadBalancingAlgorithm == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampUpLoadBalancingAlgorithm");
+            }
+            if ($.rampUpStartTime == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanScheduleArgs", "rampUpStartTime");
+            }
             return $;
         }
     }

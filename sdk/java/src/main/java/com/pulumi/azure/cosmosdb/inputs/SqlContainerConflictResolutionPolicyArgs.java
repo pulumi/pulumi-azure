@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class SqlContainerConflictResolutionPolicyArgs extends com.pulumi.r
         }
 
         public SqlContainerConflictResolutionPolicyArgs build() {
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("SqlContainerConflictResolutionPolicyArgs", "mode");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetApplicationGatewayBackendHttpSettingConnectionDraining {
 
         @CustomType.Setter
         public Builder drainTimeoutSec(Integer drainTimeoutSec) {
-            this.drainTimeoutSec = Objects.requireNonNull(drainTimeoutSec);
+            if (drainTimeoutSec == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSettingConnectionDraining", "drainTimeoutSec");
+            }
+            this.drainTimeoutSec = drainTimeoutSec;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSettingConnectionDraining", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public GetApplicationGatewayBackendHttpSettingConnectionDraining build() {

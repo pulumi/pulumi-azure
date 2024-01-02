@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.MetricAlertDynamicCriteriaDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -423,11 +424,21 @@ public final class MetricAlertDynamicCriteriaArgs extends com.pulumi.resources.R
         }
 
         public MetricAlertDynamicCriteriaArgs build() {
-            $.aggregation = Objects.requireNonNull($.aggregation, "expected parameter 'aggregation' to be non-null");
-            $.alertSensitivity = Objects.requireNonNull($.alertSensitivity, "expected parameter 'alertSensitivity' to be non-null");
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.metricNamespace = Objects.requireNonNull($.metricNamespace, "expected parameter 'metricNamespace' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
+            if ($.aggregation == null) {
+                throw new MissingRequiredPropertyException("MetricAlertDynamicCriteriaArgs", "aggregation");
+            }
+            if ($.alertSensitivity == null) {
+                throw new MissingRequiredPropertyException("MetricAlertDynamicCriteriaArgs", "alertSensitivity");
+            }
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("MetricAlertDynamicCriteriaArgs", "metricName");
+            }
+            if ($.metricNamespace == null) {
+                throw new MissingRequiredPropertyException("MetricAlertDynamicCriteriaArgs", "metricNamespace");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("MetricAlertDynamicCriteriaArgs", "operator");
+            }
             return $;
         }
     }

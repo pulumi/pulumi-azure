@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.LogzSubAccountUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -227,8 +228,12 @@ public final class LogzSubAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public LogzSubAccountArgs build() {
-            $.logzMonitorId = Objects.requireNonNull($.logzMonitorId, "expected parameter 'logzMonitorId' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.logzMonitorId == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountArgs", "logzMonitorId");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountArgs", "user");
+            }
             return $;
         }
     }

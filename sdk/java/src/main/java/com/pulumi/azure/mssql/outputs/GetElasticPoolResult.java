@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.azure.mssql.outputs.GetElasticPoolSkus;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -214,62 +215,98 @@ public final class GetElasticPoolResult {
 
         @CustomType.Setter
         public Builder enclaveType(String enclaveType) {
-            this.enclaveType = Objects.requireNonNull(enclaveType);
+            if (enclaveType == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "enclaveType");
+            }
+            this.enclaveType = enclaveType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder licenseType(String licenseType) {
-            this.licenseType = Objects.requireNonNull(licenseType);
+            if (licenseType == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "licenseType");
+            }
+            this.licenseType = licenseType;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder maxSizeBytes(Integer maxSizeBytes) {
-            this.maxSizeBytes = Objects.requireNonNull(maxSizeBytes);
+            if (maxSizeBytes == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "maxSizeBytes");
+            }
+            this.maxSizeBytes = maxSizeBytes;
             return this;
         }
         @CustomType.Setter
         public Builder maxSizeGb(Double maxSizeGb) {
-            this.maxSizeGb = Objects.requireNonNull(maxSizeGb);
+            if (maxSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "maxSizeGb");
+            }
+            this.maxSizeGb = maxSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder perDbMaxCapacity(Integer perDbMaxCapacity) {
-            this.perDbMaxCapacity = Objects.requireNonNull(perDbMaxCapacity);
+            if (perDbMaxCapacity == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "perDbMaxCapacity");
+            }
+            this.perDbMaxCapacity = perDbMaxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder perDbMinCapacity(Integer perDbMinCapacity) {
-            this.perDbMinCapacity = Objects.requireNonNull(perDbMinCapacity);
+            if (perDbMinCapacity == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "perDbMinCapacity");
+            }
+            this.perDbMinCapacity = perDbMinCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder skus(List<GetElasticPoolSkus> skus) {
-            this.skus = Objects.requireNonNull(skus);
+            if (skus == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "skus");
+            }
+            this.skus = skus;
             return this;
         }
         public Builder skus(GetElasticPoolSkus... skus) {
@@ -277,12 +314,18 @@ public final class GetElasticPoolResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetElasticPoolResult", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetElasticPoolResult build() {

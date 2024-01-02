@@ -8,6 +8,7 @@ import com.pulumi.azure.appservice.outputs.GetAppServiceSiteConfig;
 import com.pulumi.azure.appservice.outputs.GetAppServiceSiteCredential;
 import com.pulumi.azure.appservice.outputs.GetAppServiceSourceControl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -313,27 +314,42 @@ public final class GetAppServiceResult {
 
         @CustomType.Setter
         public Builder appServicePlanId(String appServicePlanId) {
-            this.appServicePlanId = Objects.requireNonNull(appServicePlanId);
+            if (appServicePlanId == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "appServicePlanId");
+            }
+            this.appServicePlanId = appServicePlanId;
             return this;
         }
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
-            this.appSettings = Objects.requireNonNull(appSettings);
+            if (appSettings == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "appSettings");
+            }
+            this.appSettings = appSettings;
             return this;
         }
         @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
-            this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
+            if (clientAffinityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "clientAffinityEnabled");
+            }
+            this.clientAffinityEnabled = clientAffinityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertEnabled(Boolean clientCertEnabled) {
-            this.clientCertEnabled = Objects.requireNonNull(clientCertEnabled);
+            if (clientCertEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "clientCertEnabled");
+            }
+            this.clientCertEnabled = clientCertEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder connectionStrings(List<GetAppServiceConnectionString> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(GetAppServiceConnectionString... connectionStrings) {
@@ -341,42 +357,66 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSiteHostname(String defaultSiteHostname) {
-            this.defaultSiteHostname = Objects.requireNonNull(defaultSiteHostname);
+            if (defaultSiteHostname == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "defaultSiteHostname");
+            }
+            this.defaultSiteHostname = defaultSiteHostname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
-            this.httpsOnly = Objects.requireNonNull(httpsOnly);
+            if (httpsOnly == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "httpsOnly");
+            }
+            this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
-            this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
+            if (outboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "outboundIpAddressLists");
+            }
+            this.outboundIpAddressLists = outboundIpAddressLists;
             return this;
         }
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
@@ -384,12 +424,18 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
-            this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
+            if (possibleOutboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "possibleOutboundIpAddressLists");
+            }
+            this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             return this;
         }
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
@@ -397,17 +443,26 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
-            this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
+            if (possibleOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "possibleOutboundIpAddresses");
+            }
+            this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder siteConfigs(List<GetAppServiceSiteConfig> siteConfigs) {
-            this.siteConfigs = Objects.requireNonNull(siteConfigs);
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "siteConfigs");
+            }
+            this.siteConfigs = siteConfigs;
             return this;
         }
         public Builder siteConfigs(GetAppServiceSiteConfig... siteConfigs) {
@@ -415,7 +470,10 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetAppServiceSiteCredential> siteCredentials) {
-            this.siteCredentials = Objects.requireNonNull(siteCredentials);
+            if (siteCredentials == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "siteCredentials");
+            }
+            this.siteCredentials = siteCredentials;
             return this;
         }
         public Builder siteCredentials(GetAppServiceSiteCredential... siteCredentials) {
@@ -423,7 +481,10 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder sourceControls(List<GetAppServiceSourceControl> sourceControls) {
-            this.sourceControls = Objects.requireNonNull(sourceControls);
+            if (sourceControls == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "sourceControls");
+            }
+            this.sourceControls = sourceControls;
             return this;
         }
         public Builder sourceControls(GetAppServiceSourceControl... sourceControls) {
@@ -431,7 +492,10 @@ public final class GetAppServiceResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAppServiceResult build() {

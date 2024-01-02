@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class SpringCloudAcceleratorArgs extends com.pulumi.resources.Resou
         }
 
         public SpringCloudAcceleratorArgs build() {
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAcceleratorArgs", "springCloudServiceId");
+            }
             return $;
         }
     }

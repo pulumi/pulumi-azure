@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -101,7 +102,10 @@ public final class GetFhirServiceCor {
 
         @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
-            this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
+            if (allowedHeaders == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceCor", "allowedHeaders");
+            }
+            this.allowedHeaders = allowedHeaders;
             return this;
         }
         public Builder allowedHeaders(String... allowedHeaders) {
@@ -109,7 +113,10 @@ public final class GetFhirServiceCor {
         }
         @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = Objects.requireNonNull(allowedMethods);
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceCor", "allowedMethods");
+            }
+            this.allowedMethods = allowedMethods;
             return this;
         }
         public Builder allowedMethods(String... allowedMethods) {
@@ -117,7 +124,10 @@ public final class GetFhirServiceCor {
         }
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceCor", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -125,12 +135,18 @@ public final class GetFhirServiceCor {
         }
         @CustomType.Setter
         public Builder credentialsAllowed(Boolean credentialsAllowed) {
-            this.credentialsAllowed = Objects.requireNonNull(credentialsAllowed);
+            if (credentialsAllowed == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceCor", "credentialsAllowed");
+            }
+            this.credentialsAllowed = credentialsAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
-            this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
+            if (maxAgeInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceCor", "maxAgeInSeconds");
+            }
+            this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }
         public GetFhirServiceCor build() {

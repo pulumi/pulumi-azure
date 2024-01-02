@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
 
         @CustomType.Setter
         public Builder week(Integer week) {
-            this.week = Objects.requireNonNull(week);
+            if (week == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly", "week");
+            }
+            this.week = week;
             return this;
         }
         @CustomType.Setter
         public Builder weekday(String weekday) {
-            this.weekday = Objects.requireNonNull(weekday);
+            if (weekday == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly", "weekday");
+            }
+            this.weekday = weekday;
             return this;
         }
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class TransformOutputCustomPresetFormatPngArgs extends com.pulumi.r
         }
 
         public TransformOutputCustomPresetFormatPngArgs build() {
-            $.filenamePattern = Objects.requireNonNull($.filenamePattern, "expected parameter 'filenamePattern' to be non-null");
+            if ($.filenamePattern == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetFormatPngArgs", "filenamePattern");
+            }
             return $;
         }
     }

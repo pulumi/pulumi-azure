@@ -115,31 +115,37 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
 
         @CustomType.Setter
         public Builder dynamicFileSystemEnabled(@Nullable Boolean dynamicFileSystemEnabled) {
+
             this.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
+
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
+
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystem(@Nullable String fileSystem) {
+
             this.fileSystem = fileSystem;
             return this;
         }
         @CustomType.Setter
         public Builder filename(@Nullable String filename) {
+
             this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }

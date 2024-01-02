@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,16 +89,23 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
 
         @CustomType.Setter
         public Builder physicalPath(String physicalPath) {
-            this.physicalPath = Objects.requireNonNull(physicalPath);
+            if (physicalPath == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigVirtualApplication", "physicalPath");
+            }
+            this.physicalPath = physicalPath;
             return this;
         }
         @CustomType.Setter
         public Builder preload(Boolean preload) {
-            this.preload = Objects.requireNonNull(preload);
+            if (preload == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigVirtualApplication", "preload");
+            }
+            this.preload = preload;
             return this;
         }
         @CustomType.Setter
         public Builder virtualDirectories(@Nullable List<WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories) {
+
             this.virtualDirectories = virtualDirectories;
             return this;
         }
@@ -106,7 +114,10 @@ public final class WindowsWebAppSiteConfigVirtualApplication {
         }
         @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
-            this.virtualPath = Objects.requireNonNull(virtualPath);
+            if (virtualPath == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigVirtualApplication", "virtualPath");
+            }
+            this.virtualPath = virtualPath;
             return this;
         }
         public WindowsWebAppSiteConfigVirtualApplication build() {

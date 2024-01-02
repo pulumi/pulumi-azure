@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
 
         @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
+
             this.labels = labels;
             return this;
         }
@@ -66,7 +68,10 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
         }
         @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+            if (routeTableIds == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionRoutingPropagatedRouteTable", "routeTableIds");
+            }
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {

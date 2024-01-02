@@ -4,6 +4,7 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -121,7 +122,10 @@ public final class GetBudgetSubscriptionNotification {
 
         @CustomType.Setter
         public Builder contactEmails(List<String> contactEmails) {
-            this.contactEmails = Objects.requireNonNull(contactEmails);
+            if (contactEmails == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "contactEmails");
+            }
+            this.contactEmails = contactEmails;
             return this;
         }
         public Builder contactEmails(String... contactEmails) {
@@ -129,7 +133,10 @@ public final class GetBudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder contactGroups(List<String> contactGroups) {
-            this.contactGroups = Objects.requireNonNull(contactGroups);
+            if (contactGroups == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "contactGroups");
+            }
+            this.contactGroups = contactGroups;
             return this;
         }
         public Builder contactGroups(String... contactGroups) {
@@ -137,7 +144,10 @@ public final class GetBudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder contactRoles(List<String> contactRoles) {
-            this.contactRoles = Objects.requireNonNull(contactRoles);
+            if (contactRoles == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "contactRoles");
+            }
+            this.contactRoles = contactRoles;
             return this;
         }
         public Builder contactRoles(String... contactRoles) {
@@ -145,22 +155,34 @@ public final class GetBudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Integer threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(String thresholdType) {
-            this.thresholdType = Objects.requireNonNull(thresholdType);
+            if (thresholdType == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionNotification", "thresholdType");
+            }
+            this.thresholdType = thresholdType;
             return this;
         }
         public GetBudgetSubscriptionNotification build() {

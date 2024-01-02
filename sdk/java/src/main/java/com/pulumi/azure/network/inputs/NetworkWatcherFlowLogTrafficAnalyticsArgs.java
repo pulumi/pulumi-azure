@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,10 +227,18 @@ public final class NetworkWatcherFlowLogTrafficAnalyticsArgs extends com.pulumi.
         }
 
         public NetworkWatcherFlowLogTrafficAnalyticsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
-            $.workspaceRegion = Objects.requireNonNull($.workspaceRegion, "expected parameter 'workspaceRegion' to be non-null");
-            $.workspaceResourceId = Objects.requireNonNull($.workspaceResourceId, "expected parameter 'workspaceResourceId' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalyticsArgs", "enabled");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalyticsArgs", "workspaceId");
+            }
+            if ($.workspaceRegion == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalyticsArgs", "workspaceRegion");
+            }
+            if ($.workspaceResourceId == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalyticsArgs", "workspaceResourceId");
+            }
             return $;
         }
     }

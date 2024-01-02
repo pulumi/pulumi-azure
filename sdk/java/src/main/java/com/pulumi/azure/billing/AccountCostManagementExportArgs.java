@@ -7,6 +7,7 @@ import com.pulumi.azure.billing.inputs.AccountCostManagementExportExportDataOpti
 import com.pulumi.azure.billing.inputs.AccountCostManagementExportExportDataStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -338,12 +339,24 @@ public final class AccountCostManagementExportArgs extends com.pulumi.resources.
         }
 
         public AccountCostManagementExportArgs build() {
-            $.billingAccountId = Objects.requireNonNull($.billingAccountId, "expected parameter 'billingAccountId' to be non-null");
-            $.exportDataOptions = Objects.requireNonNull($.exportDataOptions, "expected parameter 'exportDataOptions' to be non-null");
-            $.exportDataStorageLocation = Objects.requireNonNull($.exportDataStorageLocation, "expected parameter 'exportDataStorageLocation' to be non-null");
-            $.recurrencePeriodEndDate = Objects.requireNonNull($.recurrencePeriodEndDate, "expected parameter 'recurrencePeriodEndDate' to be non-null");
-            $.recurrencePeriodStartDate = Objects.requireNonNull($.recurrencePeriodStartDate, "expected parameter 'recurrencePeriodStartDate' to be non-null");
-            $.recurrenceType = Objects.requireNonNull($.recurrenceType, "expected parameter 'recurrenceType' to be non-null");
+            if ($.billingAccountId == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "billingAccountId");
+            }
+            if ($.exportDataOptions == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "exportDataOptions");
+            }
+            if ($.exportDataStorageLocation == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "exportDataStorageLocation");
+            }
+            if ($.recurrencePeriodEndDate == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "recurrencePeriodEndDate");
+            }
+            if ($.recurrencePeriodStartDate == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "recurrencePeriodStartDate");
+            }
+            if ($.recurrenceType == null) {
+                throw new MissingRequiredPropertyException("AccountCostManagementExportArgs", "recurrenceType");
+            }
             return $;
         }
     }

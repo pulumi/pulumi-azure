@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RegistryNetworkRuleSetIpRuleArgs extends com.pulumi.resources
         }
 
         public RegistryNetworkRuleSetIpRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.ipRange = Objects.requireNonNull($.ipRange, "expected parameter 'ipRange' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RegistryNetworkRuleSetIpRuleArgs", "action");
+            }
+            if ($.ipRange == null) {
+                throw new MissingRequiredPropertyException("RegistryNetworkRuleSetIpRuleArgs", "ipRange");
+            }
             return $;
         }
     }

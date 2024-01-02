@@ -8,6 +8,7 @@ import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewKpiArgs;
 import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewPivotArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -434,13 +435,27 @@ public final class ResourceGroupCostManagementViewArgs extends com.pulumi.resour
         }
 
         public ResourceGroupCostManagementViewArgs build() {
-            $.accumulated = Objects.requireNonNull($.accumulated, "expected parameter 'accumulated' to be non-null");
-            $.chartType = Objects.requireNonNull($.chartType, "expected parameter 'chartType' to be non-null");
-            $.dataset = Objects.requireNonNull($.dataset, "expected parameter 'dataset' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.reportType = Objects.requireNonNull($.reportType, "expected parameter 'reportType' to be non-null");
-            $.resourceGroupId = Objects.requireNonNull($.resourceGroupId, "expected parameter 'resourceGroupId' to be non-null");
-            $.timeframe = Objects.requireNonNull($.timeframe, "expected parameter 'timeframe' to be non-null");
+            if ($.accumulated == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "accumulated");
+            }
+            if ($.chartType == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "chartType");
+            }
+            if ($.dataset == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "dataset");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "displayName");
+            }
+            if ($.reportType == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "reportType");
+            }
+            if ($.resourceGroupId == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "resourceGroupId");
+            }
+            if ($.timeframe == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewArgs", "timeframe");
+            }
             return $;
         }
     }

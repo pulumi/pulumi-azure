@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewaySslProfileSslPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -107,17 +108,26 @@ public final class GetApplicationGatewaySslProfile {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sslPolicies(List<GetApplicationGatewaySslProfileSslPolicy> sslPolicies) {
-            this.sslPolicies = Objects.requireNonNull(sslPolicies);
+            if (sslPolicies == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "sslPolicies");
+            }
+            this.sslPolicies = sslPolicies;
             return this;
         }
         public Builder sslPolicies(GetApplicationGatewaySslProfileSslPolicy... sslPolicies) {
@@ -125,7 +135,10 @@ public final class GetApplicationGatewaySslProfile {
         }
         @CustomType.Setter
         public Builder trustedClientCertificateNames(List<String> trustedClientCertificateNames) {
-            this.trustedClientCertificateNames = Objects.requireNonNull(trustedClientCertificateNames);
+            if (trustedClientCertificateNames == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "trustedClientCertificateNames");
+            }
+            this.trustedClientCertificateNames = trustedClientCertificateNames;
             return this;
         }
         public Builder trustedClientCertificateNames(String... trustedClientCertificateNames) {
@@ -133,12 +146,18 @@ public final class GetApplicationGatewaySslProfile {
         }
         @CustomType.Setter
         public Builder verifyClientCertificateIssuerDn(Boolean verifyClientCertificateIssuerDn) {
-            this.verifyClientCertificateIssuerDn = Objects.requireNonNull(verifyClientCertificateIssuerDn);
+            if (verifyClientCertificateIssuerDn == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "verifyClientCertificateIssuerDn");
+            }
+            this.verifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
             return this;
         }
         @CustomType.Setter
         public Builder verifyClientCertificateRevocation(String verifyClientCertificateRevocation) {
-            this.verifyClientCertificateRevocation = Objects.requireNonNull(verifyClientCertificateRevocation);
+            if (verifyClientCertificateRevocation == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslProfile", "verifyClientCertificateRevocation");
+            }
+            this.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
             return this;
         }
         public GetApplicationGatewaySslProfile build() {

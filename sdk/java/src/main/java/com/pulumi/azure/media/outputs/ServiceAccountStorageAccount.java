@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.ServiceAccountStorageAccountManagedIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -78,16 +79,21 @@ public final class ServiceAccountStorageAccount {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("ServiceAccountStorageAccount", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isPrimary(@Nullable Boolean isPrimary) {
+
             this.isPrimary = isPrimary;
             return this;
         }
         @CustomType.Setter
         public Builder managedIdentity(@Nullable ServiceAccountStorageAccountManagedIdentity managedIdentity) {
+
             this.managedIdentity = managedIdentity;
             return this;
         }

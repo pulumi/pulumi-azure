@@ -88,6 +88,7 @@ public final class ElasticsearchLogs {
 
         @CustomType.Setter
         public Builder filteringTags(@Nullable List<ElasticsearchLogsFilteringTag> filteringTags) {
+
             this.filteringTags = filteringTags;
             return this;
         }
@@ -96,16 +97,19 @@ public final class ElasticsearchLogs {
         }
         @CustomType.Setter
         public Builder sendActivityLogs(@Nullable Boolean sendActivityLogs) {
+
             this.sendActivityLogs = sendActivityLogs;
             return this;
         }
         @CustomType.Setter
         public Builder sendAzureadLogs(@Nullable Boolean sendAzureadLogs) {
+
             this.sendAzureadLogs = sendAzureadLogs;
             return this;
         }
         @CustomType.Setter
         public Builder sendSubscriptionLogs(@Nullable Boolean sendSubscriptionLogs) {
+
             this.sendSubscriptionLogs = sendSubscriptionLogs;
             return this;
         }

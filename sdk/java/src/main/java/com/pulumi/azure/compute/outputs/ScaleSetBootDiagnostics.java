@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ScaleSetBootDiagnostics {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder storageUri(String storageUri) {
-            this.storageUri = Objects.requireNonNull(storageUri);
+            if (storageUri == null) {
+              throw new MissingRequiredPropertyException("ScaleSetBootDiagnostics", "storageUri");
+            }
+            this.storageUri = storageUri;
             return this;
         }
         public ScaleSetBootDiagnostics build() {

@@ -72,6 +72,7 @@ public final class ConfigurationInstallPatchesWindow {
 
         @CustomType.Setter
         public Builder classificationsToIncludes(@Nullable List<String> classificationsToIncludes) {
+
             this.classificationsToIncludes = classificationsToIncludes;
             return this;
         }
@@ -80,6 +81,7 @@ public final class ConfigurationInstallPatchesWindow {
         }
         @CustomType.Setter
         public Builder kbNumbersToExcludes(@Nullable List<String> kbNumbersToExcludes) {
+
             this.kbNumbersToExcludes = kbNumbersToExcludes;
             return this;
         }
@@ -88,6 +90,7 @@ public final class ConfigurationInstallPatchesWindow {
         }
         @CustomType.Setter
         public Builder kbNumbersToIncludes(@Nullable List<String> kbNumbersToIncludes) {
+
             this.kbNumbersToIncludes = kbNumbersToIncludes;
             return this;
         }

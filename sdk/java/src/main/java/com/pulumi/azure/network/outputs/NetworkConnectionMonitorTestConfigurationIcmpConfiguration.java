@@ -44,6 +44,7 @@ public final class NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
 
         @CustomType.Setter
         public Builder traceRouteEnabled(@Nullable Boolean traceRouteEnabled) {
+
             this.traceRouteEnabled = traceRouteEnabled;
             return this;
         }

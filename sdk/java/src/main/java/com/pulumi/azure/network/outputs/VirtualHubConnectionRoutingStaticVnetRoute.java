@@ -73,6 +73,7 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
 
         @CustomType.Setter
         public Builder addressPrefixes(@Nullable List<String> addressPrefixes) {
+
             this.addressPrefixes = addressPrefixes;
             return this;
         }
@@ -81,11 +82,13 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextHopIpAddress(@Nullable String nextHopIpAddress) {
+
             this.nextHopIpAddress = nextHopIpAddress;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppBackupSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,17 +88,26 @@ public final class GetLinuxFunctionAppBackup {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackup", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(List<GetLinuxFunctionAppBackupSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackup", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(GetLinuxFunctionAppBackupSchedule... schedules) {
@@ -105,7 +115,10 @@ public final class GetLinuxFunctionAppBackup {
         }
         @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
-            this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
+            if (storageAccountUrl == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackup", "storageAccountUrl");
+            }
+            this.storageAccountUrl = storageAccountUrl;
             return this;
         }
         public GetLinuxFunctionAppBackup build() {

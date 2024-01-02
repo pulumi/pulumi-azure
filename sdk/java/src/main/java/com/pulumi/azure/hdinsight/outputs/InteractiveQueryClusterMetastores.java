@@ -74,16 +74,19 @@ public final class InteractiveQueryClusterMetastores {
 
         @CustomType.Setter
         public Builder ambari(@Nullable InteractiveQueryClusterMetastoresAmbari ambari) {
+
             this.ambari = ambari;
             return this;
         }
         @CustomType.Setter
         public Builder hive(@Nullable InteractiveQueryClusterMetastoresHive hive) {
+
             this.hive = hive;
             return this;
         }
         @CustomType.Setter
         public Builder oozie(@Nullable InteractiveQueryClusterMetastoresOozie oozie) {
+
             this.oozie = oozie;
             return this;
         }

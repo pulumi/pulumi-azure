@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -188,46 +189,59 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         @CustomType.Setter
         public Builder adminPassword(String adminPassword) {
-            this.adminPassword = Objects.requireNonNull(adminPassword);
+            if (adminPassword == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration", "adminPassword");
+            }
+            this.adminPassword = adminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
+
             this.computerNamePrefix = computerNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder enableAutomaticUpdates(@Nullable Boolean enableAutomaticUpdates) {
+
             this.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
         }
         @CustomType.Setter
         public Builder hotpatchingEnabled(@Nullable Boolean hotpatchingEnabled) {
+
             this.hotpatchingEnabled = hotpatchingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder patchAssessmentMode(@Nullable String patchAssessmentMode) {
+
             this.patchAssessmentMode = patchAssessmentMode;
             return this;
         }
         @CustomType.Setter
         public Builder patchMode(@Nullable String patchMode) {
+
             this.patchMode = patchMode;
             return this;
         }
         @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
+
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets) {
+
             this.secrets = secrets;
             return this;
         }
@@ -236,11 +250,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder winrmListeners(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners) {
+
             this.winrmListeners = winrmListeners;
             return this;
         }

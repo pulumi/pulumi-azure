@@ -5,6 +5,7 @@ package com.pulumi.azure.customip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -485,8 +486,12 @@ public final class PrefixArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PrefixArgs build() {
-            $.cidr = Objects.requireNonNull($.cidr, "expected parameter 'cidr' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.cidr == null) {
+                throw new MissingRequiredPropertyException("PrefixArgs", "cidr");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PrefixArgs", "resourceGroupName");
+            }
             return $;
         }
     }

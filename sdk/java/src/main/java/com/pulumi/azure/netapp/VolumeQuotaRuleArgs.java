@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -278,9 +279,15 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public VolumeQuotaRuleArgs build() {
-            $.quotaSizeInKib = Objects.requireNonNull($.quotaSizeInKib, "expected parameter 'quotaSizeInKib' to be non-null");
-            $.quotaType = Objects.requireNonNull($.quotaType, "expected parameter 'quotaType' to be non-null");
-            $.volumeId = Objects.requireNonNull($.volumeId, "expected parameter 'volumeId' to be non-null");
+            if ($.quotaSizeInKib == null) {
+                throw new MissingRequiredPropertyException("VolumeQuotaRuleArgs", "quotaSizeInKib");
+            }
+            if ($.quotaType == null) {
+                throw new MissingRequiredPropertyException("VolumeQuotaRuleArgs", "quotaType");
+            }
+            if ($.volumeId == null) {
+                throw new MissingRequiredPropertyException("VolumeQuotaRuleArgs", "volumeId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class ClusterDiagnosticsConfigArgs extends com.pulumi.resources.Res
         }
 
         public ClusterDiagnosticsConfigArgs build() {
-            $.blobEndpoint = Objects.requireNonNull($.blobEndpoint, "expected parameter 'blobEndpoint' to be non-null");
-            $.protectedAccountKeyName = Objects.requireNonNull($.protectedAccountKeyName, "expected parameter 'protectedAccountKeyName' to be non-null");
-            $.queueEndpoint = Objects.requireNonNull($.queueEndpoint, "expected parameter 'queueEndpoint' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
-            $.tableEndpoint = Objects.requireNonNull($.tableEndpoint, "expected parameter 'tableEndpoint' to be non-null");
+            if ($.blobEndpoint == null) {
+                throw new MissingRequiredPropertyException("ClusterDiagnosticsConfigArgs", "blobEndpoint");
+            }
+            if ($.protectedAccountKeyName == null) {
+                throw new MissingRequiredPropertyException("ClusterDiagnosticsConfigArgs", "protectedAccountKeyName");
+            }
+            if ($.queueEndpoint == null) {
+                throw new MissingRequiredPropertyException("ClusterDiagnosticsConfigArgs", "queueEndpoint");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("ClusterDiagnosticsConfigArgs", "storageAccountName");
+            }
+            if ($.tableEndpoint == null) {
+                throw new MissingRequiredPropertyException("ClusterDiagnosticsConfigArgs", "tableEndpoint");
+            }
             return $;
         }
     }

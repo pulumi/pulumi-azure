@@ -4,6 +4,7 @@
 package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -141,42 +142,66 @@ public final class GetLBFrontendIpConfiguration {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
-            this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
+            if (privateIpAddressAllocation == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "privateIpAddressAllocation");
+            }
+            this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressVersion(String privateIpAddressVersion) {
-            this.privateIpAddressVersion = Objects.requireNonNull(privateIpAddressVersion);
+            if (privateIpAddressVersion == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "privateIpAddressVersion");
+            }
+            this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetLBFrontendIpConfiguration", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

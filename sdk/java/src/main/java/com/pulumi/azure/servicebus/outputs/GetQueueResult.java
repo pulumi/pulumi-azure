@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicebus.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -304,102 +305,156 @@ public final class GetQueueResult {
 
         @CustomType.Setter
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
-            this.autoDeleteOnIdle = Objects.requireNonNull(autoDeleteOnIdle);
+            if (autoDeleteOnIdle == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "autoDeleteOnIdle");
+            }
+            this.autoDeleteOnIdle = autoDeleteOnIdle;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetteringOnMessageExpiration(Boolean deadLetteringOnMessageExpiration) {
-            this.deadLetteringOnMessageExpiration = Objects.requireNonNull(deadLetteringOnMessageExpiration);
+            if (deadLetteringOnMessageExpiration == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "deadLetteringOnMessageExpiration");
+            }
+            this.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             return this;
         }
         @CustomType.Setter
         public Builder defaultMessageTtl(String defaultMessageTtl) {
-            this.defaultMessageTtl = Objects.requireNonNull(defaultMessageTtl);
+            if (defaultMessageTtl == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "defaultMessageTtl");
+            }
+            this.defaultMessageTtl = defaultMessageTtl;
             return this;
         }
         @CustomType.Setter
         public Builder duplicateDetectionHistoryTimeWindow(String duplicateDetectionHistoryTimeWindow) {
-            this.duplicateDetectionHistoryTimeWindow = Objects.requireNonNull(duplicateDetectionHistoryTimeWindow);
+            if (duplicateDetectionHistoryTimeWindow == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "duplicateDetectionHistoryTimeWindow");
+            }
+            this.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
             return this;
         }
         @CustomType.Setter
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            this.enableBatchedOperations = Objects.requireNonNull(enableBatchedOperations);
+            if (enableBatchedOperations == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "enableBatchedOperations");
+            }
+            this.enableBatchedOperations = enableBatchedOperations;
             return this;
         }
         @CustomType.Setter
         public Builder enableExpress(Boolean enableExpress) {
-            this.enableExpress = Objects.requireNonNull(enableExpress);
+            if (enableExpress == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "enableExpress");
+            }
+            this.enableExpress = enableExpress;
             return this;
         }
         @CustomType.Setter
         public Builder enablePartitioning(Boolean enablePartitioning) {
-            this.enablePartitioning = Objects.requireNonNull(enablePartitioning);
+            if (enablePartitioning == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "enablePartitioning");
+            }
+            this.enablePartitioning = enablePartitioning;
             return this;
         }
         @CustomType.Setter
         public Builder forwardDeadLetteredMessagesTo(String forwardDeadLetteredMessagesTo) {
-            this.forwardDeadLetteredMessagesTo = Objects.requireNonNull(forwardDeadLetteredMessagesTo);
+            if (forwardDeadLetteredMessagesTo == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "forwardDeadLetteredMessagesTo");
+            }
+            this.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             return this;
         }
         @CustomType.Setter
         public Builder forwardTo(String forwardTo) {
-            this.forwardTo = Objects.requireNonNull(forwardTo);
+            if (forwardTo == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "forwardTo");
+            }
+            this.forwardTo = forwardTo;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lockDuration(String lockDuration) {
-            this.lockDuration = Objects.requireNonNull(lockDuration);
+            if (lockDuration == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "lockDuration");
+            }
+            this.lockDuration = lockDuration;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeliveryCount(Integer maxDeliveryCount) {
-            this.maxDeliveryCount = Objects.requireNonNull(maxDeliveryCount);
+            if (maxDeliveryCount == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "maxDeliveryCount");
+            }
+            this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxSizeInMegabytes(Integer maxSizeInMegabytes) {
-            this.maxSizeInMegabytes = Objects.requireNonNull(maxSizeInMegabytes);
+            if (maxSizeInMegabytes == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "maxSizeInMegabytes");
+            }
+            this.maxSizeInMegabytes = maxSizeInMegabytes;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceId(@Nullable String namespaceId) {
+
             this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
+
             this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder requiresDuplicateDetection(Boolean requiresDuplicateDetection) {
-            this.requiresDuplicateDetection = Objects.requireNonNull(requiresDuplicateDetection);
+            if (requiresDuplicateDetection == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "requiresDuplicateDetection");
+            }
+            this.requiresDuplicateDetection = requiresDuplicateDetection;
             return this;
         }
         @CustomType.Setter
         public Builder requiresSession(Boolean requiresSession) {
-            this.requiresSession = Objects.requireNonNull(requiresSession);
+            if (requiresSession == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "requiresSession");
+            }
+            this.requiresSession = requiresSession;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetQueueResult build() {

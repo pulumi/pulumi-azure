@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class ClusterDiagnosticsConfig {
 
         @CustomType.Setter
         public Builder blobEndpoint(String blobEndpoint) {
-            this.blobEndpoint = Objects.requireNonNull(blobEndpoint);
+            if (blobEndpoint == null) {
+              throw new MissingRequiredPropertyException("ClusterDiagnosticsConfig", "blobEndpoint");
+            }
+            this.blobEndpoint = blobEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder protectedAccountKeyName(String protectedAccountKeyName) {
-            this.protectedAccountKeyName = Objects.requireNonNull(protectedAccountKeyName);
+            if (protectedAccountKeyName == null) {
+              throw new MissingRequiredPropertyException("ClusterDiagnosticsConfig", "protectedAccountKeyName");
+            }
+            this.protectedAccountKeyName = protectedAccountKeyName;
             return this;
         }
         @CustomType.Setter
         public Builder queueEndpoint(String queueEndpoint) {
-            this.queueEndpoint = Objects.requireNonNull(queueEndpoint);
+            if (queueEndpoint == null) {
+              throw new MissingRequiredPropertyException("ClusterDiagnosticsConfig", "queueEndpoint");
+            }
+            this.queueEndpoint = queueEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("ClusterDiagnosticsConfig", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder tableEndpoint(String tableEndpoint) {
-            this.tableEndpoint = Objects.requireNonNull(tableEndpoint);
+            if (tableEndpoint == null) {
+              throw new MissingRequiredPropertyException("ClusterDiagnosticsConfig", "tableEndpoint");
+            }
+            this.tableEndpoint = tableEndpoint;
             return this;
         }
         public ClusterDiagnosticsConfig build() {

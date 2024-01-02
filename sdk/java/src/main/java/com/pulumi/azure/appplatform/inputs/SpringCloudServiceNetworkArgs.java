@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -310,9 +311,15 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
         }
 
         public SpringCloudServiceNetworkArgs build() {
-            $.appSubnetId = Objects.requireNonNull($.appSubnetId, "expected parameter 'appSubnetId' to be non-null");
-            $.cidrRanges = Objects.requireNonNull($.cidrRanges, "expected parameter 'cidrRanges' to be non-null");
-            $.serviceRuntimeSubnetId = Objects.requireNonNull($.serviceRuntimeSubnetId, "expected parameter 'serviceRuntimeSubnetId' to be non-null");
+            if ($.appSubnetId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceNetworkArgs", "appSubnetId");
+            }
+            if ($.cidrRanges == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceNetworkArgs", "cidrRanges");
+            }
+            if ($.serviceRuntimeSubnetId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceNetworkArgs", "serviceRuntimeSubnetId");
+            }
             return $;
         }
     }

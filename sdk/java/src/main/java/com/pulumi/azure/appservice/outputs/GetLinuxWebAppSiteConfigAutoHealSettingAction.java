@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingAction {
 
         @CustomType.Setter
         public Builder actionType(String actionType) {
-            this.actionType = Objects.requireNonNull(actionType);
+            if (actionType == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingAction", "actionType");
+            }
+            this.actionType = actionType;
             return this;
         }
         @CustomType.Setter
         public Builder minimumProcessExecutionTime(String minimumProcessExecutionTime) {
-            this.minimumProcessExecutionTime = Objects.requireNonNull(minimumProcessExecutionTime);
+            if (minimumProcessExecutionTime == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingAction", "minimumProcessExecutionTime");
+            }
+            this.minimumProcessExecutionTime = minimumProcessExecutionTime;
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingAction build() {

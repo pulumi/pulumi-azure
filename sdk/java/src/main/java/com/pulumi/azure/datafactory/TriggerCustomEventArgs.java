@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.TriggerCustomEventPipelineArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -488,10 +489,18 @@ public final class TriggerCustomEventArgs extends com.pulumi.resources.ResourceA
         }
 
         public TriggerCustomEventArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.eventgridTopicId = Objects.requireNonNull($.eventgridTopicId, "expected parameter 'eventgridTopicId' to be non-null");
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.pipelines = Objects.requireNonNull($.pipelines, "expected parameter 'pipelines' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("TriggerCustomEventArgs", "dataFactoryId");
+            }
+            if ($.eventgridTopicId == null) {
+                throw new MissingRequiredPropertyException("TriggerCustomEventArgs", "eventgridTopicId");
+            }
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("TriggerCustomEventArgs", "events");
+            }
+            if ($.pipelines == null) {
+                throw new MissingRequiredPropertyException("TriggerCustomEventArgs", "pipelines");
+            }
             return $;
         }
     }

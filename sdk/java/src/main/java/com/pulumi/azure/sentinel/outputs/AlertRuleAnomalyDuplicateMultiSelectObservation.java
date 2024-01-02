@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,16 +88,21 @@ public final class AlertRuleAnomalyDuplicateMultiSelectObservation {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateMultiSelectObservation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedValues(@Nullable List<String> supportedValues) {
+
             this.supportedValues = supportedValues;
             return this;
         }
@@ -105,7 +111,10 @@ public final class AlertRuleAnomalyDuplicateMultiSelectObservation {
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateMultiSelectObservation", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

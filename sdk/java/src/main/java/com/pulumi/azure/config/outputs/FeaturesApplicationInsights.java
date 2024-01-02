@@ -36,6 +36,7 @@ public final class FeaturesApplicationInsights {
 
         @CustomType.Setter
         public Builder disableGeneratedRule(@Nullable Boolean disableGeneratedRule) {
+
             this.disableGeneratedRule = disableGeneratedRule;
             return this;
         }

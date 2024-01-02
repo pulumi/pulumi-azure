@@ -4,6 +4,7 @@
 package com.pulumi.azure.orbital.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class ContactProfileLinkChannelEndPoint {
 
         @CustomType.Setter
         public Builder endPointName(String endPointName) {
-            this.endPointName = Objects.requireNonNull(endPointName);
+            if (endPointName == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPoint", "endPointName");
+            }
+            this.endPointName = endPointName;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder port(String port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPoint", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPoint", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public ContactProfileLinkChannelEndPoint build() {

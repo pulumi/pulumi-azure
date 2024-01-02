@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,22 +89,34 @@ public final class EventHubCaptureDescriptionDestination {
 
         @CustomType.Setter
         public Builder archiveNameFormat(String archiveNameFormat) {
-            this.archiveNameFormat = Objects.requireNonNull(archiveNameFormat);
+            if (archiveNameFormat == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestination", "archiveNameFormat");
+            }
+            this.archiveNameFormat = archiveNameFormat;
             return this;
         }
         @CustomType.Setter
         public Builder blobContainerName(String blobContainerName) {
-            this.blobContainerName = Objects.requireNonNull(blobContainerName);
+            if (blobContainerName == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestination", "blobContainerName");
+            }
+            this.blobContainerName = blobContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestination", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestination", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public EventHubCaptureDescriptionDestination build() {

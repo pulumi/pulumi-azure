@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class AuthomationRuleConditionArgs extends com.pulumi.resources.Res
         }
 
         public AuthomationRuleConditionArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.property = Objects.requireNonNull($.property, "expected parameter 'property' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleConditionArgs", "operator");
+            }
+            if ($.property == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleConditionArgs", "property");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleConditionArgs", "values");
+            }
             return $;
         }
     }

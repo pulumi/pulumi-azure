@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.azure.privatedns.outputs.GetTxtRecordRecord;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -120,22 +121,34 @@ public final class GetTxtRecordResult {
 
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder records(List<GetTxtRecordRecord> records) {
-            this.records = Objects.requireNonNull(records);
+            if (records == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "records");
+            }
+            this.records = records;
             return this;
         }
         public Builder records(GetTxtRecordRecord... records) {
@@ -143,22 +156,34 @@ public final class GetTxtRecordResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder zoneName(String zoneName) {
-            this.zoneName = Objects.requireNonNull(zoneName);
+            if (zoneName == null) {
+              throw new MissingRequiredPropertyException("GetTxtRecordResult", "zoneName");
+            }
+            this.zoneName = zoneName;
             return this;
         }
         public GetTxtRecordResult build() {

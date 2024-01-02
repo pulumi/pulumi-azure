@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.VpnGatewayConnectionRoutingPropagatedRouteTable;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,21 +88,27 @@ public final class VpnGatewayConnectionRouting {
 
         @CustomType.Setter
         public Builder associatedRouteTable(String associatedRouteTable) {
-            this.associatedRouteTable = Objects.requireNonNull(associatedRouteTable);
+            if (associatedRouteTable == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionRouting", "associatedRouteTable");
+            }
+            this.associatedRouteTable = associatedRouteTable;
             return this;
         }
         @CustomType.Setter
         public Builder inboundRouteMapId(@Nullable String inboundRouteMapId) {
+
             this.inboundRouteMapId = inboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundRouteMapId(@Nullable String outboundRouteMapId) {
+
             this.outboundRouteMapId = outboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
+
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
         }

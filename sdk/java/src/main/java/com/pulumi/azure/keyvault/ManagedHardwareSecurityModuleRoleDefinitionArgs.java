@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -236,7 +237,9 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionArgs extends com.p
         }
 
         public ManagedHardwareSecurityModuleRoleDefinitionArgs build() {
-            $.vaultBaseUrl = Objects.requireNonNull($.vaultBaseUrl, "expected parameter 'vaultBaseUrl' to be non-null");
+            if ($.vaultBaseUrl == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleDefinitionArgs", "vaultBaseUrl");
+            }
             return $;
         }
     }

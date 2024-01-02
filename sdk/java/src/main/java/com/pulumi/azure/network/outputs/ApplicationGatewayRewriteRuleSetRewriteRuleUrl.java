@@ -91,21 +91,25 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 
         @CustomType.Setter
         public Builder components(@Nullable String components) {
+
             this.components = components;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder reroute(@Nullable Boolean reroute) {
+
             this.reroute = reroute;
             return this;
         }

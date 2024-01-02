@@ -109,6 +109,7 @@ public final class ApplicationGatewaySslProfileSslPolicy {
 
         @CustomType.Setter
         public Builder cipherSuites(@Nullable List<String> cipherSuites) {
+
             this.cipherSuites = cipherSuites;
             return this;
         }
@@ -117,6 +118,7 @@ public final class ApplicationGatewaySslProfileSslPolicy {
         }
         @CustomType.Setter
         public Builder disabledProtocols(@Nullable List<String> disabledProtocols) {
+
             this.disabledProtocols = disabledProtocols;
             return this;
         }
@@ -125,16 +127,19 @@ public final class ApplicationGatewaySslProfileSslPolicy {
         }
         @CustomType.Setter
         public Builder minProtocolVersion(@Nullable String minProtocolVersion) {
+
             this.minProtocolVersion = minProtocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
+
             this.policyName = policyName;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(@Nullable String policyType) {
+
             this.policyType = policyType;
             return this;
         }

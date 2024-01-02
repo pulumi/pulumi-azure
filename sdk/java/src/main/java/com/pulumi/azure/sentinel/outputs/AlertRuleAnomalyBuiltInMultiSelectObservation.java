@@ -87,16 +87,19 @@ public final class AlertRuleAnomalyBuiltInMultiSelectObservation {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedValues(@Nullable List<String> supportedValues) {
+
             this.supportedValues = supportedValues;
             return this;
         }
@@ -105,6 +108,7 @@ public final class AlertRuleAnomalyBuiltInMultiSelectObservation {
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }

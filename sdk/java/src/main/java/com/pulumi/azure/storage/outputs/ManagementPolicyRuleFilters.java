@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.ManagementPolicyRuleFiltersMatchBlobIndexTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,7 +78,10 @@ public final class ManagementPolicyRuleFilters {
 
         @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
-            this.blobTypes = Objects.requireNonNull(blobTypes);
+            if (blobTypes == null) {
+              throw new MissingRequiredPropertyException("ManagementPolicyRuleFilters", "blobTypes");
+            }
+            this.blobTypes = blobTypes;
             return this;
         }
         public Builder blobTypes(String... blobTypes) {
@@ -85,6 +89,7 @@ public final class ManagementPolicyRuleFilters {
         }
         @CustomType.Setter
         public Builder matchBlobIndexTags(@Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags) {
+
             this.matchBlobIndexTags = matchBlobIndexTags;
             return this;
         }
@@ -93,6 +98,7 @@ public final class ManagementPolicyRuleFilters {
         }
         @CustomType.Setter
         public Builder prefixMatches(@Nullable List<String> prefixMatches) {
+
             this.prefixMatches = prefixMatches;
             return this;
         }

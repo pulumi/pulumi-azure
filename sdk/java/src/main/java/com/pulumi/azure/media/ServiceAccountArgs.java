@@ -9,6 +9,7 @@ import com.pulumi.azure.media.inputs.ServiceAccountKeyDeliveryAccessControlArgs;
 import com.pulumi.azure.media.inputs.ServiceAccountStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -426,8 +427,12 @@ public final class ServiceAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ServiceAccountArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccounts = Objects.requireNonNull($.storageAccounts, "expected parameter 'storageAccounts' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServiceAccountArgs", "resourceGroupName");
+            }
+            if ($.storageAccounts == null) {
+                throw new MissingRequiredPropertyException("ServiceAccountArgs", "storageAccounts");
+            }
             return $;
         }
     }

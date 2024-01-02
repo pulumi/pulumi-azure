@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class AdvancedThreatProtectionArgs extends com.pulumi.resources.Res
         }
 
         public AdvancedThreatProtectionArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("AdvancedThreatProtectionArgs", "enabled");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("AdvancedThreatProtectionArgs", "targetResourceId");
+            }
             return $;
         }
     }

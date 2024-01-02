@@ -5,6 +5,7 @@ package com.pulumi.azure.portal;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -233,8 +234,12 @@ public final class PortalDashboardArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PortalDashboardArgs build() {
-            $.dashboardProperties = Objects.requireNonNull($.dashboardProperties, "expected parameter 'dashboardProperties' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.dashboardProperties == null) {
+                throw new MissingRequiredPropertyException("PortalDashboardArgs", "dashboardProperties");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PortalDashboardArgs", "resourceGroupName");
+            }
             return $;
         }
     }

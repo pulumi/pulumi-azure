@@ -8,6 +8,7 @@ import com.pulumi.azure.sentinel.inputs.ThreatIntelligenceIndicatorGranularMarki
 import com.pulumi.azure.sentinel.inputs.ThreatIntelligenceIndicatorKillChainPhaseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -845,12 +846,24 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         public ThreatIntelligenceIndicatorArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
-            $.patternType = Objects.requireNonNull($.patternType, "expected parameter 'patternType' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.validateFromUtc = Objects.requireNonNull($.validateFromUtc, "expected parameter 'validateFromUtc' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "displayName");
+            }
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "pattern");
+            }
+            if ($.patternType == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "patternType");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "source");
+            }
+            if ($.validateFromUtc == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "validateFromUtc");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("ThreatIntelligenceIndicatorArgs", "workspaceId");
+            }
             return $;
         }
     }

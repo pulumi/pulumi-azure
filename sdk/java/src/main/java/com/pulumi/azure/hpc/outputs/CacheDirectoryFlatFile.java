@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class CacheDirectoryFlatFile {
 
         @CustomType.Setter
         public Builder groupFileUri(String groupFileUri) {
-            this.groupFileUri = Objects.requireNonNull(groupFileUri);
+            if (groupFileUri == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryFlatFile", "groupFileUri");
+            }
+            this.groupFileUri = groupFileUri;
             return this;
         }
         @CustomType.Setter
         public Builder passwordFileUri(String passwordFileUri) {
-            this.passwordFileUri = Objects.requireNonNull(passwordFileUri);
+            if (passwordFileUri == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryFlatFile", "passwordFileUri");
+            }
+            this.passwordFileUri = passwordFileUri;
             return this;
         }
         public CacheDirectoryFlatFile build() {

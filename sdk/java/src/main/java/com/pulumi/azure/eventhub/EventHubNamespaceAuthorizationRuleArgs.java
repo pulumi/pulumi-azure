@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -270,8 +271,12 @@ public final class EventHubNamespaceAuthorizationRuleArgs extends com.pulumi.res
         }
 
         public EventHubNamespaceAuthorizationRuleArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceAuthorizationRuleArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceAuthorizationRuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

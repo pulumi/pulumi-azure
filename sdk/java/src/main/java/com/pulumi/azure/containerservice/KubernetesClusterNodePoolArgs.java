@@ -10,6 +10,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolUpgrade
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNodePoolWindowsProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1764,8 +1765,12 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         public KubernetesClusterNodePoolArgs build() {
-            $.kubernetesClusterId = Objects.requireNonNull($.kubernetesClusterId, "expected parameter 'kubernetesClusterId' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.kubernetesClusterId == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterNodePoolArgs", "kubernetesClusterId");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterNodePoolArgs", "vmSize");
+            }
             return $;
         }
     }

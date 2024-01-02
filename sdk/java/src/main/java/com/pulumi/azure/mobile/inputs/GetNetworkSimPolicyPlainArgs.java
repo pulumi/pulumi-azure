@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetNetworkSimPolicyPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetNetworkSimPolicyPlainArgs build() {
-            $.mobileNetworkId = Objects.requireNonNull($.mobileNetworkId, "expected parameter 'mobileNetworkId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.mobileNetworkId == null) {
+                throw new MissingRequiredPropertyException("GetNetworkSimPolicyPlainArgs", "mobileNetworkId");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetNetworkSimPolicyPlainArgs", "name");
+            }
             return $;
         }
     }

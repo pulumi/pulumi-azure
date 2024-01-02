@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetSharedImageIdentifier;
 import com.pulumi.azure.compute.outputs.GetSharedImagePurchasePlan;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -233,37 +234,58 @@ public final class GetSharedImageResult {
 
         @CustomType.Setter
         public Builder architecture(String architecture) {
-            this.architecture = Objects.requireNonNull(architecture);
+            if (architecture == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "architecture");
+            }
+            this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder eula(String eula) {
-            this.eula = Objects.requireNonNull(eula);
+            if (eula == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "eula");
+            }
+            this.eula = eula;
             return this;
         }
         @CustomType.Setter
         public Builder galleryName(String galleryName) {
-            this.galleryName = Objects.requireNonNull(galleryName);
+            if (galleryName == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "galleryName");
+            }
+            this.galleryName = galleryName;
             return this;
         }
         @CustomType.Setter
         public Builder hyperVGeneration(String hyperVGeneration) {
-            this.hyperVGeneration = Objects.requireNonNull(hyperVGeneration);
+            if (hyperVGeneration == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "hyperVGeneration");
+            }
+            this.hyperVGeneration = hyperVGeneration;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identifiers(List<GetSharedImageIdentifier> identifiers) {
-            this.identifiers = Objects.requireNonNull(identifiers);
+            if (identifiers == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "identifiers");
+            }
+            this.identifiers = identifiers;
             return this;
         }
         public Builder identifiers(GetSharedImageIdentifier... identifiers) {
@@ -271,27 +293,42 @@ public final class GetSharedImageResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder privacyStatementUri(String privacyStatementUri) {
-            this.privacyStatementUri = Objects.requireNonNull(privacyStatementUri);
+            if (privacyStatementUri == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "privacyStatementUri");
+            }
+            this.privacyStatementUri = privacyStatementUri;
             return this;
         }
         @CustomType.Setter
         public Builder purchasePlans(List<GetSharedImagePurchasePlan> purchasePlans) {
-            this.purchasePlans = Objects.requireNonNull(purchasePlans);
+            if (purchasePlans == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "purchasePlans");
+            }
+            this.purchasePlans = purchasePlans;
             return this;
         }
         public Builder purchasePlans(GetSharedImagePurchasePlan... purchasePlans) {
@@ -299,22 +336,34 @@ public final class GetSharedImageResult {
         }
         @CustomType.Setter
         public Builder releaseNoteUri(String releaseNoteUri) {
-            this.releaseNoteUri = Objects.requireNonNull(releaseNoteUri);
+            if (releaseNoteUri == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "releaseNoteUri");
+            }
+            this.releaseNoteUri = releaseNoteUri;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder specialized(Boolean specialized) {
-            this.specialized = Objects.requireNonNull(specialized);
+            if (specialized == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "specialized");
+            }
+            this.specialized = specialized;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSharedImageResult build() {

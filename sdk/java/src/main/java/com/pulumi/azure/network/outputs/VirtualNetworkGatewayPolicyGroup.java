@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayPolicyGroupPolicyMember;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -90,17 +91,24 @@ public final class VirtualNetworkGatewayPolicyGroup {
 
         @CustomType.Setter
         public Builder isDefault(@Nullable Boolean isDefault) {
+
             this.isDefault = isDefault;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayPolicyGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyMembers(List<VirtualNetworkGatewayPolicyGroupPolicyMember> policyMembers) {
-            this.policyMembers = Objects.requireNonNull(policyMembers);
+            if (policyMembers == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayPolicyGroup", "policyMembers");
+            }
+            this.policyMembers = policyMembers;
             return this;
         }
         public Builder policyMembers(VirtualNetworkGatewayPolicyGroupPolicyMember... policyMembers) {
@@ -108,6 +116,7 @@ public final class VirtualNetworkGatewayPolicyGroup {
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }

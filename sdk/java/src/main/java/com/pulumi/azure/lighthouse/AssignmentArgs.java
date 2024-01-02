@@ -5,6 +5,7 @@ package com.pulumi.azure.lighthouse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AssignmentArgs build() {
-            $.lighthouseDefinitionId = Objects.requireNonNull($.lighthouseDefinitionId, "expected parameter 'lighthouseDefinitionId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.lighthouseDefinitionId == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "lighthouseDefinitionId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "scope");
+            }
             return $;
         }
     }

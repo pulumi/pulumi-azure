@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -115,31 +116,43 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(String interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder statusCodeRange(String statusCodeRange) {
-            this.statusCodeRange = Objects.requireNonNull(statusCodeRange);
+            if (statusCodeRange == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode", "statusCodeRange");
+            }
+            this.statusCodeRange = statusCodeRange;
             return this;
         }
         @CustomType.Setter
         public Builder subStatus(@Nullable Integer subStatus) {
+
             this.subStatus = subStatus;
             return this;
         }
         @CustomType.Setter
         public Builder win32StatusCode(@Nullable Integer win32StatusCode) {
+
             this.win32StatusCode = win32StatusCode;
             return this;
         }

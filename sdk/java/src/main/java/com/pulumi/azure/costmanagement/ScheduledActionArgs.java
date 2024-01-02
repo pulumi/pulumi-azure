@@ -5,6 +5,7 @@ package com.pulumi.azure.costmanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -589,14 +590,30 @@ public final class ScheduledActionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ScheduledActionArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.emailAddressSender = Objects.requireNonNull($.emailAddressSender, "expected parameter 'emailAddressSender' to be non-null");
-            $.emailAddresses = Objects.requireNonNull($.emailAddresses, "expected parameter 'emailAddresses' to be non-null");
-            $.emailSubject = Objects.requireNonNull($.emailSubject, "expected parameter 'emailSubject' to be non-null");
-            $.endDate = Objects.requireNonNull($.endDate, "expected parameter 'endDate' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.startDate = Objects.requireNonNull($.startDate, "expected parameter 'startDate' to be non-null");
-            $.viewId = Objects.requireNonNull($.viewId, "expected parameter 'viewId' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "displayName");
+            }
+            if ($.emailAddressSender == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "emailAddressSender");
+            }
+            if ($.emailAddresses == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "emailAddresses");
+            }
+            if ($.emailSubject == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "emailSubject");
+            }
+            if ($.endDate == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "endDate");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "frequency");
+            }
+            if ($.startDate == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "startDate");
+            }
+            if ($.viewId == null) {
+                throw new MissingRequiredPropertyException("ScheduledActionArgs", "viewId");
+            }
             return $;
         }
     }

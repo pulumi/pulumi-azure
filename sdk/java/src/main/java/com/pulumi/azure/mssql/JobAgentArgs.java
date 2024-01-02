@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class JobAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobAgentArgs build() {
-            $.databaseId = Objects.requireNonNull($.databaseId, "expected parameter 'databaseId' to be non-null");
+            if ($.databaseId == null) {
+                throw new MissingRequiredPropertyException("JobAgentArgs", "databaseId");
+            }
             return $;
         }
     }

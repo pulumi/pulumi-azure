@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter.outputs;
 
 import com.pulumi.azure.securitycenter.outputs.AutomationSourceRuleSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,11 +64,15 @@ public final class AutomationSource {
 
         @CustomType.Setter
         public Builder eventSource(String eventSource) {
-            this.eventSource = Objects.requireNonNull(eventSource);
+            if (eventSource == null) {
+              throw new MissingRequiredPropertyException("AutomationSource", "eventSource");
+            }
+            this.eventSource = eventSource;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSets(@Nullable List<AutomationSourceRuleSet> ruleSets) {
+
             this.ruleSets = ruleSets;
             return this;
         }

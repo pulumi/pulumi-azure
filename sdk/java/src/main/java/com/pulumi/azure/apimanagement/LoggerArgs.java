@@ -7,6 +7,7 @@ import com.pulumi.azure.apimanagement.inputs.LoggerApplicationInsightsArgs;
 import com.pulumi.azure.apimanagement.inputs.LoggerEventhubArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -338,8 +339,12 @@ public final class LoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LoggerArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("LoggerArgs", "apiManagementName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LoggerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

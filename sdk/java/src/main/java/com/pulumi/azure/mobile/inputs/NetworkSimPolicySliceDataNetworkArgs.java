@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.inputs;
 import com.pulumi.azure.mobile.inputs.NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -432,10 +433,18 @@ public final class NetworkSimPolicySliceDataNetworkArgs extends com.pulumi.resou
         }
 
         public NetworkSimPolicySliceDataNetworkArgs build() {
-            $.allowedServicesIds = Objects.requireNonNull($.allowedServicesIds, "expected parameter 'allowedServicesIds' to be non-null");
-            $.dataNetworkId = Objects.requireNonNull($.dataNetworkId, "expected parameter 'dataNetworkId' to be non-null");
-            $.qosIndicator = Objects.requireNonNull($.qosIndicator, "expected parameter 'qosIndicator' to be non-null");
-            $.sessionAggregateMaximumBitRate = Objects.requireNonNull($.sessionAggregateMaximumBitRate, "expected parameter 'sessionAggregateMaximumBitRate' to be non-null");
+            if ($.allowedServicesIds == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkArgs", "allowedServicesIds");
+            }
+            if ($.dataNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkArgs", "dataNetworkId");
+            }
+            if ($.qosIndicator == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkArgs", "qosIndicator");
+            }
+            if ($.sessionAggregateMaximumBitRate == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkArgs", "sessionAggregateMaximumBitRate");
+            }
             return $;
         }
     }

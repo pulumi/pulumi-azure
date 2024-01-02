@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
 import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -503,10 +504,18 @@ public final class ExpressRouteCircuitPeeringArgs extends com.pulumi.resources.R
         }
 
         public ExpressRouteCircuitPeeringArgs build() {
-            $.expressRouteCircuitName = Objects.requireNonNull($.expressRouteCircuitName, "expected parameter 'expressRouteCircuitName' to be non-null");
-            $.peeringType = Objects.requireNonNull($.peeringType, "expected parameter 'peeringType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.vlanId = Objects.requireNonNull($.vlanId, "expected parameter 'vlanId' to be non-null");
+            if ($.expressRouteCircuitName == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringArgs", "expressRouteCircuitName");
+            }
+            if ($.peeringType == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringArgs", "peeringType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringArgs", "resourceGroupName");
+            }
+            if ($.vlanId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringArgs", "vlanId");
+            }
             return $;
         }
     }

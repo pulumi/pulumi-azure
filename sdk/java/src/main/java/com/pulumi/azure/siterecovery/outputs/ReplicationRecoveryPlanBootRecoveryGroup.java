@@ -74,6 +74,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroup {
 
         @CustomType.Setter
         public Builder postActions(@Nullable List<ReplicationRecoveryPlanBootRecoveryGroupPostAction> postActions) {
+
             this.postActions = postActions;
             return this;
         }
@@ -82,6 +83,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroup {
         }
         @CustomType.Setter
         public Builder preActions(@Nullable List<ReplicationRecoveryPlanBootRecoveryGroupPreAction> preActions) {
+
             this.preActions = preActions;
             return this;
         }
@@ -90,6 +92,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroup {
         }
         @CustomType.Setter
         public Builder replicatedProtectedItems(@Nullable List<String> replicatedProtectedItems) {
+
             this.replicatedProtectedItems = replicatedProtectedItems;
             return this;
         }

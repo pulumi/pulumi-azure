@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleDestinationArgs;
 import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -490,11 +491,21 @@ public final class NetworkManagerAdminRuleArgs extends com.pulumi.resources.Reso
         }
 
         public NetworkManagerAdminRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.adminRuleCollectionId = Objects.requireNonNull($.adminRuleCollectionId, "expected parameter 'adminRuleCollectionId' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleArgs", "action");
+            }
+            if ($.adminRuleCollectionId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleArgs", "adminRuleCollectionId");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleArgs", "direction");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleArgs", "priority");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleArgs", "protocol");
+            }
             return $;
         }
     }

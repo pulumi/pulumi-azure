@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ShareSnapshotScheduleArgs extends com.pulumi.resources.Resour
         }
 
         public ShareSnapshotScheduleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.recurrence = Objects.requireNonNull($.recurrence, "expected parameter 'recurrence' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ShareSnapshotScheduleArgs", "name");
+            }
+            if ($.recurrence == null) {
+                throw new MissingRequiredPropertyException("ShareSnapshotScheduleArgs", "recurrence");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("ShareSnapshotScheduleArgs", "startTime");
+            }
             return $;
         }
     }

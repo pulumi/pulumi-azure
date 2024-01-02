@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class MoverAgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MoverAgentArgs build() {
-            $.arcVirtualMachineId = Objects.requireNonNull($.arcVirtualMachineId, "expected parameter 'arcVirtualMachineId' to be non-null");
-            $.arcVirtualMachineUuid = Objects.requireNonNull($.arcVirtualMachineUuid, "expected parameter 'arcVirtualMachineUuid' to be non-null");
-            $.storageMoverId = Objects.requireNonNull($.storageMoverId, "expected parameter 'storageMoverId' to be non-null");
+            if ($.arcVirtualMachineId == null) {
+                throw new MissingRequiredPropertyException("MoverAgentArgs", "arcVirtualMachineId");
+            }
+            if ($.arcVirtualMachineUuid == null) {
+                throw new MissingRequiredPropertyException("MoverAgentArgs", "arcVirtualMachineUuid");
+            }
+            if ($.storageMoverId == null) {
+                throw new MissingRequiredPropertyException("MoverAgentArgs", "storageMoverId");
+            }
             return $;
         }
     }

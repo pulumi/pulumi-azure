@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetAlertRuleTemplateNrtTemplate {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateNrtTemplate", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateNrtTemplate", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder severity(String severity) {
-            this.severity = Objects.requireNonNull(severity);
+            if (severity == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateNrtTemplate", "severity");
+            }
+            this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder tactics(List<String> tactics) {
-            this.tactics = Objects.requireNonNull(tactics);
+            if (tactics == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateNrtTemplate", "tactics");
+            }
+            this.tactics = tactics;
             return this;
         }
         public Builder tactics(String... tactics) {

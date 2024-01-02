@@ -6,6 +6,7 @@ package com.pulumi.azure.policy.outputs;
 import com.pulumi.azure.policy.outputs.GetPolicySetDefinitionPolicyDefinitionGroup;
 import com.pulumi.azure.policy.outputs.GetPolicySetDefinitionPolicyDefinitionReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -179,42 +180,64 @@ public final class GetPolicySetDefinitionResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managementGroupName(@Nullable String managementGroupName) {
+
             this.managementGroupName = managementGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionGroups(List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups) {
-            this.policyDefinitionGroups = Objects.requireNonNull(policyDefinitionGroups);
+            if (policyDefinitionGroups == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "policyDefinitionGroups");
+            }
+            this.policyDefinitionGroups = policyDefinitionGroups;
             return this;
         }
         public Builder policyDefinitionGroups(GetPolicySetDefinitionPolicyDefinitionGroup... policyDefinitionGroups) {
@@ -222,7 +245,10 @@ public final class GetPolicySetDefinitionResult {
         }
         @CustomType.Setter
         public Builder policyDefinitionReferences(List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences) {
-            this.policyDefinitionReferences = Objects.requireNonNull(policyDefinitionReferences);
+            if (policyDefinitionReferences == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "policyDefinitionReferences");
+            }
+            this.policyDefinitionReferences = policyDefinitionReferences;
             return this;
         }
         public Builder policyDefinitionReferences(GetPolicySetDefinitionPolicyDefinitionReference... policyDefinitionReferences) {
@@ -230,12 +256,18 @@ public final class GetPolicySetDefinitionResult {
         }
         @CustomType.Setter
         public Builder policyDefinitions(String policyDefinitions) {
-            this.policyDefinitions = Objects.requireNonNull(policyDefinitions);
+            if (policyDefinitions == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "policyDefinitions");
+            }
+            this.policyDefinitions = policyDefinitions;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(String policyType) {
-            this.policyType = Objects.requireNonNull(policyType);
+            if (policyType == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionResult", "policyType");
+            }
+            this.policyType = policyType;
             return this;
         }
         public GetPolicySetDefinitionResult build() {

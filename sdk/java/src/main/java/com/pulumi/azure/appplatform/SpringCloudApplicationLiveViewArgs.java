@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class SpringCloudApplicationLiveViewArgs extends com.pulumi.resourc
         }
 
         public SpringCloudApplicationLiveViewArgs build() {
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudApplicationLiveViewArgs", "springCloudServiceId");
+            }
             return $;
         }
     }

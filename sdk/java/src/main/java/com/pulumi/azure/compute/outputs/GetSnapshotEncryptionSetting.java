@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetSnapshotEncryptionSettingDiskEncryptionKey;
 import com.pulumi.azure.compute.outputs.GetSnapshotEncryptionSettingKeyEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +50,10 @@ public final class GetSnapshotEncryptionSetting {
 
         @CustomType.Setter
         public Builder diskEncryptionKeys(List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys) {
-            this.diskEncryptionKeys = Objects.requireNonNull(diskEncryptionKeys);
+            if (diskEncryptionKeys == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotEncryptionSetting", "diskEncryptionKeys");
+            }
+            this.diskEncryptionKeys = diskEncryptionKeys;
             return this;
         }
         public Builder diskEncryptionKeys(GetSnapshotEncryptionSettingDiskEncryptionKey... diskEncryptionKeys) {
@@ -57,12 +61,18 @@ public final class GetSnapshotEncryptionSetting {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotEncryptionSetting", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyEncryptionKeys(List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
-            this.keyEncryptionKeys = Objects.requireNonNull(keyEncryptionKeys);
+            if (keyEncryptionKeys == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotEncryptionSetting", "keyEncryptionKeys");
+            }
+            this.keyEncryptionKeys = keyEncryptionKeys;
             return this;
         }
         public Builder keyEncryptionKeys(GetSnapshotEncryptionSettingKeyEncryptionKey... keyEncryptionKeys) {

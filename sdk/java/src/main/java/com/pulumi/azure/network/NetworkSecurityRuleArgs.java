@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -747,12 +748,24 @@ public final class NetworkSecurityRuleArgs extends com.pulumi.resources.Resource
         }
 
         public NetworkSecurityRuleArgs build() {
-            $.access = Objects.requireNonNull($.access, "expected parameter 'access' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.networkSecurityGroupName = Objects.requireNonNull($.networkSecurityGroupName, "expected parameter 'networkSecurityGroupName' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.access == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "access");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "direction");
+            }
+            if ($.networkSecurityGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "networkSecurityGroupName");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "priority");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "protocol");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityRuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

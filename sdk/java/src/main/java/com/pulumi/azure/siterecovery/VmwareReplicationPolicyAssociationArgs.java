@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -154,8 +155,12 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         public VmwareReplicationPolicyAssociationArgs build() {
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("VmwareReplicationPolicyAssociationArgs", "policyId");
+            }
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("VmwareReplicationPolicyAssociationArgs", "recoveryVaultId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs extends com.p
         }
 
         public FirewallPolicyInsightsLogAnalyticsWorkspaceArgs build() {
-            $.firewallLocation = Objects.requireNonNull($.firewallLocation, "expected parameter 'firewallLocation' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.firewallLocation == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyInsightsLogAnalyticsWorkspaceArgs", "firewallLocation");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyInsightsLogAnalyticsWorkspaceArgs", "id");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.azure.batch.outputs.GetPoolMountAzureFileShare;
 import com.pulumi.azure.batch.outputs.GetPoolMountCifsMount;
 import com.pulumi.azure.batch.outputs.GetPoolMountNfsMount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -89,6 +90,7 @@ public final class GetPoolMount {
 
         @CustomType.Setter
         public Builder azureBlobFileSystems(@Nullable List<GetPoolMountAzureBlobFileSystem> azureBlobFileSystems) {
+
             this.azureBlobFileSystems = azureBlobFileSystems;
             return this;
         }
@@ -97,6 +99,7 @@ public final class GetPoolMount {
         }
         @CustomType.Setter
         public Builder azureFileShares(@Nullable List<GetPoolMountAzureFileShare> azureFileShares) {
+
             this.azureFileShares = azureFileShares;
             return this;
         }
@@ -105,7 +108,10 @@ public final class GetPoolMount {
         }
         @CustomType.Setter
         public Builder cifsMounts(List<GetPoolMountCifsMount> cifsMounts) {
-            this.cifsMounts = Objects.requireNonNull(cifsMounts);
+            if (cifsMounts == null) {
+              throw new MissingRequiredPropertyException("GetPoolMount", "cifsMounts");
+            }
+            this.cifsMounts = cifsMounts;
             return this;
         }
         public Builder cifsMounts(GetPoolMountCifsMount... cifsMounts) {
@@ -113,7 +119,10 @@ public final class GetPoolMount {
         }
         @CustomType.Setter
         public Builder nfsMounts(List<GetPoolMountNfsMount> nfsMounts) {
-            this.nfsMounts = Objects.requireNonNull(nfsMounts);
+            if (nfsMounts == null) {
+              throw new MissingRequiredPropertyException("GetPoolMount", "nfsMounts");
+            }
+            this.nfsMounts = nfsMounts;
             return this;
         }
         public Builder nfsMounts(GetPoolMountNfsMount... nfsMounts) {

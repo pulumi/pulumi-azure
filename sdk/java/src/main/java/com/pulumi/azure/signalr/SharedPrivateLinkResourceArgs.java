@@ -5,6 +5,7 @@ package com.pulumi.azure.signalr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,9 +233,15 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
         }
 
         public SharedPrivateLinkResourceArgs build() {
-            $.signalrServiceId = Objects.requireNonNull($.signalrServiceId, "expected parameter 'signalrServiceId' to be non-null");
-            $.subResourceName = Objects.requireNonNull($.subResourceName, "expected parameter 'subResourceName' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.signalrServiceId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "signalrServiceId");
+            }
+            if ($.subResourceName == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "subResourceName");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "targetResourceId");
+            }
             return $;
         }
     }

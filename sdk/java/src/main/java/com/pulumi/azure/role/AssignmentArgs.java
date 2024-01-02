@@ -5,6 +5,7 @@ package com.pulumi.azure.role;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -434,8 +435,12 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AssignmentArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "principalId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "scope");
+            }
             return $;
         }
     }

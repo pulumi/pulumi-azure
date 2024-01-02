@@ -4,6 +4,7 @@
 package com.pulumi.azure.signalr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -259,92 +260,146 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder aadAuthEnabled(Boolean aadAuthEnabled) {
-            this.aadAuthEnabled = Objects.requireNonNull(aadAuthEnabled);
+            if (aadAuthEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "aadAuthEnabled");
+            }
+            this.aadAuthEnabled = aadAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
-            this.localAuthEnabled = Objects.requireNonNull(localAuthEnabled);
+            if (localAuthEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "localAuthEnabled");
+            }
+            this.localAuthEnabled = localAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder publicPort(Integer publicPort) {
-            this.publicPort = Objects.requireNonNull(publicPort);
+            if (publicPort == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publicPort");
+            }
+            this.publicPort = publicPort;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder serverPort(Integer serverPort) {
-            this.serverPort = Objects.requireNonNull(serverPort);
+            if (serverPort == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serverPort");
+            }
+            this.serverPort = serverPort;
             return this;
         }
         @CustomType.Setter
         public Builder serverlessConnectionTimeoutInSeconds(Integer serverlessConnectionTimeoutInSeconds) {
-            this.serverlessConnectionTimeoutInSeconds = Objects.requireNonNull(serverlessConnectionTimeoutInSeconds);
+            if (serverlessConnectionTimeoutInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "serverlessConnectionTimeoutInSeconds");
+            }
+            this.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tlsClientCertEnabled(Boolean tlsClientCertEnabled) {
-            this.tlsClientCertEnabled = Objects.requireNonNull(tlsClientCertEnabled);
+            if (tlsClientCertEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tlsClientCertEnabled");
+            }
+            this.tlsClientCertEnabled = tlsClientCertEnabled;
             return this;
         }
         public GetServiceResult build() {

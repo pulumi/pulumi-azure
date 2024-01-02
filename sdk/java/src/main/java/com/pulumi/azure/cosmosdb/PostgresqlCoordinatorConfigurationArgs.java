@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class PostgresqlCoordinatorConfigurationArgs extends com.pulumi.res
         }
 
         public PostgresqlCoordinatorConfigurationArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("PostgresqlCoordinatorConfigurationArgs", "clusterId");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("PostgresqlCoordinatorConfigurationArgs", "value");
+            }
             return $;
         }
     }

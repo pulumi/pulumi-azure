@@ -19,6 +19,7 @@ import com.pulumi.azure.batch.outputs.GetPoolTaskSchedulingPolicy;
 import com.pulumi.azure.batch.outputs.GetPoolUserAccount;
 import com.pulumi.azure.batch.outputs.GetPoolWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -392,12 +393,18 @@ public final class GetPoolResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder autoScales(List<GetPoolAutoScale> autoScales) {
-            this.autoScales = Objects.requireNonNull(autoScales);
+            if (autoScales == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "autoScales");
+            }
+            this.autoScales = autoScales;
             return this;
         }
         public Builder autoScales(GetPoolAutoScale... autoScales) {
@@ -405,7 +412,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder certificates(List<GetPoolCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(GetPoolCertificate... certificates) {
@@ -413,7 +423,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder containerConfigurations(List<GetPoolContainerConfiguration> containerConfigurations) {
-            this.containerConfigurations = Objects.requireNonNull(containerConfigurations);
+            if (containerConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "containerConfigurations");
+            }
+            this.containerConfigurations = containerConfigurations;
             return this;
         }
         public Builder containerConfigurations(GetPoolContainerConfiguration... containerConfigurations) {
@@ -421,7 +434,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder dataDisks(List<GetPoolDataDisk> dataDisks) {
-            this.dataDisks = Objects.requireNonNull(dataDisks);
+            if (dataDisks == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "dataDisks");
+            }
+            this.dataDisks = dataDisks;
             return this;
         }
         public Builder dataDisks(GetPoolDataDisk... dataDisks) {
@@ -429,7 +445,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder diskEncryptions(List<GetPoolDiskEncryption> diskEncryptions) {
-            this.diskEncryptions = Objects.requireNonNull(diskEncryptions);
+            if (diskEncryptions == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "diskEncryptions");
+            }
+            this.diskEncryptions = diskEncryptions;
             return this;
         }
         public Builder diskEncryptions(GetPoolDiskEncryption... diskEncryptions) {
@@ -437,12 +456,18 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder extensions(List<GetPoolExtension> extensions) {
-            this.extensions = Objects.requireNonNull(extensions);
+            if (extensions == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "extensions");
+            }
+            this.extensions = extensions;
             return this;
         }
         public Builder extensions(GetPoolExtension... extensions) {
@@ -450,7 +475,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder fixedScales(List<GetPoolFixedScale> fixedScales) {
-            this.fixedScales = Objects.requireNonNull(fixedScales);
+            if (fixedScales == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "fixedScales");
+            }
+            this.fixedScales = fixedScales;
             return this;
         }
         public Builder fixedScales(GetPoolFixedScale... fixedScales) {
@@ -458,32 +486,50 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder interNodeCommunication(String interNodeCommunication) {
-            this.interNodeCommunication = Objects.requireNonNull(interNodeCommunication);
+            if (interNodeCommunication == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "interNodeCommunication");
+            }
+            this.interNodeCommunication = interNodeCommunication;
             return this;
         }
         @CustomType.Setter
         public Builder licenseType(String licenseType) {
-            this.licenseType = Objects.requireNonNull(licenseType);
+            if (licenseType == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "licenseType");
+            }
+            this.licenseType = licenseType;
             return this;
         }
         @CustomType.Setter
         public Builder maxTasksPerNode(Integer maxTasksPerNode) {
-            this.maxTasksPerNode = Objects.requireNonNull(maxTasksPerNode);
+            if (maxTasksPerNode == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "maxTasksPerNode");
+            }
+            this.maxTasksPerNode = maxTasksPerNode;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder mounts(List<GetPoolMount> mounts) {
-            this.mounts = Objects.requireNonNull(mounts);
+            if (mounts == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "mounts");
+            }
+            this.mounts = mounts;
             return this;
         }
         public Builder mounts(GetPoolMount... mounts) {
@@ -491,12 +537,18 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkConfigurations(List<GetPoolNetworkConfiguration> networkConfigurations) {
-            this.networkConfigurations = Objects.requireNonNull(networkConfigurations);
+            if (networkConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "networkConfigurations");
+            }
+            this.networkConfigurations = networkConfigurations;
             return this;
         }
         public Builder networkConfigurations(GetPoolNetworkConfiguration... networkConfigurations) {
@@ -504,12 +556,18 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder nodeAgentSkuId(String nodeAgentSkuId) {
-            this.nodeAgentSkuId = Objects.requireNonNull(nodeAgentSkuId);
+            if (nodeAgentSkuId == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "nodeAgentSkuId");
+            }
+            this.nodeAgentSkuId = nodeAgentSkuId;
             return this;
         }
         @CustomType.Setter
         public Builder nodePlacements(List<GetPoolNodePlacement> nodePlacements) {
-            this.nodePlacements = Objects.requireNonNull(nodePlacements);
+            if (nodePlacements == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "nodePlacements");
+            }
+            this.nodePlacements = nodePlacements;
             return this;
         }
         public Builder nodePlacements(GetPoolNodePlacement... nodePlacements) {
@@ -517,17 +575,26 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder osDiskPlacement(String osDiskPlacement) {
-            this.osDiskPlacement = Objects.requireNonNull(osDiskPlacement);
+            if (osDiskPlacement == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "osDiskPlacement");
+            }
+            this.osDiskPlacement = osDiskPlacement;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder startTasks(List<GetPoolStartTask> startTasks) {
-            this.startTasks = Objects.requireNonNull(startTasks);
+            if (startTasks == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "startTasks");
+            }
+            this.startTasks = startTasks;
             return this;
         }
         public Builder startTasks(GetPoolStartTask... startTasks) {
@@ -535,7 +602,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder storageImageReferences(List<GetPoolStorageImageReference> storageImageReferences) {
-            this.storageImageReferences = Objects.requireNonNull(storageImageReferences);
+            if (storageImageReferences == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "storageImageReferences");
+            }
+            this.storageImageReferences = storageImageReferences;
             return this;
         }
         public Builder storageImageReferences(GetPoolStorageImageReference... storageImageReferences) {
@@ -543,7 +613,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder taskSchedulingPolicies(List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies) {
-            this.taskSchedulingPolicies = Objects.requireNonNull(taskSchedulingPolicies);
+            if (taskSchedulingPolicies == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "taskSchedulingPolicies");
+            }
+            this.taskSchedulingPolicies = taskSchedulingPolicies;
             return this;
         }
         public Builder taskSchedulingPolicies(GetPoolTaskSchedulingPolicy... taskSchedulingPolicies) {
@@ -551,7 +624,10 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder userAccounts(List<GetPoolUserAccount> userAccounts) {
-            this.userAccounts = Objects.requireNonNull(userAccounts);
+            if (userAccounts == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "userAccounts");
+            }
+            this.userAccounts = userAccounts;
             return this;
         }
         public Builder userAccounts(GetPoolUserAccount... userAccounts) {
@@ -559,12 +635,18 @@ public final class GetPoolResult {
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         @CustomType.Setter
         public Builder windows(List<GetPoolWindow> windows) {
-            this.windows = Objects.requireNonNull(windows);
+            if (windows == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "windows");
+            }
+            this.windows = windows;
             return this;
         }
         public Builder windows(GetPoolWindow... windows) {

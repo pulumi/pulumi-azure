@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class SqlContainerConflictResolutionPolicy {
 
         @CustomType.Setter
         public Builder conflictResolutionPath(@Nullable String conflictResolutionPath) {
+
             this.conflictResolutionPath = conflictResolutionPath;
             return this;
         }
         @CustomType.Setter
         public Builder conflictResolutionProcedure(@Nullable String conflictResolutionProcedure) {
+
             this.conflictResolutionProcedure = conflictResolutionProcedure;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("SqlContainerConflictResolutionPolicy", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public SqlContainerConflictResolutionPolicy build() {

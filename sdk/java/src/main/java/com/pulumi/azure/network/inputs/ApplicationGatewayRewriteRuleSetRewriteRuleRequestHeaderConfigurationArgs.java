@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfi
         }
 
         public ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs build() {
-            $.headerName = Objects.requireNonNull($.headerName, "expected parameter 'headerName' to be non-null");
-            $.headerValue = Objects.requireNonNull($.headerValue, "expected parameter 'headerValue' to be non-null");
+            if ($.headerName == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs", "headerName");
+            }
+            if ($.headerValue == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs", "headerValue");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class SharedImageIdentifierArgs extends com.pulumi.resources.Resour
         }
 
         public SharedImageIdentifierArgs build() {
-            $.offer = Objects.requireNonNull($.offer, "expected parameter 'offer' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.offer == null) {
+                throw new MissingRequiredPropertyException("SharedImageIdentifierArgs", "offer");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("SharedImageIdentifierArgs", "publisher");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("SharedImageIdentifierArgs", "sku");
+            }
             return $;
         }
     }

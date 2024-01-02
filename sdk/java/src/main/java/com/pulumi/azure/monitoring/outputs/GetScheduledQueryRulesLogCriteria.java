@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesLogCriteriaDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetScheduledQueryRulesLogCriteria {
 
         @CustomType.Setter
         public Builder dimensions(List<GetScheduledQueryRulesLogCriteriaDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesLogCriteria", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetScheduledQueryRulesLogCriteriaDimension... dimensions) {
@@ -66,7 +70,10 @@ public final class GetScheduledQueryRulesLogCriteria {
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesLogCriteria", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         public GetScheduledQueryRulesLogCriteria build() {

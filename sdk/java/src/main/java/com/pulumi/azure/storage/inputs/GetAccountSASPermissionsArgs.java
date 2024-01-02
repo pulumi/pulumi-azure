@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -419,16 +420,36 @@ public final class GetAccountSASPermissionsArgs extends com.pulumi.resources.Res
         }
 
         public GetAccountSASPermissionsArgs build() {
-            $.add = Objects.requireNonNull($.add, "expected parameter 'add' to be non-null");
-            $.create = Objects.requireNonNull($.create, "expected parameter 'create' to be non-null");
-            $.delete = Objects.requireNonNull($.delete, "expected parameter 'delete' to be non-null");
-            $.filter = Objects.requireNonNull($.filter, "expected parameter 'filter' to be non-null");
-            $.list = Objects.requireNonNull($.list, "expected parameter 'list' to be non-null");
-            $.process = Objects.requireNonNull($.process, "expected parameter 'process' to be non-null");
-            $.read = Objects.requireNonNull($.read, "expected parameter 'read' to be non-null");
-            $.tag = Objects.requireNonNull($.tag, "expected parameter 'tag' to be non-null");
-            $.update = Objects.requireNonNull($.update, "expected parameter 'update' to be non-null");
-            $.write = Objects.requireNonNull($.write, "expected parameter 'write' to be non-null");
+            if ($.add == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "add");
+            }
+            if ($.create == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "create");
+            }
+            if ($.delete == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "delete");
+            }
+            if ($.filter == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "filter");
+            }
+            if ($.list == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "list");
+            }
+            if ($.process == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "process");
+            }
+            if ($.read == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "read");
+            }
+            if ($.tag == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "tag");
+            }
+            if ($.update == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "update");
+            }
+            if ($.write == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASPermissionsArgs", "write");
+            }
             return $;
         }
     }

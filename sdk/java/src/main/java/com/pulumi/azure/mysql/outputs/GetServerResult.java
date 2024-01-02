@@ -6,6 +6,7 @@ package com.pulumi.azure.mysql.outputs;
 import com.pulumi.azure.mysql.outputs.GetServerIdentity;
 import com.pulumi.azure.mysql.outputs.GetServerThreatDetectionPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -290,37 +291,58 @@ public final class GetServerResult {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
-            this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
+            if (autoGrowEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "autoGrowEnabled");
+            }
+            this.autoGrowEnabled = autoGrowEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
-            this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
+            if (backupRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "backupRetentionDays");
+            }
+            this.backupRetentionDays = backupRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder geoRedundantBackupEnabled(Boolean geoRedundantBackupEnabled) {
-            this.geoRedundantBackupEnabled = Objects.requireNonNull(geoRedundantBackupEnabled);
+            if (geoRedundantBackupEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "geoRedundantBackupEnabled");
+            }
+            this.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetServerIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetServerIdentity... identities) {
@@ -328,62 +350,98 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
-            this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
+            if (infrastructureEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "infrastructureEncryptionEnabled");
+            }
+            this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder restorePointInTime(String restorePointInTime) {
-            this.restorePointInTime = Objects.requireNonNull(restorePointInTime);
+            if (restorePointInTime == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "restorePointInTime");
+            }
+            this.restorePointInTime = restorePointInTime;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder sslEnforcementEnabled(Boolean sslEnforcementEnabled) {
-            this.sslEnforcementEnabled = Objects.requireNonNull(sslEnforcementEnabled);
+            if (sslEnforcementEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "sslEnforcementEnabled");
+            }
+            this.sslEnforcementEnabled = sslEnforcementEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder sslMinimalTlsVersionEnforced(String sslMinimalTlsVersionEnforced) {
-            this.sslMinimalTlsVersionEnforced = Objects.requireNonNull(sslMinimalTlsVersionEnforced);
+            if (sslMinimalTlsVersionEnforced == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "sslMinimalTlsVersionEnforced");
+            }
+            this.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
             return this;
         }
         @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
-            this.storageMb = Objects.requireNonNull(storageMb);
+            if (storageMb == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "storageMb");
+            }
+            this.storageMb = storageMb;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder threatDetectionPolicies(List<GetServerThreatDetectionPolicy> threatDetectionPolicies) {
-            this.threatDetectionPolicies = Objects.requireNonNull(threatDetectionPolicies);
+            if (threatDetectionPolicies == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "threatDetectionPolicies");
+            }
+            this.threatDetectionPolicies = threatDetectionPolicies;
             return this;
         }
         public Builder threatDetectionPolicies(GetServerThreatDetectionPolicy... threatDetectionPolicies) {
@@ -391,7 +449,10 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetServerResult build() {

@@ -14,6 +14,7 @@ import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourceSyslog
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourceWindowsEventLog;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourceWindowsFirewallLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -179,7 +180,10 @@ public final class GetDataCollectionRuleDataSource {
 
         @CustomType.Setter
         public Builder dataImports(List<GetDataCollectionRuleDataSourceDataImport> dataImports) {
-            this.dataImports = Objects.requireNonNull(dataImports);
+            if (dataImports == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "dataImports");
+            }
+            this.dataImports = dataImports;
             return this;
         }
         public Builder dataImports(GetDataCollectionRuleDataSourceDataImport... dataImports) {
@@ -187,7 +191,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder extensions(List<GetDataCollectionRuleDataSourceExtension> extensions) {
-            this.extensions = Objects.requireNonNull(extensions);
+            if (extensions == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "extensions");
+            }
+            this.extensions = extensions;
             return this;
         }
         public Builder extensions(GetDataCollectionRuleDataSourceExtension... extensions) {
@@ -195,7 +202,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder iisLogs(List<GetDataCollectionRuleDataSourceIisLog> iisLogs) {
-            this.iisLogs = Objects.requireNonNull(iisLogs);
+            if (iisLogs == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "iisLogs");
+            }
+            this.iisLogs = iisLogs;
             return this;
         }
         public Builder iisLogs(GetDataCollectionRuleDataSourceIisLog... iisLogs) {
@@ -203,6 +213,7 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder logFiles(@Nullable List<GetDataCollectionRuleDataSourceLogFile> logFiles) {
+
             this.logFiles = logFiles;
             return this;
         }
@@ -211,7 +222,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder performanceCounters(List<GetDataCollectionRuleDataSourcePerformanceCounter> performanceCounters) {
-            this.performanceCounters = Objects.requireNonNull(performanceCounters);
+            if (performanceCounters == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "performanceCounters");
+            }
+            this.performanceCounters = performanceCounters;
             return this;
         }
         public Builder performanceCounters(GetDataCollectionRuleDataSourcePerformanceCounter... performanceCounters) {
@@ -219,6 +233,7 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder platformTelemetries(@Nullable List<GetDataCollectionRuleDataSourcePlatformTelemetry> platformTelemetries) {
+
             this.platformTelemetries = platformTelemetries;
             return this;
         }
@@ -227,7 +242,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder prometheusForwarders(List<GetDataCollectionRuleDataSourcePrometheusForwarder> prometheusForwarders) {
-            this.prometheusForwarders = Objects.requireNonNull(prometheusForwarders);
+            if (prometheusForwarders == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "prometheusForwarders");
+            }
+            this.prometheusForwarders = prometheusForwarders;
             return this;
         }
         public Builder prometheusForwarders(GetDataCollectionRuleDataSourcePrometheusForwarder... prometheusForwarders) {
@@ -235,7 +253,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder syslogs(List<GetDataCollectionRuleDataSourceSyslog> syslogs) {
-            this.syslogs = Objects.requireNonNull(syslogs);
+            if (syslogs == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "syslogs");
+            }
+            this.syslogs = syslogs;
             return this;
         }
         public Builder syslogs(GetDataCollectionRuleDataSourceSyslog... syslogs) {
@@ -243,7 +264,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder windowsEventLogs(List<GetDataCollectionRuleDataSourceWindowsEventLog> windowsEventLogs) {
-            this.windowsEventLogs = Objects.requireNonNull(windowsEventLogs);
+            if (windowsEventLogs == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "windowsEventLogs");
+            }
+            this.windowsEventLogs = windowsEventLogs;
             return this;
         }
         public Builder windowsEventLogs(GetDataCollectionRuleDataSourceWindowsEventLog... windowsEventLogs) {
@@ -251,7 +275,10 @@ public final class GetDataCollectionRuleDataSource {
         }
         @CustomType.Setter
         public Builder windowsFirewallLogs(List<GetDataCollectionRuleDataSourceWindowsFirewallLog> windowsFirewallLogs) {
-            this.windowsFirewallLogs = Objects.requireNonNull(windowsFirewallLogs);
+            if (windowsFirewallLogs == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSource", "windowsFirewallLogs");
+            }
+            this.windowsFirewallLogs = windowsFirewallLogs;
             return this;
         }
         public Builder windowsFirewallLogs(GetDataCollectionRuleDataSourceWindowsFirewallLog... windowsFirewallLogs) {

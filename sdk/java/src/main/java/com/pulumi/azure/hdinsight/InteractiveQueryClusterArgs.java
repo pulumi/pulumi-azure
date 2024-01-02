@@ -17,6 +17,7 @@ import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountAr
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountGen2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -822,12 +823,24 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         }
 
         public InteractiveQueryClusterArgs build() {
-            $.clusterVersion = Objects.requireNonNull($.clusterVersion, "expected parameter 'clusterVersion' to be non-null");
-            $.componentVersion = Objects.requireNonNull($.componentVersion, "expected parameter 'componentVersion' to be non-null");
-            $.gateway = Objects.requireNonNull($.gateway, "expected parameter 'gateway' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.clusterVersion == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "clusterVersion");
+            }
+            if ($.componentVersion == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "componentVersion");
+            }
+            if ($.gateway == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "gateway");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "resourceGroupName");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "roles");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterArgs", "tier");
+            }
             return $;
         }
     }

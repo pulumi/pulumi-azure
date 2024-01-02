@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp;
 import com.pulumi.azure.containerapp.inputs.EnvironmentWorkloadProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -447,7 +448,9 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnvironmentArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EnvironmentArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -135,6 +136,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
 
         @CustomType.Setter
         public Builder dnsServers(@Nullable List<String> dnsServers) {
+
             this.dnsServers = dnsServers;
             return this;
         }
@@ -143,17 +145,22 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder enableAcceleratedNetworking(@Nullable Boolean enableAcceleratedNetworking) {
+
             this.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
         @CustomType.Setter
         public Builder enableIpForwarding(@Nullable Boolean enableIpForwarding) {
+
             this.enableIpForwarding = enableIpForwarding;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
@@ -161,16 +168,21 @@ public final class LinuxVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetNetworkInterface", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(@Nullable String networkSecurityGroupId) {
+
             this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
+
             this.primary = primary;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class VirtualMachineAutoPatching {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoPatching", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindowDurationInMinutes(Integer maintenanceWindowDurationInMinutes) {
-            this.maintenanceWindowDurationInMinutes = Objects.requireNonNull(maintenanceWindowDurationInMinutes);
+            if (maintenanceWindowDurationInMinutes == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoPatching", "maintenanceWindowDurationInMinutes");
+            }
+            this.maintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindowStartingHour(Integer maintenanceWindowStartingHour) {
-            this.maintenanceWindowStartingHour = Objects.requireNonNull(maintenanceWindowStartingHour);
+            if (maintenanceWindowStartingHour == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoPatching", "maintenanceWindowStartingHour");
+            }
+            this.maintenanceWindowStartingHour = maintenanceWindowStartingHour;
             return this;
         }
         public VirtualMachineAutoPatching build() {

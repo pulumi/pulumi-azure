@@ -90,21 +90,25 @@ public final class LiveEventEncoding {
 
         @CustomType.Setter
         public Builder keyFrameInterval(@Nullable String keyFrameInterval) {
+
             this.keyFrameInterval = keyFrameInterval;
             return this;
         }
         @CustomType.Setter
         public Builder presetName(@Nullable String presetName) {
+
             this.presetName = presetName;
             return this;
         }
         @CustomType.Setter
         public Builder stretchMode(@Nullable String stretchMode) {
+
             this.stretchMode = stretchMode;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

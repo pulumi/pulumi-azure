@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class ActionCustomArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActionCustomArgs build() {
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.logicAppId = Objects.requireNonNull($.logicAppId, "expected parameter 'logicAppId' to be non-null");
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("ActionCustomArgs", "body");
+            }
+            if ($.logicAppId == null) {
+                throw new MissingRequiredPropertyException("ActionCustomArgs", "logicAppId");
+            }
             return $;
         }
     }

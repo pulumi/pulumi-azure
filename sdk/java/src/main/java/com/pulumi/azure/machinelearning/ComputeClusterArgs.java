@@ -8,6 +8,7 @@ import com.pulumi.azure.machinelearning.inputs.ComputeClusterScaleSettingsArgs;
 import com.pulumi.azure.machinelearning.inputs.ComputeClusterSshArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -562,10 +563,18 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ComputeClusterArgs build() {
-            $.machineLearningWorkspaceId = Objects.requireNonNull($.machineLearningWorkspaceId, "expected parameter 'machineLearningWorkspaceId' to be non-null");
-            $.scaleSettings = Objects.requireNonNull($.scaleSettings, "expected parameter 'scaleSettings' to be non-null");
-            $.vmPriority = Objects.requireNonNull($.vmPriority, "expected parameter 'vmPriority' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.machineLearningWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterArgs", "machineLearningWorkspaceId");
+            }
+            if ($.scaleSettings == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterArgs", "scaleSettings");
+            }
+            if ($.vmPriority == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterArgs", "vmPriority");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterArgs", "vmSize");
+            }
             return $;
         }
     }

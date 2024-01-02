@@ -8,6 +8,7 @@ import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiOperationTemplateParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -470,13 +471,27 @@ public final class ApiOperationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiOperationArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.apiName = Objects.requireNonNull($.apiName, "expected parameter 'apiName' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
-            $.operationId = Objects.requireNonNull($.operationId, "expected parameter 'operationId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.urlTemplate = Objects.requireNonNull($.urlTemplate, "expected parameter 'urlTemplate' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "apiManagementName");
+            }
+            if ($.apiName == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "apiName");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "displayName");
+            }
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "method");
+            }
+            if ($.operationId == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "operationId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "resourceGroupName");
+            }
+            if ($.urlTemplate == null) {
+                throw new MissingRequiredPropertyException("ApiOperationArgs", "urlTemplate");
+            }
             return $;
         }
     }

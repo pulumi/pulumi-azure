@@ -59,11 +59,13 @@ public final class AlertPrometheusRuleGroupRuleAlertResolution {
 
         @CustomType.Setter
         public Builder autoResolved(@Nullable Boolean autoResolved) {
+
             this.autoResolved = autoResolved;
             return this;
         }
         @CustomType.Setter
         public Builder timeToResolve(@Nullable String timeToResolve) {
+
             this.timeToResolve = timeToResolve;
             return this;
         }

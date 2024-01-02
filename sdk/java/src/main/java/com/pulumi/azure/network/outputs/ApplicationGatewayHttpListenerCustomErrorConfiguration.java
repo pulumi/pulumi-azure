@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfiguration {
 
         @CustomType.Setter
         public Builder customErrorPageUrl(String customErrorPageUrl) {
-            this.customErrorPageUrl = Objects.requireNonNull(customErrorPageUrl);
+            if (customErrorPageUrl == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListenerCustomErrorConfiguration", "customErrorPageUrl");
+            }
+            this.customErrorPageUrl = customErrorPageUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder statusCode(String statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListenerCustomErrorConfiguration", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public ApplicationGatewayHttpListenerCustomErrorConfiguration build() {

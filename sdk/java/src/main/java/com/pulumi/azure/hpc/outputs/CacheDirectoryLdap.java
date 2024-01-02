@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.azure.hpc.outputs.CacheDirectoryLdapBind;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -116,32 +117,42 @@ public final class CacheDirectoryLdap {
 
         @CustomType.Setter
         public Builder baseDn(String baseDn) {
-            this.baseDn = Objects.requireNonNull(baseDn);
+            if (baseDn == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryLdap", "baseDn");
+            }
+            this.baseDn = baseDn;
             return this;
         }
         @CustomType.Setter
         public Builder bind(@Nullable CacheDirectoryLdapBind bind) {
+
             this.bind = bind;
             return this;
         }
         @CustomType.Setter
         public Builder certificateValidationUri(@Nullable String certificateValidationUri) {
+
             this.certificateValidationUri = certificateValidationUri;
             return this;
         }
         @CustomType.Setter
         public Builder downloadCertificateAutomatically(@Nullable Boolean downloadCertificateAutomatically) {
+
             this.downloadCertificateAutomatically = downloadCertificateAutomatically;
             return this;
         }
         @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
+
             this.encrypted = encrypted;
             return this;
         }
         @CustomType.Setter
         public Builder server(String server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryLdap", "server");
+            }
+            this.server = server;
             return this;
         }
         public CacheDirectoryLdap build() {

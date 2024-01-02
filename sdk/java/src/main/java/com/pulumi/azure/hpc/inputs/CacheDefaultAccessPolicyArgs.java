@@ -6,6 +6,7 @@ package com.pulumi.azure.hpc.inputs;
 import com.pulumi.azure.hpc.inputs.CacheDefaultAccessPolicyAccessRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class CacheDefaultAccessPolicyArgs extends com.pulumi.resources.Res
         }
 
         public CacheDefaultAccessPolicyArgs build() {
-            $.accessRules = Objects.requireNonNull($.accessRules, "expected parameter 'accessRules' to be non-null");
+            if ($.accessRules == null) {
+                throw new MissingRequiredPropertyException("CacheDefaultAccessPolicyArgs", "accessRules");
+            }
             return $;
         }
     }

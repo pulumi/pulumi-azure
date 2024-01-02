@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -196,9 +197,15 @@ public final class WorkspaceKeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceKeyArgs build() {
-            $.active = Objects.requireNonNull($.active, "expected parameter 'active' to be non-null");
-            $.customerManagedKeyName = Objects.requireNonNull($.customerManagedKeyName, "expected parameter 'customerManagedKeyName' to be non-null");
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.active == null) {
+                throw new MissingRequiredPropertyException("WorkspaceKeyArgs", "active");
+            }
+            if ($.customerManagedKeyName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceKeyArgs", "customerManagedKeyName");
+            }
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceKeyArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

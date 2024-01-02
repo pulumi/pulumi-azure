@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class IntegrationRuntimeManagedVnetIntegration {
 
         @CustomType.Setter
         public Builder subnetName(String subnetName) {
-            this.subnetName = Objects.requireNonNull(subnetName);
+            if (subnetName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeManagedVnetIntegration", "subnetName");
+            }
+            this.subnetName = subnetName;
             return this;
         }
         @CustomType.Setter
         public Builder vnetId(String vnetId) {
-            this.vnetId = Objects.requireNonNull(vnetId);
+            if (vnetId == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeManagedVnetIntegration", "vnetId");
+            }
+            this.vnetId = vnetId;
             return this;
         }
         public IntegrationRuntimeManagedVnetIntegration build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayUrlPathMapPathRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -176,57 +177,90 @@ public final class GetApplicationGatewayUrlPathMap {
 
         @CustomType.Setter
         public Builder defaultBackendAddressPoolId(String defaultBackendAddressPoolId) {
-            this.defaultBackendAddressPoolId = Objects.requireNonNull(defaultBackendAddressPoolId);
+            if (defaultBackendAddressPoolId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultBackendAddressPoolId");
+            }
+            this.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultBackendAddressPoolName(String defaultBackendAddressPoolName) {
-            this.defaultBackendAddressPoolName = Objects.requireNonNull(defaultBackendAddressPoolName);
+            if (defaultBackendAddressPoolName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultBackendAddressPoolName");
+            }
+            this.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder defaultBackendHttpSettingsId(String defaultBackendHttpSettingsId) {
-            this.defaultBackendHttpSettingsId = Objects.requireNonNull(defaultBackendHttpSettingsId);
+            if (defaultBackendHttpSettingsId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultBackendHttpSettingsId");
+            }
+            this.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultBackendHttpSettingsName(String defaultBackendHttpSettingsName) {
-            this.defaultBackendHttpSettingsName = Objects.requireNonNull(defaultBackendHttpSettingsName);
+            if (defaultBackendHttpSettingsName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultBackendHttpSettingsName");
+            }
+            this.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRedirectConfigurationId(String defaultRedirectConfigurationId) {
-            this.defaultRedirectConfigurationId = Objects.requireNonNull(defaultRedirectConfigurationId);
+            if (defaultRedirectConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultRedirectConfigurationId");
+            }
+            this.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRedirectConfigurationName(String defaultRedirectConfigurationName) {
-            this.defaultRedirectConfigurationName = Objects.requireNonNull(defaultRedirectConfigurationName);
+            if (defaultRedirectConfigurationName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultRedirectConfigurationName");
+            }
+            this.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRewriteRuleSetId(String defaultRewriteRuleSetId) {
-            this.defaultRewriteRuleSetId = Objects.requireNonNull(defaultRewriteRuleSetId);
+            if (defaultRewriteRuleSetId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultRewriteRuleSetId");
+            }
+            this.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRewriteRuleSetName(String defaultRewriteRuleSetName) {
-            this.defaultRewriteRuleSetName = Objects.requireNonNull(defaultRewriteRuleSetName);
+            if (defaultRewriteRuleSetName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "defaultRewriteRuleSetName");
+            }
+            this.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pathRules(List<GetApplicationGatewayUrlPathMapPathRule> pathRules) {
-            this.pathRules = Objects.requireNonNull(pathRules);
+            if (pathRules == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayUrlPathMap", "pathRules");
+            }
+            this.pathRules = pathRules;
             return this;
         }
         public Builder pathRules(GetApplicationGatewayUrlPathMapPathRule... pathRules) {

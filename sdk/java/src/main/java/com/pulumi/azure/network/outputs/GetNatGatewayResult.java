@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -169,27 +170,42 @@ public final class GetNatGatewayResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressIds(List<String> publicIpAddressIds) {
-            this.publicIpAddressIds = Objects.requireNonNull(publicIpAddressIds);
+            if (publicIpAddressIds == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "publicIpAddressIds");
+            }
+            this.publicIpAddressIds = publicIpAddressIds;
             return this;
         }
         public Builder publicIpAddressIds(String... publicIpAddressIds) {
@@ -197,7 +213,10 @@ public final class GetNatGatewayResult {
         }
         @CustomType.Setter
         public Builder publicIpPrefixIds(List<String> publicIpPrefixIds) {
-            this.publicIpPrefixIds = Objects.requireNonNull(publicIpPrefixIds);
+            if (publicIpPrefixIds == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "publicIpPrefixIds");
+            }
+            this.publicIpPrefixIds = publicIpPrefixIds;
             return this;
         }
         public Builder publicIpPrefixIds(String... publicIpPrefixIds) {
@@ -205,27 +224,42 @@ public final class GetNatGatewayResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGuid(String resourceGuid) {
-            this.resourceGuid = Objects.requireNonNull(resourceGuid);
+            if (resourceGuid == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "resourceGuid");
+            }
+            this.resourceGuid = resourceGuid;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewayResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

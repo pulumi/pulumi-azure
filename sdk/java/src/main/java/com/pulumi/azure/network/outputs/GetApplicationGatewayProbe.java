@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayProbeMatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -200,22 +201,34 @@ public final class GetApplicationGatewayProbe {
 
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder matches(List<GetApplicationGatewayProbeMatch> matches) {
-            this.matches = Objects.requireNonNull(matches);
+            if (matches == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "matches");
+            }
+            this.matches = matches;
             return this;
         }
         public Builder matches(GetApplicationGatewayProbeMatch... matches) {
@@ -223,42 +236,66 @@ public final class GetApplicationGatewayProbe {
         }
         @CustomType.Setter
         public Builder minimumServers(Integer minimumServers) {
-            this.minimumServers = Objects.requireNonNull(minimumServers);
+            if (minimumServers == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "minimumServers");
+            }
+            this.minimumServers = minimumServers;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pickHostNameFromBackendHttpSettings(Boolean pickHostNameFromBackendHttpSettings) {
-            this.pickHostNameFromBackendHttpSettings = Objects.requireNonNull(pickHostNameFromBackendHttpSettings);
+            if (pickHostNameFromBackendHttpSettings == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "pickHostNameFromBackendHttpSettings");
+            }
+            this.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
-            this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
+            if (unhealthyThreshold == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayProbe", "unhealthyThreshold");
+            }
+            this.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
         public GetApplicationGatewayProbe build() {

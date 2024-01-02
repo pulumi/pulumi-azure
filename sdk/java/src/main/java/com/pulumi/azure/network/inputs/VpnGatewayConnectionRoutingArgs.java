@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.VpnGatewayConnectionRoutingPropagatedRouteTableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class VpnGatewayConnectionRoutingArgs extends com.pulumi.resources.
         }
 
         public VpnGatewayConnectionRoutingArgs build() {
-            $.associatedRouteTable = Objects.requireNonNull($.associatedRouteTable, "expected parameter 'associatedRouteTable' to be non-null");
+            if ($.associatedRouteTable == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionRoutingArgs", "associatedRouteTable");
+            }
             return $;
         }
     }

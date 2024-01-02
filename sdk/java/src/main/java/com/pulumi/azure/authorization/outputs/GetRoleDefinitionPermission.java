@@ -4,6 +4,7 @@
 package com.pulumi.azure.authorization.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -70,7 +71,10 @@ public final class GetRoleDefinitionPermission {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -78,6 +82,7 @@ public final class GetRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder dataActions(@Nullable List<String> dataActions) {
+
             this.dataActions = dataActions;
             return this;
         }
@@ -86,7 +91,10 @@ public final class GetRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notActions(List<String> notActions) {
-            this.notActions = Objects.requireNonNull(notActions);
+            if (notActions == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionPermission", "notActions");
+            }
+            this.notActions = notActions;
             return this;
         }
         public Builder notActions(String... notActions) {
@@ -94,6 +102,7 @@ public final class GetRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notDataActions(@Nullable List<String> notDataActions) {
+
             this.notDataActions = notDataActions;
             return this;
         }

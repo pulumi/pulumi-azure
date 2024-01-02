@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,28 @@ public final class LinuxVirtualMachineGalleryApplication {
 
         @CustomType.Setter
         public Builder configurationBlobUri(@Nullable String configurationBlobUri) {
+
             this.configurationBlobUri = configurationBlobUri;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable String tag) {
+
             this.tag = tag;
             return this;
         }
         @CustomType.Setter
         public Builder versionId(String versionId) {
-            this.versionId = Objects.requireNonNull(versionId);
+            if (versionId == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineGalleryApplication", "versionId");
+            }
+            this.versionId = versionId;
             return this;
         }
         public LinuxVirtualMachineGalleryApplication build() {

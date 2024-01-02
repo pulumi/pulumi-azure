@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class IdentityProviderTwitterArgs extends com.pulumi.resources.Reso
         }
 
         public IdentityProviderTwitterArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.apiSecretKey = Objects.requireNonNull($.apiSecretKey, "expected parameter 'apiSecretKey' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderTwitterArgs", "apiKey");
+            }
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderTwitterArgs", "apiManagementName");
+            }
+            if ($.apiSecretKey == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderTwitterArgs", "apiSecretKey");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderTwitterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

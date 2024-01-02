@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class VirtualNetworkEncryption {
 
         @CustomType.Setter
         public Builder enforcement(String enforcement) {
-            this.enforcement = Objects.requireNonNull(enforcement);
+            if (enforcement == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkEncryption", "enforcement");
+            }
+            this.enforcement = enforcement;
             return this;
         }
         public VirtualNetworkEncryption build() {

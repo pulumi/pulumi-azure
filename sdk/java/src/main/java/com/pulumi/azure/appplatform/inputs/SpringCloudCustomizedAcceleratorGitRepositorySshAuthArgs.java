@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs exte
         }
 
         public SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs build() {
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs", "privateKey");
+            }
             return $;
         }
     }

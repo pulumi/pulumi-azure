@@ -87,21 +87,25 @@ public final class TransformOutputFaceDetectorPreset {
 
         @CustomType.Setter
         public Builder analysisResolution(@Nullable String analysisResolution) {
+
             this.analysisResolution = analysisResolution;
             return this;
         }
         @CustomType.Setter
         public Builder blurType(@Nullable String blurType) {
+
             this.blurType = blurType;
             return this;
         }
         @CustomType.Setter
         public Builder experimentalOptions(@Nullable Map<String,String> experimentalOptions) {
+
             this.experimentalOptions = experimentalOptions;
             return this;
         }
         @CustomType.Setter
         public Builder faceRedactorMode(@Nullable String faceRedactorMode) {
+
             this.faceRedactorMode = faceRedactorMode;
             return this;
         }

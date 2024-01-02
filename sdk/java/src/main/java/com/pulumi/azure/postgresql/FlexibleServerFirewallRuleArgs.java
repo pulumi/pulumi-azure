@@ -5,6 +5,7 @@ package com.pulumi.azure.postgresql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class FlexibleServerFirewallRuleArgs extends com.pulumi.resources.R
         }
 
         public FlexibleServerFirewallRuleArgs build() {
-            $.endIpAddress = Objects.requireNonNull($.endIpAddress, "expected parameter 'endIpAddress' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
-            $.startIpAddress = Objects.requireNonNull($.startIpAddress, "expected parameter 'startIpAddress' to be non-null");
+            if ($.endIpAddress == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerFirewallRuleArgs", "endIpAddress");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerFirewallRuleArgs", "serverId");
+            }
+            if ($.startIpAddress == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerFirewallRuleArgs", "startIpAddress");
+            }
             return $;
         }
     }

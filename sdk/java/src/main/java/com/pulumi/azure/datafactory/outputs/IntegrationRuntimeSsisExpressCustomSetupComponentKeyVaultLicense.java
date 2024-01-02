@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLice
 
         @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
-            this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
+            if (linkedServiceName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense", "linkedServiceName");
+            }
+            this.linkedServiceName = linkedServiceName;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder secretName(String secretName) {
-            this.secretName = Objects.requireNonNull(secretName);
+            if (secretName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense", "secretName");
+            }
+            this.secretName = secretName;
             return this;
         }
         @CustomType.Setter
         public Builder secretVersion(@Nullable String secretVersion) {
+
             this.secretVersion = secretVersion;
             return this;
         }

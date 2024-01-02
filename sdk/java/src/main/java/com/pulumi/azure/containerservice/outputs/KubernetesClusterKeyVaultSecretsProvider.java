@@ -79,6 +79,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
 
         @CustomType.Setter
         public Builder secretIdentities(@Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities) {
+
             this.secretIdentities = secretIdentities;
             return this;
         }
@@ -87,11 +88,13 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
         }
         @CustomType.Setter
         public Builder secretRotationEnabled(@Nullable Boolean secretRotationEnabled) {
+
             this.secretRotationEnabled = secretRotationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder secretRotationInterval(@Nullable String secretRotationInterval) {
+
             this.secretRotationInterval = secretRotationInterval;
             return this;
         }

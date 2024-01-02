@@ -7,6 +7,7 @@ import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLoca
 import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,8 +190,12 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
         }
 
         public NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs", "name");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs", "protocol");
+            }
             return $;
         }
     }

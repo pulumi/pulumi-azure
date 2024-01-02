@@ -4,6 +4,7 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -135,6 +136,7 @@ public final class BudgetSubscriptionNotification {
 
         @CustomType.Setter
         public Builder contactEmails(@Nullable List<String> contactEmails) {
+
             this.contactEmails = contactEmails;
             return this;
         }
@@ -143,6 +145,7 @@ public final class BudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder contactGroups(@Nullable List<String> contactGroups) {
+
             this.contactGroups = contactGroups;
             return this;
         }
@@ -151,6 +154,7 @@ public final class BudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder contactRoles(@Nullable List<String> contactRoles) {
+
             this.contactRoles = contactRoles;
             return this;
         }
@@ -159,21 +163,29 @@ public final class BudgetSubscriptionNotification {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("BudgetSubscriptionNotification", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Integer threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("BudgetSubscriptionNotification", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(@Nullable String thresholdType) {
+
             this.thresholdType = thresholdType;
             return this;
         }

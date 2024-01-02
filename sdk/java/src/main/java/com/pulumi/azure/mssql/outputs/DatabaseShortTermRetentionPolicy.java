@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class DatabaseShortTermRetentionPolicy {
 
         @CustomType.Setter
         public Builder backupIntervalInHours(@Nullable Integer backupIntervalInHours) {
+
             this.backupIntervalInHours = backupIntervalInHours;
             return this;
         }
         @CustomType.Setter
         public Builder retentionDays(Integer retentionDays) {
-            this.retentionDays = Objects.requireNonNull(retentionDays);
+            if (retentionDays == null) {
+              throw new MissingRequiredPropertyException("DatabaseShortTermRetentionPolicy", "retentionDays");
+            }
+            this.retentionDays = retentionDays;
             return this;
         }
         public DatabaseShortTermRetentionPolicy build() {

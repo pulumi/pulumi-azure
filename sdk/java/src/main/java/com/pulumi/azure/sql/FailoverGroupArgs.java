@@ -8,6 +8,7 @@ import com.pulumi.azure.sql.inputs.FailoverGroupReadWriteEndpointFailoverPolicyA
 import com.pulumi.azure.sql.inputs.FailoverGroupReadonlyEndpointFailoverPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -370,10 +371,18 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FailoverGroupArgs build() {
-            $.partnerServers = Objects.requireNonNull($.partnerServers, "expected parameter 'partnerServers' to be non-null");
-            $.readWriteEndpointFailoverPolicy = Objects.requireNonNull($.readWriteEndpointFailoverPolicy, "expected parameter 'readWriteEndpointFailoverPolicy' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
+            if ($.partnerServers == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "partnerServers");
+            }
+            if ($.readWriteEndpointFailoverPolicy == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "readWriteEndpointFailoverPolicy");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "serverName");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleNrtIncidentArgs;
 import com.pulumi.azure.sentinel.inputs.AlertRuleNrtSentinelEntityMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -818,10 +819,18 @@ public final class AlertRuleNrtArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AlertRuleNrtArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.severity = Objects.requireNonNull($.severity, "expected parameter 'severity' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "query");
+            }
+            if ($.severity == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtArgs", "severity");
+            }
             return $;
         }
     }

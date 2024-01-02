@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetLocationPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetLocationPlainArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetLocationPlainArgs", "location");
+            }
             return $;
         }
     }

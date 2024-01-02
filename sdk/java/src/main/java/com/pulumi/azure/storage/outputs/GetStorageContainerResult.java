@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -126,42 +127,66 @@ public final class GetStorageContainerResult {
 
         @CustomType.Setter
         public Builder containerAccessType(String containerAccessType) {
-            this.containerAccessType = Objects.requireNonNull(containerAccessType);
+            if (containerAccessType == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "containerAccessType");
+            }
+            this.containerAccessType = containerAccessType;
             return this;
         }
         @CustomType.Setter
         public Builder hasImmutabilityPolicy(Boolean hasImmutabilityPolicy) {
-            this.hasImmutabilityPolicy = Objects.requireNonNull(hasImmutabilityPolicy);
+            if (hasImmutabilityPolicy == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "hasImmutabilityPolicy");
+            }
+            this.hasImmutabilityPolicy = hasImmutabilityPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder hasLegalHold(Boolean hasLegalHold) {
-            this.hasLegalHold = Objects.requireNonNull(hasLegalHold);
+            if (hasLegalHold == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "hasLegalHold");
+            }
+            this.hasLegalHold = hasLegalHold;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
-            this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
+            if (resourceManagerId == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "resourceManagerId");
+            }
+            this.resourceManagerId = resourceManagerId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         public GetStorageContainerResult build() {

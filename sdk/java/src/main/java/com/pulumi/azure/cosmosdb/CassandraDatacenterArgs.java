@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -493,8 +494,12 @@ public final class CassandraDatacenterArgs extends com.pulumi.resources.Resource
         }
 
         public CassandraDatacenterArgs build() {
-            $.cassandraClusterId = Objects.requireNonNull($.cassandraClusterId, "expected parameter 'cassandraClusterId' to be non-null");
-            $.delegatedManagementSubnetId = Objects.requireNonNull($.delegatedManagementSubnetId, "expected parameter 'delegatedManagementSubnetId' to be non-null");
+            if ($.cassandraClusterId == null) {
+                throw new MissingRequiredPropertyException("CassandraDatacenterArgs", "cassandraClusterId");
+            }
+            if ($.delegatedManagementSubnetId == null) {
+                throw new MissingRequiredPropertyException("CassandraDatacenterArgs", "delegatedManagementSubnetId");
+            }
             return $;
         }
     }

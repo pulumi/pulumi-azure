@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -115,31 +116,39 @@ public final class TransformOutputCustomPresetFilterOverlayAudio {
 
         @CustomType.Setter
         public Builder audioGainLevel(@Nullable Double audioGainLevel) {
+
             this.audioGainLevel = audioGainLevel;
             return this;
         }
         @CustomType.Setter
         public Builder end(@Nullable String end) {
+
             this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder fadeInDuration(@Nullable String fadeInDuration) {
+
             this.fadeInDuration = fadeInDuration;
             return this;
         }
         @CustomType.Setter
         public Builder fadeOutDuration(@Nullable String fadeOutDuration) {
+
             this.fadeOutDuration = fadeOutDuration;
             return this;
         }
         @CustomType.Setter
         public Builder inputLabel(String inputLabel) {
-            this.inputLabel = Objects.requireNonNull(inputLabel);
+            if (inputLabel == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFilterOverlayAudio", "inputLabel");
+            }
+            this.inputLabel = inputLabel;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

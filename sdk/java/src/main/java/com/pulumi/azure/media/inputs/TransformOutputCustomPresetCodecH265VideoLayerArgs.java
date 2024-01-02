@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -560,7 +561,9 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         public TransformOutputCustomPresetCodecH265VideoLayerArgs build() {
-            $.bitrate = Objects.requireNonNull($.bitrate, "expected parameter 'bitrate' to be non-null");
+            if ($.bitrate == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetCodecH265VideoLayerArgs", "bitrate");
+            }
             return $;
         }
     }

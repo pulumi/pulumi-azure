@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class GetPlatformImageArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetPlatformImageArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.offer = Objects.requireNonNull($.offer, "expected parameter 'offer' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetPlatformImageArgs", "location");
+            }
+            if ($.offer == null) {
+                throw new MissingRequiredPropertyException("GetPlatformImageArgs", "offer");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("GetPlatformImageArgs", "publisher");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("GetPlatformImageArgs", "sku");
+            }
             return $;
         }
     }

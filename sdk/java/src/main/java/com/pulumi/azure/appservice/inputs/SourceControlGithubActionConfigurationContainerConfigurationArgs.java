@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class SourceControlGithubActionConfigurationContainerConfigurationA
         }
 
         public SourceControlGithubActionConfigurationContainerConfigurationArgs build() {
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
-            $.registryUrl = Objects.requireNonNull($.registryUrl, "expected parameter 'registryUrl' to be non-null");
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("SourceControlGithubActionConfigurationContainerConfigurationArgs", "imageName");
+            }
+            if ($.registryUrl == null) {
+                throw new MissingRequiredPropertyException("SourceControlGithubActionConfigurationContainerConfigurationArgs", "registryUrl");
+            }
             return $;
         }
     }

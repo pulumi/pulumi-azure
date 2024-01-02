@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.azure.hdinsight.outputs.GetClusterGateway;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -225,22 +226,34 @@ public final class GetClusterResult {
 
         @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
-            this.clusterVersion = Objects.requireNonNull(clusterVersion);
+            if (clusterVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterVersion");
+            }
+            this.clusterVersion = clusterVersion;
             return this;
         }
         @CustomType.Setter
         public Builder componentVersions(Map<String,String> componentVersions) {
-            this.componentVersions = Objects.requireNonNull(componentVersions);
+            if (componentVersions == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "componentVersions");
+            }
+            this.componentVersions = componentVersions;
             return this;
         }
         @CustomType.Setter
         public Builder edgeSshEndpoint(String edgeSshEndpoint) {
-            this.edgeSshEndpoint = Objects.requireNonNull(edgeSshEndpoint);
+            if (edgeSshEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "edgeSshEndpoint");
+            }
+            this.edgeSshEndpoint = edgeSshEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder gateways(List<GetClusterGateway> gateways) {
-            this.gateways = Objects.requireNonNull(gateways);
+            if (gateways == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "gateways");
+            }
+            this.gateways = gateways;
             return this;
         }
         public Builder gateways(GetClusterGateway... gateways) {
@@ -248,57 +261,90 @@ public final class GetClusterResult {
         }
         @CustomType.Setter
         public Builder httpsEndpoint(String httpsEndpoint) {
-            this.httpsEndpoint = Objects.requireNonNull(httpsEndpoint);
+            if (httpsEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "httpsEndpoint");
+            }
+            this.httpsEndpoint = httpsEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaRestProxyEndpoint(String kafkaRestProxyEndpoint) {
-            this.kafkaRestProxyEndpoint = Objects.requireNonNull(kafkaRestProxyEndpoint);
+            if (kafkaRestProxyEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kafkaRestProxyEndpoint");
+            }
+            this.kafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sshEndpoint(String sshEndpoint) {
-            this.sshEndpoint = Objects.requireNonNull(sshEndpoint);
+            if (sshEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "sshEndpoint");
+            }
+            this.sshEndpoint = sshEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tier(String tier) {
-            this.tier = Objects.requireNonNull(tier);
+            if (tier == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tier");
+            }
+            this.tier = tier;
             return this;
         }
         @CustomType.Setter
         public Builder tlsMinVersion(String tlsMinVersion) {
-            this.tlsMinVersion = Objects.requireNonNull(tlsMinVersion);
+            if (tlsMinVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "tlsMinVersion");
+            }
+            this.tlsMinVersion = tlsMinVersion;
             return this;
         }
         public GetClusterResult build() {

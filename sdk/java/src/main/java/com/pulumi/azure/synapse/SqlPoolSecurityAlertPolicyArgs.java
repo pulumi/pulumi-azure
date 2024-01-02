@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -358,8 +359,12 @@ public final class SqlPoolSecurityAlertPolicyArgs extends com.pulumi.resources.R
         }
 
         public SqlPoolSecurityAlertPolicyArgs build() {
-            $.policyState = Objects.requireNonNull($.policyState, "expected parameter 'policyState' to be non-null");
-            $.sqlPoolId = Objects.requireNonNull($.sqlPoolId, "expected parameter 'sqlPoolId' to be non-null");
+            if ($.policyState == null) {
+                throw new MissingRequiredPropertyException("SqlPoolSecurityAlertPolicyArgs", "policyState");
+            }
+            if ($.sqlPoolId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolSecurityAlertPolicyArgs", "sqlPoolId");
+            }
             return $;
         }
     }

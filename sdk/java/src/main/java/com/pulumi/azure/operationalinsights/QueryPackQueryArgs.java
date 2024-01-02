@@ -5,6 +5,7 @@ package com.pulumi.azure.operationalinsights;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -441,9 +442,15 @@ public final class QueryPackQueryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public QueryPackQueryArgs build() {
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.queryPackId = Objects.requireNonNull($.queryPackId, "expected parameter 'queryPackId' to be non-null");
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("QueryPackQueryArgs", "body");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("QueryPackQueryArgs", "displayName");
+            }
+            if ($.queryPackId == null) {
+                throw new MissingRequiredPropertyException("QueryPackQueryArgs", "queryPackId");
+            }
             return $;
         }
     }

@@ -97,16 +97,19 @@ public final class DiagnosticSettingEnabledLog {
 
         @CustomType.Setter
         public Builder category(@Nullable String category) {
+
             this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder categoryGroup(@Nullable String categoryGroup) {
+
             this.categoryGroup = categoryGroup;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicy(@Nullable DiagnosticSettingEnabledLogRetentionPolicy retentionPolicy) {
+
             this.retentionPolicy = retentionPolicy;
             return this;
         }

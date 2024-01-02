@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,12 +299,24 @@ public final class NetworkMappingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public NetworkMappingArgs build() {
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sourceNetworkId = Objects.requireNonNull($.sourceNetworkId, "expected parameter 'sourceNetworkId' to be non-null");
-            $.sourceRecoveryFabricName = Objects.requireNonNull($.sourceRecoveryFabricName, "expected parameter 'sourceRecoveryFabricName' to be non-null");
-            $.targetNetworkId = Objects.requireNonNull($.targetNetworkId, "expected parameter 'targetNetworkId' to be non-null");
-            $.targetRecoveryFabricName = Objects.requireNonNull($.targetRecoveryFabricName, "expected parameter 'targetRecoveryFabricName' to be non-null");
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "resourceGroupName");
+            }
+            if ($.sourceNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "sourceNetworkId");
+            }
+            if ($.sourceRecoveryFabricName == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "sourceRecoveryFabricName");
+            }
+            if ($.targetNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "targetNetworkId");
+            }
+            if ($.targetRecoveryFabricName == null) {
+                throw new MissingRequiredPropertyException("NetworkMappingArgs", "targetRecoveryFabricName");
+            }
             return $;
         }
     }

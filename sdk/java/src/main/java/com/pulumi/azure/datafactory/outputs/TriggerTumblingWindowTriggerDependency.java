@@ -72,16 +72,19 @@ public final class TriggerTumblingWindowTriggerDependency {
 
         @CustomType.Setter
         public Builder offset(@Nullable String offset) {
+
             this.offset = offset;
             return this;
         }
         @CustomType.Setter
         public Builder size(@Nullable String size) {
+
             this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder triggerName(@Nullable String triggerName) {
+
             this.triggerName = triggerName;
             return this;
         }

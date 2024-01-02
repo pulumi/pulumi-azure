@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetTemplateSpecVersionArgs extends com.pulumi.resources.Invok
         }
 
         public GetTemplateSpecVersionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetTemplateSpecVersionArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetTemplateSpecVersionArgs", "resourceGroupName");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("GetTemplateSpecVersionArgs", "version");
+            }
             return $;
         }
     }

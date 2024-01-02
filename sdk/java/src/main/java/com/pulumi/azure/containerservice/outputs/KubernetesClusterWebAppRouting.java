@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class KubernetesClusterWebAppRouting {
 
         @CustomType.Setter
         public Builder dnsZoneId(String dnsZoneId) {
-            this.dnsZoneId = Objects.requireNonNull(dnsZoneId);
+            if (dnsZoneId == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterWebAppRouting", "dnsZoneId");
+            }
+            this.dnsZoneId = dnsZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder webAppRoutingIdentities(@Nullable List<KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities) {
+
             this.webAppRoutingIdentities = webAppRoutingIdentities;
             return this;
         }

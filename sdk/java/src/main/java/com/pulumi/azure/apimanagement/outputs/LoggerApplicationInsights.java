@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class LoggerApplicationInsights {
 
         @CustomType.Setter
         public Builder instrumentationKey(String instrumentationKey) {
-            this.instrumentationKey = Objects.requireNonNull(instrumentationKey);
+            if (instrumentationKey == null) {
+              throw new MissingRequiredPropertyException("LoggerApplicationInsights", "instrumentationKey");
+            }
+            this.instrumentationKey = instrumentationKey;
             return this;
         }
         public LoggerApplicationInsights build() {

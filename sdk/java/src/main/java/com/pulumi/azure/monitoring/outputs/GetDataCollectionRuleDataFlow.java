@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,12 +100,18 @@ public final class GetDataCollectionRuleDataFlow {
 
         @CustomType.Setter
         public Builder builtInTransform(String builtInTransform) {
-            this.builtInTransform = Objects.requireNonNull(builtInTransform);
+            if (builtInTransform == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataFlow", "builtInTransform");
+            }
+            this.builtInTransform = builtInTransform;
             return this;
         }
         @CustomType.Setter
         public Builder destinations(List<String> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataFlow", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(String... destinations) {
@@ -112,12 +119,18 @@ public final class GetDataCollectionRuleDataFlow {
         }
         @CustomType.Setter
         public Builder outputStream(String outputStream) {
-            this.outputStream = Objects.requireNonNull(outputStream);
+            if (outputStream == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataFlow", "outputStream");
+            }
+            this.outputStream = outputStream;
             return this;
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataFlow", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {
@@ -125,7 +138,10 @@ public final class GetDataCollectionRuleDataFlow {
         }
         @CustomType.Setter
         public Builder transformKql(String transformKql) {
-            this.transformKql = Objects.requireNonNull(transformKql);
+            if (transformKql == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataFlow", "transformKql");
+            }
+            this.transformKql = transformKql;
             return this;
         }
         public GetDataCollectionRuleDataFlow build() {

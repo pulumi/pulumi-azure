@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class ClusterReverseProxyCertificate {
 
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("ClusterReverseProxyCertificate", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprintSecondary(@Nullable String thumbprintSecondary) {
+
             this.thumbprintSecondary = thumbprintSecondary;
             return this;
         }
         @CustomType.Setter
         public Builder x509StoreName(String x509StoreName) {
-            this.x509StoreName = Objects.requireNonNull(x509StoreName);
+            if (x509StoreName == null) {
+              throw new MissingRequiredPropertyException("ClusterReverseProxyCertificate", "x509StoreName");
+            }
+            this.x509StoreName = x509StoreName;
             return this;
         }
         public ClusterReverseProxyCertificate build() {

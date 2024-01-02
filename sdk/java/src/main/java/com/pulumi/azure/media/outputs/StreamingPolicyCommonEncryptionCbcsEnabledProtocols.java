@@ -86,21 +86,25 @@ public final class StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
 
         @CustomType.Setter
         public Builder dash(@Nullable Boolean dash) {
+
             this.dash = dash;
             return this;
         }
         @CustomType.Setter
         public Builder download(@Nullable Boolean download) {
+
             this.download = download;
             return this;
         }
         @CustomType.Setter
         public Builder hls(@Nullable Boolean hls) {
+
             this.hls = hls;
             return this;
         }
         @CustomType.Setter
         public Builder smoothStreaming(@Nullable Boolean smoothStreaming) {
+
             this.smoothStreaming = smoothStreaming;
             return this;
         }

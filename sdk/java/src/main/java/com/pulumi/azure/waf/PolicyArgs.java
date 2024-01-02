@@ -8,6 +8,7 @@ import com.pulumi.azure.waf.inputs.PolicyManagedRulesArgs;
 import com.pulumi.azure.waf.inputs.PolicyPolicySettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -313,8 +314,12 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.managedRules = Objects.requireNonNull($.managedRules, "expected parameter 'managedRules' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.managedRules == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "managedRules");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

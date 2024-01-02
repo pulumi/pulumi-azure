@@ -59,6 +59,7 @@ public final class SoftwareUpdateConfigurationTarget {
 
         @CustomType.Setter
         public Builder azureQueries(@Nullable List<SoftwareUpdateConfigurationTargetAzureQuery> azureQueries) {
+
             this.azureQueries = azureQueries;
             return this;
         }
@@ -67,6 +68,7 @@ public final class SoftwareUpdateConfigurationTarget {
         }
         @CustomType.Setter
         public Builder nonAzureQueries(@Nullable List<SoftwareUpdateConfigurationTargetNonAzureQuery> nonAzureQueries) {
+
             this.nonAzureQueries = nonAzureQueries;
             return this;
         }

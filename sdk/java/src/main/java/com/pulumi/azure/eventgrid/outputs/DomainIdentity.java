@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -95,6 +96,7 @@ public final class DomainIdentity {
 
         @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
+
             this.identityIds = identityIds;
             return this;
         }
@@ -103,17 +105,22 @@ public final class DomainIdentity {
         }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
+
             this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DomainIdentity", "type");
+            }
+            this.type = type;
             return this;
         }
         public DomainIdentity build() {

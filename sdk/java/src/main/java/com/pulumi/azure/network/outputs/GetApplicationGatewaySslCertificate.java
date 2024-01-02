@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetApplicationGatewaySslCertificate {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslCertificate", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultSecretId(String keyVaultSecretId) {
-            this.keyVaultSecretId = Objects.requireNonNull(keyVaultSecretId);
+            if (keyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslCertificate", "keyVaultSecretId");
+            }
+            this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslCertificate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicCertData(String publicCertData) {
-            this.publicCertData = Objects.requireNonNull(publicCertData);
+            if (publicCertData == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslCertificate", "publicCertData");
+            }
+            this.publicCertData = publicCertData;
             return this;
         }
         public GetApplicationGatewaySslCertificate build() {

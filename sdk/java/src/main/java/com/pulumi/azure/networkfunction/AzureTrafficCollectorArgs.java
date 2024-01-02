@@ -5,6 +5,7 @@ package com.pulumi.azure.networkfunction;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class AzureTrafficCollectorArgs extends com.pulumi.resources.Resour
         }
 
         public AzureTrafficCollectorArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AzureTrafficCollectorArgs", "resourceGroupName");
+            }
             return $;
         }
     }

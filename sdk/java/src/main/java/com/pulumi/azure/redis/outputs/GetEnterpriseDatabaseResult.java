@@ -4,6 +4,7 @@
 package com.pulumi.azure.redis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -145,22 +146,34 @@ public final class GetEnterpriseDatabaseResult {
 
         @CustomType.Setter
         public Builder clusterId(String clusterId) {
-            this.clusterId = Objects.requireNonNull(clusterId);
+            if (clusterId == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "clusterId");
+            }
+            this.clusterId = clusterId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkedDatabaseGroupNickname(String linkedDatabaseGroupNickname) {
-            this.linkedDatabaseGroupNickname = Objects.requireNonNull(linkedDatabaseGroupNickname);
+            if (linkedDatabaseGroupNickname == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "linkedDatabaseGroupNickname");
+            }
+            this.linkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
             return this;
         }
         @CustomType.Setter
         public Builder linkedDatabaseIds(List<String> linkedDatabaseIds) {
-            this.linkedDatabaseIds = Objects.requireNonNull(linkedDatabaseIds);
+            if (linkedDatabaseIds == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "linkedDatabaseIds");
+            }
+            this.linkedDatabaseIds = linkedDatabaseIds;
             return this;
         }
         public Builder linkedDatabaseIds(String... linkedDatabaseIds) {
@@ -168,22 +181,34 @@ public final class GetEnterpriseDatabaseResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetEnterpriseDatabaseResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         public GetEnterpriseDatabaseResult build() {

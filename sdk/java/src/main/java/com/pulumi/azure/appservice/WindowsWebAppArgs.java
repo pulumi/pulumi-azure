@@ -14,6 +14,7 @@ import com.pulumi.azure.appservice.inputs.WindowsWebAppStickySettingsArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1076,9 +1077,15 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WindowsWebAppArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.servicePlanId = Objects.requireNonNull($.servicePlanId, "expected parameter 'servicePlanId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppArgs", "resourceGroupName");
+            }
+            if ($.servicePlanId == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppArgs", "servicePlanId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppArgs", "siteConfig");
+            }
             return $;
         }
     }

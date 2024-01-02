@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -214,77 +215,122 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder dockerImage(String dockerImage) {
-            this.dockerImage = Objects.requireNonNull(dockerImage);
+            if (dockerImage == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImage");
+            }
+            this.dockerImage = dockerImage;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageName(String dockerImageName) {
-            this.dockerImageName = Objects.requireNonNull(dockerImageName);
+            if (dockerImageName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImageName");
+            }
+            this.dockerImageName = dockerImageName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageTag(String dockerImageTag) {
-            this.dockerImageTag = Objects.requireNonNull(dockerImageTag);
+            if (dockerImageTag == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerImageTag");
+            }
+            this.dockerImageTag = dockerImageTag;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryPassword(String dockerRegistryPassword) {
-            this.dockerRegistryPassword = Objects.requireNonNull(dockerRegistryPassword);
+            if (dockerRegistryPassword == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerRegistryPassword");
+            }
+            this.dockerRegistryPassword = dockerRegistryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUrl(String dockerRegistryUrl) {
-            this.dockerRegistryUrl = Objects.requireNonNull(dockerRegistryUrl);
+            if (dockerRegistryUrl == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerRegistryUrl");
+            }
+            this.dockerRegistryUrl = dockerRegistryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUsername(String dockerRegistryUsername) {
-            this.dockerRegistryUsername = Objects.requireNonNull(dockerRegistryUsername);
+            if (dockerRegistryUsername == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dockerRegistryUsername");
+            }
+            this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
-            this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
+            if (dotnetVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "dotnetVersion");
+            }
+            this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder goVersion(String goVersion) {
-            this.goVersion = Objects.requireNonNull(goVersion);
+            if (goVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "goVersion");
+            }
+            this.goVersion = goVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaServer(String javaServer) {
-            this.javaServer = Objects.requireNonNull(javaServer);
+            if (javaServer == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "javaServer");
+            }
+            this.javaServer = javaServer;
             return this;
         }
         @CustomType.Setter
         public Builder javaServerVersion(String javaServerVersion) {
-            this.javaServerVersion = Objects.requireNonNull(javaServerVersion);
+            if (javaServerVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "javaServerVersion");
+            }
+            this.javaServerVersion = javaServerVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
-            this.nodeVersion = Objects.requireNonNull(nodeVersion);
+            if (nodeVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "nodeVersion");
+            }
+            this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder phpVersion(String phpVersion) {
-            this.phpVersion = Objects.requireNonNull(phpVersion);
+            if (phpVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "phpVersion");
+            }
+            this.phpVersion = phpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
-            this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            if (pythonVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "pythonVersion");
+            }
+            this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder rubyVersion(String rubyVersion) {
-            this.rubyVersion = Objects.requireNonNull(rubyVersion);
+            if (rubyVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigApplicationStack", "rubyVersion");
+            }
+            this.rubyVersion = rubyVersion;
             return this;
         }
         public GetLinuxWebAppSiteConfigApplicationStack build() {

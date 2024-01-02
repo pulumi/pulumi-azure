@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetFunctionAppSourceControl {
 
         @CustomType.Setter
         public Builder branch(String branch) {
-            this.branch = Objects.requireNonNull(branch);
+            if (branch == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSourceControl", "branch");
+            }
+            this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder manualIntegration(Boolean manualIntegration) {
-            this.manualIntegration = Objects.requireNonNull(manualIntegration);
+            if (manualIntegration == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSourceControl", "manualIntegration");
+            }
+            this.manualIntegration = manualIntegration;
             return this;
         }
         @CustomType.Setter
         public Builder repoUrl(String repoUrl) {
-            this.repoUrl = Objects.requireNonNull(repoUrl);
+            if (repoUrl == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSourceControl", "repoUrl");
+            }
+            this.repoUrl = repoUrl;
             return this;
         }
         @CustomType.Setter
         public Builder rollbackEnabled(Boolean rollbackEnabled) {
-            this.rollbackEnabled = Objects.requireNonNull(rollbackEnabled);
+            if (rollbackEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSourceControl", "rollbackEnabled");
+            }
+            this.rollbackEnabled = rollbackEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder useMercurial(Boolean useMercurial) {
-            this.useMercurial = Objects.requireNonNull(useMercurial);
+            if (useMercurial == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSourceControl", "useMercurial");
+            }
+            this.useMercurial = useMercurial;
             return this;
         }
         public GetFunctionAppSourceControl build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -144,10 +145,18 @@ public final class GetConsumeGroupPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetConsumeGroupPlainArgs build() {
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("GetConsumeGroupPlainArgs", "eventhubName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetConsumeGroupPlainArgs", "name");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("GetConsumeGroupPlainArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetConsumeGroupPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

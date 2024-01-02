@@ -78,16 +78,19 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
 
         @CustomType.Setter
         public Builder customData(@Nullable String customData) {
+
             this.customData = customData;
             return this;
         }
         @CustomType.Setter
         public Builder linuxConfiguration(@Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration) {
+
             this.linuxConfiguration = linuxConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder windowsConfiguration(@Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration) {
+
             this.windowsConfiguration = windowsConfiguration;
             return this;
         }

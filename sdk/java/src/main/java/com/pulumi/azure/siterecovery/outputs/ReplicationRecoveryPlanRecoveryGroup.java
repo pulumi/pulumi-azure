@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.outputs;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanRecoveryGroupPostAction;
 import com.pulumi.azure.siterecovery.outputs.ReplicationRecoveryPlanRecoveryGroupPreAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,6 +89,7 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
 
         @CustomType.Setter
         public Builder postActions(@Nullable List<ReplicationRecoveryPlanRecoveryGroupPostAction> postActions) {
+
             this.postActions = postActions;
             return this;
         }
@@ -96,6 +98,7 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
         }
         @CustomType.Setter
         public Builder preActions(@Nullable List<ReplicationRecoveryPlanRecoveryGroupPreAction> preActions) {
+
             this.preActions = preActions;
             return this;
         }
@@ -104,6 +107,7 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
         }
         @CustomType.Setter
         public Builder replicatedProtectedItems(@Nullable List<String> replicatedProtectedItems) {
+
             this.replicatedProtectedItems = replicatedProtectedItems;
             return this;
         }
@@ -112,7 +116,10 @@ public final class ReplicationRecoveryPlanRecoveryGroup {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ReplicationRecoveryPlanRecoveryGroup", "type");
+            }
+            this.type = type;
             return this;
         }
         public ReplicationRecoveryPlanRecoveryGroup build() {

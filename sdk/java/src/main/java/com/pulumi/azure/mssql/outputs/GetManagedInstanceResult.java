@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.azure.mssql.outputs.GetManagedInstanceIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -303,37 +304,58 @@ public final class GetManagedInstanceResult {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder collation(String collation) {
-            this.collation = Objects.requireNonNull(collation);
+            if (collation == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "collation");
+            }
+            this.collation = collation;
             return this;
         }
         @CustomType.Setter
         public Builder customerManagedKeyId(String customerManagedKeyId) {
-            this.customerManagedKeyId = Objects.requireNonNull(customerManagedKeyId);
+            if (customerManagedKeyId == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "customerManagedKeyId");
+            }
+            this.customerManagedKeyId = customerManagedKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder dnsZonePartnerId(String dnsZonePartnerId) {
-            this.dnsZonePartnerId = Objects.requireNonNull(dnsZonePartnerId);
+            if (dnsZonePartnerId == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "dnsZonePartnerId");
+            }
+            this.dnsZonePartnerId = dnsZonePartnerId;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetManagedInstanceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetManagedInstanceIdentity... identities) {
@@ -341,72 +363,114 @@ public final class GetManagedInstanceResult {
         }
         @CustomType.Setter
         public Builder licenseType(String licenseType) {
-            this.licenseType = Objects.requireNonNull(licenseType);
+            if (licenseType == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "licenseType");
+            }
+            this.licenseType = licenseType;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
-            this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
+            if (minimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "minimumTlsVersion");
+            }
+            this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder proxyOverride(String proxyOverride) {
-            this.proxyOverride = Objects.requireNonNull(proxyOverride);
+            if (proxyOverride == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "proxyOverride");
+            }
+            this.proxyOverride = proxyOverride;
             return this;
         }
         @CustomType.Setter
         public Builder publicDataEndpointEnabled(Boolean publicDataEndpointEnabled) {
-            this.publicDataEndpointEnabled = Objects.requireNonNull(publicDataEndpointEnabled);
+            if (publicDataEndpointEnabled == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "publicDataEndpointEnabled");
+            }
+            this.publicDataEndpointEnabled = publicDataEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         @CustomType.Setter
         public Builder storageSizeInGb(Integer storageSizeInGb) {
-            this.storageSizeInGb = Objects.requireNonNull(storageSizeInGb);
+            if (storageSizeInGb == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "storageSizeInGb");
+            }
+            this.storageSizeInGb = storageSizeInGb;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder timezoneId(String timezoneId) {
-            this.timezoneId = Objects.requireNonNull(timezoneId);
+            if (timezoneId == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "timezoneId");
+            }
+            this.timezoneId = timezoneId;
             return this;
         }
         @CustomType.Setter
         public Builder vcores(Integer vcores) {
-            this.vcores = Objects.requireNonNull(vcores);
+            if (vcores == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "vcores");
+            }
+            this.vcores = vcores;
             return this;
         }
         public GetManagedInstanceResult build() {

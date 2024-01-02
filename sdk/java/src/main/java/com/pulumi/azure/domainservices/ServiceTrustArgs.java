@@ -5,6 +5,7 @@ package com.pulumi.azure.domainservices;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,10 +236,18 @@ public final class ServiceTrustArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceTrustArgs build() {
-            $.domainServiceId = Objects.requireNonNull($.domainServiceId, "expected parameter 'domainServiceId' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.trustedDomainDnsIps = Objects.requireNonNull($.trustedDomainDnsIps, "expected parameter 'trustedDomainDnsIps' to be non-null");
-            $.trustedDomainFqdn = Objects.requireNonNull($.trustedDomainFqdn, "expected parameter 'trustedDomainFqdn' to be non-null");
+            if ($.domainServiceId == null) {
+                throw new MissingRequiredPropertyException("ServiceTrustArgs", "domainServiceId");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ServiceTrustArgs", "password");
+            }
+            if ($.trustedDomainDnsIps == null) {
+                throw new MissingRequiredPropertyException("ServiceTrustArgs", "trustedDomainDnsIps");
+            }
+            if ($.trustedDomainFqdn == null) {
+                throw new MissingRequiredPropertyException("ServiceTrustArgs", "trustedDomainFqdn");
+            }
             return $;
         }
     }

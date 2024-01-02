@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class VirtualHubIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VirtualHubIpArgs build() {
-            $.publicIpAddressId = Objects.requireNonNull($.publicIpAddressId, "expected parameter 'publicIpAddressId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.publicIpAddressId == null) {
+                throw new MissingRequiredPropertyException("VirtualHubIpArgs", "publicIpAddressId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VirtualHubIpArgs", "subnetId");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("VirtualHubIpArgs", "virtualHubId");
+            }
             return $;
         }
     }

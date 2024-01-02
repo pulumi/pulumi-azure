@@ -7,6 +7,7 @@ import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMWorkloadSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -274,11 +275,21 @@ public final class PolicyVMWorkloadArgs extends com.pulumi.resources.ResourceArg
         }
 
         public PolicyVMWorkloadArgs build() {
-            $.protectionPolicies = Objects.requireNonNull($.protectionPolicies, "expected parameter 'protectionPolicies' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.settings = Objects.requireNonNull($.settings, "expected parameter 'settings' to be non-null");
-            $.workloadType = Objects.requireNonNull($.workloadType, "expected parameter 'workloadType' to be non-null");
+            if ($.protectionPolicies == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadArgs", "protectionPolicies");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadArgs", "resourceGroupName");
+            }
+            if ($.settings == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadArgs", "settings");
+            }
+            if ($.workloadType == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadArgs", "workloadType");
+            }
             return $;
         }
     }

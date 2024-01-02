@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,7 +74,10 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
 
         @CustomType.Setter
         public Builder daysOfWeeks(List<String> daysOfWeeks) {
-            this.daysOfWeeks = Objects.requireNonNull(daysOfWeeks);
+            if (daysOfWeeks == null) {
+              throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionScheduleRecurrenceWeekly", "daysOfWeeks");
+            }
+            this.daysOfWeeks = daysOfWeeks;
             return this;
         }
         public Builder daysOfWeeks(String... daysOfWeeks) {
@@ -81,11 +85,13 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
         }
         @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
+
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }

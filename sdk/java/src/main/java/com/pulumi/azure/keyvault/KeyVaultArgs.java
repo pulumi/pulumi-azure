@@ -8,6 +8,7 @@ import com.pulumi.azure.keyvault.inputs.KeyVaultContactArgs;
 import com.pulumi.azure.keyvault.inputs.KeyVaultNetworkAclsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -694,9 +695,15 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KeyVaultArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("KeyVaultArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("KeyVaultArgs", "skuName");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("KeyVaultArgs", "tenantId");
+            }
             return $;
         }
     }

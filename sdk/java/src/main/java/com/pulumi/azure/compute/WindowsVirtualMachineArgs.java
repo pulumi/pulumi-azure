@@ -16,6 +16,7 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineTerminationNotificat
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineWinrmListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1986,12 +1987,24 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         public WindowsVirtualMachineArgs build() {
-            $.adminPassword = Objects.requireNonNull($.adminPassword, "expected parameter 'adminPassword' to be non-null");
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.networkInterfaceIds = Objects.requireNonNull($.networkInterfaceIds, "expected parameter 'networkInterfaceIds' to be non-null");
-            $.osDisk = Objects.requireNonNull($.osDisk, "expected parameter 'osDisk' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
+            if ($.adminPassword == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "adminPassword");
+            }
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "adminUsername");
+            }
+            if ($.networkInterfaceIds == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "networkInterfaceIds");
+            }
+            if ($.osDisk == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "osDisk");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "resourceGroupName");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "size");
+            }
             return $;
         }
     }

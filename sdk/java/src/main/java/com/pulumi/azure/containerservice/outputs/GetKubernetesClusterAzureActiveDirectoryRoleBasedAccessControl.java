@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -114,7 +115,10 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
 
         @CustomType.Setter
         public Builder adminGroupObjectIds(List<String> adminGroupObjectIds) {
-            this.adminGroupObjectIds = Objects.requireNonNull(adminGroupObjectIds);
+            if (adminGroupObjectIds == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "adminGroupObjectIds");
+            }
+            this.adminGroupObjectIds = adminGroupObjectIds;
             return this;
         }
         public Builder adminGroupObjectIds(String... adminGroupObjectIds) {
@@ -122,27 +126,42 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
         }
         @CustomType.Setter
         public Builder azureRbacEnabled(Boolean azureRbacEnabled) {
-            this.azureRbacEnabled = Objects.requireNonNull(azureRbacEnabled);
+            if (azureRbacEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "azureRbacEnabled");
+            }
+            this.azureRbacEnabled = azureRbacEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientAppId(String clientAppId) {
-            this.clientAppId = Objects.requireNonNull(clientAppId);
+            if (clientAppId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "clientAppId");
+            }
+            this.clientAppId = clientAppId;
             return this;
         }
         @CustomType.Setter
         public Builder managed(Boolean managed) {
-            this.managed = Objects.requireNonNull(managed);
+            if (managed == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "managed");
+            }
+            this.managed = managed;
             return this;
         }
         @CustomType.Setter
         public Builder serverAppId(String serverAppId) {
-            this.serverAppId = Objects.requireNonNull(serverAppId);
+            if (serverAppId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "serverAppId");
+            }
+            this.serverAppId = serverAppId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl build() {

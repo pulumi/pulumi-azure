@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -146,10 +147,18 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
         }
 
         public EnvironmentWorkloadProfileArgs build() {
-            $.maximumCount = Objects.requireNonNull($.maximumCount, "expected parameter 'maximumCount' to be non-null");
-            $.minimumCount = Objects.requireNonNull($.minimumCount, "expected parameter 'minimumCount' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.workloadProfileType = Objects.requireNonNull($.workloadProfileType, "expected parameter 'workloadProfileType' to be non-null");
+            if ($.maximumCount == null) {
+                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "maximumCount");
+            }
+            if ($.minimumCount == null) {
+                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "minimumCount");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "name");
+            }
+            if ($.workloadProfileType == null) {
+                throw new MissingRequiredPropertyException("EnvironmentWorkloadProfileArgs", "workloadProfileType");
+            }
             return $;
         }
     }

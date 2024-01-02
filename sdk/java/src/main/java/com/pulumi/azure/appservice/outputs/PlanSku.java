@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class PlanSku {
 
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder size(String size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("PlanSku", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder tier(String tier) {
-            this.tier = Objects.requireNonNull(tier);
+            if (tier == null) {
+              throw new MissingRequiredPropertyException("PlanSku", "tier");
+            }
+            this.tier = tier;
             return this;
         }
         public PlanSku build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class TransformOutputCustomPresetFilterFadeIn {
 
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFilterFadeIn", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder fadeColor(String fadeColor) {
-            this.fadeColor = Objects.requireNonNull(fadeColor);
+            if (fadeColor == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFilterFadeIn", "fadeColor");
+            }
+            this.fadeColor = fadeColor;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.voice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class ServicesCommunicationsGatewayTestLineArgs extends com.pulumi.
         }
 
         public ServicesCommunicationsGatewayTestLineArgs build() {
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
-            $.purpose = Objects.requireNonNull($.purpose, "expected parameter 'purpose' to be non-null");
-            $.voiceServicesCommunicationsGatewayId = Objects.requireNonNull($.voiceServicesCommunicationsGatewayId, "expected parameter 'voiceServicesCommunicationsGatewayId' to be non-null");
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayTestLineArgs", "phoneNumber");
+            }
+            if ($.purpose == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayTestLineArgs", "purpose");
+            }
+            if ($.voiceServicesCommunicationsGatewayId == null) {
+                throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayTestLineArgs", "voiceServicesCommunicationsGatewayId");
+            }
             return $;
         }
     }

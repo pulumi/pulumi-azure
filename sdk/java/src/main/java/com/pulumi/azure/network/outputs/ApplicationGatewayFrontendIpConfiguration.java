@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -142,41 +143,51 @@ public final class ApplicationGatewayFrontendIpConfiguration {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayFrontendIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
+
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkConfigurationId(@Nullable String privateLinkConfigurationId) {
+
             this.privateLinkConfigurationId = privateLinkConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkConfigurationName(@Nullable String privateLinkConfigurationName) {
+
             this.privateLinkConfigurationName = privateLinkConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

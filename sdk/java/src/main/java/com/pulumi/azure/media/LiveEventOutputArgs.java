@@ -5,6 +5,7 @@ package com.pulumi.azure.media;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -373,9 +374,15 @@ public final class LiveEventOutputArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LiveEventOutputArgs build() {
-            $.archiveWindowDuration = Objects.requireNonNull($.archiveWindowDuration, "expected parameter 'archiveWindowDuration' to be non-null");
-            $.assetName = Objects.requireNonNull($.assetName, "expected parameter 'assetName' to be non-null");
-            $.liveEventId = Objects.requireNonNull($.liveEventId, "expected parameter 'liveEventId' to be non-null");
+            if ($.archiveWindowDuration == null) {
+                throw new MissingRequiredPropertyException("LiveEventOutputArgs", "archiveWindowDuration");
+            }
+            if ($.assetName == null) {
+                throw new MissingRequiredPropertyException("LiveEventOutputArgs", "assetName");
+            }
+            if ($.liveEventId == null) {
+                throw new MissingRequiredPropertyException("LiveEventOutputArgs", "liveEventId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.bot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ChannelLineLineChannelArgs extends com.pulumi.resources.Resou
         }
 
         public ChannelLineLineChannelArgs build() {
-            $.accessToken = Objects.requireNonNull($.accessToken, "expected parameter 'accessToken' to be non-null");
-            $.secret = Objects.requireNonNull($.secret, "expected parameter 'secret' to be non-null");
+            if ($.accessToken == null) {
+                throw new MissingRequiredPropertyException("ChannelLineLineChannelArgs", "accessToken");
+            }
+            if ($.secret == null) {
+                throw new MissingRequiredPropertyException("ChannelLineLineChannelArgs", "secret");
+            }
             return $;
         }
     }

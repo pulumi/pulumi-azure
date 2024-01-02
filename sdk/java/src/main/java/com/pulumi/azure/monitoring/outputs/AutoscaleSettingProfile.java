@@ -8,6 +8,7 @@ import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileFixedDate;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileRecurrence;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,26 +106,35 @@ public final class AutoscaleSettingProfile {
 
         @CustomType.Setter
         public Builder capacity(AutoscaleSettingProfileCapacity capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfile", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder fixedDate(@Nullable AutoscaleSettingProfileFixedDate fixedDate) {
+
             this.fixedDate = fixedDate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable AutoscaleSettingProfileRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<AutoscaleSettingProfileRule> rules) {
+
             this.rules = rules;
             return this;
         }

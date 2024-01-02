@@ -9,6 +9,7 @@ import com.pulumi.azure.healthcare.inputs.FhirServiceIdentityArgs;
 import com.pulumi.azure.healthcare.inputs.FhirServiceOciArtifactArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -556,9 +557,15 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FhirServiceArgs build() {
-            $.authentication = Objects.requireNonNull($.authentication, "expected parameter 'authentication' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.authentication == null) {
+                throw new MissingRequiredPropertyException("FhirServiceArgs", "authentication");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FhirServiceArgs", "resourceGroupName");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("FhirServiceArgs", "workspaceId");
+            }
             return $;
         }
     }

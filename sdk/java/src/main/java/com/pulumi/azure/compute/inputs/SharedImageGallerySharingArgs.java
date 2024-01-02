@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.SharedImageGallerySharingCommunityGalleryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -130,7 +131,9 @@ public final class SharedImageGallerySharingArgs extends com.pulumi.resources.Re
         }
 
         public SharedImageGallerySharingArgs build() {
-            $.permission = Objects.requireNonNull($.permission, "expected parameter 'permission' to be non-null");
+            if ($.permission == null) {
+                throw new MissingRequiredPropertyException("SharedImageGallerySharingArgs", "permission");
+            }
             return $;
         }
     }

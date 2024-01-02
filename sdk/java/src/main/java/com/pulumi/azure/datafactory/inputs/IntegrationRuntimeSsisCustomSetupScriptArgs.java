@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class IntegrationRuntimeSsisCustomSetupScriptArgs extends com.pulum
         }
 
         public IntegrationRuntimeSsisCustomSetupScriptArgs build() {
-            $.blobContainerUri = Objects.requireNonNull($.blobContainerUri, "expected parameter 'blobContainerUri' to be non-null");
-            $.sasToken = Objects.requireNonNull($.sasToken, "expected parameter 'sasToken' to be non-null");
+            if ($.blobContainerUri == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCustomSetupScriptArgs", "blobContainerUri");
+            }
+            if ($.sasToken == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCustomSetupScriptArgs", "sasToken");
+            }
             return $;
         }
     }

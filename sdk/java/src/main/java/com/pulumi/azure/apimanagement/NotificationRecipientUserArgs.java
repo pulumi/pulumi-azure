@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class NotificationRecipientUserArgs extends com.pulumi.resources.Re
         }
 
         public NotificationRecipientUserArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.notificationType = Objects.requireNonNull($.notificationType, "expected parameter 'notificationType' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("NotificationRecipientUserArgs", "apiManagementId");
+            }
+            if ($.notificationType == null) {
+                throw new MissingRequiredPropertyException("NotificationRecipientUserArgs", "notificationType");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("NotificationRecipientUserArgs", "userId");
+            }
             return $;
         }
     }

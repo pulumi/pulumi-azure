@@ -91,6 +91,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
 
         @CustomType.Setter
         public Builder apipaAddresses(@Nullable List<String> apipaAddresses) {
+
             this.apipaAddresses = apipaAddresses;
             return this;
         }
@@ -99,6 +100,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
         }
         @CustomType.Setter
         public Builder defaultAddresses(@Nullable List<String> defaultAddresses) {
+
             this.defaultAddresses = defaultAddresses;
             return this;
         }
@@ -107,11 +109,13 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
         }
         @CustomType.Setter
         public Builder ipConfigurationName(@Nullable String ipConfigurationName) {
+
             this.ipConfigurationName = ipConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder tunnelIpAddresses(@Nullable List<String> tunnelIpAddresses) {
+
             this.tunnelIpAddresses = tunnelIpAddresses;
             return this;
         }

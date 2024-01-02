@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.FrontdoorSecretSecretCustomerCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class FrontdoorSecretSecret {
 
         @CustomType.Setter
         public Builder customerCertificates(List<FrontdoorSecretSecretCustomerCertificate> customerCertificates) {
-            this.customerCertificates = Objects.requireNonNull(customerCertificates);
+            if (customerCertificates == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecretSecret", "customerCertificates");
+            }
+            this.customerCertificates = customerCertificates;
             return this;
         }
         public Builder customerCertificates(FrontdoorSecretSecretCustomerCertificate... customerCertificates) {

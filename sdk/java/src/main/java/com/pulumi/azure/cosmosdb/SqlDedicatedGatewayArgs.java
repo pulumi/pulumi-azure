@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class SqlDedicatedGatewayArgs extends com.pulumi.resources.Resource
         }
 
         public SqlDedicatedGatewayArgs build() {
-            $.cosmosdbAccountId = Objects.requireNonNull($.cosmosdbAccountId, "expected parameter 'cosmosdbAccountId' to be non-null");
-            $.instanceCount = Objects.requireNonNull($.instanceCount, "expected parameter 'instanceCount' to be non-null");
-            $.instanceSize = Objects.requireNonNull($.instanceSize, "expected parameter 'instanceSize' to be non-null");
+            if ($.cosmosdbAccountId == null) {
+                throw new MissingRequiredPropertyException("SqlDedicatedGatewayArgs", "cosmosdbAccountId");
+            }
+            if ($.instanceCount == null) {
+                throw new MissingRequiredPropertyException("SqlDedicatedGatewayArgs", "instanceCount");
+            }
+            if ($.instanceSize == null) {
+                throw new MissingRequiredPropertyException("SqlDedicatedGatewayArgs", "instanceSize");
+            }
             return $;
         }
     }

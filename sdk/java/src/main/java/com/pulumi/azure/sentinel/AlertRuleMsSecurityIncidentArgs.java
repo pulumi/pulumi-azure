@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -451,10 +452,18 @@ public final class AlertRuleMsSecurityIncidentArgs extends com.pulumi.resources.
         }
 
         public AlertRuleMsSecurityIncidentArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.productFilter = Objects.requireNonNull($.productFilter, "expected parameter 'productFilter' to be non-null");
-            $.severityFilters = Objects.requireNonNull($.severityFilters, "expected parameter 'severityFilters' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleMsSecurityIncidentArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleMsSecurityIncidentArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.productFilter == null) {
+                throw new MissingRequiredPropertyException("AlertRuleMsSecurityIncidentArgs", "productFilter");
+            }
+            if ($.severityFilters == null) {
+                throw new MissingRequiredPropertyException("AlertRuleMsSecurityIncidentArgs", "severityFilters");
+            }
             return $;
         }
     }

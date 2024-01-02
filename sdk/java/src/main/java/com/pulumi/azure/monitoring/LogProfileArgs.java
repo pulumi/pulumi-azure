@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.LogProfileRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -283,9 +284,15 @@ public final class LogProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogProfileArgs build() {
-            $.categories = Objects.requireNonNull($.categories, "expected parameter 'categories' to be non-null");
-            $.locations = Objects.requireNonNull($.locations, "expected parameter 'locations' to be non-null");
-            $.retentionPolicy = Objects.requireNonNull($.retentionPolicy, "expected parameter 'retentionPolicy' to be non-null");
+            if ($.categories == null) {
+                throw new MissingRequiredPropertyException("LogProfileArgs", "categories");
+            }
+            if ($.locations == null) {
+                throw new MissingRequiredPropertyException("LogProfileArgs", "locations");
+            }
+            if ($.retentionPolicy == null) {
+                throw new MissingRequiredPropertyException("LogProfileArgs", "retentionPolicy");
+            }
             return $;
         }
     }

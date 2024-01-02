@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ClusterReverseProxyCertificateArgs extends com.pulumi.resourc
         }
 
         public ClusterReverseProxyCertificateArgs build() {
-            $.thumbprint = Objects.requireNonNull($.thumbprint, "expected parameter 'thumbprint' to be non-null");
-            $.x509StoreName = Objects.requireNonNull($.x509StoreName, "expected parameter 'x509StoreName' to be non-null");
+            if ($.thumbprint == null) {
+                throw new MissingRequiredPropertyException("ClusterReverseProxyCertificateArgs", "thumbprint");
+            }
+            if ($.x509StoreName == null) {
+                throw new MissingRequiredPropertyException("ClusterReverseProxyCertificateArgs", "x509StoreName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
 
         @CustomType.Setter
         public Builder maxSurge(String maxSurge) {
-            this.maxSurge = Objects.requireNonNull(maxSurge);
+            if (maxSurge == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterNodePoolUpgradeSettings", "maxSurge");
+            }
+            this.maxSurge = maxSurge;
             return this;
         }
         public KubernetesClusterNodePoolUpgradeSettings build() {

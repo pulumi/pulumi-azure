@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class NetworkSimStaticIpConfiguration {
 
         @CustomType.Setter
         public Builder attachedDataNetworkId(String attachedDataNetworkId) {
-            this.attachedDataNetworkId = Objects.requireNonNull(attachedDataNetworkId);
+            if (attachedDataNetworkId == null) {
+              throw new MissingRequiredPropertyException("NetworkSimStaticIpConfiguration", "attachedDataNetworkId");
+            }
+            this.attachedDataNetworkId = attachedDataNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder sliceId(String sliceId) {
-            this.sliceId = Objects.requireNonNull(sliceId);
+            if (sliceId == null) {
+              throw new MissingRequiredPropertyException("NetworkSimStaticIpConfiguration", "sliceId");
+            }
+            this.sliceId = sliceId;
             return this;
         }
         @CustomType.Setter
         public Builder staticIpv4Address(@Nullable String staticIpv4Address) {
+
             this.staticIpv4Address = staticIpv4Address;
             return this;
         }

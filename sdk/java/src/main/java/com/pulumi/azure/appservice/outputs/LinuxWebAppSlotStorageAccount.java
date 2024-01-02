@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,48 @@ public final class LinuxWebAppSlotStorageAccount {
 
         @CustomType.Setter
         public Builder accessKey(String accessKey) {
-            this.accessKey = Objects.requireNonNull(accessKey);
+            if (accessKey == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotStorageAccount", "accessKey");
+            }
+            this.accessKey = accessKey;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotStorageAccount", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
+
             this.mountPath = mountPath;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotStorageAccount", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder shareName(String shareName) {
-            this.shareName = Objects.requireNonNull(shareName);
+            if (shareName == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotStorageAccount", "shareName");
+            }
+            this.shareName = shareName;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotStorageAccount", "type");
+            }
+            this.type = type;
             return this;
         }
         public LinuxWebAppSlotStorageAccount build() {

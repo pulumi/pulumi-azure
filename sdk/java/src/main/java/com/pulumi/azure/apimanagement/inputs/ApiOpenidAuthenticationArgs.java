@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class ApiOpenidAuthenticationArgs extends com.pulumi.resources.Reso
         }
 
         public ApiOpenidAuthenticationArgs build() {
-            $.openidProviderName = Objects.requireNonNull($.openidProviderName, "expected parameter 'openidProviderName' to be non-null");
+            if ($.openidProviderName == null) {
+                throw new MissingRequiredPropertyException("ApiOpenidAuthenticationArgs", "openidProviderName");
+            }
             return $;
         }
     }

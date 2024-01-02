@@ -103,11 +103,13 @@ public final class NamespaceNetworkRuleSet {
 
         @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
+
             this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }
@@ -116,6 +118,7 @@ public final class NamespaceNetworkRuleSet {
         }
         @CustomType.Setter
         public Builder networkRules(@Nullable List<NamespaceNetworkRuleSetNetworkRule> networkRules) {
+
             this.networkRules = networkRules;
             return this;
         }
@@ -124,11 +127,13 @@ public final class NamespaceNetworkRuleSet {
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
+
             this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder trustedServicesAllowed(@Nullable Boolean trustedServicesAllowed) {
+
             this.trustedServicesAllowed = trustedServicesAllowed;
             return this;
         }

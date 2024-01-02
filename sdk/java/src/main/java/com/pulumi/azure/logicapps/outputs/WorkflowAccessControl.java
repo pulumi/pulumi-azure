@@ -89,21 +89,25 @@ public final class WorkflowAccessControl {
 
         @CustomType.Setter
         public Builder action(@Nullable WorkflowAccessControlAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder content(@Nullable WorkflowAccessControlContent content) {
+
             this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder trigger(@Nullable WorkflowAccessControlTrigger trigger) {
+
             this.trigger = trigger;
             return this;
         }
         @CustomType.Setter
         public Builder workflowManagement(@Nullable WorkflowAccessControlWorkflowManagement workflowManagement) {
+
             this.workflowManagement = workflowManagement;
             return this;
         }

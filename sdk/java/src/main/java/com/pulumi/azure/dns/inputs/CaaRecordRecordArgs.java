@@ -5,6 +5,7 @@ package com.pulumi.azure.dns.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class CaaRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public CaaRecordRecordArgs build() {
-            $.flags = Objects.requireNonNull($.flags, "expected parameter 'flags' to be non-null");
-            $.tag = Objects.requireNonNull($.tag, "expected parameter 'tag' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.flags == null) {
+                throw new MissingRequiredPropertyException("CaaRecordRecordArgs", "flags");
+            }
+            if ($.tag == null) {
+                throw new MissingRequiredPropertyException("CaaRecordRecordArgs", "tag");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("CaaRecordRecordArgs", "value");
+            }
             return $;
         }
     }

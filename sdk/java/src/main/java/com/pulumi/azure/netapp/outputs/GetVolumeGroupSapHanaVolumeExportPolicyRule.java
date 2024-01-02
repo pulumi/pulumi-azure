@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -128,37 +129,58 @@ public final class GetVolumeGroupSapHanaVolumeExportPolicyRule {
 
         @CustomType.Setter
         public Builder allowedClients(String allowedClients) {
-            this.allowedClients = Objects.requireNonNull(allowedClients);
+            if (allowedClients == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "allowedClients");
+            }
+            this.allowedClients = allowedClients;
             return this;
         }
         @CustomType.Setter
         public Builder nfsv3Enabled(Boolean nfsv3Enabled) {
-            this.nfsv3Enabled = Objects.requireNonNull(nfsv3Enabled);
+            if (nfsv3Enabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "nfsv3Enabled");
+            }
+            this.nfsv3Enabled = nfsv3Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder nfsv41Enabled(Boolean nfsv41Enabled) {
-            this.nfsv41Enabled = Objects.requireNonNull(nfsv41Enabled);
+            if (nfsv41Enabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "nfsv41Enabled");
+            }
+            this.nfsv41Enabled = nfsv41Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder rootAccessEnabled(Boolean rootAccessEnabled) {
-            this.rootAccessEnabled = Objects.requireNonNull(rootAccessEnabled);
+            if (rootAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "rootAccessEnabled");
+            }
+            this.rootAccessEnabled = rootAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ruleIndex(Integer ruleIndex) {
-            this.ruleIndex = Objects.requireNonNull(ruleIndex);
+            if (ruleIndex == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "ruleIndex");
+            }
+            this.ruleIndex = ruleIndex;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadOnly(Boolean unixReadOnly) {
-            this.unixReadOnly = Objects.requireNonNull(unixReadOnly);
+            if (unixReadOnly == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "unixReadOnly");
+            }
+            this.unixReadOnly = unixReadOnly;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadWrite(Boolean unixReadWrite) {
-            this.unixReadWrite = Objects.requireNonNull(unixReadWrite);
+            if (unixReadWrite == null) {
+              throw new MissingRequiredPropertyException("GetVolumeGroupSapHanaVolumeExportPolicyRule", "unixReadWrite");
+            }
+            this.unixReadWrite = unixReadWrite;
             return this;
         }
         public GetVolumeGroupSapHanaVolumeExportPolicyRule build() {

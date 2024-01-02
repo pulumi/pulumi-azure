@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EndpointDeliveryRuleCacheExpirationActionArgs extends com.pul
         }
 
         public EndpointDeliveryRuleCacheExpirationActionArgs build() {
-            $.behavior = Objects.requireNonNull($.behavior, "expected parameter 'behavior' to be non-null");
+            if ($.behavior == null) {
+                throw new MissingRequiredPropertyException("EndpointDeliveryRuleCacheExpirationActionArgs", "behavior");
+            }
             return $;
         }
     }

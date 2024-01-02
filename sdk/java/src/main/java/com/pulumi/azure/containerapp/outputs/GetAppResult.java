@@ -10,6 +10,7 @@ import com.pulumi.azure.containerapp.outputs.GetAppRegistry;
 import com.pulumi.azure.containerapp.outputs.GetAppSecret;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -240,17 +241,26 @@ public final class GetAppResult {
 
         @CustomType.Setter
         public Builder containerAppEnvironmentId(String containerAppEnvironmentId) {
-            this.containerAppEnvironmentId = Objects.requireNonNull(containerAppEnvironmentId);
+            if (containerAppEnvironmentId == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "containerAppEnvironmentId");
+            }
+            this.containerAppEnvironmentId = containerAppEnvironmentId;
             return this;
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder daprs(List<GetAppDapr> daprs) {
-            this.daprs = Objects.requireNonNull(daprs);
+            if (daprs == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "daprs");
+            }
+            this.daprs = daprs;
             return this;
         }
         public Builder daprs(GetAppDapr... daprs) {
@@ -258,12 +268,18 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetAppIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetAppIdentity... identities) {
@@ -271,7 +287,10 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder ingresses(List<GetAppIngress> ingresses) {
-            this.ingresses = Objects.requireNonNull(ingresses);
+            if (ingresses == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "ingresses");
+            }
+            this.ingresses = ingresses;
             return this;
         }
         public Builder ingresses(GetAppIngress... ingresses) {
@@ -279,27 +298,42 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder latestRevisionFqdn(String latestRevisionFqdn) {
-            this.latestRevisionFqdn = Objects.requireNonNull(latestRevisionFqdn);
+            if (latestRevisionFqdn == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "latestRevisionFqdn");
+            }
+            this.latestRevisionFqdn = latestRevisionFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder latestRevisionName(String latestRevisionName) {
-            this.latestRevisionName = Objects.requireNonNull(latestRevisionName);
+            if (latestRevisionName == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "latestRevisionName");
+            }
+            this.latestRevisionName = latestRevisionName;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(List<String> outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         public Builder outboundIpAddresses(String... outboundIpAddresses) {
@@ -307,7 +341,10 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder registries(List<GetAppRegistry> registries) {
-            this.registries = Objects.requireNonNull(registries);
+            if (registries == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "registries");
+            }
+            this.registries = registries;
             return this;
         }
         public Builder registries(GetAppRegistry... registries) {
@@ -315,17 +352,26 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder revisionMode(String revisionMode) {
-            this.revisionMode = Objects.requireNonNull(revisionMode);
+            if (revisionMode == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "revisionMode");
+            }
+            this.revisionMode = revisionMode;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(List<GetAppSecret> secrets) {
-            this.secrets = Objects.requireNonNull(secrets);
+            if (secrets == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "secrets");
+            }
+            this.secrets = secrets;
             return this;
         }
         public Builder secrets(GetAppSecret... secrets) {
@@ -333,12 +379,18 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder templates(List<GetAppTemplate> templates) {
-            this.templates = Objects.requireNonNull(templates);
+            if (templates == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "templates");
+            }
+            this.templates = templates;
             return this;
         }
         public Builder templates(GetAppTemplate... templates) {
@@ -346,7 +398,10 @@ public final class GetAppResult {
         }
         @CustomType.Setter
         public Builder workloadProfileName(String workloadProfileName) {
-            this.workloadProfileName = Objects.requireNonNull(workloadProfileName);
+            if (workloadProfileName == null) {
+              throw new MissingRequiredPropertyException("GetAppResult", "workloadProfileName");
+            }
+            this.workloadProfileName = workloadProfileName;
             return this;
         }
         public GetAppResult build() {

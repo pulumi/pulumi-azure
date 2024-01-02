@@ -5,6 +5,7 @@ package com.pulumi.azure.databricks;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -400,10 +401,18 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         public VirtualNetworkPeeringArgs build() {
-            $.remoteAddressSpacePrefixes = Objects.requireNonNull($.remoteAddressSpacePrefixes, "expected parameter 'remoteAddressSpacePrefixes' to be non-null");
-            $.remoteVirtualNetworkId = Objects.requireNonNull($.remoteVirtualNetworkId, "expected parameter 'remoteVirtualNetworkId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.remoteAddressSpacePrefixes == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "remoteAddressSpacePrefixes");
+            }
+            if ($.remoteVirtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "remoteVirtualNetworkId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "resourceGroupName");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "workspaceId");
+            }
             return $;
         }
     }

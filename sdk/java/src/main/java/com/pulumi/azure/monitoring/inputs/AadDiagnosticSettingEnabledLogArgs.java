@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.AadDiagnosticSettingEnabledLogRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class AadDiagnosticSettingEnabledLogArgs extends com.pulumi.resourc
         }
 
         public AadDiagnosticSettingEnabledLogArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.retentionPolicy = Objects.requireNonNull($.retentionPolicy, "expected parameter 'retentionPolicy' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("AadDiagnosticSettingEnabledLogArgs", "category");
+            }
+            if ($.retentionPolicy == null) {
+                throw new MissingRequiredPropertyException("AadDiagnosticSettingEnabledLogArgs", "retentionPolicy");
+            }
             return $;
         }
     }

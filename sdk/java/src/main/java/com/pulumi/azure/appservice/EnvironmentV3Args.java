@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice;
 import com.pulumi.azure.appservice.inputs.EnvironmentV3ClusterSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -391,8 +392,12 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnvironmentV3Args build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EnvironmentV3Args", "resourceGroupName");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentV3Args", "subnetId");
+            }
             return $;
         }
     }

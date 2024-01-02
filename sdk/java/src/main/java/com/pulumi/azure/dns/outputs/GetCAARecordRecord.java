@@ -4,6 +4,7 @@
 package com.pulumi.azure.dns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetCAARecordRecord {
 
         @CustomType.Setter
         public Builder flags(Integer flags) {
-            this.flags = Objects.requireNonNull(flags);
+            if (flags == null) {
+              throw new MissingRequiredPropertyException("GetCAARecordRecord", "flags");
+            }
+            this.flags = flags;
             return this;
         }
         @CustomType.Setter
         public Builder tag(String tag) {
-            this.tag = Objects.requireNonNull(tag);
+            if (tag == null) {
+              throw new MissingRequiredPropertyException("GetCAARecordRecord", "tag");
+            }
+            this.tag = tag;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetCAARecordRecord", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetCAARecordRecord build() {

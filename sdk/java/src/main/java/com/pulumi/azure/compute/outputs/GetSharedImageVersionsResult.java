@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetSharedImageVersionsImage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -84,22 +85,34 @@ public final class GetSharedImageVersionsResult {
 
         @CustomType.Setter
         public Builder galleryName(String galleryName) {
-            this.galleryName = Objects.requireNonNull(galleryName);
+            if (galleryName == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsResult", "galleryName");
+            }
+            this.galleryName = galleryName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsResult", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder images(List<GetSharedImageVersionsImage> images) {
-            this.images = Objects.requireNonNull(images);
+            if (images == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsResult", "images");
+            }
+            this.images = images;
             return this;
         }
         public Builder images(GetSharedImageVersionsImage... images) {
@@ -107,11 +120,15 @@ public final class GetSharedImageVersionsResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tagsFilter(@Nullable Map<String,String> tagsFilter) {
+
             this.tagsFilter = tagsFilter;
             return this;
         }

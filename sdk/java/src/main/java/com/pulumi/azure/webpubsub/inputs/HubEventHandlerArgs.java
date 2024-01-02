@@ -6,6 +6,7 @@ package com.pulumi.azure.webpubsub.inputs;
 import com.pulumi.azure.webpubsub.inputs.HubEventHandlerAuthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class HubEventHandlerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public HubEventHandlerArgs build() {
-            $.urlTemplate = Objects.requireNonNull($.urlTemplate, "expected parameter 'urlTemplate' to be non-null");
+            if ($.urlTemplate == null) {
+                throw new MissingRequiredPropertyException("HubEventHandlerArgs", "urlTemplate");
+            }
             return $;
         }
     }

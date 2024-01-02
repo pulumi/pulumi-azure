@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetFrontdoorEndpointPlainArgs extends com.pulumi.resources.In
         }
 
         public GetFrontdoorEndpointPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.profileName = Objects.requireNonNull($.profileName, "expected parameter 'profileName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetFrontdoorEndpointPlainArgs", "name");
+            }
+            if ($.profileName == null) {
+                throw new MissingRequiredPropertyException("GetFrontdoorEndpointPlainArgs", "profileName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetFrontdoorEndpointPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.orbital.outputs;
 
 import com.pulumi.azure.orbital.outputs.ContactProfileLinkChannel;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,7 +87,10 @@ public final class ContactProfileLink {
 
         @CustomType.Setter
         public Builder channels(List<ContactProfileLinkChannel> channels) {
-            this.channels = Objects.requireNonNull(channels);
+            if (channels == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLink", "channels");
+            }
+            this.channels = channels;
             return this;
         }
         public Builder channels(ContactProfileLinkChannel... channels) {
@@ -94,17 +98,26 @@ public final class ContactProfileLink {
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLink", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLink", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder polarization(String polarization) {
-            this.polarization = Objects.requireNonNull(polarization);
+            if (polarization == null) {
+              throw new MissingRequiredPropertyException("ContactProfileLink", "polarization");
+            }
+            this.polarization = polarization;
             return this;
         }
         public ContactProfileLink build() {

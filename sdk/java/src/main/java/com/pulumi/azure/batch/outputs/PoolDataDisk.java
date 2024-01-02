@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class PoolDataDisk {
 
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
+
             this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
-            this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
+            if (diskSizeGb == null) {
+              throw new MissingRequiredPropertyException("PoolDataDisk", "diskSizeGb");
+            }
+            this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder lun(Integer lun) {
-            this.lun = Objects.requireNonNull(lun);
+            if (lun == null) {
+              throw new MissingRequiredPropertyException("PoolDataDisk", "lun");
+            }
+            this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(@Nullable String storageAccountType) {
+
             this.storageAccountType = storageAccountType;
             return this;
         }

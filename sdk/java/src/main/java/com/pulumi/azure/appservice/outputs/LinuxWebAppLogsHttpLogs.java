@@ -59,11 +59,13 @@ public final class LinuxWebAppLogsHttpLogs {
 
         @CustomType.Setter
         public Builder azureBlobStorage(@Nullable LinuxWebAppLogsHttpLogsAzureBlobStorage azureBlobStorage) {
+
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystem(@Nullable LinuxWebAppLogsHttpLogsFileSystem fileSystem) {
+
             this.fileSystem = fileSystem;
             return this;
         }

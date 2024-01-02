@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class ComputeClusterSshArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ComputeClusterSshArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterSshArgs", "adminUsername");
+            }
             return $;
         }
     }

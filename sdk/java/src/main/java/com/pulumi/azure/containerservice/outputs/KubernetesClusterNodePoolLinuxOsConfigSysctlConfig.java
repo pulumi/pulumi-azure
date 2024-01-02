@@ -437,146 +437,175 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
 
         @CustomType.Setter
         public Builder fsAioMaxNr(@Nullable Integer fsAioMaxNr) {
+
             this.fsAioMaxNr = fsAioMaxNr;
             return this;
         }
         @CustomType.Setter
         public Builder fsFileMax(@Nullable Integer fsFileMax) {
+
             this.fsFileMax = fsFileMax;
             return this;
         }
         @CustomType.Setter
         public Builder fsInotifyMaxUserWatches(@Nullable Integer fsInotifyMaxUserWatches) {
+
             this.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
             return this;
         }
         @CustomType.Setter
         public Builder fsNrOpen(@Nullable Integer fsNrOpen) {
+
             this.fsNrOpen = fsNrOpen;
             return this;
         }
         @CustomType.Setter
         public Builder kernelThreadsMax(@Nullable Integer kernelThreadsMax) {
+
             this.kernelThreadsMax = kernelThreadsMax;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreNetdevMaxBacklog(@Nullable Integer netCoreNetdevMaxBacklog) {
+
             this.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreOptmemMax(@Nullable Integer netCoreOptmemMax) {
+
             this.netCoreOptmemMax = netCoreOptmemMax;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreRmemDefault(@Nullable Integer netCoreRmemDefault) {
+
             this.netCoreRmemDefault = netCoreRmemDefault;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreRmemMax(@Nullable Integer netCoreRmemMax) {
+
             this.netCoreRmemMax = netCoreRmemMax;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreSomaxconn(@Nullable Integer netCoreSomaxconn) {
+
             this.netCoreSomaxconn = netCoreSomaxconn;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreWmemDefault(@Nullable Integer netCoreWmemDefault) {
+
             this.netCoreWmemDefault = netCoreWmemDefault;
             return this;
         }
         @CustomType.Setter
         public Builder netCoreWmemMax(@Nullable Integer netCoreWmemMax) {
+
             this.netCoreWmemMax = netCoreWmemMax;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4IpLocalPortRangeMax(@Nullable Integer netIpv4IpLocalPortRangeMax) {
+
             this.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4IpLocalPortRangeMin(@Nullable Integer netIpv4IpLocalPortRangeMin) {
+
             this.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh1(@Nullable Integer netIpv4NeighDefaultGcThresh1) {
+
             this.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh2(@Nullable Integer netIpv4NeighDefaultGcThresh2) {
+
             this.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh3(@Nullable Integer netIpv4NeighDefaultGcThresh3) {
+
             this.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpFinTimeout(@Nullable Integer netIpv4TcpFinTimeout) {
+
             this.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpKeepaliveIntvl(@Nullable Integer netIpv4TcpKeepaliveIntvl) {
+
             this.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpKeepaliveProbes(@Nullable Integer netIpv4TcpKeepaliveProbes) {
+
             this.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpKeepaliveTime(@Nullable Integer netIpv4TcpKeepaliveTime) {
+
             this.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpMaxSynBacklog(@Nullable Integer netIpv4TcpMaxSynBacklog) {
+
             this.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpMaxTwBuckets(@Nullable Integer netIpv4TcpMaxTwBuckets) {
+
             this.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
             return this;
         }
         @CustomType.Setter
         public Builder netIpv4TcpTwReuse(@Nullable Boolean netIpv4TcpTwReuse) {
+
             this.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
             return this;
         }
         @CustomType.Setter
         public Builder netNetfilterNfConntrackBuckets(@Nullable Integer netNetfilterNfConntrackBuckets) {
+
             this.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
             return this;
         }
         @CustomType.Setter
         public Builder netNetfilterNfConntrackMax(@Nullable Integer netNetfilterNfConntrackMax) {
+
             this.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
             return this;
         }
         @CustomType.Setter
         public Builder vmMaxMapCount(@Nullable Integer vmMaxMapCount) {
+
             this.vmMaxMapCount = vmMaxMapCount;
             return this;
         }
         @CustomType.Setter
         public Builder vmSwappiness(@Nullable Integer vmSwappiness) {
+
             this.vmSwappiness = vmSwappiness;
             return this;
         }
         @CustomType.Setter
         public Builder vmVfsCachePressure(@Nullable Integer vmVfsCachePressure) {
+
             this.vmVfsCachePressure = vmVfsCachePressure;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.azure.appservice.outputs.GetAppServiceSiteConfigCor;
 import com.pulumi.azure.appservice.outputs.GetAppServiceSiteConfigIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetAppServiceSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -454,27 +455,42 @@ public final class GetAppServiceSiteConfig {
 
         @CustomType.Setter
         public Builder acrUseManagedIdentityCredentials(Boolean acrUseManagedIdentityCredentials) {
-            this.acrUseManagedIdentityCredentials = Objects.requireNonNull(acrUseManagedIdentityCredentials);
+            if (acrUseManagedIdentityCredentials == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "acrUseManagedIdentityCredentials");
+            }
+            this.acrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder acrUserManagedIdentityClientId(String acrUserManagedIdentityClientId) {
-            this.acrUserManagedIdentityClientId = Objects.requireNonNull(acrUserManagedIdentityClientId);
+            if (acrUserManagedIdentityClientId == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "acrUserManagedIdentityClientId");
+            }
+            this.acrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
-            this.alwaysOn = Objects.requireNonNull(alwaysOn);
+            if (alwaysOn == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "alwaysOn");
+            }
+            this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder appCommandLine(String appCommandLine) {
-            this.appCommandLine = Objects.requireNonNull(appCommandLine);
+            if (appCommandLine == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "appCommandLine");
+            }
+            this.appCommandLine = appCommandLine;
             return this;
         }
         @CustomType.Setter
         public Builder cors(List<GetAppServiceSiteConfigCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetAppServiceSiteConfigCor... cors) {
@@ -482,7 +498,10 @@ public final class GetAppServiceSiteConfig {
         }
         @CustomType.Setter
         public Builder defaultDocuments(List<String> defaultDocuments) {
-            this.defaultDocuments = Objects.requireNonNull(defaultDocuments);
+            if (defaultDocuments == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "defaultDocuments");
+            }
+            this.defaultDocuments = defaultDocuments;
             return this;
         }
         public Builder defaultDocuments(String... defaultDocuments) {
@@ -490,27 +509,42 @@ public final class GetAppServiceSiteConfig {
         }
         @CustomType.Setter
         public Builder dotnetFrameworkVersion(String dotnetFrameworkVersion) {
-            this.dotnetFrameworkVersion = Objects.requireNonNull(dotnetFrameworkVersion);
+            if (dotnetFrameworkVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "dotnetFrameworkVersion");
+            }
+            this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
-            this.ftpsState = Objects.requireNonNull(ftpsState);
+            if (ftpsState == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "ftpsState");
+            }
+            this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
-            this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
+            if (healthCheckPath == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "healthCheckPath");
+            }
+            this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(List<GetAppServiceSiteConfigIpRestriction> ipRestrictions) {
-            this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
+            if (ipRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "ipRestrictions");
+            }
+            this.ipRestrictions = ipRestrictions;
             return this;
         }
         public Builder ipRestrictions(GetAppServiceSiteConfigIpRestriction... ipRestrictions) {
@@ -518,67 +552,106 @@ public final class GetAppServiceSiteConfig {
         }
         @CustomType.Setter
         public Builder javaContainer(String javaContainer) {
-            this.javaContainer = Objects.requireNonNull(javaContainer);
+            if (javaContainer == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "javaContainer");
+            }
+            this.javaContainer = javaContainer;
             return this;
         }
         @CustomType.Setter
         public Builder javaContainerVersion(String javaContainerVersion) {
-            this.javaContainerVersion = Objects.requireNonNull(javaContainerVersion);
+            if (javaContainerVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "javaContainerVersion");
+            }
+            this.javaContainerVersion = javaContainerVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
-            this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
+            if (linuxFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "linuxFxVersion");
+            }
+            this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder localMysqlEnabled(Boolean localMysqlEnabled) {
-            this.localMysqlEnabled = Objects.requireNonNull(localMysqlEnabled);
+            if (localMysqlEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "localMysqlEnabled");
+            }
+            this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder managedPipelineMode(String managedPipelineMode) {
-            this.managedPipelineMode = Objects.requireNonNull(managedPipelineMode);
+            if (managedPipelineMode == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "managedPipelineMode");
+            }
+            this.managedPipelineMode = managedPipelineMode;
             return this;
         }
         @CustomType.Setter
         public Builder minTlsVersion(String minTlsVersion) {
-            this.minTlsVersion = Objects.requireNonNull(minTlsVersion);
+            if (minTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "minTlsVersion");
+            }
+            this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfWorkers(Integer numberOfWorkers) {
-            this.numberOfWorkers = Objects.requireNonNull(numberOfWorkers);
+            if (numberOfWorkers == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "numberOfWorkers");
+            }
+            this.numberOfWorkers = numberOfWorkers;
             return this;
         }
         @CustomType.Setter
         public Builder phpVersion(String phpVersion) {
-            this.phpVersion = Objects.requireNonNull(phpVersion);
+            if (phpVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "phpVersion");
+            }
+            this.phpVersion = phpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
-            this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            if (pythonVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "pythonVersion");
+            }
+            this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
-            this.remoteDebuggingEnabled = Objects.requireNonNull(remoteDebuggingEnabled);
+            if (remoteDebuggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "remoteDebuggingEnabled");
+            }
+            this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
-            this.remoteDebuggingVersion = Objects.requireNonNull(remoteDebuggingVersion);
+            if (remoteDebuggingVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "remoteDebuggingVersion");
+            }
+            this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(List<GetAppServiceSiteConfigScmIpRestriction> scmIpRestrictions) {
-            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            if (scmIpRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "scmIpRestrictions");
+            }
+            this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
         public Builder scmIpRestrictions(GetAppServiceSiteConfigScmIpRestriction... scmIpRestrictions) {
@@ -586,32 +659,50 @@ public final class GetAppServiceSiteConfig {
         }
         @CustomType.Setter
         public Builder scmType(String scmType) {
-            this.scmType = Objects.requireNonNull(scmType);
+            if (scmType == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "scmType");
+            }
+            this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
-            this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
+            if (scmUseMainIpRestriction == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "scmUseMainIpRestriction");
+            }
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorkerProcess(Boolean use32BitWorkerProcess) {
-            this.use32BitWorkerProcess = Objects.requireNonNull(use32BitWorkerProcess);
+            if (use32BitWorkerProcess == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "use32BitWorkerProcess");
+            }
+            this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
-            this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
+            if (vnetRouteAllEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "vnetRouteAllEnabled");
+            }
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
-            this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
+            if (websocketsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "websocketsEnabled");
+            }
+            this.websocketsEnabled = websocketsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder windowsFxVersion(String windowsFxVersion) {
-            this.windowsFxVersion = Objects.requireNonNull(windowsFxVersion);
+            if (windowsFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfig", "windowsFxVersion");
+            }
+            this.windowsFxVersion = windowsFxVersion;
             return this;
         }
         public GetAppServiceSiteConfig build() {

@@ -118,26 +118,31 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
 
         @CustomType.Setter
         public Builder method(@Nullable String method) {
+
             this.method = method;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder preferHttps(@Nullable Boolean preferHttps) {
+
             this.preferHttps = preferHttps;
             return this;
         }
         @CustomType.Setter
         public Builder requestHeaders(@Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders) {
+
             this.requestHeaders = requestHeaders;
             return this;
         }
@@ -146,6 +151,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
         }
         @CustomType.Setter
         public Builder validStatusCodeRanges(@Nullable List<String> validStatusCodeRanges) {
+
             this.validStatusCodeRanges = validStatusCodeRanges;
             return this;
         }

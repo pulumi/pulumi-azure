@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppLogHttpLogAzureBlobStorage;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppLogHttpLogFileSystem;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetLinuxWebAppLogHttpLog {
 
         @CustomType.Setter
         public Builder azureBlobStorages(List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages) {
-            this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
+            if (azureBlobStorages == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLogHttpLog", "azureBlobStorages");
+            }
+            this.azureBlobStorages = azureBlobStorages;
             return this;
         }
         public Builder azureBlobStorages(GetLinuxWebAppLogHttpLogAzureBlobStorage... azureBlobStorages) {
@@ -66,7 +70,10 @@ public final class GetLinuxWebAppLogHttpLog {
         }
         @CustomType.Setter
         public Builder fileSystems(List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems) {
-            this.fileSystems = Objects.requireNonNull(fileSystems);
+            if (fileSystems == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLogHttpLog", "fileSystems");
+            }
+            this.fileSystems = fileSystems;
             return this;
         }
         public Builder fileSystems(GetLinuxWebAppLogHttpLogFileSystem... fileSystems) {

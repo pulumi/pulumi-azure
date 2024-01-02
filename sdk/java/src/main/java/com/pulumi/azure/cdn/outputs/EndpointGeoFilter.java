@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,12 +72,18 @@ public final class EndpointGeoFilter {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("EndpointGeoFilter", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
-            this.countryCodes = Objects.requireNonNull(countryCodes);
+            if (countryCodes == null) {
+              throw new MissingRequiredPropertyException("EndpointGeoFilter", "countryCodes");
+            }
+            this.countryCodes = countryCodes;
             return this;
         }
         public Builder countryCodes(String... countryCodes) {
@@ -84,7 +91,10 @@ public final class EndpointGeoFilter {
         }
         @CustomType.Setter
         public Builder relativePath(String relativePath) {
-            this.relativePath = Objects.requireNonNull(relativePath);
+            if (relativePath == null) {
+              throw new MissingRequiredPropertyException("EndpointGeoFilter", "relativePath");
+            }
+            this.relativePath = relativePath;
             return this;
         }
         public EndpointGeoFilter build() {

@@ -114,31 +114,37 @@ public final class DomainInputMappingFields {
 
         @CustomType.Setter
         public Builder dataVersion(@Nullable String dataVersion) {
+
             this.dataVersion = dataVersion;
             return this;
         }
         @CustomType.Setter
         public Builder eventTime(@Nullable String eventTime) {
+
             this.eventTime = eventTime;
             return this;
         }
         @CustomType.Setter
         public Builder eventType(@Nullable String eventType) {
+
             this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder subject(@Nullable String subject) {
+
             this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder topic(@Nullable String topic) {
+
             this.topic = topic;
             return this;
         }

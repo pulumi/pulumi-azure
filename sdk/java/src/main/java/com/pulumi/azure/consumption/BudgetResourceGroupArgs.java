@@ -8,6 +8,7 @@ import com.pulumi.azure.consumption.inputs.BudgetResourceGroupNotificationArgs;
 import com.pulumi.azure.consumption.inputs.BudgetResourceGroupTimePeriodArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -350,10 +351,18 @@ public final class BudgetResourceGroupArgs extends com.pulumi.resources.Resource
         }
 
         public BudgetResourceGroupArgs build() {
-            $.amount = Objects.requireNonNull($.amount, "expected parameter 'amount' to be non-null");
-            $.notifications = Objects.requireNonNull($.notifications, "expected parameter 'notifications' to be non-null");
-            $.resourceGroupId = Objects.requireNonNull($.resourceGroupId, "expected parameter 'resourceGroupId' to be non-null");
-            $.timePeriod = Objects.requireNonNull($.timePeriod, "expected parameter 'timePeriod' to be non-null");
+            if ($.amount == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceGroupArgs", "amount");
+            }
+            if ($.notifications == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceGroupArgs", "notifications");
+            }
+            if ($.resourceGroupId == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceGroupArgs", "resourceGroupId");
+            }
+            if ($.timePeriod == null) {
+                throw new MissingRequiredPropertyException("BudgetResourceGroupArgs", "timePeriod");
+            }
             return $;
         }
     }

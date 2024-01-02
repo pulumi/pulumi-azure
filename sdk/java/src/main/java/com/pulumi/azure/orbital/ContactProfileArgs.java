@@ -6,6 +6,7 @@ package com.pulumi.azure.orbital;
 import com.pulumi.azure.orbital.inputs.ContactProfileLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -423,11 +424,21 @@ public final class ContactProfileArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ContactProfileArgs build() {
-            $.autoTracking = Objects.requireNonNull($.autoTracking, "expected parameter 'autoTracking' to be non-null");
-            $.links = Objects.requireNonNull($.links, "expected parameter 'links' to be non-null");
-            $.minimumVariableContactDuration = Objects.requireNonNull($.minimumVariableContactDuration, "expected parameter 'minimumVariableContactDuration' to be non-null");
-            $.networkConfigurationSubnetId = Objects.requireNonNull($.networkConfigurationSubnetId, "expected parameter 'networkConfigurationSubnetId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.autoTracking == null) {
+                throw new MissingRequiredPropertyException("ContactProfileArgs", "autoTracking");
+            }
+            if ($.links == null) {
+                throw new MissingRequiredPropertyException("ContactProfileArgs", "links");
+            }
+            if ($.minimumVariableContactDuration == null) {
+                throw new MissingRequiredPropertyException("ContactProfileArgs", "minimumVariableContactDuration");
+            }
+            if ($.networkConfigurationSubnetId == null) {
+                throw new MissingRequiredPropertyException("ContactProfileArgs", "networkConfigurationSubnetId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ContactProfileArgs", "resourceGroupName");
+            }
             return $;
         }
     }

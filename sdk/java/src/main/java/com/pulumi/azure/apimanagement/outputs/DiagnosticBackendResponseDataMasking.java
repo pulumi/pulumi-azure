@@ -59,6 +59,7 @@ public final class DiagnosticBackendResponseDataMasking {
 
         @CustomType.Setter
         public Builder headers(@Nullable List<DiagnosticBackendResponseDataMaskingHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -67,6 +68,7 @@ public final class DiagnosticBackendResponseDataMasking {
         }
         @CustomType.Setter
         public Builder queryParams(@Nullable List<DiagnosticBackendResponseDataMaskingQueryParam> queryParams) {
+
             this.queryParams = queryParams;
             return this;
         }

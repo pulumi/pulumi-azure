@@ -5,6 +5,7 @@ package com.pulumi.azure.dashboard.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class Azurerm_portal_dashboardArgs extends com.pulumi.resources.Inv
         }
 
         public Azurerm_portal_dashboardArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("Azurerm_portal_dashboardArgs", "resourceGroupName");
+            }
             return $;
         }
     }

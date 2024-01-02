@@ -58,11 +58,13 @@ public final class MongoRoleDefinitionPrivilegeResource {
 
         @CustomType.Setter
         public Builder collectionName(@Nullable String collectionName) {
+
             this.collectionName = collectionName;
             return this;
         }
         @CustomType.Setter
         public Builder dbName(@Nullable String dbName) {
+
             this.dbName = dbName;
             return this;
         }

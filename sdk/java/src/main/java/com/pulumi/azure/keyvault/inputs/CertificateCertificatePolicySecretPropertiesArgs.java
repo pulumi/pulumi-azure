@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class CertificateCertificatePolicySecretPropertiesArgs extends com.
         }
 
         public CertificateCertificatePolicySecretPropertiesArgs build() {
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicySecretPropertiesArgs", "contentType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -374,7 +375,9 @@ public final class IntegrationRuntimeRuleArgs extends com.pulumi.resources.Resou
         }
 
         public IntegrationRuntimeRuleArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeRuleArgs", "dataFactoryId");
+            }
             return $;
         }
     }

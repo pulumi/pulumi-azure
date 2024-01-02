@@ -251,71 +251,85 @@ public final class ManagementPolicyRuleActionsBaseBlob {
 
         @CustomType.Setter
         public Builder autoTierToHotFromCoolEnabled(@Nullable Boolean autoTierToHotFromCoolEnabled) {
+
             this.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(@Nullable Integer deleteAfterDaysSinceCreationGreaterThan) {
+
             this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan) {
+
             this.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceModificationGreaterThan(@Nullable Integer deleteAfterDaysSinceModificationGreaterThan) {
+
             this.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceCreationGreaterThan) {
+
             this.tierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan) {
+
             this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
+
             this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan) {
+
             this.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+
             this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan) {
+
             this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceModificationGreaterThan) {
+
             this.tierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceCreationGreaterThan) {
+
             this.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan) {
+
             this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan) {
+
             this.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
             return this;
         }

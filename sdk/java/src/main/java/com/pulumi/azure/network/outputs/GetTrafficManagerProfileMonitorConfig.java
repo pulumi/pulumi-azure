@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetTrafficManagerProfileMonitorConfigCustomHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -143,7 +144,10 @@ public final class GetTrafficManagerProfileMonitorConfig {
 
         @CustomType.Setter
         public Builder customHeaders(List<GetTrafficManagerProfileMonitorConfigCustomHeader> customHeaders) {
-            this.customHeaders = Objects.requireNonNull(customHeaders);
+            if (customHeaders == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "customHeaders");
+            }
+            this.customHeaders = customHeaders;
             return this;
         }
         public Builder customHeaders(GetTrafficManagerProfileMonitorConfigCustomHeader... customHeaders) {
@@ -151,7 +155,10 @@ public final class GetTrafficManagerProfileMonitorConfig {
         }
         @CustomType.Setter
         public Builder expectedStatusCodeRanges(List<String> expectedStatusCodeRanges) {
-            this.expectedStatusCodeRanges = Objects.requireNonNull(expectedStatusCodeRanges);
+            if (expectedStatusCodeRanges == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "expectedStatusCodeRanges");
+            }
+            this.expectedStatusCodeRanges = expectedStatusCodeRanges;
             return this;
         }
         public Builder expectedStatusCodeRanges(String... expectedStatusCodeRanges) {
@@ -159,32 +166,50 @@ public final class GetTrafficManagerProfileMonitorConfig {
         }
         @CustomType.Setter
         public Builder intervalInSeconds(Integer intervalInSeconds) {
-            this.intervalInSeconds = Objects.requireNonNull(intervalInSeconds);
+            if (intervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "intervalInSeconds");
+            }
+            this.intervalInSeconds = intervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(Integer timeoutInSeconds) {
-            this.timeoutInSeconds = Objects.requireNonNull(timeoutInSeconds);
+            if (timeoutInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "timeoutInSeconds");
+            }
+            this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder toleratedNumberOfFailures(Integer toleratedNumberOfFailures) {
-            this.toleratedNumberOfFailures = Objects.requireNonNull(toleratedNumberOfFailures);
+            if (toleratedNumberOfFailures == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileMonitorConfig", "toleratedNumberOfFailures");
+            }
+            this.toleratedNumberOfFailures = toleratedNumberOfFailures;
             return this;
         }
         public GetTrafficManagerProfileMonitorConfig build() {

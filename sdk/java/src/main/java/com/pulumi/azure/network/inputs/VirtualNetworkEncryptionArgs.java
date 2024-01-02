@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class VirtualNetworkEncryptionArgs extends com.pulumi.resources.Res
         }
 
         public VirtualNetworkEncryptionArgs build() {
-            $.enforcement = Objects.requireNonNull($.enforcement, "expected parameter 'enforcement' to be non-null");
+            if ($.enforcement == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkEncryptionArgs", "enforcement");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApplicationSecurityGroupAssociationArgs extends com.pulumi.re
         }
 
         public ApplicationSecurityGroupAssociationArgs build() {
-            $.applicationSecurityGroupId = Objects.requireNonNull($.applicationSecurityGroupId, "expected parameter 'applicationSecurityGroupId' to be non-null");
-            $.privateEndpointId = Objects.requireNonNull($.privateEndpointId, "expected parameter 'privateEndpointId' to be non-null");
+            if ($.applicationSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("ApplicationSecurityGroupAssociationArgs", "applicationSecurityGroupId");
+            }
+            if ($.privateEndpointId == null) {
+                throw new MissingRequiredPropertyException("ApplicationSecurityGroupAssociationArgs", "privateEndpointId");
+            }
             return $;
         }
     }

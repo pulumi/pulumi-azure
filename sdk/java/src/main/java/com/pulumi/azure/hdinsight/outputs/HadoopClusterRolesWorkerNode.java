@@ -6,6 +6,7 @@ package com.pulumi.azure.hdinsight.outputs;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesWorkerNodeAutoscale;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesWorkerNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -168,16 +169,19 @@ public final class HadoopClusterRolesWorkerNode {
 
         @CustomType.Setter
         public Builder autoscale(@Nullable HadoopClusterRolesWorkerNodeAutoscale autoscale) {
+
             this.autoscale = autoscale;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder scriptActions(@Nullable List<HadoopClusterRolesWorkerNodeScriptAction> scriptActions) {
+
             this.scriptActions = scriptActions;
             return this;
         }
@@ -186,6 +190,7 @@ public final class HadoopClusterRolesWorkerNode {
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
+
             this.sshKeys = sshKeys;
             return this;
         }
@@ -194,27 +199,38 @@ public final class HadoopClusterRolesWorkerNode {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
-            this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
+            if (targetInstanceCount == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNode", "targetInstanceCount");
+            }
+            this.targetInstanceCount = targetInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNode", "username");
+            }
+            this.username = username;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(@Nullable String virtualNetworkId) {
+
             this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNode", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         public HadoopClusterRolesWorkerNode build() {

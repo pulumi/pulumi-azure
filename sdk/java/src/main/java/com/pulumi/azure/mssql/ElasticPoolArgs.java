@@ -7,6 +7,7 @@ import com.pulumi.azure.mssql.inputs.ElasticPoolPerDatabaseSettingsArgs;
 import com.pulumi.azure.mssql.inputs.ElasticPoolSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -550,10 +551,18 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ElasticPoolArgs build() {
-            $.perDatabaseSettings = Objects.requireNonNull($.perDatabaseSettings, "expected parameter 'perDatabaseSettings' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.perDatabaseSettings == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "perDatabaseSettings");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "serverName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "sku");
+            }
             return $;
         }
     }

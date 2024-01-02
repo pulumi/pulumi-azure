@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.azure.containerapp.outputs.AppTemplateInitContainerEnv;
 import com.pulumi.azure.containerapp.outputs.AppTemplateInitContainerVolumeMount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -172,6 +173,7 @@ public final class AppTemplateInitContainer {
 
         @CustomType.Setter
         public Builder args(@Nullable List<String> args) {
+
             this.args = args;
             return this;
         }
@@ -180,6 +182,7 @@ public final class AppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -188,11 +191,13 @@ public final class AppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder cpu(@Nullable Double cpu) {
+
             this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder envs(@Nullable List<AppTemplateInitContainerEnv> envs) {
+
             this.envs = envs;
             return this;
         }
@@ -201,26 +206,35 @@ public final class AppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder ephemeralStorage(@Nullable String ephemeralStorage) {
+
             this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("AppTemplateInitContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder memory(@Nullable String memory) {
+
             this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AppTemplateInitContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder volumeMounts(@Nullable List<AppTemplateInitContainerVolumeMount> volumeMounts) {
+
             this.volumeMounts = volumeMounts;
             return this;
         }

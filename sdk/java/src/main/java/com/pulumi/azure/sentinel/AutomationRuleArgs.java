@@ -8,6 +8,7 @@ import com.pulumi.azure.sentinel.inputs.AutomationRuleActionPlaybookArgs;
 import com.pulumi.azure.sentinel.inputs.AutomationRuleConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -559,9 +560,15 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AutomationRuleArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleArgs", "order");
+            }
             return $;
         }
     }

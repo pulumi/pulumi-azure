@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.MetricAlertCriteriaDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -132,11 +133,15 @@ public final class MetricAlertCriteria {
 
         @CustomType.Setter
         public Builder aggregation(String aggregation) {
-            this.aggregation = Objects.requireNonNull(aggregation);
+            if (aggregation == null) {
+              throw new MissingRequiredPropertyException("MetricAlertCriteria", "aggregation");
+            }
+            this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder dimensions(@Nullable List<MetricAlertCriteriaDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -145,27 +150,40 @@ public final class MetricAlertCriteria {
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("MetricAlertCriteria", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
-            this.metricNamespace = Objects.requireNonNull(metricNamespace);
+            if (metricNamespace == null) {
+              throw new MissingRequiredPropertyException("MetricAlertCriteria", "metricNamespace");
+            }
+            this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("MetricAlertCriteria", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder skipMetricValidation(@Nullable Boolean skipMetricValidation) {
+
             this.skipMetricValidation = skipMetricValidation;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("MetricAlertCriteria", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         public MetricAlertCriteria build() {

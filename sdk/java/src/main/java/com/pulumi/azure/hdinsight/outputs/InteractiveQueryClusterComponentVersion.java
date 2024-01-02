@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class InteractiveQueryClusterComponentVersion {
 
         @CustomType.Setter
         public Builder interactiveHive(String interactiveHive) {
-            this.interactiveHive = Objects.requireNonNull(interactiveHive);
+            if (interactiveHive == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterComponentVersion", "interactiveHive");
+            }
+            this.interactiveHive = interactiveHive;
             return this;
         }
         public InteractiveQueryClusterComponentVersion build() {

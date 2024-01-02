@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.azure.siterecovery.outputs.ReplicatedVMManagedDiskTargetDiskEncryption;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -133,37 +134,54 @@ public final class ReplicatedVMManagedDisk {
 
         @CustomType.Setter
         public Builder diskId(String diskId) {
-            this.diskId = Objects.requireNonNull(diskId);
+            if (diskId == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDisk", "diskId");
+            }
+            this.diskId = diskId;
             return this;
         }
         @CustomType.Setter
         public Builder stagingStorageAccountId(String stagingStorageAccountId) {
-            this.stagingStorageAccountId = Objects.requireNonNull(stagingStorageAccountId);
+            if (stagingStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDisk", "stagingStorageAccountId");
+            }
+            this.stagingStorageAccountId = stagingStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder targetDiskEncryption(@Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption) {
+
             this.targetDiskEncryption = targetDiskEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder targetDiskEncryptionSetId(@Nullable String targetDiskEncryptionSetId) {
+
             this.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder targetDiskType(String targetDiskType) {
-            this.targetDiskType = Objects.requireNonNull(targetDiskType);
+            if (targetDiskType == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDisk", "targetDiskType");
+            }
+            this.targetDiskType = targetDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder targetReplicaDiskType(String targetReplicaDiskType) {
-            this.targetReplicaDiskType = Objects.requireNonNull(targetReplicaDiskType);
+            if (targetReplicaDiskType == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDisk", "targetReplicaDiskType");
+            }
+            this.targetReplicaDiskType = targetReplicaDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceGroupId(String targetResourceGroupId) {
-            this.targetResourceGroupId = Objects.requireNonNull(targetResourceGroupId);
+            if (targetResourceGroupId == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDisk", "targetResourceGroupId");
+            }
+            this.targetResourceGroupId = targetResourceGroupId;
             return this;
         }
         public ReplicatedVMManagedDisk build() {

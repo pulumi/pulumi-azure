@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.inputs;
 import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs build() {
-            $.domains = Objects.requireNonNull($.domains, "expected parameter 'domains' to be non-null");
-            $.patternsToMatch = Objects.requireNonNull($.patternsToMatch, "expected parameter 'patternsToMatch' to be non-null");
+            if ($.domains == null) {
+                throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs", "domains");
+            }
+            if ($.patternsToMatch == null) {
+                throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs", "patternsToMatch");
+            }
             return $;
         }
     }

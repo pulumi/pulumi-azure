@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -800,11 +801,21 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         public ScheduledQueryRulesAlertV2Args build() {
-            $.criterias = Objects.requireNonNull($.criterias, "expected parameter 'criterias' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
-            $.severity = Objects.requireNonNull($.severity, "expected parameter 'severity' to be non-null");
-            $.windowDuration = Objects.requireNonNull($.windowDuration, "expected parameter 'windowDuration' to be non-null");
+            if ($.criterias == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "criterias");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "scopes");
+            }
+            if ($.severity == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "severity");
+            }
+            if ($.windowDuration == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Args", "windowDuration");
+            }
             return $;
         }
     }

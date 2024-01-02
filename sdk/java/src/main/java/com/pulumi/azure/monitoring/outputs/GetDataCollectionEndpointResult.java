@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -154,52 +155,82 @@ public final class GetDataCollectionEndpointResult {
 
         @CustomType.Setter
         public Builder configurationAccessEndpoint(String configurationAccessEndpoint) {
-            this.configurationAccessEndpoint = Objects.requireNonNull(configurationAccessEndpoint);
+            if (configurationAccessEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "configurationAccessEndpoint");
+            }
+            this.configurationAccessEndpoint = configurationAccessEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder logsIngestionEndpoint(String logsIngestionEndpoint) {
-            this.logsIngestionEndpoint = Objects.requireNonNull(logsIngestionEndpoint);
+            if (logsIngestionEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "logsIngestionEndpoint");
+            }
+            this.logsIngestionEndpoint = logsIngestionEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDataCollectionEndpointResult build() {

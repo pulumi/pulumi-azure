@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -75,27 +76,42 @@ public final class GetServiceSecureLdap {
 
         @CustomType.Setter
         public Builder certificateExpiry(String certificateExpiry) {
-            this.certificateExpiry = Objects.requireNonNull(certificateExpiry);
+            if (certificateExpiry == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecureLdap", "certificateExpiry");
+            }
+            this.certificateExpiry = certificateExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder certificateThumbprint(String certificateThumbprint) {
-            this.certificateThumbprint = Objects.requireNonNull(certificateThumbprint);
+            if (certificateThumbprint == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecureLdap", "certificateThumbprint");
+            }
+            this.certificateThumbprint = certificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecureLdap", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder externalAccessEnabled(Boolean externalAccessEnabled) {
-            this.externalAccessEnabled = Objects.requireNonNull(externalAccessEnabled);
+            if (externalAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecureLdap", "externalAccessEnabled");
+            }
+            this.externalAccessEnabled = externalAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder publicCertificate(String publicCertificate) {
-            this.publicCertificate = Objects.requireNonNull(publicCertificate);
+            if (publicCertificate == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecureLdap", "publicCertificate");
+            }
+            this.publicCertificate = publicCertificate;
             return this;
         }
         public GetServiceSecureLdap build() {

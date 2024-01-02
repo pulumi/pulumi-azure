@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -92,32 +93,46 @@ public final class GetKubernetesServiceVersionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesServiceVersionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includePreview(@Nullable Boolean includePreview) {
+
             this.includePreview = includePreview;
             return this;
         }
         @CustomType.Setter
         public Builder latestVersion(String latestVersion) {
-            this.latestVersion = Objects.requireNonNull(latestVersion);
+            if (latestVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesServiceVersionsResult", "latestVersion");
+            }
+            this.latestVersion = latestVersion;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesServiceVersionsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder versionPrefix(@Nullable String versionPrefix) {
+
             this.versionPrefix = versionPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder versions(List<String> versions) {
-            this.versions = Objects.requireNonNull(versions);
+            if (versions == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesServiceVersionsResult", "versions");
+            }
+            this.versions = versions;
             return this;
         }
         public Builder versions(String... versions) {

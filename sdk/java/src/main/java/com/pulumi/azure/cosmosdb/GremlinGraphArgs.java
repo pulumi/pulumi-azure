@@ -9,6 +9,7 @@ import com.pulumi.azure.cosmosdb.inputs.GremlinGraphIndexPolicyArgs;
 import com.pulumi.azure.cosmosdb.inputs.GremlinGraphUniqueKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -524,10 +525,18 @@ public final class GremlinGraphArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GremlinGraphArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.partitionKeyPath = Objects.requireNonNull($.partitionKeyPath, "expected parameter 'partitionKeyPath' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphArgs", "accountName");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphArgs", "databaseName");
+            }
+            if ($.partitionKeyPath == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphArgs", "partitionKeyPath");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.FirewallNatRuleCollectionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -274,11 +275,21 @@ public final class FirewallNatRuleCollectionArgs extends com.pulumi.resources.Re
         }
 
         public FirewallNatRuleCollectionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.azureFirewallName = Objects.requireNonNull($.azureFirewallName, "expected parameter 'azureFirewallName' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionArgs", "action");
+            }
+            if ($.azureFirewallName == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionArgs", "azureFirewallName");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionArgs", "priority");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionArgs", "resourceGroupName");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionArgs", "rules");
+            }
             return $;
         }
     }

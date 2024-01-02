@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPermission", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -93,7 +97,10 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder dataActions(List<String> dataActions) {
-            this.dataActions = Objects.requireNonNull(dataActions);
+            if (dataActions == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPermission", "dataActions");
+            }
+            this.dataActions = dataActions;
             return this;
         }
         public Builder dataActions(String... dataActions) {
@@ -101,7 +108,10 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notActions(List<String> notActions) {
-            this.notActions = Objects.requireNonNull(notActions);
+            if (notActions == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPermission", "notActions");
+            }
+            this.notActions = notActions;
             return this;
         }
         public Builder notActions(String... notActions) {
@@ -109,7 +119,10 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notDataActions(List<String> notDataActions) {
-            this.notDataActions = Objects.requireNonNull(notDataActions);
+            if (notDataActions == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionPermission", "notDataActions");
+            }
+            this.notDataActions = notDataActions;
             return this;
         }
         public Builder notDataActions(String... notDataActions) {

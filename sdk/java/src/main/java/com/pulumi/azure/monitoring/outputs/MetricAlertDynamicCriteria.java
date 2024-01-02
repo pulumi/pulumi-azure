@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.MetricAlertDynamicCriteriaDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -174,16 +175,23 @@ public final class MetricAlertDynamicCriteria {
 
         @CustomType.Setter
         public Builder aggregation(String aggregation) {
-            this.aggregation = Objects.requireNonNull(aggregation);
+            if (aggregation == null) {
+              throw new MissingRequiredPropertyException("MetricAlertDynamicCriteria", "aggregation");
+            }
+            this.aggregation = aggregation;
             return this;
         }
         @CustomType.Setter
         public Builder alertSensitivity(String alertSensitivity) {
-            this.alertSensitivity = Objects.requireNonNull(alertSensitivity);
+            if (alertSensitivity == null) {
+              throw new MissingRequiredPropertyException("MetricAlertDynamicCriteria", "alertSensitivity");
+            }
+            this.alertSensitivity = alertSensitivity;
             return this;
         }
         @CustomType.Setter
         public Builder dimensions(@Nullable List<MetricAlertDynamicCriteriaDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -192,36 +200,49 @@ public final class MetricAlertDynamicCriteria {
         }
         @CustomType.Setter
         public Builder evaluationFailureCount(@Nullable Integer evaluationFailureCount) {
+
             this.evaluationFailureCount = evaluationFailureCount;
             return this;
         }
         @CustomType.Setter
         public Builder evaluationTotalCount(@Nullable Integer evaluationTotalCount) {
+
             this.evaluationTotalCount = evaluationTotalCount;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreDataBefore(@Nullable String ignoreDataBefore) {
+
             this.ignoreDataBefore = ignoreDataBefore;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("MetricAlertDynamicCriteria", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
-            this.metricNamespace = Objects.requireNonNull(metricNamespace);
+            if (metricNamespace == null) {
+              throw new MissingRequiredPropertyException("MetricAlertDynamicCriteria", "metricNamespace");
+            }
+            this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("MetricAlertDynamicCriteria", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder skipMetricValidation(@Nullable Boolean skipMetricValidation) {
+
             this.skipMetricValidation = skipMetricValidation;
             return this;
         }

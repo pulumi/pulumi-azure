@@ -6,6 +6,7 @@ package com.pulumi.azure.arckubernetes.inputs;
 import com.pulumi.azure.arckubernetes.inputs.FluxConfigurationBlobStorageServicePrincipalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -300,7 +301,9 @@ public final class FluxConfigurationBlobStorageArgs extends com.pulumi.resources
         }
 
         public FluxConfigurationBlobStorageArgs build() {
-            $.containerId = Objects.requireNonNull($.containerId, "expected parameter 'containerId' to be non-null");
+            if ($.containerId == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageArgs", "containerId");
+            }
             return $;
         }
     }

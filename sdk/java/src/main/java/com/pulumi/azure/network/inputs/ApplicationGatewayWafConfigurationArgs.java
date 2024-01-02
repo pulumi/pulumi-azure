@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayWafConfigurationDisable
 import com.pulumi.azure.network.inputs.ApplicationGatewayWafConfigurationExclusionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -397,9 +398,15 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         public ApplicationGatewayWafConfigurationArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.firewallMode = Objects.requireNonNull($.firewallMode, "expected parameter 'firewallMode' to be non-null");
-            $.ruleSetVersion = Objects.requireNonNull($.ruleSetVersion, "expected parameter 'ruleSetVersion' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationArgs", "enabled");
+            }
+            if ($.firewallMode == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationArgs", "firewallMode");
+            }
+            if ($.ruleSetVersion == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationArgs", "ruleSetVersion");
+            }
             return $;
         }
     }

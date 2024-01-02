@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,42 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
 
         @CustomType.Setter
         public Builder customFragment(@Nullable String customFragment) {
+
             this.customFragment = customFragment;
             return this;
         }
         @CustomType.Setter
         public Builder customHost(@Nullable String customHost) {
+
             this.customHost = customHost;
             return this;
         }
         @CustomType.Setter
         public Builder customPath(@Nullable String customPath) {
+
             this.customPath = customPath;
             return this;
         }
         @CustomType.Setter
         public Builder customQueryString(@Nullable String customQueryString) {
+
             this.customQueryString = customQueryString;
             return this;
         }
         @CustomType.Setter
         public Builder redirectProtocol(String redirectProtocol) {
-            this.redirectProtocol = Objects.requireNonNull(redirectProtocol);
+            if (redirectProtocol == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRuleRedirectConfiguration", "redirectProtocol");
+            }
+            this.redirectProtocol = redirectProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder redirectType(String redirectType) {
-            this.redirectType = Objects.requireNonNull(redirectType);
+            if (redirectType == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRuleRedirectConfiguration", "redirectType");
+            }
+            this.redirectType = redirectType;
             return this;
         }
         public FrontdoorRoutingRuleRedirectConfiguration build() {

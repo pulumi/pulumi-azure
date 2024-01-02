@@ -153,41 +153,49 @@ public final class TransformOutputCustomPresetCodec {
 
         @CustomType.Setter
         public Builder aacAudio(@Nullable TransformOutputCustomPresetCodecAacAudio aacAudio) {
+
             this.aacAudio = aacAudio;
             return this;
         }
         @CustomType.Setter
         public Builder copyAudio(@Nullable TransformOutputCustomPresetCodecCopyAudio copyAudio) {
+
             this.copyAudio = copyAudio;
             return this;
         }
         @CustomType.Setter
         public Builder copyVideo(@Nullable TransformOutputCustomPresetCodecCopyVideo copyVideo) {
+
             this.copyVideo = copyVideo;
             return this;
         }
         @CustomType.Setter
         public Builder ddAudio(@Nullable TransformOutputCustomPresetCodecDdAudio ddAudio) {
+
             this.ddAudio = ddAudio;
             return this;
         }
         @CustomType.Setter
         public Builder h264Video(@Nullable TransformOutputCustomPresetCodecH264Video h264Video) {
+
             this.h264Video = h264Video;
             return this;
         }
         @CustomType.Setter
         public Builder h265Video(@Nullable TransformOutputCustomPresetCodecH265Video h265Video) {
+
             this.h265Video = h265Video;
             return this;
         }
         @CustomType.Setter
         public Builder jpgImage(@Nullable TransformOutputCustomPresetCodecJpgImage jpgImage) {
+
             this.jpgImage = jpgImage;
             return this;
         }
         @CustomType.Setter
         public Builder pngImage(@Nullable TransformOutputCustomPresetCodecPngImage pngImage) {
+
             this.pngImage = pngImage;
             return this;
         }

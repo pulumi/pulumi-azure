@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ActiveSlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActiveSlotArgs build() {
-            $.appServiceName = Objects.requireNonNull($.appServiceName, "expected parameter 'appServiceName' to be non-null");
-            $.appServiceSlotName = Objects.requireNonNull($.appServiceSlotName, "expected parameter 'appServiceSlotName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServiceName == null) {
+                throw new MissingRequiredPropertyException("ActiveSlotArgs", "appServiceName");
+            }
+            if ($.appServiceSlotName == null) {
+                throw new MissingRequiredPropertyException("ActiveSlotArgs", "appServiceSlotName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActiveSlotArgs", "resourceGroupName");
+            }
             return $;
         }
     }

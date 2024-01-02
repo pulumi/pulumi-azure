@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -73,7 +74,10 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
 
         @CustomType.Setter
         public Builder secretIdentities(List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities) {
-            this.secretIdentities = Objects.requireNonNull(secretIdentities);
+            if (secretIdentities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKeyVaultSecretsProvider", "secretIdentities");
+            }
+            this.secretIdentities = secretIdentities;
             return this;
         }
         public Builder secretIdentities(GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity... secretIdentities) {
@@ -81,12 +85,18 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
         }
         @CustomType.Setter
         public Builder secretRotationEnabled(Boolean secretRotationEnabled) {
-            this.secretRotationEnabled = Objects.requireNonNull(secretRotationEnabled);
+            if (secretRotationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKeyVaultSecretsProvider", "secretRotationEnabled");
+            }
+            this.secretRotationEnabled = secretRotationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder secretRotationInterval(String secretRotationInterval) {
-            this.secretRotationInterval = Objects.requireNonNull(secretRotationInterval);
+            if (secretRotationInterval == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKeyVaultSecretsProvider", "secretRotationInterval");
+            }
+            this.secretRotationInterval = secretRotationInterval;
             return this;
         }
         public GetKubernetesClusterKeyVaultSecretsProvider build() {

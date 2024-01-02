@@ -4,6 +4,7 @@
 package com.pulumi.azure.managementgroups.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,10 @@ public final class GetManagementGroupResult {
 
         @CustomType.Setter
         public Builder allManagementGroupIds(List<String> allManagementGroupIds) {
-            this.allManagementGroupIds = Objects.requireNonNull(allManagementGroupIds);
+            if (allManagementGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "allManagementGroupIds");
+            }
+            this.allManagementGroupIds = allManagementGroupIds;
             return this;
         }
         public Builder allManagementGroupIds(String... allManagementGroupIds) {
@@ -133,7 +137,10 @@ public final class GetManagementGroupResult {
         }
         @CustomType.Setter
         public Builder allSubscriptionIds(List<String> allSubscriptionIds) {
-            this.allSubscriptionIds = Objects.requireNonNull(allSubscriptionIds);
+            if (allSubscriptionIds == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "allSubscriptionIds");
+            }
+            this.allSubscriptionIds = allSubscriptionIds;
             return this;
         }
         public Builder allSubscriptionIds(String... allSubscriptionIds) {
@@ -141,17 +148,26 @@ public final class GetManagementGroupResult {
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managementGroupIds(List<String> managementGroupIds) {
-            this.managementGroupIds = Objects.requireNonNull(managementGroupIds);
+            if (managementGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "managementGroupIds");
+            }
+            this.managementGroupIds = managementGroupIds;
             return this;
         }
         public Builder managementGroupIds(String... managementGroupIds) {
@@ -159,17 +175,26 @@ public final class GetManagementGroupResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parentManagementGroupId(String parentManagementGroupId) {
-            this.parentManagementGroupId = Objects.requireNonNull(parentManagementGroupId);
+            if (parentManagementGroupId == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "parentManagementGroupId");
+            }
+            this.parentManagementGroupId = parentManagementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionIds(List<String> subscriptionIds) {
-            this.subscriptionIds = Objects.requireNonNull(subscriptionIds);
+            if (subscriptionIds == null) {
+              throw new MissingRequiredPropertyException("GetManagementGroupResult", "subscriptionIds");
+            }
+            this.subscriptionIds = subscriptionIds;
             return this;
         }
         public Builder subscriptionIds(String... subscriptionIds) {

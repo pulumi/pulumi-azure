@@ -58,6 +58,7 @@ public final class LinuxFunctionAppStickySettings {
 
         @CustomType.Setter
         public Builder appSettingNames(@Nullable List<String> appSettingNames) {
+
             this.appSettingNames = appSettingNames;
             return this;
         }
@@ -66,6 +67,7 @@ public final class LinuxFunctionAppStickySettings {
         }
         @CustomType.Setter
         public Builder connectionStringNames(@Nullable List<String> connectionStringNames) {
+
             this.connectionStringNames = connectionStringNames;
             return this;
         }

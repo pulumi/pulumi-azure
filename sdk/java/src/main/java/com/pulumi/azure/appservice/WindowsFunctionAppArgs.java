@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.inputs.WindowsFunctionAppStickySettingsArgs;
 import com.pulumi.azure.appservice.inputs.WindowsFunctionAppStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1316,9 +1317,15 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         public WindowsFunctionAppArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.servicePlanId = Objects.requireNonNull($.servicePlanId, "expected parameter 'servicePlanId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppArgs", "resourceGroupName");
+            }
+            if ($.servicePlanId == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppArgs", "servicePlanId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppArgs", "siteConfig");
+            }
             return $;
         }
     }

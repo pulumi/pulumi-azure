@@ -8,6 +8,7 @@ import com.pulumi.azure.network.outputs.GetApplicationGatewayRewriteRuleSetRewri
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRewriteRuleSetRewriteRuleUrl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -118,7 +119,10 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
 
         @CustomType.Setter
         public Builder conditions(List<GetApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(GetApplicationGatewayRewriteRuleSetRewriteRuleCondition... conditions) {
@@ -126,12 +130,18 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requestHeaderConfigurations(List<GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations) {
-            this.requestHeaderConfigurations = Objects.requireNonNull(requestHeaderConfigurations);
+            if (requestHeaderConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "requestHeaderConfigurations");
+            }
+            this.requestHeaderConfigurations = requestHeaderConfigurations;
             return this;
         }
         public Builder requestHeaderConfigurations(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration... requestHeaderConfigurations) {
@@ -139,7 +149,10 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder responseHeaderConfigurations(List<GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations) {
-            this.responseHeaderConfigurations = Objects.requireNonNull(responseHeaderConfigurations);
+            if (responseHeaderConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "responseHeaderConfigurations");
+            }
+            this.responseHeaderConfigurations = responseHeaderConfigurations;
             return this;
         }
         public Builder responseHeaderConfigurations(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration... responseHeaderConfigurations) {
@@ -147,12 +160,18 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder ruleSequence(Integer ruleSequence) {
-            this.ruleSequence = Objects.requireNonNull(ruleSequence);
+            if (ruleSequence == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "ruleSequence");
+            }
+            this.ruleSequence = ruleSequence;
             return this;
         }
         @CustomType.Setter
         public Builder urls(List<GetApplicationGatewayRewriteRuleSetRewriteRuleUrl> urls) {
-            this.urls = Objects.requireNonNull(urls);
+            if (urls == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRule", "urls");
+            }
+            this.urls = urls;
             return this;
         }
         public Builder urls(GetApplicationGatewayRewriteRuleSetRewriteRuleUrl... urls) {

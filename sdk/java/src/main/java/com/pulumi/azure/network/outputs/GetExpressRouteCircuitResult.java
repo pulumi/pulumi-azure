@@ -7,6 +7,7 @@ import com.pulumi.azure.network.outputs.GetExpressRouteCircuitPeering;
 import com.pulumi.azure.network.outputs.GetExpressRouteCircuitServiceProviderProperty;
 import com.pulumi.azure.network.outputs.GetExpressRouteCircuitSku;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -142,22 +143,34 @@ public final class GetExpressRouteCircuitResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder peerings(List<GetExpressRouteCircuitPeering> peerings) {
-            this.peerings = Objects.requireNonNull(peerings);
+            if (peerings == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "peerings");
+            }
+            this.peerings = peerings;
             return this;
         }
         public Builder peerings(GetExpressRouteCircuitPeering... peerings) {
@@ -165,17 +178,26 @@ public final class GetExpressRouteCircuitResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceKey(String serviceKey) {
-            this.serviceKey = Objects.requireNonNull(serviceKey);
+            if (serviceKey == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "serviceKey");
+            }
+            this.serviceKey = serviceKey;
             return this;
         }
         @CustomType.Setter
         public Builder serviceProviderProperties(List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties) {
-            this.serviceProviderProperties = Objects.requireNonNull(serviceProviderProperties);
+            if (serviceProviderProperties == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "serviceProviderProperties");
+            }
+            this.serviceProviderProperties = serviceProviderProperties;
             return this;
         }
         public Builder serviceProviderProperties(GetExpressRouteCircuitServiceProviderProperty... serviceProviderProperties) {
@@ -183,12 +205,18 @@ public final class GetExpressRouteCircuitResult {
         }
         @CustomType.Setter
         public Builder serviceProviderProvisioningState(String serviceProviderProvisioningState) {
-            this.serviceProviderProvisioningState = Objects.requireNonNull(serviceProviderProvisioningState);
+            if (serviceProviderProvisioningState == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "serviceProviderProvisioningState");
+            }
+            this.serviceProviderProvisioningState = serviceProviderProvisioningState;
             return this;
         }
         @CustomType.Setter
         public Builder sku(GetExpressRouteCircuitSku sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         public GetExpressRouteCircuitResult build() {

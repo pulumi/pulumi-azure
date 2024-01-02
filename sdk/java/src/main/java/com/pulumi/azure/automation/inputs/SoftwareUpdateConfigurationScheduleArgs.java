@@ -6,6 +6,7 @@ package com.pulumi.azure.automation.inputs;
 import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -546,7 +547,9 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         public SoftwareUpdateConfigurationScheduleArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationScheduleArgs", "frequency");
+            }
             return $;
         }
     }

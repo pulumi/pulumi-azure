@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.TriggerTumblingWindowRetryArgs;
 import com.pulumi.azure.datafactory.inputs.TriggerTumblingWindowTriggerDependencyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -621,11 +622,21 @@ public final class TriggerTumblingWindowArgs extends com.pulumi.resources.Resour
         }
 
         public TriggerTumblingWindowArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.pipeline = Objects.requireNonNull($.pipeline, "expected parameter 'pipeline' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowArgs", "dataFactoryId");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowArgs", "frequency");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowArgs", "interval");
+            }
+            if ($.pipeline == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowArgs", "pipeline");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowArgs", "startTime");
+            }
             return $;
         }
     }

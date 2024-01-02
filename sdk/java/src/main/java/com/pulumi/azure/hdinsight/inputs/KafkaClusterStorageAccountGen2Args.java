@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -202,10 +203,18 @@ public final class KafkaClusterStorageAccountGen2Args extends com.pulumi.resourc
         }
 
         public KafkaClusterStorageAccountGen2Args build() {
-            $.filesystemId = Objects.requireNonNull($.filesystemId, "expected parameter 'filesystemId' to be non-null");
-            $.isDefault = Objects.requireNonNull($.isDefault, "expected parameter 'isDefault' to be non-null");
-            $.managedIdentityResourceId = Objects.requireNonNull($.managedIdentityResourceId, "expected parameter 'managedIdentityResourceId' to be non-null");
-            $.storageResourceId = Objects.requireNonNull($.storageResourceId, "expected parameter 'storageResourceId' to be non-null");
+            if ($.filesystemId == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterStorageAccountGen2Args", "filesystemId");
+            }
+            if ($.isDefault == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterStorageAccountGen2Args", "isDefault");
+            }
+            if ($.managedIdentityResourceId == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterStorageAccountGen2Args", "managedIdentityResourceId");
+            }
+            if ($.storageResourceId == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterStorageAccountGen2Args", "storageResourceId");
+            }
             return $;
         }
     }

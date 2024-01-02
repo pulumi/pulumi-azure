@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ProtectionContainerArgs extends com.pulumi.resources.Resource
         }
 
         public ProtectionContainerArgs build() {
-            $.recoveryFabricName = Objects.requireNonNull($.recoveryFabricName, "expected parameter 'recoveryFabricName' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.recoveryFabricName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerArgs", "recoveryFabricName");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

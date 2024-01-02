@@ -5,6 +5,7 @@ package com.pulumi.azure.arcmachine;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -472,9 +473,15 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ExtensionArgs build() {
-            $.arcMachineId = Objects.requireNonNull($.arcMachineId, "expected parameter 'arcMachineId' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.arcMachineId == null) {
+                throw new MissingRequiredPropertyException("ExtensionArgs", "arcMachineId");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("ExtensionArgs", "publisher");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ExtensionArgs", "type");
+            }
             return $;
         }
     }

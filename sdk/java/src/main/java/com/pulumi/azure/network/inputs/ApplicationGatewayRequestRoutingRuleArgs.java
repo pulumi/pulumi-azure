@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -648,9 +649,15 @@ public final class ApplicationGatewayRequestRoutingRuleArgs extends com.pulumi.r
         }
 
         public ApplicationGatewayRequestRoutingRuleArgs build() {
-            $.httpListenerName = Objects.requireNonNull($.httpListenerName, "expected parameter 'httpListenerName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.ruleType = Objects.requireNonNull($.ruleType, "expected parameter 'ruleType' to be non-null");
+            if ($.httpListenerName == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRuleArgs", "httpListenerName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRuleArgs", "name");
+            }
+            if ($.ruleType == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRuleArgs", "ruleType");
+            }
             return $;
         }
     }

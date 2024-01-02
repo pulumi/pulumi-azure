@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ActivityLogAlertCriteriaResourceHealth
 import com.pulumi.azure.monitoring.inputs.ActivityLogAlertCriteriaServiceHealthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -1016,7 +1017,9 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         public ActivityLogAlertCriteriaArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("ActivityLogAlertCriteriaArgs", "category");
+            }
             return $;
         }
     }

@@ -78,16 +78,19 @@ public final class SnapshotEncryptionSettings {
 
         @CustomType.Setter
         public Builder diskEncryptionKey(@Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
+
             this.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
+
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
         }

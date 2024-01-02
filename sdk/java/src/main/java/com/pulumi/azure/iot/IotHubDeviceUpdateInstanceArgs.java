@@ -6,6 +6,7 @@ package com.pulumi.azure.iot;
 import com.pulumi.azure.iot.inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -264,8 +265,12 @@ public final class IotHubDeviceUpdateInstanceArgs extends com.pulumi.resources.R
         }
 
         public IotHubDeviceUpdateInstanceArgs build() {
-            $.deviceUpdateAccountId = Objects.requireNonNull($.deviceUpdateAccountId, "expected parameter 'deviceUpdateAccountId' to be non-null");
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
+            if ($.deviceUpdateAccountId == null) {
+                throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceArgs", "deviceUpdateAccountId");
+            }
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceArgs", "iothubId");
+            }
             return $;
         }
     }

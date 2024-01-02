@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class AccountNetworkRulesPrivateLinkAccess {
 
         @CustomType.Setter
         public Builder endpointResourceId(String endpointResourceId) {
-            this.endpointResourceId = Objects.requireNonNull(endpointResourceId);
+            if (endpointResourceId == null) {
+              throw new MissingRequiredPropertyException("AccountNetworkRulesPrivateLinkAccess", "endpointResourceId");
+            }
+            this.endpointResourceId = endpointResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder endpointTenantId(@Nullable String endpointTenantId) {
+
             this.endpointTenantId = endpointTenantId;
             return this;
         }

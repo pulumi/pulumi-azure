@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetFrontdoorFirewallPolicyArgs extends com.pulumi.resources.I
         }
 
         public GetFrontdoorFirewallPolicyArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetFrontdoorFirewallPolicyArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetFrontdoorFirewallPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

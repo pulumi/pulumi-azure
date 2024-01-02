@@ -5,6 +5,7 @@ package com.pulumi.azure.newrelic.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class MonitorPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorPlanArgs build() {
-            $.effectiveDate = Objects.requireNonNull($.effectiveDate, "expected parameter 'effectiveDate' to be non-null");
+            if ($.effectiveDate == null) {
+                throw new MissingRequiredPropertyException("MonitorPlanArgs", "effectiveDate");
+            }
             return $;
         }
     }

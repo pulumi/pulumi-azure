@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -113,12 +114,18 @@ public final class GetDiagnosticCategoriesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logCategoryGroups(List<String> logCategoryGroups) {
-            this.logCategoryGroups = Objects.requireNonNull(logCategoryGroups);
+            if (logCategoryGroups == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "logCategoryGroups");
+            }
+            this.logCategoryGroups = logCategoryGroups;
             return this;
         }
         public Builder logCategoryGroups(String... logCategoryGroups) {
@@ -126,7 +133,10 @@ public final class GetDiagnosticCategoriesResult {
         }
         @CustomType.Setter
         public Builder logCategoryTypes(List<String> logCategoryTypes) {
-            this.logCategoryTypes = Objects.requireNonNull(logCategoryTypes);
+            if (logCategoryTypes == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "logCategoryTypes");
+            }
+            this.logCategoryTypes = logCategoryTypes;
             return this;
         }
         public Builder logCategoryTypes(String... logCategoryTypes) {
@@ -134,7 +144,10 @@ public final class GetDiagnosticCategoriesResult {
         }
         @CustomType.Setter
         public Builder logs(List<String> logs) {
-            this.logs = Objects.requireNonNull(logs);
+            if (logs == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "logs");
+            }
+            this.logs = logs;
             return this;
         }
         public Builder logs(String... logs) {
@@ -142,7 +155,10 @@ public final class GetDiagnosticCategoriesResult {
         }
         @CustomType.Setter
         public Builder metrics(List<String> metrics) {
-            this.metrics = Objects.requireNonNull(metrics);
+            if (metrics == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "metrics");
+            }
+            this.metrics = metrics;
             return this;
         }
         public Builder metrics(String... metrics) {
@@ -150,7 +166,10 @@ public final class GetDiagnosticCategoriesResult {
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetDiagnosticCategoriesResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         public GetDiagnosticCategoriesResult build() {

@@ -7,6 +7,7 @@ import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyArgs;
 import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleServiceDataFlowTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -239,9 +240,15 @@ public final class NetworkServicePccRuleArgs extends com.pulumi.resources.Resour
         }
 
         public NetworkServicePccRuleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.precedence = Objects.requireNonNull($.precedence, "expected parameter 'precedence' to be non-null");
-            $.serviceDataFlowTemplates = Objects.requireNonNull($.serviceDataFlowTemplates, "expected parameter 'serviceDataFlowTemplates' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleArgs", "name");
+            }
+            if ($.precedence == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleArgs", "precedence");
+            }
+            if ($.serviceDataFlowTemplates == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleArgs", "serviceDataFlowTemplates");
+            }
             return $;
         }
     }

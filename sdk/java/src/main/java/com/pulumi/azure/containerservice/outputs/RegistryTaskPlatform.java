@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class RegistryTaskPlatform {
 
         @CustomType.Setter
         public Builder architecture(@Nullable String architecture) {
+
             this.architecture = architecture;
             return this;
         }
         @CustomType.Setter
         public Builder os(String os) {
-            this.os = Objects.requireNonNull(os);
+            if (os == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskPlatform", "os");
+            }
+            this.os = os;
             return this;
         }
         @CustomType.Setter
         public Builder variant(@Nullable String variant) {
+
             this.variant = variant;
             return this;
         }

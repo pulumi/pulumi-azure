@@ -73,16 +73,19 @@ public final class AccountRouting {
 
         @CustomType.Setter
         public Builder choice(@Nullable String choice) {
+
             this.choice = choice;
             return this;
         }
         @CustomType.Setter
         public Builder publishInternetEndpoints(@Nullable Boolean publishInternetEndpoints) {
+
             this.publishInternetEndpoints = publishInternetEndpoints;
             return this;
         }
         @CustomType.Setter
         public Builder publishMicrosoftEndpoints(@Nullable Boolean publishMicrosoftEndpoints) {
+
             this.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
             return this;
         }

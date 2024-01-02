@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class WindowsFunctionAppSlotStorageAccountArgs extends com.pulumi.r
         }
 
         public WindowsFunctionAppSlotStorageAccountArgs build() {
-            $.accessKey = Objects.requireNonNull($.accessKey, "expected parameter 'accessKey' to be non-null");
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.shareName = Objects.requireNonNull($.shareName, "expected parameter 'shareName' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.accessKey == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotStorageAccountArgs", "accessKey");
+            }
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotStorageAccountArgs", "accountName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotStorageAccountArgs", "name");
+            }
+            if ($.shareName == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotStorageAccountArgs", "shareName");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotStorageAccountArgs", "type");
+            }
             return $;
         }
     }

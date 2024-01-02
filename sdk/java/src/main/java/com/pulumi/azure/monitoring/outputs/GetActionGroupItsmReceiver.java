@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetActionGroupItsmReceiver {
 
         @CustomType.Setter
         public Builder connectionId(String connectionId) {
-            this.connectionId = Objects.requireNonNull(connectionId);
+            if (connectionId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupItsmReceiver", "connectionId");
+            }
+            this.connectionId = connectionId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupItsmReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
-            this.region = Objects.requireNonNull(region);
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupItsmReceiver", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
         public Builder ticketConfiguration(String ticketConfiguration) {
-            this.ticketConfiguration = Objects.requireNonNull(ticketConfiguration);
+            if (ticketConfiguration == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupItsmReceiver", "ticketConfiguration");
+            }
+            this.ticketConfiguration = ticketConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupItsmReceiver", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetActionGroupItsmReceiver build() {

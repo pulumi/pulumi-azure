@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class LocalNetworkGatewayBgpSettingsArgs extends com.pulumi.resourc
         }
 
         public LocalNetworkGatewayBgpSettingsArgs build() {
-            $.asn = Objects.requireNonNull($.asn, "expected parameter 'asn' to be non-null");
-            $.bgpPeeringAddress = Objects.requireNonNull($.bgpPeeringAddress, "expected parameter 'bgpPeeringAddress' to be non-null");
+            if ($.asn == null) {
+                throw new MissingRequiredPropertyException("LocalNetworkGatewayBgpSettingsArgs", "asn");
+            }
+            if ($.bgpPeeringAddress == null) {
+                throw new MissingRequiredPropertyException("LocalNetworkGatewayBgpSettingsArgs", "bgpPeeringAddress");
+            }
             return $;
         }
     }

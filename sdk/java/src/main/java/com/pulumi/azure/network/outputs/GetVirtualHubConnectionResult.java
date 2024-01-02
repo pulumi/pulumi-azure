@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetVirtualHubConnectionRouting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -127,32 +128,50 @@ public final class GetVirtualHubConnectionResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internetSecurityEnabled(Boolean internetSecurityEnabled) {
-            this.internetSecurityEnabled = Objects.requireNonNull(internetSecurityEnabled);
+            if (internetSecurityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "internetSecurityEnabled");
+            }
+            this.internetSecurityEnabled = internetSecurityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder remoteVirtualNetworkId(String remoteVirtualNetworkId) {
-            this.remoteVirtualNetworkId = Objects.requireNonNull(remoteVirtualNetworkId);
+            if (remoteVirtualNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "remoteVirtualNetworkId");
+            }
+            this.remoteVirtualNetworkId = remoteVirtualNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder routings(List<GetVirtualHubConnectionRouting> routings) {
-            this.routings = Objects.requireNonNull(routings);
+            if (routings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "routings");
+            }
+            this.routings = routings;
             return this;
         }
         public Builder routings(GetVirtualHubConnectionRouting... routings) {
@@ -160,12 +179,18 @@ public final class GetVirtualHubConnectionResult {
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubName(String virtualHubName) {
-            this.virtualHubName = Objects.requireNonNull(virtualHubName);
+            if (virtualHubName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionResult", "virtualHubName");
+            }
+            this.virtualHubName = virtualHubName;
             return this;
         }
         public GetVirtualHubConnectionResult build() {

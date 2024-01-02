@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -174,46 +175,61 @@ public final class VirtualMachineStorageDataDisk {
 
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
+
             this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder createOption(String createOption) {
-            this.createOption = Objects.requireNonNull(createOption);
+            if (createOption == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageDataDisk", "createOption");
+            }
+            this.createOption = createOption;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
+
             this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder lun(Integer lun) {
-            this.lun = Objects.requireNonNull(lun);
+            if (lun == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageDataDisk", "lun");
+            }
+            this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
+
             this.managedDiskId = managedDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
+
             this.managedDiskType = managedDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageDataDisk", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder vhdUri(@Nullable String vhdUri) {
+
             this.vhdUri = vhdUri;
             return this;
         }
         @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
+
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class ActionGroupWebhookReceiverAadAuthArgs extends com.pulumi.reso
         }
 
         public ActionGroupWebhookReceiverAadAuthArgs build() {
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("ActionGroupWebhookReceiverAadAuthArgs", "objectId");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
 import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -272,7 +273,9 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HubArgs build() {
-            $.webPubsubId = Objects.requireNonNull($.webPubsubId, "expected parameter 'webPubsubId' to be non-null");
+            if ($.webPubsubId == null) {
+                throw new MissingRequiredPropertyException("HubArgs", "webPubsubId");
+            }
             return $;
         }
     }

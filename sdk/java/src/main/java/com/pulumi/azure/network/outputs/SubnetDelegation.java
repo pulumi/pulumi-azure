@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.SubnetDelegationServiceDelegation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class SubnetDelegation {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SubnetDelegation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serviceDelegation(SubnetDelegationServiceDelegation serviceDelegation) {
-            this.serviceDelegation = Objects.requireNonNull(serviceDelegation);
+            if (serviceDelegation == null) {
+              throw new MissingRequiredPropertyException("SubnetDelegation", "serviceDelegation");
+            }
+            this.serviceDelegation = serviceDelegation;
             return this;
         }
         public SubnetDelegation build() {

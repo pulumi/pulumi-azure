@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.AadDiagnosticSettingLogRetentionPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -74,17 +75,24 @@ public final class AadDiagnosticSettingLog {
 
         @CustomType.Setter
         public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+            if (category == null) {
+              throw new MissingRequiredPropertyException("AadDiagnosticSettingLog", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicy(AadDiagnosticSettingLogRetentionPolicy retentionPolicy) {
-            this.retentionPolicy = Objects.requireNonNull(retentionPolicy);
+            if (retentionPolicy == null) {
+              throw new MissingRequiredPropertyException("AadDiagnosticSettingLog", "retentionPolicy");
+            }
+            this.retentionPolicy = retentionPolicy;
             return this;
         }
         public AadDiagnosticSettingLog build() {

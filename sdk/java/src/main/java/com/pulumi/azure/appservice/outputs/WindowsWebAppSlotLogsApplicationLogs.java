@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class WindowsWebAppSlotLogsApplicationLogs {
 
         @CustomType.Setter
         public Builder azureBlobStorage(@Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage) {
+
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemLevel(String fileSystemLevel) {
-            this.fileSystemLevel = Objects.requireNonNull(fileSystemLevel);
+            if (fileSystemLevel == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotLogsApplicationLogs", "fileSystemLevel");
+            }
+            this.fileSystemLevel = fileSystemLevel;
             return this;
         }
         public WindowsWebAppSlotLogsApplicationLogs build() {

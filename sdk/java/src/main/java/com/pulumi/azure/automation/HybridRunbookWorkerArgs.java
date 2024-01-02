@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class HybridRunbookWorkerArgs extends com.pulumi.resources.Resource
         }
 
         public HybridRunbookWorkerArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.vmResourceId = Objects.requireNonNull($.vmResourceId, "expected parameter 'vmResourceId' to be non-null");
-            $.workerGroupName = Objects.requireNonNull($.workerGroupName, "expected parameter 'workerGroupName' to be non-null");
-            $.workerId = Objects.requireNonNull($.workerId, "expected parameter 'workerId' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerArgs", "automationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerArgs", "resourceGroupName");
+            }
+            if ($.vmResourceId == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerArgs", "vmResourceId");
+            }
+            if ($.workerGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerArgs", "workerGroupName");
+            }
+            if ($.workerId == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerArgs", "workerId");
+            }
             return $;
         }
     }

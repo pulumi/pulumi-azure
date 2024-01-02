@@ -48,6 +48,7 @@ public final class WindowsVirtualMachineBootDiagnostics {
 
         @CustomType.Setter
         public Builder storageAccountUri(@Nullable String storageAccountUri) {
+
             this.storageAccountUri = storageAccountUri;
             return this;
         }

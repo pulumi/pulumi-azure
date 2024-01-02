@@ -4,6 +4,7 @@
 package com.pulumi.azure.dashboard.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GrafanaAzureMonitorWorkspaceIntegration {
 
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GrafanaAzureMonitorWorkspaceIntegration", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         public GrafanaAzureMonitorWorkspaceIntegration build() {

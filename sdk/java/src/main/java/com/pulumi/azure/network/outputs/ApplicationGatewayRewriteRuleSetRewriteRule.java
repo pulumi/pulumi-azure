@@ -8,6 +8,7 @@ import com.pulumi.azure.network.outputs.ApplicationGatewayRewriteRuleSetRewriteR
 import com.pulumi.azure.network.outputs.ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration;
 import com.pulumi.azure.network.outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -120,6 +121,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
 
         @CustomType.Setter
         public Builder conditions(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions) {
+
             this.conditions = conditions;
             return this;
         }
@@ -128,11 +130,15 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requestHeaderConfigurations(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations) {
+
             this.requestHeaderConfigurations = requestHeaderConfigurations;
             return this;
         }
@@ -141,6 +147,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder responseHeaderConfigurations(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations) {
+
             this.responseHeaderConfigurations = responseHeaderConfigurations;
             return this;
         }
@@ -149,11 +156,15 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         }
         @CustomType.Setter
         public Builder ruleSequence(Integer ruleSequence) {
-            this.ruleSequence = Objects.requireNonNull(ruleSequence);
+            if (ruleSequence == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRule", "ruleSequence");
+            }
+            this.ruleSequence = ruleSequence;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url) {
+
             this.url = url;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAccountArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetAccountArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetAccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

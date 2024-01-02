@@ -55,6 +55,7 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
 
         @CustomType.Setter
         public Builder xAzureFdids(@Nullable List<String> xAzureFdids) {
+
             this.xAzureFdids = xAzureFdids;
             return this;
         }
@@ -63,11 +64,13 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
         }
         @CustomType.Setter
         public Builder xFdHealthProbe(@Nullable String xFdHealthProbe) {
+
             this.xFdHealthProbe = xFdHealthProbe;
             return this;
         }
         @CustomType.Setter
         public Builder xForwardedFors(@Nullable List<String> xForwardedFors) {
+
             this.xForwardedFors = xForwardedFors;
             return this;
         }
@@ -76,6 +79,7 @@ public final class GetStandardSiteConfigIpRestrictionHeaders {
         }
         @CustomType.Setter
         public Builder xForwardedHosts(@Nullable List<String> xForwardedHosts) {
+
             this.xForwardedHosts = xForwardedHosts;
             return this;
         }

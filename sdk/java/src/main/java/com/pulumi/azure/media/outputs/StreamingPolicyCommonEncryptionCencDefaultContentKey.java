@@ -58,11 +58,13 @@ public final class StreamingPolicyCommonEncryptionCencDefaultContentKey {
 
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
+
             this.policyName = policyName;
             return this;
         }

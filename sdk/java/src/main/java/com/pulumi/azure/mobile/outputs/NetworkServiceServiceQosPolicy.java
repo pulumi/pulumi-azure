@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.NetworkServiceServiceQosPolicyMaximumBitRate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -102,26 +103,33 @@ public final class NetworkServiceServiceQosPolicy {
 
         @CustomType.Setter
         public Builder allocationAndRetentionPriorityLevel(@Nullable Integer allocationAndRetentionPriorityLevel) {
+
             this.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBitRate(NetworkServiceServiceQosPolicyMaximumBitRate maximumBitRate) {
-            this.maximumBitRate = Objects.requireNonNull(maximumBitRate);
+            if (maximumBitRate == null) {
+              throw new MissingRequiredPropertyException("NetworkServiceServiceQosPolicy", "maximumBitRate");
+            }
+            this.maximumBitRate = maximumBitRate;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionCapability(@Nullable String preemptionCapability) {
+
             this.preemptionCapability = preemptionCapability;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionVulnerability(@Nullable String preemptionVulnerability) {
+
             this.preemptionVulnerability = preemptionVulnerability;
             return this;
         }
         @CustomType.Setter
         public Builder qosIndicator(@Nullable Integer qosIndicator) {
+
             this.qosIndicator = qosIndicator;
             return this;
         }

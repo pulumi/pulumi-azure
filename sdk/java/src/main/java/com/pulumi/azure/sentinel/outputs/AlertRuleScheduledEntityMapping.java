@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEntityMappingFieldMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,12 +59,18 @@ public final class AlertRuleScheduledEntityMapping {
 
         @CustomType.Setter
         public Builder entityType(String entityType) {
-            this.entityType = Objects.requireNonNull(entityType);
+            if (entityType == null) {
+              throw new MissingRequiredPropertyException("AlertRuleScheduledEntityMapping", "entityType");
+            }
+            this.entityType = entityType;
             return this;
         }
         @CustomType.Setter
         public Builder fieldMappings(List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings) {
-            this.fieldMappings = Objects.requireNonNull(fieldMappings);
+            if (fieldMappings == null) {
+              throw new MissingRequiredPropertyException("AlertRuleScheduledEntityMapping", "fieldMappings");
+            }
+            this.fieldMappings = fieldMappings;
             return this;
         }
         public Builder fieldMappings(AlertRuleScheduledEntityMappingFieldMapping... fieldMappings) {

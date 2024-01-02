@@ -9,6 +9,7 @@ import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticFrontendRequestArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiDiagnosticFrontendResponseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -600,11 +601,21 @@ public final class ApiDiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiDiagnosticArgs build() {
-            $.apiManagementLoggerId = Objects.requireNonNull($.apiManagementLoggerId, "expected parameter 'apiManagementLoggerId' to be non-null");
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.apiName = Objects.requireNonNull($.apiName, "expected parameter 'apiName' to be non-null");
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementLoggerId == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticArgs", "apiManagementLoggerId");
+            }
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticArgs", "apiManagementName");
+            }
+            if ($.apiName == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticArgs", "apiName");
+            }
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticArgs", "identifier");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticArgs", "resourceGroupName");
+            }
             return $;
         }
     }

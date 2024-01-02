@@ -7,6 +7,7 @@ import com.pulumi.azure.datafactory.outputs.GetFactoryGithubConfiguration;
 import com.pulumi.azure.datafactory.outputs.GetFactoryIdentity;
 import com.pulumi.azure.datafactory.outputs.GetFactoryVstsConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -129,7 +130,10 @@ public final class GetFactoryResult {
 
         @CustomType.Setter
         public Builder githubConfigurations(List<GetFactoryGithubConfiguration> githubConfigurations) {
-            this.githubConfigurations = Objects.requireNonNull(githubConfigurations);
+            if (githubConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "githubConfigurations");
+            }
+            this.githubConfigurations = githubConfigurations;
             return this;
         }
         public Builder githubConfigurations(GetFactoryGithubConfiguration... githubConfigurations) {
@@ -137,12 +141,18 @@ public final class GetFactoryResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetFactoryIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetFactoryIdentity... identities) {
@@ -150,27 +160,42 @@ public final class GetFactoryResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vstsConfigurations(List<GetFactoryVstsConfiguration> vstsConfigurations) {
-            this.vstsConfigurations = Objects.requireNonNull(vstsConfigurations);
+            if (vstsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFactoryResult", "vstsConfigurations");
+            }
+            this.vstsConfigurations = vstsConfigurations;
             return this;
         }
         public Builder vstsConfigurations(GetFactoryVstsConfiguration... vstsConfigurations) {

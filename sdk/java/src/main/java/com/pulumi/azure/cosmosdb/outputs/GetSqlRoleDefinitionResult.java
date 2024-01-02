@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.GetSqlRoleDefinitionPermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,12 +119,18 @@ public final class GetSqlRoleDefinitionResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder assignableScopes(List<String> assignableScopes) {
-            this.assignableScopes = Objects.requireNonNull(assignableScopes);
+            if (assignableScopes == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "assignableScopes");
+            }
+            this.assignableScopes = assignableScopes;
             return this;
         }
         public Builder assignableScopes(String... assignableScopes) {
@@ -131,17 +138,26 @@ public final class GetSqlRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<GetSqlRoleDefinitionPermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetSqlRoleDefinitionPermission... permissions) {
@@ -149,17 +165,26 @@ public final class GetSqlRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
-            this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
+            if (roleDefinitionId == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "roleDefinitionId");
+            }
+            this.roleDefinitionId = roleDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSqlRoleDefinitionResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetSqlRoleDefinitionResult build() {

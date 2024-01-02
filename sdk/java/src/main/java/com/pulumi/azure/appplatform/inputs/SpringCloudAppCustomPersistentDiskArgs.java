@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -236,9 +237,15 @@ public final class SpringCloudAppCustomPersistentDiskArgs extends com.pulumi.res
         }
 
         public SpringCloudAppCustomPersistentDiskArgs build() {
-            $.mountPath = Objects.requireNonNull($.mountPath, "expected parameter 'mountPath' to be non-null");
-            $.shareName = Objects.requireNonNull($.shareName, "expected parameter 'shareName' to be non-null");
-            $.storageName = Objects.requireNonNull($.storageName, "expected parameter 'storageName' to be non-null");
+            if ($.mountPath == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDiskArgs", "mountPath");
+            }
+            if ($.shareName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDiskArgs", "shareName");
+            }
+            if ($.storageName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCustomPersistentDiskArgs", "storageName");
+            }
             return $;
         }
     }

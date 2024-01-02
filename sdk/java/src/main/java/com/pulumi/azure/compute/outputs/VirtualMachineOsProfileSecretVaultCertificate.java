@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,12 +63,16 @@ public final class VirtualMachineOsProfileSecretVaultCertificate {
 
         @CustomType.Setter
         public Builder certificateStore(@Nullable String certificateStore) {
+
             this.certificateStore = certificateStore;
             return this;
         }
         @CustomType.Setter
         public Builder certificateUrl(String certificateUrl) {
-            this.certificateUrl = Objects.requireNonNull(certificateUrl);
+            if (certificateUrl == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineOsProfileSecretVaultCertificate", "certificateUrl");
+            }
+            this.certificateUrl = certificateUrl;
             return this;
         }
         public VirtualMachineOsProfileSecretVaultCertificate build() {

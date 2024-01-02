@@ -74,16 +74,19 @@ public final class ConfigurationBackupRetentionPolicy {
 
         @CustomType.Setter
         public Builder dailySchedule(@Nullable ConfigurationBackupRetentionPolicyDailySchedule dailySchedule) {
+
             this.dailySchedule = dailySchedule;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicyType(@Nullable String retentionPolicyType) {
+
             this.retentionPolicyType = retentionPolicyType;
             return this;
         }
         @CustomType.Setter
         public Builder weeklySchedule(@Nullable ConfigurationBackupRetentionPolicyWeeklySchedule weeklySchedule) {
+
             this.weeklySchedule = weeklySchedule;
             return this;
         }

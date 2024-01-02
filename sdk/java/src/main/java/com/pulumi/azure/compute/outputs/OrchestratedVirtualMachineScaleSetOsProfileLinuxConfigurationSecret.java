@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,7 +63,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         @CustomType.Setter
         public Builder certificates(List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate... certificates) {
@@ -70,7 +74,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret build() {

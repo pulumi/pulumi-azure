@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -141,42 +142,66 @@ public final class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy {
 
         @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
-            this.dhGroup = Objects.requireNonNull(dhGroup);
+            if (dhGroup == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "dhGroup");
+            }
+            this.dhGroup = dhGroup;
             return this;
         }
         @CustomType.Setter
         public Builder ikeEncryption(String ikeEncryption) {
-            this.ikeEncryption = Objects.requireNonNull(ikeEncryption);
+            if (ikeEncryption == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "ikeEncryption");
+            }
+            this.ikeEncryption = ikeEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder ikeIntegrity(String ikeIntegrity) {
-            this.ikeIntegrity = Objects.requireNonNull(ikeIntegrity);
+            if (ikeIntegrity == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "ikeIntegrity");
+            }
+            this.ikeIntegrity = ikeIntegrity;
             return this;
         }
         @CustomType.Setter
         public Builder ipsecEncryption(String ipsecEncryption) {
-            this.ipsecEncryption = Objects.requireNonNull(ipsecEncryption);
+            if (ipsecEncryption == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "ipsecEncryption");
+            }
+            this.ipsecEncryption = ipsecEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder ipsecIntegrity(String ipsecIntegrity) {
-            this.ipsecIntegrity = Objects.requireNonNull(ipsecIntegrity);
+            if (ipsecIntegrity == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "ipsecIntegrity");
+            }
+            this.ipsecIntegrity = ipsecIntegrity;
             return this;
         }
         @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
-            this.pfsGroup = Objects.requireNonNull(pfsGroup);
+            if (pfsGroup == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "pfsGroup");
+            }
+            this.pfsGroup = pfsGroup;
             return this;
         }
         @CustomType.Setter
         public Builder saDataSizeInKilobytes(Integer saDataSizeInKilobytes) {
-            this.saDataSizeInKilobytes = Objects.requireNonNull(saDataSizeInKilobytes);
+            if (saDataSizeInKilobytes == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "saDataSizeInKilobytes");
+            }
+            this.saDataSizeInKilobytes = saDataSizeInKilobytes;
             return this;
         }
         @CustomType.Setter
         public Builder saLifetimeInSeconds(Integer saLifetimeInSeconds) {
-            this.saLifetimeInSeconds = Objects.requireNonNull(saLifetimeInSeconds);
+            if (saLifetimeInSeconds == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy", "saLifetimeInSeconds");
+            }
+            this.saLifetimeInSeconds = saLifetimeInSeconds;
             return this;
         }
         public VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy build() {

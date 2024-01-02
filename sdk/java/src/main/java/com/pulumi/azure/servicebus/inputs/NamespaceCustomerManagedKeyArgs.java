@@ -5,6 +5,7 @@ package com.pulumi.azure.servicebus.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         public NamespaceCustomerManagedKeyArgs build() {
-            $.identityId = Objects.requireNonNull($.identityId, "expected parameter 'identityId' to be non-null");
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
+            if ($.identityId == null) {
+                throw new MissingRequiredPropertyException("NamespaceCustomerManagedKeyArgs", "identityId");
+            }
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("NamespaceCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
             return $;
         }
     }

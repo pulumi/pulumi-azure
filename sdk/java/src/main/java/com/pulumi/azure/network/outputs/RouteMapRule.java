@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.RouteMapRuleAction;
 import com.pulumi.azure.network.outputs.RouteMapRuleMatchCriterion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,6 +90,7 @@ public final class RouteMapRule {
 
         @CustomType.Setter
         public Builder actions(@Nullable List<RouteMapRuleAction> actions) {
+
             this.actions = actions;
             return this;
         }
@@ -97,6 +99,7 @@ public final class RouteMapRule {
         }
         @CustomType.Setter
         public Builder matchCriterions(@Nullable List<RouteMapRuleMatchCriterion> matchCriterions) {
+
             this.matchCriterions = matchCriterions;
             return this;
         }
@@ -105,11 +108,15 @@ public final class RouteMapRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RouteMapRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextStepIfMatched(@Nullable String nextStepIfMatched) {
+
             this.nextStepIfMatched = nextStepIfMatched;
             return this;
         }

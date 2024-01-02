@@ -7,6 +7,7 @@ import com.pulumi.azure.media.inputs.JobInputAssetArgs;
 import com.pulumi.azure.media.inputs.JobOutputAssetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -348,11 +349,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobArgs build() {
-            $.inputAsset = Objects.requireNonNull($.inputAsset, "expected parameter 'inputAsset' to be non-null");
-            $.mediaServicesAccountName = Objects.requireNonNull($.mediaServicesAccountName, "expected parameter 'mediaServicesAccountName' to be non-null");
-            $.outputAssets = Objects.requireNonNull($.outputAssets, "expected parameter 'outputAssets' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.transformName = Objects.requireNonNull($.transformName, "expected parameter 'transformName' to be non-null");
+            if ($.inputAsset == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "inputAsset");
+            }
+            if ($.mediaServicesAccountName == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "mediaServicesAccountName");
+            }
+            if ($.outputAssets == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "outputAssets");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "resourceGroupName");
+            }
+            if ($.transformName == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "transformName");
+            }
             return $;
         }
     }

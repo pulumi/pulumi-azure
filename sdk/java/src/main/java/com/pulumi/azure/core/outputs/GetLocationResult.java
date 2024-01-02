@@ -5,6 +5,7 @@ package com.pulumi.azure.core.outputs;
 
 import com.pulumi.azure.core.outputs.GetLocationZoneMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,22 +79,34 @@ public final class GetLocationResult {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder zoneMappings(List<GetLocationZoneMapping> zoneMappings) {
-            this.zoneMappings = Objects.requireNonNull(zoneMappings);
+            if (zoneMappings == null) {
+              throw new MissingRequiredPropertyException("GetLocationResult", "zoneMappings");
+            }
+            this.zoneMappings = zoneMappings;
             return this;
         }
         public Builder zoneMappings(GetLocationZoneMapping... zoneMappings) {

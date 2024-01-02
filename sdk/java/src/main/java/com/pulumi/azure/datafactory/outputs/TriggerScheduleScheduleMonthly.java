@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class TriggerScheduleScheduleMonthly {
 
         @CustomType.Setter
         public Builder week(@Nullable Integer week) {
+
             this.week = week;
             return this;
         }
         @CustomType.Setter
         public Builder weekday(String weekday) {
-            this.weekday = Objects.requireNonNull(weekday);
+            if (weekday == null) {
+              throw new MissingRequiredPropertyException("TriggerScheduleScheduleMonthly", "weekday");
+            }
+            this.weekday = weekday;
             return this;
         }
         public TriggerScheduleScheduleMonthly build() {

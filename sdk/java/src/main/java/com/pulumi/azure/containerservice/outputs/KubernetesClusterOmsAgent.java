@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterOmsAgentOmsAgentIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -75,16 +76,21 @@ public final class KubernetesClusterOmsAgent {
 
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
-            this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            if (logAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterOmsAgent", "logAnalyticsWorkspaceId");
+            }
+            this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder msiAuthForMonitoringEnabled(@Nullable Boolean msiAuthForMonitoringEnabled) {
+
             this.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder omsAgentIdentities(@Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities) {
+
             this.omsAgentIdentities = omsAgentIdentities;
             return this;
         }

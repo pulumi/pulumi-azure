@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class LinuxVirtualMachineScaleSetAdminSshKeyArgs extends com.pulumi
         }
 
         public LinuxVirtualMachineScaleSetAdminSshKeyArgs build() {
-            $.publicKey = Objects.requireNonNull($.publicKey, "expected parameter 'publicKey' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.publicKey == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAdminSshKeyArgs", "publicKey");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAdminSshKeyArgs", "username");
+            }
             return $;
         }
     }

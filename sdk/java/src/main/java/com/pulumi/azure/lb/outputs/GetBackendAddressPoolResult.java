@@ -6,6 +6,7 @@ package com.pulumi.azure.lb.outputs;
 import com.pulumi.azure.lb.outputs.GetBackendAddressPoolBackendAddress;
 import com.pulumi.azure.lb.outputs.GetBackendAddressPoolBackendIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -135,7 +136,10 @@ public final class GetBackendAddressPoolResult {
 
         @CustomType.Setter
         public Builder backendAddresses(List<GetBackendAddressPoolBackendAddress> backendAddresses) {
-            this.backendAddresses = Objects.requireNonNull(backendAddresses);
+            if (backendAddresses == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "backendAddresses");
+            }
+            this.backendAddresses = backendAddresses;
             return this;
         }
         public Builder backendAddresses(GetBackendAddressPoolBackendAddress... backendAddresses) {
@@ -143,7 +147,10 @@ public final class GetBackendAddressPoolResult {
         }
         @CustomType.Setter
         public Builder backendIpConfigurations(List<GetBackendAddressPoolBackendIpConfiguration> backendIpConfigurations) {
-            this.backendIpConfigurations = Objects.requireNonNull(backendIpConfigurations);
+            if (backendIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "backendIpConfigurations");
+            }
+            this.backendIpConfigurations = backendIpConfigurations;
             return this;
         }
         public Builder backendIpConfigurations(GetBackendAddressPoolBackendIpConfiguration... backendIpConfigurations) {
@@ -151,12 +158,18 @@ public final class GetBackendAddressPoolResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inboundNatRules(List<String> inboundNatRules) {
-            this.inboundNatRules = Objects.requireNonNull(inboundNatRules);
+            if (inboundNatRules == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "inboundNatRules");
+            }
+            this.inboundNatRules = inboundNatRules;
             return this;
         }
         public Builder inboundNatRules(String... inboundNatRules) {
@@ -164,7 +177,10 @@ public final class GetBackendAddressPoolResult {
         }
         @CustomType.Setter
         public Builder loadBalancingRules(List<String> loadBalancingRules) {
-            this.loadBalancingRules = Objects.requireNonNull(loadBalancingRules);
+            if (loadBalancingRules == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "loadBalancingRules");
+            }
+            this.loadBalancingRules = loadBalancingRules;
             return this;
         }
         public Builder loadBalancingRules(String... loadBalancingRules) {
@@ -172,17 +188,26 @@ public final class GetBackendAddressPoolResult {
         }
         @CustomType.Setter
         public Builder loadbalancerId(String loadbalancerId) {
-            this.loadbalancerId = Objects.requireNonNull(loadbalancerId);
+            if (loadbalancerId == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "loadbalancerId");
+            }
+            this.loadbalancerId = loadbalancerId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundRules(List<String> outboundRules) {
-            this.outboundRules = Objects.requireNonNull(outboundRules);
+            if (outboundRules == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolResult", "outboundRules");
+            }
+            this.outboundRules = outboundRules;
             return this;
         }
         public Builder outboundRules(String... outboundRules) {

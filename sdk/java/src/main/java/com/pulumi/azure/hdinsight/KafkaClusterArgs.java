@@ -18,6 +18,7 @@ import com.pulumi.azure.hdinsight.inputs.KafkaClusterStorageAccountArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterStorageAccountGen2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -878,12 +879,24 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KafkaClusterArgs build() {
-            $.clusterVersion = Objects.requireNonNull($.clusterVersion, "expected parameter 'clusterVersion' to be non-null");
-            $.componentVersion = Objects.requireNonNull($.componentVersion, "expected parameter 'componentVersion' to be non-null");
-            $.gateway = Objects.requireNonNull($.gateway, "expected parameter 'gateway' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.clusterVersion == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "clusterVersion");
+            }
+            if ($.componentVersion == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "componentVersion");
+            }
+            if ($.gateway == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "gateway");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "resourceGroupName");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "roles");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "tier");
+            }
             return $;
         }
     }

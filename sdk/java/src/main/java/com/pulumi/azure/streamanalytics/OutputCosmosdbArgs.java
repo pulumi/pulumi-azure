@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,10 +299,18 @@ public final class OutputCosmosdbArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public OutputCosmosdbArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.cosmosdbAccountKey = Objects.requireNonNull($.cosmosdbAccountKey, "expected parameter 'cosmosdbAccountKey' to be non-null");
-            $.cosmosdbSqlDatabaseId = Objects.requireNonNull($.cosmosdbSqlDatabaseId, "expected parameter 'cosmosdbSqlDatabaseId' to be non-null");
-            $.streamAnalyticsJobId = Objects.requireNonNull($.streamAnalyticsJobId, "expected parameter 'streamAnalyticsJobId' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("OutputCosmosdbArgs", "containerName");
+            }
+            if ($.cosmosdbAccountKey == null) {
+                throw new MissingRequiredPropertyException("OutputCosmosdbArgs", "cosmosdbAccountKey");
+            }
+            if ($.cosmosdbSqlDatabaseId == null) {
+                throw new MissingRequiredPropertyException("OutputCosmosdbArgs", "cosmosdbSqlDatabaseId");
+            }
+            if ($.streamAnalyticsJobId == null) {
+                throw new MissingRequiredPropertyException("OutputCosmosdbArgs", "streamAnalyticsJobId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class VirtualNetworkGatewayNatRuleInternalMapping {
 
         @CustomType.Setter
         public Builder addressSpace(String addressSpace) {
-            this.addressSpace = Objects.requireNonNull(addressSpace);
+            if (addressSpace == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayNatRuleInternalMapping", "addressSpace");
+            }
+            this.addressSpace = addressSpace;
             return this;
         }
         @CustomType.Setter
         public Builder portRange(@Nullable String portRange) {
+
             this.portRange = portRange;
             return this;
         }

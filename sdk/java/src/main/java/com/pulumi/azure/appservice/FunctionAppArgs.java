@@ -10,6 +10,7 @@ import com.pulumi.azure.appservice.inputs.FunctionAppSiteConfigArgs;
 import com.pulumi.azure.appservice.inputs.FunctionAppSourceControlArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -867,10 +868,18 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FunctionAppArgs build() {
-            $.appServicePlanId = Objects.requireNonNull($.appServicePlanId, "expected parameter 'appServicePlanId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountAccessKey = Objects.requireNonNull($.storageAccountAccessKey, "expected parameter 'storageAccountAccessKey' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
+            if ($.appServicePlanId == null) {
+                throw new MissingRequiredPropertyException("FunctionAppArgs", "appServicePlanId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FunctionAppArgs", "resourceGroupName");
+            }
+            if ($.storageAccountAccessKey == null) {
+                throw new MissingRequiredPropertyException("FunctionAppArgs", "storageAccountAccessKey");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("FunctionAppArgs", "storageAccountName");
+            }
             return $;
         }
     }

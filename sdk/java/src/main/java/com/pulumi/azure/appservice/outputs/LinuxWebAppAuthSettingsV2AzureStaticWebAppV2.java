@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2 {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2AzureStaticWebAppV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         public LinuxWebAppAuthSettingsV2AzureStaticWebAppV2 build() {

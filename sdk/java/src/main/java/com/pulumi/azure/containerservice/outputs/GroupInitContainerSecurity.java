@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class GroupInitContainerSecurity {
 
         @CustomType.Setter
         public Builder privilegeEnabled(Boolean privilegeEnabled) {
-            this.privilegeEnabled = Objects.requireNonNull(privilegeEnabled);
+            if (privilegeEnabled == null) {
+              throw new MissingRequiredPropertyException("GroupInitContainerSecurity", "privilegeEnabled");
+            }
+            this.privilegeEnabled = privilegeEnabled;
             return this;
         }
         public GroupInitContainerSecurity build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -100,12 +101,18 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
 
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceRequiredNetworkTrafficRule", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder fqdns(List<String> fqdns) {
-            this.fqdns = Objects.requireNonNull(fqdns);
+            if (fqdns == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceRequiredNetworkTrafficRule", "fqdns");
+            }
+            this.fqdns = fqdns;
             return this;
         }
         public Builder fqdns(String... fqdns) {
@@ -113,7 +120,10 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
         }
         @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceRequiredNetworkTrafficRule", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
@@ -121,12 +131,18 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceRequiredNetworkTrafficRule", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceRequiredNetworkTrafficRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public GetSpringCloudServiceRequiredNetworkTrafficRule build() {

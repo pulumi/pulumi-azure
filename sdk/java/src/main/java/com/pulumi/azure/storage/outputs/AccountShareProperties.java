@@ -75,6 +75,7 @@ public final class AccountShareProperties {
 
         @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountSharePropertiesCorsRule> corsRules) {
+
             this.corsRules = corsRules;
             return this;
         }
@@ -83,11 +84,13 @@ public final class AccountShareProperties {
         }
         @CustomType.Setter
         public Builder retentionPolicy(@Nullable AccountSharePropertiesRetentionPolicy retentionPolicy) {
+
             this.retentionPolicy = retentionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder smb(@Nullable AccountSharePropertiesSmb smb) {
+
             this.smb = smb;
             return this;
         }

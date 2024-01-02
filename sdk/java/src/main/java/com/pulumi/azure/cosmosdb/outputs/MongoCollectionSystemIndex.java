@@ -64,6 +64,7 @@ public final class MongoCollectionSystemIndex {
 
         @CustomType.Setter
         public Builder keys(@Nullable List<String> keys) {
+
             this.keys = keys;
             return this;
         }
@@ -72,6 +73,7 @@ public final class MongoCollectionSystemIndex {
         }
         @CustomType.Setter
         public Builder unique(@Nullable Boolean unique) {
+
             this.unique = unique;
             return this;
         }

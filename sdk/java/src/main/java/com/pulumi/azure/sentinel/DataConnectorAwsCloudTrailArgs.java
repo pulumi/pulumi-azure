@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DataConnectorAwsCloudTrailArgs extends com.pulumi.resources.R
         }
 
         public DataConnectorAwsCloudTrailArgs build() {
-            $.awsRoleArn = Objects.requireNonNull($.awsRoleArn, "expected parameter 'awsRoleArn' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.awsRoleArn == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsCloudTrailArgs", "awsRoleArn");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsCloudTrailArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

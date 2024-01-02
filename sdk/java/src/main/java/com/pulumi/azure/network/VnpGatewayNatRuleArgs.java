@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.VnpGatewayNatRuleExternalMappingArgs;
 import com.pulumi.azure.network.inputs.VnpGatewayNatRuleInternalMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -512,8 +513,12 @@ public final class VnpGatewayNatRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         public VnpGatewayNatRuleArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.vpnGatewayId = Objects.requireNonNull($.vpnGatewayId, "expected parameter 'vpnGatewayId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VnpGatewayNatRuleArgs", "resourceGroupName");
+            }
+            if ($.vpnGatewayId == null) {
+                throw new MissingRequiredPropertyException("VnpGatewayNatRuleArgs", "vpnGatewayId");
+            }
             return $;
         }
     }

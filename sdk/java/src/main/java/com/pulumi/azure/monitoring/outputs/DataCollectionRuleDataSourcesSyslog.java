@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,7 +91,10 @@ public final class DataCollectionRuleDataSourcesSyslog {
 
         @CustomType.Setter
         public Builder facilityNames(List<String> facilityNames) {
-            this.facilityNames = Objects.requireNonNull(facilityNames);
+            if (facilityNames == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslog", "facilityNames");
+            }
+            this.facilityNames = facilityNames;
             return this;
         }
         public Builder facilityNames(String... facilityNames) {
@@ -98,7 +102,10 @@ public final class DataCollectionRuleDataSourcesSyslog {
         }
         @CustomType.Setter
         public Builder logLevels(List<String> logLevels) {
-            this.logLevels = Objects.requireNonNull(logLevels);
+            if (logLevels == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslog", "logLevels");
+            }
+            this.logLevels = logLevels;
             return this;
         }
         public Builder logLevels(String... logLevels) {
@@ -106,11 +113,15 @@ public final class DataCollectionRuleDataSourcesSyslog {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslog", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder streams(@Nullable List<String> streams) {
+
             this.streams = streams;
             return this;
         }

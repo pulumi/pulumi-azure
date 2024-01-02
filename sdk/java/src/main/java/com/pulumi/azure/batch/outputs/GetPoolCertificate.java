@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetPoolCertificate {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPoolCertificate", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder storeLocation(String storeLocation) {
-            this.storeLocation = Objects.requireNonNull(storeLocation);
+            if (storeLocation == null) {
+              throw new MissingRequiredPropertyException("GetPoolCertificate", "storeLocation");
+            }
+            this.storeLocation = storeLocation;
             return this;
         }
         @CustomType.Setter
         public Builder storeName(String storeName) {
-            this.storeName = Objects.requireNonNull(storeName);
+            if (storeName == null) {
+              throw new MissingRequiredPropertyException("GetPoolCertificate", "storeName");
+            }
+            this.storeName = storeName;
             return this;
         }
         @CustomType.Setter
         public Builder visibilities(List<String> visibilities) {
-            this.visibilities = Objects.requireNonNull(visibilities);
+            if (visibilities == null) {
+              throw new MissingRequiredPropertyException("GetPoolCertificate", "visibilities");
+            }
+            this.visibilities = visibilities;
             return this;
         }
         public Builder visibilities(String... visibilities) {

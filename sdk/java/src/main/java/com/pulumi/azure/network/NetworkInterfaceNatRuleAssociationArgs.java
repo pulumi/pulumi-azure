@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class NetworkInterfaceNatRuleAssociationArgs extends com.pulumi.res
         }
 
         public NetworkInterfaceNatRuleAssociationArgs build() {
-            $.ipConfigurationName = Objects.requireNonNull($.ipConfigurationName, "expected parameter 'ipConfigurationName' to be non-null");
-            $.natRuleId = Objects.requireNonNull($.natRuleId, "expected parameter 'natRuleId' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
+            if ($.ipConfigurationName == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceNatRuleAssociationArgs", "ipConfigurationName");
+            }
+            if ($.natRuleId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceNatRuleAssociationArgs", "natRuleId");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceNatRuleAssociationArgs", "networkInterfaceId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencClearTrackConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class StreamingPolicyCommonEncryptionCencClearTrackArgs extends com
         }
 
         public StreamingPolicyCommonEncryptionCencClearTrackArgs build() {
-            $.conditions = Objects.requireNonNull($.conditions, "expected parameter 'conditions' to be non-null");
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("StreamingPolicyCommonEncryptionCencClearTrackArgs", "conditions");
+            }
             return $;
         }
     }

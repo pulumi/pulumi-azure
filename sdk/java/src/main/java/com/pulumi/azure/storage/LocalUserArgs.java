@@ -7,6 +7,7 @@ import com.pulumi.azure.storage.inputs.LocalUserPermissionScopeArgs;
 import com.pulumi.azure.storage.inputs.LocalUserSshAuthorizedKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -322,7 +323,9 @@ public final class LocalUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LocalUserArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("LocalUserArgs", "storageAccountId");
+            }
             return $;
         }
     }

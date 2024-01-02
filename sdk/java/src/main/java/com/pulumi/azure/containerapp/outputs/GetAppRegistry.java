@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetAppRegistry {
 
         @CustomType.Setter
         public Builder identity(String identity) {
-            this.identity = Objects.requireNonNull(identity);
+            if (identity == null) {
+              throw new MissingRequiredPropertyException("GetAppRegistry", "identity");
+            }
+            this.identity = identity;
             return this;
         }
         @CustomType.Setter
         public Builder passwordSecretName(String passwordSecretName) {
-            this.passwordSecretName = Objects.requireNonNull(passwordSecretName);
+            if (passwordSecretName == null) {
+              throw new MissingRequiredPropertyException("GetAppRegistry", "passwordSecretName");
+            }
+            this.passwordSecretName = passwordSecretName;
             return this;
         }
         @CustomType.Setter
         public Builder server(String server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("GetAppRegistry", "server");
+            }
+            this.server = server;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetAppRegistry", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetAppRegistry build() {

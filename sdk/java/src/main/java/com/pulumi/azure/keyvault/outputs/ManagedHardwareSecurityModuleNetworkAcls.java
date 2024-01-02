@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ManagedHardwareSecurityModuleNetworkAcls {
 
         @CustomType.Setter
         public Builder bypass(String bypass) {
-            this.bypass = Objects.requireNonNull(bypass);
+            if (bypass == null) {
+              throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleNetworkAcls", "bypass");
+            }
+            this.bypass = bypass;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleNetworkAcls", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         public ManagedHardwareSecurityModuleNetworkAcls build() {

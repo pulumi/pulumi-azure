@@ -5,6 +5,7 @@ package com.pulumi.azure.notificationhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
         }
 
         public HubApnsCredentialArgs build() {
-            $.applicationMode = Objects.requireNonNull($.applicationMode, "expected parameter 'applicationMode' to be non-null");
-            $.bundleId = Objects.requireNonNull($.bundleId, "expected parameter 'bundleId' to be non-null");
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
+            if ($.applicationMode == null) {
+                throw new MissingRequiredPropertyException("HubApnsCredentialArgs", "applicationMode");
+            }
+            if ($.bundleId == null) {
+                throw new MissingRequiredPropertyException("HubApnsCredentialArgs", "bundleId");
+            }
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("HubApnsCredentialArgs", "keyId");
+            }
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("HubApnsCredentialArgs", "teamId");
+            }
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("HubApnsCredentialArgs", "token");
+            }
             return $;
         }
     }

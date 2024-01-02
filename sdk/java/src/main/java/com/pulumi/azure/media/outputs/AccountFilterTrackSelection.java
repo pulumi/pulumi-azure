@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.AccountFilterTrackSelectionCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class AccountFilterTrackSelection {
 
         @CustomType.Setter
         public Builder conditions(List<AccountFilterTrackSelectionCondition> conditions) {
-            this.conditions = Objects.requireNonNull(conditions);
+            if (conditions == null) {
+              throw new MissingRequiredPropertyException("AccountFilterTrackSelection", "conditions");
+            }
+            this.conditions = conditions;
             return this;
         }
         public Builder conditions(AccountFilterTrackSelectionCondition... conditions) {

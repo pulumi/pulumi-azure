@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkArgs build() {
-            $.mobileCountryCode = Objects.requireNonNull($.mobileCountryCode, "expected parameter 'mobileCountryCode' to be non-null");
-            $.mobileNetworkCode = Objects.requireNonNull($.mobileNetworkCode, "expected parameter 'mobileNetworkCode' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.mobileCountryCode == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "mobileCountryCode");
+            }
+            if ($.mobileNetworkCode == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "mobileNetworkCode");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkArgs", "resourceGroupName");
+            }
             return $;
         }
     }

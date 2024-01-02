@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class SqlStoredProcedureArgs extends com.pulumi.resources.ResourceA
         }
 
         public SqlStoredProcedureArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("SqlStoredProcedureArgs", "accountName");
+            }
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("SqlStoredProcedureArgs", "body");
+            }
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("SqlStoredProcedureArgs", "containerName");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("SqlStoredProcedureArgs", "databaseName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SqlStoredProcedureArgs", "resourceGroupName");
+            }
             return $;
         }
     }

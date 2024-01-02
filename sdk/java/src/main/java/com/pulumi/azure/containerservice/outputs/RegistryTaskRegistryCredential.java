@@ -60,6 +60,7 @@ public final class RegistryTaskRegistryCredential {
 
         @CustomType.Setter
         public Builder customs(@Nullable List<RegistryTaskRegistryCredentialCustom> customs) {
+
             this.customs = customs;
             return this;
         }
@@ -68,6 +69,7 @@ public final class RegistryTaskRegistryCredential {
         }
         @CustomType.Setter
         public Builder source(@Nullable RegistryTaskRegistryCredentialSource source) {
+
             this.source = source;
             return this;
         }

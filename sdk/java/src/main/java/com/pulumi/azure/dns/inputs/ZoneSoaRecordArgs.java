@@ -5,6 +5,7 @@ package com.pulumi.azure.dns.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -391,7 +392,9 @@ public final class ZoneSoaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ZoneSoaRecordArgs build() {
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("ZoneSoaRecordArgs", "email");
+            }
             return $;
         }
     }

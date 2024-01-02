@@ -36,6 +36,7 @@ public final class FeaturesManagedDisk {
 
         @CustomType.Setter
         public Builder expandWithoutDowntime(@Nullable Boolean expandWithoutDowntime) {
+
             this.expandWithoutDowntime = expandWithoutDowntime;
             return this;
         }

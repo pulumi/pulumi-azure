@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -100,22 +101,34 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
 
         @CustomType.Setter
         public Builder parameterValues(String parameterValues) {
-            this.parameterValues = Objects.requireNonNull(parameterValues);
+            if (parameterValues == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionPolicyDefinitionReference", "parameterValues");
+            }
+            this.parameterValues = parameterValues;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionPolicyDefinitionReference", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
-            this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
+            if (policyDefinitionId == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionPolicyDefinitionReference", "policyDefinitionId");
+            }
+            this.policyDefinitionId = policyDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder policyGroupNames(List<String> policyGroupNames) {
-            this.policyGroupNames = Objects.requireNonNull(policyGroupNames);
+            if (policyGroupNames == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionPolicyDefinitionReference", "policyGroupNames");
+            }
+            this.policyGroupNames = policyGroupNames;
             return this;
         }
         public Builder policyGroupNames(String... policyGroupNames) {
@@ -123,7 +136,10 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
         }
         @CustomType.Setter
         public Builder referenceId(String referenceId) {
-            this.referenceId = Objects.requireNonNull(referenceId);
+            if (referenceId == null) {
+              throw new MissingRequiredPropertyException("GetPolicySetDefinitionPolicyDefinitionReference", "referenceId");
+            }
+            this.referenceId = referenceId;
             return this;
         }
         public GetPolicySetDefinitionPolicyDefinitionReference build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.azure.privatelink.outputs.GetServiceNatIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -178,12 +179,18 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder alias(String alias) {
-            this.alias = Objects.requireNonNull(alias);
+            if (alias == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "alias");
+            }
+            this.alias = alias;
             return this;
         }
         @CustomType.Setter
         public Builder autoApprovalSubscriptionIds(List<String> autoApprovalSubscriptionIds) {
-            this.autoApprovalSubscriptionIds = Objects.requireNonNull(autoApprovalSubscriptionIds);
+            if (autoApprovalSubscriptionIds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "autoApprovalSubscriptionIds");
+            }
+            this.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
             return this;
         }
         public Builder autoApprovalSubscriptionIds(String... autoApprovalSubscriptionIds) {
@@ -191,17 +198,26 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
-            this.enableProxyProtocol = Objects.requireNonNull(enableProxyProtocol);
+            if (enableProxyProtocol == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "enableProxyProtocol");
+            }
+            this.enableProxyProtocol = enableProxyProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerFrontendIpConfigurationIds(List<String> loadBalancerFrontendIpConfigurationIds) {
-            this.loadBalancerFrontendIpConfigurationIds = Objects.requireNonNull(loadBalancerFrontendIpConfigurationIds);
+            if (loadBalancerFrontendIpConfigurationIds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "loadBalancerFrontendIpConfigurationIds");
+            }
+            this.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             return this;
         }
         public Builder loadBalancerFrontendIpConfigurationIds(String... loadBalancerFrontendIpConfigurationIds) {
@@ -209,17 +225,26 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder natIpConfigurations(List<GetServiceNatIpConfiguration> natIpConfigurations) {
-            this.natIpConfigurations = Objects.requireNonNull(natIpConfigurations);
+            if (natIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "natIpConfigurations");
+            }
+            this.natIpConfigurations = natIpConfigurations;
             return this;
         }
         public Builder natIpConfigurations(GetServiceNatIpConfiguration... natIpConfigurations) {
@@ -227,17 +252,26 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder visibilitySubscriptionIds(List<String> visibilitySubscriptionIds) {
-            this.visibilitySubscriptionIds = Objects.requireNonNull(visibilitySubscriptionIds);
+            if (visibilitySubscriptionIds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "visibilitySubscriptionIds");
+            }
+            this.visibilitySubscriptionIds = visibilitySubscriptionIds;
             return this;
         }
         public Builder visibilitySubscriptionIds(String... visibilitySubscriptionIds) {

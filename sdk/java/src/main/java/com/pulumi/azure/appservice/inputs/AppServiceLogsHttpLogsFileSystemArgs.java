@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AppServiceLogsHttpLogsFileSystemArgs extends com.pulumi.resou
         }
 
         public AppServiceLogsHttpLogsFileSystemArgs build() {
-            $.retentionInDays = Objects.requireNonNull($.retentionInDays, "expected parameter 'retentionInDays' to be non-null");
-            $.retentionInMb = Objects.requireNonNull($.retentionInMb, "expected parameter 'retentionInMb' to be non-null");
+            if ($.retentionInDays == null) {
+                throw new MissingRequiredPropertyException("AppServiceLogsHttpLogsFileSystemArgs", "retentionInDays");
+            }
+            if ($.retentionInMb == null) {
+                throw new MissingRequiredPropertyException("AppServiceLogsHttpLogsFileSystemArgs", "retentionInMb");
+            }
             return $;
         }
     }

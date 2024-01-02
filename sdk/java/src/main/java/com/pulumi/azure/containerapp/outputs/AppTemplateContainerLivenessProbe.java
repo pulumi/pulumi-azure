@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.AppTemplateContainerLivenessProbeHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -173,11 +174,13 @@ public final class AppTemplateContainerLivenessProbe {
 
         @CustomType.Setter
         public Builder failureCountThreshold(@Nullable Integer failureCountThreshold) {
+
             this.failureCountThreshold = failureCountThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<AppTemplateContainerLivenessProbeHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -186,42 +189,54 @@ public final class AppTemplateContainerLivenessProbe {
         }
         @CustomType.Setter
         public Builder host(@Nullable String host) {
+
             this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder initialDelay(@Nullable Integer initialDelay) {
+
             this.initialDelay = initialDelay;
             return this;
         }
         @CustomType.Setter
         public Builder intervalSeconds(@Nullable Integer intervalSeconds) {
+
             this.intervalSeconds = intervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainerLivenessProbe", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder terminationGracePeriodSeconds(@Nullable Integer terminationGracePeriodSeconds) {
+
             this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(@Nullable Integer timeout) {
+
             this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder transport(String transport) {
-            this.transport = Objects.requireNonNull(transport);
+            if (transport == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainerLivenessProbe", "transport");
+            }
+            this.transport = transport;
             return this;
         }
         public AppTemplateContainerLivenessProbe build() {

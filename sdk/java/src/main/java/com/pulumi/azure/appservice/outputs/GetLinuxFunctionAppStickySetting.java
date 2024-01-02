@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetLinuxFunctionAppStickySetting {
 
         @CustomType.Setter
         public Builder appSettingNames(List<String> appSettingNames) {
-            this.appSettingNames = Objects.requireNonNull(appSettingNames);
+            if (appSettingNames == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppStickySetting", "appSettingNames");
+            }
+            this.appSettingNames = appSettingNames;
             return this;
         }
         public Builder appSettingNames(String... appSettingNames) {
@@ -65,7 +69,10 @@ public final class GetLinuxFunctionAppStickySetting {
         }
         @CustomType.Setter
         public Builder connectionStringNames(List<String> connectionStringNames) {
-            this.connectionStringNames = Objects.requireNonNull(connectionStringNames);
+            if (connectionStringNames == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppStickySetting", "connectionStringNames");
+            }
+            this.connectionStringNames = connectionStringNames;
             return this;
         }
         public Builder connectionStringNames(String... connectionStringNames) {

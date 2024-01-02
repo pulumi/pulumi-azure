@@ -130,6 +130,7 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
 
         @CustomType.Setter
         public Builder adminGroupObjectIds(@Nullable List<String> adminGroupObjectIds) {
+
             this.adminGroupObjectIds = adminGroupObjectIds;
             return this;
         }
@@ -138,31 +139,37 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
         }
         @CustomType.Setter
         public Builder azureRbacEnabled(@Nullable Boolean azureRbacEnabled) {
+
             this.azureRbacEnabled = azureRbacEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientAppId(@Nullable String clientAppId) {
+
             this.clientAppId = clientAppId;
             return this;
         }
         @CustomType.Setter
         public Builder managed(@Nullable Boolean managed) {
+
             this.managed = managed;
             return this;
         }
         @CustomType.Setter
         public Builder serverAppId(@Nullable String serverAppId) {
+
             this.serverAppId = serverAppId;
             return this;
         }
         @CustomType.Setter
         public Builder serverAppSecret(@Nullable String serverAppSecret) {
+
             this.serverAppSecret = serverAppSecret;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

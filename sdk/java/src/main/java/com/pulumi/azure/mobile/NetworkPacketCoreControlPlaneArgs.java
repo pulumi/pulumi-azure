@@ -8,6 +8,7 @@ import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlaneLocalDiagnost
 import com.pulumi.azure.mobile.inputs.NetworkPacketCoreControlPlanePlatformArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -684,10 +685,18 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
         }
 
         public NetworkPacketCoreControlPlaneArgs build() {
-            $.localDiagnosticsAccess = Objects.requireNonNull($.localDiagnosticsAccess, "expected parameter 'localDiagnosticsAccess' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.siteIds = Objects.requireNonNull($.siteIds, "expected parameter 'siteIds' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.localDiagnosticsAccess == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlaneArgs", "localDiagnosticsAccess");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlaneArgs", "resourceGroupName");
+            }
+            if ($.siteIds == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlaneArgs", "siteIds");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlaneArgs", "sku");
+            }
             return $;
         }
     }

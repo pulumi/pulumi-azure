@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.azure.keyvault.outputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -103,6 +104,7 @@ public final class CertifiateCertificatePolicyX509CertificateProperties {
 
         @CustomType.Setter
         public Builder extendedKeyUsages(@Nullable List<String> extendedKeyUsages) {
+
             this.extendedKeyUsages = extendedKeyUsages;
             return this;
         }
@@ -111,7 +113,10 @@ public final class CertifiateCertificatePolicyX509CertificateProperties {
         }
         @CustomType.Setter
         public Builder keyUsages(List<String> keyUsages) {
-            this.keyUsages = Objects.requireNonNull(keyUsages);
+            if (keyUsages == null) {
+              throw new MissingRequiredPropertyException("CertifiateCertificatePolicyX509CertificateProperties", "keyUsages");
+            }
+            this.keyUsages = keyUsages;
             return this;
         }
         public Builder keyUsages(String... keyUsages) {
@@ -119,17 +124,24 @@ public final class CertifiateCertificatePolicyX509CertificateProperties {
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("CertifiateCertificatePolicyX509CertificateProperties", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames) {
+
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         @CustomType.Setter
         public Builder validityInMonths(Integer validityInMonths) {
-            this.validityInMonths = Objects.requireNonNull(validityInMonths);
+            if (validityInMonths == null) {
+              throw new MissingRequiredPropertyException("CertifiateCertificatePolicyX509CertificateProperties", "validityInMonths");
+            }
+            this.validityInMonths = validityInMonths;
             return this;
         }
         public CertifiateCertificatePolicyX509CertificateProperties build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncidentConfigurationGrouping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class AlertRuleScheduledIncidentConfiguration {
 
         @CustomType.Setter
         public Builder createIncident(Boolean createIncident) {
-            this.createIncident = Objects.requireNonNull(createIncident);
+            if (createIncident == null) {
+              throw new MissingRequiredPropertyException("AlertRuleScheduledIncidentConfiguration", "createIncident");
+            }
+            this.createIncident = createIncident;
             return this;
         }
         @CustomType.Setter
         public Builder grouping(AlertRuleScheduledIncidentConfigurationGrouping grouping) {
-            this.grouping = Objects.requireNonNull(grouping);
+            if (grouping == null) {
+              throw new MissingRequiredPropertyException("AlertRuleScheduledIncidentConfiguration", "grouping");
+            }
+            this.grouping = grouping;
             return this;
         }
         public AlertRuleScheduledIncidentConfiguration build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.lab.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class LabSecurity {
 
         @CustomType.Setter
         public Builder openAccessEnabled(Boolean openAccessEnabled) {
-            this.openAccessEnabled = Objects.requireNonNull(openAccessEnabled);
+            if (openAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("LabSecurity", "openAccessEnabled");
+            }
+            this.openAccessEnabled = openAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder registrationCode(@Nullable String registrationCode) {
+
             this.registrationCode = registrationCode;
             return this;
         }

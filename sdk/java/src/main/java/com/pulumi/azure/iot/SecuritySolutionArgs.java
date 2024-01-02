@@ -7,6 +7,7 @@ import com.pulumi.azure.iot.inputs.SecuritySolutionAdditionalWorkspaceArgs;
 import com.pulumi.azure.iot.inputs.SecuritySolutionRecommendationsEnabledArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -649,9 +650,15 @@ public final class SecuritySolutionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public SecuritySolutionArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.iothubIds = Objects.requireNonNull($.iothubIds, "expected parameter 'iothubIds' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("SecuritySolutionArgs", "displayName");
+            }
+            if ($.iothubIds == null) {
+                throw new MissingRequiredPropertyException("SecuritySolutionArgs", "iothubIds");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SecuritySolutionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

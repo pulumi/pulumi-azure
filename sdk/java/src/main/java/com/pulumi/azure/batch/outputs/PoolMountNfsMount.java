@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class PoolMountNfsMount {
 
         @CustomType.Setter
         public Builder mountOptions(@Nullable String mountOptions) {
+
             this.mountOptions = mountOptions;
             return this;
         }
         @CustomType.Setter
         public Builder relativeMountPath(String relativeMountPath) {
-            this.relativeMountPath = Objects.requireNonNull(relativeMountPath);
+            if (relativeMountPath == null) {
+              throw new MissingRequiredPropertyException("PoolMountNfsMount", "relativeMountPath");
+            }
+            this.relativeMountPath = relativeMountPath;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("PoolMountNfsMount", "source");
+            }
+            this.source = source;
             return this;
         }
         public PoolMountNfsMount build() {

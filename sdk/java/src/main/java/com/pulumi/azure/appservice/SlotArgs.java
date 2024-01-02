@@ -11,6 +11,7 @@ import com.pulumi.azure.appservice.inputs.SlotSiteConfigArgs;
 import com.pulumi.azure.appservice.inputs.SlotStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -697,9 +698,15 @@ public final class SlotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SlotArgs build() {
-            $.appServiceName = Objects.requireNonNull($.appServiceName, "expected parameter 'appServiceName' to be non-null");
-            $.appServicePlanId = Objects.requireNonNull($.appServicePlanId, "expected parameter 'appServicePlanId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServiceName == null) {
+                throw new MissingRequiredPropertyException("SlotArgs", "appServiceName");
+            }
+            if ($.appServicePlanId == null) {
+                throw new MissingRequiredPropertyException("SlotArgs", "appServicePlanId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SlotArgs", "resourceGroupName");
+            }
             return $;
         }
     }

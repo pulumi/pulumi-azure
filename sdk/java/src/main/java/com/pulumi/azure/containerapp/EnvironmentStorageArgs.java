@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class EnvironmentStorageArgs extends com.pulumi.resources.ResourceA
         }
 
         public EnvironmentStorageArgs build() {
-            $.accessKey = Objects.requireNonNull($.accessKey, "expected parameter 'accessKey' to be non-null");
-            $.accessMode = Objects.requireNonNull($.accessMode, "expected parameter 'accessMode' to be non-null");
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.containerAppEnvironmentId = Objects.requireNonNull($.containerAppEnvironmentId, "expected parameter 'containerAppEnvironmentId' to be non-null");
-            $.shareName = Objects.requireNonNull($.shareName, "expected parameter 'shareName' to be non-null");
+            if ($.accessKey == null) {
+                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accessKey");
+            }
+            if ($.accessMode == null) {
+                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accessMode");
+            }
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "accountName");
+            }
+            if ($.containerAppEnvironmentId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "containerAppEnvironmentId");
+            }
+            if ($.shareName == null) {
+                throw new MissingRequiredPropertyException("EnvironmentStorageArgs", "shareName");
+            }
             return $;
         }
     }

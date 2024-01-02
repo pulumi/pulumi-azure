@@ -100,26 +100,31 @@ public final class LocalUserPermissionScopePermissions {
 
         @CustomType.Setter
         public Builder create(@Nullable Boolean create) {
+
             this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(@Nullable Boolean delete) {
+
             this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder list(@Nullable Boolean list) {
+
             this.list = list;
             return this;
         }
         @CustomType.Setter
         public Builder read(@Nullable Boolean read) {
+
             this.read = read;
             return this;
         }
         @CustomType.Setter
         public Builder write(@Nullable Boolean write) {
+
             this.write = write;
             return this;
         }

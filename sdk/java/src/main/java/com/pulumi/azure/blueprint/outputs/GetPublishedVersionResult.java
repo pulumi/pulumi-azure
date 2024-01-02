@@ -4,6 +4,7 @@
 package com.pulumi.azure.blueprint.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -128,52 +129,82 @@ public final class GetPublishedVersionResult {
 
         @CustomType.Setter
         public Builder blueprintName(String blueprintName) {
-            this.blueprintName = Objects.requireNonNull(blueprintName);
+            if (blueprintName == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "blueprintName");
+            }
+            this.blueprintName = blueprintName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastModified(String lastModified) {
-            this.lastModified = Objects.requireNonNull(lastModified);
+            if (lastModified == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "lastModified");
+            }
+            this.lastModified = lastModified;
             return this;
         }
         @CustomType.Setter
         public Builder scopeId(String scopeId) {
-            this.scopeId = Objects.requireNonNull(scopeId);
+            if (scopeId == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "scopeId");
+            }
+            this.scopeId = scopeId;
             return this;
         }
         @CustomType.Setter
         public Builder targetScope(String targetScope) {
-            this.targetScope = Objects.requireNonNull(targetScope);
+            if (targetScope == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "targetScope");
+            }
+            this.targetScope = targetScope;
             return this;
         }
         @CustomType.Setter
         public Builder timeCreated(String timeCreated) {
-            this.timeCreated = Objects.requireNonNull(timeCreated);
+            if (timeCreated == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "timeCreated");
+            }
+            this.timeCreated = timeCreated;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetPublishedVersionResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetPublishedVersionResult build() {

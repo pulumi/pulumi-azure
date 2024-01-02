@@ -6,6 +6,7 @@ package com.pulumi.azure.storage;
 import com.pulumi.azure.storage.inputs.TableAclArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableArgs build() {
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "storageAccountName");
+            }
             return $;
         }
     }

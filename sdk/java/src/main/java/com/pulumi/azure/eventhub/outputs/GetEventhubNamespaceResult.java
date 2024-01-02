@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -267,92 +268,146 @@ public final class GetEventhubNamespaceResult {
 
         @CustomType.Setter
         public Builder autoInflateEnabled(Boolean autoInflateEnabled) {
-            this.autoInflateEnabled = Objects.requireNonNull(autoInflateEnabled);
+            if (autoInflateEnabled == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "autoInflateEnabled");
+            }
+            this.autoInflateEnabled = autoInflateEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder dedicatedClusterId(String dedicatedClusterId) {
-            this.dedicatedClusterId = Objects.requireNonNull(dedicatedClusterId);
+            if (dedicatedClusterId == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "dedicatedClusterId");
+            }
+            this.dedicatedClusterId = dedicatedClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryConnectionString(String defaultPrimaryConnectionString) {
-            this.defaultPrimaryConnectionString = Objects.requireNonNull(defaultPrimaryConnectionString);
+            if (defaultPrimaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultPrimaryConnectionString");
+            }
+            this.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryConnectionStringAlias(String defaultPrimaryConnectionStringAlias) {
-            this.defaultPrimaryConnectionStringAlias = Objects.requireNonNull(defaultPrimaryConnectionStringAlias);
+            if (defaultPrimaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultPrimaryConnectionStringAlias");
+            }
+            this.defaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
-            this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
+            if (defaultPrimaryKey == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultPrimaryKey");
+            }
+            this.defaultPrimaryKey = defaultPrimaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryConnectionString(String defaultSecondaryConnectionString) {
-            this.defaultSecondaryConnectionString = Objects.requireNonNull(defaultSecondaryConnectionString);
+            if (defaultSecondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultSecondaryConnectionString");
+            }
+            this.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryConnectionStringAlias(String defaultSecondaryConnectionStringAlias) {
-            this.defaultSecondaryConnectionStringAlias = Objects.requireNonNull(defaultSecondaryConnectionStringAlias);
+            if (defaultSecondaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultSecondaryConnectionStringAlias");
+            }
+            this.defaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
-            this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
+            if (defaultSecondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "defaultSecondaryKey");
+            }
+            this.defaultSecondaryKey = defaultSecondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaEnabled(Boolean kafkaEnabled) {
-            this.kafkaEnabled = Objects.requireNonNull(kafkaEnabled);
+            if (kafkaEnabled == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "kafkaEnabled");
+            }
+            this.kafkaEnabled = kafkaEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder maximumThroughputUnits(Integer maximumThroughputUnits) {
-            this.maximumThroughputUnits = Objects.requireNonNull(maximumThroughputUnits);
+            if (maximumThroughputUnits == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "maximumThroughputUnits");
+            }
+            this.maximumThroughputUnits = maximumThroughputUnits;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetEventhubNamespaceResult", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetEventhubNamespaceResult build() {

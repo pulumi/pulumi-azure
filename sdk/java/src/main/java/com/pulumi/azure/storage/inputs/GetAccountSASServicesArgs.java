@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class GetAccountSASServicesArgs extends com.pulumi.resources.Resour
         }
 
         public GetAccountSASServicesArgs build() {
-            $.blob = Objects.requireNonNull($.blob, "expected parameter 'blob' to be non-null");
-            $.file = Objects.requireNonNull($.file, "expected parameter 'file' to be non-null");
-            $.queue = Objects.requireNonNull($.queue, "expected parameter 'queue' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
+            if ($.blob == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASServicesArgs", "blob");
+            }
+            if ($.file == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASServicesArgs", "file");
+            }
+            if ($.queue == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASServicesArgs", "queue");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASServicesArgs", "table");
+            }
             return $;
         }
     }

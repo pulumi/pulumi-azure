@@ -5,6 +5,7 @@ package com.pulumi.azure.operationalinsights.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -167,8 +168,12 @@ public final class AnalyticsSolutionPlanArgs extends com.pulumi.resources.Resour
         }
 
         public AnalyticsSolutionPlanArgs build() {
-            $.product = Objects.requireNonNull($.product, "expected parameter 'product' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
+            if ($.product == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionPlanArgs", "product");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionPlanArgs", "publisher");
+            }
             return $;
         }
     }

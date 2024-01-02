@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,7 +227,9 @@ public final class SubnetServiceEndpointStoragePolicyArgs extends com.pulumi.res
         }
 
         public SubnetServiceEndpointStoragePolicyArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SubnetServiceEndpointStoragePolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

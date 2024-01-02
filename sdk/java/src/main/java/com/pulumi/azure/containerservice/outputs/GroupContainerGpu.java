@@ -59,11 +59,13 @@ public final class GroupContainerGpu {
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder sku(@Nullable String sku) {
+
             this.sku = sku;
             return this;
         }

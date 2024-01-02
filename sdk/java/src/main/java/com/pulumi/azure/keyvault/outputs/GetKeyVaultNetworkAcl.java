@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -53,17 +54,26 @@ public final class GetKeyVaultNetworkAcl {
 
         @CustomType.Setter
         public Builder bypass(String bypass) {
-            this.bypass = Objects.requireNonNull(bypass);
+            if (bypass == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultNetworkAcl", "bypass");
+            }
+            this.bypass = bypass;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultNetworkAcl", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(List<String> ipRules) {
-            this.ipRules = Objects.requireNonNull(ipRules);
+            if (ipRules == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultNetworkAcl", "ipRules");
+            }
+            this.ipRules = ipRules;
             return this;
         }
         public Builder ipRules(String... ipRules) {
@@ -71,7 +81,10 @@ public final class GetKeyVaultNetworkAcl {
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetIds(List<String> virtualNetworkSubnetIds) {
-            this.virtualNetworkSubnetIds = Objects.requireNonNull(virtualNetworkSubnetIds);
+            if (virtualNetworkSubnetIds == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultNetworkAcl", "virtualNetworkSubnetIds");
+            }
+            this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
             return this;
         }
         public Builder virtualNetworkSubnetIds(String... virtualNetworkSubnetIds) {

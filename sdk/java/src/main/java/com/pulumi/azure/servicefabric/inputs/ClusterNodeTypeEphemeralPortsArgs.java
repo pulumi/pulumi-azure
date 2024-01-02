@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ClusterNodeTypeEphemeralPortsArgs extends com.pulumi.resource
         }
 
         public ClusterNodeTypeEphemeralPortsArgs build() {
-            $.endPort = Objects.requireNonNull($.endPort, "expected parameter 'endPort' to be non-null");
-            $.startPort = Objects.requireNonNull($.startPort, "expected parameter 'startPort' to be non-null");
+            if ($.endPort == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeEphemeralPortsArgs", "endPort");
+            }
+            if ($.startPort == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeEphemeralPortsArgs", "startPort");
+            }
             return $;
         }
     }

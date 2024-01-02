@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement;
 import com.pulumi.azure.apimanagement.inputs.GatewayLocationDataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class GatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GatewayArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.locationData = Objects.requireNonNull($.locationData, "expected parameter 'locationData' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("GatewayArgs", "apiManagementId");
+            }
+            if ($.locationData == null) {
+                throw new MissingRequiredPropertyException("GatewayArgs", "locationData");
+            }
             return $;
         }
     }

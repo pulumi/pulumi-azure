@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class RedisCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RedisCacheArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("RedisCacheArgs", "apiManagementId");
+            }
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("RedisCacheArgs", "connectionString");
+            }
             return $;
         }
     }

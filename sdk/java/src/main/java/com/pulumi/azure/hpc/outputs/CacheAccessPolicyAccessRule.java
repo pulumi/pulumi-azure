@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -148,41 +149,53 @@ public final class CacheAccessPolicyAccessRule {
 
         @CustomType.Setter
         public Builder access(String access) {
-            this.access = Objects.requireNonNull(access);
+            if (access == null) {
+              throw new MissingRequiredPropertyException("CacheAccessPolicyAccessRule", "access");
+            }
+            this.access = access;
             return this;
         }
         @CustomType.Setter
         public Builder anonymousGid(@Nullable Integer anonymousGid) {
+
             this.anonymousGid = anonymousGid;
             return this;
         }
         @CustomType.Setter
         public Builder anonymousUid(@Nullable Integer anonymousUid) {
+
             this.anonymousUid = anonymousUid;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable String filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder rootSquashEnabled(@Nullable Boolean rootSquashEnabled) {
+
             this.rootSquashEnabled = rootSquashEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("CacheAccessPolicyAccessRule", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder submountAccessEnabled(@Nullable Boolean submountAccessEnabled) {
+
             this.submountAccessEnabled = submountAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder suidEnabled(@Nullable Boolean suidEnabled) {
+
             this.suidEnabled = suidEnabled;
             return this;
         }

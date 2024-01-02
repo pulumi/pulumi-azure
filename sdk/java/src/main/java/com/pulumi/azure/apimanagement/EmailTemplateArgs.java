@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -230,11 +231,21 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EmailTemplateArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subject = Objects.requireNonNull($.subject, "expected parameter 'subject' to be non-null");
-            $.templateName = Objects.requireNonNull($.templateName, "expected parameter 'templateName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("EmailTemplateArgs", "apiManagementName");
+            }
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("EmailTemplateArgs", "body");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EmailTemplateArgs", "resourceGroupName");
+            }
+            if ($.subject == null) {
+                throw new MissingRequiredPropertyException("EmailTemplateArgs", "subject");
+            }
+            if ($.templateName == null) {
+                throw new MissingRequiredPropertyException("EmailTemplateArgs", "templateName");
+            }
             return $;
         }
     }

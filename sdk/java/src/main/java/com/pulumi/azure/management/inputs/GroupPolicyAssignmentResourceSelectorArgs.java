@@ -6,6 +6,7 @@ package com.pulumi.azure.management.inputs;
 import com.pulumi.azure.management.inputs.GroupPolicyAssignmentResourceSelectorSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class GroupPolicyAssignmentResourceSelectorArgs extends com.pulumi.
         }
 
         public GroupPolicyAssignmentResourceSelectorArgs build() {
-            $.selectors = Objects.requireNonNull($.selectors, "expected parameter 'selectors' to be non-null");
+            if ($.selectors == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyAssignmentResourceSelectorArgs", "selectors");
+            }
             return $;
         }
     }

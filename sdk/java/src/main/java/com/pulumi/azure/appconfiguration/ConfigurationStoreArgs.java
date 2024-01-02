@@ -8,6 +8,7 @@ import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -532,7 +533,9 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         }
 
         public ConfigurationStoreArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationStoreArgs", "resourceGroupName");
+            }
             return $;
         }
     }

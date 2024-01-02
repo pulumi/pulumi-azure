@@ -5,6 +5,7 @@ package com.pulumi.azure.core.outputs;
 
 import com.pulumi.azure.core.outputs.ResourceGroupPolicyAssignmentOverrideSelector;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +60,7 @@ public final class ResourceGroupPolicyAssignmentOverride {
 
         @CustomType.Setter
         public Builder selectors(@Nullable List<ResourceGroupPolicyAssignmentOverrideSelector> selectors) {
+
             this.selectors = selectors;
             return this;
         }
@@ -67,7 +69,10 @@ public final class ResourceGroupPolicyAssignmentOverride {
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ResourceGroupPolicyAssignmentOverride", "value");
+            }
+            this.value = value;
             return this;
         }
         public ResourceGroupPolicyAssignmentOverride build() {

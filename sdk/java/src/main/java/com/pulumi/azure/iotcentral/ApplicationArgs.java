@@ -6,6 +6,7 @@ package com.pulumi.azure.iotcentral;
 import com.pulumi.azure.iotcentral.inputs.ApplicationIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -420,8 +421,12 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subDomain = Objects.requireNonNull($.subDomain, "expected parameter 'subDomain' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "resourceGroupName");
+            }
+            if ($.subDomain == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "subDomain");
+            }
             return $;
         }
     }

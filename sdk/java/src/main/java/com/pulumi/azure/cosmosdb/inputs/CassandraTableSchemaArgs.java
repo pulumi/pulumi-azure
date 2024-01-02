@@ -8,6 +8,7 @@ import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaColumnArgs;
 import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaPartitionKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -183,8 +184,12 @@ public final class CassandraTableSchemaArgs extends com.pulumi.resources.Resourc
         }
 
         public CassandraTableSchemaArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.partitionKeys = Objects.requireNonNull($.partitionKeys, "expected parameter 'partitionKeys' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("CassandraTableSchemaArgs", "columns");
+            }
+            if ($.partitionKeys == null) {
+                throw new MissingRequiredPropertyException("CassandraTableSchemaArgs", "partitionKeys");
+            }
             return $;
         }
     }

@@ -194,56 +194,67 @@ public final class AlertProcessingRuleSuppressionCondition {
 
         @CustomType.Setter
         public Builder alertContext(@Nullable AlertProcessingRuleSuppressionConditionAlertContext alertContext) {
+
             this.alertContext = alertContext;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleId(@Nullable AlertProcessingRuleSuppressionConditionAlertRuleId alertRuleId) {
+
             this.alertRuleId = alertRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleName(@Nullable AlertProcessingRuleSuppressionConditionAlertRuleName alertRuleName) {
+
             this.alertRuleName = alertRuleName;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable AlertProcessingRuleSuppressionConditionDescription description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder monitorCondition(@Nullable AlertProcessingRuleSuppressionConditionMonitorCondition monitorCondition) {
+
             this.monitorCondition = monitorCondition;
             return this;
         }
         @CustomType.Setter
         public Builder monitorService(@Nullable AlertProcessingRuleSuppressionConditionMonitorService monitorService) {
+
             this.monitorService = monitorService;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable AlertProcessingRuleSuppressionConditionSeverity severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder signalType(@Nullable AlertProcessingRuleSuppressionConditionSignalType signalType) {
+
             this.signalType = signalType;
             return this;
         }
         @CustomType.Setter
         public Builder targetResource(@Nullable AlertProcessingRuleSuppressionConditionTargetResource targetResource) {
+
             this.targetResource = targetResource;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceGroup(@Nullable AlertProcessingRuleSuppressionConditionTargetResourceGroup targetResourceGroup) {
+
             this.targetResourceGroup = targetResourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceType(@Nullable AlertProcessingRuleSuppressionConditionTargetResourceType targetResourceType) {
+
             this.targetResourceType = targetResourceType;
             return this;
         }

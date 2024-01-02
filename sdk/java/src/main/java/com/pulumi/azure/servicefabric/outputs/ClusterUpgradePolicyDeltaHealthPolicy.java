@@ -72,16 +72,19 @@ public final class ClusterUpgradePolicyDeltaHealthPolicy {
 
         @CustomType.Setter
         public Builder maxDeltaUnhealthyApplicationsPercent(@Nullable Integer maxDeltaUnhealthyApplicationsPercent) {
+
             this.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeltaUnhealthyNodesPercent(@Nullable Integer maxDeltaUnhealthyNodesPercent) {
+
             this.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUpgradeDomainDeltaUnhealthyNodesPercent(@Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent) {
+
             this.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
             return this;
         }

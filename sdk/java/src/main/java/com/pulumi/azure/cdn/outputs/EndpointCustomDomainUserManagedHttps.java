@@ -84,16 +84,19 @@ public final class EndpointCustomDomainUserManagedHttps {
 
         @CustomType.Setter
         public Builder keyVaultCertificateId(@Nullable String keyVaultCertificateId) {
+
             this.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
+
             this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder tlsVersion(@Nullable String tlsVersion) {
+
             this.tlsVersion = tlsVersion;
             return this;
         }

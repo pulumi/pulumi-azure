@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class LogzMonitorPlanArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LogzMonitorPlanArgs build() {
-            $.billingCycle = Objects.requireNonNull($.billingCycle, "expected parameter 'billingCycle' to be non-null");
-            $.effectiveDate = Objects.requireNonNull($.effectiveDate, "expected parameter 'effectiveDate' to be non-null");
-            $.usageType = Objects.requireNonNull($.usageType, "expected parameter 'usageType' to be non-null");
+            if ($.billingCycle == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorPlanArgs", "billingCycle");
+            }
+            if ($.effectiveDate == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorPlanArgs", "effectiveDate");
+            }
+            if ($.usageType == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorPlanArgs", "usageType");
+            }
             return $;
         }
     }

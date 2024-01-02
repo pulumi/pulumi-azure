@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -105,32 +106,50 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
-            this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
+            if (dotnetVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "dotnetVersion");
+            }
+            this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
-            this.nodeVersion = Objects.requireNonNull(nodeVersion);
+            if (nodeVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "nodeVersion");
+            }
+            this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder powershellCoreVersion(String powershellCoreVersion) {
-            this.powershellCoreVersion = Objects.requireNonNull(powershellCoreVersion);
+            if (powershellCoreVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "powershellCoreVersion");
+            }
+            this.powershellCoreVersion = powershellCoreVersion;
             return this;
         }
         @CustomType.Setter
         public Builder useCustomRuntime(Boolean useCustomRuntime) {
-            this.useCustomRuntime = Objects.requireNonNull(useCustomRuntime);
+            if (useCustomRuntime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "useCustomRuntime");
+            }
+            this.useCustomRuntime = useCustomRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(Boolean useDotnetIsolatedRuntime) {
-            this.useDotnetIsolatedRuntime = Objects.requireNonNull(useDotnetIsolatedRuntime);
+            if (useDotnetIsolatedRuntime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigApplicationStack", "useDotnetIsolatedRuntime");
+            }
+            this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
             return this;
         }
         public GetWindowsFunctionAppSiteConfigApplicationStack build() {

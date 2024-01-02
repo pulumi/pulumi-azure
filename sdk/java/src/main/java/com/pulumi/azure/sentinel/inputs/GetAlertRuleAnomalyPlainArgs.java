@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class GetAlertRuleAnomalyPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetAlertRuleAnomalyPlainArgs build() {
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("GetAlertRuleAnomalyPlainArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

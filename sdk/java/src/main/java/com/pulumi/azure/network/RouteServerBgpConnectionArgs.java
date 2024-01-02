@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class RouteServerBgpConnectionArgs extends com.pulumi.resources.Res
         }
 
         public RouteServerBgpConnectionArgs build() {
-            $.peerAsn = Objects.requireNonNull($.peerAsn, "expected parameter 'peerAsn' to be non-null");
-            $.peerIp = Objects.requireNonNull($.peerIp, "expected parameter 'peerIp' to be non-null");
-            $.routeServerId = Objects.requireNonNull($.routeServerId, "expected parameter 'routeServerId' to be non-null");
+            if ($.peerAsn == null) {
+                throw new MissingRequiredPropertyException("RouteServerBgpConnectionArgs", "peerAsn");
+            }
+            if ($.peerIp == null) {
+                throw new MissingRequiredPropertyException("RouteServerBgpConnectionArgs", "peerIp");
+            }
+            if ($.routeServerId == null) {
+                throw new MissingRequiredPropertyException("RouteServerBgpConnectionArgs", "routeServerId");
+            }
             return $;
         }
     }

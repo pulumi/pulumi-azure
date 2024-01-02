@@ -5,6 +5,7 @@ package com.pulumi.azure.confidentialledger.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class LedgerAzureadBasedServicePrincipalArgs extends com.pulumi.res
         }
 
         public LedgerAzureadBasedServicePrincipalArgs build() {
-            $.ledgerRoleName = Objects.requireNonNull($.ledgerRoleName, "expected parameter 'ledgerRoleName' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.ledgerRoleName == null) {
+                throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipalArgs", "ledgerRoleName");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipalArgs", "principalId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipalArgs", "tenantId");
+            }
             return $;
         }
     }

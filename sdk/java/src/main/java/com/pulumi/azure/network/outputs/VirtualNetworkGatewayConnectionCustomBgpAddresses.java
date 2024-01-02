@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
 
         @CustomType.Setter
         public Builder primary(String primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionCustomBgpAddresses", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder secondary(@Nullable String secondary) {
+
             this.secondary = secondary;
             return this;
         }

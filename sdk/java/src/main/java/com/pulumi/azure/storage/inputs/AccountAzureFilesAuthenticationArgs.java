@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.AccountAzureFilesAuthenticationActiveDirectoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
         }
 
         public AccountAzureFilesAuthenticationArgs build() {
-            $.directoryType = Objects.requireNonNull($.directoryType, "expected parameter 'directoryType' to be non-null");
+            if ($.directoryType == null) {
+                throw new MissingRequiredPropertyException("AccountAzureFilesAuthenticationArgs", "directoryType");
+            }
             return $;
         }
     }

@@ -87,21 +87,25 @@ public final class AlertProcessingRuleActionGroupSchedule {
 
         @CustomType.Setter
         public Builder effectiveFrom(@Nullable String effectiveFrom) {
+
             this.effectiveFrom = effectiveFrom;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveUntil(@Nullable String effectiveUntil) {
+
             this.effectiveUntil = effectiveUntil;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable AlertProcessingRuleActionGroupScheduleRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

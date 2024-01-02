@@ -11,6 +11,7 @@ import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationTargetArgs;
 import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationWindowsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -566,8 +567,12 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
         }
 
         public SoftwareUpdateConfigurationArgs build() {
-            $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
-            $.schedules = Objects.requireNonNull($.schedules, "expected parameter 'schedules' to be non-null");
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationArgs", "automationAccountId");
+            }
+            if ($.schedules == null) {
+                throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationArgs", "schedules");
+            }
             return $;
         }
     }

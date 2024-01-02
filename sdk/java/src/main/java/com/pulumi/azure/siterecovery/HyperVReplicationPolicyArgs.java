@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class HyperVReplicationPolicyArgs extends com.pulumi.resources.Reso
         }
 
         public HyperVReplicationPolicyArgs build() {
-            $.applicationConsistentSnapshotFrequencyInHours = Objects.requireNonNull($.applicationConsistentSnapshotFrequencyInHours, "expected parameter 'applicationConsistentSnapshotFrequencyInHours' to be non-null");
-            $.recoveryPointRetentionInHours = Objects.requireNonNull($.recoveryPointRetentionInHours, "expected parameter 'recoveryPointRetentionInHours' to be non-null");
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
-            $.replicationIntervalInSeconds = Objects.requireNonNull($.replicationIntervalInSeconds, "expected parameter 'replicationIntervalInSeconds' to be non-null");
+            if ($.applicationConsistentSnapshotFrequencyInHours == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyArgs", "applicationConsistentSnapshotFrequencyInHours");
+            }
+            if ($.recoveryPointRetentionInHours == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyArgs", "recoveryPointRetentionInHours");
+            }
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyArgs", "recoveryVaultId");
+            }
+            if ($.replicationIntervalInSeconds == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyArgs", "replicationIntervalInSeconds");
+            }
             return $;
         }
     }

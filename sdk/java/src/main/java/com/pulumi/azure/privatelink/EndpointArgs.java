@@ -8,6 +8,7 @@ import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneGroupArgs;
 import com.pulumi.azure.privatelink.inputs.EndpointPrivateServiceConnectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -387,9 +388,15 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.privateServiceConnection = Objects.requireNonNull($.privateServiceConnection, "expected parameter 'privateServiceConnection' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.privateServiceConnection == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "privateServiceConnection");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "resourceGroupName");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "subnetId");
+            }
             return $;
         }
     }

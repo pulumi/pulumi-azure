@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetGatewayPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetGatewayPlainArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("GetGatewayPlainArgs", "apiManagementId");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetGatewayPlainArgs", "name");
+            }
             return $;
         }
     }

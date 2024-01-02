@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -159,6 +160,7 @@ public final class SpringCloudGatewayRouteConfigRoute {
 
         @CustomType.Setter
         public Builder classificationTags(@Nullable List<String> classificationTags) {
+
             this.classificationTags = classificationTags;
             return this;
         }
@@ -167,11 +169,13 @@ public final class SpringCloudGatewayRouteConfigRoute {
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<String> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -180,11 +184,15 @@ public final class SpringCloudGatewayRouteConfigRoute {
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("SpringCloudGatewayRouteConfigRoute", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder predicates(@Nullable List<String> predicates) {
+
             this.predicates = predicates;
             return this;
         }
@@ -193,21 +201,25 @@ public final class SpringCloudGatewayRouteConfigRoute {
         }
         @CustomType.Setter
         public Builder ssoValidationEnabled(@Nullable Boolean ssoValidationEnabled) {
+
             this.ssoValidationEnabled = ssoValidationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRelay(@Nullable Boolean tokenRelay) {
+
             this.tokenRelay = tokenRelay;
             return this;
         }
         @CustomType.Setter
         public Builder uri(@Nullable String uri) {
+
             this.uri = uri;
             return this;
         }

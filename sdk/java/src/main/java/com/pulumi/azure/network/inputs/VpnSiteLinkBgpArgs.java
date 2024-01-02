@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class VpnSiteLinkBgpArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VpnSiteLinkBgpArgs build() {
-            $.asn = Objects.requireNonNull($.asn, "expected parameter 'asn' to be non-null");
-            $.peeringAddress = Objects.requireNonNull($.peeringAddress, "expected parameter 'peeringAddress' to be non-null");
+            if ($.asn == null) {
+                throw new MissingRequiredPropertyException("VpnSiteLinkBgpArgs", "asn");
+            }
+            if ($.peeringAddress == null) {
+                throw new MissingRequiredPropertyException("VpnSiteLinkBgpArgs", "peeringAddress");
+            }
             return $;
         }
     }

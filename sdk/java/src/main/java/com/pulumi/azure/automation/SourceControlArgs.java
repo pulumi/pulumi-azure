@@ -6,6 +6,7 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.automation.inputs.SourceControlSecurityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -411,11 +412,21 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SourceControlArgs build() {
-            $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
-            $.folderPath = Objects.requireNonNull($.folderPath, "expected parameter 'folderPath' to be non-null");
-            $.repositoryUrl = Objects.requireNonNull($.repositoryUrl, "expected parameter 'repositoryUrl' to be non-null");
-            $.security = Objects.requireNonNull($.security, "expected parameter 'security' to be non-null");
-            $.sourceControlType = Objects.requireNonNull($.sourceControlType, "expected parameter 'sourceControlType' to be non-null");
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "automationAccountId");
+            }
+            if ($.folderPath == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "folderPath");
+            }
+            if ($.repositoryUrl == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "repositoryUrl");
+            }
+            if ($.security == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "security");
+            }
+            if ($.sourceControlType == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "sourceControlType");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,7 +226,9 @@ public final class CertifiateCertificateArgs extends com.pulumi.resources.Resour
         }
 
         public CertifiateCertificateArgs build() {
-            $.contents = Objects.requireNonNull($.contents, "expected parameter 'contents' to be non-null");
+            if ($.contents == null) {
+                throw new MissingRequiredPropertyException("CertifiateCertificateArgs", "contents");
+            }
             return $;
         }
     }

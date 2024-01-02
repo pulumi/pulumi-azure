@@ -254,81 +254,97 @@ public final class SecuritySolutionRecommendationsEnabled {
 
         @CustomType.Setter
         public Builder acrAuthentication(@Nullable Boolean acrAuthentication) {
+
             this.acrAuthentication = acrAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder agentSendUnutilizedMsg(@Nullable Boolean agentSendUnutilizedMsg) {
+
             this.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
             return this;
         }
         @CustomType.Setter
         public Builder baseline(@Nullable Boolean baseline) {
+
             this.baseline = baseline;
             return this;
         }
         @CustomType.Setter
         public Builder edgeHubMemOptimize(@Nullable Boolean edgeHubMemOptimize) {
+
             this.edgeHubMemOptimize = edgeHubMemOptimize;
             return this;
         }
         @CustomType.Setter
         public Builder edgeLoggingOption(@Nullable Boolean edgeLoggingOption) {
+
             this.edgeLoggingOption = edgeLoggingOption;
             return this;
         }
         @CustomType.Setter
         public Builder inconsistentModuleSettings(@Nullable Boolean inconsistentModuleSettings) {
+
             this.inconsistentModuleSettings = inconsistentModuleSettings;
             return this;
         }
         @CustomType.Setter
         public Builder installAgent(@Nullable Boolean installAgent) {
+
             this.installAgent = installAgent;
             return this;
         }
         @CustomType.Setter
         public Builder ipFilterDenyAll(@Nullable Boolean ipFilterDenyAll) {
+
             this.ipFilterDenyAll = ipFilterDenyAll;
             return this;
         }
         @CustomType.Setter
         public Builder ipFilterPermissiveRule(@Nullable Boolean ipFilterPermissiveRule) {
+
             this.ipFilterPermissiveRule = ipFilterPermissiveRule;
             return this;
         }
         @CustomType.Setter
         public Builder openPorts(@Nullable Boolean openPorts) {
+
             this.openPorts = openPorts;
             return this;
         }
         @CustomType.Setter
         public Builder permissiveFirewallPolicy(@Nullable Boolean permissiveFirewallPolicy) {
+
             this.permissiveFirewallPolicy = permissiveFirewallPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder permissiveInputFirewallRules(@Nullable Boolean permissiveInputFirewallRules) {
+
             this.permissiveInputFirewallRules = permissiveInputFirewallRules;
             return this;
         }
         @CustomType.Setter
         public Builder permissiveOutputFirewallRules(@Nullable Boolean permissiveOutputFirewallRules) {
+
             this.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
             return this;
         }
         @CustomType.Setter
         public Builder privilegedDockerOptions(@Nullable Boolean privilegedDockerOptions) {
+
             this.privilegedDockerOptions = privilegedDockerOptions;
             return this;
         }
         @CustomType.Setter
         public Builder sharedCredentials(@Nullable Boolean sharedCredentials) {
+
             this.sharedCredentials = sharedCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder vulnerableTlsCipherSuite(@Nullable Boolean vulnerableTlsCipherSuite) {
+
             this.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
             return this;
         }

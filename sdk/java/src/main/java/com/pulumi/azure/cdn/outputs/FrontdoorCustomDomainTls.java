@@ -76,16 +76,19 @@ public final class FrontdoorCustomDomainTls {
 
         @CustomType.Setter
         public Builder cdnFrontdoorSecretId(@Nullable String cdnFrontdoorSecretId) {
+
             this.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder certificateType(@Nullable String certificateType) {
+
             this.certificateType = certificateType;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
+
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }

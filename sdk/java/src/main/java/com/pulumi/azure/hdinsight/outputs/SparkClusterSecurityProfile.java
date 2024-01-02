@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -128,11 +129,15 @@ public final class SparkClusterSecurityProfile {
 
         @CustomType.Setter
         public Builder aaddsResourceId(String aaddsResourceId) {
-            this.aaddsResourceId = Objects.requireNonNull(aaddsResourceId);
+            if (aaddsResourceId == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "aaddsResourceId");
+            }
+            this.aaddsResourceId = aaddsResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder clusterUsersGroupDns(@Nullable List<String> clusterUsersGroupDns) {
+
             this.clusterUsersGroupDns = clusterUsersGroupDns;
             return this;
         }
@@ -141,22 +146,34 @@ public final class SparkClusterSecurityProfile {
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder domainUserPassword(String domainUserPassword) {
-            this.domainUserPassword = Objects.requireNonNull(domainUserPassword);
+            if (domainUserPassword == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "domainUserPassword");
+            }
+            this.domainUserPassword = domainUserPassword;
             return this;
         }
         @CustomType.Setter
         public Builder domainUsername(String domainUsername) {
-            this.domainUsername = Objects.requireNonNull(domainUsername);
+            if (domainUsername == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "domainUsername");
+            }
+            this.domainUsername = domainUsername;
             return this;
         }
         @CustomType.Setter
         public Builder ldapsUrls(List<String> ldapsUrls) {
-            this.ldapsUrls = Objects.requireNonNull(ldapsUrls);
+            if (ldapsUrls == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "ldapsUrls");
+            }
+            this.ldapsUrls = ldapsUrls;
             return this;
         }
         public Builder ldapsUrls(String... ldapsUrls) {
@@ -164,7 +181,10 @@ public final class SparkClusterSecurityProfile {
         }
         @CustomType.Setter
         public Builder msiResourceId(String msiResourceId) {
-            this.msiResourceId = Objects.requireNonNull(msiResourceId);
+            if (msiResourceId == null) {
+              throw new MissingRequiredPropertyException("SparkClusterSecurityProfile", "msiResourceId");
+            }
+            this.msiResourceId = msiResourceId;
             return this;
         }
         public SparkClusterSecurityProfile build() {

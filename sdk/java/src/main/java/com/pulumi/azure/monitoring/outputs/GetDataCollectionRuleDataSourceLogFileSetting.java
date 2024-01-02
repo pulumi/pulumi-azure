@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourceLogFileSettingText;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetDataCollectionRuleDataSourceLogFileSetting {
 
         @CustomType.Setter
         public Builder texts(List<GetDataCollectionRuleDataSourceLogFileSettingText> texts) {
-            this.texts = Objects.requireNonNull(texts);
+            if (texts == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFileSetting", "texts");
+            }
+            this.texts = texts;
             return this;
         }
         public Builder texts(GetDataCollectionRuleDataSourceLogFileSettingText... texts) {

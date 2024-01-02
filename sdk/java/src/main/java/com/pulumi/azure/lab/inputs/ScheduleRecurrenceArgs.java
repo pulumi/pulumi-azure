@@ -5,6 +5,7 @@ package com.pulumi.azure.lab.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,8 +200,12 @@ public final class ScheduleRecurrenceArgs extends com.pulumi.resources.ResourceA
         }
 
         public ScheduleRecurrenceArgs build() {
-            $.expirationDate = Objects.requireNonNull($.expirationDate, "expected parameter 'expirationDate' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
+            if ($.expirationDate == null) {
+                throw new MissingRequiredPropertyException("ScheduleRecurrenceArgs", "expirationDate");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("ScheduleRecurrenceArgs", "frequency");
+            }
             return $;
         }
     }

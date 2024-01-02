@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -185,7 +186,10 @@ public final class GetWindowsWebAppAuthSettingsV2Login {
 
         @CustomType.Setter
         public Builder allowedExternalRedirectUrls(List<String> allowedExternalRedirectUrls) {
-            this.allowedExternalRedirectUrls = Objects.requireNonNull(allowedExternalRedirectUrls);
+            if (allowedExternalRedirectUrls == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "allowedExternalRedirectUrls");
+            }
+            this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
         }
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
@@ -193,52 +197,82 @@ public final class GetWindowsWebAppAuthSettingsV2Login {
         }
         @CustomType.Setter
         public Builder cookieExpirationConvention(String cookieExpirationConvention) {
-            this.cookieExpirationConvention = Objects.requireNonNull(cookieExpirationConvention);
+            if (cookieExpirationConvention == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "cookieExpirationConvention");
+            }
+            this.cookieExpirationConvention = cookieExpirationConvention;
             return this;
         }
         @CustomType.Setter
         public Builder cookieExpirationTime(String cookieExpirationTime) {
-            this.cookieExpirationTime = Objects.requireNonNull(cookieExpirationTime);
+            if (cookieExpirationTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "cookieExpirationTime");
+            }
+            this.cookieExpirationTime = cookieExpirationTime;
             return this;
         }
         @CustomType.Setter
         public Builder logoutEndpoint(String logoutEndpoint) {
-            this.logoutEndpoint = Objects.requireNonNull(logoutEndpoint);
+            if (logoutEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "logoutEndpoint");
+            }
+            this.logoutEndpoint = logoutEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder nonceExpirationTime(String nonceExpirationTime) {
-            this.nonceExpirationTime = Objects.requireNonNull(nonceExpirationTime);
+            if (nonceExpirationTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "nonceExpirationTime");
+            }
+            this.nonceExpirationTime = nonceExpirationTime;
             return this;
         }
         @CustomType.Setter
         public Builder preserveUrlFragmentsForLogins(Boolean preserveUrlFragmentsForLogins) {
-            this.preserveUrlFragmentsForLogins = Objects.requireNonNull(preserveUrlFragmentsForLogins);
+            if (preserveUrlFragmentsForLogins == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "preserveUrlFragmentsForLogins");
+            }
+            this.preserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRefreshExtensionTime(Double tokenRefreshExtensionTime) {
-            this.tokenRefreshExtensionTime = Objects.requireNonNull(tokenRefreshExtensionTime);
+            if (tokenRefreshExtensionTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "tokenRefreshExtensionTime");
+            }
+            this.tokenRefreshExtensionTime = tokenRefreshExtensionTime;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreEnabled(Boolean tokenStoreEnabled) {
-            this.tokenStoreEnabled = Objects.requireNonNull(tokenStoreEnabled);
+            if (tokenStoreEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "tokenStoreEnabled");
+            }
+            this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStorePath(String tokenStorePath) {
-            this.tokenStorePath = Objects.requireNonNull(tokenStorePath);
+            if (tokenStorePath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "tokenStorePath");
+            }
+            this.tokenStorePath = tokenStorePath;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreSasSettingName(String tokenStoreSasSettingName) {
-            this.tokenStoreSasSettingName = Objects.requireNonNull(tokenStoreSasSettingName);
+            if (tokenStoreSasSettingName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "tokenStoreSasSettingName");
+            }
+            this.tokenStoreSasSettingName = tokenStoreSasSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder validateNonce(Boolean validateNonce) {
-            this.validateNonce = Objects.requireNonNull(validateNonce);
+            if (validateNonce == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2Login", "validateNonce");
+            }
+            this.validateNonce = validateNonce;
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2Login build() {

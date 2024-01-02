@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -338,9 +339,15 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DedicatedHostArgs build() {
-            $.dedicatedHostGroupId = Objects.requireNonNull($.dedicatedHostGroupId, "expected parameter 'dedicatedHostGroupId' to be non-null");
-            $.platformFaultDomain = Objects.requireNonNull($.platformFaultDomain, "expected parameter 'platformFaultDomain' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.dedicatedHostGroupId == null) {
+                throw new MissingRequiredPropertyException("DedicatedHostArgs", "dedicatedHostGroupId");
+            }
+            if ($.platformFaultDomain == null) {
+                throw new MissingRequiredPropertyException("DedicatedHostArgs", "platformFaultDomain");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("DedicatedHostArgs", "skuName");
+            }
             return $;
         }
     }

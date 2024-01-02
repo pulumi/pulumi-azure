@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class TrafficManagerProfileDnsConfig {
 
         @CustomType.Setter
         public Builder relativeName(String relativeName) {
-            this.relativeName = Objects.requireNonNull(relativeName);
+            if (relativeName == null) {
+              throw new MissingRequiredPropertyException("TrafficManagerProfileDnsConfig", "relativeName");
+            }
+            this.relativeName = relativeName;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("TrafficManagerProfileDnsConfig", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         public TrafficManagerProfileDnsConfig build() {

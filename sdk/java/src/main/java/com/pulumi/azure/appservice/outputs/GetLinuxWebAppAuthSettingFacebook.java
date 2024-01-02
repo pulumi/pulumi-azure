@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetLinuxWebAppAuthSettingFacebook {
 
         @CustomType.Setter
         public Builder appId(String appId) {
-            this.appId = Objects.requireNonNull(appId);
+            if (appId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingFacebook", "appId");
+            }
+            this.appId = appId;
             return this;
         }
         @CustomType.Setter
         public Builder appSecret(String appSecret) {
-            this.appSecret = Objects.requireNonNull(appSecret);
+            if (appSecret == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingFacebook", "appSecret");
+            }
+            this.appSecret = appSecret;
             return this;
         }
         @CustomType.Setter
         public Builder appSecretSettingName(String appSecretSettingName) {
-            this.appSecretSettingName = Objects.requireNonNull(appSecretSettingName);
+            if (appSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingFacebook", "appSecretSettingName");
+            }
+            this.appSecretSettingName = appSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
-            this.oauthScopes = Objects.requireNonNull(oauthScopes);
+            if (oauthScopes == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingFacebook", "oauthScopes");
+            }
+            this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {

@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.azure.batch.outputs.GetAccountEncryption;
 import com.pulumi.azure.batch.outputs.GetAccountKeyVaultReference;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -194,22 +195,32 @@ public final class GetAccountResult {
 
         @CustomType.Setter
         public Builder accountEndpoint(String accountEndpoint) {
-            this.accountEndpoint = Objects.requireNonNull(accountEndpoint);
+            if (accountEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "accountEndpoint");
+            }
+            this.accountEndpoint = accountEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder encryption(@Nullable GetAccountEncryption encryption) {
+
             this.encryption = encryption;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultReferences(List<GetAccountKeyVaultReference> keyVaultReferences) {
-            this.keyVaultReferences = Objects.requireNonNull(keyVaultReferences);
+            if (keyVaultReferences == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "keyVaultReferences");
+            }
+            this.keyVaultReferences = keyVaultReferences;
             return this;
         }
         public Builder keyVaultReferences(GetAccountKeyVaultReference... keyVaultReferences) {
@@ -217,42 +228,66 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder poolAllocationMode(String poolAllocationMode) {
-            this.poolAllocationMode = Objects.requireNonNull(poolAllocationMode);
+            if (poolAllocationMode == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "poolAllocationMode");
+            }
+            this.poolAllocationMode = poolAllocationMode;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAccountResult build() {

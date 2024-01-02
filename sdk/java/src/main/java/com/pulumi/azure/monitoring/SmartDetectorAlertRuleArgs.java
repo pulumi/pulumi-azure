@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.SmartDetectorAlertRuleActionGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -460,12 +461,24 @@ public final class SmartDetectorAlertRuleArgs extends com.pulumi.resources.Resou
         }
 
         public SmartDetectorAlertRuleArgs build() {
-            $.actionGroup = Objects.requireNonNull($.actionGroup, "expected parameter 'actionGroup' to be non-null");
-            $.detectorType = Objects.requireNonNull($.detectorType, "expected parameter 'detectorType' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopeResourceIds = Objects.requireNonNull($.scopeResourceIds, "expected parameter 'scopeResourceIds' to be non-null");
-            $.severity = Objects.requireNonNull($.severity, "expected parameter 'severity' to be non-null");
+            if ($.actionGroup == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "actionGroup");
+            }
+            if ($.detectorType == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "detectorType");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "frequency");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "resourceGroupName");
+            }
+            if ($.scopeResourceIds == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "scopeResourceIds");
+            }
+            if ($.severity == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleArgs", "severity");
+            }
             return $;
         }
     }

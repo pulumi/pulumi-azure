@@ -4,6 +4,7 @@
 package com.pulumi.azure.billing.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,17 +55,26 @@ public final class GetMpaAccountScopeResult {
 
         @CustomType.Setter
         public Builder billingAccountName(String billingAccountName) {
-            this.billingAccountName = Objects.requireNonNull(billingAccountName);
+            if (billingAccountName == null) {
+              throw new MissingRequiredPropertyException("GetMpaAccountScopeResult", "billingAccountName");
+            }
+            this.billingAccountName = billingAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder customerName(String customerName) {
-            this.customerName = Objects.requireNonNull(customerName);
+            if (customerName == null) {
+              throw new MissingRequiredPropertyException("GetMpaAccountScopeResult", "customerName");
+            }
+            this.customerName = customerName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMpaAccountScopeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetMpaAccountScopeResult build() {

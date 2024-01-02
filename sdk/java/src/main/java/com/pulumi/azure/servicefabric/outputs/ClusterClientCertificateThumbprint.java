@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class ClusterClientCertificateThumbprint {
 
         @CustomType.Setter
         public Builder isAdmin(Boolean isAdmin) {
-            this.isAdmin = Objects.requireNonNull(isAdmin);
+            if (isAdmin == null) {
+              throw new MissingRequiredPropertyException("ClusterClientCertificateThumbprint", "isAdmin");
+            }
+            this.isAdmin = isAdmin;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("ClusterClientCertificateThumbprint", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         public ClusterClientCertificateThumbprint build() {

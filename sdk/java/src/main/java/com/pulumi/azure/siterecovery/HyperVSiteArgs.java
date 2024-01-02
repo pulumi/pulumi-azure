@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class HyperVSiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HyperVSiteArgs build() {
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("HyperVSiteArgs", "recoveryVaultId");
+            }
             return $;
         }
     }

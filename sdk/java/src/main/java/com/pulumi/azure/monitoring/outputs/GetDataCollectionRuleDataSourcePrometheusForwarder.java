@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarder {
 
         @CustomType.Setter
         public Builder labelIncludeFilters(List<GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter> labelIncludeFilters) {
-            this.labelIncludeFilters = Objects.requireNonNull(labelIncludeFilters);
+            if (labelIncludeFilters == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePrometheusForwarder", "labelIncludeFilters");
+            }
+            this.labelIncludeFilters = labelIncludeFilters;
             return this;
         }
         public Builder labelIncludeFilters(GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter... labelIncludeFilters) {
@@ -80,12 +84,18 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarder {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePrometheusForwarder", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePrometheusForwarder", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {

@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.outputs.KafkaClusterRolesKafkaManagementNode;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterRolesWorkerNode;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterRolesZookeeperNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -93,22 +94,32 @@ public final class KafkaClusterRoles {
 
         @CustomType.Setter
         public Builder headNode(KafkaClusterRolesHeadNode headNode) {
-            this.headNode = Objects.requireNonNull(headNode);
+            if (headNode == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterRoles", "headNode");
+            }
+            this.headNode = headNode;
             return this;
         }
         @CustomType.Setter
         public Builder kafkaManagementNode(@Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode) {
+
             this.kafkaManagementNode = kafkaManagementNode;
             return this;
         }
         @CustomType.Setter
         public Builder workerNode(KafkaClusterRolesWorkerNode workerNode) {
-            this.workerNode = Objects.requireNonNull(workerNode);
+            if (workerNode == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterRoles", "workerNode");
+            }
+            this.workerNode = workerNode;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperNode(KafkaClusterRolesZookeeperNode zookeeperNode) {
-            this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
+            if (zookeeperNode == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterRoles", "zookeeperNode");
+            }
+            this.zookeeperNode = zookeeperNode;
             return this;
         }
         public KafkaClusterRoles build() {

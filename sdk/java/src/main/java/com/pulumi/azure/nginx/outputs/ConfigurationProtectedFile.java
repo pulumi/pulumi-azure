@@ -4,6 +4,7 @@
 package com.pulumi.azure.nginx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ConfigurationProtectedFile {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("ConfigurationProtectedFile", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
-            this.virtualPath = Objects.requireNonNull(virtualPath);
+            if (virtualPath == null) {
+              throw new MissingRequiredPropertyException("ConfigurationProtectedFile", "virtualPath");
+            }
+            this.virtualPath = virtualPath;
             return this;
         }
         public ConfigurationProtectedFile build() {

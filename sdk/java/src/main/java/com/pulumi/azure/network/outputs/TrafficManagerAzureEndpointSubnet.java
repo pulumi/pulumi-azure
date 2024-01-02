@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class TrafficManagerAzureEndpointSubnet {
 
         @CustomType.Setter
         public Builder first(String first) {
-            this.first = Objects.requireNonNull(first);
+            if (first == null) {
+              throw new MissingRequiredPropertyException("TrafficManagerAzureEndpointSubnet", "first");
+            }
+            this.first = first;
             return this;
         }
         @CustomType.Setter
         public Builder last(@Nullable String last) {
+
             this.last = last;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable Integer scope) {
+
             this.scope = scope;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -133,7 +134,9 @@ public final class MongoCollectionIndexArgs extends com.pulumi.resources.Resourc
         }
 
         public MongoCollectionIndexArgs build() {
-            $.keys = Objects.requireNonNull($.keys, "expected parameter 'keys' to be non-null");
+            if ($.keys == null) {
+                throw new MissingRequiredPropertyException("MongoCollectionIndexArgs", "keys");
+            }
             return $;
         }
     }

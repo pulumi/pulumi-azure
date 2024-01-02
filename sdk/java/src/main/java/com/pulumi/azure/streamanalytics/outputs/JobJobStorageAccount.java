@@ -4,6 +4,7 @@
 package com.pulumi.azure.streamanalytics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class JobJobStorageAccount {
 
         @CustomType.Setter
         public Builder accountKey(String accountKey) {
-            this.accountKey = Objects.requireNonNull(accountKey);
+            if (accountKey == null) {
+              throw new MissingRequiredPropertyException("JobJobStorageAccount", "accountKey");
+            }
+            this.accountKey = accountKey;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("JobJobStorageAccount", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationMode(@Nullable String authenticationMode) {
+
             this.authenticationMode = authenticationMode;
             return this;
         }

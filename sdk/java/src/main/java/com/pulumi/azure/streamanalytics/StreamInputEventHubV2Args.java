@@ -6,6 +6,7 @@ package com.pulumi.azure.streamanalytics;
 import com.pulumi.azure.streamanalytics.inputs.StreamInputEventHubV2SerializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -410,10 +411,18 @@ public final class StreamInputEventHubV2Args extends com.pulumi.resources.Resour
         }
 
         public StreamInputEventHubV2Args build() {
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.servicebusNamespace = Objects.requireNonNull($.servicebusNamespace, "expected parameter 'servicebusNamespace' to be non-null");
-            $.streamAnalyticsJobId = Objects.requireNonNull($.streamAnalyticsJobId, "expected parameter 'streamAnalyticsJobId' to be non-null");
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("StreamInputEventHubV2Args", "eventhubName");
+            }
+            if ($.serialization == null) {
+                throw new MissingRequiredPropertyException("StreamInputEventHubV2Args", "serialization");
+            }
+            if ($.servicebusNamespace == null) {
+                throw new MissingRequiredPropertyException("StreamInputEventHubV2Args", "servicebusNamespace");
+            }
+            if ($.streamAnalyticsJobId == null) {
+                throw new MissingRequiredPropertyException("StreamInputEventHubV2Args", "streamAnalyticsJobId");
+            }
             return $;
         }
     }

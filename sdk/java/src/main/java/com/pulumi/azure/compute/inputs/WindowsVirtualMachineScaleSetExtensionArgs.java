@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -455,10 +456,18 @@ public final class WindowsVirtualMachineScaleSetExtensionArgs extends com.pulumi
         }
 
         public WindowsVirtualMachineScaleSetExtensionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.typeHandlerVersion = Objects.requireNonNull($.typeHandlerVersion, "expected parameter 'typeHandlerVersion' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionArgs", "name");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionArgs", "publisher");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionArgs", "type");
+            }
+            if ($.typeHandlerVersion == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionArgs", "typeHandlerVersion");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.azure.eventgrid.outputs.GetSystemTopicIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -133,12 +134,18 @@ public final class GetSystemTopicResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetSystemTopicIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetSystemTopicIdentity... identities) {
@@ -146,37 +153,58 @@ public final class GetSystemTopicResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder metricArmResourceId(String metricArmResourceId) {
-            this.metricArmResourceId = Objects.requireNonNull(metricArmResourceId);
+            if (metricArmResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "metricArmResourceId");
+            }
+            this.metricArmResourceId = metricArmResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceArmResourceId(String sourceArmResourceId) {
-            this.sourceArmResourceId = Objects.requireNonNull(sourceArmResourceId);
+            if (sourceArmResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "sourceArmResourceId");
+            }
+            this.sourceArmResourceId = sourceArmResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder topicType(String topicType) {
-            this.topicType = Objects.requireNonNull(topicType);
+            if (topicType == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "topicType");
+            }
+            this.topicType = topicType;
             return this;
         }
         public GetSystemTopicResult build() {

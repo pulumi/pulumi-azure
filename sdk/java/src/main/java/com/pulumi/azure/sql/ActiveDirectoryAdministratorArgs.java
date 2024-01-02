@@ -5,6 +5,7 @@ package com.pulumi.azure.sql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,11 +263,21 @@ public final class ActiveDirectoryAdministratorArgs extends com.pulumi.resources
         }
 
         public ActiveDirectoryAdministratorArgs build() {
-            $.login = Objects.requireNonNull($.login, "expected parameter 'login' to be non-null");
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.login == null) {
+                throw new MissingRequiredPropertyException("ActiveDirectoryAdministratorArgs", "login");
+            }
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("ActiveDirectoryAdministratorArgs", "objectId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActiveDirectoryAdministratorArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("ActiveDirectoryAdministratorArgs", "serverName");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ActiveDirectoryAdministratorArgs", "tenantId");
+            }
             return $;
         }
     }

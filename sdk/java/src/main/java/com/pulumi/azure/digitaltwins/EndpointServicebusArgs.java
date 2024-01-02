@@ -5,6 +5,7 @@ package com.pulumi.azure.digitaltwins;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class EndpointServicebusArgs extends com.pulumi.resources.ResourceA
         }
 
         public EndpointServicebusArgs build() {
-            $.digitalTwinsId = Objects.requireNonNull($.digitalTwinsId, "expected parameter 'digitalTwinsId' to be non-null");
-            $.servicebusPrimaryConnectionString = Objects.requireNonNull($.servicebusPrimaryConnectionString, "expected parameter 'servicebusPrimaryConnectionString' to be non-null");
-            $.servicebusSecondaryConnectionString = Objects.requireNonNull($.servicebusSecondaryConnectionString, "expected parameter 'servicebusSecondaryConnectionString' to be non-null");
+            if ($.digitalTwinsId == null) {
+                throw new MissingRequiredPropertyException("EndpointServicebusArgs", "digitalTwinsId");
+            }
+            if ($.servicebusPrimaryConnectionString == null) {
+                throw new MissingRequiredPropertyException("EndpointServicebusArgs", "servicebusPrimaryConnectionString");
+            }
+            if ($.servicebusSecondaryConnectionString == null) {
+                throw new MissingRequiredPropertyException("EndpointServicebusArgs", "servicebusSecondaryConnectionString");
+            }
             return $;
         }
     }

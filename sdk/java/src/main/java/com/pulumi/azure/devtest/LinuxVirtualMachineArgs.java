@@ -7,6 +7,7 @@ import com.pulumi.azure.devtest.inputs.LinuxVirtualMachineGalleryImageReferenceA
 import com.pulumi.azure.devtest.inputs.LinuxVirtualMachineInboundNatRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -709,14 +710,30 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         public LinuxVirtualMachineArgs build() {
-            $.galleryImageReference = Objects.requireNonNull($.galleryImageReference, "expected parameter 'galleryImageReference' to be non-null");
-            $.labName = Objects.requireNonNull($.labName, "expected parameter 'labName' to be non-null");
-            $.labSubnetName = Objects.requireNonNull($.labSubnetName, "expected parameter 'labSubnetName' to be non-null");
-            $.labVirtualNetworkId = Objects.requireNonNull($.labVirtualNetworkId, "expected parameter 'labVirtualNetworkId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.storageType = Objects.requireNonNull($.storageType, "expected parameter 'storageType' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.galleryImageReference == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "galleryImageReference");
+            }
+            if ($.labName == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "labName");
+            }
+            if ($.labSubnetName == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "labSubnetName");
+            }
+            if ($.labVirtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "labVirtualNetworkId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "resourceGroupName");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "size");
+            }
+            if ($.storageType == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "storageType");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "username");
+            }
             return $;
         }
     }

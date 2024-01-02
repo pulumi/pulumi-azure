@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,22 +200,34 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
 
         @CustomType.Setter
         public Builder aadAudience(String aadAudience) {
-            this.aadAudience = Objects.requireNonNull(aadAudience);
+            if (aadAudience == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "aadAudience");
+            }
+            this.aadAudience = aadAudience;
             return this;
         }
         @CustomType.Setter
         public Builder aadIssuer(String aadIssuer) {
-            this.aadIssuer = Objects.requireNonNull(aadIssuer);
+            if (aadIssuer == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "aadIssuer");
+            }
+            this.aadIssuer = aadIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder aadTenant(String aadTenant) {
-            this.aadTenant = Objects.requireNonNull(aadTenant);
+            if (aadTenant == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "aadTenant");
+            }
+            this.aadTenant = aadTenant;
             return this;
         }
         @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
-            this.addressSpaces = Objects.requireNonNull(addressSpaces);
+            if (addressSpaces == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "addressSpaces");
+            }
+            this.addressSpaces = addressSpaces;
             return this;
         }
         public Builder addressSpaces(String... addressSpaces) {
@@ -222,17 +235,26 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder radiusServerAddress(String radiusServerAddress) {
-            this.radiusServerAddress = Objects.requireNonNull(radiusServerAddress);
+            if (radiusServerAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "radiusServerAddress");
+            }
+            this.radiusServerAddress = radiusServerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder radiusServerSecret(String radiusServerSecret) {
-            this.radiusServerSecret = Objects.requireNonNull(radiusServerSecret);
+            if (radiusServerSecret == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "radiusServerSecret");
+            }
+            this.radiusServerSecret = radiusServerSecret;
             return this;
         }
         @CustomType.Setter
         public Builder revokedCertificates(List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates) {
-            this.revokedCertificates = Objects.requireNonNull(revokedCertificates);
+            if (revokedCertificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "revokedCertificates");
+            }
+            this.revokedCertificates = revokedCertificates;
             return this;
         }
         public Builder revokedCertificates(GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate... revokedCertificates) {
@@ -240,7 +262,10 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder rootCertificates(List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates) {
-            this.rootCertificates = Objects.requireNonNull(rootCertificates);
+            if (rootCertificates == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "rootCertificates");
+            }
+            this.rootCertificates = rootCertificates;
             return this;
         }
         public Builder rootCertificates(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate... rootCertificates) {
@@ -248,7 +273,10 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder vpnClientProtocols(List<String> vpnClientProtocols) {
-            this.vpnClientProtocols = Objects.requireNonNull(vpnClientProtocols);
+            if (vpnClientProtocols == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayVpnClientConfiguration", "vpnClientProtocols");
+            }
+            this.vpnClientProtocols = vpnClientProtocols;
             return this;
         }
         public Builder vpnClientProtocols(String... vpnClientProtocols) {

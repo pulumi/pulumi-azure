@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetConfidentialLedgerAzureadBasedServicePrincipal;
 import com.pulumi.azure.compute.outputs.GetConfidentialLedgerCertificateBasedSecurityPrincipal;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -140,7 +141,10 @@ public final class GetConfidentialLedgerResult {
 
         @CustomType.Setter
         public Builder azureadBasedServicePrincipals(List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals) {
-            this.azureadBasedServicePrincipals = Objects.requireNonNull(azureadBasedServicePrincipals);
+            if (azureadBasedServicePrincipals == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "azureadBasedServicePrincipals");
+            }
+            this.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
             return this;
         }
         public Builder azureadBasedServicePrincipals(GetConfidentialLedgerAzureadBasedServicePrincipal... azureadBasedServicePrincipals) {
@@ -148,7 +152,10 @@ public final class GetConfidentialLedgerResult {
         }
         @CustomType.Setter
         public Builder certificateBasedSecurityPrincipals(List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals) {
-            this.certificateBasedSecurityPrincipals = Objects.requireNonNull(certificateBasedSecurityPrincipals);
+            if (certificateBasedSecurityPrincipals == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "certificateBasedSecurityPrincipals");
+            }
+            this.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
             return this;
         }
         public Builder certificateBasedSecurityPrincipals(GetConfidentialLedgerCertificateBasedSecurityPrincipal... certificateBasedSecurityPrincipals) {
@@ -156,42 +163,66 @@ public final class GetConfidentialLedgerResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identityServiceEndpoint(String identityServiceEndpoint) {
-            this.identityServiceEndpoint = Objects.requireNonNull(identityServiceEndpoint);
+            if (identityServiceEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "identityServiceEndpoint");
+            }
+            this.identityServiceEndpoint = identityServiceEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder ledgerEndpoint(String ledgerEndpoint) {
-            this.ledgerEndpoint = Objects.requireNonNull(ledgerEndpoint);
+            if (ledgerEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "ledgerEndpoint");
+            }
+            this.ledgerEndpoint = ledgerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder ledgerType(String ledgerType) {
-            this.ledgerType = Objects.requireNonNull(ledgerType);
+            if (ledgerType == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "ledgerType");
+            }
+            this.ledgerType = ledgerType;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfidentialLedgerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetConfidentialLedgerResult build() {

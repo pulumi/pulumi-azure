@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,17 +86,26 @@ public final class GetAlertRuleAnomalyMultiSelectObservation {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyMultiSelectObservation", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyMultiSelectObservation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedValues(List<String> supportedValues) {
-            this.supportedValues = Objects.requireNonNull(supportedValues);
+            if (supportedValues == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyMultiSelectObservation", "supportedValues");
+            }
+            this.supportedValues = supportedValues;
             return this;
         }
         public Builder supportedValues(String... supportedValues) {
@@ -103,7 +113,10 @@ public final class GetAlertRuleAnomalyMultiSelectObservation {
         }
         @CustomType.Setter
         public Builder values(List<String> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyMultiSelectObservation", "values");
+            }
+            this.values = values;
             return this;
         }
         public Builder values(String... values) {

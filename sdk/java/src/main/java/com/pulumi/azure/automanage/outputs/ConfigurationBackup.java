@@ -103,26 +103,31 @@ public final class ConfigurationBackup {
 
         @CustomType.Setter
         public Builder instantRpRetentionRangeInDays(@Nullable Integer instantRpRetentionRangeInDays) {
+
             this.instantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
+
             this.policyName = policyName;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicy(@Nullable ConfigurationBackupRetentionPolicy retentionPolicy) {
+
             this.retentionPolicy = retentionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder schedulePolicy(@Nullable ConfigurationBackupSchedulePolicy schedulePolicy) {
+
             this.schedulePolicy = schedulePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

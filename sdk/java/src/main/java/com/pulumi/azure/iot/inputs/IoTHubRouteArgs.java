@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -236,10 +237,18 @@ public final class IoTHubRouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IoTHubRouteArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.endpointNames = Objects.requireNonNull($.endpointNames, "expected parameter 'endpointNames' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("IoTHubRouteArgs", "enabled");
+            }
+            if ($.endpointNames == null) {
+                throw new MissingRequiredPropertyException("IoTHubRouteArgs", "endpointNames");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IoTHubRouteArgs", "name");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("IoTHubRouteArgs", "source");
+            }
             return $;
         }
     }

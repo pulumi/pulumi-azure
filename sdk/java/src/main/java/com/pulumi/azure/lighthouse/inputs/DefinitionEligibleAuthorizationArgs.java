@@ -6,6 +6,7 @@ package com.pulumi.azure.lighthouse.inputs;
 import com.pulumi.azure.lighthouse.inputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class DefinitionEligibleAuthorizationArgs extends com.pulumi.resour
         }
 
         public DefinitionEligibleAuthorizationArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("DefinitionEligibleAuthorizationArgs", "principalId");
+            }
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("DefinitionEligibleAuthorizationArgs", "roleDefinitionId");
+            }
             return $;
         }
     }

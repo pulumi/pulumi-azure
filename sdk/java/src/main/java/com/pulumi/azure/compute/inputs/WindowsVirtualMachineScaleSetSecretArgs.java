@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSecretCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class WindowsVirtualMachineScaleSetSecretArgs extends com.pulumi.re
         }
 
         public WindowsVirtualMachineScaleSetSecretArgs build() {
-            $.certificates = Objects.requireNonNull($.certificates, "expected parameter 'certificates' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.certificates == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSecretArgs", "certificates");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSecretArgs", "keyVaultId");
+            }
             return $;
         }
     }

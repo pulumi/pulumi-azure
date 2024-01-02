@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerVolumeGitRepoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -399,8 +400,12 @@ public final class GroupContainerVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         public GroupContainerVolumeArgs build() {
-            $.mountPath = Objects.requireNonNull($.mountPath, "expected parameter 'mountPath' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.mountPath == null) {
+                throw new MissingRequiredPropertyException("GroupContainerVolumeArgs", "mountPath");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GroupContainerVolumeArgs", "name");
+            }
             return $;
         }
     }

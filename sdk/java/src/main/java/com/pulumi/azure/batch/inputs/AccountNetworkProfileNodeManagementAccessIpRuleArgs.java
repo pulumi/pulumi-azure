@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountNetworkProfileNodeManagementAccessIpRuleArgs extends c
         }
 
         public AccountNetworkProfileNodeManagementAccessIpRuleArgs build() {
-            $.ipRange = Objects.requireNonNull($.ipRange, "expected parameter 'ipRange' to be non-null");
+            if ($.ipRange == null) {
+                throw new MissingRequiredPropertyException("AccountNetworkProfileNodeManagementAccessIpRuleArgs", "ipRange");
+            }
             return $;
         }
     }

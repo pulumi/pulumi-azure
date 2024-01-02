@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class DatasetJsonAzureBlobStorageLocationArgs extends com.pulumi.re
         }
 
         public DatasetJsonAzureBlobStorageLocationArgs build() {
-            $.container = Objects.requireNonNull($.container, "expected parameter 'container' to be non-null");
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.container == null) {
+                throw new MissingRequiredPropertyException("DatasetJsonAzureBlobStorageLocationArgs", "container");
+            }
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("DatasetJsonAzureBlobStorageLocationArgs", "filename");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("DatasetJsonAzureBlobStorageLocationArgs", "path");
+            }
             return $;
         }
     }

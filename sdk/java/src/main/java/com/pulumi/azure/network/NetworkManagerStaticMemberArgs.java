@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class NetworkManagerStaticMemberArgs extends com.pulumi.resources.R
         }
 
         public NetworkManagerStaticMemberArgs build() {
-            $.networkGroupId = Objects.requireNonNull($.networkGroupId, "expected parameter 'networkGroupId' to be non-null");
-            $.targetVirtualNetworkId = Objects.requireNonNull($.targetVirtualNetworkId, "expected parameter 'targetVirtualNetworkId' to be non-null");
+            if ($.networkGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerStaticMemberArgs", "networkGroupId");
+            }
+            if ($.targetVirtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerStaticMemberArgs", "targetVirtualNetworkId");
+            }
             return $;
         }
     }

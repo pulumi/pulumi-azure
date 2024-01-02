@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class EncryptionScopeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public EncryptionScopeArgs build() {
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("EncryptionScopeArgs", "source");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("EncryptionScopeArgs", "storageAccountId");
+            }
             return $;
         }
     }

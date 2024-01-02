@@ -4,6 +4,7 @@
 package com.pulumi.azure.hybrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetComputeMachineErrorDetailAdditionalInfo {
 
         @CustomType.Setter
         public Builder info(String info) {
-            this.info = Objects.requireNonNull(info);
+            if (info == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineErrorDetailAdditionalInfo", "info");
+            }
+            this.info = info;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineErrorDetailAdditionalInfo", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetComputeMachineErrorDetailAdditionalInfo build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -334,14 +335,30 @@ public final class VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs ex
         }
 
         public VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs build() {
-            $.dhGroup = Objects.requireNonNull($.dhGroup, "expected parameter 'dhGroup' to be non-null");
-            $.ikeEncryption = Objects.requireNonNull($.ikeEncryption, "expected parameter 'ikeEncryption' to be non-null");
-            $.ikeIntegrity = Objects.requireNonNull($.ikeIntegrity, "expected parameter 'ikeIntegrity' to be non-null");
-            $.ipsecEncryption = Objects.requireNonNull($.ipsecEncryption, "expected parameter 'ipsecEncryption' to be non-null");
-            $.ipsecIntegrity = Objects.requireNonNull($.ipsecIntegrity, "expected parameter 'ipsecIntegrity' to be non-null");
-            $.pfsGroup = Objects.requireNonNull($.pfsGroup, "expected parameter 'pfsGroup' to be non-null");
-            $.saDataSizeInKilobytes = Objects.requireNonNull($.saDataSizeInKilobytes, "expected parameter 'saDataSizeInKilobytes' to be non-null");
-            $.saLifetimeInSeconds = Objects.requireNonNull($.saLifetimeInSeconds, "expected parameter 'saLifetimeInSeconds' to be non-null");
+            if ($.dhGroup == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "dhGroup");
+            }
+            if ($.ikeEncryption == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "ikeEncryption");
+            }
+            if ($.ikeIntegrity == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "ikeIntegrity");
+            }
+            if ($.ipsecEncryption == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "ipsecEncryption");
+            }
+            if ($.ipsecIntegrity == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "ipsecIntegrity");
+            }
+            if ($.pfsGroup == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "pfsGroup");
+            }
+            if ($.saDataSizeInKilobytes == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "saDataSizeInKilobytes");
+            }
+            if ($.saLifetimeInSeconds == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs", "saLifetimeInSeconds");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class WindowsWebAppLogsHttpLogs {
 
         @CustomType.Setter
         public Builder azureBlobStorage(@Nullable WindowsWebAppLogsHttpLogsAzureBlobStorage azureBlobStorage) {
+
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystem(@Nullable WindowsWebAppLogsHttpLogsFileSystem fileSystem) {
+
             this.fileSystem = fileSystem;
             return this;
         }

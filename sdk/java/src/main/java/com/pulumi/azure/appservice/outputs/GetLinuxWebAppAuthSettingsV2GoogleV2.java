@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetLinuxWebAppAuthSettingsV2GoogleV2 {
 
         @CustomType.Setter
         public Builder allowedAudiences(List<String> allowedAudiences) {
-            this.allowedAudiences = Objects.requireNonNull(allowedAudiences);
+            if (allowedAudiences == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingsV2GoogleV2", "allowedAudiences");
+            }
+            this.allowedAudiences = allowedAudiences;
             return this;
         }
         public Builder allowedAudiences(String... allowedAudiences) {
@@ -93,17 +97,26 @@ public final class GetLinuxWebAppAuthSettingsV2GoogleV2 {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingsV2GoogleV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingsV2GoogleV2", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder loginScopes(List<String> loginScopes) {
-            this.loginScopes = Objects.requireNonNull(loginScopes);
+            if (loginScopes == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingsV2GoogleV2", "loginScopes");
+            }
+            this.loginScopes = loginScopes;
             return this;
         }
         public Builder loginScopes(String... loginScopes) {

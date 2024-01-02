@@ -44,6 +44,7 @@ public final class PoolTaskSchedulingPolicy {
 
         @CustomType.Setter
         public Builder nodeFillType(@Nullable String nodeFillType) {
+
             this.nodeFillType = nodeFillType;
             return this;
         }

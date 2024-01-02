@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -772,9 +773,15 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ServiceAzureBotArgs build() {
-            $.microsoftAppId = Objects.requireNonNull($.microsoftAppId, "expected parameter 'microsoftAppId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.microsoftAppId == null) {
+                throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "microsoftAppId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "sku");
+            }
             return $;
         }
     }

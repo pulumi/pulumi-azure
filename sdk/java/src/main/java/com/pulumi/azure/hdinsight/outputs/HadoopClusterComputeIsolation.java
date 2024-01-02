@@ -59,11 +59,13 @@ public final class HadoopClusterComputeIsolation {
 
         @CustomType.Setter
         public Builder computeIsolationEnabled(@Nullable Boolean computeIsolationEnabled) {
+
             this.computeIsolationEnabled = computeIsolationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder hostSku(@Nullable String hostSku) {
+
             this.hostSku = hostSku;
             return this;
         }

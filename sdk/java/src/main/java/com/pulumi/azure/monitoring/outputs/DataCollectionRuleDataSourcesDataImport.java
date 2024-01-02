@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class DataCollectionRuleDataSourcesDataImport {
 
         @CustomType.Setter
         public Builder eventHubDataSources(List<DataCollectionRuleDataSourcesDataImportEventHubDataSource> eventHubDataSources) {
-            this.eventHubDataSources = Objects.requireNonNull(eventHubDataSources);
+            if (eventHubDataSources == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesDataImport", "eventHubDataSources");
+            }
+            this.eventHubDataSources = eventHubDataSources;
             return this;
         }
         public Builder eventHubDataSources(DataCollectionRuleDataSourcesDataImportEventHubDataSource... eventHubDataSources) {

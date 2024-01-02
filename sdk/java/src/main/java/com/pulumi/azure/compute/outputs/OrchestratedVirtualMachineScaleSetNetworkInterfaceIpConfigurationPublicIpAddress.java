@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -131,16 +132,19 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
         @CustomType.Setter
         public Builder domainNameLabel(@Nullable String domainNameLabel) {
+
             this.domainNameLabel = domainNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(@Nullable Integer idleTimeoutInMinutes) {
+
             this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder ipTags(@Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
+
             this.ipTags = ipTags;
             return this;
         }
@@ -149,21 +153,27 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpPrefixId(@Nullable String publicIpPrefixId) {
+
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(@Nullable String skuName) {
+
             this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

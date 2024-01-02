@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class AlertProcessingRuleSuppressionConditionAlertContextArgs exten
         }
 
         public AlertProcessingRuleSuppressionConditionAlertContextArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionConditionAlertContextArgs", "operator");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionConditionAlertContextArgs", "values");
+            }
             return $;
         }
     }

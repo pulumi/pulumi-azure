@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -209,8 +210,12 @@ public final class FrontdoorRuleConditionsRequestBodyConditionArgs extends com.p
         }
 
         public FrontdoorRuleConditionsRequestBodyConditionArgs build() {
-            $.matchValues = Objects.requireNonNull($.matchValues, "expected parameter 'matchValues' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
+            if ($.matchValues == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleConditionsRequestBodyConditionArgs", "matchValues");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleConditionsRequestBodyConditionArgs", "operator");
+            }
             return $;
         }
     }

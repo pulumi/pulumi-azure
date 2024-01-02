@@ -7,6 +7,7 @@ import com.pulumi.azure.batch.inputs.PoolUserAccountLinuxUserConfigurationArgs;
 import com.pulumi.azure.batch.inputs.PoolUserAccountWindowsUserConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -247,9 +248,15 @@ public final class PoolUserAccountArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PoolUserAccountArgs build() {
-            $.elevationLevel = Objects.requireNonNull($.elevationLevel, "expected parameter 'elevationLevel' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
+            if ($.elevationLevel == null) {
+                throw new MissingRequiredPropertyException("PoolUserAccountArgs", "elevationLevel");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PoolUserAccountArgs", "name");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("PoolUserAccountArgs", "password");
+            }
             return $;
         }
     }

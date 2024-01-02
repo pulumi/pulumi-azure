@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
 
         @CustomType.Setter
         public Builder association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association) {
-            this.association = Objects.requireNonNull(association);
+            if (association == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewall", "association");
+            }
+            this.association = association;
             return this;
         }
         @CustomType.Setter
         public Builder cdnFrontdoorFirewallPolicyId(String cdnFrontdoorFirewallPolicyId) {
-            this.cdnFrontdoorFirewallPolicyId = Objects.requireNonNull(cdnFrontdoorFirewallPolicyId);
+            if (cdnFrontdoorFirewallPolicyId == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewall", "cdnFrontdoorFirewallPolicyId");
+            }
+            this.cdnFrontdoorFirewallPolicyId = cdnFrontdoorFirewallPolicyId;
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewall build() {

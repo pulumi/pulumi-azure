@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class WindowsWebAppSlotAuthSettingsV2TwitterV2Args extends com.pulu
         }
 
         public WindowsWebAppSlotAuthSettingsV2TwitterV2Args build() {
-            $.consumerKey = Objects.requireNonNull($.consumerKey, "expected parameter 'consumerKey' to be non-null");
-            $.consumerSecretSettingName = Objects.requireNonNull($.consumerSecretSettingName, "expected parameter 'consumerSecretSettingName' to be non-null");
+            if ($.consumerKey == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotAuthSettingsV2TwitterV2Args", "consumerKey");
+            }
+            if ($.consumerSecretSettingName == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotAuthSettingsV2TwitterV2Args", "consumerSecretSettingName");
+            }
             return $;
         }
     }

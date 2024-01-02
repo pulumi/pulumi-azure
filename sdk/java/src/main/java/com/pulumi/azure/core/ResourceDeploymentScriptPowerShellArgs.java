@@ -9,6 +9,7 @@ import com.pulumi.azure.core.inputs.ResourceDeploymentScriptPowerShellIdentityAr
 import com.pulumi.azure.core.inputs.ResourceDeploymentScriptPowerShellStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -694,9 +695,15 @@ public final class ResourceDeploymentScriptPowerShellArgs extends com.pulumi.res
         }
 
         public ResourceDeploymentScriptPowerShellArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.retentionInterval = Objects.requireNonNull($.retentionInterval, "expected parameter 'retentionInterval' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ResourceDeploymentScriptPowerShellArgs", "resourceGroupName");
+            }
+            if ($.retentionInterval == null) {
+                throw new MissingRequiredPropertyException("ResourceDeploymentScriptPowerShellArgs", "retentionInterval");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("ResourceDeploymentScriptPowerShellArgs", "version");
+            }
             return $;
         }
     }

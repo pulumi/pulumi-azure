@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -447,11 +448,21 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutputMssqlArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("OutputMssqlArgs", "database");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputMssqlArgs", "resourceGroupName");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("OutputMssqlArgs", "server");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputMssqlArgs", "streamAnalyticsJobName");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("OutputMssqlArgs", "table");
+            }
             return $;
         }
     }

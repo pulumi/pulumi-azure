@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.outputs;
 import com.pulumi.azure.mobile.outputs.GetNetworkServicePccRule;
 import com.pulumi.azure.mobile.outputs.GetNetworkServiceServiceQosPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -137,27 +138,42 @@ public final class GetNetworkServiceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkId(String mobileNetworkId) {
-            this.mobileNetworkId = Objects.requireNonNull(mobileNetworkId);
+            if (mobileNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "mobileNetworkId");
+            }
+            this.mobileNetworkId = mobileNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pccRules(List<GetNetworkServicePccRule> pccRules) {
-            this.pccRules = Objects.requireNonNull(pccRules);
+            if (pccRules == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "pccRules");
+            }
+            this.pccRules = pccRules;
             return this;
         }
         public Builder pccRules(GetNetworkServicePccRule... pccRules) {
@@ -165,12 +181,18 @@ public final class GetNetworkServiceResult {
         }
         @CustomType.Setter
         public Builder servicePrecedence(Integer servicePrecedence) {
-            this.servicePrecedence = Objects.requireNonNull(servicePrecedence);
+            if (servicePrecedence == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "servicePrecedence");
+            }
+            this.servicePrecedence = servicePrecedence;
             return this;
         }
         @CustomType.Setter
         public Builder serviceQosPolicies(List<GetNetworkServiceServiceQosPolicy> serviceQosPolicies) {
-            this.serviceQosPolicies = Objects.requireNonNull(serviceQosPolicies);
+            if (serviceQosPolicies == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "serviceQosPolicies");
+            }
+            this.serviceQosPolicies = serviceQosPolicies;
             return this;
         }
         public Builder serviceQosPolicies(GetNetworkServiceServiceQosPolicy... serviceQosPolicies) {
@@ -178,7 +200,10 @@ public final class GetNetworkServiceResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNetworkServiceResult build() {

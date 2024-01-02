@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class FrontdoorRuleSetArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FrontdoorRuleSetArgs build() {
-            $.cdnFrontdoorProfileId = Objects.requireNonNull($.cdnFrontdoorProfileId, "expected parameter 'cdnFrontdoorProfileId' to be non-null");
+            if ($.cdnFrontdoorProfileId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleSetArgs", "cdnFrontdoorProfileId");
+            }
             return $;
         }
     }

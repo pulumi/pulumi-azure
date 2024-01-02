@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -130,37 +131,48 @@ public final class VirtualMachineStorageConfigurationTempDbSettings {
 
         @CustomType.Setter
         public Builder dataFileCount(@Nullable Integer dataFileCount) {
+
             this.dataFileCount = dataFileCount;
             return this;
         }
         @CustomType.Setter
         public Builder dataFileGrowthInMb(@Nullable Integer dataFileGrowthInMb) {
+
             this.dataFileGrowthInMb = dataFileGrowthInMb;
             return this;
         }
         @CustomType.Setter
         public Builder dataFileSizeMb(@Nullable Integer dataFileSizeMb) {
+
             this.dataFileSizeMb = dataFileSizeMb;
             return this;
         }
         @CustomType.Setter
         public Builder defaultFilePath(String defaultFilePath) {
-            this.defaultFilePath = Objects.requireNonNull(defaultFilePath);
+            if (defaultFilePath == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationTempDbSettings", "defaultFilePath");
+            }
+            this.defaultFilePath = defaultFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder logFileGrowthMb(@Nullable Integer logFileGrowthMb) {
+
             this.logFileGrowthMb = logFileGrowthMb;
             return this;
         }
         @CustomType.Setter
         public Builder logFileSizeMb(@Nullable Integer logFileSizeMb) {
+
             this.logFileSizeMb = logFileSizeMb;
             return this;
         }
         @CustomType.Setter
         public Builder luns(List<Integer> luns) {
-            this.luns = Objects.requireNonNull(luns);
+            if (luns == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationTempDbSettings", "luns");
+            }
+            this.luns = luns;
             return this;
         }
         public Builder luns(Integer... luns) {

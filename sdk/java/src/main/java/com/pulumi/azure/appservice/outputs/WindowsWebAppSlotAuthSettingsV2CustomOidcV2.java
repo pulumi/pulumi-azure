@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -177,51 +178,67 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
 
         @CustomType.Setter
         public Builder authorisationEndpoint(@Nullable String authorisationEndpoint) {
+
             this.authorisationEndpoint = authorisationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder certificationUri(@Nullable String certificationUri) {
+
             this.certificationUri = certificationUri;
             return this;
         }
         @CustomType.Setter
         public Builder clientCredentialMethod(@Nullable String clientCredentialMethod) {
+
             this.clientCredentialMethod = clientCredentialMethod;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotAuthSettingsV2CustomOidcV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
+
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder issuerEndpoint(@Nullable String issuerEndpoint) {
+
             this.issuerEndpoint = issuerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotAuthSettingsV2CustomOidcV2", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameClaimType(@Nullable String nameClaimType) {
+
             this.nameClaimType = nameClaimType;
             return this;
         }
         @CustomType.Setter
         public Builder openidConfigurationEndpoint(String openidConfigurationEndpoint) {
-            this.openidConfigurationEndpoint = Objects.requireNonNull(openidConfigurationEndpoint);
+            if (openidConfigurationEndpoint == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotAuthSettingsV2CustomOidcV2", "openidConfigurationEndpoint");
+            }
+            this.openidConfigurationEndpoint = openidConfigurationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(@Nullable List<String> scopes) {
+
             this.scopes = scopes;
             return this;
         }
@@ -230,6 +247,7 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
         }
         @CustomType.Setter
         public Builder tokenEndpoint(@Nullable String tokenEndpoint) {
+
             this.tokenEndpoint = tokenEndpoint;
             return this;
         }

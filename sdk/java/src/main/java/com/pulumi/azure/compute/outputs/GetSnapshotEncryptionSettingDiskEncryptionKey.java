@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetSnapshotEncryptionSettingDiskEncryptionKey {
 
         @CustomType.Setter
         public Builder secretUrl(String secretUrl) {
-            this.secretUrl = Objects.requireNonNull(secretUrl);
+            if (secretUrl == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotEncryptionSettingDiskEncryptionKey", "secretUrl");
+            }
+            this.secretUrl = secretUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
-            this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
+            if (sourceVaultId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotEncryptionSettingDiskEncryptionKey", "sourceVaultId");
+            }
+            this.sourceVaultId = sourceVaultId;
             return this;
         }
         public GetSnapshotEncryptionSettingDiskEncryptionKey build() {

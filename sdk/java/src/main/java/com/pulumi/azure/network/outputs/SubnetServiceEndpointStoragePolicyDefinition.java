@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -91,22 +92,30 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SubnetServiceEndpointStoragePolicyDefinition", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder service(@Nullable String service) {
+
             this.service = service;
             return this;
         }
         @CustomType.Setter
         public Builder serviceResources(List<String> serviceResources) {
-            this.serviceResources = Objects.requireNonNull(serviceResources);
+            if (serviceResources == null) {
+              throw new MissingRequiredPropertyException("SubnetServiceEndpointStoragePolicyDefinition", "serviceResources");
+            }
+            this.serviceResources = serviceResources;
             return this;
         }
         public Builder serviceResources(String... serviceResources) {

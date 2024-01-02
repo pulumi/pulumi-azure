@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -253,82 +254,130 @@ public final class GetApplicationGatewayRequestRoutingRule {
 
         @CustomType.Setter
         public Builder backendAddressPoolId(String backendAddressPoolId) {
-            this.backendAddressPoolId = Objects.requireNonNull(backendAddressPoolId);
+            if (backendAddressPoolId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "backendAddressPoolId");
+            }
+            this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder backendAddressPoolName(String backendAddressPoolName) {
-            this.backendAddressPoolName = Objects.requireNonNull(backendAddressPoolName);
+            if (backendAddressPoolName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "backendAddressPoolName");
+            }
+            this.backendAddressPoolName = backendAddressPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsId(String backendHttpSettingsId) {
-            this.backendHttpSettingsId = Objects.requireNonNull(backendHttpSettingsId);
+            if (backendHttpSettingsId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "backendHttpSettingsId");
+            }
+            this.backendHttpSettingsId = backendHttpSettingsId;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsName(String backendHttpSettingsName) {
-            this.backendHttpSettingsName = Objects.requireNonNull(backendHttpSettingsName);
+            if (backendHttpSettingsName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "backendHttpSettingsName");
+            }
+            this.backendHttpSettingsName = backendHttpSettingsName;
             return this;
         }
         @CustomType.Setter
         public Builder httpListenerId(String httpListenerId) {
-            this.httpListenerId = Objects.requireNonNull(httpListenerId);
+            if (httpListenerId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "httpListenerId");
+            }
+            this.httpListenerId = httpListenerId;
             return this;
         }
         @CustomType.Setter
         public Builder httpListenerName(String httpListenerName) {
-            this.httpListenerName = Objects.requireNonNull(httpListenerName);
+            if (httpListenerName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "httpListenerName");
+            }
+            this.httpListenerName = httpListenerName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder redirectConfigurationId(String redirectConfigurationId) {
-            this.redirectConfigurationId = Objects.requireNonNull(redirectConfigurationId);
+            if (redirectConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "redirectConfigurationId");
+            }
+            this.redirectConfigurationId = redirectConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder redirectConfigurationName(String redirectConfigurationName) {
-            this.redirectConfigurationName = Objects.requireNonNull(redirectConfigurationName);
+            if (redirectConfigurationName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "redirectConfigurationName");
+            }
+            this.redirectConfigurationName = redirectConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetId(String rewriteRuleSetId) {
-            this.rewriteRuleSetId = Objects.requireNonNull(rewriteRuleSetId);
+            if (rewriteRuleSetId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "rewriteRuleSetId");
+            }
+            this.rewriteRuleSetId = rewriteRuleSetId;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetName(String rewriteRuleSetName) {
-            this.rewriteRuleSetName = Objects.requireNonNull(rewriteRuleSetName);
+            if (rewriteRuleSetName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "rewriteRuleSetName");
+            }
+            this.rewriteRuleSetName = rewriteRuleSetName;
             return this;
         }
         @CustomType.Setter
         public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+            if (ruleType == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "ruleType");
+            }
+            this.ruleType = ruleType;
             return this;
         }
         @CustomType.Setter
         public Builder urlPathMapId(String urlPathMapId) {
-            this.urlPathMapId = Objects.requireNonNull(urlPathMapId);
+            if (urlPathMapId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "urlPathMapId");
+            }
+            this.urlPathMapId = urlPathMapId;
             return this;
         }
         @CustomType.Setter
         public Builder urlPathMapName(String urlPathMapName) {
-            this.urlPathMapName = Objects.requireNonNull(urlPathMapName);
+            if (urlPathMapName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRequestRoutingRule", "urlPathMapName");
+            }
+            this.urlPathMapName = urlPathMapName;
             return this;
         }
         public GetApplicationGatewayRequestRoutingRule build() {

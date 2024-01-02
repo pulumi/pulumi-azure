@@ -72,6 +72,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
 
         @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
+
             this.events = events;
             return this;
         }
@@ -80,6 +81,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
         }
         @CustomType.Setter
         public Builder locations(@Nullable List<String> locations) {
+
             this.locations = locations;
             return this;
         }
@@ -88,6 +90,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
         }
         @CustomType.Setter
         public Builder services(@Nullable List<String> services) {
+
             this.services = services;
             return this;
         }

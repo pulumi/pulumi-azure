@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -234,8 +235,12 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         public ExpressRouteCircuitPeeringIpv6Args build() {
-            $.primaryPeerAddressPrefix = Objects.requireNonNull($.primaryPeerAddressPrefix, "expected parameter 'primaryPeerAddressPrefix' to be non-null");
-            $.secondaryPeerAddressPrefix = Objects.requireNonNull($.secondaryPeerAddressPrefix, "expected parameter 'secondaryPeerAddressPrefix' to be non-null");
+            if ($.primaryPeerAddressPrefix == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringIpv6Args", "primaryPeerAddressPrefix");
+            }
+            if ($.secondaryPeerAddressPrefix == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringIpv6Args", "secondaryPeerAddressPrefix");
+            }
             return $;
         }
     }

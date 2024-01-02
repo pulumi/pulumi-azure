@@ -8,6 +8,7 @@ import com.pulumi.azure.eventhub.inputs.NamespaceIdentityArgs;
 import com.pulumi.azure.eventhub.inputs.NamespaceNetworkRuleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -530,8 +531,12 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamespaceArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "sku");
+            }
             return $;
         }
     }

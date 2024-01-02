@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -161,42 +162,66 @@ public final class GetGatewayConnectionIpsecPolicy {
 
         @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
-            this.dhGroup = Objects.requireNonNull(dhGroup);
+            if (dhGroup == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "dhGroup");
+            }
+            this.dhGroup = dhGroup;
             return this;
         }
         @CustomType.Setter
         public Builder ikeEncryption(String ikeEncryption) {
-            this.ikeEncryption = Objects.requireNonNull(ikeEncryption);
+            if (ikeEncryption == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "ikeEncryption");
+            }
+            this.ikeEncryption = ikeEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder ikeIntegrity(String ikeIntegrity) {
-            this.ikeIntegrity = Objects.requireNonNull(ikeIntegrity);
+            if (ikeIntegrity == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "ikeIntegrity");
+            }
+            this.ikeIntegrity = ikeIntegrity;
             return this;
         }
         @CustomType.Setter
         public Builder ipsecEncryption(String ipsecEncryption) {
-            this.ipsecEncryption = Objects.requireNonNull(ipsecEncryption);
+            if (ipsecEncryption == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "ipsecEncryption");
+            }
+            this.ipsecEncryption = ipsecEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder ipsecIntegrity(String ipsecIntegrity) {
-            this.ipsecIntegrity = Objects.requireNonNull(ipsecIntegrity);
+            if (ipsecIntegrity == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "ipsecIntegrity");
+            }
+            this.ipsecIntegrity = ipsecIntegrity;
             return this;
         }
         @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
-            this.pfsGroup = Objects.requireNonNull(pfsGroup);
+            if (pfsGroup == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "pfsGroup");
+            }
+            this.pfsGroup = pfsGroup;
             return this;
         }
         @CustomType.Setter
         public Builder saDatasize(Integer saDatasize) {
-            this.saDatasize = Objects.requireNonNull(saDatasize);
+            if (saDatasize == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "saDatasize");
+            }
+            this.saDatasize = saDatasize;
             return this;
         }
         @CustomType.Setter
         public Builder saLifetime(Integer saLifetime) {
-            this.saLifetime = Objects.requireNonNull(saLifetime);
+            if (saLifetime == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionIpsecPolicy", "saLifetime");
+            }
+            this.saLifetime = saLifetime;
             return this;
         }
         public GetGatewayConnectionIpsecPolicy build() {

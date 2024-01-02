@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ExpressRoutePortAuthorizationArgs extends com.pulumi.resource
         }
 
         public ExpressRoutePortAuthorizationArgs build() {
-            $.expressRoutePortName = Objects.requireNonNull($.expressRoutePortName, "expected parameter 'expressRoutePortName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.expressRoutePortName == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortAuthorizationArgs", "expressRoutePortName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortAuthorizationArgs", "resourceGroupName");
+            }
             return $;
         }
     }

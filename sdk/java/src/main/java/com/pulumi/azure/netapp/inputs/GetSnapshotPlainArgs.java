@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -171,11 +172,21 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetSnapshotPlainArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.volumeName = Objects.requireNonNull($.volumeName, "expected parameter 'volumeName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("GetSnapshotPlainArgs", "accountName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetSnapshotPlainArgs", "name");
+            }
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("GetSnapshotPlainArgs", "poolName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetSnapshotPlainArgs", "resourceGroupName");
+            }
+            if ($.volumeName == null) {
+                throw new MissingRequiredPropertyException("GetSnapshotPlainArgs", "volumeName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         }
 
         public LoggerApplicationInsightsArgs build() {
-            $.instrumentationKey = Objects.requireNonNull($.instrumentationKey, "expected parameter 'instrumentationKey' to be non-null");
+            if ($.instrumentationKey == null) {
+                throw new MissingRequiredPropertyException("LoggerApplicationInsightsArgs", "instrumentationKey");
+            }
             return $;
         }
     }

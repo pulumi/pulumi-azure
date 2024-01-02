@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetGatewayConnectionIpsecPolicy;
 import com.pulumi.azure.network.outputs.GetGatewayConnectionTrafficSelectorPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -354,52 +355,82 @@ public final class GetGatewayConnectionResult {
 
         @CustomType.Setter
         public Builder authorizationKey(String authorizationKey) {
-            this.authorizationKey = Objects.requireNonNull(authorizationKey);
+            if (authorizationKey == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "authorizationKey");
+            }
+            this.authorizationKey = authorizationKey;
             return this;
         }
         @CustomType.Setter
         public Builder connectionProtocol(String connectionProtocol) {
-            this.connectionProtocol = Objects.requireNonNull(connectionProtocol);
+            if (connectionProtocol == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "connectionProtocol");
+            }
+            this.connectionProtocol = connectionProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder dpdTimeoutSeconds(Integer dpdTimeoutSeconds) {
-            this.dpdTimeoutSeconds = Objects.requireNonNull(dpdTimeoutSeconds);
+            if (dpdTimeoutSeconds == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "dpdTimeoutSeconds");
+            }
+            this.dpdTimeoutSeconds = dpdTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder egressBytesTransferred(Integer egressBytesTransferred) {
-            this.egressBytesTransferred = Objects.requireNonNull(egressBytesTransferred);
+            if (egressBytesTransferred == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "egressBytesTransferred");
+            }
+            this.egressBytesTransferred = egressBytesTransferred;
             return this;
         }
         @CustomType.Setter
         public Builder enableBgp(Boolean enableBgp) {
-            this.enableBgp = Objects.requireNonNull(enableBgp);
+            if (enableBgp == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "enableBgp");
+            }
+            this.enableBgp = enableBgp;
             return this;
         }
         @CustomType.Setter
         public Builder expressRouteCircuitId(String expressRouteCircuitId) {
-            this.expressRouteCircuitId = Objects.requireNonNull(expressRouteCircuitId);
+            if (expressRouteCircuitId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "expressRouteCircuitId");
+            }
+            this.expressRouteCircuitId = expressRouteCircuitId;
             return this;
         }
         @CustomType.Setter
         public Builder expressRouteGatewayBypass(Boolean expressRouteGatewayBypass) {
-            this.expressRouteGatewayBypass = Objects.requireNonNull(expressRouteGatewayBypass);
+            if (expressRouteGatewayBypass == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "expressRouteGatewayBypass");
+            }
+            this.expressRouteGatewayBypass = expressRouteGatewayBypass;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ingressBytesTransferred(Integer ingressBytesTransferred) {
-            this.ingressBytesTransferred = Objects.requireNonNull(ingressBytesTransferred);
+            if (ingressBytesTransferred == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "ingressBytesTransferred");
+            }
+            this.ingressBytesTransferred = ingressBytesTransferred;
             return this;
         }
         @CustomType.Setter
         public Builder ipsecPolicies(List<GetGatewayConnectionIpsecPolicy> ipsecPolicies) {
-            this.ipsecPolicies = Objects.requireNonNull(ipsecPolicies);
+            if (ipsecPolicies == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "ipsecPolicies");
+            }
+            this.ipsecPolicies = ipsecPolicies;
             return this;
         }
         public Builder ipsecPolicies(GetGatewayConnectionIpsecPolicy... ipsecPolicies) {
@@ -407,57 +438,90 @@ public final class GetGatewayConnectionResult {
         }
         @CustomType.Setter
         public Builder localAzureIpAddressEnabled(Boolean localAzureIpAddressEnabled) {
-            this.localAzureIpAddressEnabled = Objects.requireNonNull(localAzureIpAddressEnabled);
+            if (localAzureIpAddressEnabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "localAzureIpAddressEnabled");
+            }
+            this.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder localNetworkGatewayId(String localNetworkGatewayId) {
-            this.localNetworkGatewayId = Objects.requireNonNull(localNetworkGatewayId);
+            if (localNetworkGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "localNetworkGatewayId");
+            }
+            this.localNetworkGatewayId = localNetworkGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder peerVirtualNetworkGatewayId(String peerVirtualNetworkGatewayId) {
-            this.peerVirtualNetworkGatewayId = Objects.requireNonNull(peerVirtualNetworkGatewayId);
+            if (peerVirtualNetworkGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "peerVirtualNetworkGatewayId");
+            }
+            this.peerVirtualNetworkGatewayId = peerVirtualNetworkGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGuid(String resourceGuid) {
-            this.resourceGuid = Objects.requireNonNull(resourceGuid);
+            if (resourceGuid == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "resourceGuid");
+            }
+            this.resourceGuid = resourceGuid;
             return this;
         }
         @CustomType.Setter
         public Builder routingWeight(Integer routingWeight) {
-            this.routingWeight = Objects.requireNonNull(routingWeight);
+            if (routingWeight == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "routingWeight");
+            }
+            this.routingWeight = routingWeight;
             return this;
         }
         @CustomType.Setter
         public Builder sharedKey(String sharedKey) {
-            this.sharedKey = Objects.requireNonNull(sharedKey);
+            if (sharedKey == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "sharedKey");
+            }
+            this.sharedKey = sharedKey;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder trafficSelectorPolicies(List<GetGatewayConnectionTrafficSelectorPolicy> trafficSelectorPolicies) {
-            this.trafficSelectorPolicies = Objects.requireNonNull(trafficSelectorPolicies);
+            if (trafficSelectorPolicies == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "trafficSelectorPolicies");
+            }
+            this.trafficSelectorPolicies = trafficSelectorPolicies;
             return this;
         }
         public Builder trafficSelectorPolicies(GetGatewayConnectionTrafficSelectorPolicy... trafficSelectorPolicies) {
@@ -465,17 +529,26 @@ public final class GetGatewayConnectionResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder usePolicyBasedTrafficSelectors(Boolean usePolicyBasedTrafficSelectors) {
-            this.usePolicyBasedTrafficSelectors = Objects.requireNonNull(usePolicyBasedTrafficSelectors);
+            if (usePolicyBasedTrafficSelectors == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "usePolicyBasedTrafficSelectors");
+            }
+            this.usePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkGatewayId(String virtualNetworkGatewayId) {
-            this.virtualNetworkGatewayId = Objects.requireNonNull(virtualNetworkGatewayId);
+            if (virtualNetworkGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "virtualNetworkGatewayId");
+            }
+            this.virtualNetworkGatewayId = virtualNetworkGatewayId;
             return this;
         }
         public GetGatewayConnectionResult build() {

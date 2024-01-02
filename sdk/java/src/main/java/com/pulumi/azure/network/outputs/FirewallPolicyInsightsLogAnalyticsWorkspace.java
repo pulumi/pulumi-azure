@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
 
         @CustomType.Setter
         public Builder firewallLocation(String firewallLocation) {
-            this.firewallLocation = Objects.requireNonNull(firewallLocation);
+            if (firewallLocation == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyInsightsLogAnalyticsWorkspace", "firewallLocation");
+            }
+            this.firewallLocation = firewallLocation;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyInsightsLogAnalyticsWorkspace", "id");
+            }
+            this.id = id;
             return this;
         }
         public FirewallPolicyInsightsLogAnalyticsWorkspace build() {

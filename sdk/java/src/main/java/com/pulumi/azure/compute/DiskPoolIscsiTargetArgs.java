@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class DiskPoolIscsiTargetArgs extends com.pulumi.resources.Resource
         }
 
         public DiskPoolIscsiTargetArgs build() {
-            $.aclMode = Objects.requireNonNull($.aclMode, "expected parameter 'aclMode' to be non-null");
-            $.disksPoolId = Objects.requireNonNull($.disksPoolId, "expected parameter 'disksPoolId' to be non-null");
+            if ($.aclMode == null) {
+                throw new MissingRequiredPropertyException("DiskPoolIscsiTargetArgs", "aclMode");
+            }
+            if ($.disksPoolId == null) {
+                throw new MissingRequiredPropertyException("DiskPoolIscsiTargetArgs", "disksPoolId");
+            }
             return $;
         }
     }

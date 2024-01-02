@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class KafkaClusterMetastoresOozieArgs extends com.pulumi.resources.
         }
 
         public KafkaClusterMetastoresOozieArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterMetastoresOozieArgs", "databaseName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterMetastoresOozieArgs", "password");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterMetastoresOozieArgs", "server");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterMetastoresOozieArgs", "username");
+            }
             return $;
         }
     }

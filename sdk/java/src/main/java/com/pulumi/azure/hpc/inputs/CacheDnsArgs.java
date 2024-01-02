@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class CacheDnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CacheDnsArgs build() {
-            $.servers = Objects.requireNonNull($.servers, "expected parameter 'servers' to be non-null");
+            if ($.servers == null) {
+                throw new MissingRequiredPropertyException("CacheDnsArgs", "servers");
+            }
             return $;
         }
     }

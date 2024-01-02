@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,36 +129,49 @@ public final class PoolMountAzureBlobFileSystem {
 
         @CustomType.Setter
         public Builder accountKey(@Nullable String accountKey) {
+
             this.accountKey = accountKey;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureBlobFileSystem", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder blobfuseOptions(@Nullable String blobfuseOptions) {
+
             this.blobfuseOptions = blobfuseOptions;
             return this;
         }
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureBlobFileSystem", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder identityId(@Nullable String identityId) {
+
             this.identityId = identityId;
             return this;
         }
         @CustomType.Setter
         public Builder relativeMountPath(String relativeMountPath) {
-            this.relativeMountPath = Objects.requireNonNull(relativeMountPath);
+            if (relativeMountPath == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureBlobFileSystem", "relativeMountPath");
+            }
+            this.relativeMountPath = relativeMountPath;
             return this;
         }
         @CustomType.Setter
         public Builder sasKey(@Nullable String sasKey) {
+
             this.sasKey = sasKey;
             return this;
         }

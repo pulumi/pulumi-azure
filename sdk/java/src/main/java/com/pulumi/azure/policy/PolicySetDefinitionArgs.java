@@ -7,6 +7,7 @@ import com.pulumi.azure.policy.inputs.PolicySetDefinitionPolicyDefinitionGroupAr
 import com.pulumi.azure.policy.inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -395,9 +396,15 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         public PolicySetDefinitionArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.policyDefinitionReferences = Objects.requireNonNull($.policyDefinitionReferences, "expected parameter 'policyDefinitionReferences' to be non-null");
-            $.policyType = Objects.requireNonNull($.policyType, "expected parameter 'policyType' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("PolicySetDefinitionArgs", "displayName");
+            }
+            if ($.policyDefinitionReferences == null) {
+                throw new MissingRequiredPropertyException("PolicySetDefinitionArgs", "policyDefinitionReferences");
+            }
+            if ($.policyType == null) {
+                throw new MissingRequiredPropertyException("PolicySetDefinitionArgs", "policyType");
+            }
             return $;
         }
     }

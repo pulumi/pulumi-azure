@@ -7,6 +7,7 @@ import com.pulumi.azure.batch.outputs.GetPoolStartTaskContainer;
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskResourceFile;
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskUserIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -134,17 +135,24 @@ public final class GetPoolStartTask {
 
         @CustomType.Setter
         public Builder commandLine(String commandLine) {
-            this.commandLine = Objects.requireNonNull(commandLine);
+            if (commandLine == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "commandLine");
+            }
+            this.commandLine = commandLine;
             return this;
         }
         @CustomType.Setter
         public Builder commonEnvironmentProperties(@Nullable Map<String,String> commonEnvironmentProperties) {
+
             this.commonEnvironmentProperties = commonEnvironmentProperties;
             return this;
         }
         @CustomType.Setter
         public Builder containers(List<GetPoolStartTaskContainer> containers) {
-            this.containers = Objects.requireNonNull(containers);
+            if (containers == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "containers");
+            }
+            this.containers = containers;
             return this;
         }
         public Builder containers(GetPoolStartTaskContainer... containers) {
@@ -152,7 +160,10 @@ public final class GetPoolStartTask {
         }
         @CustomType.Setter
         public Builder resourceFiles(List<GetPoolStartTaskResourceFile> resourceFiles) {
-            this.resourceFiles = Objects.requireNonNull(resourceFiles);
+            if (resourceFiles == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "resourceFiles");
+            }
+            this.resourceFiles = resourceFiles;
             return this;
         }
         public Builder resourceFiles(GetPoolStartTaskResourceFile... resourceFiles) {
@@ -160,12 +171,18 @@ public final class GetPoolStartTask {
         }
         @CustomType.Setter
         public Builder taskRetryMaximum(Integer taskRetryMaximum) {
-            this.taskRetryMaximum = Objects.requireNonNull(taskRetryMaximum);
+            if (taskRetryMaximum == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "taskRetryMaximum");
+            }
+            this.taskRetryMaximum = taskRetryMaximum;
             return this;
         }
         @CustomType.Setter
         public Builder userIdentities(List<GetPoolStartTaskUserIdentity> userIdentities) {
-            this.userIdentities = Objects.requireNonNull(userIdentities);
+            if (userIdentities == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "userIdentities");
+            }
+            this.userIdentities = userIdentities;
             return this;
         }
         public Builder userIdentities(GetPoolStartTaskUserIdentity... userIdentities) {
@@ -173,7 +190,10 @@ public final class GetPoolStartTask {
         }
         @CustomType.Setter
         public Builder waitForSuccess(Boolean waitForSuccess) {
-            this.waitForSuccess = Objects.requireNonNull(waitForSuccess);
+            if (waitForSuccess == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTask", "waitForSuccess");
+            }
+            this.waitForSuccess = waitForSuccess;
             return this;
         }
         public GetPoolStartTask build() {

@@ -73,16 +73,19 @@ public final class ScheduleNotificationSettings {
 
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder timeInMinutes(@Nullable Integer timeInMinutes) {
+
             this.timeInMinutes = timeInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder webhookUrl(@Nullable String webhookUrl) {
+
             this.webhookUrl = webhookUrl;
             return this;
         }

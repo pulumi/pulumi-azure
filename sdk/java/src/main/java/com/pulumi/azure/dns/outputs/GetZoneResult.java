@@ -4,6 +4,7 @@
 package com.pulumi.azure.dns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -113,22 +114,34 @@ public final class GetZoneResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfRecordSets(Integer maxNumberOfRecordSets) {
-            this.maxNumberOfRecordSets = Objects.requireNonNull(maxNumberOfRecordSets);
+            if (maxNumberOfRecordSets == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "maxNumberOfRecordSets");
+            }
+            this.maxNumberOfRecordSets = maxNumberOfRecordSets;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
-            this.nameServers = Objects.requireNonNull(nameServers);
+            if (nameServers == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "nameServers");
+            }
+            this.nameServers = nameServers;
             return this;
         }
         public Builder nameServers(String... nameServers) {
@@ -136,17 +149,26 @@ public final class GetZoneResult {
         }
         @CustomType.Setter
         public Builder numberOfRecordSets(Integer numberOfRecordSets) {
-            this.numberOfRecordSets = Objects.requireNonNull(numberOfRecordSets);
+            if (numberOfRecordSets == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "numberOfRecordSets");
+            }
+            this.numberOfRecordSets = numberOfRecordSets;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetZoneResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetZoneResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class IntegrationAccountAgreementHostIdentity {
 
         @CustomType.Setter
         public Builder qualifier(String qualifier) {
-            this.qualifier = Objects.requireNonNull(qualifier);
+            if (qualifier == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountAgreementHostIdentity", "qualifier");
+            }
+            this.qualifier = qualifier;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountAgreementHostIdentity", "value");
+            }
+            this.value = value;
             return this;
         }
         public IntegrationAccountAgreementHostIdentity build() {

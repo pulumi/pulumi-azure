@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -270,7 +271,9 @@ public final class LocalRulestackCertificateArgs extends com.pulumi.resources.Re
         }
 
         public LocalRulestackCertificateArgs build() {
-            $.rulestackId = Objects.requireNonNull($.rulestackId, "expected parameter 'rulestackId' to be non-null");
+            if ($.rulestackId == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackCertificateArgs", "rulestackId");
+            }
             return $;
         }
     }

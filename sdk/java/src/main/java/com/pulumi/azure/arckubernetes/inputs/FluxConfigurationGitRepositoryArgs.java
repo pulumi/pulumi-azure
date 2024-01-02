@@ -5,6 +5,7 @@ package com.pulumi.azure.arckubernetes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -447,9 +448,15 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         }
 
         public FluxConfigurationGitRepositoryArgs build() {
-            $.referenceType = Objects.requireNonNull($.referenceType, "expected parameter 'referenceType' to be non-null");
-            $.referenceValue = Objects.requireNonNull($.referenceValue, "expected parameter 'referenceValue' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.referenceType == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationGitRepositoryArgs", "referenceType");
+            }
+            if ($.referenceValue == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationGitRepositoryArgs", "referenceValue");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationGitRepositoryArgs", "url");
+            }
             return $;
         }
     }

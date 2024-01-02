@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetVirtualHubConnectionPlainArgs extends com.pulumi.resources
         }
 
         public GetVirtualHubConnectionPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualHubName = Objects.requireNonNull($.virtualHubName, "expected parameter 'virtualHubName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetVirtualHubConnectionPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetVirtualHubConnectionPlainArgs", "resourceGroupName");
+            }
+            if ($.virtualHubName == null) {
+                throw new MissingRequiredPropertyException("GetVirtualHubConnectionPlainArgs", "virtualHubName");
+            }
             return $;
         }
     }

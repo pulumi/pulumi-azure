@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.azure.automation.outputs.RunBookPublishContentLinkHash;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,21 @@ public final class RunBookPublishContentLink {
 
         @CustomType.Setter
         public Builder hash(@Nullable RunBookPublishContentLinkHash hash) {
+
             this.hash = hash;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("RunBookPublishContentLink", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

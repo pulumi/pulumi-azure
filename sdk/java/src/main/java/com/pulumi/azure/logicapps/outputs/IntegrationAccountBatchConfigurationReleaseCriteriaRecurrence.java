@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -116,31 +117,41 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
 
         @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
+
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(@Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule) {
+
             this.schedule = schedule;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

@@ -108,6 +108,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
 
         @CustomType.Setter
         public Builder additionalUnattendConfigs(@Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs) {
+
             this.additionalUnattendConfigs = additionalUnattendConfigs;
             return this;
         }
@@ -116,21 +117,25 @@ public final class VirtualMachineOsProfileWindowsConfig {
         }
         @CustomType.Setter
         public Builder enableAutomaticUpgrades(@Nullable Boolean enableAutomaticUpgrades) {
+
             this.enableAutomaticUpgrades = enableAutomaticUpgrades;
             return this;
         }
         @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
+
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder winrms(@Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms) {
+
             this.winrms = winrms;
             return this;
         }

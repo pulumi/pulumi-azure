@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class AutoscaleSettingProfileRuleScaleAction {
 
         @CustomType.Setter
         public Builder cooldown(String cooldown) {
-            this.cooldown = Objects.requireNonNull(cooldown);
+            if (cooldown == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleAction", "cooldown");
+            }
+            this.cooldown = cooldown;
             return this;
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleAction", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleAction", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(Integer value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleAction", "value");
+            }
+            this.value = value;
             return this;
         }
         public AutoscaleSettingProfileRuleScaleAction build() {

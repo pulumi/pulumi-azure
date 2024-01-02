@@ -8,6 +8,7 @@ import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleDestinationArgs;
 import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -777,12 +778,24 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         public LocalRulestackRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.applications = Objects.requireNonNull($.applications, "expected parameter 'applications' to be non-null");
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.rulestackId = Objects.requireNonNull($.rulestackId, "expected parameter 'rulestackId' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "action");
+            }
+            if ($.applications == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "applications");
+            }
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "destination");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "priority");
+            }
+            if ($.rulestackId == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "rulestackId");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleArgs", "source");
+            }
             return $;
         }
     }

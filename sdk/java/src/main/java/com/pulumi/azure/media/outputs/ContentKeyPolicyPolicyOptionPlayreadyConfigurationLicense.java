@@ -204,61 +204,73 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
 
         @CustomType.Setter
         public Builder allowTestDevices(@Nullable Boolean allowTestDevices) {
+
             this.allowTestDevices = allowTestDevices;
             return this;
         }
         @CustomType.Setter
         public Builder beginDate(@Nullable String beginDate) {
+
             this.beginDate = beginDate;
             return this;
         }
         @CustomType.Setter
         public Builder contentKeyLocationFromHeaderEnabled(@Nullable Boolean contentKeyLocationFromHeaderEnabled) {
+
             this.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder contentKeyLocationFromKeyId(@Nullable String contentKeyLocationFromKeyId) {
+
             this.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
+
             this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDate(@Nullable String expirationDate) {
+
             this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder gracePeriod(@Nullable String gracePeriod) {
+
             this.gracePeriod = gracePeriod;
             return this;
         }
         @CustomType.Setter
         public Builder licenseType(@Nullable String licenseType) {
+
             this.licenseType = licenseType;
             return this;
         }
         @CustomType.Setter
         public Builder playRight(@Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight) {
+
             this.playRight = playRight;
             return this;
         }
         @CustomType.Setter
         public Builder relativeBeginDate(@Nullable String relativeBeginDate) {
+
             this.relativeBeginDate = relativeBeginDate;
             return this;
         }
         @CustomType.Setter
         public Builder relativeExpirationDate(@Nullable String relativeExpirationDate) {
+
             this.relativeExpirationDate = relativeExpirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder securityLevel(@Nullable String securityLevel) {
+
             this.securityLevel = securityLevel;
             return this;
         }

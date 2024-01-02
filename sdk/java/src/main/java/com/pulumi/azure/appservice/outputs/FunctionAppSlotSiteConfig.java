@@ -338,51 +338,61 @@ public final class FunctionAppSlotSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
+
             this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder appScaleLimit(@Nullable Integer appScaleLimit) {
+
             this.appScaleLimit = appScaleLimit;
             return this;
         }
         @CustomType.Setter
         public Builder autoSwapSlotName(@Nullable String autoSwapSlotName) {
+
             this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
         @CustomType.Setter
         public Builder cors(@Nullable FunctionAppSlotSiteConfigCors cors) {
+
             this.cors = cors;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
+
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
         @CustomType.Setter
         public Builder elasticInstanceMinimum(@Nullable Integer elasticInstanceMinimum) {
+
             this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
+
             this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
+
             this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
+
             this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions) {
+
             this.ipRestrictions = ipRestrictions;
             return this;
         }
@@ -391,31 +401,37 @@ public final class FunctionAppSlotSiteConfig {
         }
         @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
+
             this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
+
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
+
             this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder preWarmedInstanceCount(@Nullable Integer preWarmedInstanceCount) {
+
             this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
+
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions) {
+
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
@@ -424,26 +440,31 @@ public final class FunctionAppSlotSiteConfig {
         }
         @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
+
             this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
+
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
+
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
+
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }

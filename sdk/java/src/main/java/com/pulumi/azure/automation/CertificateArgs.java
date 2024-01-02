@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,9 +263,15 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.base64 = Objects.requireNonNull($.base64, "expected parameter 'base64' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "automationAccountName");
+            }
+            if ($.base64 == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "base64");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "resourceGroupName");
+            }
             return $;
         }
     }

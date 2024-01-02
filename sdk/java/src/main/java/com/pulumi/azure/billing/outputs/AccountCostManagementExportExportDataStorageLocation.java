@@ -4,6 +4,7 @@
 package com.pulumi.azure.billing.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class AccountCostManagementExportExportDataStorageLocation {
 
         @CustomType.Setter
         public Builder containerId(String containerId) {
-            this.containerId = Objects.requireNonNull(containerId);
+            if (containerId == null) {
+              throw new MissingRequiredPropertyException("AccountCostManagementExportExportDataStorageLocation", "containerId");
+            }
+            this.containerId = containerId;
             return this;
         }
         @CustomType.Setter
         public Builder rootFolderPath(String rootFolderPath) {
-            this.rootFolderPath = Objects.requireNonNull(rootFolderPath);
+            if (rootFolderPath == null) {
+              throw new MissingRequiredPropertyException("AccountCostManagementExportExportDataStorageLocation", "rootFolderPath");
+            }
+            this.rootFolderPath = rootFolderPath;
             return this;
         }
         public AccountCostManagementExportExportDataStorageLocation build() {

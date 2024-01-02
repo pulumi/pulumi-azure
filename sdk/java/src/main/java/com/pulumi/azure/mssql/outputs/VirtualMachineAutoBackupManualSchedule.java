@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -105,6 +106,7 @@ public final class VirtualMachineAutoBackupManualSchedule {
 
         @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
+
             this.daysOfWeeks = daysOfWeeks;
             return this;
         }
@@ -113,22 +115,34 @@ public final class VirtualMachineAutoBackupManualSchedule {
         }
         @CustomType.Setter
         public Builder fullBackupFrequency(String fullBackupFrequency) {
-            this.fullBackupFrequency = Objects.requireNonNull(fullBackupFrequency);
+            if (fullBackupFrequency == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualSchedule", "fullBackupFrequency");
+            }
+            this.fullBackupFrequency = fullBackupFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder fullBackupStartHour(Integer fullBackupStartHour) {
-            this.fullBackupStartHour = Objects.requireNonNull(fullBackupStartHour);
+            if (fullBackupStartHour == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualSchedule", "fullBackupStartHour");
+            }
+            this.fullBackupStartHour = fullBackupStartHour;
             return this;
         }
         @CustomType.Setter
         public Builder fullBackupWindowInHours(Integer fullBackupWindowInHours) {
-            this.fullBackupWindowInHours = Objects.requireNonNull(fullBackupWindowInHours);
+            if (fullBackupWindowInHours == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualSchedule", "fullBackupWindowInHours");
+            }
+            this.fullBackupWindowInHours = fullBackupWindowInHours;
             return this;
         }
         @CustomType.Setter
         public Builder logBackupFrequencyInMinutes(Integer logBackupFrequencyInMinutes) {
-            this.logBackupFrequencyInMinutes = Objects.requireNonNull(logBackupFrequencyInMinutes);
+            if (logBackupFrequencyInMinutes == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualSchedule", "logBackupFrequencyInMinutes");
+            }
+            this.logBackupFrequencyInMinutes = logBackupFrequencyInMinutes;
             return this;
         }
         public VirtualMachineAutoBackupManualSchedule build() {

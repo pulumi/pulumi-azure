@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -122,47 +123,74 @@ public final class GetApiVersionSetResult {
 
         @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
-            this.apiManagementName = Objects.requireNonNull(apiManagementName);
+            if (apiManagementName == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "apiManagementName");
+            }
+            this.apiManagementName = apiManagementName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder versionHeaderName(String versionHeaderName) {
-            this.versionHeaderName = Objects.requireNonNull(versionHeaderName);
+            if (versionHeaderName == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "versionHeaderName");
+            }
+            this.versionHeaderName = versionHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder versionQueryName(String versionQueryName) {
-            this.versionQueryName = Objects.requireNonNull(versionQueryName);
+            if (versionQueryName == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "versionQueryName");
+            }
+            this.versionQueryName = versionQueryName;
             return this;
         }
         @CustomType.Setter
         public Builder versioningScheme(String versioningScheme) {
-            this.versioningScheme = Objects.requireNonNull(versioningScheme);
+            if (versioningScheme == null) {
+              throw new MissingRequiredPropertyException("GetApiVersionSetResult", "versioningScheme");
+            }
+            this.versioningScheme = versioningScheme;
             return this;
         }
         public GetApiVersionSetResult build() {

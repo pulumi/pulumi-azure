@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.CapacityReservationSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -226,8 +227,12 @@ public final class CapacityReservationArgs extends com.pulumi.resources.Resource
         }
 
         public CapacityReservationArgs build() {
-            $.capacityReservationGroupId = Objects.requireNonNull($.capacityReservationGroupId, "expected parameter 'capacityReservationGroupId' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.capacityReservationGroupId == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "capacityReservationGroupId");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("CapacityReservationArgs", "sku");
+            }
             return $;
         }
     }

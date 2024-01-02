@@ -63,11 +63,13 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
 
         @CustomType.Setter
         public Builder capacity(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }

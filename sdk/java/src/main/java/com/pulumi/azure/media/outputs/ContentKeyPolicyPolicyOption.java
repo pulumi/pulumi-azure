@@ -7,6 +7,7 @@ import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionFairplayConfig
 import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense;
 import com.pulumi.azure.media.outputs.ContentKeyPolicyPolicyOptionTokenRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -151,26 +152,33 @@ public final class ContentKeyPolicyPolicyOption {
 
         @CustomType.Setter
         public Builder clearKeyConfigurationEnabled(@Nullable Boolean clearKeyConfigurationEnabled) {
+
             this.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder fairplayConfiguration(@Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration) {
+
             this.fairplayConfiguration = fairplayConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ContentKeyPolicyPolicyOption", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder openRestrictionEnabled(@Nullable Boolean openRestrictionEnabled) {
+
             this.openRestrictionEnabled = openRestrictionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder playreadyConfigurationLicenses(@Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses) {
+
             this.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
             return this;
         }
@@ -179,16 +187,19 @@ public final class ContentKeyPolicyPolicyOption {
         }
         @CustomType.Setter
         public Builder playreadyResponseCustomData(@Nullable String playreadyResponseCustomData) {
+
             this.playreadyResponseCustomData = playreadyResponseCustomData;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRestriction(@Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction) {
+
             this.tokenRestriction = tokenRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder widevineConfigurationTemplate(@Nullable String widevineConfigurationTemplate) {
+
             this.widevineConfigurationTemplate = widevineConfigurationTemplate;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.VpnGatewayBgpSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -376,8 +377,12 @@ public final class VpnGatewayArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VpnGatewayArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayArgs", "resourceGroupName");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayArgs", "virtualHubId");
+            }
             return $;
         }
     }

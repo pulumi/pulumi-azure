@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class IntegrationRuntimeSsisCustomSetupScript {
 
         @CustomType.Setter
         public Builder blobContainerUri(String blobContainerUri) {
-            this.blobContainerUri = Objects.requireNonNull(blobContainerUri);
+            if (blobContainerUri == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCustomSetupScript", "blobContainerUri");
+            }
+            this.blobContainerUri = blobContainerUri;
             return this;
         }
         @CustomType.Setter
         public Builder sasToken(String sasToken) {
-            this.sasToken = Objects.requireNonNull(sasToken);
+            if (sasToken == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCustomSetupScript", "sasToken");
+            }
+            this.sasToken = sasToken;
             return this;
         }
         public IntegrationRuntimeSsisCustomSetupScript build() {

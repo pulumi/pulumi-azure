@@ -58,11 +58,13 @@ public final class ServicePolicy {
 
         @CustomType.Setter
         public Builder xmlContent(@Nullable String xmlContent) {
+
             this.xmlContent = xmlContent;
             return this;
         }
         @CustomType.Setter
         public Builder xmlLink(@Nullable String xmlLink) {
+
             this.xmlLink = xmlLink;
             return this;
         }

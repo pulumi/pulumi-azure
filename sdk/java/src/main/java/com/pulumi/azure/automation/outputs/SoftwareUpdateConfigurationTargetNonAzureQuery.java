@@ -58,11 +58,13 @@ public final class SoftwareUpdateConfigurationTargetNonAzureQuery {
 
         @CustomType.Setter
         public Builder functionAlias(@Nullable String functionAlias) {
+
             this.functionAlias = functionAlias;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(@Nullable String workspaceId) {
+
             this.workspaceId = workspaceId;
             return this;
         }

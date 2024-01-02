@@ -17,6 +17,7 @@ import com.pulumi.azure.apimanagement.inputs.ServiceTenantAccessArgs;
 import com.pulumi.azure.apimanagement.inputs.ServiceVirtualNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1133,10 +1134,18 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceArgs build() {
-            $.publisherEmail = Objects.requireNonNull($.publisherEmail, "expected parameter 'publisherEmail' to be non-null");
-            $.publisherName = Objects.requireNonNull($.publisherName, "expected parameter 'publisherName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.publisherEmail == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "publisherEmail");
+            }
+            if ($.publisherName == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "publisherName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "skuName");
+            }
             return $;
         }
     }

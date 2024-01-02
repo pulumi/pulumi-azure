@@ -60,6 +60,7 @@ public final class SpringCloudGatewayClientAuthorization {
 
         @CustomType.Setter
         public Builder certificateIds(@Nullable List<String> certificateIds) {
+
             this.certificateIds = certificateIds;
             return this;
         }
@@ -68,6 +69,7 @@ public final class SpringCloudGatewayClientAuthorization {
         }
         @CustomType.Setter
         public Builder verificationEnabled(@Nullable Boolean verificationEnabled) {
+
             this.verificationEnabled = verificationEnabled;
             return this;
         }

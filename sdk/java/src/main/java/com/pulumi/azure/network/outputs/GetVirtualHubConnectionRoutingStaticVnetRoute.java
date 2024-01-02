@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetVirtualHubConnectionRoutingStaticVnetRoute {
 
         @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
-            this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
+            if (addressPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRoutingStaticVnetRoute", "addressPrefixes");
+            }
+            this.addressPrefixes = addressPrefixes;
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
@@ -79,12 +83,18 @@ public final class GetVirtualHubConnectionRoutingStaticVnetRoute {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRoutingStaticVnetRoute", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextHopIpAddress(String nextHopIpAddress) {
-            this.nextHopIpAddress = Objects.requireNonNull(nextHopIpAddress);
+            if (nextHopIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRoutingStaticVnetRoute", "nextHopIpAddress");
+            }
+            this.nextHopIpAddress = nextHopIpAddress;
             return this;
         }
         public GetVirtualHubConnectionRoutingStaticVnetRoute build() {

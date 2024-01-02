@@ -11,6 +11,7 @@ import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
 import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -525,12 +526,24 @@ public final class FrontdoorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FrontdoorArgs build() {
-            $.backendPoolHealthProbes = Objects.requireNonNull($.backendPoolHealthProbes, "expected parameter 'backendPoolHealthProbes' to be non-null");
-            $.backendPoolLoadBalancings = Objects.requireNonNull($.backendPoolLoadBalancings, "expected parameter 'backendPoolLoadBalancings' to be non-null");
-            $.backendPools = Objects.requireNonNull($.backendPools, "expected parameter 'backendPools' to be non-null");
-            $.frontendEndpoints = Objects.requireNonNull($.frontendEndpoints, "expected parameter 'frontendEndpoints' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.routingRules = Objects.requireNonNull($.routingRules, "expected parameter 'routingRules' to be non-null");
+            if ($.backendPoolHealthProbes == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "backendPoolHealthProbes");
+            }
+            if ($.backendPoolLoadBalancings == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "backendPoolLoadBalancings");
+            }
+            if ($.backendPools == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "backendPools");
+            }
+            if ($.frontendEndpoints == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "frontendEndpoints");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "resourceGroupName");
+            }
+            if ($.routingRules == null) {
+                throw new MissingRequiredPropertyException("FrontdoorArgs", "routingRules");
+            }
             return $;
         }
     }

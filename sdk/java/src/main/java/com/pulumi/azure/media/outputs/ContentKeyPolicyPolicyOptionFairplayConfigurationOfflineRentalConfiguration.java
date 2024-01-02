@@ -58,11 +58,13 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRenta
 
         @CustomType.Setter
         public Builder playbackDurationSeconds(@Nullable Integer playbackDurationSeconds) {
+
             this.playbackDurationSeconds = playbackDurationSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder storageDurationSeconds(@Nullable Integer storageDurationSeconds) {
+
             this.storageDurationSeconds = storageDurationSeconds;
             return this;
         }

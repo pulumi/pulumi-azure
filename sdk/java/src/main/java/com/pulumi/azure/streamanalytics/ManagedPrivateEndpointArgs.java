@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
         }
 
         public ManagedPrivateEndpointArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.streamAnalyticsClusterName = Objects.requireNonNull($.streamAnalyticsClusterName, "expected parameter 'streamAnalyticsClusterName' to be non-null");
-            $.subresourceName = Objects.requireNonNull($.subresourceName, "expected parameter 'subresourceName' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "resourceGroupName");
+            }
+            if ($.streamAnalyticsClusterName == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "streamAnalyticsClusterName");
+            }
+            if ($.subresourceName == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "subresourceName");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "targetResourceId");
+            }
             return $;
         }
     }

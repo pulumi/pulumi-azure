@@ -6,6 +6,7 @@ package com.pulumi.azure.servicefabric.inputs;
 import com.pulumi.azure.servicefabric.inputs.ManagedClusterNodeTypeVmSecretCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class ManagedClusterNodeTypeVmSecretArgs extends com.pulumi.resourc
         }
 
         public ManagedClusterNodeTypeVmSecretArgs build() {
-            $.certificates = Objects.requireNonNull($.certificates, "expected parameter 'certificates' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.certificates == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeVmSecretArgs", "certificates");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeVmSecretArgs", "vaultId");
+            }
             return $;
         }
     }

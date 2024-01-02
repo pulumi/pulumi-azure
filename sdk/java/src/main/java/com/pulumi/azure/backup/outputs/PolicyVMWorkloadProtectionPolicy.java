@@ -10,6 +10,7 @@ import com.pulumi.azure.backup.outputs.PolicyVMWorkloadProtectionPolicyRetention
 import com.pulumi.azure.backup.outputs.PolicyVMWorkloadProtectionPolicyRetentionYearly;
 import com.pulumi.azure.backup.outputs.PolicyVMWorkloadProtectionPolicySimpleRetention;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -134,36 +135,47 @@ public final class PolicyVMWorkloadProtectionPolicy {
 
         @CustomType.Setter
         public Builder backup(PolicyVMWorkloadProtectionPolicyBackup backup) {
-            this.backup = Objects.requireNonNull(backup);
+            if (backup == null) {
+              throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicy", "backup");
+            }
+            this.backup = backup;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(String policyType) {
-            this.policyType = Objects.requireNonNull(policyType);
+            if (policyType == null) {
+              throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicy", "policyType");
+            }
+            this.policyType = policyType;
             return this;
         }
         @CustomType.Setter
         public Builder retentionDaily(@Nullable PolicyVMWorkloadProtectionPolicyRetentionDaily retentionDaily) {
+
             this.retentionDaily = retentionDaily;
             return this;
         }
         @CustomType.Setter
         public Builder retentionMonthly(@Nullable PolicyVMWorkloadProtectionPolicyRetentionMonthly retentionMonthly) {
+
             this.retentionMonthly = retentionMonthly;
             return this;
         }
         @CustomType.Setter
         public Builder retentionWeekly(@Nullable PolicyVMWorkloadProtectionPolicyRetentionWeekly retentionWeekly) {
+
             this.retentionWeekly = retentionWeekly;
             return this;
         }
         @CustomType.Setter
         public Builder retentionYearly(@Nullable PolicyVMWorkloadProtectionPolicyRetentionYearly retentionYearly) {
+
             this.retentionYearly = retentionYearly;
             return this;
         }
         @CustomType.Setter
         public Builder simpleRetention(@Nullable PolicyVMWorkloadProtectionPolicySimpleRetention simpleRetention) {
+
             this.simpleRetention = simpleRetention;
             return this;
         }

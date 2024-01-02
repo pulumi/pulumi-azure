@@ -115,31 +115,37 @@ public final class CertifiateCertificateAttribute {
 
         @CustomType.Setter
         public Builder created(@Nullable String created) {
+
             this.created = created;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expires(@Nullable String expires) {
+
             this.expires = expires;
             return this;
         }
         @CustomType.Setter
         public Builder notBefore(@Nullable String notBefore) {
+
             this.notBefore = notBefore;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryLevel(@Nullable String recoveryLevel) {
+
             this.recoveryLevel = recoveryLevel;
             return this;
         }
         @CustomType.Setter
         public Builder updated(@Nullable String updated) {
+
             this.updated = updated;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.TransformOutputBuiltinPresetPresetConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class TransformOutputBuiltinPreset {
 
         @CustomType.Setter
         public Builder presetConfiguration(@Nullable TransformOutputBuiltinPresetPresetConfiguration presetConfiguration) {
+
             this.presetConfiguration = presetConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder presetName(String presetName) {
-            this.presetName = Objects.requireNonNull(presetName);
+            if (presetName == null) {
+              throw new MissingRequiredPropertyException("TransformOutputBuiltinPreset", "presetName");
+            }
+            this.presetName = presetName;
             return this;
         }
         public TransformOutputBuiltinPreset build() {

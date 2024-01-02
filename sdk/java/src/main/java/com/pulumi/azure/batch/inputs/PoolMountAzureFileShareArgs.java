@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class PoolMountAzureFileShareArgs extends com.pulumi.resources.Reso
         }
 
         public PoolMountAzureFileShareArgs build() {
-            $.accountKey = Objects.requireNonNull($.accountKey, "expected parameter 'accountKey' to be non-null");
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.azureFileUrl = Objects.requireNonNull($.azureFileUrl, "expected parameter 'azureFileUrl' to be non-null");
-            $.relativeMountPath = Objects.requireNonNull($.relativeMountPath, "expected parameter 'relativeMountPath' to be non-null");
+            if ($.accountKey == null) {
+                throw new MissingRequiredPropertyException("PoolMountAzureFileShareArgs", "accountKey");
+            }
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("PoolMountAzureFileShareArgs", "accountName");
+            }
+            if ($.azureFileUrl == null) {
+                throw new MissingRequiredPropertyException("PoolMountAzureFileShareArgs", "azureFileUrl");
+            }
+            if ($.relativeMountPath == null) {
+                throw new MissingRequiredPropertyException("PoolMountAzureFileShareArgs", "relativeMountPath");
+            }
             return $;
         }
     }

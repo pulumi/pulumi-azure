@@ -102,6 +102,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
 
         @CustomType.Setter
         public Builder hours(@Nullable List<Integer> hours) {
+
             this.hours = hours;
             return this;
         }
@@ -110,6 +111,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
         @CustomType.Setter
         public Builder minutes(@Nullable List<Integer> minutes) {
+
             this.minutes = minutes;
             return this;
         }
@@ -118,6 +120,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
         @CustomType.Setter
         public Builder monthDays(@Nullable List<Integer> monthDays) {
+
             this.monthDays = monthDays;
             return this;
         }
@@ -126,6 +129,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
         @CustomType.Setter
         public Builder monthlies(@Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies) {
+
             this.monthlies = monthlies;
             return this;
         }
@@ -134,6 +138,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
         @CustomType.Setter
         public Builder weekDays(@Nullable List<String> weekDays) {
+
             this.weekDays = weekDays;
             return this;
         }

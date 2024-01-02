@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -64,7 +65,10 @@ public final class MongoCollectionIndex {
 
         @CustomType.Setter
         public Builder keys(List<String> keys) {
-            this.keys = Objects.requireNonNull(keys);
+            if (keys == null) {
+              throw new MissingRequiredPropertyException("MongoCollectionIndex", "keys");
+            }
+            this.keys = keys;
             return this;
         }
         public Builder keys(String... keys) {
@@ -72,6 +76,7 @@ public final class MongoCollectionIndex {
         }
         @CustomType.Setter
         public Builder unique(@Nullable Boolean unique) {
+
             this.unique = unique;
             return this;
         }

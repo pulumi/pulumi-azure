@@ -6,6 +6,7 @@ package com.pulumi.azure.avs;
 import com.pulumi.azure.avs.inputs.PrivateCloudManagementClusterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -420,10 +421,18 @@ public final class PrivateCloudArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PrivateCloudArgs build() {
-            $.managementCluster = Objects.requireNonNull($.managementCluster, "expected parameter 'managementCluster' to be non-null");
-            $.networkSubnetCidr = Objects.requireNonNull($.networkSubnetCidr, "expected parameter 'networkSubnetCidr' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.managementCluster == null) {
+                throw new MissingRequiredPropertyException("PrivateCloudArgs", "managementCluster");
+            }
+            if ($.networkSubnetCidr == null) {
+                throw new MissingRequiredPropertyException("PrivateCloudArgs", "networkSubnetCidr");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PrivateCloudArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("PrivateCloudArgs", "skuName");
+            }
             return $;
         }
     }

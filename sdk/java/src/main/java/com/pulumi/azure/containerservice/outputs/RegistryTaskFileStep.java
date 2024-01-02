@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -115,31 +116,39 @@ public final class RegistryTaskFileStep {
 
         @CustomType.Setter
         public Builder contextAccessToken(@Nullable String contextAccessToken) {
+
             this.contextAccessToken = contextAccessToken;
             return this;
         }
         @CustomType.Setter
         public Builder contextPath(@Nullable String contextPath) {
+
             this.contextPath = contextPath;
             return this;
         }
         @CustomType.Setter
         public Builder secretValues(@Nullable Map<String,String> secretValues) {
+
             this.secretValues = secretValues;
             return this;
         }
         @CustomType.Setter
         public Builder taskFilePath(String taskFilePath) {
-            this.taskFilePath = Objects.requireNonNull(taskFilePath);
+            if (taskFilePath == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskFileStep", "taskFilePath");
+            }
+            this.taskFilePath = taskFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder valueFilePath(@Nullable String valueFilePath) {
+
             this.valueFilePath = valueFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable Map<String,String> values) {
+
             this.values = values;
             return this;
         }

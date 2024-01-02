@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,26 +103,35 @@ public final class AppServiceBackupSchedule {
 
         @CustomType.Setter
         public Builder frequencyInterval(Integer frequencyInterval) {
-            this.frequencyInterval = Objects.requireNonNull(frequencyInterval);
+            if (frequencyInterval == null) {
+              throw new MissingRequiredPropertyException("AppServiceBackupSchedule", "frequencyInterval");
+            }
+            this.frequencyInterval = frequencyInterval;
             return this;
         }
         @CustomType.Setter
         public Builder frequencyUnit(String frequencyUnit) {
-            this.frequencyUnit = Objects.requireNonNull(frequencyUnit);
+            if (frequencyUnit == null) {
+              throw new MissingRequiredPropertyException("AppServiceBackupSchedule", "frequencyUnit");
+            }
+            this.frequencyUnit = frequencyUnit;
             return this;
         }
         @CustomType.Setter
         public Builder keepAtLeastOneBackup(@Nullable Boolean keepAtLeastOneBackup) {
+
             this.keepAtLeastOneBackup = keepAtLeastOneBackup;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodInDays(@Nullable Integer retentionPeriodInDays) {
+
             this.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }

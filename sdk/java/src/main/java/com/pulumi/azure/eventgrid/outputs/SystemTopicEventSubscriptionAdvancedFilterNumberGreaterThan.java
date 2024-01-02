@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -61,12 +62,18 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder value(Double value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan", "value");
+            }
+            this.value = value;
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan build() {

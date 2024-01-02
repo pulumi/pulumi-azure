@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -171,7 +172,10 @@ public final class GetNetworkSimPolicySliceDataNetwork {
 
         @CustomType.Setter
         public Builder additionalAllowedSessionTypes(List<String> additionalAllowedSessionTypes) {
-            this.additionalAllowedSessionTypes = Objects.requireNonNull(additionalAllowedSessionTypes);
+            if (additionalAllowedSessionTypes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "additionalAllowedSessionTypes");
+            }
+            this.additionalAllowedSessionTypes = additionalAllowedSessionTypes;
             return this;
         }
         public Builder additionalAllowedSessionTypes(String... additionalAllowedSessionTypes) {
@@ -179,12 +183,18 @@ public final class GetNetworkSimPolicySliceDataNetwork {
         }
         @CustomType.Setter
         public Builder allocationAndRetentionPriorityLevel(Integer allocationAndRetentionPriorityLevel) {
-            this.allocationAndRetentionPriorityLevel = Objects.requireNonNull(allocationAndRetentionPriorityLevel);
+            if (allocationAndRetentionPriorityLevel == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "allocationAndRetentionPriorityLevel");
+            }
+            this.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder allowedServicesIds(List<String> allowedServicesIds) {
-            this.allowedServicesIds = Objects.requireNonNull(allowedServicesIds);
+            if (allowedServicesIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "allowedServicesIds");
+            }
+            this.allowedServicesIds = allowedServicesIds;
             return this;
         }
         public Builder allowedServicesIds(String... allowedServicesIds) {
@@ -192,37 +202,58 @@ public final class GetNetworkSimPolicySliceDataNetwork {
         }
         @CustomType.Setter
         public Builder dataNetworkId(String dataNetworkId) {
-            this.dataNetworkId = Objects.requireNonNull(dataNetworkId);
+            if (dataNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "dataNetworkId");
+            }
+            this.dataNetworkId = dataNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSessionType(String defaultSessionType) {
-            this.defaultSessionType = Objects.requireNonNull(defaultSessionType);
+            if (defaultSessionType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "defaultSessionType");
+            }
+            this.defaultSessionType = defaultSessionType;
             return this;
         }
         @CustomType.Setter
         public Builder maxBufferedPackets(Integer maxBufferedPackets) {
-            this.maxBufferedPackets = Objects.requireNonNull(maxBufferedPackets);
+            if (maxBufferedPackets == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "maxBufferedPackets");
+            }
+            this.maxBufferedPackets = maxBufferedPackets;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionCapability(String preemptionCapability) {
-            this.preemptionCapability = Objects.requireNonNull(preemptionCapability);
+            if (preemptionCapability == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "preemptionCapability");
+            }
+            this.preemptionCapability = preemptionCapability;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionVulnerability(String preemptionVulnerability) {
-            this.preemptionVulnerability = Objects.requireNonNull(preemptionVulnerability);
+            if (preemptionVulnerability == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "preemptionVulnerability");
+            }
+            this.preemptionVulnerability = preemptionVulnerability;
             return this;
         }
         @CustomType.Setter
         public Builder qosIndicator(Integer qosIndicator) {
-            this.qosIndicator = Objects.requireNonNull(qosIndicator);
+            if (qosIndicator == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "qosIndicator");
+            }
+            this.qosIndicator = qosIndicator;
             return this;
         }
         @CustomType.Setter
         public Builder sessionAggregateMaximumBitRates(List<GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate> sessionAggregateMaximumBitRates) {
-            this.sessionAggregateMaximumBitRates = Objects.requireNonNull(sessionAggregateMaximumBitRates);
+            if (sessionAggregateMaximumBitRates == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicySliceDataNetwork", "sessionAggregateMaximumBitRates");
+            }
+            this.sessionAggregateMaximumBitRates = sessionAggregateMaximumBitRates;
             return this;
         }
         public Builder sessionAggregateMaximumBitRates(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate... sessionAggregateMaximumBitRates) {

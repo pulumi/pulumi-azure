@@ -102,21 +102,25 @@ public final class ServicePlanDefaultConnection {
 
         @CustomType.Setter
         public Builder clientRdpAccess(@Nullable String clientRdpAccess) {
+
             this.clientRdpAccess = clientRdpAccess;
             return this;
         }
         @CustomType.Setter
         public Builder clientSshAccess(@Nullable String clientSshAccess) {
+
             this.clientSshAccess = clientSshAccess;
             return this;
         }
         @CustomType.Setter
         public Builder webRdpAccess(@Nullable String webRdpAccess) {
+
             this.webRdpAccess = webRdpAccess;
             return this;
         }
         @CustomType.Setter
         public Builder webSshAccess(@Nullable String webSshAccess) {
+
             this.webSshAccess = webSshAccess;
             return this;
         }

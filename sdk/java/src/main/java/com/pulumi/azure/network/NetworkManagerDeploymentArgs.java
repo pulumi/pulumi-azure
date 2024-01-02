@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -236,9 +237,15 @@ public final class NetworkManagerDeploymentArgs extends com.pulumi.resources.Res
         }
 
         public NetworkManagerDeploymentArgs build() {
-            $.configurationIds = Objects.requireNonNull($.configurationIds, "expected parameter 'configurationIds' to be non-null");
-            $.networkManagerId = Objects.requireNonNull($.networkManagerId, "expected parameter 'networkManagerId' to be non-null");
-            $.scopeAccess = Objects.requireNonNull($.scopeAccess, "expected parameter 'scopeAccess' to be non-null");
+            if ($.configurationIds == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerDeploymentArgs", "configurationIds");
+            }
+            if ($.networkManagerId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerDeploymentArgs", "networkManagerId");
+            }
+            if ($.scopeAccess == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerDeploymentArgs", "scopeAccess");
+            }
             return $;
         }
     }

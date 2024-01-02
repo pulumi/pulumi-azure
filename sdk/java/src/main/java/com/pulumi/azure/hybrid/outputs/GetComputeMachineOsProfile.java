@@ -6,6 +6,7 @@ package com.pulumi.azure.hybrid.outputs;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineOsProfileLinuxConfiguration;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineOsProfileWindowsConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class GetComputeMachineOsProfile {
 
         @CustomType.Setter
         public Builder computerName(String computerName) {
-            this.computerName = Objects.requireNonNull(computerName);
+            if (computerName == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineOsProfile", "computerName");
+            }
+            this.computerName = computerName;
             return this;
         }
         @CustomType.Setter
         public Builder linuxConfigurations(List<GetComputeMachineOsProfileLinuxConfiguration> linuxConfigurations) {
-            this.linuxConfigurations = Objects.requireNonNull(linuxConfigurations);
+            if (linuxConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineOsProfile", "linuxConfigurations");
+            }
+            this.linuxConfigurations = linuxConfigurations;
             return this;
         }
         public Builder linuxConfigurations(GetComputeMachineOsProfileLinuxConfiguration... linuxConfigurations) {
@@ -86,7 +93,10 @@ public final class GetComputeMachineOsProfile {
         }
         @CustomType.Setter
         public Builder windowsConfigurations(List<GetComputeMachineOsProfileWindowsConfiguration> windowsConfigurations) {
-            this.windowsConfigurations = Objects.requireNonNull(windowsConfigurations);
+            if (windowsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineOsProfile", "windowsConfigurations");
+            }
+            this.windowsConfigurations = windowsConfigurations;
             return this;
         }
         public Builder windowsConfigurations(GetComputeMachineOsProfileWindowsConfiguration... windowsConfigurations) {

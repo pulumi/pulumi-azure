@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,13 +336,27 @@ public final class OutputSynapseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutputSynapseArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "database");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "password");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "resourceGroupName");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "server");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "streamAnalyticsJobName");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "table");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("OutputSynapseArgs", "user");
+            }
             return $;
         }
     }

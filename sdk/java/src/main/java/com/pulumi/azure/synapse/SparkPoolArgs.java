@@ -9,6 +9,7 @@ import com.pulumi.azure.synapse.inputs.SparkPoolLibraryRequirementArgs;
 import com.pulumi.azure.synapse.inputs.SparkPoolSparkConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -749,9 +750,15 @@ public final class SparkPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SparkPoolArgs build() {
-            $.nodeSize = Objects.requireNonNull($.nodeSize, "expected parameter 'nodeSize' to be non-null");
-            $.nodeSizeFamily = Objects.requireNonNull($.nodeSizeFamily, "expected parameter 'nodeSizeFamily' to be non-null");
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.nodeSize == null) {
+                throw new MissingRequiredPropertyException("SparkPoolArgs", "nodeSize");
+            }
+            if ($.nodeSizeFamily == null) {
+                throw new MissingRequiredPropertyException("SparkPoolArgs", "nodeSizeFamily");
+            }
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("SparkPoolArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

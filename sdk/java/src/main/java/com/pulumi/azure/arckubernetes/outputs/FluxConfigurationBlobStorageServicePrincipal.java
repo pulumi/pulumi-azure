@@ -4,6 +4,7 @@
 package com.pulumi.azure.arckubernetes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -115,32 +116,42 @@ public final class FluxConfigurationBlobStorageServicePrincipal {
 
         @CustomType.Setter
         public Builder clientCertificateBase64(@Nullable String clientCertificateBase64) {
+
             this.clientCertificateBase64 = clientCertificateBase64;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificatePassword(@Nullable String clientCertificatePassword) {
+
             this.clientCertificatePassword = clientCertificatePassword;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateSendChain(@Nullable Boolean clientCertificateSendChain) {
+
             this.clientCertificateSendChain = clientCertificateSendChain;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageServicePrincipal", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
+
             this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageServicePrincipal", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public FluxConfigurationBlobStorageServicePrincipal build() {

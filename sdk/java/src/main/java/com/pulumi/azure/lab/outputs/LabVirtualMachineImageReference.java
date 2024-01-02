@@ -100,26 +100,31 @@ public final class LabVirtualMachineImageReference {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder offer(@Nullable String offer) {
+
             this.offer = offer;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(@Nullable String publisher) {
+
             this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder sku(@Nullable String sku) {
+
             this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

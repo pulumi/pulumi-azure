@@ -4,6 +4,7 @@
 package com.pulumi.azure.arcmachine.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetCloudMetadata {
 
         @CustomType.Setter
         public Builder provider(String provider) {
-            this.provider = Objects.requireNonNull(provider);
+            if (provider == null) {
+              throw new MissingRequiredPropertyException("GetCloudMetadata", "provider");
+            }
+            this.provider = provider;
             return this;
         }
         public GetCloudMetadata build() {

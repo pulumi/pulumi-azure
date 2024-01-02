@@ -6,6 +6,7 @@ package com.pulumi.azure.streamanalytics;
 import com.pulumi.azure.streamanalytics.inputs.StreamInputIotHubSerializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -373,14 +374,30 @@ public final class StreamInputIotHubArgs extends com.pulumi.resources.ResourceAr
         }
 
         public StreamInputIotHubArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
-            $.eventhubConsumerGroupName = Objects.requireNonNull($.eventhubConsumerGroupName, "expected parameter 'eventhubConsumerGroupName' to be non-null");
-            $.iothubNamespace = Objects.requireNonNull($.iothubNamespace, "expected parameter 'iothubNamespace' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.sharedAccessPolicyKey = Objects.requireNonNull($.sharedAccessPolicyKey, "expected parameter 'sharedAccessPolicyKey' to be non-null");
-            $.sharedAccessPolicyName = Objects.requireNonNull($.sharedAccessPolicyName, "expected parameter 'sharedAccessPolicyName' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "endpoint");
+            }
+            if ($.eventhubConsumerGroupName == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "eventhubConsumerGroupName");
+            }
+            if ($.iothubNamespace == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "iothubNamespace");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "resourceGroupName");
+            }
+            if ($.serialization == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "serialization");
+            }
+            if ($.sharedAccessPolicyKey == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "sharedAccessPolicyKey");
+            }
+            if ($.sharedAccessPolicyName == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "sharedAccessPolicyName");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("StreamInputIotHubArgs", "streamAnalyticsJobName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.iotcentral;
 import com.pulumi.azure.iotcentral.inputs.ApplicationNetworkRuleSetIpRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,7 +201,9 @@ public final class ApplicationNetworkRuleSetArgs extends com.pulumi.resources.Re
         }
 
         public ApplicationNetworkRuleSetArgs build() {
-            $.iotcentralApplicationId = Objects.requireNonNull($.iotcentralApplicationId, "expected parameter 'iotcentralApplicationId' to be non-null");
+            if ($.iotcentralApplicationId == null) {
+                throw new MissingRequiredPropertyException("ApplicationNetworkRuleSetArgs", "iotcentralApplicationId");
+            }
             return $;
         }
     }

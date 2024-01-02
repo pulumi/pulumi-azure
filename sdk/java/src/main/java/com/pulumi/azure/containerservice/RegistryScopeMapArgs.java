@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,9 +236,15 @@ public final class RegistryScopeMapArgs extends com.pulumi.resources.ResourceArg
         }
 
         public RegistryScopeMapArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.containerRegistryName = Objects.requireNonNull($.containerRegistryName, "expected parameter 'containerRegistryName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("RegistryScopeMapArgs", "actions");
+            }
+            if ($.containerRegistryName == null) {
+                throw new MissingRequiredPropertyException("RegistryScopeMapArgs", "containerRegistryName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RegistryScopeMapArgs", "resourceGroupName");
+            }
             return $;
         }
     }

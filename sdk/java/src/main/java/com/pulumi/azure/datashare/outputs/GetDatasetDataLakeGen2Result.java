@@ -4,6 +4,7 @@
 package com.pulumi.azure.datashare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -124,42 +125,66 @@ public final class GetDatasetDataLakeGen2Result {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder filePath(String filePath) {
-            this.filePath = Objects.requireNonNull(filePath);
+            if (filePath == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "filePath");
+            }
+            this.filePath = filePath;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemName(String fileSystemName) {
-            this.fileSystemName = Objects.requireNonNull(fileSystemName);
+            if (fileSystemName == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "fileSystemName");
+            }
+            this.fileSystemName = fileSystemName;
             return this;
         }
         @CustomType.Setter
         public Builder folderPath(String folderPath) {
-            this.folderPath = Objects.requireNonNull(folderPath);
+            if (folderPath == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "folderPath");
+            }
+            this.folderPath = folderPath;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder shareId(String shareId) {
-            this.shareId = Objects.requireNonNull(shareId);
+            if (shareId == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "shareId");
+            }
+            this.shareId = shareId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetDatasetDataLakeGen2Result", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public GetDatasetDataLakeGen2Result build() {
