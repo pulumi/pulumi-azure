@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
         }
 
         public VolumeDataProtectionSnapshotPolicyArgs build() {
-            $.snapshotPolicyId = Objects.requireNonNull($.snapshotPolicyId, "expected parameter 'snapshotPolicyId' to be non-null");
+            if ($.snapshotPolicyId == null) {
+                throw new MissingRequiredPropertyException("VolumeDataProtectionSnapshotPolicyArgs", "snapshotPolicyId");
+            }
             return $;
         }
     }

@@ -48,6 +48,7 @@ public final class KubernetesClusterNodePoolWindowsProfile {
 
         @CustomType.Setter
         public Builder outboundNatEnabled(@Nullable Boolean outboundNatEnabled) {
+
             this.outboundNatEnabled = outboundNatEnabled;
             return this;
         }

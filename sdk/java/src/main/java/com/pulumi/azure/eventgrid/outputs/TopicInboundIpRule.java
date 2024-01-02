@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class TopicInboundIpRule {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder ipMask(String ipMask) {
-            this.ipMask = Objects.requireNonNull(ipMask);
+            if (ipMask == null) {
+              throw new MissingRequiredPropertyException("TopicInboundIpRule", "ipMask");
+            }
+            this.ipMask = ipMask;
             return this;
         }
         public TopicInboundIpRule build() {

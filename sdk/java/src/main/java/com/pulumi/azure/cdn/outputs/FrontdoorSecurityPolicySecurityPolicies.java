@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class FrontdoorSecurityPolicySecurityPolicies {
 
         @CustomType.Setter
         public Builder firewall(FrontdoorSecurityPolicySecurityPoliciesFirewall firewall) {
-            this.firewall = Objects.requireNonNull(firewall);
+            if (firewall == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPolicies", "firewall");
+            }
+            this.firewall = firewall;
             return this;
         }
         public FrontdoorSecurityPolicySecurityPolicies build() {

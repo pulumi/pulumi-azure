@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -111,37 +112,58 @@ public final class GetVolumeQuotaRuleResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder quotaSizeInKib(Integer quotaSizeInKib) {
-            this.quotaSizeInKib = Objects.requireNonNull(quotaSizeInKib);
+            if (quotaSizeInKib == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "quotaSizeInKib");
+            }
+            this.quotaSizeInKib = quotaSizeInKib;
             return this;
         }
         @CustomType.Setter
         public Builder quotaTarget(String quotaTarget) {
-            this.quotaTarget = Objects.requireNonNull(quotaTarget);
+            if (quotaTarget == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "quotaTarget");
+            }
+            this.quotaTarget = quotaTarget;
             return this;
         }
         @CustomType.Setter
         public Builder quotaType(String quotaType) {
-            this.quotaType = Objects.requireNonNull(quotaType);
+            if (quotaType == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "quotaType");
+            }
+            this.quotaType = quotaType;
             return this;
         }
         @CustomType.Setter
         public Builder volumeId(String volumeId) {
-            this.volumeId = Objects.requireNonNull(volumeId);
+            if (volumeId == null) {
+              throw new MissingRequiredPropertyException("GetVolumeQuotaRuleResult", "volumeId");
+            }
+            this.volumeId = volumeId;
             return this;
         }
         public GetVolumeQuotaRuleResult build() {

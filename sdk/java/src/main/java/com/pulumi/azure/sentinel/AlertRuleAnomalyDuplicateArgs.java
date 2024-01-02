@@ -9,6 +9,7 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleAnomalyDuplicateSingleSelectObs
 import com.pulumi.azure.sentinel.inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -428,11 +429,21 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         public AlertRuleAnomalyDuplicateArgs build() {
-            $.builtInRuleId = Objects.requireNonNull($.builtInRuleId, "expected parameter 'builtInRuleId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
+            if ($.builtInRuleId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateArgs", "builtInRuleId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateArgs", "displayName");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateArgs", "enabled");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("AlertRuleAnomalyDuplicateArgs", "mode");
+            }
             return $;
         }
     }

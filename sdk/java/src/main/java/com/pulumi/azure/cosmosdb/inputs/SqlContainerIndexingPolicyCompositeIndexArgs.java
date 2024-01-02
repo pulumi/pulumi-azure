@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyCompositeIndexIndexArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class SqlContainerIndexingPolicyCompositeIndexArgs extends com.pulu
         }
 
         public SqlContainerIndexingPolicyCompositeIndexArgs build() {
-            $.indices = Objects.requireNonNull($.indices, "expected parameter 'indices' to be non-null");
+            if ($.indices == null) {
+                throw new MissingRequiredPropertyException("SqlContainerIndexingPolicyCompositeIndexArgs", "indices");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -410,8 +411,12 @@ public final class GalleryApplicationArgs extends com.pulumi.resources.ResourceA
         }
 
         public GalleryApplicationArgs build() {
-            $.galleryId = Objects.requireNonNull($.galleryId, "expected parameter 'galleryId' to be non-null");
-            $.supportedOsType = Objects.requireNonNull($.supportedOsType, "expected parameter 'supportedOsType' to be non-null");
+            if ($.galleryId == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationArgs", "galleryId");
+            }
+            if ($.supportedOsType == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationArgs", "supportedOsType");
+            }
             return $;
         }
     }

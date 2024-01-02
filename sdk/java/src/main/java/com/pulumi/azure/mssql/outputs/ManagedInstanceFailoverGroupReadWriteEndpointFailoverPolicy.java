@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
 
         @CustomType.Setter
         public Builder graceMinutes(@Nullable Integer graceMinutes) {
+
             this.graceMinutes = graceMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy build() {

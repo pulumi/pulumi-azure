@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -181,7 +182,10 @@ public final class GetNetworkAttachedDataNetworkResult {
 
         @CustomType.Setter
         public Builder dnsAddresses(List<String> dnsAddresses) {
-            this.dnsAddresses = Objects.requireNonNull(dnsAddresses);
+            if (dnsAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "dnsAddresses");
+            }
+            this.dnsAddresses = dnsAddresses;
             return this;
         }
         public Builder dnsAddresses(String... dnsAddresses) {
@@ -189,27 +193,42 @@ public final class GetNetworkAttachedDataNetworkResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkDataNetworkName(String mobileNetworkDataNetworkName) {
-            this.mobileNetworkDataNetworkName = Objects.requireNonNull(mobileNetworkDataNetworkName);
+            if (mobileNetworkDataNetworkName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "mobileNetworkDataNetworkName");
+            }
+            this.mobileNetworkDataNetworkName = mobileNetworkDataNetworkName;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkPacketCoreDataPlaneId(String mobileNetworkPacketCoreDataPlaneId) {
-            this.mobileNetworkPacketCoreDataPlaneId = Objects.requireNonNull(mobileNetworkPacketCoreDataPlaneId);
+            if (mobileNetworkPacketCoreDataPlaneId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "mobileNetworkPacketCoreDataPlaneId");
+            }
+            this.mobileNetworkPacketCoreDataPlaneId = mobileNetworkPacketCoreDataPlaneId;
             return this;
         }
         @CustomType.Setter
         public Builder networkAddressPortTranslations(List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslation> networkAddressPortTranslations) {
-            this.networkAddressPortTranslations = Objects.requireNonNull(networkAddressPortTranslations);
+            if (networkAddressPortTranslations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "networkAddressPortTranslations");
+            }
+            this.networkAddressPortTranslations = networkAddressPortTranslations;
             return this;
         }
         public Builder networkAddressPortTranslations(GetNetworkAttachedDataNetworkNetworkAddressPortTranslation... networkAddressPortTranslations) {
@@ -217,12 +236,18 @@ public final class GetNetworkAttachedDataNetworkResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userEquipmentAddressPoolPrefixes(List<String> userEquipmentAddressPoolPrefixes) {
-            this.userEquipmentAddressPoolPrefixes = Objects.requireNonNull(userEquipmentAddressPoolPrefixes);
+            if (userEquipmentAddressPoolPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userEquipmentAddressPoolPrefixes");
+            }
+            this.userEquipmentAddressPoolPrefixes = userEquipmentAddressPoolPrefixes;
             return this;
         }
         public Builder userEquipmentAddressPoolPrefixes(String... userEquipmentAddressPoolPrefixes) {
@@ -230,7 +255,10 @@ public final class GetNetworkAttachedDataNetworkResult {
         }
         @CustomType.Setter
         public Builder userEquipmentStaticAddressPoolPrefixes(List<String> userEquipmentStaticAddressPoolPrefixes) {
-            this.userEquipmentStaticAddressPoolPrefixes = Objects.requireNonNull(userEquipmentStaticAddressPoolPrefixes);
+            if (userEquipmentStaticAddressPoolPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userEquipmentStaticAddressPoolPrefixes");
+            }
+            this.userEquipmentStaticAddressPoolPrefixes = userEquipmentStaticAddressPoolPrefixes;
             return this;
         }
         public Builder userEquipmentStaticAddressPoolPrefixes(String... userEquipmentStaticAddressPoolPrefixes) {
@@ -238,22 +266,34 @@ public final class GetNetworkAttachedDataNetworkResult {
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Address(String userPlaneAccessIpv4Address) {
-            this.userPlaneAccessIpv4Address = Objects.requireNonNull(userPlaneAccessIpv4Address);
+            if (userPlaneAccessIpv4Address == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userPlaneAccessIpv4Address");
+            }
+            this.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Gateway(String userPlaneAccessIpv4Gateway) {
-            this.userPlaneAccessIpv4Gateway = Objects.requireNonNull(userPlaneAccessIpv4Gateway);
+            if (userPlaneAccessIpv4Gateway == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userPlaneAccessIpv4Gateway");
+            }
+            this.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Subnet(String userPlaneAccessIpv4Subnet) {
-            this.userPlaneAccessIpv4Subnet = Objects.requireNonNull(userPlaneAccessIpv4Subnet);
+            if (userPlaneAccessIpv4Subnet == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userPlaneAccessIpv4Subnet");
+            }
+            this.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessName(String userPlaneAccessName) {
-            this.userPlaneAccessName = Objects.requireNonNull(userPlaneAccessName);
+            if (userPlaneAccessName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkResult", "userPlaneAccessName");
+            }
+            this.userPlaneAccessName = userPlaneAccessName;
             return this;
         }
         public GetNetworkAttachedDataNetworkResult build() {

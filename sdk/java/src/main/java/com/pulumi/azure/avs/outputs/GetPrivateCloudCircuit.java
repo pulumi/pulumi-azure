@@ -4,6 +4,7 @@
 package com.pulumi.azure.avs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetPrivateCloudCircuit {
 
         @CustomType.Setter
         public Builder expressRouteId(String expressRouteId) {
-            this.expressRouteId = Objects.requireNonNull(expressRouteId);
+            if (expressRouteId == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudCircuit", "expressRouteId");
+            }
+            this.expressRouteId = expressRouteId;
             return this;
         }
         @CustomType.Setter
         public Builder expressRoutePrivatePeeringId(String expressRoutePrivatePeeringId) {
-            this.expressRoutePrivatePeeringId = Objects.requireNonNull(expressRoutePrivatePeeringId);
+            if (expressRoutePrivatePeeringId == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudCircuit", "expressRoutePrivatePeeringId");
+            }
+            this.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
             return this;
         }
         @CustomType.Setter
         public Builder primarySubnetCidr(String primarySubnetCidr) {
-            this.primarySubnetCidr = Objects.requireNonNull(primarySubnetCidr);
+            if (primarySubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudCircuit", "primarySubnetCidr");
+            }
+            this.primarySubnetCidr = primarySubnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder secondarySubnetCidr(String secondarySubnetCidr) {
-            this.secondarySubnetCidr = Objects.requireNonNull(secondarySubnetCidr);
+            if (secondarySubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudCircuit", "secondarySubnetCidr");
+            }
+            this.secondarySubnetCidr = secondarySubnetCidr;
             return this;
         }
         public GetPrivateCloudCircuit build() {

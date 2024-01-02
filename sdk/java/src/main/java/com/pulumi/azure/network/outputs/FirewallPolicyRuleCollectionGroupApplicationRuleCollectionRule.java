@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader;
 import com.pulumi.azure.network.outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -202,11 +203,13 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+
             this.destinationAddresses = destinationAddresses;
             return this;
         }
@@ -215,6 +218,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder destinationFqdnTags(@Nullable List<String> destinationFqdnTags) {
+
             this.destinationFqdnTags = destinationFqdnTags;
             return this;
         }
@@ -223,6 +227,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder destinationFqdns(@Nullable List<String> destinationFqdns) {
+
             this.destinationFqdns = destinationFqdns;
             return this;
         }
@@ -231,6 +236,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder destinationUrls(@Nullable List<String> destinationUrls) {
+
             this.destinationUrls = destinationUrls;
             return this;
         }
@@ -239,6 +245,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder httpHeaders(@Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders) {
+
             this.httpHeaders = httpHeaders;
             return this;
         }
@@ -247,11 +254,15 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(@Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols) {
+
             this.protocols = protocols;
             return this;
         }
@@ -260,6 +271,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -268,6 +280,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
+
             this.sourceIpGroups = sourceIpGroups;
             return this;
         }
@@ -276,11 +289,13 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         @CustomType.Setter
         public Builder terminateTls(@Nullable Boolean terminateTls) {
+
             this.terminateTls = terminateTls;
             return this;
         }
         @CustomType.Setter
         public Builder webCategories(@Nullable List<String> webCategories) {
+
             this.webCategories = webCategories;
             return this;
         }

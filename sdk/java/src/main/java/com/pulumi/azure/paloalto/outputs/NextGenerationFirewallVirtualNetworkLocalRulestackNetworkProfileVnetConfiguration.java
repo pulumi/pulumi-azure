@@ -4,6 +4,7 @@
 package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,22 +79,28 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
 
         @CustomType.Setter
         public Builder ipOfTrustForUserDefinedRoutes(@Nullable String ipOfTrustForUserDefinedRoutes) {
+
             this.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
             return this;
         }
         @CustomType.Setter
         public Builder trustedSubnetId(@Nullable String trustedSubnetId) {
+
             this.trustedSubnetId = trustedSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder untrustedSubnetId(@Nullable String untrustedSubnetId) {
+
             this.untrustedSubnetId = untrustedSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(String virtualNetworkId) {
-            this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
+            if (virtualNetworkId == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration", "virtualNetworkId");
+            }
+            this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         public NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration build() {

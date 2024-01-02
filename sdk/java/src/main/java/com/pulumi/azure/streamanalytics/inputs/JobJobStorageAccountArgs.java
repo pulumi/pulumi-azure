@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class JobJobStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         public JobJobStorageAccountArgs build() {
-            $.accountKey = Objects.requireNonNull($.accountKey, "expected parameter 'accountKey' to be non-null");
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
+            if ($.accountKey == null) {
+                throw new MissingRequiredPropertyException("JobJobStorageAccountArgs", "accountKey");
+            }
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("JobJobStorageAccountArgs", "accountName");
+            }
             return $;
         }
     }

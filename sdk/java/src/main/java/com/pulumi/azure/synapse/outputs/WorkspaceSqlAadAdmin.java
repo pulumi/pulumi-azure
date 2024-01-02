@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class WorkspaceSqlAadAdmin {
 
         @CustomType.Setter
         public Builder login(String login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("WorkspaceSqlAadAdmin", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder objectId(String objectId) {
-            this.objectId = Objects.requireNonNull(objectId);
+            if (objectId == null) {
+              throw new MissingRequiredPropertyException("WorkspaceSqlAadAdmin", "objectId");
+            }
+            this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("WorkspaceSqlAadAdmin", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public WorkspaceSqlAadAdmin build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -272,11 +273,21 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         }
 
         public AccountActiveDirectoryArgs build() {
-            $.dnsServers = Objects.requireNonNull($.dnsServers, "expected parameter 'dnsServers' to be non-null");
-            $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.smbServerName = Objects.requireNonNull($.smbServerName, "expected parameter 'smbServerName' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.dnsServers == null) {
+                throw new MissingRequiredPropertyException("AccountActiveDirectoryArgs", "dnsServers");
+            }
+            if ($.domain == null) {
+                throw new MissingRequiredPropertyException("AccountActiveDirectoryArgs", "domain");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("AccountActiveDirectoryArgs", "password");
+            }
+            if ($.smbServerName == null) {
+                throw new MissingRequiredPropertyException("AccountActiveDirectoryArgs", "smbServerName");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("AccountActiveDirectoryArgs", "username");
+            }
             return $;
         }
     }

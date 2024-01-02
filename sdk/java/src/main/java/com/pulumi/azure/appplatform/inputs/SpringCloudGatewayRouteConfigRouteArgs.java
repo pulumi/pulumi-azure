@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -405,7 +406,9 @@ public final class SpringCloudGatewayRouteConfigRouteArgs extends com.pulumi.res
         }
 
         public SpringCloudGatewayRouteConfigRouteArgs build() {
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("SpringCloudGatewayRouteConfigRouteArgs", "order");
+            }
             return $;
         }
     }

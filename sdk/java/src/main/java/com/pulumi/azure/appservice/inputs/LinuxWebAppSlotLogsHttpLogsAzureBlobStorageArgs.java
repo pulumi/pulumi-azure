@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs extends com.p
         }
 
         public LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs build() {
-            $.sasUrl = Objects.requireNonNull($.sasUrl, "expected parameter 'sasUrl' to be non-null");
+            if ($.sasUrl == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs", "sasUrl");
+            }
             return $;
         }
     }

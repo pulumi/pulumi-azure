@@ -105,11 +105,13 @@ public final class SoftwareUpdateConfigurationWindows {
 
         @CustomType.Setter
         public Builder classificationIncluded(@Nullable String classificationIncluded) {
+
             this.classificationIncluded = classificationIncluded;
             return this;
         }
         @CustomType.Setter
         public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
+
             this.classificationsIncludeds = classificationsIncludeds;
             return this;
         }
@@ -118,6 +120,7 @@ public final class SoftwareUpdateConfigurationWindows {
         }
         @CustomType.Setter
         public Builder excludedKnowledgeBaseNumbers(@Nullable List<String> excludedKnowledgeBaseNumbers) {
+
             this.excludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
             return this;
         }
@@ -126,6 +129,7 @@ public final class SoftwareUpdateConfigurationWindows {
         }
         @CustomType.Setter
         public Builder includedKnowledgeBaseNumbers(@Nullable List<String> includedKnowledgeBaseNumbers) {
+
             this.includedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;
             return this;
         }
@@ -134,6 +138,7 @@ public final class SoftwareUpdateConfigurationWindows {
         }
         @CustomType.Setter
         public Builder reboot(@Nullable String reboot) {
+
             this.reboot = reboot;
             return this;
         }

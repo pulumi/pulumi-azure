@@ -7,6 +7,7 @@ import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileDnsSettingsArgs;
 import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -312,9 +313,15 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         public ScaleSetNetworkProfileArgs build() {
-            $.ipConfigurations = Objects.requireNonNull($.ipConfigurations, "expected parameter 'ipConfigurations' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
+            if ($.ipConfigurations == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileArgs", "ipConfigurations");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileArgs", "name");
+            }
+            if ($.primary == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileArgs", "primary");
+            }
             return $;
         }
     }

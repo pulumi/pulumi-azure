@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class DataCollectionRuleDataSourcesPlatformTelemetry {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPlatformTelemetry", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPlatformTelemetry", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {

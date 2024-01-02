@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class DatasetDataLakeGen2Args extends com.pulumi.resources.Resource
         }
 
         public DatasetDataLakeGen2Args build() {
-            $.fileSystemName = Objects.requireNonNull($.fileSystemName, "expected parameter 'fileSystemName' to be non-null");
-            $.shareId = Objects.requireNonNull($.shareId, "expected parameter 'shareId' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.fileSystemName == null) {
+                throw new MissingRequiredPropertyException("DatasetDataLakeGen2Args", "fileSystemName");
+            }
+            if ($.shareId == null) {
+                throw new MissingRequiredPropertyException("DatasetDataLakeGen2Args", "shareId");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("DatasetDataLakeGen2Args", "storageAccountId");
+            }
             return $;
         }
     }

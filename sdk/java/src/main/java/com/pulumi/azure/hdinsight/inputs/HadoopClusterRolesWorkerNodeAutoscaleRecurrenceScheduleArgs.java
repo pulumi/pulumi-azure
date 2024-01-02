@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -160,9 +161,15 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs e
         }
 
         public HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs build() {
-            $.days = Objects.requireNonNull($.days, "expected parameter 'days' to be non-null");
-            $.targetInstanceCount = Objects.requireNonNull($.targetInstanceCount, "expected parameter 'targetInstanceCount' to be non-null");
-            $.time = Objects.requireNonNull($.time, "expected parameter 'time' to be non-null");
+            if ($.days == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs", "days");
+            }
+            if ($.targetInstanceCount == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs", "targetInstanceCount");
+            }
+            if ($.time == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs", "time");
+            }
             return $;
         }
     }

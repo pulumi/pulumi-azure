@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class GetAlertRuleAnomalyRequiredDataConnector {
 
         @CustomType.Setter
         public Builder connectorId(String connectorId) {
-            this.connectorId = Objects.requireNonNull(connectorId);
+            if (connectorId == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyRequiredDataConnector", "connectorId");
+            }
+            this.connectorId = connectorId;
             return this;
         }
         @CustomType.Setter
         public Builder dataTypes(List<String> dataTypes) {
-            this.dataTypes = Objects.requireNonNull(dataTypes);
+            if (dataTypes == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyRequiredDataConnector", "dataTypes");
+            }
+            this.dataTypes = dataTypes;
             return this;
         }
         public Builder dataTypes(String... dataTypes) {

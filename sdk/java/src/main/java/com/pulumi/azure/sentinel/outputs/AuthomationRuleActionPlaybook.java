@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class AuthomationRuleActionPlaybook {
 
         @CustomType.Setter
         public Builder logicAppId(String logicAppId) {
-            this.logicAppId = Objects.requireNonNull(logicAppId);
+            if (logicAppId == null) {
+              throw new MissingRequiredPropertyException("AuthomationRuleActionPlaybook", "logicAppId");
+            }
+            this.logicAppId = logicAppId;
             return this;
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("AuthomationRuleActionPlaybook", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

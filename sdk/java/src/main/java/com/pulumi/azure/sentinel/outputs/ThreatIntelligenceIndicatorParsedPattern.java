@@ -60,11 +60,13 @@ public final class ThreatIntelligenceIndicatorParsedPattern {
 
         @CustomType.Setter
         public Builder patternTypeKey(@Nullable String patternTypeKey) {
+
             this.patternTypeKey = patternTypeKey;
             return this;
         }
         @CustomType.Setter
         public Builder patternTypeValues(@Nullable List<ThreatIntelligenceIndicatorParsedPatternPatternTypeValue> patternTypeValues) {
+
             this.patternTypeValues = patternTypeValues;
             return this;
         }

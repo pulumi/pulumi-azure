@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class ApiTagDescriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ApiTagDescriptionArgs build() {
-            $.apiTagId = Objects.requireNonNull($.apiTagId, "expected parameter 'apiTagId' to be non-null");
+            if ($.apiTagId == null) {
+                throw new MissingRequiredPropertyException("ApiTagDescriptionArgs", "apiTagId");
+            }
             return $;
         }
     }

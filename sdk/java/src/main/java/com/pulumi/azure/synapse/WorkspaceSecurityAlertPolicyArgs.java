@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -358,8 +359,12 @@ public final class WorkspaceSecurityAlertPolicyArgs extends com.pulumi.resources
         }
 
         public WorkspaceSecurityAlertPolicyArgs build() {
-            $.policyState = Objects.requireNonNull($.policyState, "expected parameter 'policyState' to be non-null");
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.policyState == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSecurityAlertPolicyArgs", "policyState");
+            }
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSecurityAlertPolicyArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.notificationhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class HubGcmCredential {
 
         @CustomType.Setter
         public Builder apiKey(String apiKey) {
-            this.apiKey = Objects.requireNonNull(apiKey);
+            if (apiKey == null) {
+              throw new MissingRequiredPropertyException("HubGcmCredential", "apiKey");
+            }
+            this.apiKey = apiKey;
             return this;
         }
         public HubGcmCredential build() {

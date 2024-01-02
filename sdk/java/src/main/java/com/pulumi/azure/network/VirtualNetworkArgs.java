@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.VirtualNetworkEncryptionArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -547,8 +548,12 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualNetworkArgs build() {
-            $.addressSpaces = Objects.requireNonNull($.addressSpaces, "expected parameter 'addressSpaces' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.addressSpaces == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkArgs", "addressSpaces");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -448,13 +449,27 @@ public final class NatPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NatPoolArgs build() {
-            $.backendPort = Objects.requireNonNull($.backendPort, "expected parameter 'backendPort' to be non-null");
-            $.frontendIpConfigurationName = Objects.requireNonNull($.frontendIpConfigurationName, "expected parameter 'frontendIpConfigurationName' to be non-null");
-            $.frontendPortEnd = Objects.requireNonNull($.frontendPortEnd, "expected parameter 'frontendPortEnd' to be non-null");
-            $.frontendPortStart = Objects.requireNonNull($.frontendPortStart, "expected parameter 'frontendPortStart' to be non-null");
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.backendPort == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "backendPort");
+            }
+            if ($.frontendIpConfigurationName == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "frontendIpConfigurationName");
+            }
+            if ($.frontendPortEnd == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "frontendPortEnd");
+            }
+            if ($.frontendPortStart == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "frontendPortStart");
+            }
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "loadbalancerId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "protocol");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NatPoolArgs", "resourceGroupName");
+            }
             return $;
         }
     }

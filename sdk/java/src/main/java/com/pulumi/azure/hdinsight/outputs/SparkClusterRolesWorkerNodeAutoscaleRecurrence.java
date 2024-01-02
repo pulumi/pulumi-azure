@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.azure.hdinsight.outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
 
         @CustomType.Setter
         public Builder schedules(List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeAutoscaleRecurrence", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule... schedules) {
@@ -66,7 +70,10 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
         }
         @CustomType.Setter
         public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeAutoscaleRecurrence", "timezone");
+            }
+            this.timezone = timezone;
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscaleRecurrence build() {

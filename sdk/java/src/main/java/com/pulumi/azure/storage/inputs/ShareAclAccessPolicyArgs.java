@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,7 +159,9 @@ public final class ShareAclAccessPolicyArgs extends com.pulumi.resources.Resourc
         }
 
         public ShareAclAccessPolicyArgs build() {
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("ShareAclAccessPolicyArgs", "permissions");
+            }
             return $;
         }
     }

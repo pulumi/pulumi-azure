@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class NetworkManagerAdminRuleSource {
 
         @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
-            this.addressPrefix = Objects.requireNonNull(addressPrefix);
+            if (addressPrefix == null) {
+              throw new MissingRequiredPropertyException("NetworkManagerAdminRuleSource", "addressPrefix");
+            }
+            this.addressPrefix = addressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder addressPrefixType(String addressPrefixType) {
-            this.addressPrefixType = Objects.requireNonNull(addressPrefixType);
+            if (addressPrefixType == null) {
+              throw new MissingRequiredPropertyException("NetworkManagerAdminRuleSource", "addressPrefixType");
+            }
+            this.addressPrefixType = addressPrefixType;
             return this;
         }
         public NetworkManagerAdminRuleSource build() {

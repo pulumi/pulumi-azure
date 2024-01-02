@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayWafConfigurationDisabledRuleGroup;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayWafConfigurationExclusion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -159,7 +160,10 @@ public final class GetApplicationGatewayWafConfiguration {
 
         @CustomType.Setter
         public Builder disabledRuleGroups(List<GetApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups) {
-            this.disabledRuleGroups = Objects.requireNonNull(disabledRuleGroups);
+            if (disabledRuleGroups == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "disabledRuleGroups");
+            }
+            this.disabledRuleGroups = disabledRuleGroups;
             return this;
         }
         public Builder disabledRuleGroups(GetApplicationGatewayWafConfigurationDisabledRuleGroup... disabledRuleGroups) {
@@ -167,12 +171,18 @@ public final class GetApplicationGatewayWafConfiguration {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder exclusions(List<GetApplicationGatewayWafConfigurationExclusion> exclusions) {
-            this.exclusions = Objects.requireNonNull(exclusions);
+            if (exclusions == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "exclusions");
+            }
+            this.exclusions = exclusions;
             return this;
         }
         public Builder exclusions(GetApplicationGatewayWafConfigurationExclusion... exclusions) {
@@ -180,32 +190,50 @@ public final class GetApplicationGatewayWafConfiguration {
         }
         @CustomType.Setter
         public Builder fileUploadLimitMb(Integer fileUploadLimitMb) {
-            this.fileUploadLimitMb = Objects.requireNonNull(fileUploadLimitMb);
+            if (fileUploadLimitMb == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "fileUploadLimitMb");
+            }
+            this.fileUploadLimitMb = fileUploadLimitMb;
             return this;
         }
         @CustomType.Setter
         public Builder firewallMode(String firewallMode) {
-            this.firewallMode = Objects.requireNonNull(firewallMode);
+            if (firewallMode == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "firewallMode");
+            }
+            this.firewallMode = firewallMode;
             return this;
         }
         @CustomType.Setter
         public Builder maxRequestBodySizeKb(Integer maxRequestBodySizeKb) {
-            this.maxRequestBodySizeKb = Objects.requireNonNull(maxRequestBodySizeKb);
+            if (maxRequestBodySizeKb == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "maxRequestBodySizeKb");
+            }
+            this.maxRequestBodySizeKb = maxRequestBodySizeKb;
             return this;
         }
         @CustomType.Setter
         public Builder requestBodyCheck(Boolean requestBodyCheck) {
-            this.requestBodyCheck = Objects.requireNonNull(requestBodyCheck);
+            if (requestBodyCheck == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "requestBodyCheck");
+            }
+            this.requestBodyCheck = requestBodyCheck;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSetType(String ruleSetType) {
-            this.ruleSetType = Objects.requireNonNull(ruleSetType);
+            if (ruleSetType == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "ruleSetType");
+            }
+            this.ruleSetType = ruleSetType;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSetVersion(String ruleSetVersion) {
-            this.ruleSetVersion = Objects.requireNonNull(ruleSetVersion);
+            if (ruleSetVersion == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfiguration", "ruleSetVersion");
+            }
+            this.ruleSetVersion = ruleSetVersion;
             return this;
         }
         public GetApplicationGatewayWafConfiguration build() {

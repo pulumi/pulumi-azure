@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -345,10 +346,18 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PoolArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceLevel = Objects.requireNonNull($.serviceLevel, "expected parameter 'serviceLevel' to be non-null");
-            $.sizeInTb = Objects.requireNonNull($.sizeInTb, "expected parameter 'sizeInTb' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "accountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "resourceGroupName");
+            }
+            if ($.serviceLevel == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "serviceLevel");
+            }
+            if ($.sizeInTb == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "sizeInTb");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ClusterClientCertificateThumbprintArgs extends com.pulumi.res
         }
 
         public ClusterClientCertificateThumbprintArgs build() {
-            $.isAdmin = Objects.requireNonNull($.isAdmin, "expected parameter 'isAdmin' to be non-null");
-            $.thumbprint = Objects.requireNonNull($.thumbprint, "expected parameter 'thumbprint' to be non-null");
+            if ($.isAdmin == null) {
+                throw new MissingRequiredPropertyException("ClusterClientCertificateThumbprintArgs", "isAdmin");
+            }
+            if ($.thumbprint == null) {
+                throw new MissingRequiredPropertyException("ClusterClientCertificateThumbprintArgs", "thumbprint");
+            }
             return $;
         }
     }

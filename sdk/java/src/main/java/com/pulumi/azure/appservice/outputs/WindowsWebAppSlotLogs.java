@@ -88,21 +88,25 @@ public final class WindowsWebAppSlotLogs {
 
         @CustomType.Setter
         public Builder applicationLogs(@Nullable WindowsWebAppSlotLogsApplicationLogs applicationLogs) {
+
             this.applicationLogs = applicationLogs;
             return this;
         }
         @CustomType.Setter
         public Builder detailedErrorMessages(@Nullable Boolean detailedErrorMessages) {
+
             this.detailedErrorMessages = detailedErrorMessages;
             return this;
         }
         @CustomType.Setter
         public Builder failedRequestTracing(@Nullable Boolean failedRequestTracing) {
+
             this.failedRequestTracing = failedRequestTracing;
             return this;
         }
         @CustomType.Setter
         public Builder httpLogs(@Nullable WindowsWebAppSlotLogsHttpLogs httpLogs) {
+
             this.httpLogs = httpLogs;
             return this;
         }

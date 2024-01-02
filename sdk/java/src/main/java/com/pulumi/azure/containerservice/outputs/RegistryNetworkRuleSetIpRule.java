@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class RegistryNetworkRuleSetIpRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RegistryNetworkRuleSetIpRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder ipRange(String ipRange) {
-            this.ipRange = Objects.requireNonNull(ipRange);
+            if (ipRange == null) {
+              throw new MissingRequiredPropertyException("RegistryNetworkRuleSetIpRule", "ipRange");
+            }
+            this.ipRange = ipRange;
             return this;
         }
         public RegistryNetworkRuleSetIpRule build() {

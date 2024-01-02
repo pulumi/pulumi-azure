@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetPolicyRuleActionSnapshot {
 
         @CustomType.Setter
         public Builder changeTierToArchiveAfterDaysSinceCreation(Integer changeTierToArchiveAfterDaysSinceCreation) {
-            this.changeTierToArchiveAfterDaysSinceCreation = Objects.requireNonNull(changeTierToArchiveAfterDaysSinceCreation);
+            if (changeTierToArchiveAfterDaysSinceCreation == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionSnapshot", "changeTierToArchiveAfterDaysSinceCreation");
+            }
+            this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             return this;
         }
         @CustomType.Setter
         public Builder changeTierToCoolAfterDaysSinceCreation(Integer changeTierToCoolAfterDaysSinceCreation) {
-            this.changeTierToCoolAfterDaysSinceCreation = Objects.requireNonNull(changeTierToCoolAfterDaysSinceCreation);
+            if (changeTierToCoolAfterDaysSinceCreation == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionSnapshot", "changeTierToCoolAfterDaysSinceCreation");
+            }
+            this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(Integer deleteAfterDaysSinceCreationGreaterThan) {
-            this.deleteAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(deleteAfterDaysSinceCreationGreaterThan);
+            if (deleteAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionSnapshot", "deleteAfterDaysSinceCreationGreaterThan");
+            }
+            this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
-            this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = Objects.requireNonNull(tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
+            if (tierToArchiveAfterDaysSinceLastTierChangeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionSnapshot", "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan");
+            }
+            this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceCreationGreaterThan(Integer tierToColdAfterDaysSinceCreationGreaterThan) {
-            this.tierToColdAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceCreationGreaterThan);
+            if (tierToColdAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionSnapshot", "tierToColdAfterDaysSinceCreationGreaterThan");
+            }
+            this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
             return this;
         }
         public GetPolicyRuleActionSnapshot build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class TransformOutputCustomPresetFormatTransportStreamOutputFile {
 
         @CustomType.Setter
         public Builder labels(List<String> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFormatTransportStreamOutputFile", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         public Builder labels(String... labels) {

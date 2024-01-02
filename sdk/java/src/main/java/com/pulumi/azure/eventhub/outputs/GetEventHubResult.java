@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -90,27 +91,42 @@ public final class GetEventHubResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder partitionCount(Integer partitionCount) {
-            this.partitionCount = Objects.requireNonNull(partitionCount);
+            if (partitionCount == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "partitionCount");
+            }
+            this.partitionCount = partitionCount;
             return this;
         }
         @CustomType.Setter
         public Builder partitionIds(List<String> partitionIds) {
-            this.partitionIds = Objects.requireNonNull(partitionIds);
+            if (partitionIds == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "partitionIds");
+            }
+            this.partitionIds = partitionIds;
             return this;
         }
         public Builder partitionIds(String... partitionIds) {
@@ -118,7 +134,10 @@ public final class GetEventHubResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEventHubResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetEventHubResult build() {

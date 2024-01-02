@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetDomainInputMappingDefaultValue {
 
         @CustomType.Setter
         public Builder dataVersion(String dataVersion) {
-            this.dataVersion = Objects.requireNonNull(dataVersion);
+            if (dataVersion == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingDefaultValue", "dataVersion");
+            }
+            this.dataVersion = dataVersion;
             return this;
         }
         @CustomType.Setter
         public Builder eventType(String eventType) {
-            this.eventType = Objects.requireNonNull(eventType);
+            if (eventType == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingDefaultValue", "eventType");
+            }
+            this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingDefaultValue", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         public GetDomainInputMappingDefaultValue build() {

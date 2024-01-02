@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -187,67 +188,106 @@ public final class GetNamespaceAuthorizationRuleResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder listen(Boolean listen) {
-            this.listen = Objects.requireNonNull(listen);
+            if (listen == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "listen");
+            }
+            this.listen = listen;
             return this;
         }
         @CustomType.Setter
         public Builder manage(Boolean manage) {
-            this.manage = Objects.requireNonNull(manage);
+            if (manage == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "manage");
+            }
+            this.manage = manage;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
-            this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
+            if (primaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "primaryConnectionStringAlias");
+            }
+            this.primaryConnectionStringAlias = primaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
-            this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
+            if (secondaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "secondaryConnectionStringAlias");
+            }
+            this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder send(Boolean send) {
-            this.send = Objects.requireNonNull(send);
+            if (send == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "send");
+            }
+            this.send = send;
             return this;
         }
         public GetNamespaceAuthorizationRuleResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.kusto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class ClusterVirtualNetworkConfiguration {
 
         @CustomType.Setter
         public Builder dataManagementPublicIpId(String dataManagementPublicIpId) {
-            this.dataManagementPublicIpId = Objects.requireNonNull(dataManagementPublicIpId);
+            if (dataManagementPublicIpId == null) {
+              throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfiguration", "dataManagementPublicIpId");
+            }
+            this.dataManagementPublicIpId = dataManagementPublicIpId;
             return this;
         }
         @CustomType.Setter
         public Builder enginePublicIpId(String enginePublicIpId) {
-            this.enginePublicIpId = Objects.requireNonNull(enginePublicIpId);
+            if (enginePublicIpId == null) {
+              throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfiguration", "enginePublicIpId");
+            }
+            this.enginePublicIpId = enginePublicIpId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public ClusterVirtualNetworkConfiguration build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -121,31 +122,41 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
 
         @CustomType.Setter
         public Builder caching(String caching) {
-            this.caching = Objects.requireNonNull(caching);
+            if (caching == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsDisk", "caching");
+            }
+            this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder diffDiskSettings(@Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings) {
+
             this.diffDiskSettings = diffDiskSettings;
             return this;
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
+
             this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsDisk", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
+
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
         }

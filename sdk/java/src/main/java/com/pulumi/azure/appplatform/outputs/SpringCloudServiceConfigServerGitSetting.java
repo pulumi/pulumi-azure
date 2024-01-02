@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSet
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSettingRepository;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSettingSshAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -118,16 +119,19 @@ public final class SpringCloudServiceConfigServerGitSetting {
 
         @CustomType.Setter
         public Builder httpBasicAuth(@Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth) {
+
             this.httpBasicAuth = httpBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(@Nullable List<SpringCloudServiceConfigServerGitSettingRepository> repositories) {
+
             this.repositories = repositories;
             return this;
         }
@@ -136,6 +140,7 @@ public final class SpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
+
             this.searchPaths = searchPaths;
             return this;
         }
@@ -144,12 +149,16 @@ public final class SpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth) {
+
             this.sshAuth = sshAuth;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceConfigServerGitSetting", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public SpringCloudServiceConfigServerGitSetting build() {

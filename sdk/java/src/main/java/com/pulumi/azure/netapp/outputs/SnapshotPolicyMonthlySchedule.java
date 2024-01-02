@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class SnapshotPolicyMonthlySchedule {
 
         @CustomType.Setter
         public Builder daysOfMonths(List<Integer> daysOfMonths) {
-            this.daysOfMonths = Objects.requireNonNull(daysOfMonths);
+            if (daysOfMonths == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyMonthlySchedule", "daysOfMonths");
+            }
+            this.daysOfMonths = daysOfMonths;
             return this;
         }
         public Builder daysOfMonths(Integer... daysOfMonths) {
@@ -93,17 +97,26 @@ public final class SnapshotPolicyMonthlySchedule {
         }
         @CustomType.Setter
         public Builder hour(Integer hour) {
-            this.hour = Objects.requireNonNull(hour);
+            if (hour == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyMonthlySchedule", "hour");
+            }
+            this.hour = hour;
             return this;
         }
         @CustomType.Setter
         public Builder minute(Integer minute) {
-            this.minute = Objects.requireNonNull(minute);
+            if (minute == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyMonthlySchedule", "minute");
+            }
+            this.minute = minute;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
-            this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
+            if (snapshotsToKeep == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyMonthlySchedule", "snapshotsToKeep");
+            }
+            this.snapshotsToKeep = snapshotsToKeep;
             return this;
         }
         public SnapshotPolicyMonthlySchedule build() {

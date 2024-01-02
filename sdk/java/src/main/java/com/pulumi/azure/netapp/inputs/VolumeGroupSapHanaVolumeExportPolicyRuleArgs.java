@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -300,10 +301,18 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRuleArgs extends com.pulu
         }
 
         public VolumeGroupSapHanaVolumeExportPolicyRuleArgs build() {
-            $.allowedClients = Objects.requireNonNull($.allowedClients, "expected parameter 'allowedClients' to be non-null");
-            $.nfsv3Enabled = Objects.requireNonNull($.nfsv3Enabled, "expected parameter 'nfsv3Enabled' to be non-null");
-            $.nfsv41Enabled = Objects.requireNonNull($.nfsv41Enabled, "expected parameter 'nfsv41Enabled' to be non-null");
-            $.ruleIndex = Objects.requireNonNull($.ruleIndex, "expected parameter 'ruleIndex' to be non-null");
+            if ($.allowedClients == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRuleArgs", "allowedClients");
+            }
+            if ($.nfsv3Enabled == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRuleArgs", "nfsv3Enabled");
+            }
+            if ($.nfsv41Enabled == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRuleArgs", "nfsv41Enabled");
+            }
+            if ($.ruleIndex == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRuleArgs", "ruleIndex");
+            }
             return $;
         }
     }

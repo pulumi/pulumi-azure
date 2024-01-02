@@ -5,6 +5,7 @@ package com.pulumi.azure.elasticcloud.outputs;
 
 import com.pulumi.azure.elasticcloud.outputs.GetElasticsearchLogFilteringTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -86,7 +87,10 @@ public final class GetElasticsearchLog {
 
         @CustomType.Setter
         public Builder filteringTags(List<GetElasticsearchLogFilteringTag> filteringTags) {
-            this.filteringTags = Objects.requireNonNull(filteringTags);
+            if (filteringTags == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchLog", "filteringTags");
+            }
+            this.filteringTags = filteringTags;
             return this;
         }
         public Builder filteringTags(GetElasticsearchLogFilteringTag... filteringTags) {
@@ -94,17 +98,26 @@ public final class GetElasticsearchLog {
         }
         @CustomType.Setter
         public Builder sendActivityLogs(Boolean sendActivityLogs) {
-            this.sendActivityLogs = Objects.requireNonNull(sendActivityLogs);
+            if (sendActivityLogs == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchLog", "sendActivityLogs");
+            }
+            this.sendActivityLogs = sendActivityLogs;
             return this;
         }
         @CustomType.Setter
         public Builder sendAzureadLogs(Boolean sendAzureadLogs) {
-            this.sendAzureadLogs = Objects.requireNonNull(sendAzureadLogs);
+            if (sendAzureadLogs == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchLog", "sendAzureadLogs");
+            }
+            this.sendAzureadLogs = sendAzureadLogs;
             return this;
         }
         @CustomType.Setter
         public Builder sendSubscriptionLogs(Boolean sendSubscriptionLogs) {
-            this.sendSubscriptionLogs = Objects.requireNonNull(sendSubscriptionLogs);
+            if (sendSubscriptionLogs == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchLog", "sendSubscriptionLogs");
+            }
+            this.sendSubscriptionLogs = sendSubscriptionLogs;
             return this;
         }
         public GetElasticsearchLog build() {

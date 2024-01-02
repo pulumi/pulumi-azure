@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.GetRestorableDatabaseAccountsAccountRestorableLocation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -100,27 +101,42 @@ public final class GetRestorableDatabaseAccountsAccount {
 
         @CustomType.Setter
         public Builder apiType(String apiType) {
-            this.apiType = Objects.requireNonNull(apiType);
+            if (apiType == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccount", "apiType");
+            }
+            this.apiType = apiType;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccount", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder deletionTime(String deletionTime) {
-            this.deletionTime = Objects.requireNonNull(deletionTime);
+            if (deletionTime == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccount", "deletionTime");
+            }
+            this.deletionTime = deletionTime;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccount", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder restorableLocations(List<GetRestorableDatabaseAccountsAccountRestorableLocation> restorableLocations) {
-            this.restorableLocations = Objects.requireNonNull(restorableLocations);
+            if (restorableLocations == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccount", "restorableLocations");
+            }
+            this.restorableLocations = restorableLocations;
             return this;
         }
         public Builder restorableLocations(GetRestorableDatabaseAccountsAccountRestorableLocation... restorableLocations) {

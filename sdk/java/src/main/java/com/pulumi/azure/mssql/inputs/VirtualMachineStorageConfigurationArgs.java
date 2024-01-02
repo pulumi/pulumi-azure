@@ -8,6 +8,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationLogSettin
 import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationTempDbSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -265,8 +266,12 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         public VirtualMachineStorageConfigurationArgs build() {
-            $.diskType = Objects.requireNonNull($.diskType, "expected parameter 'diskType' to be non-null");
-            $.storageWorkloadType = Objects.requireNonNull($.storageWorkloadType, "expected parameter 'storageWorkloadType' to be non-null");
+            if ($.diskType == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationArgs", "diskType");
+            }
+            if ($.storageWorkloadType == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationArgs", "storageWorkloadType");
+            }
             return $;
         }
     }

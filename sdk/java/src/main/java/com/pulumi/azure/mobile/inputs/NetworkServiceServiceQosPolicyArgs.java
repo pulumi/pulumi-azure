@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.inputs;
 import com.pulumi.azure.mobile.inputs.NetworkServiceServiceQosPolicyMaximumBitRateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -226,7 +227,9 @@ public final class NetworkServiceServiceQosPolicyArgs extends com.pulumi.resourc
         }
 
         public NetworkServiceServiceQosPolicyArgs build() {
-            $.maximumBitRate = Objects.requireNonNull($.maximumBitRate, "expected parameter 'maximumBitRate' to be non-null");
+            if ($.maximumBitRate == null) {
+                throw new MissingRequiredPropertyException("NetworkServiceServiceQosPolicyArgs", "maximumBitRate");
+            }
             return $;
         }
     }

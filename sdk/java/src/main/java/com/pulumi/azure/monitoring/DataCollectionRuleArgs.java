@@ -10,6 +10,7 @@ import com.pulumi.azure.monitoring.inputs.DataCollectionRuleIdentityArgs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -518,9 +519,15 @@ public final class DataCollectionRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         public DataCollectionRuleArgs build() {
-            $.dataFlows = Objects.requireNonNull($.dataFlows, "expected parameter 'dataFlows' to be non-null");
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.dataFlows == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleArgs", "dataFlows");
+            }
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleArgs", "destinations");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

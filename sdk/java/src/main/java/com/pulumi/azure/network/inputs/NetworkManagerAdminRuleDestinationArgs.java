@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class NetworkManagerAdminRuleDestinationArgs extends com.pulumi.res
         }
 
         public NetworkManagerAdminRuleDestinationArgs build() {
-            $.addressPrefix = Objects.requireNonNull($.addressPrefix, "expected parameter 'addressPrefix' to be non-null");
-            $.addressPrefixType = Objects.requireNonNull($.addressPrefixType, "expected parameter 'addressPrefixType' to be non-null");
+            if ($.addressPrefix == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleDestinationArgs", "addressPrefix");
+            }
+            if ($.addressPrefixType == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleDestinationArgs", "addressPrefixType");
+            }
             return $;
         }
     }

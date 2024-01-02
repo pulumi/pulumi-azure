@@ -62,11 +62,13 @@ public final class LinuxFunctionAppSlotSiteConfigAppServiceLogs {
 
         @CustomType.Setter
         public Builder diskQuotaMb(@Nullable Integer diskQuotaMb) {
+
             this.diskQuotaMb = diskQuotaMb;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodDays(@Nullable Integer retentionPeriodDays) {
+
             this.retentionPeriodDays = retentionPeriodDays;
             return this;
         }

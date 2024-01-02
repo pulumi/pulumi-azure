@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,12 +160,16 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
 
         @CustomType.Setter
         public Builder fabricLocation(@Nullable String fabricLocation) {
+
             this.fabricLocation = fabricLocation;
             return this;
         }
         @CustomType.Setter
         public Builder failOverDirections(List<String> failOverDirections) {
-            this.failOverDirections = Objects.requireNonNull(failOverDirections);
+            if (failOverDirections == null) {
+              throw new MissingRequiredPropertyException("ReplicationRecoveryPlanShutdownRecoveryGroupPostAction", "failOverDirections");
+            }
+            this.failOverDirections = failOverDirections;
             return this;
         }
         public Builder failOverDirections(String... failOverDirections) {
@@ -172,7 +177,10 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
         }
         @CustomType.Setter
         public Builder failOverTypes(List<String> failOverTypes) {
-            this.failOverTypes = Objects.requireNonNull(failOverTypes);
+            if (failOverTypes == null) {
+              throw new MissingRequiredPropertyException("ReplicationRecoveryPlanShutdownRecoveryGroupPostAction", "failOverTypes");
+            }
+            this.failOverTypes = failOverTypes;
             return this;
         }
         public Builder failOverTypes(String... failOverTypes) {
@@ -180,27 +188,36 @@ public final class ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
         }
         @CustomType.Setter
         public Builder manualActionInstruction(@Nullable String manualActionInstruction) {
+
             this.manualActionInstruction = manualActionInstruction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ReplicationRecoveryPlanShutdownRecoveryGroupPostAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runbookId(@Nullable String runbookId) {
+
             this.runbookId = runbookId;
             return this;
         }
         @CustomType.Setter
         public Builder scriptPath(@Nullable String scriptPath) {
+
             this.scriptPath = scriptPath;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ReplicationRecoveryPlanShutdownRecoveryGroupPostAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public ReplicationRecoveryPlanShutdownRecoveryGroupPostAction build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.servicebus;
 import com.pulumi.azure.servicebus.inputs.NamespaceNetworkRuleSetNetworkRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -292,7 +293,9 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         public NamespaceNetworkRuleSetArgs build() {
-            $.namespaceId = Objects.requireNonNull($.namespaceId, "expected parameter 'namespaceId' to be non-null");
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("NamespaceNetworkRuleSetArgs", "namespaceId");
+            }
             return $;
         }
     }

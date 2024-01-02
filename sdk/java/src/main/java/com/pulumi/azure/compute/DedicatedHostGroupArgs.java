@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -301,8 +302,12 @@ public final class DedicatedHostGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         public DedicatedHostGroupArgs build() {
-            $.platformFaultDomainCount = Objects.requireNonNull($.platformFaultDomainCount, "expected parameter 'platformFaultDomainCount' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.platformFaultDomainCount == null) {
+                throw new MissingRequiredPropertyException("DedicatedHostGroupArgs", "platformFaultDomainCount");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DedicatedHostGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

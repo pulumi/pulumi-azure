@@ -134,36 +134,43 @@ public final class ActionRuleSuppressionCondition {
 
         @CustomType.Setter
         public Builder alertContext(@Nullable ActionRuleSuppressionConditionAlertContext alertContext) {
+
             this.alertContext = alertContext;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleId(@Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId) {
+
             this.alertRuleId = alertRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable ActionRuleSuppressionConditionDescription description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder monitor(@Nullable ActionRuleSuppressionConditionMonitor monitor) {
+
             this.monitor = monitor;
             return this;
         }
         @CustomType.Setter
         public Builder monitorService(@Nullable ActionRuleSuppressionConditionMonitorService monitorService) {
+
             this.monitorService = monitorService;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable ActionRuleSuppressionConditionSeverity severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceType(@Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType) {
+
             this.targetResourceType = targetResourceType;
             return this;
         }

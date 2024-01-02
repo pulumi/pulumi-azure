@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ApiImportWsdlSelector {
 
         @CustomType.Setter
         public Builder endpointName(String endpointName) {
-            this.endpointName = Objects.requireNonNull(endpointName);
+            if (endpointName == null) {
+              throw new MissingRequiredPropertyException("ApiImportWsdlSelector", "endpointName");
+            }
+            this.endpointName = endpointName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("ApiImportWsdlSelector", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public ApiImportWsdlSelector build() {

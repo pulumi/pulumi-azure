@@ -4,6 +4,7 @@
 package com.pulumi.azure.mysql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class FlexibleServerIdentity {
 
         @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
-            this.identityIds = Objects.requireNonNull(identityIds);
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("FlexibleServerIdentity", "identityIds");
+            }
+            this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
@@ -65,7 +69,10 @@ public final class FlexibleServerIdentity {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FlexibleServerIdentity", "type");
+            }
+            this.type = type;
             return this;
         }
         public FlexibleServerIdentity build() {

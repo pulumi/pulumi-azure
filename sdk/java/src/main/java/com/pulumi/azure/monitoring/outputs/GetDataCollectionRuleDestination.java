@@ -12,6 +12,7 @@ import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStora
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStorageBlobDirect;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestinationStorageTableDirect;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,10 @@ public final class GetDataCollectionRuleDestination {
 
         @CustomType.Setter
         public Builder azureMonitorMetrics(List<GetDataCollectionRuleDestinationAzureMonitorMetric> azureMonitorMetrics) {
-            this.azureMonitorMetrics = Objects.requireNonNull(azureMonitorMetrics);
+            if (azureMonitorMetrics == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "azureMonitorMetrics");
+            }
+            this.azureMonitorMetrics = azureMonitorMetrics;
             return this;
         }
         public Builder azureMonitorMetrics(GetDataCollectionRuleDestinationAzureMonitorMetric... azureMonitorMetrics) {
@@ -158,17 +162,22 @@ public final class GetDataCollectionRuleDestination {
         }
         @CustomType.Setter
         public Builder eventHub(@Nullable GetDataCollectionRuleDestinationEventHub eventHub) {
+
             this.eventHub = eventHub;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubDirect(@Nullable GetDataCollectionRuleDestinationEventHubDirect eventHubDirect) {
+
             this.eventHubDirect = eventHubDirect;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalytics(List<GetDataCollectionRuleDestinationLogAnalytic> logAnalytics) {
-            this.logAnalytics = Objects.requireNonNull(logAnalytics);
+            if (logAnalytics == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "logAnalytics");
+            }
+            this.logAnalytics = logAnalytics;
             return this;
         }
         public Builder logAnalytics(GetDataCollectionRuleDestinationLogAnalytic... logAnalytics) {
@@ -176,7 +185,10 @@ public final class GetDataCollectionRuleDestination {
         }
         @CustomType.Setter
         public Builder monitorAccounts(List<GetDataCollectionRuleDestinationMonitorAccount> monitorAccounts) {
-            this.monitorAccounts = Objects.requireNonNull(monitorAccounts);
+            if (monitorAccounts == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "monitorAccounts");
+            }
+            this.monitorAccounts = monitorAccounts;
             return this;
         }
         public Builder monitorAccounts(GetDataCollectionRuleDestinationMonitorAccount... monitorAccounts) {
@@ -184,7 +196,10 @@ public final class GetDataCollectionRuleDestination {
         }
         @CustomType.Setter
         public Builder storageBlobDirects(List<GetDataCollectionRuleDestinationStorageBlobDirect> storageBlobDirects) {
-            this.storageBlobDirects = Objects.requireNonNull(storageBlobDirects);
+            if (storageBlobDirects == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "storageBlobDirects");
+            }
+            this.storageBlobDirects = storageBlobDirects;
             return this;
         }
         public Builder storageBlobDirects(GetDataCollectionRuleDestinationStorageBlobDirect... storageBlobDirects) {
@@ -192,7 +207,10 @@ public final class GetDataCollectionRuleDestination {
         }
         @CustomType.Setter
         public Builder storageBlobs(List<GetDataCollectionRuleDestinationStorageBlob> storageBlobs) {
-            this.storageBlobs = Objects.requireNonNull(storageBlobs);
+            if (storageBlobs == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "storageBlobs");
+            }
+            this.storageBlobs = storageBlobs;
             return this;
         }
         public Builder storageBlobs(GetDataCollectionRuleDestinationStorageBlob... storageBlobs) {
@@ -200,7 +218,10 @@ public final class GetDataCollectionRuleDestination {
         }
         @CustomType.Setter
         public Builder storageTableDirects(List<GetDataCollectionRuleDestinationStorageTableDirect> storageTableDirects) {
-            this.storageTableDirects = Objects.requireNonNull(storageTableDirects);
+            if (storageTableDirects == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestination", "storageTableDirects");
+            }
+            this.storageTableDirects = storageTableDirects;
             return this;
         }
         public Builder storageTableDirects(GetDataCollectionRuleDestinationStorageTableDirect... storageTableDirects) {

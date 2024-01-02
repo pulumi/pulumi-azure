@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.GetSqlDatabaseAutoscaleSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -91,12 +92,18 @@ public final class GetSqlDatabaseResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder autoscaleSettings(List<GetSqlDatabaseAutoscaleSetting> autoscaleSettings) {
-            this.autoscaleSettings = Objects.requireNonNull(autoscaleSettings);
+            if (autoscaleSettings == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "autoscaleSettings");
+            }
+            this.autoscaleSettings = autoscaleSettings;
             return this;
         }
         public Builder autoscaleSettings(GetSqlDatabaseAutoscaleSetting... autoscaleSettings) {
@@ -104,22 +111,34 @@ public final class GetSqlDatabaseResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder throughput(Integer throughput) {
-            this.throughput = Objects.requireNonNull(throughput);
+            if (throughput == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseResult", "throughput");
+            }
+            this.throughput = throughput;
             return this;
         }
         public GetSqlDatabaseResult build() {

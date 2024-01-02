@@ -9,6 +9,7 @@ import com.pulumi.azure.managedlustre.inputs.FileSystemIdentityArgs;
 import com.pulumi.azure.managedlustre.inputs.FileSystemMaintenanceWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -508,12 +509,24 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FileSystemArgs build() {
-            $.maintenanceWindow = Objects.requireNonNull($.maintenanceWindow, "expected parameter 'maintenanceWindow' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.storageCapacityInTb = Objects.requireNonNull($.storageCapacityInTb, "expected parameter 'storageCapacityInTb' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.zones = Objects.requireNonNull($.zones, "expected parameter 'zones' to be non-null");
+            if ($.maintenanceWindow == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "maintenanceWindow");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "skuName");
+            }
+            if ($.storageCapacityInTb == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "storageCapacityInTb");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "subnetId");
+            }
+            if ($.zones == null) {
+                throw new MissingRequiredPropertyException("FileSystemArgs", "zones");
+            }
             return $;
         }
     }

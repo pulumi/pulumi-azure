@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class RegistryTaskAgentSettingArgs extends com.pulumi.resources.Res
         }
 
         public RegistryTaskAgentSettingArgs build() {
-            $.cpu = Objects.requireNonNull($.cpu, "expected parameter 'cpu' to be non-null");
+            if ($.cpu == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskAgentSettingArgs", "cpu");
+            }
             return $;
         }
     }

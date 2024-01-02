@@ -76,16 +76,19 @@ public final class KubernetesClusterOmsAgentOmsAgentIdentity {
 
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder objectId(@Nullable String objectId) {
+
             this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -145,52 +146,82 @@ public final class GetBlobResult {
 
         @CustomType.Setter
         public Builder accessTier(String accessTier) {
-            this.accessTier = Objects.requireNonNull(accessTier);
+            if (accessTier == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "accessTier");
+            }
+            this.accessTier = accessTier;
             return this;
         }
         @CustomType.Setter
         public Builder contentMd5(String contentMd5) {
-            this.contentMd5 = Objects.requireNonNull(contentMd5);
+            if (contentMd5 == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "contentMd5");
+            }
+            this.contentMd5 = contentMd5;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder storageContainerName(String storageContainerName) {
-            this.storageContainerName = Objects.requireNonNull(storageContainerName);
+            if (storageContainerName == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerName");
+            }
+            this.storageContainerName = storageContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetBlobResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetBlobResult build() {

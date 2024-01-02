@@ -7,6 +7,7 @@ import com.pulumi.azure.mssql.inputs.FailoverGroupPartnerServerArgs;
 import com.pulumi.azure.mssql.inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -323,9 +324,15 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FailoverGroupArgs build() {
-            $.partnerServers = Objects.requireNonNull($.partnerServers, "expected parameter 'partnerServers' to be non-null");
-            $.readWriteEndpointFailoverPolicy = Objects.requireNonNull($.readWriteEndpointFailoverPolicy, "expected parameter 'readWriteEndpointFailoverPolicy' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.partnerServers == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "partnerServers");
+            }
+            if ($.readWriteEndpointFailoverPolicy == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "readWriteEndpointFailoverPolicy");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("FailoverGroupArgs", "serverId");
+            }
             return $;
         }
     }

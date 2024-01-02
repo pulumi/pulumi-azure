@@ -7,6 +7,7 @@ import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxEmissionArgs;
 import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxIngestionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -264,9 +265,15 @@ public final class CollectorPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public CollectorPolicyArgs build() {
-            $.ipfxEmission = Objects.requireNonNull($.ipfxEmission, "expected parameter 'ipfxEmission' to be non-null");
-            $.ipfxIngestion = Objects.requireNonNull($.ipfxIngestion, "expected parameter 'ipfxIngestion' to be non-null");
-            $.trafficCollectorId = Objects.requireNonNull($.trafficCollectorId, "expected parameter 'trafficCollectorId' to be non-null");
+            if ($.ipfxEmission == null) {
+                throw new MissingRequiredPropertyException("CollectorPolicyArgs", "ipfxEmission");
+            }
+            if ($.ipfxIngestion == null) {
+                throw new MissingRequiredPropertyException("CollectorPolicyArgs", "ipfxIngestion");
+            }
+            if ($.trafficCollectorId == null) {
+                throw new MissingRequiredPropertyException("CollectorPolicyArgs", "trafficCollectorId");
+            }
             return $;
         }
     }

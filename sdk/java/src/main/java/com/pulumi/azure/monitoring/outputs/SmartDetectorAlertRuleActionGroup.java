@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,16 @@ public final class SmartDetectorAlertRuleActionGroup {
 
         @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
+
             this.emailSubject = emailSubject;
             return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
-            this.ids = Objects.requireNonNull(ids);
+            if (ids == null) {
+              throw new MissingRequiredPropertyException("SmartDetectorAlertRuleActionGroup", "ids");
+            }
+            this.ids = ids;
             return this;
         }
         public Builder ids(String... ids) {
@@ -86,6 +91,7 @@ public final class SmartDetectorAlertRuleActionGroup {
         }
         @CustomType.Setter
         public Builder webhookPayload(@Nullable String webhookPayload) {
+
             this.webhookPayload = webhookPayload;
             return this;
         }

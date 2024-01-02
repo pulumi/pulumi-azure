@@ -10,6 +10,7 @@ import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretProper
 import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -239,9 +240,15 @@ public final class CertificateCertificatePolicyArgs extends com.pulumi.resources
         }
 
         public CertificateCertificatePolicyArgs build() {
-            $.issuerParameters = Objects.requireNonNull($.issuerParameters, "expected parameter 'issuerParameters' to be non-null");
-            $.keyProperties = Objects.requireNonNull($.keyProperties, "expected parameter 'keyProperties' to be non-null");
-            $.secretProperties = Objects.requireNonNull($.secretProperties, "expected parameter 'secretProperties' to be non-null");
+            if ($.issuerParameters == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyArgs", "issuerParameters");
+            }
+            if ($.keyProperties == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyArgs", "keyProperties");
+            }
+            if ($.secretProperties == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyArgs", "secretProperties");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ActionHttpRunAfterArgs extends com.pulumi.resources.ResourceA
         }
 
         public ActionHttpRunAfterArgs build() {
-            $.actionName = Objects.requireNonNull($.actionName, "expected parameter 'actionName' to be non-null");
-            $.actionResult = Objects.requireNonNull($.actionResult, "expected parameter 'actionResult' to be non-null");
+            if ($.actionName == null) {
+                throw new MissingRequiredPropertyException("ActionHttpRunAfterArgs", "actionName");
+            }
+            if ($.actionResult == null) {
+                throw new MissingRequiredPropertyException("ActionHttpRunAfterArgs", "actionResult");
+            }
             return $;
         }
     }

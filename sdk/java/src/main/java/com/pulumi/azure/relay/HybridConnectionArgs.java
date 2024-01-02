@@ -5,6 +5,7 @@ package com.pulumi.azure.relay;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class HybridConnectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HybridConnectionArgs build() {
-            $.relayNamespaceName = Objects.requireNonNull($.relayNamespaceName, "expected parameter 'relayNamespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.relayNamespaceName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "relayNamespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

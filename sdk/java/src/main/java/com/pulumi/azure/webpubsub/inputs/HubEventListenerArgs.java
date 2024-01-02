@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,8 +209,12 @@ public final class HubEventListenerArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HubEventListenerArgs build() {
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.eventhubNamespaceName = Objects.requireNonNull($.eventhubNamespaceName, "expected parameter 'eventhubNamespaceName' to be non-null");
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("HubEventListenerArgs", "eventhubName");
+            }
+            if ($.eventhubNamespaceName == null) {
+                throw new MissingRequiredPropertyException("HubEventListenerArgs", "eventhubNamespaceName");
+            }
             return $;
         }
     }

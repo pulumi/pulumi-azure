@@ -101,26 +101,31 @@ public final class InferenceClusterSsl {
 
         @CustomType.Setter
         public Builder cert(@Nullable String cert) {
+
             this.cert = cert;
             return this;
         }
         @CustomType.Setter
         public Builder cname(@Nullable String cname) {
+
             this.cname = cname;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder leafDomainLabel(@Nullable String leafDomainLabel) {
+
             this.leafDomainLabel = leafDomainLabel;
             return this;
         }
         @CustomType.Setter
         public Builder overwriteExistingDomain(@Nullable Boolean overwriteExistingDomain) {
+
             this.overwriteExistingDomain = overwriteExistingDomain;
             return this;
         }

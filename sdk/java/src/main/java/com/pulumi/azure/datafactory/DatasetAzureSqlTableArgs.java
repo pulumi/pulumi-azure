@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.DatasetAzureSqlTableSchemaColumnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -469,8 +470,12 @@ public final class DatasetAzureSqlTableArgs extends com.pulumi.resources.Resourc
         }
 
         public DatasetAzureSqlTableArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.linkedServiceId = Objects.requireNonNull($.linkedServiceId, "expected parameter 'linkedServiceId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("DatasetAzureSqlTableArgs", "dataFactoryId");
+            }
+            if ($.linkedServiceId == null) {
+                throw new MissingRequiredPropertyException("DatasetAzureSqlTableArgs", "linkedServiceId");
+            }
             return $;
         }
     }

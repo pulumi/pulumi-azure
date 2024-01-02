@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,27 +105,34 @@ public final class NetworkPacketCoreControlPlanePlatform {
 
         @CustomType.Setter
         public Builder arcKubernetesClusterId(@Nullable String arcKubernetesClusterId) {
+
             this.arcKubernetesClusterId = arcKubernetesClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder customLocationId(@Nullable String customLocationId) {
+
             this.customLocationId = customLocationId;
             return this;
         }
         @CustomType.Setter
         public Builder edgeDeviceId(@Nullable String edgeDeviceId) {
+
             this.edgeDeviceId = edgeDeviceId;
             return this;
         }
         @CustomType.Setter
         public Builder stackHciClusterId(@Nullable String stackHciClusterId) {
+
             this.stackHciClusterId = stackHciClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlanePlatform", "type");
+            }
+            this.type = type;
             return this;
         }
         public NetworkPacketCoreControlPlanePlatform build() {

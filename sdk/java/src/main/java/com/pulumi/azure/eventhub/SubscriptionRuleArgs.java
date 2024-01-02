@@ -6,6 +6,7 @@ package com.pulumi.azure.eventhub;
 import com.pulumi.azure.eventhub.inputs.SubscriptionRuleCorrelationFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -262,8 +263,12 @@ public final class SubscriptionRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public SubscriptionRuleArgs build() {
-            $.filterType = Objects.requireNonNull($.filterType, "expected parameter 'filterType' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.filterType == null) {
+                throw new MissingRequiredPropertyException("SubscriptionRuleArgs", "filterType");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionRuleArgs", "subscriptionId");
+            }
             return $;
         }
     }

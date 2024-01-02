@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.ScaleSetNetworkProfileDnsSettings;
 import com.pulumi.azure.compute.outputs.ScaleSetNetworkProfileIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -132,17 +133,22 @@ public final class ScaleSetNetworkProfile {
 
         @CustomType.Setter
         public Builder acceleratedNetworking(@Nullable Boolean acceleratedNetworking) {
+
             this.acceleratedNetworking = acceleratedNetworking;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSettings(@Nullable ScaleSetNetworkProfileDnsSettings dnsSettings) {
+
             this.dnsSettings = dnsSettings;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<ScaleSetNetworkProfileIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfile", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(ScaleSetNetworkProfileIpConfiguration... ipConfigurations) {
@@ -150,22 +156,30 @@ public final class ScaleSetNetworkProfile {
         }
         @CustomType.Setter
         public Builder ipForwarding(@Nullable Boolean ipForwarding) {
+
             this.ipForwarding = ipForwarding;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(@Nullable String networkSecurityGroupId) {
+
             this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfile", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         public ScaleSetNetworkProfile build() {

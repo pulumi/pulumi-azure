@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingAuthe
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingConnectionDrainingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -619,10 +620,18 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         public ApplicationGatewayBackendHttpSettingArgs build() {
-            $.cookieBasedAffinity = Objects.requireNonNull($.cookieBasedAffinity, "expected parameter 'cookieBasedAffinity' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.cookieBasedAffinity == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSettingArgs", "cookieBasedAffinity");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSettingArgs", "name");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSettingArgs", "port");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSettingArgs", "protocol");
+            }
             return $;
         }
     }

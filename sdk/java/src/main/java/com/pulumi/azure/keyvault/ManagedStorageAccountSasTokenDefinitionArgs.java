@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,10 +263,18 @@ public final class ManagedStorageAccountSasTokenDefinitionArgs extends com.pulum
         }
 
         public ManagedStorageAccountSasTokenDefinitionArgs build() {
-            $.managedStorageAccountId = Objects.requireNonNull($.managedStorageAccountId, "expected parameter 'managedStorageAccountId' to be non-null");
-            $.sasTemplateUri = Objects.requireNonNull($.sasTemplateUri, "expected parameter 'sasTemplateUri' to be non-null");
-            $.sasType = Objects.requireNonNull($.sasType, "expected parameter 'sasType' to be non-null");
-            $.validityPeriod = Objects.requireNonNull($.validityPeriod, "expected parameter 'validityPeriod' to be non-null");
+            if ($.managedStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountSasTokenDefinitionArgs", "managedStorageAccountId");
+            }
+            if ($.sasTemplateUri == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountSasTokenDefinitionArgs", "sasTemplateUri");
+            }
+            if ($.sasType == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountSasTokenDefinitionArgs", "sasType");
+            }
+            if ($.validityPeriod == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountSasTokenDefinitionArgs", "validityPeriod");
+            }
             return $;
         }
     }

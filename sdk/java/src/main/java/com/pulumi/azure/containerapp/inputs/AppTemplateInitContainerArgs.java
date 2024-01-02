@@ -7,6 +7,7 @@ import com.pulumi.azure.containerapp.inputs.AppTemplateInitContainerEnvArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateInitContainerVolumeMountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -440,8 +441,12 @@ public final class AppTemplateInitContainerArgs extends com.pulumi.resources.Res
         }
 
         public AppTemplateInitContainerArgs build() {
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.image == null) {
+                throw new MissingRequiredPropertyException("AppTemplateInitContainerArgs", "image");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AppTemplateInitContainerArgs", "name");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.databricks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetWorkspacePrivateEndpointConnectionConnection {
 
         @CustomType.Setter
         public Builder actionRequired(String actionRequired) {
-            this.actionRequired = Objects.requireNonNull(actionRequired);
+            if (actionRequired == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacePrivateEndpointConnectionConnection", "actionRequired");
+            }
+            this.actionRequired = actionRequired;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacePrivateEndpointConnectionConnection", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacePrivateEndpointConnectionConnection", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacePrivateEndpointConnectionConnection", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder workspacePrivateEndpointId(String workspacePrivateEndpointId) {
-            this.workspacePrivateEndpointId = Objects.requireNonNull(workspacePrivateEndpointId);
+            if (workspacePrivateEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetWorkspacePrivateEndpointConnectionConnection", "workspacePrivateEndpointId");
+            }
+            this.workspacePrivateEndpointId = workspacePrivateEndpointId;
             return this;
         }
         public GetWorkspacePrivateEndpointConnectionConnection build() {

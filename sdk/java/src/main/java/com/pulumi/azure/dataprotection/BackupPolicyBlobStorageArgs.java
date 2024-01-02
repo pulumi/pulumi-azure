@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class BackupPolicyBlobStorageArgs extends com.pulumi.resources.Reso
         }
 
         public BackupPolicyBlobStorageArgs build() {
-            $.retentionDuration = Objects.requireNonNull($.retentionDuration, "expected parameter 'retentionDuration' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.retentionDuration == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyBlobStorageArgs", "retentionDuration");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyBlobStorageArgs", "vaultId");
+            }
             return $;
         }
     }

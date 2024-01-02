@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetKubernetesClusterServiceMeshProfile {
 
         @CustomType.Setter
         public Builder externalIngressGatewayEnabled(Boolean externalIngressGatewayEnabled) {
-            this.externalIngressGatewayEnabled = Objects.requireNonNull(externalIngressGatewayEnabled);
+            if (externalIngressGatewayEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterServiceMeshProfile", "externalIngressGatewayEnabled");
+            }
+            this.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder internalIngressGatewayEnabled(Boolean internalIngressGatewayEnabled) {
-            this.internalIngressGatewayEnabled = Objects.requireNonNull(internalIngressGatewayEnabled);
+            if (internalIngressGatewayEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterServiceMeshProfile", "internalIngressGatewayEnabled");
+            }
+            this.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterServiceMeshProfile", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         public GetKubernetesClusterServiceMeshProfile build() {

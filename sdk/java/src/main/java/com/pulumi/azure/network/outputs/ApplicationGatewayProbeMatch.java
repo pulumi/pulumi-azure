@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ApplicationGatewayProbeMatch {
 
         @CustomType.Setter
         public Builder body(@Nullable String body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder statusCodes(List<String> statusCodes) {
-            this.statusCodes = Objects.requireNonNull(statusCodes);
+            if (statusCodes == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayProbeMatch", "statusCodes");
+            }
+            this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(String... statusCodes) {

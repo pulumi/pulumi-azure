@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -173,10 +174,18 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetVolumePlainArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("GetVolumePlainArgs", "accountName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetVolumePlainArgs", "name");
+            }
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("GetVolumePlainArgs", "poolName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetVolumePlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class FhirServiceOciArtifact {
 
         @CustomType.Setter
         public Builder digest(@Nullable String digest) {
+
             this.digest = digest;
             return this;
         }
         @CustomType.Setter
         public Builder imageName(@Nullable String imageName) {
+
             this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder loginServer(String loginServer) {
-            this.loginServer = Objects.requireNonNull(loginServer);
+            if (loginServer == null) {
+              throw new MissingRequiredPropertyException("FhirServiceOciArtifact", "loginServer");
+            }
+            this.loginServer = loginServer;
             return this;
         }
         public FhirServiceOciArtifact build() {

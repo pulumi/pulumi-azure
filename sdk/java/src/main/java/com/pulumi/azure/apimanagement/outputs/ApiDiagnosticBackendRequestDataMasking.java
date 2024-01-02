@@ -59,6 +59,7 @@ public final class ApiDiagnosticBackendRequestDataMasking {
 
         @CustomType.Setter
         public Builder headers(@Nullable List<ApiDiagnosticBackendRequestDataMaskingHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ApiDiagnosticBackendRequestDataMasking {
         }
         @CustomType.Setter
         public Builder queryParams(@Nullable List<ApiDiagnosticBackendRequestDataMaskingQueryParam> queryParams) {
+
             this.queryParams = queryParams;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -141,12 +142,18 @@ public final class GetReplicationRecoveryPlanRecoveryGroupPostAction {
 
         @CustomType.Setter
         public Builder fabricLocation(String fabricLocation) {
-            this.fabricLocation = Objects.requireNonNull(fabricLocation);
+            if (fabricLocation == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "fabricLocation");
+            }
+            this.fabricLocation = fabricLocation;
             return this;
         }
         @CustomType.Setter
         public Builder failOverDirections(List<String> failOverDirections) {
-            this.failOverDirections = Objects.requireNonNull(failOverDirections);
+            if (failOverDirections == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "failOverDirections");
+            }
+            this.failOverDirections = failOverDirections;
             return this;
         }
         public Builder failOverDirections(String... failOverDirections) {
@@ -154,7 +161,10 @@ public final class GetReplicationRecoveryPlanRecoveryGroupPostAction {
         }
         @CustomType.Setter
         public Builder failOverTypes(List<String> failOverTypes) {
-            this.failOverTypes = Objects.requireNonNull(failOverTypes);
+            if (failOverTypes == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "failOverTypes");
+            }
+            this.failOverTypes = failOverTypes;
             return this;
         }
         public Builder failOverTypes(String... failOverTypes) {
@@ -162,27 +172,42 @@ public final class GetReplicationRecoveryPlanRecoveryGroupPostAction {
         }
         @CustomType.Setter
         public Builder manualActionInstruction(String manualActionInstruction) {
-            this.manualActionInstruction = Objects.requireNonNull(manualActionInstruction);
+            if (manualActionInstruction == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "manualActionInstruction");
+            }
+            this.manualActionInstruction = manualActionInstruction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runbookId(String runbookId) {
-            this.runbookId = Objects.requireNonNull(runbookId);
+            if (runbookId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "runbookId");
+            }
+            this.runbookId = runbookId;
             return this;
         }
         @CustomType.Setter
         public Builder scriptPath(String scriptPath) {
-            this.scriptPath = Objects.requireNonNull(scriptPath);
+            if (scriptPath == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "scriptPath");
+            }
+            this.scriptPath = scriptPath;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroupPostAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetReplicationRecoveryPlanRecoveryGroupPostAction build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetCodecJpgImageLayerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -385,7 +386,9 @@ public final class TransformOutputCustomPresetCodecJpgImageArgs extends com.pulu
         }
 
         public TransformOutputCustomPresetCodecJpgImageArgs build() {
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetCodecJpgImageArgs", "start");
+            }
             return $;
         }
     }

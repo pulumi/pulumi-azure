@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -318,9 +319,15 @@ public final class InterationServiceEnvironmentArgs extends com.pulumi.resources
         }
 
         public InterationServiceEnvironmentArgs build() {
-            $.accessEndpointType = Objects.requireNonNull($.accessEndpointType, "expected parameter 'accessEndpointType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualNetworkSubnetIds = Objects.requireNonNull($.virtualNetworkSubnetIds, "expected parameter 'virtualNetworkSubnetIds' to be non-null");
+            if ($.accessEndpointType == null) {
+                throw new MissingRequiredPropertyException("InterationServiceEnvironmentArgs", "accessEndpointType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("InterationServiceEnvironmentArgs", "resourceGroupName");
+            }
+            if ($.virtualNetworkSubnetIds == null) {
+                throw new MissingRequiredPropertyException("InterationServiceEnvironmentArgs", "virtualNetworkSubnetIds");
+            }
             return $;
         }
     }

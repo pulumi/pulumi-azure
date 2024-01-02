@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSelfHostedRbacAuthorizationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class IntegrationRuntimeSelfHostedArgs extends com.pulumi.resources
         }
 
         public IntegrationRuntimeSelfHostedArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSelfHostedArgs", "dataFactoryId");
+            }
             return $;
         }
     }

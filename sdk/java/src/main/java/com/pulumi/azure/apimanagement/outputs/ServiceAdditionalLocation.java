@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.ServiceAdditionalLocationVirtualNetworkConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -164,26 +165,33 @@ public final class ServiceAdditionalLocation {
 
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayDisabled(@Nullable Boolean gatewayDisabled) {
+
             this.gatewayDisabled = gatewayDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayRegionalUrl(@Nullable String gatewayRegionalUrl) {
+
             this.gatewayRegionalUrl = gatewayRegionalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("ServiceAdditionalLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(@Nullable List<String> privateIpAddresses) {
+
             this.privateIpAddresses = privateIpAddresses;
             return this;
         }
@@ -192,11 +200,13 @@ public final class ServiceAdditionalLocation {
         }
         @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
+
             this.publicIpAddresses = publicIpAddresses;
             return this;
         }
@@ -205,11 +215,13 @@ public final class ServiceAdditionalLocation {
         }
         @CustomType.Setter
         public Builder virtualNetworkConfiguration(@Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration) {
+
             this.virtualNetworkConfiguration = virtualNetworkConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
+
             this.zones = zones;
             return this;
         }

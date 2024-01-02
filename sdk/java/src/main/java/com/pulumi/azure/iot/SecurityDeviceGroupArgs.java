@@ -7,6 +7,7 @@ import com.pulumi.azure.iot.inputs.SecurityDeviceGroupAllowRuleArgs;
 import com.pulumi.azure.iot.inputs.SecurityDeviceGroupRangeRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,7 +201,9 @@ public final class SecurityDeviceGroupArgs extends com.pulumi.resources.Resource
         }
 
         public SecurityDeviceGroupArgs build() {
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("SecurityDeviceGroupArgs", "iothubId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.mariadb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,10 +233,18 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FirewallRuleArgs build() {
-            $.endIpAddress = Objects.requireNonNull($.endIpAddress, "expected parameter 'endIpAddress' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.startIpAddress = Objects.requireNonNull($.startIpAddress, "expected parameter 'startIpAddress' to be non-null");
+            if ($.endIpAddress == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "endIpAddress");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "serverName");
+            }
+            if ($.startIpAddress == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "startIpAddress");
+            }
             return $;
         }
     }

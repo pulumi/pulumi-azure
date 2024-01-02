@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -267,22 +268,34 @@ public final class GetKeyResult {
 
         @CustomType.Setter
         public Builder curve(String curve) {
-            this.curve = Objects.requireNonNull(curve);
+            if (curve == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "curve");
+            }
+            this.curve = curve;
             return this;
         }
         @CustomType.Setter
         public Builder e(String e) {
-            this.e = Objects.requireNonNull(e);
+            if (e == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "e");
+            }
+            this.e = e;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyOpts(List<String> keyOpts) {
-            this.keyOpts = Objects.requireNonNull(keyOpts);
+            if (keyOpts == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyOpts");
+            }
+            this.keyOpts = keyOpts;
             return this;
         }
         public Builder keyOpts(String... keyOpts) {
@@ -290,72 +303,114 @@ public final class GetKeyResult {
         }
         @CustomType.Setter
         public Builder keySize(Integer keySize) {
-            this.keySize = Objects.requireNonNull(keySize);
+            if (keySize == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keySize");
+            }
+            this.keySize = keySize;
             return this;
         }
         @CustomType.Setter
         public Builder keyType(String keyType) {
-            this.keyType = Objects.requireNonNull(keyType);
+            if (keyType == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyType");
+            }
+            this.keyType = keyType;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder n(String n) {
-            this.n = Objects.requireNonNull(n);
+            if (n == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "n");
+            }
+            this.n = n;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicKeyOpenssh(String publicKeyOpenssh) {
-            this.publicKeyOpenssh = Objects.requireNonNull(publicKeyOpenssh);
+            if (publicKeyOpenssh == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "publicKeyOpenssh");
+            }
+            this.publicKeyOpenssh = publicKeyOpenssh;
             return this;
         }
         @CustomType.Setter
         public Builder publicKeyPem(String publicKeyPem) {
-            this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
+            if (publicKeyPem == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "publicKeyPem");
+            }
+            this.publicKeyPem = publicKeyPem;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceVersionlessId(String resourceVersionlessId) {
-            this.resourceVersionlessId = Objects.requireNonNull(resourceVersionlessId);
+            if (resourceVersionlessId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "resourceVersionlessId");
+            }
+            this.resourceVersionlessId = resourceVersionlessId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder versionlessId(String versionlessId) {
-            this.versionlessId = Objects.requireNonNull(versionlessId);
+            if (versionlessId == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "versionlessId");
+            }
+            this.versionlessId = versionlessId;
             return this;
         }
         @CustomType.Setter
         public Builder x(String x) {
-            this.x = Objects.requireNonNull(x);
+            if (x == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "x");
+            }
+            this.x = x;
             return this;
         }
         @CustomType.Setter
         public Builder y(String y) {
-            this.y = Objects.requireNonNull(y);
+            if (y == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "y");
+            }
+            this.y = y;
             return this;
         }
         public GetKeyResult build() {

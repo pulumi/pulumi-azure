@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -422,8 +423,12 @@ public final class LinkedServiceAzureDatabricksNewClusterConfigArgs extends com.
         }
 
         public LinkedServiceAzureDatabricksNewClusterConfigArgs build() {
-            $.clusterVersion = Objects.requireNonNull($.clusterVersion, "expected parameter 'clusterVersion' to be non-null");
-            $.nodeType = Objects.requireNonNull($.nodeType, "expected parameter 'nodeType' to be non-null");
+            if ($.clusterVersion == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksNewClusterConfigArgs", "clusterVersion");
+            }
+            if ($.nodeType == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksNewClusterConfigArgs", "nodeType");
+            }
             return $;
         }
     }

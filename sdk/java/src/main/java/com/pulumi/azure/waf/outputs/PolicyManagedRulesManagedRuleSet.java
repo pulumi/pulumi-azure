@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public final class PolicyManagedRulesManagedRuleSet {
 
         @CustomType.Setter
         public Builder ruleGroupOverrides(@Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides) {
+
             this.ruleGroupOverrides = ruleGroupOverrides;
             return this;
         }
@@ -82,12 +84,16 @@ public final class PolicyManagedRulesManagedRuleSet {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesManagedRuleSet", "version");
+            }
+            this.version = version;
             return this;
         }
         public PolicyManagedRulesManagedRuleSet build() {

@@ -7,6 +7,7 @@ import com.pulumi.azure.network.outputs.GetFirewallIpConfiguration;
 import com.pulumi.azure.network.outputs.GetFirewallManagementIpConfiguration;
 import com.pulumi.azure.network.outputs.GetFirewallVirtualHub;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -228,12 +229,18 @@ public final class GetFirewallResult {
 
         @CustomType.Setter
         public Builder dnsProxyEnabled(Boolean dnsProxyEnabled) {
-            this.dnsProxyEnabled = Objects.requireNonNull(dnsProxyEnabled);
+            if (dnsProxyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "dnsProxyEnabled");
+            }
+            this.dnsProxyEnabled = dnsProxyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -241,17 +248,26 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder firewallPolicyId(String firewallPolicyId) {
-            this.firewallPolicyId = Objects.requireNonNull(firewallPolicyId);
+            if (firewallPolicyId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "firewallPolicyId");
+            }
+            this.firewallPolicyId = firewallPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetFirewallIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetFirewallIpConfiguration... ipConfigurations) {
@@ -259,12 +275,18 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder managementIpConfigurations(List<GetFirewallManagementIpConfiguration> managementIpConfigurations) {
-            this.managementIpConfigurations = Objects.requireNonNull(managementIpConfigurations);
+            if (managementIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "managementIpConfigurations");
+            }
+            this.managementIpConfigurations = managementIpConfigurations;
             return this;
         }
         public Builder managementIpConfigurations(GetFirewallManagementIpConfiguration... managementIpConfigurations) {
@@ -272,37 +294,58 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder skuTier(String skuTier) {
-            this.skuTier = Objects.requireNonNull(skuTier);
+            if (skuTier == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "skuTier");
+            }
+            this.skuTier = skuTier;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder threatIntelMode(String threatIntelMode) {
-            this.threatIntelMode = Objects.requireNonNull(threatIntelMode);
+            if (threatIntelMode == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "threatIntelMode");
+            }
+            this.threatIntelMode = threatIntelMode;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubs(List<GetFirewallVirtualHub> virtualHubs) {
-            this.virtualHubs = Objects.requireNonNull(virtualHubs);
+            if (virtualHubs == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "virtualHubs");
+            }
+            this.virtualHubs = virtualHubs;
             return this;
         }
         public Builder virtualHubs(GetFirewallVirtualHub... virtualHubs) {
@@ -310,7 +353,10 @@ public final class GetFirewallResult {
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

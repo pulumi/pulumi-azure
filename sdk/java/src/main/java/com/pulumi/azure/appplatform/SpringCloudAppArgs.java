@@ -9,6 +9,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudAppIngressSettingsArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudAppPersistentDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -499,8 +500,12 @@ public final class SpringCloudAppArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SpringCloudAppArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppArgs", "resourceGroupName");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppArgs", "serviceName");
+            }
             return $;
         }
     }

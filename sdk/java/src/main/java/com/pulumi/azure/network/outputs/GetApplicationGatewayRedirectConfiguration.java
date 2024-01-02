@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -133,42 +134,66 @@ public final class GetApplicationGatewayRedirectConfiguration {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includePath(Boolean includePath) {
-            this.includePath = Objects.requireNonNull(includePath);
+            if (includePath == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "includePath");
+            }
+            this.includePath = includePath;
             return this;
         }
         @CustomType.Setter
         public Builder includeQueryString(Boolean includeQueryString) {
-            this.includeQueryString = Objects.requireNonNull(includeQueryString);
+            if (includeQueryString == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "includeQueryString");
+            }
+            this.includeQueryString = includeQueryString;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder redirectType(String redirectType) {
-            this.redirectType = Objects.requireNonNull(redirectType);
+            if (redirectType == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "redirectType");
+            }
+            this.redirectType = redirectType;
             return this;
         }
         @CustomType.Setter
         public Builder targetListenerId(String targetListenerId) {
-            this.targetListenerId = Objects.requireNonNull(targetListenerId);
+            if (targetListenerId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "targetListenerId");
+            }
+            this.targetListenerId = targetListenerId;
             return this;
         }
         @CustomType.Setter
         public Builder targetListenerName(String targetListenerName) {
-            this.targetListenerName = Objects.requireNonNull(targetListenerName);
+            if (targetListenerName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "targetListenerName");
+            }
+            this.targetListenerName = targetListenerName;
             return this;
         }
         @CustomType.Setter
         public Builder targetUrl(String targetUrl) {
-            this.targetUrl = Objects.requireNonNull(targetUrl);
+            if (targetUrl == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRedirectConfiguration", "targetUrl");
+            }
+            this.targetUrl = targetUrl;
             return this;
         }
         public GetApplicationGatewayRedirectConfiguration build() {

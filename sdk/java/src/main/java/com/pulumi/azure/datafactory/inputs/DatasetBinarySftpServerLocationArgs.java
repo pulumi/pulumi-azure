@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class DatasetBinarySftpServerLocationArgs extends com.pulumi.resour
         }
 
         public DatasetBinarySftpServerLocationArgs build() {
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("DatasetBinarySftpServerLocationArgs", "filename");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("DatasetBinarySftpServerLocationArgs", "path");
+            }
             return $;
         }
     }

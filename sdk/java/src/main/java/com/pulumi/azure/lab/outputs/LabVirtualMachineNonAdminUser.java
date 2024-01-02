@@ -4,6 +4,7 @@
 package com.pulumi.azure.lab.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class LabVirtualMachineNonAdminUser {
 
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("LabVirtualMachineNonAdminUser", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("LabVirtualMachineNonAdminUser", "username");
+            }
+            this.username = username;
             return this;
         }
         public LabVirtualMachineNonAdminUser build() {

@@ -9,6 +9,7 @@ import com.pulumi.azure.appservice.outputs.FunctionAppAuthSettingsGoogle;
 import com.pulumi.azure.appservice.outputs.FunctionAppAuthSettingsMicrosoft;
 import com.pulumi.azure.appservice.outputs.FunctionAppAuthSettingsTwitter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -239,16 +240,19 @@ public final class FunctionAppAuthSettings {
 
         @CustomType.Setter
         public Builder activeDirectory(@Nullable FunctionAppAuthSettingsActiveDirectory activeDirectory) {
+
             this.activeDirectory = activeDirectory;
             return this;
         }
         @CustomType.Setter
         public Builder additionalLoginParams(@Nullable Map<String,String> additionalLoginParams) {
+
             this.additionalLoginParams = additionalLoginParams;
             return this;
         }
         @CustomType.Setter
         public Builder allowedExternalRedirectUrls(@Nullable List<String> allowedExternalRedirectUrls) {
+
             this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
         }
@@ -257,56 +261,69 @@ public final class FunctionAppAuthSettings {
         }
         @CustomType.Setter
         public Builder defaultProvider(@Nullable String defaultProvider) {
+
             this.defaultProvider = defaultProvider;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("FunctionAppAuthSettings", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder facebook(@Nullable FunctionAppAuthSettingsFacebook facebook) {
+
             this.facebook = facebook;
             return this;
         }
         @CustomType.Setter
         public Builder google(@Nullable FunctionAppAuthSettingsGoogle google) {
+
             this.google = google;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder microsoft(@Nullable FunctionAppAuthSettingsMicrosoft microsoft) {
+
             this.microsoft = microsoft;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(@Nullable String runtimeVersion) {
+
             this.runtimeVersion = runtimeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRefreshExtensionHours(@Nullable Double tokenRefreshExtensionHours) {
+
             this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreEnabled(@Nullable Boolean tokenStoreEnabled) {
+
             this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder twitter(@Nullable FunctionAppAuthSettingsTwitter twitter) {
+
             this.twitter = twitter;
             return this;
         }
         @CustomType.Setter
         public Builder unauthenticatedClientAction(@Nullable String unauthenticatedClientAction) {
+
             this.unauthenticatedClientAction = unauthenticatedClientAction;
             return this;
         }

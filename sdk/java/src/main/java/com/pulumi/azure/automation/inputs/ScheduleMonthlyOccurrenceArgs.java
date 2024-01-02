@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ScheduleMonthlyOccurrenceArgs extends com.pulumi.resources.Re
         }
 
         public ScheduleMonthlyOccurrenceArgs build() {
-            $.day = Objects.requireNonNull($.day, "expected parameter 'day' to be non-null");
-            $.occurrence = Objects.requireNonNull($.occurrence, "expected parameter 'occurrence' to be non-null");
+            if ($.day == null) {
+                throw new MissingRequiredPropertyException("ScheduleMonthlyOccurrenceArgs", "day");
+            }
+            if ($.occurrence == null) {
+                throw new MissingRequiredPropertyException("ScheduleMonthlyOccurrenceArgs", "occurrence");
+            }
             return $;
         }
     }

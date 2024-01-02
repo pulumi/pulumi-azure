@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class HyperVReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         public HyperVReplicationPolicyAssociationArgs build() {
-            $.hypervSiteId = Objects.requireNonNull($.hypervSiteId, "expected parameter 'hypervSiteId' to be non-null");
-            $.policyId = Objects.requireNonNull($.policyId, "expected parameter 'policyId' to be non-null");
+            if ($.hypervSiteId == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyAssociationArgs", "hypervSiteId");
+            }
+            if ($.policyId == null) {
+                throw new MissingRequiredPropertyException("HyperVReplicationPolicyAssociationArgs", "policyId");
+            }
             return $;
         }
     }

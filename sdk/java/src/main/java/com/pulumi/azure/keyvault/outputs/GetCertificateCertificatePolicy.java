@@ -9,6 +9,7 @@ import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicyLifetime
 import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicySecretProperty;
 import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicyX509CertificateProperty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -103,7 +104,10 @@ public final class GetCertificateCertificatePolicy {
 
         @CustomType.Setter
         public Builder issuerParameters(List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters) {
-            this.issuerParameters = Objects.requireNonNull(issuerParameters);
+            if (issuerParameters == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicy", "issuerParameters");
+            }
+            this.issuerParameters = issuerParameters;
             return this;
         }
         public Builder issuerParameters(GetCertificateCertificatePolicyIssuerParameter... issuerParameters) {
@@ -111,7 +115,10 @@ public final class GetCertificateCertificatePolicy {
         }
         @CustomType.Setter
         public Builder keyProperties(List<GetCertificateCertificatePolicyKeyProperty> keyProperties) {
-            this.keyProperties = Objects.requireNonNull(keyProperties);
+            if (keyProperties == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicy", "keyProperties");
+            }
+            this.keyProperties = keyProperties;
             return this;
         }
         public Builder keyProperties(GetCertificateCertificatePolicyKeyProperty... keyProperties) {
@@ -119,7 +126,10 @@ public final class GetCertificateCertificatePolicy {
         }
         @CustomType.Setter
         public Builder lifetimeActions(List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions) {
-            this.lifetimeActions = Objects.requireNonNull(lifetimeActions);
+            if (lifetimeActions == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicy", "lifetimeActions");
+            }
+            this.lifetimeActions = lifetimeActions;
             return this;
         }
         public Builder lifetimeActions(GetCertificateCertificatePolicyLifetimeAction... lifetimeActions) {
@@ -127,7 +137,10 @@ public final class GetCertificateCertificatePolicy {
         }
         @CustomType.Setter
         public Builder secretProperties(List<GetCertificateCertificatePolicySecretProperty> secretProperties) {
-            this.secretProperties = Objects.requireNonNull(secretProperties);
+            if (secretProperties == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicy", "secretProperties");
+            }
+            this.secretProperties = secretProperties;
             return this;
         }
         public Builder secretProperties(GetCertificateCertificatePolicySecretProperty... secretProperties) {
@@ -135,7 +148,10 @@ public final class GetCertificateCertificatePolicy {
         }
         @CustomType.Setter
         public Builder x509CertificateProperties(List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties) {
-            this.x509CertificateProperties = Objects.requireNonNull(x509CertificateProperties);
+            if (x509CertificateProperties == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicy", "x509CertificateProperties");
+            }
+            this.x509CertificateProperties = x509CertificateProperties;
             return this;
         }
         public Builder x509CertificateProperties(GetCertificateCertificatePolicyX509CertificateProperty... x509CertificateProperties) {

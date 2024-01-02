@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice;
 import com.pulumi.azure.containerservice.inputs.ConnectedRegistryNotificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -514,8 +515,12 @@ public final class ConnectedRegistryArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ConnectedRegistryArgs build() {
-            $.containerRegistryId = Objects.requireNonNull($.containerRegistryId, "expected parameter 'containerRegistryId' to be non-null");
-            $.syncTokenId = Objects.requireNonNull($.syncTokenId, "expected parameter 'syncTokenId' to be non-null");
+            if ($.containerRegistryId == null) {
+                throw new MissingRequiredPropertyException("ConnectedRegistryArgs", "containerRegistryId");
+            }
+            if ($.syncTokenId == null) {
+                throw new MissingRequiredPropertyException("ConnectedRegistryArgs", "syncTokenId");
+            }
             return $;
         }
     }

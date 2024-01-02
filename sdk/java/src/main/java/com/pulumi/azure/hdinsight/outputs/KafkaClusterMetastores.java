@@ -74,16 +74,19 @@ public final class KafkaClusterMetastores {
 
         @CustomType.Setter
         public Builder ambari(@Nullable KafkaClusterMetastoresAmbari ambari) {
+
             this.ambari = ambari;
             return this;
         }
         @CustomType.Setter
         public Builder hive(@Nullable KafkaClusterMetastoresHive hive) {
+
             this.hive = hive;
             return this;
         }
         @CustomType.Setter
         public Builder oozie(@Nullable KafkaClusterMetastoresOozie oozie) {
+
             this.oozie = oozie;
             return this;
         }

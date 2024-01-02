@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,21 +89,27 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
 
         @CustomType.Setter
         public Builder email(@Nullable String email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GlobalVMShutdownScheduleNotificationSettings", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder timeInMinutes(@Nullable Integer timeInMinutes) {
+
             this.timeInMinutes = timeInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder webhookUrl(@Nullable String webhookUrl) {
+
             this.webhookUrl = webhookUrl;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.consumption.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetBudgetResourceGroupPlainArgs extends com.pulumi.resources.
         }
 
         public GetBudgetResourceGroupPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupId = Objects.requireNonNull($.resourceGroupId, "expected parameter 'resourceGroupId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetBudgetResourceGroupPlainArgs", "name");
+            }
+            if ($.resourceGroupId == null) {
+                throw new MissingRequiredPropertyException("GetBudgetResourceGroupPlainArgs", "resourceGroupId");
+            }
             return $;
         }
     }

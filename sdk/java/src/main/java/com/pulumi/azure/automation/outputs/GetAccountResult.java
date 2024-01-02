@@ -6,6 +6,7 @@ package com.pulumi.azure.automation.outputs;
 import com.pulumi.azure.automation.outputs.GetAccountIdentity;
 import com.pulumi.azure.automation.outputs.GetAccountPrivateEndpointConnection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -133,22 +134,34 @@ public final class GetAccountResult {
 
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder hybridServiceUrl(String hybridServiceUrl) {
-            this.hybridServiceUrl = Objects.requireNonNull(hybridServiceUrl);
+            if (hybridServiceUrl == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "hybridServiceUrl");
+            }
+            this.hybridServiceUrl = hybridServiceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetAccountIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetAccountIdentity... identities) {
@@ -156,17 +169,26 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointConnections(List<GetAccountPrivateEndpointConnection> privateEndpointConnections) {
-            this.privateEndpointConnections = Objects.requireNonNull(privateEndpointConnections);
+            if (privateEndpointConnections == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "privateEndpointConnections");
+            }
+            this.privateEndpointConnections = privateEndpointConnections;
             return this;
         }
         public Builder privateEndpointConnections(GetAccountPrivateEndpointConnection... privateEndpointConnections) {
@@ -174,12 +196,18 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         public GetAccountResult build() {

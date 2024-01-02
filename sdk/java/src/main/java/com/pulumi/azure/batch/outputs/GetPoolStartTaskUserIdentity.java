@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskUserIdentityAutoUser;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetPoolStartTaskUserIdentity {
 
         @CustomType.Setter
         public Builder autoUsers(List<GetPoolStartTaskUserIdentityAutoUser> autoUsers) {
-            this.autoUsers = Objects.requireNonNull(autoUsers);
+            if (autoUsers == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskUserIdentity", "autoUsers");
+            }
+            this.autoUsers = autoUsers;
             return this;
         }
         public Builder autoUsers(GetPoolStartTaskUserIdentityAutoUser... autoUsers) {
@@ -66,7 +70,10 @@ public final class GetPoolStartTaskUserIdentity {
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskUserIdentity", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetPoolStartTaskUserIdentity build() {

@@ -10,6 +10,7 @@ import com.pulumi.azure.apimanagement.inputs.CustomDomainPortalArgs;
 import com.pulumi.azure.apimanagement.inputs.CustomDomainScmArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -317,7 +318,9 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomDomainArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("CustomDomainArgs", "apiManagementId");
+            }
             return $;
         }
     }

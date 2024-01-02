@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -193,10 +194,18 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
         }
 
         public EventHubCaptureDescriptionDestinationArgs build() {
-            $.archiveNameFormat = Objects.requireNonNull($.archiveNameFormat, "expected parameter 'archiveNameFormat' to be non-null");
-            $.blobContainerName = Objects.requireNonNull($.blobContainerName, "expected parameter 'blobContainerName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.archiveNameFormat == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestinationArgs", "archiveNameFormat");
+            }
+            if ($.blobContainerName == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestinationArgs", "blobContainerName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestinationArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionDestinationArgs", "storageAccountId");
+            }
             return $;
         }
     }

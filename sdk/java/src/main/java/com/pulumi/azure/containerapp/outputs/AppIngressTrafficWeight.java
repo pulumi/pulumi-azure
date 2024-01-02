@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -92,21 +93,27 @@ public final class AppIngressTrafficWeight {
 
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder latestRevision(@Nullable Boolean latestRevision) {
+
             this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
         public Builder percentage(Integer percentage) {
-            this.percentage = Objects.requireNonNull(percentage);
+            if (percentage == null) {
+              throw new MissingRequiredPropertyException("AppIngressTrafficWeight", "percentage");
+            }
+            this.percentage = percentage;
             return this;
         }
         @CustomType.Setter
         public Builder revisionSuffix(@Nullable String revisionSuffix) {
+
             this.revisionSuffix = revisionSuffix;
             return this;
         }

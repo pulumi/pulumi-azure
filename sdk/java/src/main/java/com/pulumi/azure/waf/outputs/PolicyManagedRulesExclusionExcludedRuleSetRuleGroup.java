@@ -4,6 +4,7 @@
 package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,6 +61,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
 
         @CustomType.Setter
         public Builder excludedRules(@Nullable List<String> excludedRules) {
+
             this.excludedRules = excludedRules;
             return this;
         }
@@ -68,7 +70,10 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
         }
         @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
-            this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
+            if (ruleGroupName == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesExclusionExcludedRuleSetRuleGroup", "ruleGroupName");
+            }
+            this.ruleGroupName = ruleGroupName;
             return this;
         }
         public PolicyManagedRulesExclusionExcludedRuleSetRuleGroup build() {

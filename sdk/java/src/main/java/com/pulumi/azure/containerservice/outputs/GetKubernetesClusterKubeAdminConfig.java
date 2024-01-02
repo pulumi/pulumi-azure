@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,32 +113,50 @@ public final class GetKubernetesClusterKubeAdminConfig {
 
         @CustomType.Setter
         public Builder clientCertificate(String clientCertificate) {
-            this.clientCertificate = Objects.requireNonNull(clientCertificate);
+            if (clientCertificate == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "clientCertificate");
+            }
+            this.clientCertificate = clientCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clientKey(String clientKey) {
-            this.clientKey = Objects.requireNonNull(clientKey);
+            if (clientKey == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "clientKey");
+            }
+            this.clientKey = clientKey;
             return this;
         }
         @CustomType.Setter
         public Builder clusterCaCertificate(String clusterCaCertificate) {
-            this.clusterCaCertificate = Objects.requireNonNull(clusterCaCertificate);
+            if (clusterCaCertificate == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "clusterCaCertificate");
+            }
+            this.clusterCaCertificate = clusterCaCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKubeAdminConfig", "username");
+            }
+            this.username = username;
             return this;
         }
         public GetKubernetesClusterKubeAdminConfig build() {

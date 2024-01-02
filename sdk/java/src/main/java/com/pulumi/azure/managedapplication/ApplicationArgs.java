@@ -6,6 +6,7 @@ package com.pulumi.azure.managedapplication;
 import com.pulumi.azure.managedapplication.inputs.ApplicationPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -435,9 +436,15 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
-            $.kind = Objects.requireNonNull($.kind, "expected parameter 'kind' to be non-null");
-            $.managedResourceGroupName = Objects.requireNonNull($.managedResourceGroupName, "expected parameter 'managedResourceGroupName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "kind");
+            }
+            if ($.managedResourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "managedResourceGroupName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "resourceGroupName");
+            }
             return $;
         }
     }

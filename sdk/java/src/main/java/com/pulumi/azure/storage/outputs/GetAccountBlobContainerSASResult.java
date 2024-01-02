@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.GetAccountBlobContainerSASPermissions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -132,72 +133,100 @@ public final class GetAccountBlobContainerSASResult {
 
         @CustomType.Setter
         public Builder cacheControl(@Nullable String cacheControl) {
+
             this.cacheControl = cacheControl;
             return this;
         }
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder contentDisposition(@Nullable String contentDisposition) {
+
             this.contentDisposition = contentDisposition;
             return this;
         }
         @CustomType.Setter
         public Builder contentEncoding(@Nullable String contentEncoding) {
+
             this.contentEncoding = contentEncoding;
             return this;
         }
         @CustomType.Setter
         public Builder contentLanguage(@Nullable String contentLanguage) {
+
             this.contentLanguage = contentLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
+
             this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(String expiry) {
-            this.expiry = Objects.requireNonNull(expiry);
+            if (expiry == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "expiry");
+            }
+            this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(@Nullable Boolean httpsOnly) {
+
             this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(GetAccountBlobContainerSASPermissions permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         @CustomType.Setter
         public Builder sas(String sas) {
-            this.sas = Objects.requireNonNull(sas);
+            if (sas == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "sas");
+            }
+            this.sas = sas;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASResult", "start");
+            }
+            this.start = start;
             return this;
         }
         public GetAccountBlobContainerSASResult build() {

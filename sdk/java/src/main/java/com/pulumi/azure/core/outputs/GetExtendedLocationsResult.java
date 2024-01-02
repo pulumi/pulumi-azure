@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -63,7 +64,10 @@ public final class GetExtendedLocationsResult {
 
         @CustomType.Setter
         public Builder extendedLocations(List<String> extendedLocations) {
-            this.extendedLocations = Objects.requireNonNull(extendedLocations);
+            if (extendedLocations == null) {
+              throw new MissingRequiredPropertyException("GetExtendedLocationsResult", "extendedLocations");
+            }
+            this.extendedLocations = extendedLocations;
             return this;
         }
         public Builder extendedLocations(String... extendedLocations) {
@@ -71,12 +75,18 @@ public final class GetExtendedLocationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetExtendedLocationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetExtendedLocationsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         public GetExtendedLocationsResult build() {

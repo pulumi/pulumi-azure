@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ActionRuleActionGroupConditionArgs;
 import com.pulumi.azure.monitoring.inputs.ActionRuleActionGroupScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -339,8 +340,12 @@ public final class ActionRuleActionGroupArgs extends com.pulumi.resources.Resour
         }
 
         public ActionRuleActionGroupArgs build() {
-            $.actionGroupId = Objects.requireNonNull($.actionGroupId, "expected parameter 'actionGroupId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.actionGroupId == null) {
+                throw new MissingRequiredPropertyException("ActionRuleActionGroupArgs", "actionGroupId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActionRuleActionGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

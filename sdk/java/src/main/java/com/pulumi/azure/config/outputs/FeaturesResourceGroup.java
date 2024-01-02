@@ -36,6 +36,7 @@ public final class FeaturesResourceGroup {
 
         @CustomType.Setter
         public Builder preventDeletionIfContainsResources(@Nullable Boolean preventDeletionIfContainsResources) {
+
             this.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
             return this;
         }

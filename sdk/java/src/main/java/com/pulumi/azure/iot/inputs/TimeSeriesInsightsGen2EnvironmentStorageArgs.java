@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class TimeSeriesInsightsGen2EnvironmentStorageArgs extends com.pulu
         }
 
         public TimeSeriesInsightsGen2EnvironmentStorageArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentStorageArgs", "key");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentStorageArgs", "name");
+            }
             return $;
         }
     }

@@ -74,16 +74,19 @@ public final class StreamingPolicyEnvelopeEncryption {
 
         @CustomType.Setter
         public Builder customKeysAcquisitionUrlTemplate(@Nullable String customKeysAcquisitionUrlTemplate) {
+
             this.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyEnvelopeEncryptionDefaultContentKey defaultContentKey) {
+
             this.defaultContentKey = defaultContentKey;
             return this;
         }
         @CustomType.Setter
         public Builder enabledProtocols(@Nullable StreamingPolicyEnvelopeEncryptionEnabledProtocols enabledProtocols) {
+
             this.enabledProtocols = enabledProtocols;
             return this;
         }

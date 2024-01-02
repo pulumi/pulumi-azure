@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.FirewallPolicyInsightsLogAnalyticsWorkspaceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -201,8 +202,12 @@ public final class FirewallPolicyInsightsArgs extends com.pulumi.resources.Resou
         }
 
         public FirewallPolicyInsightsArgs build() {
-            $.defaultLogAnalyticsWorkspaceId = Objects.requireNonNull($.defaultLogAnalyticsWorkspaceId, "expected parameter 'defaultLogAnalyticsWorkspaceId' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.defaultLogAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyInsightsArgs", "defaultLogAnalyticsWorkspaceId");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyInsightsArgs", "enabled");
+            }
             return $;
         }
     }

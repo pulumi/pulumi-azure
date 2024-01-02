@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class ConnectionCertificateArgs extends com.pulumi.resources.Resour
         }
 
         public ConnectionCertificateArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.automationCertificateName = Objects.requireNonNull($.automationCertificateName, "expected parameter 'automationCertificateName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ConnectionCertificateArgs", "automationAccountName");
+            }
+            if ($.automationCertificateName == null) {
+                throw new MissingRequiredPropertyException("ConnectionCertificateArgs", "automationCertificateName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConnectionCertificateArgs", "resourceGroupName");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("ConnectionCertificateArgs", "subscriptionId");
+            }
             return $;
         }
     }

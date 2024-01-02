@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,16 +89,23 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplication {
 
         @CustomType.Setter
         public Builder physicalPath(String physicalPath) {
-            this.physicalPath = Objects.requireNonNull(physicalPath);
+            if (physicalPath == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplication", "physicalPath");
+            }
+            this.physicalPath = physicalPath;
             return this;
         }
         @CustomType.Setter
         public Builder preload(Boolean preload) {
-            this.preload = Objects.requireNonNull(preload);
+            if (preload == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplication", "preload");
+            }
+            this.preload = preload;
             return this;
         }
         @CustomType.Setter
         public Builder virtualDirectories(@Nullable List<WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories) {
+
             this.virtualDirectories = virtualDirectories;
             return this;
         }
@@ -106,7 +114,10 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplication {
         }
         @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
-            this.virtualPath = Objects.requireNonNull(virtualPath);
+            if (virtualPath == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplication", "virtualPath");
+            }
+            this.virtualPath = virtualPath;
             return this;
         }
         public WindowsWebAppSlotSiteConfigVirtualApplication build() {

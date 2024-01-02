@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class IoTHubEnrichmentArgs extends com.pulumi.resources.ResourceArg
         }
 
         public IoTHubEnrichmentArgs build() {
-            $.endpointNames = Objects.requireNonNull($.endpointNames, "expected parameter 'endpointNames' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.endpointNames == null) {
+                throw new MissingRequiredPropertyException("IoTHubEnrichmentArgs", "endpointNames");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("IoTHubEnrichmentArgs", "key");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("IoTHubEnrichmentArgs", "value");
+            }
             return $;
         }
     }

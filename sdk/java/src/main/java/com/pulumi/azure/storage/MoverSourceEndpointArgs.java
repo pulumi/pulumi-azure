@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class MoverSourceEndpointArgs extends com.pulumi.resources.Resource
         }
 
         public MoverSourceEndpointArgs build() {
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.storageMoverId = Objects.requireNonNull($.storageMoverId, "expected parameter 'storageMoverId' to be non-null");
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("MoverSourceEndpointArgs", "host");
+            }
+            if ($.storageMoverId == null) {
+                throw new MissingRequiredPropertyException("MoverSourceEndpointArgs", "storageMoverId");
+            }
             return $;
         }
     }

@@ -94,21 +94,25 @@ public final class ReplicationRecoveryPlanAzureToAzureSettings {
 
         @CustomType.Setter
         public Builder primaryEdgeZone(@Nullable String primaryEdgeZone) {
+
             this.primaryEdgeZone = primaryEdgeZone;
             return this;
         }
         @CustomType.Setter
         public Builder primaryZone(@Nullable String primaryZone) {
+
             this.primaryZone = primaryZone;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryEdgeZone(@Nullable String recoveryEdgeZone) {
+
             this.recoveryEdgeZone = recoveryEdgeZone;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryZone(@Nullable String recoveryZone) {
+
             this.recoveryZone = recoveryZone;
             return this;
         }

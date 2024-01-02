@@ -5,6 +5,7 @@ package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationKeysItem;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,17 +95,26 @@ public final class GetConfigurationKeysResult {
 
         @CustomType.Setter
         public Builder configurationStoreId(String configurationStoreId) {
-            this.configurationStoreId = Objects.requireNonNull(configurationStoreId);
+            if (configurationStoreId == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysResult", "configurationStoreId");
+            }
+            this.configurationStoreId = configurationStoreId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder items(List<GetConfigurationKeysItem> items) {
-            this.items = Objects.requireNonNull(items);
+            if (items == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysResult", "items");
+            }
+            this.items = items;
             return this;
         }
         public Builder items(GetConfigurationKeysItem... items) {
@@ -112,11 +122,13 @@ public final class GetConfigurationKeysResult {
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.volumeName = Objects.requireNonNull($.volumeName, "expected parameter 'volumeName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "accountName");
+            }
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "poolName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "resourceGroupName");
+            }
+            if ($.volumeName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "volumeName");
+            }
             return $;
         }
     }

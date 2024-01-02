@@ -8,6 +8,7 @@ import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceArgs;
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMUnmanagedDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -924,15 +925,33 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ReplicatedVMArgs build() {
-            $.recoveryReplicationPolicyId = Objects.requireNonNull($.recoveryReplicationPolicyId, "expected parameter 'recoveryReplicationPolicyId' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sourceRecoveryFabricName = Objects.requireNonNull($.sourceRecoveryFabricName, "expected parameter 'sourceRecoveryFabricName' to be non-null");
-            $.sourceRecoveryProtectionContainerName = Objects.requireNonNull($.sourceRecoveryProtectionContainerName, "expected parameter 'sourceRecoveryProtectionContainerName' to be non-null");
-            $.sourceVmId = Objects.requireNonNull($.sourceVmId, "expected parameter 'sourceVmId' to be non-null");
-            $.targetRecoveryFabricId = Objects.requireNonNull($.targetRecoveryFabricId, "expected parameter 'targetRecoveryFabricId' to be non-null");
-            $.targetRecoveryProtectionContainerId = Objects.requireNonNull($.targetRecoveryProtectionContainerId, "expected parameter 'targetRecoveryProtectionContainerId' to be non-null");
-            $.targetResourceGroupId = Objects.requireNonNull($.targetResourceGroupId, "expected parameter 'targetResourceGroupId' to be non-null");
+            if ($.recoveryReplicationPolicyId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "recoveryReplicationPolicyId");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "resourceGroupName");
+            }
+            if ($.sourceRecoveryFabricName == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "sourceRecoveryFabricName");
+            }
+            if ($.sourceRecoveryProtectionContainerName == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "sourceRecoveryProtectionContainerName");
+            }
+            if ($.sourceVmId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "sourceVmId");
+            }
+            if ($.targetRecoveryFabricId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "targetRecoveryFabricId");
+            }
+            if ($.targetRecoveryProtectionContainerId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "targetRecoveryProtectionContainerId");
+            }
+            if ($.targetResourceGroupId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMArgs", "targetResourceGroupId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayPolicyGroupPolicyMemberArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -201,8 +202,12 @@ public final class VirtualNetworkGatewayPolicyGroupArgs extends com.pulumi.resou
         }
 
         public VirtualNetworkGatewayPolicyGroupArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.policyMembers = Objects.requireNonNull($.policyMembers, "expected parameter 'policyMembers' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayPolicyGroupArgs", "name");
+            }
+            if ($.policyMembers == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayPolicyGroupArgs", "policyMembers");
+            }
             return $;
         }
     }

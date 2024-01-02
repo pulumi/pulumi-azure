@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetBastionHostIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -221,27 +222,42 @@ public final class GetBastionHostResult {
 
         @CustomType.Setter
         public Builder copyPasteEnabled(Boolean copyPasteEnabled) {
-            this.copyPasteEnabled = Objects.requireNonNull(copyPasteEnabled);
+            if (copyPasteEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "copyPasteEnabled");
+            }
+            this.copyPasteEnabled = copyPasteEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dnsName(String dnsName) {
-            this.dnsName = Objects.requireNonNull(dnsName);
+            if (dnsName == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "dnsName");
+            }
+            this.dnsName = dnsName;
             return this;
         }
         @CustomType.Setter
         public Builder fileCopyEnabled(Boolean fileCopyEnabled) {
-            this.fileCopyEnabled = Objects.requireNonNull(fileCopyEnabled);
+            if (fileCopyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "fileCopyEnabled");
+            }
+            this.fileCopyEnabled = fileCopyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetBastionHostIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetBastionHostIpConfiguration... ipConfigurations) {
@@ -249,47 +265,74 @@ public final class GetBastionHostResult {
         }
         @CustomType.Setter
         public Builder ipConnectEnabled(Boolean ipConnectEnabled) {
-            this.ipConnectEnabled = Objects.requireNonNull(ipConnectEnabled);
+            if (ipConnectEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "ipConnectEnabled");
+            }
+            this.ipConnectEnabled = ipConnectEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scaleUnits(Integer scaleUnits) {
-            this.scaleUnits = Objects.requireNonNull(scaleUnits);
+            if (scaleUnits == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "scaleUnits");
+            }
+            this.scaleUnits = scaleUnits;
             return this;
         }
         @CustomType.Setter
         public Builder shareableLinkEnabled(Boolean shareableLinkEnabled) {
-            this.shareableLinkEnabled = Objects.requireNonNull(shareableLinkEnabled);
+            if (shareableLinkEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "shareableLinkEnabled");
+            }
+            this.shareableLinkEnabled = shareableLinkEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tunnelingEnabled(Boolean tunnelingEnabled) {
-            this.tunnelingEnabled = Objects.requireNonNull(tunnelingEnabled);
+            if (tunnelingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetBastionHostResult", "tunnelingEnabled");
+            }
+            this.tunnelingEnabled = tunnelingEnabled;
             return this;
         }
         public GetBastionHostResult build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,7 +103,10 @@ public final class NetworkConnectionMonitorTestGroup {
 
         @CustomType.Setter
         public Builder destinationEndpoints(List<String> destinationEndpoints) {
-            this.destinationEndpoints = Objects.requireNonNull(destinationEndpoints);
+            if (destinationEndpoints == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroup", "destinationEndpoints");
+            }
+            this.destinationEndpoints = destinationEndpoints;
             return this;
         }
         public Builder destinationEndpoints(String... destinationEndpoints) {
@@ -110,17 +114,24 @@ public final class NetworkConnectionMonitorTestGroup {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sourceEndpoints(List<String> sourceEndpoints) {
-            this.sourceEndpoints = Objects.requireNonNull(sourceEndpoints);
+            if (sourceEndpoints == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroup", "sourceEndpoints");
+            }
+            this.sourceEndpoints = sourceEndpoints;
             return this;
         }
         public Builder sourceEndpoints(String... sourceEndpoints) {
@@ -128,7 +139,10 @@ public final class NetworkConnectionMonitorTestGroup {
         }
         @CustomType.Setter
         public Builder testConfigurationNames(List<String> testConfigurationNames) {
-            this.testConfigurationNames = Objects.requireNonNull(testConfigurationNames);
+            if (testConfigurationNames == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroup", "testConfigurationNames");
+            }
+            this.testConfigurationNames = testConfigurationNames;
             return this;
         }
         public Builder testConfigurationNames(String... testConfigurationNames) {

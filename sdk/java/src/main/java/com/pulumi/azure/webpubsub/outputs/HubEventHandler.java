@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.azure.webpubsub.outputs.HubEventHandlerAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,11 +89,13 @@ public final class HubEventHandler {
 
         @CustomType.Setter
         public Builder auth(@Nullable HubEventHandlerAuth auth) {
+
             this.auth = auth;
             return this;
         }
         @CustomType.Setter
         public Builder systemEvents(@Nullable List<String> systemEvents) {
+
             this.systemEvents = systemEvents;
             return this;
         }
@@ -101,11 +104,15 @@ public final class HubEventHandler {
         }
         @CustomType.Setter
         public Builder urlTemplate(String urlTemplate) {
-            this.urlTemplate = Objects.requireNonNull(urlTemplate);
+            if (urlTemplate == null) {
+              throw new MissingRequiredPropertyException("HubEventHandler", "urlTemplate");
+            }
+            this.urlTemplate = urlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder userEventPattern(@Nullable String userEventPattern) {
+
             this.userEventPattern = userEventPattern;
             return this;
         }

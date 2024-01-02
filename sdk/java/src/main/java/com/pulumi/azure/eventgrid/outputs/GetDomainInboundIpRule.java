@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetDomainInboundIpRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetDomainInboundIpRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder ipMask(String ipMask) {
-            this.ipMask = Objects.requireNonNull(ipMask);
+            if (ipMask == null) {
+              throw new MissingRequiredPropertyException("GetDomainInboundIpRule", "ipMask");
+            }
+            this.ipMask = ipMask;
             return this;
         }
         public GetDomainInboundIpRule build() {

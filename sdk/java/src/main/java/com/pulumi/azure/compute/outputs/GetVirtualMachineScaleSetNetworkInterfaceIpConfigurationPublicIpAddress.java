@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -115,17 +116,26 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
 
         @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
-            this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
+            if (domainNameLabel == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "domainNameLabel");
+            }
+            this.domainNameLabel = domainNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder ipTags(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
-            this.ipTags = Objects.requireNonNull(ipTags);
+            if (ipTags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "ipTags");
+            }
+            this.ipTags = ipTags;
             return this;
         }
         public Builder ipTags(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag... ipTags) {
@@ -133,17 +143,26 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpPrefixId(String publicIpPrefixId) {
-            this.publicIpPrefixId = Objects.requireNonNull(publicIpPrefixId);
+            if (publicIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "publicIpPrefixId");
+            }
+            this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {

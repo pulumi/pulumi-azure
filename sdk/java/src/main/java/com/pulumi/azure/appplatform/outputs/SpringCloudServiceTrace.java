@@ -59,11 +59,13 @@ public final class SpringCloudServiceTrace {
 
         @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
+
             this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
+
             this.sampleRate = sampleRate;
             return this;
         }

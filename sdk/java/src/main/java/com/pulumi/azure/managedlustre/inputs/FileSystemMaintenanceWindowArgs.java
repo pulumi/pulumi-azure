@@ -5,6 +5,7 @@ package com.pulumi.azure.managedlustre.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FileSystemMaintenanceWindowArgs extends com.pulumi.resources.
         }
 
         public FileSystemMaintenanceWindowArgs build() {
-            $.dayOfWeek = Objects.requireNonNull($.dayOfWeek, "expected parameter 'dayOfWeek' to be non-null");
-            $.timeOfDayInUtc = Objects.requireNonNull($.timeOfDayInUtc, "expected parameter 'timeOfDayInUtc' to be non-null");
+            if ($.dayOfWeek == null) {
+                throw new MissingRequiredPropertyException("FileSystemMaintenanceWindowArgs", "dayOfWeek");
+            }
+            if ($.timeOfDayInUtc == null) {
+                throw new MissingRequiredPropertyException("FileSystemMaintenanceWindowArgs", "timeOfDayInUtc");
+            }
             return $;
         }
     }

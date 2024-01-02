@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterOmsAgentOmsAgentIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -163,7 +164,9 @@ public final class KubernetesClusterOmsAgentArgs extends com.pulumi.resources.Re
         }
 
         public KubernetesClusterOmsAgentArgs build() {
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterOmsAgentArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

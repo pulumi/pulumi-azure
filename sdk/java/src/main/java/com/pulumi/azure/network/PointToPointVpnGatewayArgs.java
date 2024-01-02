@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -424,11 +425,21 @@ public final class PointToPointVpnGatewayArgs extends com.pulumi.resources.Resou
         }
 
         public PointToPointVpnGatewayArgs build() {
-            $.connectionConfiguration = Objects.requireNonNull($.connectionConfiguration, "expected parameter 'connectionConfiguration' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scaleUnit = Objects.requireNonNull($.scaleUnit, "expected parameter 'scaleUnit' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
-            $.vpnServerConfigurationId = Objects.requireNonNull($.vpnServerConfigurationId, "expected parameter 'vpnServerConfigurationId' to be non-null");
+            if ($.connectionConfiguration == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "connectionConfiguration");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "resourceGroupName");
+            }
+            if ($.scaleUnit == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "scaleUnit");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "virtualHubId");
+            }
+            if ($.vpnServerConfigurationId == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayArgs", "vpnServerConfigurationId");
+            }
             return $;
         }
     }

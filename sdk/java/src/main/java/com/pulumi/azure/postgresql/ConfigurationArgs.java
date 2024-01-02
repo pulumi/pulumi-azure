@@ -5,6 +5,7 @@ package com.pulumi.azure.postgresql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "serverName");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "value");
+            }
             return $;
         }
     }

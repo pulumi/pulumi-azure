@@ -4,6 +4,7 @@
 package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,36 @@ public final class ConfigurationWindow {
 
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDateTime(@Nullable String expirationDateTime) {
+
             this.expirationDateTime = expirationDateTime;
             return this;
         }
         @CustomType.Setter
         public Builder recurEvery(@Nullable String recurEvery) {
+
             this.recurEvery = recurEvery;
             return this;
         }
         @CustomType.Setter
         public Builder startDateTime(String startDateTime) {
-            this.startDateTime = Objects.requireNonNull(startDateTime);
+            if (startDateTime == null) {
+              throw new MissingRequiredPropertyException("ConfigurationWindow", "startDateTime");
+            }
+            this.startDateTime = startDateTime;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("ConfigurationWindow", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public ConfigurationWindow build() {

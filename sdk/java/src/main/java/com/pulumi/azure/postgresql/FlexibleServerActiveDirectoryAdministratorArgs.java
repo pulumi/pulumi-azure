@@ -5,6 +5,7 @@ package com.pulumi.azure.postgresql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -259,12 +260,24 @@ public final class FlexibleServerActiveDirectoryAdministratorArgs extends com.pu
         }
 
         public FlexibleServerActiveDirectoryAdministratorArgs build() {
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.principalName = Objects.requireNonNull($.principalName, "expected parameter 'principalName' to be non-null");
-            $.principalType = Objects.requireNonNull($.principalType, "expected parameter 'principalType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "objectId");
+            }
+            if ($.principalName == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "principalName");
+            }
+            if ($.principalType == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "principalType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "serverName");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratorArgs", "tenantId");
+            }
             return $;
         }
     }

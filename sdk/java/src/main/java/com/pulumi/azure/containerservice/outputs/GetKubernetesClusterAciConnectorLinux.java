@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetKubernetesClusterAciConnectorLinux {
 
         @CustomType.Setter
         public Builder subnetName(String subnetName) {
-            this.subnetName = Objects.requireNonNull(subnetName);
+            if (subnetName == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAciConnectorLinux", "subnetName");
+            }
+            this.subnetName = subnetName;
             return this;
         }
         public GetKubernetesClusterAciConnectorLinux build() {

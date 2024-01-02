@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAciConnectorLinuxConnectorIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -139,6 +140,7 @@ public final class KubernetesClusterAciConnectorLinux {
 
         @CustomType.Setter
         public Builder connectorIdentities(@Nullable List<KubernetesClusterAciConnectorLinuxConnectorIdentity> connectorIdentities) {
+
             this.connectorIdentities = connectorIdentities;
             return this;
         }
@@ -147,7 +149,10 @@ public final class KubernetesClusterAciConnectorLinux {
         }
         @CustomType.Setter
         public Builder subnetName(String subnetName) {
-            this.subnetName = Objects.requireNonNull(subnetName);
+            if (subnetName == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterAciConnectorLinux", "subnetName");
+            }
+            this.subnetName = subnetName;
             return this;
         }
         public KubernetesClusterAciConnectorLinux build() {

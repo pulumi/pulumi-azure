@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -170,7 +171,10 @@ public final class GetManagedHardwareSecurityModuleResult {
 
         @CustomType.Setter
         public Builder adminObjectIds(List<String> adminObjectIds) {
-            this.adminObjectIds = Objects.requireNonNull(adminObjectIds);
+            if (adminObjectIds == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "adminObjectIds");
+            }
+            this.adminObjectIds = adminObjectIds;
             return this;
         }
         public Builder adminObjectIds(String... adminObjectIds) {
@@ -178,52 +182,82 @@ public final class GetManagedHardwareSecurityModuleResult {
         }
         @CustomType.Setter
         public Builder hsmUri(String hsmUri) {
-            this.hsmUri = Objects.requireNonNull(hsmUri);
+            if (hsmUri == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "hsmUri");
+            }
+            this.hsmUri = hsmUri;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
-            this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
+            if (purgeProtectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "purgeProtectionEnabled");
+            }
+            this.purgeProtectionEnabled = purgeProtectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder softDeleteRetentionDays(Integer softDeleteRetentionDays) {
-            this.softDeleteRetentionDays = Objects.requireNonNull(softDeleteRetentionDays);
+            if (softDeleteRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "softDeleteRetentionDays");
+            }
+            this.softDeleteRetentionDays = softDeleteRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleResult", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetManagedHardwareSecurityModuleResult build() {

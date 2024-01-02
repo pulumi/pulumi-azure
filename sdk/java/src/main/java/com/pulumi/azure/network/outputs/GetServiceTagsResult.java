@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -119,7 +120,10 @@ public final class GetServiceTagsResult {
 
         @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
-            this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
+            if (addressPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "addressPrefixes");
+            }
+            this.addressPrefixes = addressPrefixes;
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
@@ -127,12 +131,18 @@ public final class GetServiceTagsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipv4Cidrs(List<String> ipv4Cidrs) {
-            this.ipv4Cidrs = Objects.requireNonNull(ipv4Cidrs);
+            if (ipv4Cidrs == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "ipv4Cidrs");
+            }
+            this.ipv4Cidrs = ipv4Cidrs;
             return this;
         }
         public Builder ipv4Cidrs(String... ipv4Cidrs) {
@@ -140,7 +150,10 @@ public final class GetServiceTagsResult {
         }
         @CustomType.Setter
         public Builder ipv6Cidrs(List<String> ipv6Cidrs) {
-            this.ipv6Cidrs = Objects.requireNonNull(ipv6Cidrs);
+            if (ipv6Cidrs == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "ipv6Cidrs");
+            }
+            this.ipv6Cidrs = ipv6Cidrs;
             return this;
         }
         public Builder ipv6Cidrs(String... ipv6Cidrs) {
@@ -148,22 +161,32 @@ public final class GetServiceTagsResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder locationFilter(@Nullable String locationFilter) {
+
             this.locationFilter = locationFilter;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("GetServiceTagsResult", "service");
+            }
+            this.service = service;
             return this;
         }
         public GetServiceTagsResult build() {

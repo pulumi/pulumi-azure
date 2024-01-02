@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SnapshotPolicyHourlyScheduleArgs extends com.pulumi.resources
         }
 
         public SnapshotPolicyHourlyScheduleArgs build() {
-            $.minute = Objects.requireNonNull($.minute, "expected parameter 'minute' to be non-null");
-            $.snapshotsToKeep = Objects.requireNonNull($.snapshotsToKeep, "expected parameter 'snapshotsToKeep' to be non-null");
+            if ($.minute == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyHourlyScheduleArgs", "minute");
+            }
+            if ($.snapshotsToKeep == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyHourlyScheduleArgs", "snapshotsToKeep");
+            }
             return $;
         }
     }

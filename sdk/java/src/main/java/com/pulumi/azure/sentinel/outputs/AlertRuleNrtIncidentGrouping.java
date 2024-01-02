@@ -130,6 +130,7 @@ public final class AlertRuleNrtIncidentGrouping {
 
         @CustomType.Setter
         public Builder byAlertDetails(@Nullable List<String> byAlertDetails) {
+
             this.byAlertDetails = byAlertDetails;
             return this;
         }
@@ -138,6 +139,7 @@ public final class AlertRuleNrtIncidentGrouping {
         }
         @CustomType.Setter
         public Builder byCustomDetails(@Nullable List<String> byCustomDetails) {
+
             this.byCustomDetails = byCustomDetails;
             return this;
         }
@@ -146,6 +148,7 @@ public final class AlertRuleNrtIncidentGrouping {
         }
         @CustomType.Setter
         public Builder byEntities(@Nullable List<String> byEntities) {
+
             this.byEntities = byEntities;
             return this;
         }
@@ -154,21 +157,25 @@ public final class AlertRuleNrtIncidentGrouping {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder entityMatchingMethod(@Nullable String entityMatchingMethod) {
+
             this.entityMatchingMethod = entityMatchingMethod;
             return this;
         }
         @CustomType.Setter
         public Builder lookbackDuration(@Nullable String lookbackDuration) {
+
             this.lookbackDuration = lookbackDuration;
             return this;
         }
         @CustomType.Setter
         public Builder reopenClosedIncidents(@Nullable Boolean reopenClosedIncidents) {
+
             this.reopenClosedIncidents = reopenClosedIncidents;
             return this;
         }

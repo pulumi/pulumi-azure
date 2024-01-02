@@ -5,6 +5,7 @@ package com.pulumi.azure.frontdoor.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -122,7 +123,9 @@ public final class FrontdoorBackendPoolSettingArgs extends com.pulumi.resources.
         }
 
         public FrontdoorBackendPoolSettingArgs build() {
-            $.enforceBackendPoolsCertificateNameCheck = Objects.requireNonNull($.enforceBackendPoolsCertificateNameCheck, "expected parameter 'enforceBackendPoolsCertificateNameCheck' to be non-null");
+            if ($.enforceBackendPoolsCertificateNameCheck == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolSettingArgs", "enforceBackendPoolsCertificateNameCheck");
+            }
             return $;
         }
     }

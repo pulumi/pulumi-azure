@@ -6,6 +6,7 @@ package com.pulumi.azure.sentinel;
 import com.pulumi.azure.sentinel.inputs.AlertRuleFusionSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,8 +238,12 @@ public final class AlertRuleFusionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AlertRuleFusionArgs build() {
-            $.alertRuleTemplateGuid = Objects.requireNonNull($.alertRuleTemplateGuid, "expected parameter 'alertRuleTemplateGuid' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.alertRuleTemplateGuid == null) {
+                throw new MissingRequiredPropertyException("AlertRuleFusionArgs", "alertRuleTemplateGuid");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleFusionArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

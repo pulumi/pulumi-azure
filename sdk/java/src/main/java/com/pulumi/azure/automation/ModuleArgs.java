@@ -6,6 +6,7 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.automation.inputs.ModuleModuleLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class ModuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ModuleArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.moduleLink = Objects.requireNonNull($.moduleLink, "expected parameter 'moduleLink' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ModuleArgs", "automationAccountName");
+            }
+            if ($.moduleLink == null) {
+                throw new MissingRequiredPropertyException("ModuleArgs", "moduleLink");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ModuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

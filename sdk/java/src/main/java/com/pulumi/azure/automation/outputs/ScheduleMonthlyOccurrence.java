@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class ScheduleMonthlyOccurrence {
 
         @CustomType.Setter
         public Builder day(String day) {
-            this.day = Objects.requireNonNull(day);
+            if (day == null) {
+              throw new MissingRequiredPropertyException("ScheduleMonthlyOccurrence", "day");
+            }
+            this.day = day;
             return this;
         }
         @CustomType.Setter
         public Builder occurrence(Integer occurrence) {
-            this.occurrence = Objects.requireNonNull(occurrence);
+            if (occurrence == null) {
+              throw new MissingRequiredPropertyException("ScheduleMonthlyOccurrence", "occurrence");
+            }
+            this.occurrence = occurrence;
             return this;
         }
         public ScheduleMonthlyOccurrence build() {

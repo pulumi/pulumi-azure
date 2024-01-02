@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,11 +336,21 @@ public final class OutputPowerbiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutputPowerbiArgs build() {
-            $.dataset = Objects.requireNonNull($.dataset, "expected parameter 'dataset' to be non-null");
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.groupName = Objects.requireNonNull($.groupName, "expected parameter 'groupName' to be non-null");
-            $.streamAnalyticsJobId = Objects.requireNonNull($.streamAnalyticsJobId, "expected parameter 'streamAnalyticsJobId' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
+            if ($.dataset == null) {
+                throw new MissingRequiredPropertyException("OutputPowerbiArgs", "dataset");
+            }
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("OutputPowerbiArgs", "groupId");
+            }
+            if ($.groupName == null) {
+                throw new MissingRequiredPropertyException("OutputPowerbiArgs", "groupName");
+            }
+            if ($.streamAnalyticsJobId == null) {
+                throw new MissingRequiredPropertyException("OutputPowerbiArgs", "streamAnalyticsJobId");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("OutputPowerbiArgs", "table");
+            }
             return $;
         }
     }

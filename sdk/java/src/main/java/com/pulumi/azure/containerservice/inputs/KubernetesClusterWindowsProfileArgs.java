@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileGmsaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
         }
 
         public KubernetesClusterWindowsProfileArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileArgs", "adminUsername");
+            }
             return $;
         }
     }

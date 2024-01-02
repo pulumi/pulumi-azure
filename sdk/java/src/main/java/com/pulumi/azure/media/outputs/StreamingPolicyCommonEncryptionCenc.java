@@ -135,11 +135,13 @@ public final class StreamingPolicyCommonEncryptionCenc {
 
         @CustomType.Setter
         public Builder clearKeyEncryption(@Nullable StreamingPolicyCommonEncryptionCencClearKeyEncryption clearKeyEncryption) {
+
             this.clearKeyEncryption = clearKeyEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder clearTracks(@Nullable List<StreamingPolicyCommonEncryptionCencClearTrack> clearTracks) {
+
             this.clearTracks = clearTracks;
             return this;
         }
@@ -148,6 +150,7 @@ public final class StreamingPolicyCommonEncryptionCenc {
         }
         @CustomType.Setter
         public Builder contentKeyToTrackMappings(@Nullable List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping> contentKeyToTrackMappings) {
+
             this.contentKeyToTrackMappings = contentKeyToTrackMappings;
             return this;
         }
@@ -156,21 +159,25 @@ public final class StreamingPolicyCommonEncryptionCenc {
         }
         @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey) {
+
             this.defaultContentKey = defaultContentKey;
             return this;
         }
         @CustomType.Setter
         public Builder drmPlayready(@Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready) {
+
             this.drmPlayready = drmPlayready;
             return this;
         }
         @CustomType.Setter
         public Builder drmWidevineCustomLicenseAcquisitionUrlTemplate(@Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate) {
+
             this.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder enabledProtocols(@Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols) {
+
             this.enabledProtocols = enabledProtocols;
             return this;
         }

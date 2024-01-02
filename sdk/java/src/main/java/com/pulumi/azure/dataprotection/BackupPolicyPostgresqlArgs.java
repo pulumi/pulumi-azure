@@ -6,6 +6,7 @@ package com.pulumi.azure.dataprotection;
 import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlRetentionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -283,10 +284,18 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         public BackupPolicyPostgresqlArgs build() {
-            $.backupRepeatingTimeIntervals = Objects.requireNonNull($.backupRepeatingTimeIntervals, "expected parameter 'backupRepeatingTimeIntervals' to be non-null");
-            $.defaultRetentionDuration = Objects.requireNonNull($.defaultRetentionDuration, "expected parameter 'defaultRetentionDuration' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.vaultName = Objects.requireNonNull($.vaultName, "expected parameter 'vaultName' to be non-null");
+            if ($.backupRepeatingTimeIntervals == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlArgs", "backupRepeatingTimeIntervals");
+            }
+            if ($.defaultRetentionDuration == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlArgs", "defaultRetentionDuration");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlArgs", "resourceGroupName");
+            }
+            if ($.vaultName == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlArgs", "vaultName");
+            }
             return $;
         }
     }

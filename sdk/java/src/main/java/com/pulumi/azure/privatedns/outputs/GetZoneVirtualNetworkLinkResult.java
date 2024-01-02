@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -104,37 +105,58 @@ public final class GetZoneVirtualNetworkLinkResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsZoneName(String privateDnsZoneName) {
-            this.privateDnsZoneName = Objects.requireNonNull(privateDnsZoneName);
+            if (privateDnsZoneName == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "privateDnsZoneName");
+            }
+            this.privateDnsZoneName = privateDnsZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder registrationEnabled(Boolean registrationEnabled) {
-            this.registrationEnabled = Objects.requireNonNull(registrationEnabled);
+            if (registrationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "registrationEnabled");
+            }
+            this.registrationEnabled = registrationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(String virtualNetworkId) {
-            this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
+            if (virtualNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "virtualNetworkId");
+            }
+            this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         public GetZoneVirtualNetworkLinkResult build() {

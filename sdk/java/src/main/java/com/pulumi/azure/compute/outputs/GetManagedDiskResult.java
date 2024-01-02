@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetManagedDiskEncryptionSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -274,37 +275,58 @@ public final class GetManagedDiskResult {
 
         @CustomType.Setter
         public Builder createOption(String createOption) {
-            this.createOption = Objects.requireNonNull(createOption);
+            if (createOption == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "createOption");
+            }
+            this.createOption = createOption;
             return this;
         }
         @CustomType.Setter
         public Builder diskAccessId(String diskAccessId) {
-            this.diskAccessId = Objects.requireNonNull(diskAccessId);
+            if (diskAccessId == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "diskAccessId");
+            }
+            this.diskAccessId = diskAccessId;
             return this;
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
-            this.diskEncryptionSetId = Objects.requireNonNull(diskEncryptionSetId);
+            if (diskEncryptionSetId == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "diskEncryptionSetId");
+            }
+            this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder diskIopsReadWrite(Integer diskIopsReadWrite) {
-            this.diskIopsReadWrite = Objects.requireNonNull(diskIopsReadWrite);
+            if (diskIopsReadWrite == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "diskIopsReadWrite");
+            }
+            this.diskIopsReadWrite = diskIopsReadWrite;
             return this;
         }
         @CustomType.Setter
         public Builder diskMbpsReadWrite(Integer diskMbpsReadWrite) {
-            this.diskMbpsReadWrite = Objects.requireNonNull(diskMbpsReadWrite);
+            if (diskMbpsReadWrite == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "diskMbpsReadWrite");
+            }
+            this.diskMbpsReadWrite = diskMbpsReadWrite;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
-            this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
+            if (diskSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "diskSizeGb");
+            }
+            this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionSettings(List<GetManagedDiskEncryptionSetting> encryptionSettings) {
-            this.encryptionSettings = Objects.requireNonNull(encryptionSettings);
+            if (encryptionSettings == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "encryptionSettings");
+            }
+            this.encryptionSettings = encryptionSettings;
             return this;
         }
         public Builder encryptionSettings(GetManagedDiskEncryptionSetting... encryptionSettings) {
@@ -312,62 +334,98 @@ public final class GetManagedDiskResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder imageReferenceId(String imageReferenceId) {
-            this.imageReferenceId = Objects.requireNonNull(imageReferenceId);
+            if (imageReferenceId == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "imageReferenceId");
+            }
+            this.imageReferenceId = imageReferenceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkAccessPolicy(String networkAccessPolicy) {
-            this.networkAccessPolicy = Objects.requireNonNull(networkAccessPolicy);
+            if (networkAccessPolicy == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "networkAccessPolicy");
+            }
+            this.networkAccessPolicy = networkAccessPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceResourceId(String sourceResourceId) {
-            this.sourceResourceId = Objects.requireNonNull(sourceResourceId);
+            if (sourceResourceId == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "sourceResourceId");
+            }
+            this.sourceResourceId = sourceResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceUri(String sourceUri) {
-            this.sourceUri = Objects.requireNonNull(sourceUri);
+            if (sourceUri == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "sourceUri");
+            }
+            this.sourceUri = sourceUri;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

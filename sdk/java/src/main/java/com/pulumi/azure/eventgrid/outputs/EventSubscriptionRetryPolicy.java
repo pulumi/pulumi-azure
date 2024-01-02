@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class EventSubscriptionRetryPolicy {
 
         @CustomType.Setter
         public Builder eventTimeToLive(Integer eventTimeToLive) {
-            this.eventTimeToLive = Objects.requireNonNull(eventTimeToLive);
+            if (eventTimeToLive == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionRetryPolicy", "eventTimeToLive");
+            }
+            this.eventTimeToLive = eventTimeToLive;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeliveryAttempts(Integer maxDeliveryAttempts) {
-            this.maxDeliveryAttempts = Objects.requireNonNull(maxDeliveryAttempts);
+            if (maxDeliveryAttempts == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionRetryPolicy", "maxDeliveryAttempts");
+            }
+            this.maxDeliveryAttempts = maxDeliveryAttempts;
             return this;
         }
         public EventSubscriptionRetryPolicy build() {

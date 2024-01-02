@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,11 +336,21 @@ public final class ChannelSlackArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelSlackArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.verificationToken = Objects.requireNonNull($.verificationToken, "expected parameter 'verificationToken' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelSlackArgs", "botName");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("ChannelSlackArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("ChannelSlackArgs", "clientSecret");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelSlackArgs", "resourceGroupName");
+            }
+            if ($.verificationToken == null) {
+                throw new MissingRequiredPropertyException("ChannelSlackArgs", "verificationToken");
+            }
             return $;
         }
     }

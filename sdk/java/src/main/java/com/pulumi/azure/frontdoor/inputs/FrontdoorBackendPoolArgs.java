@@ -6,6 +6,7 @@ package com.pulumi.azure.frontdoor.inputs;
 import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolBackendArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -236,10 +237,18 @@ public final class FrontdoorBackendPoolArgs extends com.pulumi.resources.Resourc
         }
 
         public FrontdoorBackendPoolArgs build() {
-            $.backends = Objects.requireNonNull($.backends, "expected parameter 'backends' to be non-null");
-            $.healthProbeName = Objects.requireNonNull($.healthProbeName, "expected parameter 'healthProbeName' to be non-null");
-            $.loadBalancingName = Objects.requireNonNull($.loadBalancingName, "expected parameter 'loadBalancingName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.backends == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolArgs", "backends");
+            }
+            if ($.healthProbeName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolArgs", "healthProbeName");
+            }
+            if ($.loadBalancingName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolArgs", "loadBalancingName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolArgs", "name");
+            }
             return $;
         }
     }

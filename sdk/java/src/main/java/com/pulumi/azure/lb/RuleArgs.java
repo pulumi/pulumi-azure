@@ -5,6 +5,7 @@ package com.pulumi.azure.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -543,11 +544,21 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RuleArgs build() {
-            $.backendPort = Objects.requireNonNull($.backendPort, "expected parameter 'backendPort' to be non-null");
-            $.frontendIpConfigurationName = Objects.requireNonNull($.frontendIpConfigurationName, "expected parameter 'frontendIpConfigurationName' to be non-null");
-            $.frontendPort = Objects.requireNonNull($.frontendPort, "expected parameter 'frontendPort' to be non-null");
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.backendPort == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "backendPort");
+            }
+            if ($.frontendIpConfigurationName == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "frontendIpConfigurationName");
+            }
+            if ($.frontendPort == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "frontendPort");
+            }
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "loadbalancerId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("RuleArgs", "protocol");
+            }
             return $;
         }
     }

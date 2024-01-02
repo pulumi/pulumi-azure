@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class TransformOutputCustomPresetFilterFadeInArgs extends com.pulum
         }
 
         public TransformOutputCustomPresetFilterFadeInArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.fadeColor = Objects.requireNonNull($.fadeColor, "expected parameter 'fadeColor' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetFilterFadeInArgs", "duration");
+            }
+            if ($.fadeColor == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetFilterFadeInArgs", "fadeColor");
+            }
             return $;
         }
     }

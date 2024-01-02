@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SubnetNetworkSecurityGroupAssociationArgs extends com.pulumi.
         }
 
         public SubnetNetworkSecurityGroupAssociationArgs build() {
-            $.networkSecurityGroupId = Objects.requireNonNull($.networkSecurityGroupId, "expected parameter 'networkSecurityGroupId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.networkSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("SubnetNetworkSecurityGroupAssociationArgs", "networkSecurityGroupId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("SubnetNetworkSecurityGroupAssociationArgs", "subnetId");
+            }
             return $;
         }
     }

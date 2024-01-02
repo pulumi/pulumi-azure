@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -90,7 +91,9 @@ public final class KubernetesFleetManagerHubProfileArgs extends com.pulumi.resou
         }
 
         public KubernetesFleetManagerHubProfileArgs build() {
-            $.dnsPrefix = Objects.requireNonNull($.dnsPrefix, "expected parameter 'dnsPrefix' to be non-null");
+            if ($.dnsPrefix == null) {
+                throw new MissingRequiredPropertyException("KubernetesFleetManagerHubProfileArgs", "dnsPrefix");
+            }
             return $;
         }
     }

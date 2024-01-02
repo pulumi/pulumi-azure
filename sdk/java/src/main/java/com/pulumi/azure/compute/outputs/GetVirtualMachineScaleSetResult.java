@@ -7,6 +7,7 @@ import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetIdentity;
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetInstance;
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetNetworkInterface;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,12 +123,18 @@ public final class GetVirtualMachineScaleSetResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetVirtualMachineScaleSetIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetVirtualMachineScaleSetIdentity... identities) {
@@ -135,7 +142,10 @@ public final class GetVirtualMachineScaleSetResult {
         }
         @CustomType.Setter
         public Builder instances(List<GetVirtualMachineScaleSetInstance> instances) {
-            this.instances = Objects.requireNonNull(instances);
+            if (instances == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "instances");
+            }
+            this.instances = instances;
             return this;
         }
         public Builder instances(GetVirtualMachineScaleSetInstance... instances) {
@@ -143,17 +153,26 @@ public final class GetVirtualMachineScaleSetResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaces(List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+            if (networkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "networkInterfaces");
+            }
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetVirtualMachineScaleSetNetworkInterface... networkInterfaces) {
@@ -161,7 +180,10 @@ public final class GetVirtualMachineScaleSetResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetVirtualMachineScaleSetResult build() {

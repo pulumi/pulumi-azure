@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -256,10 +257,18 @@ public final class NetworkConnectionMonitorTestGroupArgs extends com.pulumi.reso
         }
 
         public NetworkConnectionMonitorTestGroupArgs build() {
-            $.destinationEndpoints = Objects.requireNonNull($.destinationEndpoints, "expected parameter 'destinationEndpoints' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.sourceEndpoints = Objects.requireNonNull($.sourceEndpoints, "expected parameter 'sourceEndpoints' to be non-null");
-            $.testConfigurationNames = Objects.requireNonNull($.testConfigurationNames, "expected parameter 'testConfigurationNames' to be non-null");
+            if ($.destinationEndpoints == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroupArgs", "destinationEndpoints");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroupArgs", "name");
+            }
+            if ($.sourceEndpoints == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroupArgs", "sourceEndpoints");
+            }
+            if ($.testConfigurationNames == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestGroupArgs", "testConfigurationNames");
+            }
             return $;
         }
     }

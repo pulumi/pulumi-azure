@@ -24,6 +24,7 @@ import com.pulumi.azure.cdn.outputs.EndpointDeliveryRuleUrlPathCondition;
 import com.pulumi.azure.cdn.outputs.EndpointDeliveryRuleUrlRedirectAction;
 import com.pulumi.azure.cdn.outputs.EndpointDeliveryRuleUrlRewriteAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -360,16 +361,19 @@ public final class EndpointDeliveryRule {
 
         @CustomType.Setter
         public Builder cacheExpirationAction(@Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction) {
+
             this.cacheExpirationAction = cacheExpirationAction;
             return this;
         }
         @CustomType.Setter
         public Builder cacheKeyQueryStringAction(@Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction) {
+
             this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
             return this;
         }
         @CustomType.Setter
         public Builder cookiesConditions(@Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions) {
+
             this.cookiesConditions = cookiesConditions;
             return this;
         }
@@ -378,11 +382,13 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder deviceCondition(@Nullable EndpointDeliveryRuleDeviceCondition deviceCondition) {
+
             this.deviceCondition = deviceCondition;
             return this;
         }
         @CustomType.Setter
         public Builder httpVersionConditions(@Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions) {
+
             this.httpVersionConditions = httpVersionConditions;
             return this;
         }
@@ -391,6 +397,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder modifyRequestHeaderActions(@Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions) {
+
             this.modifyRequestHeaderActions = modifyRequestHeaderActions;
             return this;
         }
@@ -399,6 +406,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder modifyResponseHeaderActions(@Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions) {
+
             this.modifyResponseHeaderActions = modifyResponseHeaderActions;
             return this;
         }
@@ -407,16 +415,23 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EndpointDeliveryRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("EndpointDeliveryRule", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder postArgConditions(@Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions) {
+
             this.postArgConditions = postArgConditions;
             return this;
         }
@@ -425,6 +440,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder queryStringConditions(@Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions) {
+
             this.queryStringConditions = queryStringConditions;
             return this;
         }
@@ -433,6 +449,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder remoteAddressConditions(@Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions) {
+
             this.remoteAddressConditions = remoteAddressConditions;
             return this;
         }
@@ -441,6 +458,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder requestBodyConditions(@Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions) {
+
             this.requestBodyConditions = requestBodyConditions;
             return this;
         }
@@ -449,6 +467,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder requestHeaderConditions(@Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions) {
+
             this.requestHeaderConditions = requestHeaderConditions;
             return this;
         }
@@ -457,16 +476,19 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder requestMethodCondition(@Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition) {
+
             this.requestMethodCondition = requestMethodCondition;
             return this;
         }
         @CustomType.Setter
         public Builder requestSchemeCondition(@Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition) {
+
             this.requestSchemeCondition = requestSchemeCondition;
             return this;
         }
         @CustomType.Setter
         public Builder requestUriConditions(@Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions) {
+
             this.requestUriConditions = requestUriConditions;
             return this;
         }
@@ -475,6 +497,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder urlFileExtensionConditions(@Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions) {
+
             this.urlFileExtensionConditions = urlFileExtensionConditions;
             return this;
         }
@@ -483,6 +506,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder urlFileNameConditions(@Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions) {
+
             this.urlFileNameConditions = urlFileNameConditions;
             return this;
         }
@@ -491,6 +515,7 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder urlPathConditions(@Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions) {
+
             this.urlPathConditions = urlPathConditions;
             return this;
         }
@@ -499,11 +524,13 @@ public final class EndpointDeliveryRule {
         }
         @CustomType.Setter
         public Builder urlRedirectAction(@Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction) {
+
             this.urlRedirectAction = urlRedirectAction;
             return this;
         }
         @CustomType.Setter
         public Builder urlRewriteAction(@Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction) {
+
             this.urlRewriteAction = urlRewriteAction;
             return this;
         }

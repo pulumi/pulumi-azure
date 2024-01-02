@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class IotHubDpsIpFilterRuleArgs extends com.pulumi.resources.Resour
         }
 
         public IotHubDpsIpFilterRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.ipMask = Objects.requireNonNull($.ipMask, "expected parameter 'ipMask' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("IotHubDpsIpFilterRuleArgs", "action");
+            }
+            if ($.ipMask == null) {
+                throw new MissingRequiredPropertyException("IotHubDpsIpFilterRuleArgs", "ipMask");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IotHubDpsIpFilterRuleArgs", "name");
+            }
             return $;
         }
     }

@@ -98,21 +98,25 @@ public final class LabAutoShutdown {
 
         @CustomType.Setter
         public Builder disconnectDelay(@Nullable String disconnectDelay) {
+
             this.disconnectDelay = disconnectDelay;
             return this;
         }
         @CustomType.Setter
         public Builder idleDelay(@Nullable String idleDelay) {
+
             this.idleDelay = idleDelay;
             return this;
         }
         @CustomType.Setter
         public Builder noConnectDelay(@Nullable String noConnectDelay) {
+
             this.noConnectDelay = noConnectDelay;
             return this;
         }
         @CustomType.Setter
         public Builder shutdownOnIdle(@Nullable String shutdownOnIdle) {
+
             this.shutdownOnIdle = shutdownOnIdle;
             return this;
         }

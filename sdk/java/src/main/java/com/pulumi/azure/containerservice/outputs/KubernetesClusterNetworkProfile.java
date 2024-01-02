@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfileLoadBalancerProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterNetworkProfileNatGatewayProfile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -317,21 +318,25 @@ public final class KubernetesClusterNetworkProfile {
 
         @CustomType.Setter
         public Builder dnsServiceIp(@Nullable String dnsServiceIp) {
+
             this.dnsServiceIp = dnsServiceIp;
             return this;
         }
         @CustomType.Setter
         public Builder dockerBridgeCidr(@Nullable String dockerBridgeCidr) {
+
             this.dockerBridgeCidr = dockerBridgeCidr;
             return this;
         }
         @CustomType.Setter
         public Builder ebpfDataPlane(@Nullable String ebpfDataPlane) {
+
             this.ebpfDataPlane = ebpfDataPlane;
             return this;
         }
         @CustomType.Setter
         public Builder ipVersions(@Nullable List<String> ipVersions) {
+
             this.ipVersions = ipVersions;
             return this;
         }
@@ -340,51 +345,63 @@ public final class KubernetesClusterNetworkProfile {
         }
         @CustomType.Setter
         public Builder loadBalancerProfile(@Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile) {
+
             this.loadBalancerProfile = loadBalancerProfile;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerSku(@Nullable String loadBalancerSku) {
+
             this.loadBalancerSku = loadBalancerSku;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayProfile(@Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile) {
+
             this.natGatewayProfile = natGatewayProfile;
             return this;
         }
         @CustomType.Setter
         public Builder networkMode(@Nullable String networkMode) {
+
             this.networkMode = networkMode;
             return this;
         }
         @CustomType.Setter
         public Builder networkPlugin(String networkPlugin) {
-            this.networkPlugin = Objects.requireNonNull(networkPlugin);
+            if (networkPlugin == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterNetworkProfile", "networkPlugin");
+            }
+            this.networkPlugin = networkPlugin;
             return this;
         }
         @CustomType.Setter
         public Builder networkPluginMode(@Nullable String networkPluginMode) {
+
             this.networkPluginMode = networkPluginMode;
             return this;
         }
         @CustomType.Setter
         public Builder networkPolicy(@Nullable String networkPolicy) {
+
             this.networkPolicy = networkPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
+
             this.outboundType = outboundType;
             return this;
         }
         @CustomType.Setter
         public Builder podCidr(@Nullable String podCidr) {
+
             this.podCidr = podCidr;
             return this;
         }
         @CustomType.Setter
         public Builder podCidrs(@Nullable List<String> podCidrs) {
+
             this.podCidrs = podCidrs;
             return this;
         }
@@ -393,11 +410,13 @@ public final class KubernetesClusterNetworkProfile {
         }
         @CustomType.Setter
         public Builder serviceCidr(@Nullable String serviceCidr) {
+
             this.serviceCidr = serviceCidr;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCidrs(@Nullable List<String> serviceCidrs) {
+
             this.serviceCidrs = serviceCidrs;
             return this;
         }

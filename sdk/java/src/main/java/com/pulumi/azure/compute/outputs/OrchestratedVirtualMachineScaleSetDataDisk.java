@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -158,46 +159,63 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
 
         @CustomType.Setter
         public Builder caching(String caching) {
-            this.caching = Objects.requireNonNull(caching);
+            if (caching == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "caching");
+            }
+            this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder createOption(@Nullable String createOption) {
+
             this.createOption = createOption;
             return this;
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
-            this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
+            if (diskSizeGb == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "diskSizeGb");
+            }
+            this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder lun(Integer lun) {
-            this.lun = Objects.requireNonNull(lun);
+            if (lun == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "lun");
+            }
+            this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDisk", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         @CustomType.Setter
         public Builder ultraSsdDiskIopsReadWrite(@Nullable Integer ultraSsdDiskIopsReadWrite) {
+
             this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             return this;
         }
         @CustomType.Setter
         public Builder ultraSsdDiskMbpsReadWrite(@Nullable Integer ultraSsdDiskMbpsReadWrite) {
+
             this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             return this;
         }
         @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
+
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
         }

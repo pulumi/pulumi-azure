@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.SnapshotEncryptionSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -466,8 +467,12 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SnapshotArgs build() {
-            $.createOption = Objects.requireNonNull($.createOption, "expected parameter 'createOption' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.createOption == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "createOption");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SnapshotArgs", "resourceGroupName");
+            }
             return $;
         }
     }

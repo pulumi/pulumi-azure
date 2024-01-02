@@ -7,6 +7,7 @@ import com.pulumi.azure.nginx.inputs.ConfigurationConfigFileArgs;
 import com.pulumi.azure.nginx.inputs.ConfigurationProtectedFileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -247,8 +248,12 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConfigurationArgs build() {
-            $.nginxDeploymentId = Objects.requireNonNull($.nginxDeploymentId, "expected parameter 'nginxDeploymentId' to be non-null");
-            $.rootFile = Objects.requireNonNull($.rootFile, "expected parameter 'rootFile' to be non-null");
+            if ($.nginxDeploymentId == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "nginxDeploymentId");
+            }
+            if ($.rootFile == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "rootFile");
+            }
             return $;
         }
     }

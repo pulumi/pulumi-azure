@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.GremlinGraphIndexPolicyCompositeIndexIndex;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GremlinGraphIndexPolicyCompositeIndex {
 
         @CustomType.Setter
         public Builder indices(List<GremlinGraphIndexPolicyCompositeIndexIndex> indices) {
-            this.indices = Objects.requireNonNull(indices);
+            if (indices == null) {
+              throw new MissingRequiredPropertyException("GremlinGraphIndexPolicyCompositeIndex", "indices");
+            }
+            this.indices = indices;
             return this;
         }
         public Builder indices(GremlinGraphIndexPolicyCompositeIndexIndex... indices) {

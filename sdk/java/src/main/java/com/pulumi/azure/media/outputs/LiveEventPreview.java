@@ -95,11 +95,13 @@ public final class LiveEventPreview {
 
         @CustomType.Setter
         public Builder alternativeMediaId(@Nullable String alternativeMediaId) {
+
             this.alternativeMediaId = alternativeMediaId;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(@Nullable List<LiveEventPreviewEndpoint> endpoints) {
+
             this.endpoints = endpoints;
             return this;
         }
@@ -108,6 +110,7 @@ public final class LiveEventPreview {
         }
         @CustomType.Setter
         public Builder ipAccessControlAllows(@Nullable List<LiveEventPreviewIpAccessControlAllow> ipAccessControlAllows) {
+
             this.ipAccessControlAllows = ipAccessControlAllows;
             return this;
         }
@@ -116,11 +119,13 @@ public final class LiveEventPreview {
         }
         @CustomType.Setter
         public Builder previewLocator(@Nullable String previewLocator) {
+
             this.previewLocator = previewLocator;
             return this;
         }
         @CustomType.Setter
         public Builder streamingPolicyName(@Nullable String streamingPolicyName) {
+
             this.streamingPolicyName = streamingPolicyName;
             return this;
         }

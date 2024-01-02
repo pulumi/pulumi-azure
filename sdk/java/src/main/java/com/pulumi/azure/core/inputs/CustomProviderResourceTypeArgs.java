@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class CustomProviderResourceTypeArgs extends com.pulumi.resources.R
         }
 
         public CustomProviderResourceTypeArgs build() {
-            $.endpoint = Objects.requireNonNull($.endpoint, "expected parameter 'endpoint' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.endpoint == null) {
+                throw new MissingRequiredPropertyException("CustomProviderResourceTypeArgs", "endpoint");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("CustomProviderResourceTypeArgs", "name");
+            }
             return $;
         }
     }

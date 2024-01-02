@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomDomainArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.webPubsubCustomCertificateId = Objects.requireNonNull($.webPubsubCustomCertificateId, "expected parameter 'webPubsubCustomCertificateId' to be non-null");
-            $.webPubsubId = Objects.requireNonNull($.webPubsubId, "expected parameter 'webPubsubId' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("CustomDomainArgs", "domainName");
+            }
+            if ($.webPubsubCustomCertificateId == null) {
+                throw new MissingRequiredPropertyException("CustomDomainArgs", "webPubsubCustomCertificateId");
+            }
+            if ($.webPubsubId == null) {
+                throw new MissingRequiredPropertyException("CustomDomainArgs", "webPubsubId");
+            }
             return $;
         }
     }

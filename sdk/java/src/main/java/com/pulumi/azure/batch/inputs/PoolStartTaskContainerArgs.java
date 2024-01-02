@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.inputs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskContainerRegistryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         public PoolStartTaskContainerArgs build() {
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("PoolStartTaskContainerArgs", "imageName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.inputs;
 import com.pulumi.azure.waf.inputs.PolicyCustomRuleMatchConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -386,10 +387,18 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         }
 
         public PolicyCustomRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.matchConditions = Objects.requireNonNull($.matchConditions, "expected parameter 'matchConditions' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.ruleType = Objects.requireNonNull($.ruleType, "expected parameter 'ruleType' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleArgs", "action");
+            }
+            if ($.matchConditions == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleArgs", "matchConditions");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleArgs", "priority");
+            }
+            if ($.ruleType == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleArgs", "ruleType");
+            }
             return $;
         }
     }

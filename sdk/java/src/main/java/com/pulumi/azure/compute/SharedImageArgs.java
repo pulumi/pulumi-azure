@@ -7,6 +7,7 @@ import com.pulumi.azure.compute.inputs.SharedImageIdentifierArgs;
 import com.pulumi.azure.compute.inputs.SharedImagePurchasePlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1033,10 +1034,18 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SharedImageArgs build() {
-            $.galleryName = Objects.requireNonNull($.galleryName, "expected parameter 'galleryName' to be non-null");
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.osType = Objects.requireNonNull($.osType, "expected parameter 'osType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.galleryName == null) {
+                throw new MissingRequiredPropertyException("SharedImageArgs", "galleryName");
+            }
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("SharedImageArgs", "identifier");
+            }
+            if ($.osType == null) {
+                throw new MissingRequiredPropertyException("SharedImageArgs", "osType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SharedImageArgs", "resourceGroupName");
+            }
             return $;
         }
     }

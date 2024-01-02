@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -127,12 +128,18 @@ public final class GetKeyVaultAccessPolicy {
 
         @CustomType.Setter
         public Builder applicationId(String applicationId) {
-            this.applicationId = Objects.requireNonNull(applicationId);
+            if (applicationId == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "applicationId");
+            }
+            this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder certificatePermissions(List<String> certificatePermissions) {
-            this.certificatePermissions = Objects.requireNonNull(certificatePermissions);
+            if (certificatePermissions == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "certificatePermissions");
+            }
+            this.certificatePermissions = certificatePermissions;
             return this;
         }
         public Builder certificatePermissions(String... certificatePermissions) {
@@ -140,7 +147,10 @@ public final class GetKeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder keyPermissions(List<String> keyPermissions) {
-            this.keyPermissions = Objects.requireNonNull(keyPermissions);
+            if (keyPermissions == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "keyPermissions");
+            }
+            this.keyPermissions = keyPermissions;
             return this;
         }
         public Builder keyPermissions(String... keyPermissions) {
@@ -148,12 +158,18 @@ public final class GetKeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder objectId(String objectId) {
-            this.objectId = Objects.requireNonNull(objectId);
+            if (objectId == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "objectId");
+            }
+            this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder secretPermissions(List<String> secretPermissions) {
-            this.secretPermissions = Objects.requireNonNull(secretPermissions);
+            if (secretPermissions == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "secretPermissions");
+            }
+            this.secretPermissions = secretPermissions;
             return this;
         }
         public Builder secretPermissions(String... secretPermissions) {
@@ -161,7 +177,10 @@ public final class GetKeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder storagePermissions(List<String> storagePermissions) {
-            this.storagePermissions = Objects.requireNonNull(storagePermissions);
+            if (storagePermissions == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "storagePermissions");
+            }
+            this.storagePermissions = storagePermissions;
             return this;
         }
         public Builder storagePermissions(String... storagePermissions) {
@@ -169,7 +188,10 @@ public final class GetKeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultAccessPolicy", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetKeyVaultAccessPolicy build() {

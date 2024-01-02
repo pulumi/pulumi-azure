@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,40 @@ public final class SharedImageGallerySharingCommunityGallery {
 
         @CustomType.Setter
         public Builder eula(String eula) {
-            this.eula = Objects.requireNonNull(eula);
+            if (eula == null) {
+              throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGallery", "eula");
+            }
+            this.eula = eula;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder prefix(String prefix) {
-            this.prefix = Objects.requireNonNull(prefix);
+            if (prefix == null) {
+              throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGallery", "prefix");
+            }
+            this.prefix = prefix;
             return this;
         }
         @CustomType.Setter
         public Builder publisherEmail(String publisherEmail) {
-            this.publisherEmail = Objects.requireNonNull(publisherEmail);
+            if (publisherEmail == null) {
+              throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGallery", "publisherEmail");
+            }
+            this.publisherEmail = publisherEmail;
             return this;
         }
         @CustomType.Setter
         public Builder publisherUri(String publisherUri) {
-            this.publisherUri = Objects.requireNonNull(publisherUri);
+            if (publisherUri == null) {
+              throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGallery", "publisherUri");
+            }
+            this.publisherUri = publisherUri;
             return this;
         }
         public SharedImageGallerySharingCommunityGallery build() {

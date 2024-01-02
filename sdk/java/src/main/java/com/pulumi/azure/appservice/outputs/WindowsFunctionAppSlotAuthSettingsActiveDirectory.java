@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -91,6 +92,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectory {
 
         @CustomType.Setter
         public Builder allowedAudiences(@Nullable List<String> allowedAudiences) {
+
             this.allowedAudiences = allowedAudiences;
             return this;
         }
@@ -99,16 +101,21 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectory {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsActiveDirectory", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
+
             this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
+
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }

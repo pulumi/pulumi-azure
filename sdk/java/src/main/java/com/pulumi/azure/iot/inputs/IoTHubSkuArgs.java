@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -120,8 +121,12 @@ public final class IoTHubSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IoTHubSkuArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("IoTHubSkuArgs", "capacity");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("IoTHubSkuArgs", "name");
+            }
             return $;
         }
     }

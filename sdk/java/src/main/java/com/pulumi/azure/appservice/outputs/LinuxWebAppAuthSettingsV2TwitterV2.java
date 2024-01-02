@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2 {
 
         @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
-            this.consumerKey = Objects.requireNonNull(consumerKey);
+            if (consumerKey == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2TwitterV2", "consumerKey");
+            }
+            this.consumerKey = consumerKey;
             return this;
         }
         @CustomType.Setter
         public Builder consumerSecretSettingName(String consumerSecretSettingName) {
-            this.consumerSecretSettingName = Objects.requireNonNull(consumerSecretSettingName);
+            if (consumerSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2TwitterV2", "consumerSecretSettingName");
+            }
+            this.consumerSecretSettingName = consumerSecretSettingName;
             return this;
         }
         public LinuxWebAppAuthSettingsV2TwitterV2 build() {

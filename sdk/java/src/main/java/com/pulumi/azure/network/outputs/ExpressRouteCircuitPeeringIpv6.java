@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -106,27 +107,36 @@ public final class ExpressRouteCircuitPeeringIpv6 {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder microsoftPeering(@Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering) {
+
             this.microsoftPeering = microsoftPeering;
             return this;
         }
         @CustomType.Setter
         public Builder primaryPeerAddressPrefix(String primaryPeerAddressPrefix) {
-            this.primaryPeerAddressPrefix = Objects.requireNonNull(primaryPeerAddressPrefix);
+            if (primaryPeerAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringIpv6", "primaryPeerAddressPrefix");
+            }
+            this.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder routeFilterId(@Nullable String routeFilterId) {
+
             this.routeFilterId = routeFilterId;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryPeerAddressPrefix(String secondaryPeerAddressPrefix) {
-            this.secondaryPeerAddressPrefix = Objects.requireNonNull(secondaryPeerAddressPrefix);
+            if (secondaryPeerAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringIpv6", "secondaryPeerAddressPrefix");
+            }
+            this.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
             return this;
         }
         public ExpressRouteCircuitPeeringIpv6 build() {

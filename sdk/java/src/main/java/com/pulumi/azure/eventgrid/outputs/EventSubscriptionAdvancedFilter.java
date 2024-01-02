@@ -318,6 +318,7 @@ public final class EventSubscriptionAdvancedFilter {
 
         @CustomType.Setter
         public Builder boolEquals(@Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals) {
+
             this.boolEquals = boolEquals;
             return this;
         }
@@ -326,6 +327,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder isNotNulls(@Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls) {
+
             this.isNotNulls = isNotNulls;
             return this;
         }
@@ -334,6 +336,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder isNullOrUndefineds(@Nullable List<EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds) {
+
             this.isNullOrUndefineds = isNullOrUndefineds;
             return this;
         }
@@ -342,6 +345,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberGreaterThanOrEquals(@Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals) {
+
             this.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
             return this;
         }
@@ -350,6 +354,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberGreaterThans(@Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans) {
+
             this.numberGreaterThans = numberGreaterThans;
             return this;
         }
@@ -358,6 +363,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberInRanges(@Nullable List<EventSubscriptionAdvancedFilterNumberInRange> numberInRanges) {
+
             this.numberInRanges = numberInRanges;
             return this;
         }
@@ -366,6 +372,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberIns(@Nullable List<EventSubscriptionAdvancedFilterNumberIn> numberIns) {
+
             this.numberIns = numberIns;
             return this;
         }
@@ -374,6 +381,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberLessThanOrEquals(@Nullable List<EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals) {
+
             this.numberLessThanOrEquals = numberLessThanOrEquals;
             return this;
         }
@@ -382,6 +390,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberLessThans(@Nullable List<EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans) {
+
             this.numberLessThans = numberLessThans;
             return this;
         }
@@ -390,6 +399,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberNotInRanges(@Nullable List<EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges) {
+
             this.numberNotInRanges = numberNotInRanges;
             return this;
         }
@@ -398,6 +408,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder numberNotIns(@Nullable List<EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns) {
+
             this.numberNotIns = numberNotIns;
             return this;
         }
@@ -406,6 +417,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringBeginsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringBeginsWith> stringBeginsWiths) {
+
             this.stringBeginsWiths = stringBeginsWiths;
             return this;
         }
@@ -414,6 +426,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringContains(@Nullable List<EventSubscriptionAdvancedFilterStringContain> stringContains) {
+
             this.stringContains = stringContains;
             return this;
         }
@@ -422,6 +435,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringEndsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringEndsWith> stringEndsWiths) {
+
             this.stringEndsWiths = stringEndsWiths;
             return this;
         }
@@ -430,6 +444,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringIns(@Nullable List<EventSubscriptionAdvancedFilterStringIn> stringIns) {
+
             this.stringIns = stringIns;
             return this;
         }
@@ -438,6 +453,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringNotBeginsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths) {
+
             this.stringNotBeginsWiths = stringNotBeginsWiths;
             return this;
         }
@@ -446,6 +462,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringNotContains(@Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains) {
+
             this.stringNotContains = stringNotContains;
             return this;
         }
@@ -454,6 +471,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringNotEndsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths) {
+
             this.stringNotEndsWiths = stringNotEndsWiths;
             return this;
         }
@@ -462,6 +480,7 @@ public final class EventSubscriptionAdvancedFilter {
         }
         @CustomType.Setter
         public Builder stringNotIns(@Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns) {
+
             this.stringNotIns = stringNotIns;
             return this;
         }

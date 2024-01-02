@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -374,10 +375,18 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         public OrchestratedVirtualMachineScaleSetDataDiskArgs build() {
-            $.caching = Objects.requireNonNull($.caching, "expected parameter 'caching' to be non-null");
-            $.diskSizeGb = Objects.requireNonNull($.diskSizeGb, "expected parameter 'diskSizeGb' to be non-null");
-            $.lun = Objects.requireNonNull($.lun, "expected parameter 'lun' to be non-null");
-            $.storageAccountType = Objects.requireNonNull($.storageAccountType, "expected parameter 'storageAccountType' to be non-null");
+            if ($.caching == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "caching");
+            }
+            if ($.diskSizeGb == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "diskSizeGb");
+            }
+            if ($.lun == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "lun");
+            }
+            if ($.storageAccountType == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetDataDiskArgs", "storageAccountType");
+            }
             return $;
         }
     }

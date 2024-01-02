@@ -4,6 +4,7 @@
 package com.pulumi.azure.streamanalytics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class FunctionJavascriptUdaInput {
 
         @CustomType.Setter
         public Builder configurationParameter(@Nullable Boolean configurationParameter) {
+
             this.configurationParameter = configurationParameter;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FunctionJavascriptUdaInput", "type");
+            }
+            this.type = type;
             return this;
         }
         public FunctionJavascriptUdaInput build() {

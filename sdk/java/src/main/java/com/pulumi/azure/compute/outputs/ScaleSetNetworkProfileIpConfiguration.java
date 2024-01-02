@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -153,6 +154,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
 
         @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolIds(@Nullable List<String> applicationGatewayBackendAddressPoolIds) {
+
             this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
             return this;
         }
@@ -161,6 +163,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         }
         @CustomType.Setter
         public Builder applicationSecurityGroupIds(@Nullable List<String> applicationSecurityGroupIds) {
+
             this.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
         }
@@ -169,6 +172,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         }
         @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolIds(@Nullable List<String> loadBalancerBackendAddressPoolIds) {
+
             this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
             return this;
         }
@@ -177,6 +181,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         }
         @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(@Nullable List<String> loadBalancerInboundNatRulesIds) {
+
             this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
             return this;
         }
@@ -185,22 +190,32 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfiguration", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressConfiguration(@Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration) {
+
             this.publicIpAddressConfiguration = publicIpAddressConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public ScaleSetNetworkProfileIpConfiguration build() {

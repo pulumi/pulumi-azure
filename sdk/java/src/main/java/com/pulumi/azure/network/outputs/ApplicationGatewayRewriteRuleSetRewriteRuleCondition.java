@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,30 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
 
         @CustomType.Setter
         public Builder ignoreCase(@Nullable Boolean ignoreCase) {
+
             this.ignoreCase = ignoreCase;
             return this;
         }
         @CustomType.Setter
         public Builder negate(@Nullable Boolean negate) {
+
             this.negate = negate;
             return this;
         }
         @CustomType.Setter
         public Builder pattern(String pattern) {
-            this.pattern = Objects.requireNonNull(pattern);
+            if (pattern == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleCondition", "pattern");
+            }
+            this.pattern = pattern;
             return this;
         }
         @CustomType.Setter
         public Builder variable(String variable) {
-            this.variable = Objects.requireNonNull(variable);
+            if (variable == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleCondition", "variable");
+            }
+            this.variable = variable;
             return this;
         }
         public ApplicationGatewayRewriteRuleSetRewriteRuleCondition build() {

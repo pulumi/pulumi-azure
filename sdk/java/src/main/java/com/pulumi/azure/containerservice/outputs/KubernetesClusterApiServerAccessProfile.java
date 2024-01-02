@@ -78,6 +78,7 @@ public final class KubernetesClusterApiServerAccessProfile {
 
         @CustomType.Setter
         public Builder authorizedIpRanges(@Nullable List<String> authorizedIpRanges) {
+
             this.authorizedIpRanges = authorizedIpRanges;
             return this;
         }
@@ -86,11 +87,13 @@ public final class KubernetesClusterApiServerAccessProfile {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder vnetIntegrationEnabled(@Nullable Boolean vnetIntegrationEnabled) {
+
             this.vnetIntegrationEnabled = vnetIntegrationEnabled;
             return this;
         }

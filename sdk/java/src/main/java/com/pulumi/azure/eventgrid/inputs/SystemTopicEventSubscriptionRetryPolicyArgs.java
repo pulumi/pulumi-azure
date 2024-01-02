@@ -5,6 +5,7 @@ package com.pulumi.azure.eventgrid.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SystemTopicEventSubscriptionRetryPolicyArgs extends com.pulum
         }
 
         public SystemTopicEventSubscriptionRetryPolicyArgs build() {
-            $.eventTimeToLive = Objects.requireNonNull($.eventTimeToLive, "expected parameter 'eventTimeToLive' to be non-null");
-            $.maxDeliveryAttempts = Objects.requireNonNull($.maxDeliveryAttempts, "expected parameter 'maxDeliveryAttempts' to be non-null");
+            if ($.eventTimeToLive == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionRetryPolicyArgs", "eventTimeToLive");
+            }
+            if ($.maxDeliveryAttempts == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionRetryPolicyArgs", "maxDeliveryAttempts");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetLinuxFunctionAppSiteConfigApplicationStackDocker {
 
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStackDocker", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder imageTag(String imageTag) {
-            this.imageTag = Objects.requireNonNull(imageTag);
+            if (imageTag == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStackDocker", "imageTag");
+            }
+            this.imageTag = imageTag;
             return this;
         }
         @CustomType.Setter
         public Builder registryPassword(String registryPassword) {
-            this.registryPassword = Objects.requireNonNull(registryPassword);
+            if (registryPassword == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStackDocker", "registryPassword");
+            }
+            this.registryPassword = registryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder registryUrl(String registryUrl) {
-            this.registryUrl = Objects.requireNonNull(registryUrl);
+            if (registryUrl == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStackDocker", "registryUrl");
+            }
+            this.registryUrl = registryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder registryUsername(String registryUsername) {
-            this.registryUsername = Objects.requireNonNull(registryUsername);
+            if (registryUsername == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStackDocker", "registryUsername");
+            }
+            this.registryUsername = registryUsername;
             return this;
         }
         public GetLinuxFunctionAppSiteConfigApplicationStackDocker build() {

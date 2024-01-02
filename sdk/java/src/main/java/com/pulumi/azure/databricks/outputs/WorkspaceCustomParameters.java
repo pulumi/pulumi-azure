@@ -207,61 +207,73 @@ public final class WorkspaceCustomParameters {
 
         @CustomType.Setter
         public Builder machineLearningWorkspaceId(@Nullable String machineLearningWorkspaceId) {
+
             this.machineLearningWorkspaceId = machineLearningWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder natGatewayName(@Nullable String natGatewayName) {
+
             this.natGatewayName = natGatewayName;
             return this;
         }
         @CustomType.Setter
         public Builder noPublicIp(@Nullable Boolean noPublicIp) {
+
             this.noPublicIp = noPublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder privateSubnetName(@Nullable String privateSubnetName) {
+
             this.privateSubnetName = privateSubnetName;
             return this;
         }
         @CustomType.Setter
         public Builder privateSubnetNetworkSecurityGroupAssociationId(@Nullable String privateSubnetNetworkSecurityGroupAssociationId) {
+
             this.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpName(@Nullable String publicIpName) {
+
             this.publicIpName = publicIpName;
             return this;
         }
         @CustomType.Setter
         public Builder publicSubnetName(@Nullable String publicSubnetName) {
+
             this.publicSubnetName = publicSubnetName;
             return this;
         }
         @CustomType.Setter
         public Builder publicSubnetNetworkSecurityGroupAssociationId(@Nullable String publicSubnetNetworkSecurityGroupAssociationId) {
+
             this.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(@Nullable String storageAccountName) {
+
             this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountSkuName(@Nullable String storageAccountSkuName) {
+
             this.storageAccountSkuName = storageAccountSkuName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(@Nullable String virtualNetworkId) {
+
             this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder vnetAddressPrefix(@Nullable String vnetAddressPrefix) {
+
             this.vnetAddressPrefix = vnetAddressPrefix;
             return this;
         }

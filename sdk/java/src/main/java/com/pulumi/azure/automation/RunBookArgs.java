@@ -8,6 +8,7 @@ import com.pulumi.azure.automation.inputs.RunBookJobScheduleArgs;
 import com.pulumi.azure.automation.inputs.RunBookPublishContentLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -556,11 +557,21 @@ public final class RunBookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RunBookArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.logProgress = Objects.requireNonNull($.logProgress, "expected parameter 'logProgress' to be non-null");
-            $.logVerbose = Objects.requireNonNull($.logVerbose, "expected parameter 'logVerbose' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.runbookType = Objects.requireNonNull($.runbookType, "expected parameter 'runbookType' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("RunBookArgs", "automationAccountName");
+            }
+            if ($.logProgress == null) {
+                throw new MissingRequiredPropertyException("RunBookArgs", "logProgress");
+            }
+            if ($.logVerbose == null) {
+                throw new MissingRequiredPropertyException("RunBookArgs", "logVerbose");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RunBookArgs", "resourceGroupName");
+            }
+            if ($.runbookType == null) {
+                throw new MissingRequiredPropertyException("RunBookArgs", "runbookType");
+            }
             return $;
         }
     }

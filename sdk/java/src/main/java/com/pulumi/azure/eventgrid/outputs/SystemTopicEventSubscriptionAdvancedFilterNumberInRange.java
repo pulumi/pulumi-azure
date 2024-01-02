@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -62,12 +63,18 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberInRange {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionAdvancedFilterNumberInRange", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder values(List<List<Double>> values) {
-            this.values = Objects.requireNonNull(values);
+            if (values == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionAdvancedFilterNumberInRange", "values");
+            }
+            this.values = values;
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterNumberInRange build() {

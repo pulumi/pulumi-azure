@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -233,10 +234,18 @@ public final class ReplicationPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ReplicationPolicyArgs build() {
-            $.applicationConsistentSnapshotFrequencyInMinutes = Objects.requireNonNull($.applicationConsistentSnapshotFrequencyInMinutes, "expected parameter 'applicationConsistentSnapshotFrequencyInMinutes' to be non-null");
-            $.recoveryPointRetentionInMinutes = Objects.requireNonNull($.recoveryPointRetentionInMinutes, "expected parameter 'recoveryPointRetentionInMinutes' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.applicationConsistentSnapshotFrequencyInMinutes == null) {
+                throw new MissingRequiredPropertyException("ReplicationPolicyArgs", "applicationConsistentSnapshotFrequencyInMinutes");
+            }
+            if ($.recoveryPointRetentionInMinutes == null) {
+                throw new MissingRequiredPropertyException("ReplicationPolicyArgs", "recoveryPointRetentionInMinutes");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ReplicationPolicyArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ReplicationPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

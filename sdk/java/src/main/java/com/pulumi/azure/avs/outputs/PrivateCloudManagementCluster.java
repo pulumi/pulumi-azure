@@ -4,6 +4,7 @@
 package com.pulumi.azure.avs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -74,6 +75,7 @@ public final class PrivateCloudManagementCluster {
 
         @CustomType.Setter
         public Builder hosts(@Nullable List<String> hosts) {
+
             this.hosts = hosts;
             return this;
         }
@@ -82,12 +84,16 @@ public final class PrivateCloudManagementCluster {
         }
         @CustomType.Setter
         public Builder id(@Nullable Integer id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("PrivateCloudManagementCluster", "size");
+            }
+            this.size = size;
             return this;
         }
         public PrivateCloudManagementCluster build() {

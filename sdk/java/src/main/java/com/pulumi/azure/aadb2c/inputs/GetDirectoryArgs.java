@@ -5,6 +5,7 @@ package com.pulumi.azure.aadb2c.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDirectoryArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("GetDirectoryArgs", "domainName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetDirectoryArgs", "resourceGroupName");
+            }
             return $;
         }
     }

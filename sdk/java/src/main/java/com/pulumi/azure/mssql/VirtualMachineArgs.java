@@ -12,6 +12,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineStorageConfigurationArgs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineWsfcDomainCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -641,7 +642,9 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualMachineArgs build() {
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineArgs", "virtualMachineId");
+            }
             return $;
         }
     }

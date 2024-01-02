@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,8 +197,12 @@ public final class FrontdoorOriginGroupHealthProbeArgs extends com.pulumi.resour
         }
 
         public FrontdoorOriginGroupHealthProbeArgs build() {
-            $.intervalInSeconds = Objects.requireNonNull($.intervalInSeconds, "expected parameter 'intervalInSeconds' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.intervalInSeconds == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginGroupHealthProbeArgs", "intervalInSeconds");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginGroupHealthProbeArgs", "protocol");
+            }
             return $;
         }
     }

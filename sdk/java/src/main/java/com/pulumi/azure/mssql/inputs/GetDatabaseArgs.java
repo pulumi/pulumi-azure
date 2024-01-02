@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetDatabaseArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetDatabaseArgs", "name");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("GetDatabaseArgs", "serverId");
+            }
             return $;
         }
     }

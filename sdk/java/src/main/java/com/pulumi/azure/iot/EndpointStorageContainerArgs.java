@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -492,9 +493,15 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
         }
 
         public EndpointStorageContainerArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("EndpointStorageContainerArgs", "containerName");
+            }
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("EndpointStorageContainerArgs", "iothubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointStorageContainerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

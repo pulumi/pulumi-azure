@@ -7,6 +7,7 @@ import com.pulumi.azure.eventhub.inputs.EventHubNamespaceNetworkRulesetsIpRuleAr
 import com.pulumi.azure.eventhub.inputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -256,7 +257,9 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         public EventHubNamespaceNetworkRulesetsArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceNetworkRulesetsArgs", "defaultAction");
+            }
             return $;
         }
     }

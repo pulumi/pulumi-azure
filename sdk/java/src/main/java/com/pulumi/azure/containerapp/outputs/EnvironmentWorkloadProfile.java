@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -69,22 +70,34 @@ public final class EnvironmentWorkloadProfile {
 
         @CustomType.Setter
         public Builder maximumCount(Integer maximumCount) {
-            this.maximumCount = Objects.requireNonNull(maximumCount);
+            if (maximumCount == null) {
+              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "maximumCount");
+            }
+            this.maximumCount = maximumCount;
             return this;
         }
         @CustomType.Setter
         public Builder minimumCount(Integer minimumCount) {
-            this.minimumCount = Objects.requireNonNull(minimumCount);
+            if (minimumCount == null) {
+              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "minimumCount");
+            }
+            this.minimumCount = minimumCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder workloadProfileType(String workloadProfileType) {
-            this.workloadProfileType = Objects.requireNonNull(workloadProfileType);
+            if (workloadProfileType == null) {
+              throw new MissingRequiredPropertyException("EnvironmentWorkloadProfile", "workloadProfileType");
+            }
+            this.workloadProfileType = workloadProfileType;
             return this;
         }
         public EnvironmentWorkloadProfile build() {

@@ -8,6 +8,7 @@ import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureMachineScopeArgs;
 import com.pulumi.azure.compute.inputs.ScaleSetPacketCaptureStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -387,9 +388,15 @@ public final class ScaleSetPacketCaptureArgs extends com.pulumi.resources.Resour
         }
 
         public ScaleSetPacketCaptureArgs build() {
-            $.networkWatcherId = Objects.requireNonNull($.networkWatcherId, "expected parameter 'networkWatcherId' to be non-null");
-            $.storageLocation = Objects.requireNonNull($.storageLocation, "expected parameter 'storageLocation' to be non-null");
-            $.virtualMachineScaleSetId = Objects.requireNonNull($.virtualMachineScaleSetId, "expected parameter 'virtualMachineScaleSetId' to be non-null");
+            if ($.networkWatcherId == null) {
+                throw new MissingRequiredPropertyException("ScaleSetPacketCaptureArgs", "networkWatcherId");
+            }
+            if ($.storageLocation == null) {
+                throw new MissingRequiredPropertyException("ScaleSetPacketCaptureArgs", "storageLocation");
+            }
+            if ($.virtualMachineScaleSetId == null) {
+                throw new MissingRequiredPropertyException("ScaleSetPacketCaptureArgs", "virtualMachineScaleSetId");
+            }
             return $;
         }
     }

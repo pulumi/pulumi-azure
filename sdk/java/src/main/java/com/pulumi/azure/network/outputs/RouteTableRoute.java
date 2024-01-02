@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class RouteTableRoute {
 
         @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
-            this.addressPrefix = Objects.requireNonNull(addressPrefix);
+            if (addressPrefix == null) {
+              throw new MissingRequiredPropertyException("RouteTableRoute", "addressPrefix");
+            }
+            this.addressPrefix = addressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RouteTableRoute", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextHopInIpAddress(@Nullable String nextHopInIpAddress) {
+
             this.nextHopInIpAddress = nextHopInIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder nextHopType(String nextHopType) {
-            this.nextHopType = Objects.requireNonNull(nextHopType);
+            if (nextHopType == null) {
+              throw new MissingRequiredPropertyException("RouteTableRoute", "nextHopType");
+            }
+            this.nextHopType = nextHopType;
             return this;
         }
         public RouteTableRoute build() {

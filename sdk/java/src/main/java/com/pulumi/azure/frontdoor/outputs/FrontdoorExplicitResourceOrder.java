@@ -60,6 +60,7 @@ public final class FrontdoorExplicitResourceOrder {
 
         @CustomType.Setter
         public Builder backendPoolHealthProbeIds(@Nullable List<String> backendPoolHealthProbeIds) {
+
             this.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
             return this;
         }
@@ -68,6 +69,7 @@ public final class FrontdoorExplicitResourceOrder {
         }
         @CustomType.Setter
         public Builder backendPoolIds(@Nullable List<String> backendPoolIds) {
+
             this.backendPoolIds = backendPoolIds;
             return this;
         }
@@ -76,6 +78,7 @@ public final class FrontdoorExplicitResourceOrder {
         }
         @CustomType.Setter
         public Builder backendPoolLoadBalancingIds(@Nullable List<String> backendPoolLoadBalancingIds) {
+
             this.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
             return this;
         }
@@ -84,6 +87,7 @@ public final class FrontdoorExplicitResourceOrder {
         }
         @CustomType.Setter
         public Builder frontendEndpointIds(@Nullable List<String> frontendEndpointIds) {
+
             this.frontendEndpointIds = frontendEndpointIds;
             return this;
         }
@@ -92,6 +96,7 @@ public final class FrontdoorExplicitResourceOrder {
         }
         @CustomType.Setter
         public Builder routingRuleIds(@Nullable List<String> routingRuleIds) {
+
             this.routingRuleIds = routingRuleIds;
             return this;
         }

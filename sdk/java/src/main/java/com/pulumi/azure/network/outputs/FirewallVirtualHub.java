@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,11 +89,13 @@ public final class FirewallVirtualHub {
 
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
+
             this.publicIpAddresses = publicIpAddresses;
             return this;
         }
@@ -101,12 +104,16 @@ public final class FirewallVirtualHub {
         }
         @CustomType.Setter
         public Builder publicIpCount(@Nullable Integer publicIpCount) {
+
             this.publicIpCount = publicIpCount;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("FirewallVirtualHub", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         public FirewallVirtualHub build() {

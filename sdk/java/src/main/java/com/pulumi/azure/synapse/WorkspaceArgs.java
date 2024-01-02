@@ -11,6 +11,7 @@ import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
 import com.pulumi.azure.synapse.inputs.WorkspaceSqlAadAdminArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -872,8 +873,12 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageDataLakeGen2FilesystemId = Objects.requireNonNull($.storageDataLakeGen2FilesystemId, "expected parameter 'storageDataLakeGen2FilesystemId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "resourceGroupName");
+            }
+            if ($.storageDataLakeGen2FilesystemId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "storageDataLakeGen2FilesystemId");
+            }
             return $;
         }
     }

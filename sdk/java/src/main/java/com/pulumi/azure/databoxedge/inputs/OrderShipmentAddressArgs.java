@@ -5,6 +5,7 @@ package com.pulumi.azure.databoxedge.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -233,11 +234,21 @@ public final class OrderShipmentAddressArgs extends com.pulumi.resources.Resourc
         }
 
         public OrderShipmentAddressArgs build() {
-            $.addresses = Objects.requireNonNull($.addresses, "expected parameter 'addresses' to be non-null");
-            $.city = Objects.requireNonNull($.city, "expected parameter 'city' to be non-null");
-            $.country = Objects.requireNonNull($.country, "expected parameter 'country' to be non-null");
-            $.postalCode = Objects.requireNonNull($.postalCode, "expected parameter 'postalCode' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
+            if ($.addresses == null) {
+                throw new MissingRequiredPropertyException("OrderShipmentAddressArgs", "addresses");
+            }
+            if ($.city == null) {
+                throw new MissingRequiredPropertyException("OrderShipmentAddressArgs", "city");
+            }
+            if ($.country == null) {
+                throw new MissingRequiredPropertyException("OrderShipmentAddressArgs", "country");
+            }
+            if ($.postalCode == null) {
+                throw new MissingRequiredPropertyException("OrderShipmentAddressArgs", "postalCode");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("OrderShipmentAddressArgs", "state");
+            }
             return $;
         }
     }

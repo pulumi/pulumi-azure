@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.AccountRestoreDatabase;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,6 +78,7 @@ public final class AccountRestore {
 
         @CustomType.Setter
         public Builder databases(@Nullable List<AccountRestoreDatabase> databases) {
+
             this.databases = databases;
             return this;
         }
@@ -85,12 +87,18 @@ public final class AccountRestore {
         }
         @CustomType.Setter
         public Builder restoreTimestampInUtc(String restoreTimestampInUtc) {
-            this.restoreTimestampInUtc = Objects.requireNonNull(restoreTimestampInUtc);
+            if (restoreTimestampInUtc == null) {
+              throw new MissingRequiredPropertyException("AccountRestore", "restoreTimestampInUtc");
+            }
+            this.restoreTimestampInUtc = restoreTimestampInUtc;
             return this;
         }
         @CustomType.Setter
         public Builder sourceCosmosdbAccountId(String sourceCosmosdbAccountId) {
-            this.sourceCosmosdbAccountId = Objects.requireNonNull(sourceCosmosdbAccountId);
+            if (sourceCosmosdbAccountId == null) {
+              throw new MissingRequiredPropertyException("AccountRestore", "sourceCosmosdbAccountId");
+            }
+            this.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
             return this;
         }
         public AccountRestore build() {

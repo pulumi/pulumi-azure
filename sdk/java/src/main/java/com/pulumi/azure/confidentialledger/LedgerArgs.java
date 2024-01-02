@@ -7,6 +7,7 @@ import com.pulumi.azure.confidentialledger.inputs.LedgerAzureadBasedServicePrinc
 import com.pulumi.azure.confidentialledger.inputs.LedgerCertificateBasedSecurityPrincipalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -322,9 +323,15 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LedgerArgs build() {
-            $.azureadBasedServicePrincipals = Objects.requireNonNull($.azureadBasedServicePrincipals, "expected parameter 'azureadBasedServicePrincipals' to be non-null");
-            $.ledgerType = Objects.requireNonNull($.ledgerType, "expected parameter 'ledgerType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.azureadBasedServicePrincipals == null) {
+                throw new MissingRequiredPropertyException("LedgerArgs", "azureadBasedServicePrincipals");
+            }
+            if ($.ledgerType == null) {
+                throw new MissingRequiredPropertyException("LedgerArgs", "ledgerType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LedgerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

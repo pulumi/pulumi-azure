@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -127,37 +128,58 @@ public final class GetExpressRouteCircuitPeering {
 
         @CustomType.Setter
         public Builder azureAsn(Integer azureAsn) {
-            this.azureAsn = Objects.requireNonNull(azureAsn);
+            if (azureAsn == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "azureAsn");
+            }
+            this.azureAsn = azureAsn;
             return this;
         }
         @CustomType.Setter
         public Builder peerAsn(Integer peerAsn) {
-            this.peerAsn = Objects.requireNonNull(peerAsn);
+            if (peerAsn == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "peerAsn");
+            }
+            this.peerAsn = peerAsn;
             return this;
         }
         @CustomType.Setter
         public Builder peeringType(String peeringType) {
-            this.peeringType = Objects.requireNonNull(peeringType);
+            if (peeringType == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "peeringType");
+            }
+            this.peeringType = peeringType;
             return this;
         }
         @CustomType.Setter
         public Builder primaryPeerAddressPrefix(String primaryPeerAddressPrefix) {
-            this.primaryPeerAddressPrefix = Objects.requireNonNull(primaryPeerAddressPrefix);
+            if (primaryPeerAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "primaryPeerAddressPrefix");
+            }
+            this.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryPeerAddressPrefix(String secondaryPeerAddressPrefix) {
-            this.secondaryPeerAddressPrefix = Objects.requireNonNull(secondaryPeerAddressPrefix);
+            if (secondaryPeerAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "secondaryPeerAddressPrefix");
+            }
+            this.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder sharedKey(String sharedKey) {
-            this.sharedKey = Objects.requireNonNull(sharedKey);
+            if (sharedKey == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "sharedKey");
+            }
+            this.sharedKey = sharedKey;
             return this;
         }
         @CustomType.Setter
         public Builder vlanId(Integer vlanId) {
-            this.vlanId = Objects.requireNonNull(vlanId);
+            if (vlanId == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitPeering", "vlanId");
+            }
+            this.vlanId = vlanId;
             return this;
         }
         public GetExpressRouteCircuitPeering build() {

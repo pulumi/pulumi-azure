@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.cosmosdb.inputs.CassandraKeyspaceAutoscaleSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -234,8 +235,12 @@ public final class CassandraKeyspaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CassandraKeyspaceArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("CassandraKeyspaceArgs", "accountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CassandraKeyspaceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

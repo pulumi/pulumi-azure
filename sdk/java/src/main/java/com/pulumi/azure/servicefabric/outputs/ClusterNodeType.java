@@ -6,6 +6,7 @@ package com.pulumi.azure.servicefabric.outputs;
 import com.pulumi.azure.servicefabric.outputs.ClusterNodeTypeApplicationPorts;
 import com.pulumi.azure.servicefabric.outputs.ClusterNodeTypeEphemeralPorts;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -217,66 +218,89 @@ public final class ClusterNodeType {
 
         @CustomType.Setter
         public Builder applicationPorts(@Nullable ClusterNodeTypeApplicationPorts applicationPorts) {
+
             this.applicationPorts = applicationPorts;
             return this;
         }
         @CustomType.Setter
         public Builder capacities(@Nullable Map<String,String> capacities) {
+
             this.capacities = capacities;
             return this;
         }
         @CustomType.Setter
         public Builder clientEndpointPort(Integer clientEndpointPort) {
-            this.clientEndpointPort = Objects.requireNonNull(clientEndpointPort);
+            if (clientEndpointPort == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeType", "clientEndpointPort");
+            }
+            this.clientEndpointPort = clientEndpointPort;
             return this;
         }
         @CustomType.Setter
         public Builder durabilityLevel(@Nullable String durabilityLevel) {
+
             this.durabilityLevel = durabilityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralPorts(@Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts) {
+
             this.ephemeralPorts = ephemeralPorts;
             return this;
         }
         @CustomType.Setter
         public Builder httpEndpointPort(Integer httpEndpointPort) {
-            this.httpEndpointPort = Objects.requireNonNull(httpEndpointPort);
+            if (httpEndpointPort == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeType", "httpEndpointPort");
+            }
+            this.httpEndpointPort = httpEndpointPort;
             return this;
         }
         @CustomType.Setter
         public Builder instanceCount(Integer instanceCount) {
-            this.instanceCount = Objects.requireNonNull(instanceCount);
+            if (instanceCount == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeType", "instanceCount");
+            }
+            this.instanceCount = instanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = Objects.requireNonNull(isPrimary);
+            if (isPrimary == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeType", "isPrimary");
+            }
+            this.isPrimary = isPrimary;
             return this;
         }
         @CustomType.Setter
         public Builder isStateless(@Nullable Boolean isStateless) {
+
             this.isStateless = isStateless;
             return this;
         }
         @CustomType.Setter
         public Builder multipleAvailabilityZones(@Nullable Boolean multipleAvailabilityZones) {
+
             this.multipleAvailabilityZones = multipleAvailabilityZones;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeType", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder placementProperties(@Nullable Map<String,String> placementProperties) {
+
             this.placementProperties = placementProperties;
             return this;
         }
         @CustomType.Setter
         public Builder reverseProxyEndpointPort(@Nullable Integer reverseProxyEndpointPort) {
+
             this.reverseProxyEndpointPort = reverseProxyEndpointPort;
             return this;
         }

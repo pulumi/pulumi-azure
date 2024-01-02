@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -169,9 +170,15 @@ public final class VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGate
         }
 
         public VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs build() {
-            $.addressPrefixes = Objects.requireNonNull($.addressPrefixes, "expected parameter 'addressPrefixes' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.policyGroupNames = Objects.requireNonNull($.policyGroupNames, "expected parameter 'policyGroupNames' to be non-null");
+            if ($.addressPrefixes == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs", "addressPrefixes");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs", "name");
+            }
+            if ($.policyGroupNames == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs", "policyGroupNames");
+            }
             return $;
         }
     }

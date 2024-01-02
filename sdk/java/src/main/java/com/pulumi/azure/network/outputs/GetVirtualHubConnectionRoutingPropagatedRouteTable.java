@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetVirtualHubConnectionRoutingPropagatedRouteTable {
 
         @CustomType.Setter
         public Builder labels(List<String> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRoutingPropagatedRouteTable", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         public Builder labels(String... labels) {
@@ -65,7 +69,10 @@ public final class GetVirtualHubConnectionRoutingPropagatedRouteTable {
         }
         @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
-            this.routeTableIds = Objects.requireNonNull(routeTableIds);
+            if (routeTableIds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubConnectionRoutingPropagatedRouteTable", "routeTableIds");
+            }
+            this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {

@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountNetworkRulesPrivateLinkAccessArgs extends com.pulumi.r
         }
 
         public AccountNetworkRulesPrivateLinkAccessArgs build() {
-            $.endpointResourceId = Objects.requireNonNull($.endpointResourceId, "expected parameter 'endpointResourceId' to be non-null");
+            if ($.endpointResourceId == null) {
+                throw new MissingRequiredPropertyException("AccountNetworkRulesPrivateLinkAccessArgs", "endpointResourceId");
+            }
             return $;
         }
     }

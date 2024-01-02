@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         public VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate build() {

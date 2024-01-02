@@ -73,6 +73,7 @@ public final class NetworkManagerCrossTenantScope {
 
         @CustomType.Setter
         public Builder managementGroups(@Nullable List<String> managementGroups) {
+
             this.managementGroups = managementGroups;
             return this;
         }
@@ -81,6 +82,7 @@ public final class NetworkManagerCrossTenantScope {
         }
         @CustomType.Setter
         public Builder subscriptions(@Nullable List<String> subscriptions) {
+
             this.subscriptions = subscriptions;
             return this;
         }
@@ -89,6 +91,7 @@ public final class NetworkManagerCrossTenantScope {
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

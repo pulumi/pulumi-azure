@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingAction;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTrigger;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
 
         @CustomType.Setter
         public Builder actions(List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSetting", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetWindowsWebAppSiteConfigAutoHealSettingAction... actions) {
@@ -66,7 +70,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
         }
         @CustomType.Setter
         public Builder triggers(List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers) {
-            this.triggers = Objects.requireNonNull(triggers);
+            if (triggers == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSetting", "triggers");
+            }
+            this.triggers = triggers;
             return this;
         }
         public Builder triggers(GetWindowsWebAppSiteConfigAutoHealSettingTrigger... triggers) {

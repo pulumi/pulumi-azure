@@ -88,21 +88,25 @@ public final class GroupContainerReadinessProbeHttpGet {
 
         @CustomType.Setter
         public Builder httpHeaders(@Nullable Map<String,String> httpHeaders) {
+
             this.httpHeaders = httpHeaders;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
+
             this.scheme = scheme;
             return this;
         }

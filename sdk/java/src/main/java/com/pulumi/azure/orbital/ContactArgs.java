@@ -5,6 +5,7 @@ package com.pulumi.azure.orbital;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ContactArgs build() {
-            $.contactProfileId = Objects.requireNonNull($.contactProfileId, "expected parameter 'contactProfileId' to be non-null");
-            $.groundStationName = Objects.requireNonNull($.groundStationName, "expected parameter 'groundStationName' to be non-null");
-            $.reservationEndTime = Objects.requireNonNull($.reservationEndTime, "expected parameter 'reservationEndTime' to be non-null");
-            $.reservationStartTime = Objects.requireNonNull($.reservationStartTime, "expected parameter 'reservationStartTime' to be non-null");
-            $.spacecraftId = Objects.requireNonNull($.spacecraftId, "expected parameter 'spacecraftId' to be non-null");
+            if ($.contactProfileId == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "contactProfileId");
+            }
+            if ($.groundStationName == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "groundStationName");
+            }
+            if ($.reservationEndTime == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "reservationEndTime");
+            }
+            if ($.reservationStartTime == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "reservationStartTime");
+            }
+            if ($.spacecraftId == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "spacecraftId");
+            }
             return $;
         }
     }

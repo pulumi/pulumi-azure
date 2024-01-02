@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesHeadNode;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesWorkerNode;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesZookeeperNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -89,22 +90,32 @@ public final class HadoopClusterRoles {
 
         @CustomType.Setter
         public Builder edgeNode(@Nullable HadoopClusterRolesEdgeNode edgeNode) {
+
             this.edgeNode = edgeNode;
             return this;
         }
         @CustomType.Setter
         public Builder headNode(HadoopClusterRolesHeadNode headNode) {
-            this.headNode = Objects.requireNonNull(headNode);
+            if (headNode == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRoles", "headNode");
+            }
+            this.headNode = headNode;
             return this;
         }
         @CustomType.Setter
         public Builder workerNode(HadoopClusterRolesWorkerNode workerNode) {
-            this.workerNode = Objects.requireNonNull(workerNode);
+            if (workerNode == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRoles", "workerNode");
+            }
+            this.workerNode = workerNode;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperNode(HadoopClusterRolesZookeeperNode zookeeperNode) {
-            this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
+            if (zookeeperNode == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRoles", "zookeeperNode");
+            }
+            this.zookeeperNode = zookeeperNode;
             return this;
         }
         public HadoopClusterRoles build() {

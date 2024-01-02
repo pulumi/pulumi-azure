@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class MxRecordRecord {
 
         @CustomType.Setter
         public Builder exchange(String exchange) {
-            this.exchange = Objects.requireNonNull(exchange);
+            if (exchange == null) {
+              throw new MissingRequiredPropertyException("MxRecordRecord", "exchange");
+            }
+            this.exchange = exchange;
             return this;
         }
         @CustomType.Setter
         public Builder preference(Integer preference) {
-            this.preference = Objects.requireNonNull(preference);
+            if (preference == null) {
+              throw new MissingRequiredPropertyException("MxRecordRecord", "preference");
+            }
+            this.preference = preference;
             return this;
         }
         public MxRecordRecord build() {

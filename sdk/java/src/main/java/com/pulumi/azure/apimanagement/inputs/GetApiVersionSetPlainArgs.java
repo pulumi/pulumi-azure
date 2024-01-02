@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetApiVersionSetPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetApiVersionSetPlainArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("GetApiVersionSetPlainArgs", "apiManagementName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetApiVersionSetPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetApiVersionSetPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

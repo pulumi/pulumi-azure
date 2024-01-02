@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
 
         @CustomType.Setter
         public Builder localAddressCidrs(List<String> localAddressCidrs) {
-            this.localAddressCidrs = Objects.requireNonNull(localAddressCidrs);
+            if (localAddressCidrs == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionTrafficSelectorPolicy", "localAddressCidrs");
+            }
+            this.localAddressCidrs = localAddressCidrs;
             return this;
         }
         public Builder localAddressCidrs(String... localAddressCidrs) {
@@ -65,7 +69,10 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
         }
         @CustomType.Setter
         public Builder remoteAddressCidrs(List<String> remoteAddressCidrs) {
-            this.remoteAddressCidrs = Objects.requireNonNull(remoteAddressCidrs);
+            if (remoteAddressCidrs == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionTrafficSelectorPolicy", "remoteAddressCidrs");
+            }
+            this.remoteAddressCidrs = remoteAddressCidrs;
             return this;
         }
         public Builder remoteAddressCidrs(String... remoteAddressCidrs) {

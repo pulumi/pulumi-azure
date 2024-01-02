@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -88,22 +89,30 @@ public final class AccountQueuePropertiesMinuteMetrics {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesMinuteMetrics", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder includeApis(@Nullable Boolean includeApis) {
+
             this.includeApis = includeApis;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicyDays(@Nullable Integer retentionPolicyDays) {
+
             this.retentionPolicyDays = retentionPolicyDays;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesMinuteMetrics", "version");
+            }
+            this.version = version;
             return this;
         }
         public AccountQueuePropertiesMinuteMetrics build() {

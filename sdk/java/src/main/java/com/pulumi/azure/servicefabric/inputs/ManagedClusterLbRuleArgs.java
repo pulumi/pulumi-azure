@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class ManagedClusterLbRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public ManagedClusterLbRuleArgs build() {
-            $.backendPort = Objects.requireNonNull($.backendPort, "expected parameter 'backendPort' to be non-null");
-            $.frontendPort = Objects.requireNonNull($.frontendPort, "expected parameter 'frontendPort' to be non-null");
-            $.probeProtocol = Objects.requireNonNull($.probeProtocol, "expected parameter 'probeProtocol' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.backendPort == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterLbRuleArgs", "backendPort");
+            }
+            if ($.frontendPort == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterLbRuleArgs", "frontendPort");
+            }
+            if ($.probeProtocol == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterLbRuleArgs", "probeProtocol");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterLbRuleArgs", "protocol");
+            }
             return $;
         }
     }

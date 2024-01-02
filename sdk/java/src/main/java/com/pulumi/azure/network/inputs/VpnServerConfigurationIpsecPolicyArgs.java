@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -334,14 +335,30 @@ public final class VpnServerConfigurationIpsecPolicyArgs extends com.pulumi.reso
         }
 
         public VpnServerConfigurationIpsecPolicyArgs build() {
-            $.dhGroup = Objects.requireNonNull($.dhGroup, "expected parameter 'dhGroup' to be non-null");
-            $.ikeEncryption = Objects.requireNonNull($.ikeEncryption, "expected parameter 'ikeEncryption' to be non-null");
-            $.ikeIntegrity = Objects.requireNonNull($.ikeIntegrity, "expected parameter 'ikeIntegrity' to be non-null");
-            $.ipsecEncryption = Objects.requireNonNull($.ipsecEncryption, "expected parameter 'ipsecEncryption' to be non-null");
-            $.ipsecIntegrity = Objects.requireNonNull($.ipsecIntegrity, "expected parameter 'ipsecIntegrity' to be non-null");
-            $.pfsGroup = Objects.requireNonNull($.pfsGroup, "expected parameter 'pfsGroup' to be non-null");
-            $.saDataSizeKilobytes = Objects.requireNonNull($.saDataSizeKilobytes, "expected parameter 'saDataSizeKilobytes' to be non-null");
-            $.saLifetimeSeconds = Objects.requireNonNull($.saLifetimeSeconds, "expected parameter 'saLifetimeSeconds' to be non-null");
+            if ($.dhGroup == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "dhGroup");
+            }
+            if ($.ikeEncryption == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "ikeEncryption");
+            }
+            if ($.ikeIntegrity == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "ikeIntegrity");
+            }
+            if ($.ipsecEncryption == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "ipsecEncryption");
+            }
+            if ($.ipsecIntegrity == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "ipsecIntegrity");
+            }
+            if ($.pfsGroup == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "pfsGroup");
+            }
+            if ($.saDataSizeKilobytes == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "saDataSizeKilobytes");
+            }
+            if ($.saLifetimeSeconds == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationIpsecPolicyArgs", "saLifetimeSeconds");
+            }
             return $;
         }
     }

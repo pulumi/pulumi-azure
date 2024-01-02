@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetKubernetesClusterIngressApplicationGatewayIngressApplicati
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder objectId(String objectId) {
-            this.objectId = Objects.requireNonNull(objectId);
+            if (objectId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity", "objectId");
+            }
+            this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
-            this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
+            if (userAssignedIdentityId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity", "userAssignedIdentityId");
+            }
+            this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
         public GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -270,11 +271,21 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         public FactoryGithubConfigurationArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
-            $.gitUrl = Objects.requireNonNull($.gitUrl, "expected parameter 'gitUrl' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
-            $.rootFolder = Objects.requireNonNull($.rootFolder, "expected parameter 'rootFolder' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "accountName");
+            }
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "branchName");
+            }
+            if ($.gitUrl == null) {
+                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "gitUrl");
+            }
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "repositoryName");
+            }
+            if ($.rootFolder == null) {
+                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "rootFolder");
+            }
             return $;
         }
     }

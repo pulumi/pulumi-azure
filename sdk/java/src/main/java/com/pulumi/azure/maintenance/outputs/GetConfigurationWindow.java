@@ -4,6 +4,7 @@
 package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetConfigurationWindow {
 
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationWindow", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDateTime(String expirationDateTime) {
-            this.expirationDateTime = Objects.requireNonNull(expirationDateTime);
+            if (expirationDateTime == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationWindow", "expirationDateTime");
+            }
+            this.expirationDateTime = expirationDateTime;
             return this;
         }
         @CustomType.Setter
         public Builder recurEvery(String recurEvery) {
-            this.recurEvery = Objects.requireNonNull(recurEvery);
+            if (recurEvery == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationWindow", "recurEvery");
+            }
+            this.recurEvery = recurEvery;
             return this;
         }
         @CustomType.Setter
         public Builder startDateTime(String startDateTime) {
-            this.startDateTime = Objects.requireNonNull(startDateTime);
+            if (startDateTime == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationWindow", "startDateTime");
+            }
+            this.startDateTime = startDateTime;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationWindow", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public GetConfigurationWindow build() {

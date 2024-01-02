@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigA
         }
 
         public VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs build() {
-            $.component = Objects.requireNonNull($.component, "expected parameter 'component' to be non-null");
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.pass = Objects.requireNonNull($.pass, "expected parameter 'pass' to be non-null");
-            $.settingName = Objects.requireNonNull($.settingName, "expected parameter 'settingName' to be non-null");
+            if ($.component == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs", "component");
+            }
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs", "content");
+            }
+            if ($.pass == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs", "pass");
+            }
+            if ($.settingName == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs", "settingName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.CertificateIssuerAdminArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,8 +311,12 @@ public final class CertificateIssuerArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CertificateIssuerArgs build() {
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
-            $.providerName = Objects.requireNonNull($.providerName, "expected parameter 'providerName' to be non-null");
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("CertificateIssuerArgs", "keyVaultId");
+            }
+            if ($.providerName == null) {
+                throw new MissingRequiredPropertyException("CertificateIssuerArgs", "providerName");
+            }
             return $;
         }
     }

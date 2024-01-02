@@ -5,6 +5,7 @@ package com.pulumi.azure.signalr;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,9 +196,15 @@ public final class ServiceCustomDomainArgs extends com.pulumi.resources.Resource
         }
 
         public ServiceCustomDomainArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.signalrCustomCertificateId = Objects.requireNonNull($.signalrCustomCertificateId, "expected parameter 'signalrCustomCertificateId' to be non-null");
-            $.signalrServiceId = Objects.requireNonNull($.signalrServiceId, "expected parameter 'signalrServiceId' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ServiceCustomDomainArgs", "domainName");
+            }
+            if ($.signalrCustomCertificateId == null) {
+                throw new MissingRequiredPropertyException("ServiceCustomDomainArgs", "signalrCustomCertificateId");
+            }
+            if ($.signalrServiceId == null) {
+                throw new MissingRequiredPropertyException("ServiceCustomDomainArgs", "signalrServiceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetKubernetesClusterLinuxProfileSshKey {
 
         @CustomType.Setter
         public Builder keyData(String keyData) {
-            this.keyData = Objects.requireNonNull(keyData);
+            if (keyData == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterLinuxProfileSshKey", "keyData");
+            }
+            this.keyData = keyData;
             return this;
         }
         public GetKubernetesClusterLinuxProfileSshKey build() {

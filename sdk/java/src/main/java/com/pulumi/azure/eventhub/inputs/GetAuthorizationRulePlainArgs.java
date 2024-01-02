@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class GetAuthorizationRulePlainArgs extends com.pulumi.resources.In
         }
 
         public GetAuthorizationRulePlainArgs build() {
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizationRulePlainArgs", "eventhubName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizationRulePlainArgs", "name");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizationRulePlainArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetAuthorizationRulePlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

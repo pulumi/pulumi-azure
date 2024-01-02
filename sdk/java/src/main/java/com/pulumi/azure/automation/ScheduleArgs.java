@@ -6,6 +6,7 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.automation.inputs.ScheduleMonthlyOccurrenceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -516,9 +517,15 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScheduleArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "automationAccountName");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "frequency");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScheduleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

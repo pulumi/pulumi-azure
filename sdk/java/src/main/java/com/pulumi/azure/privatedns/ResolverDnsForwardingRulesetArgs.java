@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -236,8 +237,12 @@ public final class ResolverDnsForwardingRulesetArgs extends com.pulumi.resources
         }
 
         public ResolverDnsForwardingRulesetArgs build() {
-            $.privateDnsResolverOutboundEndpointIds = Objects.requireNonNull($.privateDnsResolverOutboundEndpointIds, "expected parameter 'privateDnsResolverOutboundEndpointIds' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.privateDnsResolverOutboundEndpointIds == null) {
+                throw new MissingRequiredPropertyException("ResolverDnsForwardingRulesetArgs", "privateDnsResolverOutboundEndpointIds");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ResolverDnsForwardingRulesetArgs", "resourceGroupName");
+            }
             return $;
         }
     }

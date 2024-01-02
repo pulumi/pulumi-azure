@@ -6,6 +6,7 @@ package com.pulumi.azure.redis.outputs;
 import com.pulumi.azure.redis.outputs.GetCachePatchSchedule;
 import com.pulumi.azure.redis.outputs.GetCacheRedisConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -316,47 +317,74 @@ public final class GetCacheResult {
 
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder enableNonSslPort(Boolean enableNonSslPort) {
-            this.enableNonSslPort = Objects.requireNonNull(enableNonSslPort);
+            if (enableNonSslPort == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "enableNonSslPort");
+            }
+            this.enableNonSslPort = enableNonSslPort;
             return this;
         }
         @CustomType.Setter
         public Builder family(String family) {
-            this.family = Objects.requireNonNull(family);
+            if (family == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "family");
+            }
+            this.family = family;
             return this;
         }
         @CustomType.Setter
         public Builder hostname(String hostname) {
-            this.hostname = Objects.requireNonNull(hostname);
+            if (hostname == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "hostname");
+            }
+            this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
-            this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
+            if (minimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "minimumTlsVersion");
+            }
+            this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder patchSchedules(List<GetCachePatchSchedule> patchSchedules) {
-            this.patchSchedules = Objects.requireNonNull(patchSchedules);
+            if (patchSchedules == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "patchSchedules");
+            }
+            this.patchSchedules = patchSchedules;
             return this;
         }
         public Builder patchSchedules(GetCachePatchSchedule... patchSchedules) {
@@ -364,27 +392,42 @@ public final class GetCacheResult {
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder privateStaticIpAddress(String privateStaticIpAddress) {
-            this.privateStaticIpAddress = Objects.requireNonNull(privateStaticIpAddress);
+            if (privateStaticIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "privateStaticIpAddress");
+            }
+            this.privateStaticIpAddress = privateStaticIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder redisConfigurations(List<GetCacheRedisConfiguration> redisConfigurations) {
-            this.redisConfigurations = Objects.requireNonNull(redisConfigurations);
+            if (redisConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "redisConfigurations");
+            }
+            this.redisConfigurations = redisConfigurations;
             return this;
         }
         public Builder redisConfigurations(GetCacheRedisConfiguration... redisConfigurations) {
@@ -392,47 +435,74 @@ public final class GetCacheResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder shardCount(Integer shardCount) {
-            this.shardCount = Objects.requireNonNull(shardCount);
+            if (shardCount == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "shardCount");
+            }
+            this.shardCount = shardCount;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder sslPort(Integer sslPort) {
-            this.sslPort = Objects.requireNonNull(sslPort);
+            if (sslPort == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "sslPort");
+            }
+            this.sslPort = sslPort;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

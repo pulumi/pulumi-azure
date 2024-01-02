@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -196,67 +197,106 @@ public final class GetEnvironmentResult {
 
         @CustomType.Setter
         public Builder defaultDomain(String defaultDomain) {
-            this.defaultDomain = Objects.requireNonNull(defaultDomain);
+            if (defaultDomain == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "defaultDomain");
+            }
+            this.defaultDomain = defaultDomain;
             return this;
         }
         @CustomType.Setter
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
-            this.dockerBridgeCidr = Objects.requireNonNull(dockerBridgeCidr);
+            if (dockerBridgeCidr == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "dockerBridgeCidr");
+            }
+            this.dockerBridgeCidr = dockerBridgeCidr;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder infrastructureSubnetId(String infrastructureSubnetId) {
-            this.infrastructureSubnetId = Objects.requireNonNull(infrastructureSubnetId);
+            if (infrastructureSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "infrastructureSubnetId");
+            }
+            this.infrastructureSubnetId = infrastructureSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder internalLoadBalancerEnabled(Boolean internalLoadBalancerEnabled) {
-            this.internalLoadBalancerEnabled = Objects.requireNonNull(internalLoadBalancerEnabled);
+            if (internalLoadBalancerEnabled == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "internalLoadBalancerEnabled");
+            }
+            this.internalLoadBalancerEnabled = internalLoadBalancerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceName(String logAnalyticsWorkspaceName) {
-            this.logAnalyticsWorkspaceName = Objects.requireNonNull(logAnalyticsWorkspaceName);
+            if (logAnalyticsWorkspaceName == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "logAnalyticsWorkspaceName");
+            }
+            this.logAnalyticsWorkspaceName = logAnalyticsWorkspaceName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder platformReservedCidr(String platformReservedCidr) {
-            this.platformReservedCidr = Objects.requireNonNull(platformReservedCidr);
+            if (platformReservedCidr == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "platformReservedCidr");
+            }
+            this.platformReservedCidr = platformReservedCidr;
             return this;
         }
         @CustomType.Setter
         public Builder platformReservedDnsIpAddress(String platformReservedDnsIpAddress) {
-            this.platformReservedDnsIpAddress = Objects.requireNonNull(platformReservedDnsIpAddress);
+            if (platformReservedDnsIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "platformReservedDnsIpAddress");
+            }
+            this.platformReservedDnsIpAddress = platformReservedDnsIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder staticIpAddress(String staticIpAddress) {
-            this.staticIpAddress = Objects.requireNonNull(staticIpAddress);
+            if (staticIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "staticIpAddress");
+            }
+            this.staticIpAddress = staticIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetEnvironmentResult build() {

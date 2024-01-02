@@ -9,6 +9,7 @@ import com.pulumi.azure.sentinel.inputs.MetadataSourceArgs;
 import com.pulumi.azure.sentinel.inputs.MetadataSupportArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -871,10 +872,18 @@ public final class MetadataArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetadataArgs build() {
-            $.contentId = Objects.requireNonNull($.contentId, "expected parameter 'contentId' to be non-null");
-            $.kind = Objects.requireNonNull($.kind, "expected parameter 'kind' to be non-null");
-            $.parentId = Objects.requireNonNull($.parentId, "expected parameter 'parentId' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.contentId == null) {
+                throw new MissingRequiredPropertyException("MetadataArgs", "contentId");
+            }
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("MetadataArgs", "kind");
+            }
+            if ($.parentId == null) {
+                throw new MissingRequiredPropertyException("MetadataArgs", "parentId");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("MetadataArgs", "workspaceId");
+            }
             return $;
         }
     }

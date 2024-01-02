@@ -6,6 +6,7 @@ package com.pulumi.azure.privatelink.outputs;
 import com.pulumi.azure.privatelink.outputs.GetEndpointConnectionNetworkInterface;
 import com.pulumi.azure.privatelink.outputs.GetEndpointConnectionPrivateServiceConnection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -91,22 +92,34 @@ public final class GetEndpointConnectionResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkInterfaces(List<GetEndpointConnectionNetworkInterface> networkInterfaces) {
-            this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
+            if (networkInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "networkInterfaces");
+            }
+            this.networkInterfaces = networkInterfaces;
             return this;
         }
         public Builder networkInterfaces(GetEndpointConnectionNetworkInterface... networkInterfaces) {
@@ -114,7 +127,10 @@ public final class GetEndpointConnectionResult {
         }
         @CustomType.Setter
         public Builder privateServiceConnections(List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections) {
-            this.privateServiceConnections = Objects.requireNonNull(privateServiceConnections);
+            if (privateServiceConnections == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "privateServiceConnections");
+            }
+            this.privateServiceConnections = privateServiceConnections;
             return this;
         }
         public Builder privateServiceConnections(GetEndpointConnectionPrivateServiceConnection... privateServiceConnections) {
@@ -122,7 +138,10 @@ public final class GetEndpointConnectionResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetEndpointConnectionResult build() {

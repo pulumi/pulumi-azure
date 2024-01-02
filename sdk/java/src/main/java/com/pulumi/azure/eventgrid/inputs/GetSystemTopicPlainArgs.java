@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetSystemTopicPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetSystemTopicPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetSystemTopicPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetSystemTopicPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs 
         }
 
         public VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs build() {
-            $.audience = Objects.requireNonNull($.audience, "expected parameter 'audience' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.tenant = Objects.requireNonNull($.tenant, "expected parameter 'tenant' to be non-null");
+            if ($.audience == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs", "audience");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs", "issuer");
+            }
+            if ($.tenant == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs", "tenant");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class IntegrationRuntimeSsisExpressVnetIntegrationArgs extends com.
         }
 
         public IntegrationRuntimeSsisExpressVnetIntegrationArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressVnetIntegrationArgs", "subnetId");
+            }
             return $;
         }
     }

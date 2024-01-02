@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -229,71 +230,87 @@ public final class TransformOutputCustomPresetCodecH265VideoLayer {
 
         @CustomType.Setter
         public Builder adaptiveBFrameEnabled(@Nullable Boolean adaptiveBFrameEnabled) {
+
             this.adaptiveBFrameEnabled = adaptiveBFrameEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder bFrames(@Nullable Integer bFrames) {
+
             this.bFrames = bFrames;
             return this;
         }
         @CustomType.Setter
         public Builder bitrate(Integer bitrate) {
-            this.bitrate = Objects.requireNonNull(bitrate);
+            if (bitrate == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetCodecH265VideoLayer", "bitrate");
+            }
+            this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder bufferWindow(@Nullable String bufferWindow) {
+
             this.bufferWindow = bufferWindow;
             return this;
         }
         @CustomType.Setter
         public Builder crf(@Nullable Double crf) {
+
             this.crf = crf;
             return this;
         }
         @CustomType.Setter
         public Builder frameRate(@Nullable String frameRate) {
+
             this.frameRate = frameRate;
             return this;
         }
         @CustomType.Setter
         public Builder height(@Nullable String height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder maxBitrate(@Nullable Integer maxBitrate) {
+
             this.maxBitrate = maxBitrate;
             return this;
         }
         @CustomType.Setter
         public Builder profile(@Nullable String profile) {
+
             this.profile = profile;
             return this;
         }
         @CustomType.Setter
         public Builder referenceFrames(@Nullable Integer referenceFrames) {
+
             this.referenceFrames = referenceFrames;
             return this;
         }
         @CustomType.Setter
         public Builder slices(@Nullable Integer slices) {
+
             this.slices = slices;
             return this;
         }
         @CustomType.Setter
         public Builder width(@Nullable String width) {
+
             this.width = width;
             return this;
         }

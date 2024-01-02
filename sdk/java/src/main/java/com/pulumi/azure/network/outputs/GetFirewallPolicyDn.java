@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -48,17 +49,26 @@ public final class GetFirewallPolicyDn {
 
         @CustomType.Setter
         public Builder networkRuleFqdnEnabled(Boolean networkRuleFqdnEnabled) {
-            this.networkRuleFqdnEnabled = Objects.requireNonNull(networkRuleFqdnEnabled);
+            if (networkRuleFqdnEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyDn", "networkRuleFqdnEnabled");
+            }
+            this.networkRuleFqdnEnabled = networkRuleFqdnEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder proxyEnabled(Boolean proxyEnabled) {
-            this.proxyEnabled = Objects.requireNonNull(proxyEnabled);
+            if (proxyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyDn", "proxyEnabled");
+            }
+            this.proxyEnabled = proxyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder servers(List<String> servers) {
-            this.servers = Objects.requireNonNull(servers);
+            if (servers == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyDn", "servers");
+            }
+            this.servers = servers;
             return this;
         }
         public Builder servers(String... servers) {

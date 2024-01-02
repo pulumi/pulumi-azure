@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetCertificateCertificatePolicyLifetimeActionTrigger {
 
         @CustomType.Setter
         public Builder daysBeforeExpiry(Integer daysBeforeExpiry) {
-            this.daysBeforeExpiry = Objects.requireNonNull(daysBeforeExpiry);
+            if (daysBeforeExpiry == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyLifetimeActionTrigger", "daysBeforeExpiry");
+            }
+            this.daysBeforeExpiry = daysBeforeExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder lifetimePercentage(Integer lifetimePercentage) {
-            this.lifetimePercentage = Objects.requireNonNull(lifetimePercentage);
+            if (lifetimePercentage == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyLifetimeActionTrigger", "lifetimePercentage");
+            }
+            this.lifetimePercentage = lifetimePercentage;
             return this;
         }
         public GetCertificateCertificatePolicyLifetimeActionTrigger build() {

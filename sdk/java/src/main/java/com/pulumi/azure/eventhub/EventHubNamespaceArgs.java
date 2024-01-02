@@ -7,6 +7,7 @@ import com.pulumi.azure.eventhub.inputs.EventHubNamespaceIdentityArgs;
 import com.pulumi.azure.eventhub.inputs.EventHubNamespaceNetworkRulesetsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -607,8 +608,12 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventHubNamespaceArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceArgs", "sku");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -488,9 +489,15 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
         }
 
         public FrontdoorFirewallPolicyArgs build() {
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyArgs", "mode");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyArgs", "skuName");
+            }
             return $;
         }
     }

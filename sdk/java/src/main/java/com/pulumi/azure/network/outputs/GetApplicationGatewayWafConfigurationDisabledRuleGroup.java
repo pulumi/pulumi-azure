@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class GetApplicationGatewayWafConfigurationDisabledRuleGroup {
 
         @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
-            this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
+            if (ruleGroupName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfigurationDisabledRuleGroup", "ruleGroupName");
+            }
+            this.ruleGroupName = ruleGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<Integer> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayWafConfigurationDisabledRuleGroup", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(Integer... rules) {

@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.VpnGatewayConnectionVpnLinkCustomBgpAddress;
 import com.pulumi.azure.network.outputs.VpnGatewayConnectionVpnLinkIpsecPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -245,21 +246,25 @@ public final class VpnGatewayConnectionVpnLink {
 
         @CustomType.Setter
         public Builder bandwidthMbps(@Nullable Integer bandwidthMbps) {
+
             this.bandwidthMbps = bandwidthMbps;
             return this;
         }
         @CustomType.Setter
         public Builder bgpEnabled(@Nullable Boolean bgpEnabled) {
+
             this.bgpEnabled = bgpEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder connectionMode(@Nullable String connectionMode) {
+
             this.connectionMode = connectionMode;
             return this;
         }
         @CustomType.Setter
         public Builder customBgpAddresses(@Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses) {
+
             this.customBgpAddresses = customBgpAddresses;
             return this;
         }
@@ -268,6 +273,7 @@ public final class VpnGatewayConnectionVpnLink {
         }
         @CustomType.Setter
         public Builder egressNatRuleIds(@Nullable List<String> egressNatRuleIds) {
+
             this.egressNatRuleIds = egressNatRuleIds;
             return this;
         }
@@ -276,6 +282,7 @@ public final class VpnGatewayConnectionVpnLink {
         }
         @CustomType.Setter
         public Builder ingressNatRuleIds(@Nullable List<String> ingressNatRuleIds) {
+
             this.ingressNatRuleIds = ingressNatRuleIds;
             return this;
         }
@@ -284,6 +291,7 @@ public final class VpnGatewayConnectionVpnLink {
         }
         @CustomType.Setter
         public Builder ipsecPolicies(@Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies) {
+
             this.ipsecPolicies = ipsecPolicies;
             return this;
         }
@@ -292,42 +300,54 @@ public final class VpnGatewayConnectionVpnLink {
         }
         @CustomType.Setter
         public Builder localAzureIpAddressEnabled(@Nullable Boolean localAzureIpAddressEnabled) {
+
             this.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLink", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder policyBasedTrafficSelectorEnabled(@Nullable Boolean policyBasedTrafficSelectorEnabled) {
+
             this.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder ratelimitEnabled(@Nullable Boolean ratelimitEnabled) {
+
             this.ratelimitEnabled = ratelimitEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder routeWeight(@Nullable Integer routeWeight) {
+
             this.routeWeight = routeWeight;
             return this;
         }
         @CustomType.Setter
         public Builder sharedKey(@Nullable String sharedKey) {
+
             this.sharedKey = sharedKey;
             return this;
         }
         @CustomType.Setter
         public Builder vpnSiteLinkId(String vpnSiteLinkId) {
-            this.vpnSiteLinkId = Objects.requireNonNull(vpnSiteLinkId);
+            if (vpnSiteLinkId == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLink", "vpnSiteLinkId");
+            }
+            this.vpnSiteLinkId = vpnSiteLinkId;
             return this;
         }
         public VpnGatewayConnectionVpnLink build() {

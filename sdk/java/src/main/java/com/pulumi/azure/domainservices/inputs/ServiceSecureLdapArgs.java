@@ -5,6 +5,7 @@ package com.pulumi.azure.domainservices.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,9 +300,15 @@ public final class ServiceSecureLdapArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServiceSecureLdapArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.pfxCertificate = Objects.requireNonNull($.pfxCertificate, "expected parameter 'pfxCertificate' to be non-null");
-            $.pfxCertificatePassword = Objects.requireNonNull($.pfxCertificatePassword, "expected parameter 'pfxCertificatePassword' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ServiceSecureLdapArgs", "enabled");
+            }
+            if ($.pfxCertificate == null) {
+                throw new MissingRequiredPropertyException("ServiceSecureLdapArgs", "pfxCertificate");
+            }
+            if ($.pfxCertificatePassword == null) {
+                throw new MissingRequiredPropertyException("ServiceSecureLdapArgs", "pfxCertificatePassword");
+            }
             return $;
         }
     }

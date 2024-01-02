@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.outputs;
 import com.pulumi.azure.siterecovery.outputs.ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey;
 import com.pulumi.azure.siterecovery.outputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -59,11 +60,15 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryption {
 
         @CustomType.Setter
         public Builder diskEncryptionKey(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey) {
-            this.diskEncryptionKey = Objects.requireNonNull(diskEncryptionKey);
+            if (diskEncryptionKey == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskTargetDiskEncryption", "diskEncryptionKey");
+            }
+            this.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey) {
+
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
         }

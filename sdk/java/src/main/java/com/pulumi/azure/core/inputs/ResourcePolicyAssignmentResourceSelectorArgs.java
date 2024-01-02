@@ -6,6 +6,7 @@ package com.pulumi.azure.core.inputs;
 import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentResourceSelectorSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class ResourcePolicyAssignmentResourceSelectorArgs extends com.pulu
         }
 
         public ResourcePolicyAssignmentResourceSelectorArgs build() {
-            $.selectors = Objects.requireNonNull($.selectors, "expected parameter 'selectors' to be non-null");
+            if ($.selectors == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyAssignmentResourceSelectorArgs", "selectors");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform.outputs;
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudAppIdentity;
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudAppPersistentDisk;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -162,22 +163,34 @@ public final class GetSpringCloudAppResult {
 
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
-            this.httpsOnly = Objects.requireNonNull(httpsOnly);
+            if (httpsOnly == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "httpsOnly");
+            }
+            this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetSpringCloudAppIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetSpringCloudAppIdentity... identities) {
@@ -185,17 +198,26 @@ public final class GetSpringCloudAppResult {
         }
         @CustomType.Setter
         public Builder isPublic(Boolean isPublic) {
-            this.isPublic = Objects.requireNonNull(isPublic);
+            if (isPublic == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "isPublic");
+            }
+            this.isPublic = isPublic;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder persistentDisks(List<GetSpringCloudAppPersistentDisk> persistentDisks) {
-            this.persistentDisks = Objects.requireNonNull(persistentDisks);
+            if (persistentDisks == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "persistentDisks");
+            }
+            this.persistentDisks = persistentDisks;
             return this;
         }
         public Builder persistentDisks(GetSpringCloudAppPersistentDisk... persistentDisks) {
@@ -203,22 +225,34 @@ public final class GetSpringCloudAppResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder tlsEnabled(Boolean tlsEnabled) {
-            this.tlsEnabled = Objects.requireNonNull(tlsEnabled);
+            if (tlsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "tlsEnabled");
+            }
+            this.tlsEnabled = tlsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudAppResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetSpringCloudAppResult build() {

@@ -11,6 +11,7 @@ import com.pulumi.azure.containerapp.outputs.GetAppTemplateInitContainer;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateTcpScaleRule;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateVolume;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -146,7 +147,10 @@ public final class GetAppTemplate {
 
         @CustomType.Setter
         public Builder azureQueueScaleRules(List<GetAppTemplateAzureQueueScaleRule> azureQueueScaleRules) {
-            this.azureQueueScaleRules = Objects.requireNonNull(azureQueueScaleRules);
+            if (azureQueueScaleRules == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "azureQueueScaleRules");
+            }
+            this.azureQueueScaleRules = azureQueueScaleRules;
             return this;
         }
         public Builder azureQueueScaleRules(GetAppTemplateAzureQueueScaleRule... azureQueueScaleRules) {
@@ -154,7 +158,10 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder containers(List<GetAppTemplateContainer> containers) {
-            this.containers = Objects.requireNonNull(containers);
+            if (containers == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "containers");
+            }
+            this.containers = containers;
             return this;
         }
         public Builder containers(GetAppTemplateContainer... containers) {
@@ -162,6 +169,7 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder customScaleRules(@Nullable List<GetAppTemplateCustomScaleRule> customScaleRules) {
+
             this.customScaleRules = customScaleRules;
             return this;
         }
@@ -170,7 +178,10 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder httpScaleRules(List<GetAppTemplateHttpScaleRule> httpScaleRules) {
-            this.httpScaleRules = Objects.requireNonNull(httpScaleRules);
+            if (httpScaleRules == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "httpScaleRules");
+            }
+            this.httpScaleRules = httpScaleRules;
             return this;
         }
         public Builder httpScaleRules(GetAppTemplateHttpScaleRule... httpScaleRules) {
@@ -178,7 +189,10 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder initContainers(List<GetAppTemplateInitContainer> initContainers) {
-            this.initContainers = Objects.requireNonNull(initContainers);
+            if (initContainers == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "initContainers");
+            }
+            this.initContainers = initContainers;
             return this;
         }
         public Builder initContainers(GetAppTemplateInitContainer... initContainers) {
@@ -186,22 +200,34 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder maxReplicas(Integer maxReplicas) {
-            this.maxReplicas = Objects.requireNonNull(maxReplicas);
+            if (maxReplicas == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "maxReplicas");
+            }
+            this.maxReplicas = maxReplicas;
             return this;
         }
         @CustomType.Setter
         public Builder minReplicas(Integer minReplicas) {
-            this.minReplicas = Objects.requireNonNull(minReplicas);
+            if (minReplicas == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "minReplicas");
+            }
+            this.minReplicas = minReplicas;
             return this;
         }
         @CustomType.Setter
         public Builder revisionSuffix(String revisionSuffix) {
-            this.revisionSuffix = Objects.requireNonNull(revisionSuffix);
+            if (revisionSuffix == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "revisionSuffix");
+            }
+            this.revisionSuffix = revisionSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder tcpScaleRules(List<GetAppTemplateTcpScaleRule> tcpScaleRules) {
-            this.tcpScaleRules = Objects.requireNonNull(tcpScaleRules);
+            if (tcpScaleRules == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "tcpScaleRules");
+            }
+            this.tcpScaleRules = tcpScaleRules;
             return this;
         }
         public Builder tcpScaleRules(GetAppTemplateTcpScaleRule... tcpScaleRules) {
@@ -209,7 +235,10 @@ public final class GetAppTemplate {
         }
         @CustomType.Setter
         public Builder volumes(List<GetAppTemplateVolume> volumes) {
-            this.volumes = Objects.requireNonNull(volumes);
+            if (volumes == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplate", "volumes");
+            }
+            this.volumes = volumes;
             return this;
         }
         public Builder volumes(GetAppTemplateVolume... volumes) {

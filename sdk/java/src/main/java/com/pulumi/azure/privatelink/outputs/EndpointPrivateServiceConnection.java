@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -138,36 +139,47 @@ public final class EndpointPrivateServiceConnection {
 
         @CustomType.Setter
         public Builder isManualConnection(Boolean isManualConnection) {
-            this.isManualConnection = Objects.requireNonNull(isManualConnection);
+            if (isManualConnection == null) {
+              throw new MissingRequiredPropertyException("EndpointPrivateServiceConnection", "isManualConnection");
+            }
+            this.isManualConnection = isManualConnection;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EndpointPrivateServiceConnection", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateConnectionResourceAlias(@Nullable String privateConnectionResourceAlias) {
+
             this.privateConnectionResourceAlias = privateConnectionResourceAlias;
             return this;
         }
         @CustomType.Setter
         public Builder privateConnectionResourceId(@Nullable String privateConnectionResourceId) {
+
             this.privateConnectionResourceId = privateConnectionResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder requestMessage(@Nullable String requestMessage) {
+
             this.requestMessage = requestMessage;
             return this;
         }
         @CustomType.Setter
         public Builder subresourceNames(@Nullable List<String> subresourceNames) {
+
             this.subresourceNames = subresourceNames;
             return this;
         }

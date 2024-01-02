@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -115,31 +116,39 @@ public final class DatasetParquetAzureBlobStorageLocation {
 
         @CustomType.Setter
         public Builder container(String container) {
-            this.container = Objects.requireNonNull(container);
+            if (container == null) {
+              throw new MissingRequiredPropertyException("DatasetParquetAzureBlobStorageLocation", "container");
+            }
+            this.container = container;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicContainerEnabled(@Nullable Boolean dynamicContainerEnabled) {
+
             this.dynamicContainerEnabled = dynamicContainerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
+
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
+
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder filename(@Nullable String filename) {
+
             this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }

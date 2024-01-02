@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -209,9 +210,15 @@ public final class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs ex
         }
 
         public NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs build() {
-            $.networkVirtualApplianceId = Objects.requireNonNull($.networkVirtualApplianceId, "expected parameter 'networkVirtualApplianceId' to be non-null");
-            $.publicIpAddressIds = Objects.requireNonNull($.publicIpAddressIds, "expected parameter 'publicIpAddressIds' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.networkVirtualApplianceId == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs", "networkVirtualApplianceId");
+            }
+            if ($.publicIpAddressIds == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs", "publicIpAddressIds");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs", "virtualHubId");
+            }
             return $;
         }
     }

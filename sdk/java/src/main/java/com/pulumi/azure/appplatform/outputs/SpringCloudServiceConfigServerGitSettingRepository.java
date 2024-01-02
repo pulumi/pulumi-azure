@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform.outputs;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth;
 import com.pulumi.azure.appplatform.outputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -131,21 +132,27 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
 
         @CustomType.Setter
         public Builder httpBasicAuth(@Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth) {
+
             this.httpBasicAuth = httpBasicAuth;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceConfigServerGitSettingRepository", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder patterns(@Nullable List<String> patterns) {
+
             this.patterns = patterns;
             return this;
         }
@@ -154,6 +161,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         }
         @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
+
             this.searchPaths = searchPaths;
             return this;
         }
@@ -162,12 +170,16 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         }
         @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth) {
+
             this.sshAuth = sshAuth;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceConfigServerGitSettingRepository", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public SpringCloudServiceConfigServerGitSettingRepository build() {

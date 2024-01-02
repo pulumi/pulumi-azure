@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class SpringCloudAppRedisAssociationArgs extends com.pulumi.resourc
         }
 
         public SpringCloudAppRedisAssociationArgs build() {
-            $.redisAccessKey = Objects.requireNonNull($.redisAccessKey, "expected parameter 'redisAccessKey' to be non-null");
-            $.redisCacheId = Objects.requireNonNull($.redisCacheId, "expected parameter 'redisCacheId' to be non-null");
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
+            if ($.redisAccessKey == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppRedisAssociationArgs", "redisAccessKey");
+            }
+            if ($.redisCacheId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppRedisAssociationArgs", "redisCacheId");
+            }
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppRedisAssociationArgs", "springCloudAppId");
+            }
             return $;
         }
     }

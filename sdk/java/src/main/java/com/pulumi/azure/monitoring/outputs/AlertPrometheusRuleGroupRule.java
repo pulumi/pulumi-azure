@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.AlertPrometheusRuleGroupRuleAction;
 import com.pulumi.azure.monitoring.outputs.AlertPrometheusRuleGroupRuleAlertResolution;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -176,6 +177,7 @@ public final class AlertPrometheusRuleGroupRule {
 
         @CustomType.Setter
         public Builder actions(@Nullable List<AlertPrometheusRuleGroupRuleAction> actions) {
+
             this.actions = actions;
             return this;
         }
@@ -184,46 +186,57 @@ public final class AlertPrometheusRuleGroupRule {
         }
         @CustomType.Setter
         public Builder alert(@Nullable String alert) {
+
             this.alert = alert;
             return this;
         }
         @CustomType.Setter
         public Builder alertResolution(@Nullable AlertPrometheusRuleGroupRuleAlertResolution alertResolution) {
+
             this.alertResolution = alertResolution;
             return this;
         }
         @CustomType.Setter
         public Builder annotations(@Nullable Map<String,String> annotations) {
+
             this.annotations = annotations;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expression(String expression) {
-            this.expression = Objects.requireNonNull(expression);
+            if (expression == null) {
+              throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupRule", "expression");
+            }
+            this.expression = expression;
             return this;
         }
         @CustomType.Setter("for")
         public Builder for_(@Nullable String for_) {
+
             this.for_ = for_;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable Map<String,String> labels) {
+
             this.labels = labels;
             return this;
         }
         @CustomType.Setter
         public Builder record(@Nullable String record) {
+
             this.record = record;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable Integer severity) {
+
             this.severity = severity;
             return this;
         }

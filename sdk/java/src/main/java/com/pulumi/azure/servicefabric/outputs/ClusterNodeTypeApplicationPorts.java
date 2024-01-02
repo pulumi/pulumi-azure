@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ClusterNodeTypeApplicationPorts {
 
         @CustomType.Setter
         public Builder endPort(Integer endPort) {
-            this.endPort = Objects.requireNonNull(endPort);
+            if (endPort == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeTypeApplicationPorts", "endPort");
+            }
+            this.endPort = endPort;
             return this;
         }
         @CustomType.Setter
         public Builder startPort(Integer startPort) {
-            this.startPort = Objects.requireNonNull(startPort);
+            if (startPort == null) {
+              throw new MissingRequiredPropertyException("ClusterNodeTypeApplicationPorts", "startPort");
+            }
+            this.startPort = startPort;
             return this;
         }
         public ClusterNodeTypeApplicationPorts build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class VirtualMachineWsfcDomainCredential {
 
         @CustomType.Setter
         public Builder clusterBootstrapAccountPassword(String clusterBootstrapAccountPassword) {
-            this.clusterBootstrapAccountPassword = Objects.requireNonNull(clusterBootstrapAccountPassword);
+            if (clusterBootstrapAccountPassword == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredential", "clusterBootstrapAccountPassword");
+            }
+            this.clusterBootstrapAccountPassword = clusterBootstrapAccountPassword;
             return this;
         }
         @CustomType.Setter
         public Builder clusterOperatorAccountPassword(String clusterOperatorAccountPassword) {
-            this.clusterOperatorAccountPassword = Objects.requireNonNull(clusterOperatorAccountPassword);
+            if (clusterOperatorAccountPassword == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredential", "clusterOperatorAccountPassword");
+            }
+            this.clusterOperatorAccountPassword = clusterOperatorAccountPassword;
             return this;
         }
         @CustomType.Setter
         public Builder sqlServiceAccountPassword(String sqlServiceAccountPassword) {
-            this.sqlServiceAccountPassword = Objects.requireNonNull(sqlServiceAccountPassword);
+            if (sqlServiceAccountPassword == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredential", "sqlServiceAccountPassword");
+            }
+            this.sqlServiceAccountPassword = sqlServiceAccountPassword;
             return this;
         }
         public VirtualMachineWsfcDomainCredential build() {

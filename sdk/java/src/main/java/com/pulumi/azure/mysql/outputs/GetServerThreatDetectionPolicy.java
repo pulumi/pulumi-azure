@@ -4,6 +4,7 @@
 package com.pulumi.azure.mysql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -129,7 +130,10 @@ public final class GetServerThreatDetectionPolicy {
 
         @CustomType.Setter
         public Builder disabledAlerts(List<String> disabledAlerts) {
-            this.disabledAlerts = Objects.requireNonNull(disabledAlerts);
+            if (disabledAlerts == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "disabledAlerts");
+            }
+            this.disabledAlerts = disabledAlerts;
             return this;
         }
         public Builder disabledAlerts(String... disabledAlerts) {
@@ -137,12 +141,18 @@ public final class GetServerThreatDetectionPolicy {
         }
         @CustomType.Setter
         public Builder emailAccountAdmins(Boolean emailAccountAdmins) {
-            this.emailAccountAdmins = Objects.requireNonNull(emailAccountAdmins);
+            if (emailAccountAdmins == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "emailAccountAdmins");
+            }
+            this.emailAccountAdmins = emailAccountAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder emailAddresses(List<String> emailAddresses) {
-            this.emailAddresses = Objects.requireNonNull(emailAddresses);
+            if (emailAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "emailAddresses");
+            }
+            this.emailAddresses = emailAddresses;
             return this;
         }
         public Builder emailAddresses(String... emailAddresses) {
@@ -150,22 +160,34 @@ public final class GetServerThreatDetectionPolicy {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder retentionDays(Integer retentionDays) {
-            this.retentionDays = Objects.requireNonNull(retentionDays);
+            if (retentionDays == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "retentionDays");
+            }
+            this.retentionDays = retentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
-            this.storageAccountAccessKey = Objects.requireNonNull(storageAccountAccessKey);
+            if (storageAccountAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "storageAccountAccessKey");
+            }
+            this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageEndpoint(String storageEndpoint) {
-            this.storageEndpoint = Objects.requireNonNull(storageEndpoint);
+            if (storageEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetServerThreatDetectionPolicy", "storageEndpoint");
+            }
+            this.storageEndpoint = storageEndpoint;
             return this;
         }
         public GetServerThreatDetectionPolicy build() {

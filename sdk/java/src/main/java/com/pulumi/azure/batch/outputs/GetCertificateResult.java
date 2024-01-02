@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -116,42 +117,66 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicData(String publicData) {
-            this.publicData = Objects.requireNonNull(publicData);
+            if (publicData == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "publicData");
+            }
+            this.publicData = publicData;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprintAlgorithm(String thumbprintAlgorithm) {
-            this.thumbprintAlgorithm = Objects.requireNonNull(thumbprintAlgorithm);
+            if (thumbprintAlgorithm == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "thumbprintAlgorithm");
+            }
+            this.thumbprintAlgorithm = thumbprintAlgorithm;
             return this;
         }
         public GetCertificateResult build() {

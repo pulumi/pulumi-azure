@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class RegistryTaskRegistryCredentialCustomArgs extends com.pulumi.r
         }
 
         public RegistryTaskRegistryCredentialCustomArgs build() {
-            $.loginServer = Objects.requireNonNull($.loginServer, "expected parameter 'loginServer' to be non-null");
+            if ($.loginServer == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskRegistryCredentialCustomArgs", "loginServer");
+            }
             return $;
         }
     }

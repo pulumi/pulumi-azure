@@ -5,6 +5,7 @@ package com.pulumi.azure.devcenter;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -300,8 +301,12 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectArgs build() {
-            $.devCenterId = Objects.requireNonNull($.devCenterId, "expected parameter 'devCenterId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.devCenterId == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "devCenterId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "resourceGroupName");
+            }
             return $;
         }
     }

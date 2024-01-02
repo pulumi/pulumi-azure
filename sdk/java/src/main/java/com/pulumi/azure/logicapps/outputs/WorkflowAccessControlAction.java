@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class WorkflowAccessControlAction {
 
         @CustomType.Setter
         public Builder allowedCallerIpAddressRanges(List<String> allowedCallerIpAddressRanges) {
-            this.allowedCallerIpAddressRanges = Objects.requireNonNull(allowedCallerIpAddressRanges);
+            if (allowedCallerIpAddressRanges == null) {
+              throw new MissingRequiredPropertyException("WorkflowAccessControlAction", "allowedCallerIpAddressRanges");
+            }
+            this.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
             return this;
         }
         public Builder allowedCallerIpAddressRanges(String... allowedCallerIpAddressRanges) {

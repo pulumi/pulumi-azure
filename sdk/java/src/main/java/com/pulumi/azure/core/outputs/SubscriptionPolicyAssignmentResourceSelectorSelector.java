@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,6 +73,7 @@ public final class SubscriptionPolicyAssignmentResourceSelectorSelector {
 
         @CustomType.Setter
         public Builder ins(@Nullable List<String> ins) {
+
             this.ins = ins;
             return this;
         }
@@ -80,11 +82,15 @@ public final class SubscriptionPolicyAssignmentResourceSelectorSelector {
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("SubscriptionPolicyAssignmentResourceSelectorSelector", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder notIns(@Nullable List<String> notIns) {
+
             this.notIns = notIns;
             return this;
         }

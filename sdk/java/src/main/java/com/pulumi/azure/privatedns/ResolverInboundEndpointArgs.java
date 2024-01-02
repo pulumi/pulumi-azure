@@ -6,6 +6,7 @@ package com.pulumi.azure.privatedns;
 import com.pulumi.azure.privatedns.inputs.ResolverInboundEndpointIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -237,8 +238,12 @@ public final class ResolverInboundEndpointArgs extends com.pulumi.resources.Reso
         }
 
         public ResolverInboundEndpointArgs build() {
-            $.ipConfigurations = Objects.requireNonNull($.ipConfigurations, "expected parameter 'ipConfigurations' to be non-null");
-            $.privateDnsResolverId = Objects.requireNonNull($.privateDnsResolverId, "expected parameter 'privateDnsResolverId' to be non-null");
+            if ($.ipConfigurations == null) {
+                throw new MissingRequiredPropertyException("ResolverInboundEndpointArgs", "ipConfigurations");
+            }
+            if ($.privateDnsResolverId == null) {
+                throw new MissingRequiredPropertyException("ResolverInboundEndpointArgs", "privateDnsResolverId");
+            }
             return $;
         }
     }

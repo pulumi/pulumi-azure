@@ -58,11 +58,13 @@ public final class CertificateCertificatePolicyLifetimeActionTrigger {
 
         @CustomType.Setter
         public Builder daysBeforeExpiry(@Nullable Integer daysBeforeExpiry) {
+
             this.daysBeforeExpiry = daysBeforeExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder lifetimePercentage(@Nullable Integer lifetimePercentage) {
+
             this.lifetimePercentage = lifetimePercentage;
             return this;
         }

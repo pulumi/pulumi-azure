@@ -271,86 +271,103 @@ public final class KubernetesClusterAutoScalerProfile {
 
         @CustomType.Setter
         public Builder balanceSimilarNodeGroups(@Nullable Boolean balanceSimilarNodeGroups) {
+
             this.balanceSimilarNodeGroups = balanceSimilarNodeGroups;
             return this;
         }
         @CustomType.Setter
         public Builder emptyBulkDeleteMax(@Nullable String emptyBulkDeleteMax) {
+
             this.emptyBulkDeleteMax = emptyBulkDeleteMax;
             return this;
         }
         @CustomType.Setter
         public Builder expander(@Nullable String expander) {
+
             this.expander = expander;
             return this;
         }
         @CustomType.Setter
         public Builder maxGracefulTerminationSec(@Nullable String maxGracefulTerminationSec) {
+
             this.maxGracefulTerminationSec = maxGracefulTerminationSec;
             return this;
         }
         @CustomType.Setter
         public Builder maxNodeProvisioningTime(@Nullable String maxNodeProvisioningTime) {
+
             this.maxNodeProvisioningTime = maxNodeProvisioningTime;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnreadyNodes(@Nullable Integer maxUnreadyNodes) {
+
             this.maxUnreadyNodes = maxUnreadyNodes;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnreadyPercentage(@Nullable Double maxUnreadyPercentage) {
+
             this.maxUnreadyPercentage = maxUnreadyPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder newPodScaleUpDelay(@Nullable String newPodScaleUpDelay) {
+
             this.newPodScaleUpDelay = newPodScaleUpDelay;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownDelayAfterAdd(@Nullable String scaleDownDelayAfterAdd) {
+
             this.scaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownDelayAfterDelete(@Nullable String scaleDownDelayAfterDelete) {
+
             this.scaleDownDelayAfterDelete = scaleDownDelayAfterDelete;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownDelayAfterFailure(@Nullable String scaleDownDelayAfterFailure) {
+
             this.scaleDownDelayAfterFailure = scaleDownDelayAfterFailure;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownUnneeded(@Nullable String scaleDownUnneeded) {
+
             this.scaleDownUnneeded = scaleDownUnneeded;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownUnready(@Nullable String scaleDownUnready) {
+
             this.scaleDownUnready = scaleDownUnready;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownUtilizationThreshold(@Nullable String scaleDownUtilizationThreshold) {
+
             this.scaleDownUtilizationThreshold = scaleDownUtilizationThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder scanInterval(@Nullable String scanInterval) {
+
             this.scanInterval = scanInterval;
             return this;
         }
         @CustomType.Setter
         public Builder skipNodesWithLocalStorage(@Nullable Boolean skipNodesWithLocalStorage) {
+
             this.skipNodesWithLocalStorage = skipNodesWithLocalStorage;
             return this;
         }
         @CustomType.Setter
         public Builder skipNodesWithSystemPods(@Nullable Boolean skipNodesWithSystemPods) {
+
             this.skipNodesWithSystemPods = skipNodesWithSystemPods;
             return this;
         }

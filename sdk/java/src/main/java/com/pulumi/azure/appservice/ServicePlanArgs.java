@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -481,9 +482,15 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServicePlanArgs build() {
-            $.osType = Objects.requireNonNull($.osType, "expected parameter 'osType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.osType == null) {
+                throw new MissingRequiredPropertyException("ServicePlanArgs", "osType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServicePlanArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ServicePlanArgs", "skuName");
+            }
             return $;
         }
     }

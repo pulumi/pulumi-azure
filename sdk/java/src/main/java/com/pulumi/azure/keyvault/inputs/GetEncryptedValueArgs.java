@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class GetEncryptedValueArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetEncryptedValueArgs build() {
-            $.algorithm = Objects.requireNonNull($.algorithm, "expected parameter 'algorithm' to be non-null");
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
+            if ($.algorithm == null) {
+                throw new MissingRequiredPropertyException("GetEncryptedValueArgs", "algorithm");
+            }
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("GetEncryptedValueArgs", "keyVaultKeyId");
+            }
             return $;
         }
     }

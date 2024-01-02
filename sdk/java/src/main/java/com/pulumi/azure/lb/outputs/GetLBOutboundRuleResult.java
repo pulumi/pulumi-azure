@@ -5,6 +5,7 @@ package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.azure.lb.outputs.GetLBOutboundRuleFrontendIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -150,17 +151,26 @@ public final class GetLBOutboundRuleResult {
 
         @CustomType.Setter
         public Builder allocatedOutboundPorts(Integer allocatedOutboundPorts) {
-            this.allocatedOutboundPorts = Objects.requireNonNull(allocatedOutboundPorts);
+            if (allocatedOutboundPorts == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "allocatedOutboundPorts");
+            }
+            this.allocatedOutboundPorts = allocatedOutboundPorts;
             return this;
         }
         @CustomType.Setter
         public Builder backendAddressPoolId(String backendAddressPoolId) {
-            this.backendAddressPoolId = Objects.requireNonNull(backendAddressPoolId);
+            if (backendAddressPoolId == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "backendAddressPoolId");
+            }
+            this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurations(List<GetLBOutboundRuleFrontendIpConfiguration> frontendIpConfigurations) {
-            this.frontendIpConfigurations = Objects.requireNonNull(frontendIpConfigurations);
+            if (frontendIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "frontendIpConfigurations");
+            }
+            this.frontendIpConfigurations = frontendIpConfigurations;
             return this;
         }
         public Builder frontendIpConfigurations(GetLBOutboundRuleFrontendIpConfiguration... frontendIpConfigurations) {
@@ -168,32 +178,50 @@ public final class GetLBOutboundRuleResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder loadbalancerId(String loadbalancerId) {
-            this.loadbalancerId = Objects.requireNonNull(loadbalancerId);
+            if (loadbalancerId == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "loadbalancerId");
+            }
+            this.loadbalancerId = loadbalancerId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder tcpResetEnabled(Boolean tcpResetEnabled) {
-            this.tcpResetEnabled = Objects.requireNonNull(tcpResetEnabled);
+            if (tcpResetEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLBOutboundRuleResult", "tcpResetEnabled");
+            }
+            this.tcpResetEnabled = tcpResetEnabled;
             return this;
         }
         public GetLBOutboundRuleResult build() {

@@ -93,11 +93,13 @@ public final class HostPoolScheduledAgentUpdates {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(@Nullable List<HostPoolScheduledAgentUpdatesSchedule> schedules) {
+
             this.schedules = schedules;
             return this;
         }
@@ -106,11 +108,13 @@ public final class HostPoolScheduledAgentUpdates {
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder useSessionHostTimezone(@Nullable Boolean useSessionHostTimezone) {
+
             this.useSessionHostTimezone = useSessionHostTimezone;
             return this;
         }

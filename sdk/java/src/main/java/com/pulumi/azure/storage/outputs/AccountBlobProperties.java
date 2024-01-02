@@ -183,21 +183,25 @@ public final class AccountBlobProperties {
 
         @CustomType.Setter
         public Builder changeFeedEnabled(@Nullable Boolean changeFeedEnabled) {
+
             this.changeFeedEnabled = changeFeedEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder changeFeedRetentionInDays(@Nullable Integer changeFeedRetentionInDays) {
+
             this.changeFeedRetentionInDays = changeFeedRetentionInDays;
             return this;
         }
         @CustomType.Setter
         public Builder containerDeleteRetentionPolicy(@Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy) {
+
             this.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountBlobPropertiesCorsRule> corsRules) {
+
             this.corsRules = corsRules;
             return this;
         }
@@ -206,26 +210,31 @@ public final class AccountBlobProperties {
         }
         @CustomType.Setter
         public Builder defaultServiceVersion(@Nullable String defaultServiceVersion) {
+
             this.defaultServiceVersion = defaultServiceVersion;
             return this;
         }
         @CustomType.Setter
         public Builder deleteRetentionPolicy(@Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy) {
+
             this.deleteRetentionPolicy = deleteRetentionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder lastAccessTimeEnabled(@Nullable Boolean lastAccessTimeEnabled) {
+
             this.lastAccessTimeEnabled = lastAccessTimeEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder restorePolicy(@Nullable AccountBlobPropertiesRestorePolicy restorePolicy) {
+
             this.restorePolicy = restorePolicy;
             return this;
         }
         @CustomType.Setter
         public Builder versioningEnabled(@Nullable Boolean versioningEnabled) {
+
             this.versioningEnabled = versioningEnabled;
             return this;
         }

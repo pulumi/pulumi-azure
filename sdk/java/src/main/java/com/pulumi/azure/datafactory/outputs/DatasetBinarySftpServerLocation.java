@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,30 @@ public final class DatasetBinarySftpServerLocation {
 
         @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
+
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
+
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder filename(String filename) {
-            this.filename = Objects.requireNonNull(filename);
+            if (filename == null) {
+              throw new MissingRequiredPropertyException("DatasetBinarySftpServerLocation", "filename");
+            }
+            this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("DatasetBinarySftpServerLocation", "path");
+            }
+            this.path = path;
             return this;
         }
         public DatasetBinarySftpServerLocation build() {

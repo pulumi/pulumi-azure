@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class NamespaceCustomerManagedKey {
 
         @CustomType.Setter
         public Builder identityId(String identityId) {
-            this.identityId = Objects.requireNonNull(identityId);
+            if (identityId == null) {
+              throw new MissingRequiredPropertyException("NamespaceCustomerManagedKey", "identityId");
+            }
+            this.identityId = identityId;
             return this;
         }
         @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(@Nullable Boolean infrastructureEncryptionEnabled) {
+
             this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("NamespaceCustomerManagedKey", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         public NamespaceCustomerManagedKey build() {

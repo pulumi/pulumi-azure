@@ -4,6 +4,7 @@
 package com.pulumi.azure.cognitive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,27 +102,34 @@ public final class DeploymentScale {
 
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder family(@Nullable String family) {
+
             this.family = family;
             return this;
         }
         @CustomType.Setter
         public Builder size(@Nullable String size) {
+
             this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder tier(@Nullable String tier) {
+
             this.tier = tier;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("DeploymentScale", "type");
+            }
+            this.type = type;
             return this;
         }
         public DeploymentScale build() {

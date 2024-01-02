@@ -153,36 +153,43 @@ public final class TransformOutput {
 
         @CustomType.Setter
         public Builder audioAnalyzerPreset(@Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset) {
+
             this.audioAnalyzerPreset = audioAnalyzerPreset;
             return this;
         }
         @CustomType.Setter
         public Builder builtinPreset(@Nullable TransformOutputBuiltinPreset builtinPreset) {
+
             this.builtinPreset = builtinPreset;
             return this;
         }
         @CustomType.Setter
         public Builder customPreset(@Nullable TransformOutputCustomPreset customPreset) {
+
             this.customPreset = customPreset;
             return this;
         }
         @CustomType.Setter
         public Builder faceDetectorPreset(@Nullable TransformOutputFaceDetectorPreset faceDetectorPreset) {
+
             this.faceDetectorPreset = faceDetectorPreset;
             return this;
         }
         @CustomType.Setter
         public Builder onErrorAction(@Nullable String onErrorAction) {
+
             this.onErrorAction = onErrorAction;
             return this;
         }
         @CustomType.Setter
         public Builder relativePriority(@Nullable String relativePriority) {
+
             this.relativePriority = relativePriority;
             return this;
         }
         @CustomType.Setter
         public Builder videoAnalyzerPreset(@Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset) {
+
             this.videoAnalyzerPreset = videoAnalyzerPreset;
             return this;
         }

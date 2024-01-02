@@ -5,6 +5,7 @@ package com.pulumi.azure.digitaltwins;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class EndpointEventGridArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EndpointEventGridArgs build() {
-            $.digitalTwinsId = Objects.requireNonNull($.digitalTwinsId, "expected parameter 'digitalTwinsId' to be non-null");
-            $.eventgridTopicEndpoint = Objects.requireNonNull($.eventgridTopicEndpoint, "expected parameter 'eventgridTopicEndpoint' to be non-null");
-            $.eventgridTopicPrimaryAccessKey = Objects.requireNonNull($.eventgridTopicPrimaryAccessKey, "expected parameter 'eventgridTopicPrimaryAccessKey' to be non-null");
-            $.eventgridTopicSecondaryAccessKey = Objects.requireNonNull($.eventgridTopicSecondaryAccessKey, "expected parameter 'eventgridTopicSecondaryAccessKey' to be non-null");
+            if ($.digitalTwinsId == null) {
+                throw new MissingRequiredPropertyException("EndpointEventGridArgs", "digitalTwinsId");
+            }
+            if ($.eventgridTopicEndpoint == null) {
+                throw new MissingRequiredPropertyException("EndpointEventGridArgs", "eventgridTopicEndpoint");
+            }
+            if ($.eventgridTopicPrimaryAccessKey == null) {
+                throw new MissingRequiredPropertyException("EndpointEventGridArgs", "eventgridTopicPrimaryAccessKey");
+            }
+            if ($.eventgridTopicSecondaryAccessKey == null) {
+                throw new MissingRequiredPropertyException("EndpointEventGridArgs", "eventgridTopicSecondaryAccessKey");
+            }
             return $;
         }
     }

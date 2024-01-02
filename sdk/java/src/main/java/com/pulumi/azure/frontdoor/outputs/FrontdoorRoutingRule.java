@@ -6,6 +6,7 @@ package com.pulumi.azure.frontdoor.outputs;
 import com.pulumi.azure.frontdoor.outputs.FrontdoorRoutingRuleForwardingConfiguration;
 import com.pulumi.azure.frontdoor.outputs.FrontdoorRoutingRuleRedirectConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -146,7 +147,10 @@ public final class FrontdoorRoutingRule {
 
         @CustomType.Setter
         public Builder acceptedProtocols(List<String> acceptedProtocols) {
-            this.acceptedProtocols = Objects.requireNonNull(acceptedProtocols);
+            if (acceptedProtocols == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRule", "acceptedProtocols");
+            }
+            this.acceptedProtocols = acceptedProtocols;
             return this;
         }
         public Builder acceptedProtocols(String... acceptedProtocols) {
@@ -154,17 +158,22 @@ public final class FrontdoorRoutingRule {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder forwardingConfiguration(@Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration) {
+
             this.forwardingConfiguration = forwardingConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder frontendEndpoints(List<String> frontendEndpoints) {
-            this.frontendEndpoints = Objects.requireNonNull(frontendEndpoints);
+            if (frontendEndpoints == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRule", "frontendEndpoints");
+            }
+            this.frontendEndpoints = frontendEndpoints;
             return this;
         }
         public Builder frontendEndpoints(String... frontendEndpoints) {
@@ -172,17 +181,24 @@ public final class FrontdoorRoutingRule {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder patternsToMatches(List<String> patternsToMatches) {
-            this.patternsToMatches = Objects.requireNonNull(patternsToMatches);
+            if (patternsToMatches == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRule", "patternsToMatches");
+            }
+            this.patternsToMatches = patternsToMatches;
             return this;
         }
         public Builder patternsToMatches(String... patternsToMatches) {
@@ -190,6 +206,7 @@ public final class FrontdoorRoutingRule {
         }
         @CustomType.Setter
         public Builder redirectConfiguration(@Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration) {
+
             this.redirectConfiguration = redirectConfiguration;
             return this;
         }

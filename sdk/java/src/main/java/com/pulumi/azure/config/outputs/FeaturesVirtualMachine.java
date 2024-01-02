@@ -48,16 +48,19 @@ public final class FeaturesVirtualMachine {
 
         @CustomType.Setter
         public Builder deleteOsDiskOnDeletion(@Nullable Boolean deleteOsDiskOnDeletion) {
+
             this.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
             return this;
         }
         @CustomType.Setter
         public Builder gracefulShutdown(@Nullable Boolean gracefulShutdown) {
+
             this.gracefulShutdown = gracefulShutdown;
             return this;
         }
         @CustomType.Setter
         public Builder skipShutdownAndForceDelete(@Nullable Boolean skipShutdownAndForceDelete) {
+
             this.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
             return this;
         }

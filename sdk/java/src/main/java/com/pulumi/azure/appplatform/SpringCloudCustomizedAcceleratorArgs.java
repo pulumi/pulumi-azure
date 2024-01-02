@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.appplatform.inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -347,8 +348,12 @@ public final class SpringCloudCustomizedAcceleratorArgs extends com.pulumi.resou
         }
 
         public SpringCloudCustomizedAcceleratorArgs build() {
-            $.gitRepository = Objects.requireNonNull($.gitRepository, "expected parameter 'gitRepository' to be non-null");
-            $.springCloudAcceleratorId = Objects.requireNonNull($.springCloudAcceleratorId, "expected parameter 'springCloudAcceleratorId' to be non-null");
+            if ($.gitRepository == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorArgs", "gitRepository");
+            }
+            if ($.springCloudAcceleratorId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorArgs", "springCloudAcceleratorId");
+            }
             return $;
         }
     }

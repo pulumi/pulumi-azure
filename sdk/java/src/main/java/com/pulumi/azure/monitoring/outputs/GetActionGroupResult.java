@@ -15,6 +15,7 @@ import com.pulumi.azure.monitoring.outputs.GetActionGroupSmsReceiver;
 import com.pulumi.azure.monitoring.outputs.GetActionGroupVoiceReceiver;
 import com.pulumi.azure.monitoring.outputs.GetActionGroupWebhookReceiver;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -257,7 +258,10 @@ public final class GetActionGroupResult {
 
         @CustomType.Setter
         public Builder armRoleReceivers(List<GetActionGroupArmRoleReceiver> armRoleReceivers) {
-            this.armRoleReceivers = Objects.requireNonNull(armRoleReceivers);
+            if (armRoleReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "armRoleReceivers");
+            }
+            this.armRoleReceivers = armRoleReceivers;
             return this;
         }
         public Builder armRoleReceivers(GetActionGroupArmRoleReceiver... armRoleReceivers) {
@@ -265,7 +269,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder automationRunbookReceivers(List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers) {
-            this.automationRunbookReceivers = Objects.requireNonNull(automationRunbookReceivers);
+            if (automationRunbookReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "automationRunbookReceivers");
+            }
+            this.automationRunbookReceivers = automationRunbookReceivers;
             return this;
         }
         public Builder automationRunbookReceivers(GetActionGroupAutomationRunbookReceiver... automationRunbookReceivers) {
@@ -273,7 +280,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder azureAppPushReceivers(List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers) {
-            this.azureAppPushReceivers = Objects.requireNonNull(azureAppPushReceivers);
+            if (azureAppPushReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "azureAppPushReceivers");
+            }
+            this.azureAppPushReceivers = azureAppPushReceivers;
             return this;
         }
         public Builder azureAppPushReceivers(GetActionGroupAzureAppPushReceiver... azureAppPushReceivers) {
@@ -281,7 +291,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder azureFunctionReceivers(List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers) {
-            this.azureFunctionReceivers = Objects.requireNonNull(azureFunctionReceivers);
+            if (azureFunctionReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "azureFunctionReceivers");
+            }
+            this.azureFunctionReceivers = azureFunctionReceivers;
             return this;
         }
         public Builder azureFunctionReceivers(GetActionGroupAzureFunctionReceiver... azureFunctionReceivers) {
@@ -289,7 +302,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder emailReceivers(List<GetActionGroupEmailReceiver> emailReceivers) {
-            this.emailReceivers = Objects.requireNonNull(emailReceivers);
+            if (emailReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "emailReceivers");
+            }
+            this.emailReceivers = emailReceivers;
             return this;
         }
         public Builder emailReceivers(GetActionGroupEmailReceiver... emailReceivers) {
@@ -297,12 +313,18 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubReceivers(List<GetActionGroupEventHubReceiver> eventHubReceivers) {
-            this.eventHubReceivers = Objects.requireNonNull(eventHubReceivers);
+            if (eventHubReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "eventHubReceivers");
+            }
+            this.eventHubReceivers = eventHubReceivers;
             return this;
         }
         public Builder eventHubReceivers(GetActionGroupEventHubReceiver... eventHubReceivers) {
@@ -310,12 +332,18 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder itsmReceivers(List<GetActionGroupItsmReceiver> itsmReceivers) {
-            this.itsmReceivers = Objects.requireNonNull(itsmReceivers);
+            if (itsmReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "itsmReceivers");
+            }
+            this.itsmReceivers = itsmReceivers;
             return this;
         }
         public Builder itsmReceivers(GetActionGroupItsmReceiver... itsmReceivers) {
@@ -323,7 +351,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder logicAppReceivers(List<GetActionGroupLogicAppReceiver> logicAppReceivers) {
-            this.logicAppReceivers = Objects.requireNonNull(logicAppReceivers);
+            if (logicAppReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "logicAppReceivers");
+            }
+            this.logicAppReceivers = logicAppReceivers;
             return this;
         }
         public Builder logicAppReceivers(GetActionGroupLogicAppReceiver... logicAppReceivers) {
@@ -331,22 +362,34 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder shortName(String shortName) {
-            this.shortName = Objects.requireNonNull(shortName);
+            if (shortName == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "shortName");
+            }
+            this.shortName = shortName;
             return this;
         }
         @CustomType.Setter
         public Builder smsReceivers(List<GetActionGroupSmsReceiver> smsReceivers) {
-            this.smsReceivers = Objects.requireNonNull(smsReceivers);
+            if (smsReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "smsReceivers");
+            }
+            this.smsReceivers = smsReceivers;
             return this;
         }
         public Builder smsReceivers(GetActionGroupSmsReceiver... smsReceivers) {
@@ -354,7 +397,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder voiceReceivers(List<GetActionGroupVoiceReceiver> voiceReceivers) {
-            this.voiceReceivers = Objects.requireNonNull(voiceReceivers);
+            if (voiceReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "voiceReceivers");
+            }
+            this.voiceReceivers = voiceReceivers;
             return this;
         }
         public Builder voiceReceivers(GetActionGroupVoiceReceiver... voiceReceivers) {
@@ -362,7 +408,10 @@ public final class GetActionGroupResult {
         }
         @CustomType.Setter
         public Builder webhookReceivers(List<GetActionGroupWebhookReceiver> webhookReceivers) {
-            this.webhookReceivers = Objects.requireNonNull(webhookReceivers);
+            if (webhookReceivers == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupResult", "webhookReceivers");
+            }
+            this.webhookReceivers = webhookReceivers;
             return this;
         }
         public Builder webhookReceivers(GetActionGroupWebhookReceiver... webhookReceivers) {

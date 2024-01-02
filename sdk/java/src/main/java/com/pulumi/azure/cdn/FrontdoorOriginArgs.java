@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -526,9 +527,15 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FrontdoorOriginArgs build() {
-            $.cdnFrontdoorOriginGroupId = Objects.requireNonNull($.cdnFrontdoorOriginGroupId, "expected parameter 'cdnFrontdoorOriginGroupId' to be non-null");
-            $.certificateNameCheckEnabled = Objects.requireNonNull($.certificateNameCheckEnabled, "expected parameter 'certificateNameCheckEnabled' to be non-null");
-            $.hostName = Objects.requireNonNull($.hostName, "expected parameter 'hostName' to be non-null");
+            if ($.cdnFrontdoorOriginGroupId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginArgs", "cdnFrontdoorOriginGroupId");
+            }
+            if ($.certificateNameCheckEnabled == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginArgs", "certificateNameCheckEnabled");
+            }
+            if ($.hostName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginArgs", "hostName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class KubernetesClusterServicePrincipalArgs extends com.pulumi.reso
         }
 
         public KubernetesClusterServicePrincipalArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterServicePrincipalArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterServicePrincipalArgs", "clientSecret");
+            }
             return $;
         }
     }

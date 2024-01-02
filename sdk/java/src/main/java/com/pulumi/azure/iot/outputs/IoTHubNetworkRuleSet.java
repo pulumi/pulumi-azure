@@ -75,16 +75,19 @@ public final class IoTHubNetworkRuleSet {
 
         @CustomType.Setter
         public Builder applyToBuiltinEventhubEndpoint(@Nullable Boolean applyToBuiltinEventhubEndpoint) {
+
             this.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
+
             this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<IoTHubNetworkRuleSetIpRule> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.outputs.SparkClusterRolesHeadNode;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterRolesWorkerNode;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterRolesZookeeperNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -72,17 +73,26 @@ public final class SparkClusterRoles {
 
         @CustomType.Setter
         public Builder headNode(SparkClusterRolesHeadNode headNode) {
-            this.headNode = Objects.requireNonNull(headNode);
+            if (headNode == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRoles", "headNode");
+            }
+            this.headNode = headNode;
             return this;
         }
         @CustomType.Setter
         public Builder workerNode(SparkClusterRolesWorkerNode workerNode) {
-            this.workerNode = Objects.requireNonNull(workerNode);
+            if (workerNode == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRoles", "workerNode");
+            }
+            this.workerNode = workerNode;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperNode(SparkClusterRolesZookeeperNode zookeeperNode) {
-            this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
+            if (zookeeperNode == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRoles", "zookeeperNode");
+            }
+            this.zookeeperNode = zookeeperNode;
             return this;
         }
         public SparkClusterRoles build() {

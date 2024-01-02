@@ -7,6 +7,7 @@ import com.pulumi.azure.machinelearning.inputs.InferenceClusterIdentityArgs;
 import com.pulumi.azure.machinelearning.inputs.InferenceClusterSslArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -383,8 +384,12 @@ public final class InferenceClusterArgs extends com.pulumi.resources.ResourceArg
         }
 
         public InferenceClusterArgs build() {
-            $.kubernetesClusterId = Objects.requireNonNull($.kubernetesClusterId, "expected parameter 'kubernetesClusterId' to be non-null");
-            $.machineLearningWorkspaceId = Objects.requireNonNull($.machineLearningWorkspaceId, "expected parameter 'machineLearningWorkspaceId' to be non-null");
+            if ($.kubernetesClusterId == null) {
+                throw new MissingRequiredPropertyException("InferenceClusterArgs", "kubernetesClusterId");
+            }
+            if ($.machineLearningWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("InferenceClusterArgs", "machineLearningWorkspaceId");
+            }
             return $;
         }
     }

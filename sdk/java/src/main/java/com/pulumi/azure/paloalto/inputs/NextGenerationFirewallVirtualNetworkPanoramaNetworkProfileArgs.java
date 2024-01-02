@@ -6,6 +6,7 @@ package com.pulumi.azure.paloalto.inputs;
 import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -214,8 +215,12 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArg
         }
 
         public NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs build() {
-            $.publicIpAddressIds = Objects.requireNonNull($.publicIpAddressIds, "expected parameter 'publicIpAddressIds' to be non-null");
-            $.vnetConfiguration = Objects.requireNonNull($.vnetConfiguration, "expected parameter 'vnetConfiguration' to be non-null");
+            if ($.publicIpAddressIds == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs", "publicIpAddressIds");
+            }
+            if ($.vnetConfiguration == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs", "vnetConfiguration");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.batch.outputs.PoolStartTaskContainer;
 import com.pulumi.azure.batch.outputs.PoolStartTaskResourceFile;
 import com.pulumi.azure.batch.outputs.PoolStartTaskUserIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -135,16 +136,21 @@ public final class PoolStartTask {
 
         @CustomType.Setter
         public Builder commandLine(String commandLine) {
-            this.commandLine = Objects.requireNonNull(commandLine);
+            if (commandLine == null) {
+              throw new MissingRequiredPropertyException("PoolStartTask", "commandLine");
+            }
+            this.commandLine = commandLine;
             return this;
         }
         @CustomType.Setter
         public Builder commonEnvironmentProperties(@Nullable Map<String,String> commonEnvironmentProperties) {
+
             this.commonEnvironmentProperties = commonEnvironmentProperties;
             return this;
         }
         @CustomType.Setter
         public Builder containers(@Nullable List<PoolStartTaskContainer> containers) {
+
             this.containers = containers;
             return this;
         }
@@ -153,6 +159,7 @@ public final class PoolStartTask {
         }
         @CustomType.Setter
         public Builder resourceFiles(@Nullable List<PoolStartTaskResourceFile> resourceFiles) {
+
             this.resourceFiles = resourceFiles;
             return this;
         }
@@ -161,16 +168,21 @@ public final class PoolStartTask {
         }
         @CustomType.Setter
         public Builder taskRetryMaximum(@Nullable Integer taskRetryMaximum) {
+
             this.taskRetryMaximum = taskRetryMaximum;
             return this;
         }
         @CustomType.Setter
         public Builder userIdentity(PoolStartTaskUserIdentity userIdentity) {
-            this.userIdentity = Objects.requireNonNull(userIdentity);
+            if (userIdentity == null) {
+              throw new MissingRequiredPropertyException("PoolStartTask", "userIdentity");
+            }
+            this.userIdentity = userIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder waitForSuccess(@Nullable Boolean waitForSuccess) {
+
             this.waitForSuccess = waitForSuccess;
             return this;
         }

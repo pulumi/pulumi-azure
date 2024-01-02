@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetSharedImageVersionsImageTargetRegion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,37 +131,58 @@ public final class GetSharedImageVersionsImage {
 
         @CustomType.Setter
         public Builder excludeFromLatest(Boolean excludeFromLatest) {
-            this.excludeFromLatest = Objects.requireNonNull(excludeFromLatest);
+            if (excludeFromLatest == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "excludeFromLatest");
+            }
+            this.excludeFromLatest = excludeFromLatest;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder managedImageId(String managedImageId) {
-            this.managedImageId = Objects.requireNonNull(managedImageId);
+            if (managedImageId == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "managedImageId");
+            }
+            this.managedImageId = managedImageId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetRegions(List<GetSharedImageVersionsImageTargetRegion> targetRegions) {
-            this.targetRegions = Objects.requireNonNull(targetRegions);
+            if (targetRegions == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionsImage", "targetRegions");
+            }
+            this.targetRegions = targetRegions;
             return this;
         }
         public Builder targetRegions(GetSharedImageVersionsImageTargetRegion... targetRegions) {

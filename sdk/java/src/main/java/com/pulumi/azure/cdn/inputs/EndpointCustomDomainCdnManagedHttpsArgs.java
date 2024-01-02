@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class EndpointCustomDomainCdnManagedHttpsArgs extends com.pulumi.re
         }
 
         public EndpointCustomDomainCdnManagedHttpsArgs build() {
-            $.certificateType = Objects.requireNonNull($.certificateType, "expected parameter 'certificateType' to be non-null");
-            $.protocolType = Objects.requireNonNull($.protocolType, "expected parameter 'protocolType' to be non-null");
+            if ($.certificateType == null) {
+                throw new MissingRequiredPropertyException("EndpointCustomDomainCdnManagedHttpsArgs", "certificateType");
+            }
+            if ($.protocolType == null) {
+                throw new MissingRequiredPropertyException("EndpointCustomDomainCdnManagedHttpsArgs", "protocolType");
+            }
             return $;
         }
     }

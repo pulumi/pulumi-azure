@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WorkspaceApplicationGroupAssociationArgs extends com.pulumi.r
         }
 
         public WorkspaceApplicationGroupAssociationArgs build() {
-            $.applicationGroupId = Objects.requireNonNull($.applicationGroupId, "expected parameter 'applicationGroupId' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.applicationGroupId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApplicationGroupAssociationArgs", "applicationGroupId");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceApplicationGroupAssociationArgs", "workspaceId");
+            }
             return $;
         }
     }

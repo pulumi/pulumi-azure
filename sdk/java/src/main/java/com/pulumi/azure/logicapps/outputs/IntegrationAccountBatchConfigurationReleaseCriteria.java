@@ -73,16 +73,19 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
 
         @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
+
             this.batchSize = batchSize;
             return this;
         }
         @CustomType.Setter
         public Builder messageCount(@Nullable Integer messageCount) {
+
             this.messageCount = messageCount;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }

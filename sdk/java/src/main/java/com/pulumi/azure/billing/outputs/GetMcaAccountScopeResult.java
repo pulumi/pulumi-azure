@@ -4,6 +4,7 @@
 package com.pulumi.azure.billing.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,22 +61,34 @@ public final class GetMcaAccountScopeResult {
 
         @CustomType.Setter
         public Builder billingAccountName(String billingAccountName) {
-            this.billingAccountName = Objects.requireNonNull(billingAccountName);
+            if (billingAccountName == null) {
+              throw new MissingRequiredPropertyException("GetMcaAccountScopeResult", "billingAccountName");
+            }
+            this.billingAccountName = billingAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder billingProfileName(String billingProfileName) {
-            this.billingProfileName = Objects.requireNonNull(billingProfileName);
+            if (billingProfileName == null) {
+              throw new MissingRequiredPropertyException("GetMcaAccountScopeResult", "billingProfileName");
+            }
+            this.billingProfileName = billingProfileName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMcaAccountScopeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder invoiceSectionName(String invoiceSectionName) {
-            this.invoiceSectionName = Objects.requireNonNull(invoiceSectionName);
+            if (invoiceSectionName == null) {
+              throw new MissingRequiredPropertyException("GetMcaAccountScopeResult", "invoiceSectionName");
+            }
+            this.invoiceSectionName = invoiceSectionName;
             return this;
         }
         public GetMcaAccountScopeResult build() {

@@ -9,6 +9,7 @@ import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfiguration
 import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -340,8 +341,12 @@ public final class NetworkConnectionMonitorTestConfigurationArgs extends com.pul
         }
 
         public NetworkConnectionMonitorTestConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestConfigurationArgs", "name");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestConfigurationArgs", "protocol");
+            }
             return $;
         }
     }

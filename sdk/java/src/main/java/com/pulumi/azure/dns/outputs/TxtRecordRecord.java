@@ -4,6 +4,7 @@
 package com.pulumi.azure.dns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class TxtRecordRecord {
 
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("TxtRecordRecord", "value");
+            }
+            this.value = value;
             return this;
         }
         public TxtRecordRecord build() {

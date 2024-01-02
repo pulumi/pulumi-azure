@@ -4,6 +4,7 @@
 package com.pulumi.azure.operationalinsights.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,22 +79,30 @@ public final class AnalyticsSolutionPlan {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder product(String product) {
-            this.product = Objects.requireNonNull(product);
+            if (product == null) {
+              throw new MissingRequiredPropertyException("AnalyticsSolutionPlan", "product");
+            }
+            this.product = product;
             return this;
         }
         @CustomType.Setter
         public Builder promotionCode(@Nullable String promotionCode) {
+
             this.promotionCode = promotionCode;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("AnalyticsSolutionPlan", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         public AnalyticsSolutionPlan build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.operationalinsights;
 import com.pulumi.azure.operationalinsights.inputs.AnalyticsSolutionPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -300,11 +301,21 @@ public final class AnalyticsSolutionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public AnalyticsSolutionArgs build() {
-            $.plan = Objects.requireNonNull($.plan, "expected parameter 'plan' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.solutionName = Objects.requireNonNull($.solutionName, "expected parameter 'solutionName' to be non-null");
-            $.workspaceName = Objects.requireNonNull($.workspaceName, "expected parameter 'workspaceName' to be non-null");
-            $.workspaceResourceId = Objects.requireNonNull($.workspaceResourceId, "expected parameter 'workspaceResourceId' to be non-null");
+            if ($.plan == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionArgs", "plan");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionArgs", "resourceGroupName");
+            }
+            if ($.solutionName == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionArgs", "solutionName");
+            }
+            if ($.workspaceName == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionArgs", "workspaceName");
+            }
+            if ($.workspaceResourceId == null) {
+                throw new MissingRequiredPropertyException("AnalyticsSolutionArgs", "workspaceResourceId");
+            }
             return $;
         }
     }

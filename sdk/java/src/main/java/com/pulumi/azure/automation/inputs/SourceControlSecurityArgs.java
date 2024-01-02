@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SourceControlSecurityArgs extends com.pulumi.resources.Resour
         }
 
         public SourceControlSecurityArgs build() {
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
-            $.tokenType = Objects.requireNonNull($.tokenType, "expected parameter 'tokenType' to be non-null");
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("SourceControlSecurityArgs", "token");
+            }
+            if ($.tokenType == null) {
+                throw new MissingRequiredPropertyException("SourceControlSecurityArgs", "tokenType");
+            }
             return $;
         }
     }

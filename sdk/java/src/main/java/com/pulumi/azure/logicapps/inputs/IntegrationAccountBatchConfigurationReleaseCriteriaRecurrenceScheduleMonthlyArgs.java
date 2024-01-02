@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs build() {
-            $.week = Objects.requireNonNull($.week, "expected parameter 'week' to be non-null");
-            $.weekday = Objects.requireNonNull($.weekday, "expected parameter 'weekday' to be non-null");
+            if ($.week == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs", "week");
+            }
+            if ($.weekday == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs", "weekday");
+            }
             return $;
         }
     }

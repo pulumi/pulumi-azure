@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class AccountAzureFilesAuthenticationActiveDirectoryArgs extends co
         }
 
         public AccountAzureFilesAuthenticationActiveDirectoryArgs build() {
-            $.domainGuid = Objects.requireNonNull($.domainGuid, "expected parameter 'domainGuid' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
+            if ($.domainGuid == null) {
+                throw new MissingRequiredPropertyException("AccountAzureFilesAuthenticationActiveDirectoryArgs", "domainGuid");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("AccountAzureFilesAuthenticationActiveDirectoryArgs", "domainName");
+            }
             return $;
         }
     }

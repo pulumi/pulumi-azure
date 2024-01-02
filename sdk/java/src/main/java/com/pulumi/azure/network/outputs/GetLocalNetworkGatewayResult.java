@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetLocalNetworkGatewayBgpSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -141,7 +142,10 @@ public final class GetLocalNetworkGatewayResult {
 
         @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
-            this.addressSpaces = Objects.requireNonNull(addressSpaces);
+            if (addressSpaces == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "addressSpaces");
+            }
+            this.addressSpaces = addressSpaces;
             return this;
         }
         public Builder addressSpaces(String... addressSpaces) {
@@ -149,7 +153,10 @@ public final class GetLocalNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder bgpSettings(List<GetLocalNetworkGatewayBgpSetting> bgpSettings) {
-            this.bgpSettings = Objects.requireNonNull(bgpSettings);
+            if (bgpSettings == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "bgpSettings");
+            }
+            this.bgpSettings = bgpSettings;
             return this;
         }
         public Builder bgpSettings(GetLocalNetworkGatewayBgpSetting... bgpSettings) {
@@ -157,37 +164,58 @@ public final class GetLocalNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder gatewayAddress(String gatewayAddress) {
-            this.gatewayAddress = Objects.requireNonNull(gatewayAddress);
+            if (gatewayAddress == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "gatewayAddress");
+            }
+            this.gatewayAddress = gatewayAddress;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayFqdn(String gatewayFqdn) {
-            this.gatewayFqdn = Objects.requireNonNull(gatewayFqdn);
+            if (gatewayFqdn == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "gatewayFqdn");
+            }
+            this.gatewayFqdn = gatewayFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLocalNetworkGatewayResult build() {

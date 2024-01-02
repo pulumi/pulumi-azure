@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.outputs.HBaseClusterRolesHeadNode;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterRolesWorkerNode;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterRolesZookeeperNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -72,17 +73,26 @@ public final class HBaseClusterRoles {
 
         @CustomType.Setter
         public Builder headNode(HBaseClusterRolesHeadNode headNode) {
-            this.headNode = Objects.requireNonNull(headNode);
+            if (headNode == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRoles", "headNode");
+            }
+            this.headNode = headNode;
             return this;
         }
         @CustomType.Setter
         public Builder workerNode(HBaseClusterRolesWorkerNode workerNode) {
-            this.workerNode = Objects.requireNonNull(workerNode);
+            if (workerNode == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRoles", "workerNode");
+            }
+            this.workerNode = workerNode;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperNode(HBaseClusterRolesZookeeperNode zookeeperNode) {
-            this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
+            if (zookeeperNode == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRoles", "zookeeperNode");
+            }
+            this.zookeeperNode = zookeeperNode;
             return this;
         }
         public HBaseClusterRoles build() {

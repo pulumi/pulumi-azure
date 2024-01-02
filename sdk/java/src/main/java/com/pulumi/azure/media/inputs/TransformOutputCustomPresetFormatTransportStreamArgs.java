@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatTransportStreamOutputFileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class TransformOutputCustomPresetFormatTransportStreamArgs extends 
         }
 
         public TransformOutputCustomPresetFormatTransportStreamArgs build() {
-            $.filenamePattern = Objects.requireNonNull($.filenamePattern, "expected parameter 'filenamePattern' to be non-null");
+            if ($.filenamePattern == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetFormatTransportStreamArgs", "filenamePattern");
+            }
             return $;
         }
     }

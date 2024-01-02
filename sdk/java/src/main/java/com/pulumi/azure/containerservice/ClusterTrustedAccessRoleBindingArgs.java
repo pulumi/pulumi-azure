@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,9 +199,15 @@ public final class ClusterTrustedAccessRoleBindingArgs extends com.pulumi.resour
         }
 
         public ClusterTrustedAccessRoleBindingArgs build() {
-            $.kubernetesClusterId = Objects.requireNonNull($.kubernetesClusterId, "expected parameter 'kubernetesClusterId' to be non-null");
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
-            $.sourceResourceId = Objects.requireNonNull($.sourceResourceId, "expected parameter 'sourceResourceId' to be non-null");
+            if ($.kubernetesClusterId == null) {
+                throw new MissingRequiredPropertyException("ClusterTrustedAccessRoleBindingArgs", "kubernetesClusterId");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("ClusterTrustedAccessRoleBindingArgs", "roles");
+            }
+            if ($.sourceResourceId == null) {
+                throw new MissingRequiredPropertyException("ClusterTrustedAccessRoleBindingArgs", "sourceResourceId");
+            }
             return $;
         }
     }

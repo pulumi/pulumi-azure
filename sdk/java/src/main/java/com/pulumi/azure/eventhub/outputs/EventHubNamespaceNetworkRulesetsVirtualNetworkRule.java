@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
 
         @CustomType.Setter
         public Builder ignoreMissingVirtualNetworkServiceEndpoint(@Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint) {
+
             this.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("EventHubNamespaceNetworkRulesetsVirtualNetworkRule", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public EventHubNamespaceNetworkRulesetsVirtualNetworkRule build() {

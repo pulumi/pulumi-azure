@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.azure.sentinel.outputs.AlertRuleFusionSourceSubType;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -75,16 +76,21 @@ public final class AlertRuleFusionSource {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AlertRuleFusionSource", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subTypes(@Nullable List<AlertRuleFusionSourceSubType> subTypes) {
+
             this.subTypes = subTypes;
             return this;
         }

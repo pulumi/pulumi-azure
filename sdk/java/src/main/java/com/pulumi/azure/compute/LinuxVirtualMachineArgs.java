@@ -15,6 +15,7 @@ import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceAr
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineTerminationNotificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1922,11 +1923,21 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         public LinuxVirtualMachineArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.networkInterfaceIds = Objects.requireNonNull($.networkInterfaceIds, "expected parameter 'networkInterfaceIds' to be non-null");
-            $.osDisk = Objects.requireNonNull($.osDisk, "expected parameter 'osDisk' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "adminUsername");
+            }
+            if ($.networkInterfaceIds == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "networkInterfaceIds");
+            }
+            if ($.osDisk == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "osDisk");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "resourceGroupName");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "size");
+            }
             return $;
         }
     }

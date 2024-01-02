@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -95,21 +96,27 @@ public final class WindowsVirtualMachineScaleSetGalleryApplication {
 
         @CustomType.Setter
         public Builder configurationReferenceBlobUri(@Nullable String configurationReferenceBlobUri) {
+
             this.configurationReferenceBlobUri = configurationReferenceBlobUri;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder packageReferenceId(String packageReferenceId) {
-            this.packageReferenceId = Objects.requireNonNull(packageReferenceId);
+            if (packageReferenceId == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetGalleryApplication", "packageReferenceId");
+            }
+            this.packageReferenceId = packageReferenceId;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable String tag) {
+
             this.tag = tag;
             return this;
         }

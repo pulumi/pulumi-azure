@@ -11,6 +11,7 @@ import com.pulumi.azure.hybrid.outputs.GetComputeMachineLocationData;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineOsProfile;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineServiceStatus;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -464,12 +465,18 @@ public final class GetComputeMachineResult {
 
         @CustomType.Setter
         public Builder adFqdn(String adFqdn) {
-            this.adFqdn = Objects.requireNonNull(adFqdn);
+            if (adFqdn == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "adFqdn");
+            }
+            this.adFqdn = adFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder agentConfigurations(List<GetComputeMachineAgentConfiguration> agentConfigurations) {
-            this.agentConfigurations = Objects.requireNonNull(agentConfigurations);
+            if (agentConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "agentConfigurations");
+            }
+            this.agentConfigurations = agentConfigurations;
             return this;
         }
         public Builder agentConfigurations(GetComputeMachineAgentConfiguration... agentConfigurations) {
@@ -477,17 +484,26 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder agentVersion(String agentVersion) {
-            this.agentVersion = Objects.requireNonNull(agentVersion);
+            if (agentVersion == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "agentVersion");
+            }
+            this.agentVersion = agentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder clientPublicKey(String clientPublicKey) {
-            this.clientPublicKey = Objects.requireNonNull(clientPublicKey);
+            if (clientPublicKey == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "clientPublicKey");
+            }
+            this.clientPublicKey = clientPublicKey;
             return this;
         }
         @CustomType.Setter
         public Builder cloudMetadatas(List<GetComputeMachineCloudMetadata> cloudMetadatas) {
-            this.cloudMetadatas = Objects.requireNonNull(cloudMetadatas);
+            if (cloudMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "cloudMetadatas");
+            }
+            this.cloudMetadatas = cloudMetadatas;
             return this;
         }
         public Builder cloudMetadatas(GetComputeMachineCloudMetadata... cloudMetadatas) {
@@ -495,27 +511,42 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder detectedProperties(Map<String,String> detectedProperties) {
-            this.detectedProperties = Objects.requireNonNull(detectedProperties);
+            if (detectedProperties == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "detectedProperties");
+            }
+            this.detectedProperties = detectedProperties;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsFqdn(String dnsFqdn) {
-            this.dnsFqdn = Objects.requireNonNull(dnsFqdn);
+            if (dnsFqdn == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "dnsFqdn");
+            }
+            this.dnsFqdn = dnsFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder errorDetails(List<GetComputeMachineErrorDetail> errorDetails) {
-            this.errorDetails = Objects.requireNonNull(errorDetails);
+            if (errorDetails == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "errorDetails");
+            }
+            this.errorDetails = errorDetails;
             return this;
         }
         public Builder errorDetails(GetComputeMachineErrorDetail... errorDetails) {
@@ -523,12 +554,18 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetComputeMachineIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetComputeMachineIdentity... identities) {
@@ -536,17 +573,26 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder lastStatusChange(String lastStatusChange) {
-            this.lastStatusChange = Objects.requireNonNull(lastStatusChange);
+            if (lastStatusChange == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "lastStatusChange");
+            }
+            this.lastStatusChange = lastStatusChange;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder locationDatas(List<GetComputeMachineLocationData> locationDatas) {
-            this.locationDatas = Objects.requireNonNull(locationDatas);
+            if (locationDatas == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "locationDatas");
+            }
+            this.locationDatas = locationDatas;
             return this;
         }
         public Builder locationDatas(GetComputeMachineLocationData... locationDatas) {
@@ -554,27 +600,42 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder machineFqdn(String machineFqdn) {
-            this.machineFqdn = Objects.requireNonNull(machineFqdn);
+            if (machineFqdn == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "machineFqdn");
+            }
+            this.machineFqdn = machineFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder mssqlDiscovered(Boolean mssqlDiscovered) {
-            this.mssqlDiscovered = Objects.requireNonNull(mssqlDiscovered);
+            if (mssqlDiscovered == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "mssqlDiscovered");
+            }
+            this.mssqlDiscovered = mssqlDiscovered;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osName(String osName) {
-            this.osName = Objects.requireNonNull(osName);
+            if (osName == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "osName");
+            }
+            this.osName = osName;
             return this;
         }
         @CustomType.Setter
         public Builder osProfiles(List<GetComputeMachineOsProfile> osProfiles) {
-            this.osProfiles = Objects.requireNonNull(osProfiles);
+            if (osProfiles == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "osProfiles");
+            }
+            this.osProfiles = osProfiles;
             return this;
         }
         public Builder osProfiles(GetComputeMachineOsProfile... osProfiles) {
@@ -582,37 +643,58 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder osSku(String osSku) {
-            this.osSku = Objects.requireNonNull(osSku);
+            if (osSku == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "osSku");
+            }
+            this.osSku = osSku;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder osVersion(String osVersion) {
-            this.osVersion = Objects.requireNonNull(osVersion);
+            if (osVersion == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "osVersion");
+            }
+            this.osVersion = osVersion;
             return this;
         }
         @CustomType.Setter
         public Builder parentClusterResourceId(String parentClusterResourceId) {
-            this.parentClusterResourceId = Objects.requireNonNull(parentClusterResourceId);
+            if (parentClusterResourceId == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "parentClusterResourceId");
+            }
+            this.parentClusterResourceId = parentClusterResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkScopeResourceId(String privateLinkScopeResourceId) {
-            this.privateLinkScopeResourceId = Objects.requireNonNull(privateLinkScopeResourceId);
+            if (privateLinkScopeResourceId == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "privateLinkScopeResourceId");
+            }
+            this.privateLinkScopeResourceId = privateLinkScopeResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceStatuses(List<GetComputeMachineServiceStatus> serviceStatuses) {
-            this.serviceStatuses = Objects.requireNonNull(serviceStatuses);
+            if (serviceStatuses == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "serviceStatuses");
+            }
+            this.serviceStatuses = serviceStatuses;
             return this;
         }
         public Builder serviceStatuses(GetComputeMachineServiceStatus... serviceStatuses) {
@@ -620,22 +702,34 @@ public final class GetComputeMachineResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vmId(String vmId) {
-            this.vmId = Objects.requireNonNull(vmId);
+            if (vmId == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "vmId");
+            }
+            this.vmId = vmId;
             return this;
         }
         @CustomType.Setter
         public Builder vmUuid(String vmUuid) {
-            this.vmUuid = Objects.requireNonNull(vmUuid);
+            if (vmUuid == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineResult", "vmUuid");
+            }
+            this.vmUuid = vmUuid;
             return this;
         }
         public GetComputeMachineResult build() {

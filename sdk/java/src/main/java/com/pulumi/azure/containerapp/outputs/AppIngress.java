@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.azure.containerapp.outputs.AppIngressCustomDomain;
 import com.pulumi.azure.containerapp.outputs.AppIngressTrafficWeight;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -155,37 +156,48 @@ public final class AppIngress {
 
         @CustomType.Setter
         public Builder allowInsecureConnections(@Nullable Boolean allowInsecureConnections) {
+
             this.allowInsecureConnections = allowInsecureConnections;
             return this;
         }
         @CustomType.Setter
         public Builder customDomain(@Nullable AppIngressCustomDomain customDomain) {
+
             this.customDomain = customDomain;
             return this;
         }
         @CustomType.Setter
         public Builder exposedPort(@Nullable Integer exposedPort) {
+
             this.exposedPort = exposedPort;
             return this;
         }
         @CustomType.Setter
         public Builder externalEnabled(@Nullable Boolean externalEnabled) {
+
             this.externalEnabled = externalEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
-            this.targetPort = Objects.requireNonNull(targetPort);
+            if (targetPort == null) {
+              throw new MissingRequiredPropertyException("AppIngress", "targetPort");
+            }
+            this.targetPort = targetPort;
             return this;
         }
         @CustomType.Setter
         public Builder trafficWeights(List<AppIngressTrafficWeight> trafficWeights) {
-            this.trafficWeights = Objects.requireNonNull(trafficWeights);
+            if (trafficWeights == null) {
+              throw new MissingRequiredPropertyException("AppIngress", "trafficWeights");
+            }
+            this.trafficWeights = trafficWeights;
             return this;
         }
         public Builder trafficWeights(AppIngressTrafficWeight... trafficWeights) {
@@ -193,6 +205,7 @@ public final class AppIngress {
         }
         @CustomType.Setter
         public Builder transport(@Nullable String transport) {
+
             this.transport = transport;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileRuleMetricTrigger;
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileRuleScaleAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class AutoscaleSettingProfileRule {
 
         @CustomType.Setter
         public Builder metricTrigger(AutoscaleSettingProfileRuleMetricTrigger metricTrigger) {
-            this.metricTrigger = Objects.requireNonNull(metricTrigger);
+            if (metricTrigger == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRule", "metricTrigger");
+            }
+            this.metricTrigger = metricTrigger;
             return this;
         }
         @CustomType.Setter
         public Builder scaleAction(AutoscaleSettingProfileRuleScaleAction scaleAction) {
-            this.scaleAction = Objects.requireNonNull(scaleAction);
+            if (scaleAction == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRule", "scaleAction");
+            }
+            this.scaleAction = scaleAction;
             return this;
         }
         public AutoscaleSettingProfileRule build() {

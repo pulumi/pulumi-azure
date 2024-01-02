@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -427,11 +428,21 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProductArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.productId = Objects.requireNonNull($.productId, "expected parameter 'productId' to be non-null");
-            $.published = Objects.requireNonNull($.published, "expected parameter 'published' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "apiManagementName");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "displayName");
+            }
+            if ($.productId == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "productId");
+            }
+            if ($.published == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "published");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProductArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPrivateEndpointArgs;
 import com.pulumi.azure.signalr.inputs.ServiceNetworkAclPublicNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,9 +201,15 @@ public final class ServiceNetworkAclArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ServiceNetworkAclArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
-            $.publicNetwork = Objects.requireNonNull($.publicNetwork, "expected parameter 'publicNetwork' to be non-null");
-            $.signalrServiceId = Objects.requireNonNull($.signalrServiceId, "expected parameter 'signalrServiceId' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("ServiceNetworkAclArgs", "defaultAction");
+            }
+            if ($.publicNetwork == null) {
+                throw new MissingRequiredPropertyException("ServiceNetworkAclArgs", "publicNetwork");
+            }
+            if ($.signalrServiceId == null) {
+                throw new MissingRequiredPropertyException("ServiceNetworkAclArgs", "signalrServiceId");
+            }
             return $;
         }
     }

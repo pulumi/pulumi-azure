@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.TrafficManagerProfileMonitorConfigCustomHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -145,6 +146,7 @@ public final class TrafficManagerProfileMonitorConfig {
 
         @CustomType.Setter
         public Builder customHeaders(@Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders) {
+
             this.customHeaders = customHeaders;
             return this;
         }
@@ -153,6 +155,7 @@ public final class TrafficManagerProfileMonitorConfig {
         }
         @CustomType.Setter
         public Builder expectedStatusCodeRanges(@Nullable List<String> expectedStatusCodeRanges) {
+
             this.expectedStatusCodeRanges = expectedStatusCodeRanges;
             return this;
         }
@@ -161,31 +164,41 @@ public final class TrafficManagerProfileMonitorConfig {
         }
         @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
+
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("TrafficManagerProfileMonitorConfig", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("TrafficManagerProfileMonitorConfig", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder toleratedNumberOfFailures(@Nullable Integer toleratedNumberOfFailures) {
+
             this.toleratedNumberOfFailures = toleratedNumberOfFailures;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.management.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class GroupPolicyAssignmentNonComplianceMessage {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GroupPolicyAssignmentNonComplianceMessage", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionReferenceId(@Nullable String policyDefinitionReferenceId) {
+
             this.policyDefinitionReferenceId = policyDefinitionReferenceId;
             return this;
         }

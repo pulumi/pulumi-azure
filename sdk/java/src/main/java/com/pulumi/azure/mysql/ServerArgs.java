@@ -7,6 +7,7 @@ import com.pulumi.azure.mysql.inputs.ServerIdentityArgs;
 import com.pulumi.azure.mysql.inputs.ServerThreatDetectionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -821,10 +822,18 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServerArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.sslEnforcementEnabled = Objects.requireNonNull($.sslEnforcementEnabled, "expected parameter 'sslEnforcementEnabled' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "skuName");
+            }
+            if ($.sslEnforcementEnabled == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "sslEnforcementEnabled");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("ServerArgs", "version");
+            }
             return $;
         }
     }

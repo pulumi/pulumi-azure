@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -433,9 +434,15 @@ public final class AlertPrometheusRuleGroupArgs extends com.pulumi.resources.Res
         }
 
         public AlertPrometheusRuleGroupArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupArgs", "resourceGroupName");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupArgs", "rules");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupArgs", "scopes");
+            }
             return $;
         }
     }

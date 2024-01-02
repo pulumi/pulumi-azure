@@ -5,6 +5,7 @@ package com.pulumi.azure.networkfunction.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class CollectorPolicyIpfxIngestionArgs extends com.pulumi.resources
         }
 
         public CollectorPolicyIpfxIngestionArgs build() {
-            $.sourceResourceIds = Objects.requireNonNull($.sourceResourceIds, "expected parameter 'sourceResourceIds' to be non-null");
+            if ($.sourceResourceIds == null) {
+                throw new MissingRequiredPropertyException("CollectorPolicyIpfxIngestionArgs", "sourceResourceIds");
+            }
             return $;
         }
     }

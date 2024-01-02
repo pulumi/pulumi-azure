@@ -7,6 +7,7 @@ import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageKeyVault
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -736,7 +737,9 @@ public final class LinkedServiceAzureBlobStorageArgs extends com.pulumi.resource
         }
 
         public LinkedServiceAzureBlobStorageArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureBlobStorageArgs", "dataFactoryId");
+            }
             return $;
         }
     }

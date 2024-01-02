@@ -4,6 +4,7 @@
 package com.pulumi.azure.lighthouse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,6 +88,7 @@ public final class DefinitionAuthorization {
 
         @CustomType.Setter
         public Builder delegatedRoleDefinitionIds(@Nullable List<String> delegatedRoleDefinitionIds) {
+
             this.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
             return this;
         }
@@ -95,17 +97,24 @@ public final class DefinitionAuthorization {
         }
         @CustomType.Setter
         public Builder principalDisplayName(@Nullable String principalDisplayName) {
+
             this.principalDisplayName = principalDisplayName;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("DefinitionAuthorization", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
-            this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
+            if (roleDefinitionId == null) {
+              throw new MissingRequiredPropertyException("DefinitionAuthorization", "roleDefinitionId");
+            }
+            this.roleDefinitionId = roleDefinitionId;
             return this;
         }
         public DefinitionAuthorization build() {

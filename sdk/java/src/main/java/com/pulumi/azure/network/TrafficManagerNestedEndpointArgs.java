@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.TrafficManagerNestedEndpointCustomHeaderA
 import com.pulumi.azure.network.inputs.TrafficManagerNestedEndpointSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -563,9 +564,15 @@ public final class TrafficManagerNestedEndpointArgs extends com.pulumi.resources
         }
 
         public TrafficManagerNestedEndpointArgs build() {
-            $.minimumChildEndpoints = Objects.requireNonNull($.minimumChildEndpoints, "expected parameter 'minimumChildEndpoints' to be non-null");
-            $.profileId = Objects.requireNonNull($.profileId, "expected parameter 'profileId' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.minimumChildEndpoints == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerNestedEndpointArgs", "minimumChildEndpoints");
+            }
+            if ($.profileId == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerNestedEndpointArgs", "profileId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerNestedEndpointArgs", "targetResourceId");
+            }
             return $;
         }
     }

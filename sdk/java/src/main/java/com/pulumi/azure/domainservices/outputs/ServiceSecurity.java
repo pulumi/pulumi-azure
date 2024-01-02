@@ -128,36 +128,43 @@ public final class ServiceSecurity {
 
         @CustomType.Setter
         public Builder kerberosArmoringEnabled(@Nullable Boolean kerberosArmoringEnabled) {
+
             this.kerberosArmoringEnabled = kerberosArmoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder kerberosRc4EncryptionEnabled(@Nullable Boolean kerberosRc4EncryptionEnabled) {
+
             this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ntlmV1Enabled(@Nullable Boolean ntlmV1Enabled) {
+
             this.ntlmV1Enabled = ntlmV1Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder syncKerberosPasswords(@Nullable Boolean syncKerberosPasswords) {
+
             this.syncKerberosPasswords = syncKerberosPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder syncNtlmPasswords(@Nullable Boolean syncNtlmPasswords) {
+
             this.syncNtlmPasswords = syncNtlmPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder syncOnPremPasswords(@Nullable Boolean syncOnPremPasswords) {
+
             this.syncOnPremPasswords = syncOnPremPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder tlsV1Enabled(@Nullable Boolean tlsV1Enabled) {
+
             this.tlsV1Enabled = tlsV1Enabled;
             return this;
         }

@@ -63,11 +63,13 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
 
         @CustomType.Setter
         public Builder capacity(@Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }

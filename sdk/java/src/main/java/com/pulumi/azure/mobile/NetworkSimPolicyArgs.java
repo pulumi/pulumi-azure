@@ -7,6 +7,7 @@ import com.pulumi.azure.mobile.inputs.NetworkSimPolicySliceArgs;
 import com.pulumi.azure.mobile.inputs.NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -387,10 +388,18 @@ public final class NetworkSimPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NetworkSimPolicyArgs build() {
-            $.defaultSliceId = Objects.requireNonNull($.defaultSliceId, "expected parameter 'defaultSliceId' to be non-null");
-            $.mobileNetworkId = Objects.requireNonNull($.mobileNetworkId, "expected parameter 'mobileNetworkId' to be non-null");
-            $.slices = Objects.requireNonNull($.slices, "expected parameter 'slices' to be non-null");
-            $.userEquipmentAggregateMaximumBitRate = Objects.requireNonNull($.userEquipmentAggregateMaximumBitRate, "expected parameter 'userEquipmentAggregateMaximumBitRate' to be non-null");
+            if ($.defaultSliceId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicyArgs", "defaultSliceId");
+            }
+            if ($.mobileNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicyArgs", "mobileNetworkId");
+            }
+            if ($.slices == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicyArgs", "slices");
+            }
+            if ($.userEquipmentAggregateMaximumBitRate == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicyArgs", "userEquipmentAggregateMaximumBitRate");
+            }
             return $;
         }
     }

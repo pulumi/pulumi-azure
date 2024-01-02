@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ApplicationGatewayAutoscaleConfigurationArgs extends com.pulu
         }
 
         public ApplicationGatewayAutoscaleConfigurationArgs build() {
-            $.minCapacity = Objects.requireNonNull($.minCapacity, "expected parameter 'minCapacity' to be non-null");
+            if ($.minCapacity == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayAutoscaleConfigurationArgs", "minCapacity");
+            }
             return $;
         }
     }

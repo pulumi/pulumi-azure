@@ -103,11 +103,13 @@ public final class ServiceCorsConfiguration {
 
         @CustomType.Setter
         public Builder allowCredentials(@Nullable Boolean allowCredentials) {
+
             this.allowCredentials = allowCredentials;
             return this;
         }
         @CustomType.Setter
         public Builder allowedHeaders(@Nullable List<String> allowedHeaders) {
+
             this.allowedHeaders = allowedHeaders;
             return this;
         }
@@ -116,6 +118,7 @@ public final class ServiceCorsConfiguration {
         }
         @CustomType.Setter
         public Builder allowedMethods(@Nullable List<String> allowedMethods) {
+
             this.allowedMethods = allowedMethods;
             return this;
         }
@@ -124,6 +127,7 @@ public final class ServiceCorsConfiguration {
         }
         @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+
             this.allowedOrigins = allowedOrigins;
             return this;
         }
@@ -132,6 +136,7 @@ public final class ServiceCorsConfiguration {
         }
         @CustomType.Setter
         public Builder maxAgeInSeconds(@Nullable Integer maxAgeInSeconds) {
+
             this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }

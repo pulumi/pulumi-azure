@@ -4,6 +4,7 @@
 package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -61,12 +62,18 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFro
 
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig build() {

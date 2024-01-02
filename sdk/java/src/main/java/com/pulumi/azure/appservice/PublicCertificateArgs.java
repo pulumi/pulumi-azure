@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class PublicCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PublicCertificateArgs build() {
-            $.appServiceName = Objects.requireNonNull($.appServiceName, "expected parameter 'appServiceName' to be non-null");
-            $.blob = Objects.requireNonNull($.blob, "expected parameter 'blob' to be non-null");
-            $.certificateLocation = Objects.requireNonNull($.certificateLocation, "expected parameter 'certificateLocation' to be non-null");
-            $.certificateName = Objects.requireNonNull($.certificateName, "expected parameter 'certificateName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServiceName == null) {
+                throw new MissingRequiredPropertyException("PublicCertificateArgs", "appServiceName");
+            }
+            if ($.blob == null) {
+                throw new MissingRequiredPropertyException("PublicCertificateArgs", "blob");
+            }
+            if ($.certificateLocation == null) {
+                throw new MissingRequiredPropertyException("PublicCertificateArgs", "certificateLocation");
+            }
+            if ($.certificateName == null) {
+                throw new MissingRequiredPropertyException("PublicCertificateArgs", "certificateName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PublicCertificateArgs", "resourceGroupName");
+            }
             return $;
         }
     }

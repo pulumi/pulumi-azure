@@ -5,6 +5,7 @@ package com.pulumi.azure.domainservices.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -272,7 +273,9 @@ public final class ServiceInitialReplicaSetArgs extends com.pulumi.resources.Res
         }
 
         public ServiceInitialReplicaSetArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ServiceInitialReplicaSetArgs", "subnetId");
+            }
             return $;
         }
     }

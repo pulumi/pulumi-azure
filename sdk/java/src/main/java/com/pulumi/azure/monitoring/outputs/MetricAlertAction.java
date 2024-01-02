@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class MetricAlertAction {
 
         @CustomType.Setter
         public Builder actionGroupId(String actionGroupId) {
-            this.actionGroupId = Objects.requireNonNull(actionGroupId);
+            if (actionGroupId == null) {
+              throw new MissingRequiredPropertyException("MetricAlertAction", "actionGroupId");
+            }
+            this.actionGroupId = actionGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder webhookProperties(@Nullable Map<String,String> webhookProperties) {
+
             this.webhookProperties = webhookProperties;
             return this;
         }

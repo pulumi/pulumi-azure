@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.DataFlowSourceArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -463,9 +464,15 @@ public final class DataFlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DataFlowArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.sinks = Objects.requireNonNull($.sinks, "expected parameter 'sinks' to be non-null");
-            $.sources = Objects.requireNonNull($.sources, "expected parameter 'sources' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("DataFlowArgs", "dataFactoryId");
+            }
+            if ($.sinks == null) {
+                throw new MissingRequiredPropertyException("DataFlowArgs", "sinks");
+            }
+            if ($.sources == null) {
+                throw new MissingRequiredPropertyException("DataFlowArgs", "sources");
+            }
             return $;
         }
     }

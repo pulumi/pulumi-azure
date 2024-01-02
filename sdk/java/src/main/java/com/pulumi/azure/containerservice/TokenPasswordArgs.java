@@ -7,6 +7,7 @@ import com.pulumi.azure.containerservice.inputs.TokenPasswordPassword1Args;
 import com.pulumi.azure.containerservice.inputs.TokenPasswordPassword2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -152,8 +153,12 @@ public final class TokenPasswordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TokenPasswordArgs build() {
-            $.containerRegistryTokenId = Objects.requireNonNull($.containerRegistryTokenId, "expected parameter 'containerRegistryTokenId' to be non-null");
-            $.password1 = Objects.requireNonNull($.password1, "expected parameter 'password1' to be non-null");
+            if ($.containerRegistryTokenId == null) {
+                throw new MissingRequiredPropertyException("TokenPasswordArgs", "containerRegistryTokenId");
+            }
+            if ($.password1 == null) {
+                throw new MissingRequiredPropertyException("TokenPasswordArgs", "password1");
+            }
             return $;
         }
     }

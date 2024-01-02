@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class HBaseClusterMonitorArgs extends com.pulumi.resources.Resource
         }
 
         public HBaseClusterMonitorArgs build() {
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.primaryKey = Objects.requireNonNull($.primaryKey, "expected parameter 'primaryKey' to be non-null");
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterMonitorArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.primaryKey == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterMonitorArgs", "primaryKey");
+            }
             return $;
         }
     }

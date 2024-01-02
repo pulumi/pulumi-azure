@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudCustomizedAcceleratorGitRe
 import com.pulumi.azure.appplatform.inputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -375,7 +376,9 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         }
 
         public SpringCloudCustomizedAcceleratorGitRepositoryArgs build() {
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorGitRepositoryArgs", "url");
+            }
             return $;
         }
     }

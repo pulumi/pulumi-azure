@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +100,10 @@ public final class GetApplicationGatewaySslPolicy {
 
         @CustomType.Setter
         public Builder cipherSuites(List<String> cipherSuites) {
-            this.cipherSuites = Objects.requireNonNull(cipherSuites);
+            if (cipherSuites == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslPolicy", "cipherSuites");
+            }
+            this.cipherSuites = cipherSuites;
             return this;
         }
         public Builder cipherSuites(String... cipherSuites) {
@@ -107,7 +111,10 @@ public final class GetApplicationGatewaySslPolicy {
         }
         @CustomType.Setter
         public Builder disabledProtocols(List<String> disabledProtocols) {
-            this.disabledProtocols = Objects.requireNonNull(disabledProtocols);
+            if (disabledProtocols == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslPolicy", "disabledProtocols");
+            }
+            this.disabledProtocols = disabledProtocols;
             return this;
         }
         public Builder disabledProtocols(String... disabledProtocols) {
@@ -115,17 +122,26 @@ public final class GetApplicationGatewaySslPolicy {
         }
         @CustomType.Setter
         public Builder minProtocolVersion(String minProtocolVersion) {
-            this.minProtocolVersion = Objects.requireNonNull(minProtocolVersion);
+            if (minProtocolVersion == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslPolicy", "minProtocolVersion");
+            }
+            this.minProtocolVersion = minProtocolVersion;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(String policyName) {
-            this.policyName = Objects.requireNonNull(policyName);
+            if (policyName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslPolicy", "policyName");
+            }
+            this.policyName = policyName;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(String policyType) {
-            this.policyType = Objects.requireNonNull(policyType);
+            if (policyType == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewaySslPolicy", "policyType");
+            }
+            this.policyType = policyType;
             return this;
         }
         public GetApplicationGatewaySslPolicy build() {

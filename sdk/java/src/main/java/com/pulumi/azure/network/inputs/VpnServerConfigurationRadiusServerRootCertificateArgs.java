@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpnServerConfigurationRadiusServerRootCertificateArgs extends
         }
 
         public VpnServerConfigurationRadiusServerRootCertificateArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.publicCertData = Objects.requireNonNull($.publicCertData, "expected parameter 'publicCertData' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationRadiusServerRootCertificateArgs", "name");
+            }
+            if ($.publicCertData == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationRadiusServerRootCertificateArgs", "publicCertData");
+            }
             return $;
         }
     }

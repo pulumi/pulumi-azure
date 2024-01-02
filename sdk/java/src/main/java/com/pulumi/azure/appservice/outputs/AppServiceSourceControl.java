@@ -101,26 +101,31 @@ public final class AppServiceSourceControl {
 
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
+
             this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder manualIntegration(@Nullable Boolean manualIntegration) {
+
             this.manualIntegration = manualIntegration;
             return this;
         }
         @CustomType.Setter
         public Builder repoUrl(@Nullable String repoUrl) {
+
             this.repoUrl = repoUrl;
             return this;
         }
         @CustomType.Setter
         public Builder rollbackEnabled(@Nullable Boolean rollbackEnabled) {
+
             this.rollbackEnabled = rollbackEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder useMercurial(@Nullable Boolean useMercurial) {
+
             this.useMercurial = useMercurial;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesExclusionExcludedRuleSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,32 @@ public final class PolicyManagedRulesExclusion {
 
         @CustomType.Setter
         public Builder excludedRuleSet(@Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet) {
+
             this.excludedRuleSet = excludedRuleSet;
             return this;
         }
         @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
-            this.matchVariable = Objects.requireNonNull(matchVariable);
+            if (matchVariable == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesExclusion", "matchVariable");
+            }
+            this.matchVariable = matchVariable;
             return this;
         }
         @CustomType.Setter
         public Builder selector(String selector) {
-            this.selector = Objects.requireNonNull(selector);
+            if (selector == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesExclusion", "selector");
+            }
+            this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder selectorMatchOperator(String selectorMatchOperator) {
-            this.selectorMatchOperator = Objects.requireNonNull(selectorMatchOperator);
+            if (selectorMatchOperator == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesExclusion", "selectorMatchOperator");
+            }
+            this.selectorMatchOperator = selectorMatchOperator;
             return this;
         }
         public PolicyManagedRulesExclusion build() {

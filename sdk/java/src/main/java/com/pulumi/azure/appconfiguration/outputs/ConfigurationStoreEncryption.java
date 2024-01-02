@@ -58,11 +58,13 @@ public final class ConfigurationStoreEncryption {
 
         @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
+
             this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyIdentifier(@Nullable String keyVaultKeyIdentifier) {
+
             this.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
             return this;
         }

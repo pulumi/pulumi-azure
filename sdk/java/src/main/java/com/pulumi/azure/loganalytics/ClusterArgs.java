@@ -6,6 +6,7 @@ package com.pulumi.azure.loganalytics;
 import com.pulumi.azure.loganalytics.inputs.ClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -272,8 +273,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "identity");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

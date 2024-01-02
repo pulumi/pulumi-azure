@@ -4,6 +4,7 @@
 package com.pulumi.azure.arckubernetes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -145,6 +146,7 @@ public final class FluxConfigurationKustomization {
 
         @CustomType.Setter
         public Builder dependsOns(@Nullable List<String> dependsOns) {
+
             this.dependsOns = dependsOns;
             return this;
         }
@@ -153,36 +155,45 @@ public final class FluxConfigurationKustomization {
         }
         @CustomType.Setter
         public Builder garbageCollectionEnabled(@Nullable Boolean garbageCollectionEnabled) {
+
             this.garbageCollectionEnabled = garbageCollectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationKustomization", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder recreatingEnabled(@Nullable Boolean recreatingEnabled) {
+
             this.recreatingEnabled = recreatingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder retryIntervalInSeconds(@Nullable Integer retryIntervalInSeconds) {
+
             this.retryIntervalInSeconds = retryIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder syncIntervalInSeconds(@Nullable Integer syncIntervalInSeconds) {
+
             this.syncIntervalInSeconds = syncIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }

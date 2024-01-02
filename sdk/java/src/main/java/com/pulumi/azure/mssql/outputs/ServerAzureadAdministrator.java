@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class ServerAzureadAdministrator {
 
         @CustomType.Setter
         public Builder azureadAuthenticationOnly(@Nullable Boolean azureadAuthenticationOnly) {
+
             this.azureadAuthenticationOnly = azureadAuthenticationOnly;
             return this;
         }
         @CustomType.Setter
         public Builder loginUsername(String loginUsername) {
-            this.loginUsername = Objects.requireNonNull(loginUsername);
+            if (loginUsername == null) {
+              throw new MissingRequiredPropertyException("ServerAzureadAdministrator", "loginUsername");
+            }
+            this.loginUsername = loginUsername;
             return this;
         }
         @CustomType.Setter
         public Builder objectId(String objectId) {
-            this.objectId = Objects.requireNonNull(objectId);
+            if (objectId == null) {
+              throw new MissingRequiredPropertyException("ServerAzureadAdministrator", "objectId");
+            }
+            this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

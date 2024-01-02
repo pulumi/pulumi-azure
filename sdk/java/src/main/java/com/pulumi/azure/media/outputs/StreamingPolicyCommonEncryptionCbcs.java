@@ -89,21 +89,25 @@ public final class StreamingPolicyCommonEncryptionCbcs {
 
         @CustomType.Setter
         public Builder clearKeyEncryption(@Nullable StreamingPolicyCommonEncryptionCbcsClearKeyEncryption clearKeyEncryption) {
+
             this.clearKeyEncryption = clearKeyEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey) {
+
             this.defaultContentKey = defaultContentKey;
             return this;
         }
         @CustomType.Setter
         public Builder drmFairplay(@Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay) {
+
             this.drmFairplay = drmFairplay;
             return this;
         }
         @CustomType.Setter
         public Builder enabledProtocols(@Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols) {
+
             this.enabledProtocols = enabledProtocols;
             return this;
         }

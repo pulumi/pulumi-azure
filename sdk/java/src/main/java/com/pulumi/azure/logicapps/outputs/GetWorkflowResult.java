@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.GetWorkflowIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -225,12 +226,18 @@ public final class GetWorkflowResult {
 
         @CustomType.Setter
         public Builder accessEndpoint(String accessEndpoint) {
-            this.accessEndpoint = Objects.requireNonNull(accessEndpoint);
+            if (accessEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "accessEndpoint");
+            }
+            this.accessEndpoint = accessEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder connectorEndpointIpAddresses(List<String> connectorEndpointIpAddresses) {
-            this.connectorEndpointIpAddresses = Objects.requireNonNull(connectorEndpointIpAddresses);
+            if (connectorEndpointIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "connectorEndpointIpAddresses");
+            }
+            this.connectorEndpointIpAddresses = connectorEndpointIpAddresses;
             return this;
         }
         public Builder connectorEndpointIpAddresses(String... connectorEndpointIpAddresses) {
@@ -238,7 +245,10 @@ public final class GetWorkflowResult {
         }
         @CustomType.Setter
         public Builder connectorOutboundIpAddresses(List<String> connectorOutboundIpAddresses) {
-            this.connectorOutboundIpAddresses = Objects.requireNonNull(connectorOutboundIpAddresses);
+            if (connectorOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "connectorOutboundIpAddresses");
+            }
+            this.connectorOutboundIpAddresses = connectorOutboundIpAddresses;
             return this;
         }
         public Builder connectorOutboundIpAddresses(String... connectorOutboundIpAddresses) {
@@ -246,12 +256,18 @@ public final class GetWorkflowResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetWorkflowIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetWorkflowIdentity... identities) {
@@ -259,37 +275,58 @@ public final class GetWorkflowResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder logicAppIntegrationAccountId(String logicAppIntegrationAccountId) {
-            this.logicAppIntegrationAccountId = Objects.requireNonNull(logicAppIntegrationAccountId);
+            if (logicAppIntegrationAccountId == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "logicAppIntegrationAccountId");
+            }
+            this.logicAppIntegrationAccountId = logicAppIntegrationAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workflowEndpointIpAddresses(List<String> workflowEndpointIpAddresses) {
-            this.workflowEndpointIpAddresses = Objects.requireNonNull(workflowEndpointIpAddresses);
+            if (workflowEndpointIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "workflowEndpointIpAddresses");
+            }
+            this.workflowEndpointIpAddresses = workflowEndpointIpAddresses;
             return this;
         }
         public Builder workflowEndpointIpAddresses(String... workflowEndpointIpAddresses) {
@@ -297,7 +334,10 @@ public final class GetWorkflowResult {
         }
         @CustomType.Setter
         public Builder workflowOutboundIpAddresses(List<String> workflowOutboundIpAddresses) {
-            this.workflowOutboundIpAddresses = Objects.requireNonNull(workflowOutboundIpAddresses);
+            if (workflowOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "workflowOutboundIpAddresses");
+            }
+            this.workflowOutboundIpAddresses = workflowOutboundIpAddresses;
             return this;
         }
         public Builder workflowOutboundIpAddresses(String... workflowOutboundIpAddresses) {
@@ -305,12 +345,18 @@ public final class GetWorkflowResult {
         }
         @CustomType.Setter
         public Builder workflowSchema(String workflowSchema) {
-            this.workflowSchema = Objects.requireNonNull(workflowSchema);
+            if (workflowSchema == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "workflowSchema");
+            }
+            this.workflowSchema = workflowSchema;
             return this;
         }
         @CustomType.Setter
         public Builder workflowVersion(String workflowVersion) {
-            this.workflowVersion = Objects.requireNonNull(workflowVersion);
+            if (workflowVersion == null) {
+              throw new MissingRequiredPropertyException("GetWorkflowResult", "workflowVersion");
+            }
+            this.workflowVersion = workflowVersion;
             return this;
         }
         public GetWorkflowResult build() {

@@ -59,6 +59,7 @@ public final class StreamingEndpointAccessControl {
 
         @CustomType.Setter
         public Builder akamaiSignatureHeaderAuthenticationKeys(@Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys) {
+
             this.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
             return this;
         }
@@ -67,6 +68,7 @@ public final class StreamingEndpointAccessControl {
         }
         @CustomType.Setter
         public Builder ipAllows(@Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows) {
+
             this.ipAllows = ipAllows;
             return this;
         }

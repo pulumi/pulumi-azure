@@ -6,6 +6,7 @@ package com.pulumi.azure.hdinsight.inputs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs extends c
         }
 
         public HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs build() {
-            $.schedules = Objects.requireNonNull($.schedules, "expected parameter 'schedules' to be non-null");
-            $.timezone = Objects.requireNonNull($.timezone, "expected parameter 'timezone' to be non-null");
+            if ($.schedules == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs", "schedules");
+            }
+            if ($.timezone == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs", "timezone");
+            }
             return $;
         }
     }

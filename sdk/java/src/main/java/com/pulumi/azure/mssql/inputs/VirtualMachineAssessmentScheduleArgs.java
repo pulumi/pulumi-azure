@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -196,8 +197,12 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
         }
 
         public VirtualMachineAssessmentScheduleArgs build() {
-            $.dayOfWeek = Objects.requireNonNull($.dayOfWeek, "expected parameter 'dayOfWeek' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.dayOfWeek == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAssessmentScheduleArgs", "dayOfWeek");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAssessmentScheduleArgs", "startTime");
+            }
             return $;
         }
     }

@@ -102,11 +102,13 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
 
         @CustomType.Setter
         public Builder direction(@Nullable String direction) {
+
             this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
+
             this.fqdns = fqdns;
             return this;
         }
@@ -115,6 +117,7 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -123,11 +126,13 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
         }
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }

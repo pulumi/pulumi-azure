@@ -6,6 +6,7 @@ package com.pulumi.azure.elasticcloud;
 import com.pulumi.azure.elasticcloud.inputs.ElasticsearchLogsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -354,9 +355,15 @@ public final class ElasticsearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ElasticsearchArgs build() {
-            $.elasticCloudEmailAddress = Objects.requireNonNull($.elasticCloudEmailAddress, "expected parameter 'elasticCloudEmailAddress' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.elasticCloudEmailAddress == null) {
+                throw new MissingRequiredPropertyException("ElasticsearchArgs", "elasticCloudEmailAddress");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ElasticsearchArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ElasticsearchArgs", "skuName");
+            }
             return $;
         }
     }

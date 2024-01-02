@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -201,67 +202,106 @@ public final class GetServiceBusNamespaceResult {
 
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryConnectionString(String defaultPrimaryConnectionString) {
-            this.defaultPrimaryConnectionString = Objects.requireNonNull(defaultPrimaryConnectionString);
+            if (defaultPrimaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "defaultPrimaryConnectionString");
+            }
+            this.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
-            this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
+            if (defaultPrimaryKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "defaultPrimaryKey");
+            }
+            this.defaultPrimaryKey = defaultPrimaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryConnectionString(String defaultSecondaryConnectionString) {
-            this.defaultSecondaryConnectionString = Objects.requireNonNull(defaultSecondaryConnectionString);
+            if (defaultSecondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "defaultSecondaryConnectionString");
+            }
+            this.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
-            this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
+            if (defaultSecondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "defaultSecondaryKey");
+            }
+            this.defaultSecondaryKey = defaultSecondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetServiceBusNamespaceResult", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetServiceBusNamespaceResult build() {

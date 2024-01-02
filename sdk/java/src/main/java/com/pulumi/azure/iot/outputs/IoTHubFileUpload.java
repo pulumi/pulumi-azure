@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -166,46 +167,59 @@ public final class IoTHubFileUpload {
 
         @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
+
             this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("IoTHubFileUpload", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("IoTHubFileUpload", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder defaultTtl(@Nullable String defaultTtl) {
+
             this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder identityId(@Nullable String identityId) {
+
             this.identityId = identityId;
             return this;
         }
         @CustomType.Setter
         public Builder lockDuration(@Nullable String lockDuration) {
+
             this.lockDuration = lockDuration;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeliveryCount(@Nullable Integer maxDeliveryCount) {
+
             this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }
         @CustomType.Setter
         public Builder notifications(@Nullable Boolean notifications) {
+
             this.notifications = notifications;
             return this;
         }
         @CustomType.Setter
         public Builder sasTtl(@Nullable String sasTtl) {
+
             this.sasTtl = sasTtl;
             return this;
         }

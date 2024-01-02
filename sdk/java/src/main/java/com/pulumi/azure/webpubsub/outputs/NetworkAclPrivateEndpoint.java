@@ -4,6 +4,7 @@
 package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -76,6 +77,7 @@ public final class NetworkAclPrivateEndpoint {
 
         @CustomType.Setter
         public Builder allowedRequestTypes(@Nullable List<String> allowedRequestTypes) {
+
             this.allowedRequestTypes = allowedRequestTypes;
             return this;
         }
@@ -84,6 +86,7 @@ public final class NetworkAclPrivateEndpoint {
         }
         @CustomType.Setter
         public Builder deniedRequestTypes(@Nullable List<String> deniedRequestTypes) {
+
             this.deniedRequestTypes = deniedRequestTypes;
             return this;
         }
@@ -92,7 +95,10 @@ public final class NetworkAclPrivateEndpoint {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("NetworkAclPrivateEndpoint", "id");
+            }
+            this.id = id;
             return this;
         }
         public NetworkAclPrivateEndpoint build() {

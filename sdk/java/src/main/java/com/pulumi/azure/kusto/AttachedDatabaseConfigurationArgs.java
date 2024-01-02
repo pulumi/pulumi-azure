@@ -6,6 +6,7 @@ package com.pulumi.azure.kusto;
 import com.pulumi.azure.kusto.inputs.AttachedDatabaseConfigurationSharingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -336,10 +337,18 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
         }
 
         public AttachedDatabaseConfigurationArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.clusterResourceId = Objects.requireNonNull($.clusterResourceId, "expected parameter 'clusterResourceId' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "clusterName");
+            }
+            if ($.clusterResourceId == null) {
+                throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "clusterResourceId");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "databaseName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "resourceGroupName");
+            }
             return $;
         }
     }

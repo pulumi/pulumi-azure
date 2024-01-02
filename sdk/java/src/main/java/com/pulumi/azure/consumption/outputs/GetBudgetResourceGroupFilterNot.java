@@ -6,6 +6,7 @@ package com.pulumi.azure.consumption.outputs;
 import com.pulumi.azure.consumption.outputs.GetBudgetResourceGroupFilterNotDimension;
 import com.pulumi.azure.consumption.outputs.GetBudgetResourceGroupFilterNotTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetBudgetResourceGroupFilterNot {
 
         @CustomType.Setter
         public Builder dimensions(List<GetBudgetResourceGroupFilterNotDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupFilterNot", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetBudgetResourceGroupFilterNotDimension... dimensions) {
@@ -66,7 +70,10 @@ public final class GetBudgetResourceGroupFilterNot {
         }
         @CustomType.Setter
         public Builder tags(List<GetBudgetResourceGroupFilterNotTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupFilterNot", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetBudgetResourceGroupFilterNotTag... tags) {

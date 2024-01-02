@@ -6,6 +6,7 @@ package com.pulumi.azure.storage;
 import com.pulumi.azure.storage.inputs.BlobInventoryPolicyRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class BlobInventoryPolicyArgs extends com.pulumi.resources.Resource
         }
 
         public BlobInventoryPolicyArgs build() {
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyArgs", "rules");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyArgs", "storageAccountId");
+            }
             return $;
         }
     }

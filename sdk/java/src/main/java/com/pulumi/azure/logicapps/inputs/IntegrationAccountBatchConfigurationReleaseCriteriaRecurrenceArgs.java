@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps.inputs;
 import com.pulumi.azure.logicapps.inputs.IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -263,8 +264,12 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         }
 
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs", "frequency");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs", "interval");
+            }
             return $;
         }
     }

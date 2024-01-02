@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -77,16 +78,21 @@ public final class AccountConsistencyPolicy {
 
         @CustomType.Setter
         public Builder consistencyLevel(String consistencyLevel) {
-            this.consistencyLevel = Objects.requireNonNull(consistencyLevel);
+            if (consistencyLevel == null) {
+              throw new MissingRequiredPropertyException("AccountConsistencyPolicy", "consistencyLevel");
+            }
+            this.consistencyLevel = consistencyLevel;
             return this;
         }
         @CustomType.Setter
         public Builder maxIntervalInSeconds(@Nullable Integer maxIntervalInSeconds) {
+
             this.maxIntervalInSeconds = maxIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maxStalenessPrefix(@Nullable Integer maxStalenessPrefix) {
+
             this.maxStalenessPrefix = maxStalenessPrefix;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AccountKeyVaultReferenceArgs extends com.pulumi.resources.Res
         }
 
         public AccountKeyVaultReferenceArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("AccountKeyVaultReferenceArgs", "id");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("AccountKeyVaultReferenceArgs", "url");
+            }
             return $;
         }
     }

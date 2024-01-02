@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetEnvironmentV3ClusterSetting;
 import com.pulumi.azure.appservice.outputs.GetEnvironmentV3InboundNetworkDependency;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -284,12 +285,18 @@ public final class GetEnvironmentV3Result {
 
         @CustomType.Setter
         public Builder allowNewPrivateEndpointConnections(Boolean allowNewPrivateEndpointConnections) {
-            this.allowNewPrivateEndpointConnections = Objects.requireNonNull(allowNewPrivateEndpointConnections);
+            if (allowNewPrivateEndpointConnections == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "allowNewPrivateEndpointConnections");
+            }
+            this.allowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
             return this;
         }
         @CustomType.Setter
         public Builder clusterSettings(List<GetEnvironmentV3ClusterSetting> clusterSettings) {
-            this.clusterSettings = Objects.requireNonNull(clusterSettings);
+            if (clusterSettings == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "clusterSettings");
+            }
+            this.clusterSettings = clusterSettings;
             return this;
         }
         public Builder clusterSettings(GetEnvironmentV3ClusterSetting... clusterSettings) {
@@ -297,17 +304,26 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder dedicatedHostCount(Integer dedicatedHostCount) {
-            this.dedicatedHostCount = Objects.requireNonNull(dedicatedHostCount);
+            if (dedicatedHostCount == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "dedicatedHostCount");
+            }
+            this.dedicatedHostCount = dedicatedHostCount;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSuffix(String dnsSuffix) {
-            this.dnsSuffix = Objects.requireNonNull(dnsSuffix);
+            if (dnsSuffix == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "dnsSuffix");
+            }
+            this.dnsSuffix = dnsSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder externalInboundIpAddresses(List<String> externalInboundIpAddresses) {
-            this.externalInboundIpAddresses = Objects.requireNonNull(externalInboundIpAddresses);
+            if (externalInboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "externalInboundIpAddresses");
+            }
+            this.externalInboundIpAddresses = externalInboundIpAddresses;
             return this;
         }
         public Builder externalInboundIpAddresses(String... externalInboundIpAddresses) {
@@ -315,12 +331,18 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inboundNetworkDependencies(List<GetEnvironmentV3InboundNetworkDependency> inboundNetworkDependencies) {
-            this.inboundNetworkDependencies = Objects.requireNonNull(inboundNetworkDependencies);
+            if (inboundNetworkDependencies == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "inboundNetworkDependencies");
+            }
+            this.inboundNetworkDependencies = inboundNetworkDependencies;
             return this;
         }
         public Builder inboundNetworkDependencies(GetEnvironmentV3InboundNetworkDependency... inboundNetworkDependencies) {
@@ -328,7 +350,10 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder internalInboundIpAddresses(List<String> internalInboundIpAddresses) {
-            this.internalInboundIpAddresses = Objects.requireNonNull(internalInboundIpAddresses);
+            if (internalInboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "internalInboundIpAddresses");
+            }
+            this.internalInboundIpAddresses = internalInboundIpAddresses;
             return this;
         }
         public Builder internalInboundIpAddresses(String... internalInboundIpAddresses) {
@@ -336,17 +361,26 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder internalLoadBalancingMode(String internalLoadBalancingMode) {
-            this.internalLoadBalancingMode = Objects.requireNonNull(internalLoadBalancingMode);
+            if (internalLoadBalancingMode == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "internalLoadBalancingMode");
+            }
+            this.internalLoadBalancingMode = internalLoadBalancingMode;
             return this;
         }
         @CustomType.Setter
         public Builder ipSslAddressCount(Integer ipSslAddressCount) {
-            this.ipSslAddressCount = Objects.requireNonNull(ipSslAddressCount);
+            if (ipSslAddressCount == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "ipSslAddressCount");
+            }
+            this.ipSslAddressCount = ipSslAddressCount;
             return this;
         }
         @CustomType.Setter
         public Builder linuxOutboundIpAddresses(List<String> linuxOutboundIpAddresses) {
-            this.linuxOutboundIpAddresses = Objects.requireNonNull(linuxOutboundIpAddresses);
+            if (linuxOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "linuxOutboundIpAddresses");
+            }
+            this.linuxOutboundIpAddresses = linuxOutboundIpAddresses;
             return this;
         }
         public Builder linuxOutboundIpAddresses(String... linuxOutboundIpAddresses) {
@@ -354,37 +388,58 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder pricingTier(String pricingTier) {
-            this.pricingTier = Objects.requireNonNull(pricingTier);
+            if (pricingTier == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "pricingTier");
+            }
+            this.pricingTier = pricingTier;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder windowsOutboundIpAddresses(List<String> windowsOutboundIpAddresses) {
-            this.windowsOutboundIpAddresses = Objects.requireNonNull(windowsOutboundIpAddresses);
+            if (windowsOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "windowsOutboundIpAddresses");
+            }
+            this.windowsOutboundIpAddresses = windowsOutboundIpAddresses;
             return this;
         }
         public Builder windowsOutboundIpAddresses(String... windowsOutboundIpAddresses) {
@@ -392,7 +447,10 @@ public final class GetEnvironmentV3Result {
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetEnvironmentV3Result build() {

@@ -9,6 +9,7 @@ import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteConfig;
 import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteCredential;
 import com.pulumi.azure.appservice.outputs.GetFunctionAppSourceControl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -271,22 +272,34 @@ public final class GetFunctionAppResult {
 
         @CustomType.Setter
         public Builder appServicePlanId(String appServicePlanId) {
-            this.appServicePlanId = Objects.requireNonNull(appServicePlanId);
+            if (appServicePlanId == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "appServicePlanId");
+            }
+            this.appServicePlanId = appServicePlanId;
             return this;
         }
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
-            this.appSettings = Objects.requireNonNull(appSettings);
+            if (appSettings == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "appSettings");
+            }
+            this.appSettings = appSettings;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertMode(String clientCertMode) {
-            this.clientCertMode = Objects.requireNonNull(clientCertMode);
+            if (clientCertMode == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "clientCertMode");
+            }
+            this.clientCertMode = clientCertMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionStrings(List<GetFunctionAppConnectionString> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(GetFunctionAppConnectionString... connectionStrings) {
@@ -294,27 +307,42 @@ public final class GetFunctionAppResult {
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
-            this.defaultHostname = Objects.requireNonNull(defaultHostname);
+            if (defaultHostname == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "defaultHostname");
+            }
+            this.defaultHostname = defaultHostname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetFunctionAppIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetFunctionAppIdentity... identities) {
@@ -322,37 +350,58 @@ public final class GetFunctionAppResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
-            this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
+            if (possibleOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "possibleOutboundIpAddresses");
+            }
+            this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder siteConfigs(List<GetFunctionAppSiteConfig> siteConfigs) {
-            this.siteConfigs = Objects.requireNonNull(siteConfigs);
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "siteConfigs");
+            }
+            this.siteConfigs = siteConfigs;
             return this;
         }
         public Builder siteConfigs(GetFunctionAppSiteConfig... siteConfigs) {
@@ -360,7 +409,10 @@ public final class GetFunctionAppResult {
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetFunctionAppSiteCredential> siteCredentials) {
-            this.siteCredentials = Objects.requireNonNull(siteCredentials);
+            if (siteCredentials == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "siteCredentials");
+            }
+            this.siteCredentials = siteCredentials;
             return this;
         }
         public Builder siteCredentials(GetFunctionAppSiteCredential... siteCredentials) {
@@ -368,7 +420,10 @@ public final class GetFunctionAppResult {
         }
         @CustomType.Setter
         public Builder sourceControls(List<GetFunctionAppSourceControl> sourceControls) {
-            this.sourceControls = Objects.requireNonNull(sourceControls);
+            if (sourceControls == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppResult", "sourceControls");
+            }
+            this.sourceControls = sourceControls;
             return this;
         }
         public Builder sourceControls(GetFunctionAppSourceControl... sourceControls) {
@@ -376,6 +431,7 @@ public final class GetFunctionAppResult {
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

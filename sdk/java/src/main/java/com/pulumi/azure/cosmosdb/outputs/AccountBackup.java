@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,28 @@ public final class AccountBackup {
 
         @CustomType.Setter
         public Builder intervalInMinutes(@Nullable Integer intervalInMinutes) {
+
             this.intervalInMinutes = intervalInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder retentionInHours(@Nullable Integer retentionInHours) {
+
             this.retentionInHours = retentionInHours;
             return this;
         }
         @CustomType.Setter
         public Builder storageRedundancy(@Nullable String storageRedundancy) {
+
             this.storageRedundancy = storageRedundancy;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AccountBackup", "type");
+            }
+            this.type = type;
             return this;
         }
         public AccountBackup build() {

@@ -88,21 +88,25 @@ public final class StandardWebTestValidationRules {
 
         @CustomType.Setter
         public Builder content(@Nullable StandardWebTestValidationRulesContent content) {
+
             this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder expectedStatusCode(@Nullable Integer expectedStatusCode) {
+
             this.expectedStatusCode = expectedStatusCode;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertRemainingLifetime(@Nullable Integer sslCertRemainingLifetime) {
+
             this.sslCertRemainingLifetime = sslCertRemainingLifetime;
             return this;
         }
         @CustomType.Setter
         public Builder sslCheckEnabled(@Nullable Boolean sslCheckEnabled) {
+
             this.sslCheckEnabled = sslCheckEnabled;
             return this;
         }

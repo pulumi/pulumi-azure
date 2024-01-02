@@ -6,6 +6,7 @@ package com.pulumi.azure.appconfiguration.inputs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTargetingFilterGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -173,7 +174,9 @@ public final class ConfigurationFeatureTargetingFilterArgs extends com.pulumi.re
         }
 
         public ConfigurationFeatureTargetingFilterArgs build() {
-            $.defaultRolloutPercentage = Objects.requireNonNull($.defaultRolloutPercentage, "expected parameter 'defaultRolloutPercentage' to be non-null");
+            if ($.defaultRolloutPercentage == null) {
+                throw new MissingRequiredPropertyException("ConfigurationFeatureTargetingFilterArgs", "defaultRolloutPercentage");
+            }
             return $;
         }
     }

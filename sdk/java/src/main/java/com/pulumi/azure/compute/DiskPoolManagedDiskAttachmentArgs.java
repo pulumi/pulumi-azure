@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DiskPoolManagedDiskAttachmentArgs extends com.pulumi.resource
         }
 
         public DiskPoolManagedDiskAttachmentArgs build() {
-            $.diskPoolId = Objects.requireNonNull($.diskPoolId, "expected parameter 'diskPoolId' to be non-null");
-            $.managedDiskId = Objects.requireNonNull($.managedDiskId, "expected parameter 'managedDiskId' to be non-null");
+            if ($.diskPoolId == null) {
+                throw new MissingRequiredPropertyException("DiskPoolManagedDiskAttachmentArgs", "diskPoolId");
+            }
+            if ($.managedDiskId == null) {
+                throw new MissingRequiredPropertyException("DiskPoolManagedDiskAttachmentArgs", "managedDiskId");
+            }
             return $;
         }
     }

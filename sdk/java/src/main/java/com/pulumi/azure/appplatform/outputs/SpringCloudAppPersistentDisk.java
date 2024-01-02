@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class SpringCloudAppPersistentDisk {
 
         @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
+
             this.mountPath = mountPath;
             return this;
         }
         @CustomType.Setter
         public Builder sizeInGb(Integer sizeInGb) {
-            this.sizeInGb = Objects.requireNonNull(sizeInGb);
+            if (sizeInGb == null) {
+              throw new MissingRequiredPropertyException("SpringCloudAppPersistentDisk", "sizeInGb");
+            }
+            this.sizeInGb = sizeInGb;
             return this;
         }
         public SpringCloudAppPersistentDisk build() {

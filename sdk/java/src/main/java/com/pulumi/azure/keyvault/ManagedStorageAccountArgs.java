@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -308,9 +309,15 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
         }
 
         public ManagedStorageAccountArgs build() {
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountArgs", "keyVaultId");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountArgs", "storageAccountId");
+            }
+            if ($.storageAccountKey == null) {
+                throw new MissingRequiredPropertyException("ManagedStorageAccountArgs", "storageAccountKey");
+            }
             return $;
         }
     }

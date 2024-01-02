@@ -100,26 +100,31 @@ public final class ManagementPolicyRuleActionsSnapshot {
 
         @CustomType.Setter
         public Builder changeTierToArchiveAfterDaysSinceCreation(@Nullable Integer changeTierToArchiveAfterDaysSinceCreation) {
+
             this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             return this;
         }
         @CustomType.Setter
         public Builder changeTierToCoolAfterDaysSinceCreation(@Nullable Integer changeTierToCoolAfterDaysSinceCreation) {
+
             this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(@Nullable Integer deleteAfterDaysSinceCreationGreaterThan) {
+
             this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
+
             this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+
             this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
             return this;
         }

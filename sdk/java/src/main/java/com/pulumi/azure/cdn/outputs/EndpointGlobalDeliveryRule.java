@@ -120,16 +120,19 @@ public final class EndpointGlobalDeliveryRule {
 
         @CustomType.Setter
         public Builder cacheExpirationAction(@Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction) {
+
             this.cacheExpirationAction = cacheExpirationAction;
             return this;
         }
         @CustomType.Setter
         public Builder cacheKeyQueryStringAction(@Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction) {
+
             this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
             return this;
         }
         @CustomType.Setter
         public Builder modifyRequestHeaderActions(@Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions) {
+
             this.modifyRequestHeaderActions = modifyRequestHeaderActions;
             return this;
         }
@@ -138,6 +141,7 @@ public final class EndpointGlobalDeliveryRule {
         }
         @CustomType.Setter
         public Builder modifyResponseHeaderActions(@Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions) {
+
             this.modifyResponseHeaderActions = modifyResponseHeaderActions;
             return this;
         }
@@ -146,11 +150,13 @@ public final class EndpointGlobalDeliveryRule {
         }
         @CustomType.Setter
         public Builder urlRedirectAction(@Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction) {
+
             this.urlRedirectAction = urlRedirectAction;
             return this;
         }
         @CustomType.Setter
         public Builder urlRewriteAction(@Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction) {
+
             this.urlRewriteAction = urlRewriteAction;
             return this;
         }

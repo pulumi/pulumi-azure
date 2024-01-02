@@ -60,11 +60,13 @@ public final class AccountNetworkProfileAccountAccess {
 
         @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
+
             this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<AccountNetworkProfileAccountAccessIpRule> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }

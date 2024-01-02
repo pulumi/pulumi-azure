@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 
         @CustomType.Setter
         public Builder schedules(List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeAutoscaleRecurrence", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule... schedules) {
@@ -66,7 +70,10 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
         }
         @CustomType.Setter
         public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeAutoscaleRecurrence", "timezone");
+            }
+            this.timezone = timezone;
             return this;
         }
         public HBaseClusterRolesWorkerNodeAutoscaleRecurrence build() {

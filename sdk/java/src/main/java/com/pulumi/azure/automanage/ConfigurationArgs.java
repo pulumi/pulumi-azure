@@ -8,6 +8,7 @@ import com.pulumi.azure.automanage.inputs.ConfigurationAzureSecurityBaselineArgs
 import com.pulumi.azure.automanage.inputs.ConfigurationBackupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -525,7 +526,9 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConfigurationArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConfigurationArgs", "resourceGroupName");
+            }
             return $;
         }
     }

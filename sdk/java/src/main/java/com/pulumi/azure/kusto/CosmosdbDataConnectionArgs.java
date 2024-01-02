@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,10 +336,18 @@ public final class CosmosdbDataConnectionArgs extends com.pulumi.resources.Resou
         }
 
         public CosmosdbDataConnectionArgs build() {
-            $.cosmosdbContainerId = Objects.requireNonNull($.cosmosdbContainerId, "expected parameter 'cosmosdbContainerId' to be non-null");
-            $.kustoDatabaseId = Objects.requireNonNull($.kustoDatabaseId, "expected parameter 'kustoDatabaseId' to be non-null");
-            $.managedIdentityId = Objects.requireNonNull($.managedIdentityId, "expected parameter 'managedIdentityId' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.cosmosdbContainerId == null) {
+                throw new MissingRequiredPropertyException("CosmosdbDataConnectionArgs", "cosmosdbContainerId");
+            }
+            if ($.kustoDatabaseId == null) {
+                throw new MissingRequiredPropertyException("CosmosdbDataConnectionArgs", "kustoDatabaseId");
+            }
+            if ($.managedIdentityId == null) {
+                throw new MissingRequiredPropertyException("CosmosdbDataConnectionArgs", "managedIdentityId");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("CosmosdbDataConnectionArgs", "tableName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.machinelearning;
 import com.pulumi.azure.machinelearning.inputs.SynapseSparkIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -338,8 +339,12 @@ public final class SynapseSparkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SynapseSparkArgs build() {
-            $.machineLearningWorkspaceId = Objects.requireNonNull($.machineLearningWorkspaceId, "expected parameter 'machineLearningWorkspaceId' to be non-null");
-            $.synapseSparkPoolId = Objects.requireNonNull($.synapseSparkPoolId, "expected parameter 'synapseSparkPoolId' to be non-null");
+            if ($.machineLearningWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("SynapseSparkArgs", "machineLearningWorkspaceId");
+            }
+            if ($.synapseSparkPoolId == null) {
+                throw new MissingRequiredPropertyException("SynapseSparkArgs", "synapseSparkPoolId");
+            }
             return $;
         }
     }

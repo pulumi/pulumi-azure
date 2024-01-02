@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetKubernetesClusterStorageProfile {
 
         @CustomType.Setter
         public Builder blobDriverEnabled(Boolean blobDriverEnabled) {
-            this.blobDriverEnabled = Objects.requireNonNull(blobDriverEnabled);
+            if (blobDriverEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "blobDriverEnabled");
+            }
+            this.blobDriverEnabled = blobDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder diskDriverEnabled(Boolean diskDriverEnabled) {
-            this.diskDriverEnabled = Objects.requireNonNull(diskDriverEnabled);
+            if (diskDriverEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "diskDriverEnabled");
+            }
+            this.diskDriverEnabled = diskDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder diskDriverVersion(String diskDriverVersion) {
-            this.diskDriverVersion = Objects.requireNonNull(diskDriverVersion);
+            if (diskDriverVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "diskDriverVersion");
+            }
+            this.diskDriverVersion = diskDriverVersion;
             return this;
         }
         @CustomType.Setter
         public Builder fileDriverEnabled(Boolean fileDriverEnabled) {
-            this.fileDriverEnabled = Objects.requireNonNull(fileDriverEnabled);
+            if (fileDriverEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "fileDriverEnabled");
+            }
+            this.fileDriverEnabled = fileDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotControllerEnabled(Boolean snapshotControllerEnabled) {
-            this.snapshotControllerEnabled = Objects.requireNonNull(snapshotControllerEnabled);
+            if (snapshotControllerEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterStorageProfile", "snapshotControllerEnabled");
+            }
+            this.snapshotControllerEnabled = snapshotControllerEnabled;
             return this;
         }
         public GetKubernetesClusterStorageProfile build() {

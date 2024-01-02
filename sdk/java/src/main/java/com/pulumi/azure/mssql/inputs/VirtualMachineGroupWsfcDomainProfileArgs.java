@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,8 +336,12 @@ public final class VirtualMachineGroupWsfcDomainProfileArgs extends com.pulumi.r
         }
 
         public VirtualMachineGroupWsfcDomainProfileArgs build() {
-            $.clusterSubnetType = Objects.requireNonNull($.clusterSubnetType, "expected parameter 'clusterSubnetType' to be non-null");
-            $.fqdn = Objects.requireNonNull($.fqdn, "expected parameter 'fqdn' to be non-null");
+            if ($.clusterSubnetType == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineGroupWsfcDomainProfileArgs", "clusterSubnetType");
+            }
+            if ($.fqdn == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineGroupWsfcDomainProfileArgs", "fqdn");
+            }
             return $;
         }
     }

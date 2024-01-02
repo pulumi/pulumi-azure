@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class LinuxVirtualMachineOsDiskDiffDiskSettings {
 
         @CustomType.Setter
         public Builder option(String option) {
-            this.option = Objects.requireNonNull(option);
+            if (option == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineOsDiskDiffDiskSettings", "option");
+            }
+            this.option = option;
             return this;
         }
         @CustomType.Setter
         public Builder placement(@Nullable String placement) {
+
             this.placement = placement;
             return this;
         }

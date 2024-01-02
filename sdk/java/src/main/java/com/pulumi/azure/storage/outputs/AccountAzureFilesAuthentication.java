@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.AccountAzureFilesAuthenticationActiveDirectory;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,12 +60,16 @@ public final class AccountAzureFilesAuthentication {
 
         @CustomType.Setter
         public Builder activeDirectory(@Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory) {
+
             this.activeDirectory = activeDirectory;
             return this;
         }
         @CustomType.Setter
         public Builder directoryType(String directoryType) {
-            this.directoryType = Objects.requireNonNull(directoryType);
+            if (directoryType == null) {
+              throw new MissingRequiredPropertyException("AccountAzureFilesAuthentication", "directoryType");
+            }
+            this.directoryType = directoryType;
             return this;
         }
         public AccountAzureFilesAuthentication build() {

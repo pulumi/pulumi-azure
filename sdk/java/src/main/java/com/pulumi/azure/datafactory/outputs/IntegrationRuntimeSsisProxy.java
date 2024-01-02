@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class IntegrationRuntimeSsisProxy {
 
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder selfHostedIntegrationRuntimeName(String selfHostedIntegrationRuntimeName) {
-            this.selfHostedIntegrationRuntimeName = Objects.requireNonNull(selfHostedIntegrationRuntimeName);
+            if (selfHostedIntegrationRuntimeName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisProxy", "selfHostedIntegrationRuntimeName");
+            }
+            this.selfHostedIntegrationRuntimeName = selfHostedIntegrationRuntimeName;
             return this;
         }
         @CustomType.Setter
         public Builder stagingStorageLinkedServiceName(String stagingStorageLinkedServiceName) {
-            this.stagingStorageLinkedServiceName = Objects.requireNonNull(stagingStorageLinkedServiceName);
+            if (stagingStorageLinkedServiceName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisProxy", "stagingStorageLinkedServiceName");
+            }
+            this.stagingStorageLinkedServiceName = stagingStorageLinkedServiceName;
             return this;
         }
         public IntegrationRuntimeSsisProxy build() {

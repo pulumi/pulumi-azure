@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.azure.eventhub.outputs.EventHubCaptureDescriptionDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -117,31 +118,43 @@ public final class EventHubCaptureDescription {
 
         @CustomType.Setter
         public Builder destination(EventHubCaptureDescriptionDestination destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescription", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescription", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder encoding(String encoding) {
-            this.encoding = Objects.requireNonNull(encoding);
+            if (encoding == null) {
+              throw new MissingRequiredPropertyException("EventHubCaptureDescription", "encoding");
+            }
+            this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
+
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder sizeLimitInBytes(@Nullable Integer sizeLimitInBytes) {
+
             this.sizeLimitInBytes = sizeLimitInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder skipEmptyArchives(@Nullable Boolean skipEmptyArchives) {
+
             this.skipEmptyArchives = skipEmptyArchives;
             return this;
         }

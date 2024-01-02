@@ -7,6 +7,7 @@ import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
 import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,8 +201,12 @@ public final class NetworkAclArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkAclArgs build() {
-            $.publicNetwork = Objects.requireNonNull($.publicNetwork, "expected parameter 'publicNetwork' to be non-null");
-            $.webPubsubId = Objects.requireNonNull($.webPubsubId, "expected parameter 'webPubsubId' to be non-null");
+            if ($.publicNetwork == null) {
+                throw new MissingRequiredPropertyException("NetworkAclArgs", "publicNetwork");
+            }
+            if ($.webPubsubId == null) {
+                throw new MissingRequiredPropertyException("NetworkAclArgs", "webPubsubId");
+            }
             return $;
         }
     }

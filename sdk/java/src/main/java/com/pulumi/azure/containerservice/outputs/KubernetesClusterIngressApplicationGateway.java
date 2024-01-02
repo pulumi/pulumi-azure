@@ -124,21 +124,25 @@ public final class KubernetesClusterIngressApplicationGateway {
 
         @CustomType.Setter
         public Builder effectiveGatewayId(@Nullable String effectiveGatewayId) {
+
             this.effectiveGatewayId = effectiveGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
+
             this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayName(@Nullable String gatewayName) {
+
             this.gatewayName = gatewayName;
             return this;
         }
         @CustomType.Setter
         public Builder ingressApplicationGatewayIdentities(@Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities) {
+
             this.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
             return this;
         }
@@ -147,11 +151,13 @@ public final class KubernetesClusterIngressApplicationGateway {
         }
         @CustomType.Setter
         public Builder subnetCidr(@Nullable String subnetCidr) {
+
             this.subnetCidr = subnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

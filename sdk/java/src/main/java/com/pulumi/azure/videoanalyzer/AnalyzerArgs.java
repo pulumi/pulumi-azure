@@ -7,6 +7,7 @@ import com.pulumi.azure.videoanalyzer.inputs.AnalyzerIdentityArgs;
 import com.pulumi.azure.videoanalyzer.inputs.AnalyzerStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -264,9 +265,15 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AnalyzerArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccount = Objects.requireNonNull($.storageAccount, "expected parameter 'storageAccount' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("AnalyzerArgs", "identity");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AnalyzerArgs", "resourceGroupName");
+            }
+            if ($.storageAccount == null) {
+                throw new MissingRequiredPropertyException("AnalyzerArgs", "storageAccount");
+            }
             return $;
         }
     }

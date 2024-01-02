@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -137,7 +138,9 @@ public final class ScaleSetOsProfileLinuxConfigSshKeyArgs extends com.pulumi.res
         }
 
         public ScaleSetOsProfileLinuxConfigSshKeyArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("ScaleSetOsProfileLinuxConfigSshKeyArgs", "path");
+            }
             return $;
         }
     }

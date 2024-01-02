@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs e
         }
 
         public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs", "count");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs", "interval");
+            }
             return $;
         }
     }

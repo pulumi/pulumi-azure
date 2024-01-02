@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -128,22 +129,34 @@ public final class GetServiceAdditionalLocation {
 
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayRegionalUrl(String gatewayRegionalUrl) {
-            this.gatewayRegionalUrl = Objects.requireNonNull(gatewayRegionalUrl);
+            if (gatewayRegionalUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "gatewayRegionalUrl");
+            }
+            this.gatewayRegionalUrl = gatewayRegionalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -151,12 +164,18 @@ public final class GetServiceAdditionalLocation {
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
-            this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
+            if (publicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "publicIpAddresses");
+            }
+            this.publicIpAddresses = publicIpAddresses;
             return this;
         }
         public Builder publicIpAddresses(String... publicIpAddresses) {
@@ -164,7 +183,10 @@ public final class GetServiceAdditionalLocation {
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetServiceAdditionalLocation", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

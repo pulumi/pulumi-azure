@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class LogzMonitorPlan {
 
         @CustomType.Setter
         public Builder billingCycle(String billingCycle) {
-            this.billingCycle = Objects.requireNonNull(billingCycle);
+            if (billingCycle == null) {
+              throw new MissingRequiredPropertyException("LogzMonitorPlan", "billingCycle");
+            }
+            this.billingCycle = billingCycle;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = Objects.requireNonNull(effectiveDate);
+            if (effectiveDate == null) {
+              throw new MissingRequiredPropertyException("LogzMonitorPlan", "effectiveDate");
+            }
+            this.effectiveDate = effectiveDate;
             return this;
         }
         @CustomType.Setter
         public Builder planId(@Nullable String planId) {
+
             this.planId = planId;
             return this;
         }
         @CustomType.Setter
         public Builder usageType(String usageType) {
-            this.usageType = Objects.requireNonNull(usageType);
+            if (usageType == null) {
+              throw new MissingRequiredPropertyException("LogzMonitorPlan", "usageType");
+            }
+            this.usageType = usageType;
             return this;
         }
         public LogzMonitorPlan build() {

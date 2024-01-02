@@ -7,6 +7,7 @@ import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTargetingFil
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationFeatureTimewindowFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -489,7 +490,9 @@ public final class ConfigurationFeatureArgs extends com.pulumi.resources.Resourc
         }
 
         public ConfigurationFeatureArgs build() {
-            $.configurationStoreId = Objects.requireNonNull($.configurationStoreId, "expected parameter 'configurationStoreId' to be non-null");
+            if ($.configurationStoreId == null) {
+                throw new MissingRequiredPropertyException("ConfigurationFeatureArgs", "configurationStoreId");
+            }
             return $;
         }
     }

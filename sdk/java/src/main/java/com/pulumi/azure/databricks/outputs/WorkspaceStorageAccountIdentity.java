@@ -72,16 +72,19 @@ public final class WorkspaceStorageAccountIdentity {
 
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
+
             this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

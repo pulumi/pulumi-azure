@@ -6,6 +6,7 @@ package com.pulumi.azure.desktopvirtualization;
 import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -618,9 +619,15 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HostPoolArgs build() {
-            $.loadBalancerType = Objects.requireNonNull($.loadBalancerType, "expected parameter 'loadBalancerType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.loadBalancerType == null) {
+                throw new MissingRequiredPropertyException("HostPoolArgs", "loadBalancerType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HostPoolArgs", "resourceGroupName");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("HostPoolArgs", "type");
+            }
             return $;
         }
     }

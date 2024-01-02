@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault.outputs;
 import com.pulumi.azure.keyvault.outputs.GetKeyVaultAccessPolicy;
 import com.pulumi.azure.keyvault.outputs.GetKeyVaultNetworkAcl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -233,7 +234,10 @@ public final class GetKeyVaultResult {
 
         @CustomType.Setter
         public Builder accessPolicies(List<GetKeyVaultAccessPolicy> accessPolicies) {
-            this.accessPolicies = Objects.requireNonNull(accessPolicies);
+            if (accessPolicies == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "accessPolicies");
+            }
+            this.accessPolicies = accessPolicies;
             return this;
         }
         public Builder accessPolicies(GetKeyVaultAccessPolicy... accessPolicies) {
@@ -241,42 +245,66 @@ public final class GetKeyVaultResult {
         }
         @CustomType.Setter
         public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
-            this.enableRbacAuthorization = Objects.requireNonNull(enableRbacAuthorization);
+            if (enableRbacAuthorization == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "enableRbacAuthorization");
+            }
+            this.enableRbacAuthorization = enableRbacAuthorization;
             return this;
         }
         @CustomType.Setter
         public Builder enabledForDeployment(Boolean enabledForDeployment) {
-            this.enabledForDeployment = Objects.requireNonNull(enabledForDeployment);
+            if (enabledForDeployment == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "enabledForDeployment");
+            }
+            this.enabledForDeployment = enabledForDeployment;
             return this;
         }
         @CustomType.Setter
         public Builder enabledForDiskEncryption(Boolean enabledForDiskEncryption) {
-            this.enabledForDiskEncryption = Objects.requireNonNull(enabledForDiskEncryption);
+            if (enabledForDiskEncryption == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "enabledForDiskEncryption");
+            }
+            this.enabledForDiskEncryption = enabledForDiskEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder enabledForTemplateDeployment(Boolean enabledForTemplateDeployment) {
-            this.enabledForTemplateDeployment = Objects.requireNonNull(enabledForTemplateDeployment);
+            if (enabledForTemplateDeployment == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "enabledForTemplateDeployment");
+            }
+            this.enabledForTemplateDeployment = enabledForTemplateDeployment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkAcls(List<GetKeyVaultNetworkAcl> networkAcls) {
-            this.networkAcls = Objects.requireNonNull(networkAcls);
+            if (networkAcls == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "networkAcls");
+            }
+            this.networkAcls = networkAcls;
             return this;
         }
         public Builder networkAcls(GetKeyVaultNetworkAcl... networkAcls) {
@@ -284,37 +312,58 @@ public final class GetKeyVaultResult {
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
-            this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
+            if (purgeProtectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "purgeProtectionEnabled");
+            }
+            this.purgeProtectionEnabled = purgeProtectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder vaultUri(String vaultUri) {
-            this.vaultUri = Objects.requireNonNull(vaultUri);
+            if (vaultUri == null) {
+              throw new MissingRequiredPropertyException("GetKeyVaultResult", "vaultUri");
+            }
+            this.vaultUri = vaultUri;
             return this;
         }
         public GetKeyVaultResult build() {

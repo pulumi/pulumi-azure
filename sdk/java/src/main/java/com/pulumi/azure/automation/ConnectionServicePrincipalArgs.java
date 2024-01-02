@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,12 +336,24 @@ public final class ConnectionServicePrincipalArgs extends com.pulumi.resources.R
         }
 
         public ConnectionServicePrincipalArgs build() {
-            $.applicationId = Objects.requireNonNull($.applicationId, "expected parameter 'applicationId' to be non-null");
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.certificateThumbprint = Objects.requireNonNull($.certificateThumbprint, "expected parameter 'certificateThumbprint' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.applicationId == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "applicationId");
+            }
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "automationAccountName");
+            }
+            if ($.certificateThumbprint == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "certificateThumbprint");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "resourceGroupName");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "subscriptionId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ConnectionServicePrincipalArgs", "tenantId");
+            }
             return $;
         }
     }

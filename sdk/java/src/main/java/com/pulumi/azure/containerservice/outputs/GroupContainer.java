@@ -11,6 +11,7 @@ import com.pulumi.azure.containerservice.outputs.GroupContainerReadinessProbe;
 import com.pulumi.azure.containerservice.outputs.GroupContainerSecurity;
 import com.pulumi.azure.containerservice.outputs.GroupContainerVolume;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -268,6 +269,7 @@ public final class GroupContainer {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -276,56 +278,75 @@ public final class GroupContainer {
         }
         @CustomType.Setter
         public Builder cpu(Double cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GroupContainer", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder cpuLimit(@Nullable Double cpuLimit) {
+
             this.cpuLimit = cpuLimit;
             return this;
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder gpu(@Nullable GroupContainerGpu gpu) {
+
             this.gpu = gpu;
             return this;
         }
         @CustomType.Setter
         public Builder gpuLimit(@Nullable GroupContainerGpuLimit gpuLimit) {
+
             this.gpuLimit = gpuLimit;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GroupContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder livenessProbe(@Nullable GroupContainerLivenessProbe livenessProbe) {
+
             this.livenessProbe = livenessProbe;
             return this;
         }
         @CustomType.Setter
         public Builder memory(Double memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GroupContainer", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder memoryLimit(@Nullable Double memoryLimit) {
+
             this.memoryLimit = memoryLimit;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GroupContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ports(@Nullable List<GroupContainerPort> ports) {
+
             this.ports = ports;
             return this;
         }
@@ -334,16 +355,19 @@ public final class GroupContainer {
         }
         @CustomType.Setter
         public Builder readinessProbe(@Nullable GroupContainerReadinessProbe readinessProbe) {
+
             this.readinessProbe = readinessProbe;
             return this;
         }
         @CustomType.Setter
         public Builder secureEnvironmentVariables(@Nullable Map<String,String> secureEnvironmentVariables) {
+
             this.secureEnvironmentVariables = secureEnvironmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder securities(@Nullable List<GroupContainerSecurity> securities) {
+
             this.securities = securities;
             return this;
         }
@@ -352,6 +376,7 @@ public final class GroupContainer {
         }
         @CustomType.Setter
         public Builder volumes(@Nullable List<GroupContainerVolume> volumes) {
+
             this.volumes = volumes;
             return this;
         }

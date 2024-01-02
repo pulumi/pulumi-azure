@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.inputs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateContainerReadinessProbeHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -385,8 +386,12 @@ public final class AppTemplateContainerReadinessProbeArgs extends com.pulumi.res
         }
 
         public AppTemplateContainerReadinessProbeArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.transport = Objects.requireNonNull($.transport, "expected parameter 'transport' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerReadinessProbeArgs", "port");
+            }
+            if ($.transport == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerReadinessProbeArgs", "transport");
+            }
             return $;
         }
     }

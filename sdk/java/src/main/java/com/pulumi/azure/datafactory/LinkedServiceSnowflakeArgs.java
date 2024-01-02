@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -385,8 +386,12 @@ public final class LinkedServiceSnowflakeArgs extends com.pulumi.resources.Resou
         }
 
         public LinkedServiceSnowflakeArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSnowflakeArgs", "connectionString");
+            }
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSnowflakeArgs", "dataFactoryId");
+            }
             return $;
         }
     }

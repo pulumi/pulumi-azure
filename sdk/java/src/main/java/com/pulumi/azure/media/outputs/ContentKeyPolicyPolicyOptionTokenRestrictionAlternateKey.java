@@ -90,21 +90,25 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey {
 
         @CustomType.Setter
         public Builder rsaTokenKeyExponent(@Nullable String rsaTokenKeyExponent) {
+
             this.rsaTokenKeyExponent = rsaTokenKeyExponent;
             return this;
         }
         @CustomType.Setter
         public Builder rsaTokenKeyModulus(@Nullable String rsaTokenKeyModulus) {
+
             this.rsaTokenKeyModulus = rsaTokenKeyModulus;
             return this;
         }
         @CustomType.Setter
         public Builder symmetricTokenKey(@Nullable String symmetricTokenKey) {
+
             this.symmetricTokenKey = symmetricTokenKey;
             return this;
         }
         @CustomType.Setter
         public Builder x509TokenKeyRaw(@Nullable String x509TokenKeyRaw) {
+
             this.x509TokenKeyRaw = x509TokenKeyRaw;
             return this;
         }

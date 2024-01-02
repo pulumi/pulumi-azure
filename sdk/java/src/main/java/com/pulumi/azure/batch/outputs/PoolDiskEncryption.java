@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PoolDiskEncryption {
 
         @CustomType.Setter
         public Builder diskEncryptionTarget(String diskEncryptionTarget) {
-            this.diskEncryptionTarget = Objects.requireNonNull(diskEncryptionTarget);
+            if (diskEncryptionTarget == null) {
+              throw new MissingRequiredPropertyException("PoolDiskEncryption", "diskEncryptionTarget");
+            }
+            this.diskEncryptionTarget = diskEncryptionTarget;
             return this;
         }
         public PoolDiskEncryption build() {

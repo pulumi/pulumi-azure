@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class SecuritySolutionAdditionalWorkspaceArgs extends com.pulumi.re
         }
 
         public SecuritySolutionAdditionalWorkspaceArgs build() {
-            $.dataTypes = Objects.requireNonNull($.dataTypes, "expected parameter 'dataTypes' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.dataTypes == null) {
+                throw new MissingRequiredPropertyException("SecuritySolutionAdditionalWorkspaceArgs", "dataTypes");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("SecuritySolutionAdditionalWorkspaceArgs", "workspaceId");
+            }
             return $;
         }
     }

@@ -44,6 +44,7 @@ public final class PoolWindow {
 
         @CustomType.Setter
         public Builder enableAutomaticUpdates(@Nullable Boolean enableAutomaticUpdates) {
+
             this.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
         }

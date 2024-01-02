@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -150,9 +151,15 @@ public final class AccountImmutabilityPolicyArgs extends com.pulumi.resources.Re
         }
 
         public AccountImmutabilityPolicyArgs build() {
-            $.allowProtectedAppendWrites = Objects.requireNonNull($.allowProtectedAppendWrites, "expected parameter 'allowProtectedAppendWrites' to be non-null");
-            $.periodSinceCreationInDays = Objects.requireNonNull($.periodSinceCreationInDays, "expected parameter 'periodSinceCreationInDays' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
+            if ($.allowProtectedAppendWrites == null) {
+                throw new MissingRequiredPropertyException("AccountImmutabilityPolicyArgs", "allowProtectedAppendWrites");
+            }
+            if ($.periodSinceCreationInDays == null) {
+                throw new MissingRequiredPropertyException("AccountImmutabilityPolicyArgs", "periodSinceCreationInDays");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("AccountImmutabilityPolicyArgs", "state");
+            }
             return $;
         }
     }

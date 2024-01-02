@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
 
         @CustomType.Setter
         public Builder actionType(String actionType) {
-            this.actionType = Objects.requireNonNull(actionType);
+            if (actionType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingAction", "actionType");
+            }
+            this.actionType = actionType;
             return this;
         }
         @CustomType.Setter
         public Builder customActions(List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions) {
-            this.customActions = Objects.requireNonNull(customActions);
+            if (customActions == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingAction", "customActions");
+            }
+            this.customActions = customActions;
             return this;
         }
         public Builder customActions(GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction... customActions) {
@@ -85,7 +92,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
         }
         @CustomType.Setter
         public Builder minimumProcessExecutionTime(String minimumProcessExecutionTime) {
-            this.minimumProcessExecutionTime = Objects.requireNonNull(minimumProcessExecutionTime);
+            if (minimumProcessExecutionTime == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingAction", "minimumProcessExecutionTime");
+            }
+            this.minimumProcessExecutionTime = minimumProcessExecutionTime;
             return this;
         }
         public GetWindowsWebAppSiteConfigAutoHealSettingAction build() {

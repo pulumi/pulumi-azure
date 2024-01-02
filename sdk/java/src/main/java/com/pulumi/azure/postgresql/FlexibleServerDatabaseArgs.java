@@ -5,6 +5,7 @@ package com.pulumi.azure.postgresql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class FlexibleServerDatabaseArgs extends com.pulumi.resources.Resou
         }
 
         public FlexibleServerDatabaseArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerDatabaseArgs", "serverId");
+            }
             return $;
         }
     }

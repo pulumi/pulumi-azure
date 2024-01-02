@@ -73,6 +73,7 @@ public final class TriggerRecurrenceSchedule {
 
         @CustomType.Setter
         public Builder atTheseHours(@Nullable List<Integer> atTheseHours) {
+
             this.atTheseHours = atTheseHours;
             return this;
         }
@@ -81,6 +82,7 @@ public final class TriggerRecurrenceSchedule {
         }
         @CustomType.Setter
         public Builder atTheseMinutes(@Nullable List<Integer> atTheseMinutes) {
+
             this.atTheseMinutes = atTheseMinutes;
             return this;
         }
@@ -89,6 +91,7 @@ public final class TriggerRecurrenceSchedule {
         }
         @CustomType.Setter
         public Builder onTheseDays(@Nullable List<String> onTheseDays) {
+
             this.onTheseDays = onTheseDays;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.policy.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,7 +199,9 @@ public final class PolicySetDefinitionPolicyDefinitionReferenceArgs extends com.
         }
 
         public PolicySetDefinitionPolicyDefinitionReferenceArgs build() {
-            $.policyDefinitionId = Objects.requireNonNull($.policyDefinitionId, "expected parameter 'policyDefinitionId' to be non-null");
+            if ($.policyDefinitionId == null) {
+                throw new MissingRequiredPropertyException("PolicySetDefinitionPolicyDefinitionReferenceArgs", "policyDefinitionId");
+            }
             return $;
         }
     }

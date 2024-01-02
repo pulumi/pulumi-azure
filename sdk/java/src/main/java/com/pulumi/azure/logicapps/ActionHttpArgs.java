@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps;
 import com.pulumi.azure.logicapps.inputs.ActionHttpRunAfterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -356,9 +357,15 @@ public final class ActionHttpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActionHttpArgs build() {
-            $.logicAppId = Objects.requireNonNull($.logicAppId, "expected parameter 'logicAppId' to be non-null");
-            $.method = Objects.requireNonNull($.method, "expected parameter 'method' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.logicAppId == null) {
+                throw new MissingRequiredPropertyException("ActionHttpArgs", "logicAppId");
+            }
+            if ($.method == null) {
+                throw new MissingRequiredPropertyException("ActionHttpArgs", "method");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("ActionHttpArgs", "uri");
+            }
             return $;
         }
     }

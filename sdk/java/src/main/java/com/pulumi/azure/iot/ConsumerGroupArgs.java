@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ConsumerGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConsumerGroupArgs build() {
-            $.eventhubEndpointName = Objects.requireNonNull($.eventhubEndpointName, "expected parameter 'eventhubEndpointName' to be non-null");
-            $.iothubName = Objects.requireNonNull($.iothubName, "expected parameter 'iothubName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.eventhubEndpointName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "eventhubEndpointName");
+            }
+            if ($.iothubName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "iothubName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

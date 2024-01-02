@@ -5,6 +5,7 @@ package com.pulumi.azure.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -230,11 +231,21 @@ public final class ProtectedFileShareArgs extends com.pulumi.resources.ResourceA
         }
 
         public ProtectedFileShareArgs build() {
-            $.backupPolicyId = Objects.requireNonNull($.backupPolicyId, "expected parameter 'backupPolicyId' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sourceFileShareName = Objects.requireNonNull($.sourceFileShareName, "expected parameter 'sourceFileShareName' to be non-null");
-            $.sourceStorageAccountId = Objects.requireNonNull($.sourceStorageAccountId, "expected parameter 'sourceStorageAccountId' to be non-null");
+            if ($.backupPolicyId == null) {
+                throw new MissingRequiredPropertyException("ProtectedFileShareArgs", "backupPolicyId");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ProtectedFileShareArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProtectedFileShareArgs", "resourceGroupName");
+            }
+            if ($.sourceFileShareName == null) {
+                throw new MissingRequiredPropertyException("ProtectedFileShareArgs", "sourceFileShareName");
+            }
+            if ($.sourceStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ProtectedFileShareArgs", "sourceStorageAccountId");
+            }
             return $;
         }
     }

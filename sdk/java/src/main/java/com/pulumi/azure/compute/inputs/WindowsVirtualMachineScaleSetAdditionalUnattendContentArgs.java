@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs ex
         }
 
         public WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.setting = Objects.requireNonNull($.setting, "expected parameter 'setting' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs", "content");
+            }
+            if ($.setting == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs", "setting");
+            }
             return $;
         }
     }

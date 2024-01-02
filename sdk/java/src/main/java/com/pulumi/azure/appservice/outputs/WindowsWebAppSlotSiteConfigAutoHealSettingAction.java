@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,21 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
 
         @CustomType.Setter
         public Builder actionType(String actionType) {
-            this.actionType = Objects.requireNonNull(actionType);
+            if (actionType == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigAutoHealSettingAction", "actionType");
+            }
+            this.actionType = actionType;
             return this;
         }
         @CustomType.Setter
         public Builder customAction(@Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction) {
+
             this.customAction = customAction;
             return this;
         }
         @CustomType.Setter
         public Builder minimumProcessExecutionTime(@Nullable String minimumProcessExecutionTime) {
+
             this.minimumProcessExecutionTime = minimumProcessExecutionTime;
             return this;
         }

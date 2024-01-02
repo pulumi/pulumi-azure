@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class VirtualMachineAdditionalCapabilities {
 
         @CustomType.Setter
         public Builder ultraSsdEnabled(Boolean ultraSsdEnabled) {
-            this.ultraSsdEnabled = Objects.requireNonNull(ultraSsdEnabled);
+            if (ultraSsdEnabled == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAdditionalCapabilities", "ultraSsdEnabled");
+            }
+            this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
         }
         public VirtualMachineAdditionalCapabilities build() {

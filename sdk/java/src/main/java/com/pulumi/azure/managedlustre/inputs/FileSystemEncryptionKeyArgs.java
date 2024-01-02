@@ -5,6 +5,7 @@ package com.pulumi.azure.managedlustre.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class FileSystemEncryptionKeyArgs extends com.pulumi.resources.Reso
         }
 
         public FileSystemEncryptionKeyArgs build() {
-            $.keyUrl = Objects.requireNonNull($.keyUrl, "expected parameter 'keyUrl' to be non-null");
-            $.sourceVaultId = Objects.requireNonNull($.sourceVaultId, "expected parameter 'sourceVaultId' to be non-null");
+            if ($.keyUrl == null) {
+                throw new MissingRequiredPropertyException("FileSystemEncryptionKeyArgs", "keyUrl");
+            }
+            if ($.sourceVaultId == null) {
+                throw new MissingRequiredPropertyException("FileSystemEncryptionKeyArgs", "sourceVaultId");
+            }
             return $;
         }
     }

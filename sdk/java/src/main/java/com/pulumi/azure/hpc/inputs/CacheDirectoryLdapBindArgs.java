@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CacheDirectoryLdapBindArgs extends com.pulumi.resources.Resou
         }
 
         public CacheDirectoryLdapBindArgs build() {
-            $.dn = Objects.requireNonNull($.dn, "expected parameter 'dn' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
+            if ($.dn == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryLdapBindArgs", "dn");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryLdapBindArgs", "password");
+            }
             return $;
         }
     }

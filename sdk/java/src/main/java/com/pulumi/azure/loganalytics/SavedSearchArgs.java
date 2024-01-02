@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -347,10 +348,18 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SavedSearchArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("SavedSearchArgs", "category");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("SavedSearchArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("SavedSearchArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("SavedSearchArgs", "query");
+            }
             return $;
         }
     }

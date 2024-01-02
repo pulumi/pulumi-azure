@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -240,9 +241,15 @@ public final class CustomHostnameBindingArgs extends com.pulumi.resources.Resour
         }
 
         public CustomHostnameBindingArgs build() {
-            $.appServiceName = Objects.requireNonNull($.appServiceName, "expected parameter 'appServiceName' to be non-null");
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServiceName == null) {
+                throw new MissingRequiredPropertyException("CustomHostnameBindingArgs", "appServiceName");
+            }
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("CustomHostnameBindingArgs", "hostname");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CustomHostnameBindingArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -108,6 +108,7 @@ public final class LocalRulestackRuleDestination {
 
         @CustomType.Setter
         public Builder cidrs(@Nullable List<String> cidrs) {
+
             this.cidrs = cidrs;
             return this;
         }
@@ -116,6 +117,7 @@ public final class LocalRulestackRuleDestination {
         }
         @CustomType.Setter
         public Builder countries(@Nullable List<String> countries) {
+
             this.countries = countries;
             return this;
         }
@@ -124,6 +126,7 @@ public final class LocalRulestackRuleDestination {
         }
         @CustomType.Setter
         public Builder feeds(@Nullable List<String> feeds) {
+
             this.feeds = feeds;
             return this;
         }
@@ -132,6 +135,7 @@ public final class LocalRulestackRuleDestination {
         }
         @CustomType.Setter
         public Builder localRulestackFqdnListIds(@Nullable List<String> localRulestackFqdnListIds) {
+
             this.localRulestackFqdnListIds = localRulestackFqdnListIds;
             return this;
         }
@@ -140,6 +144,7 @@ public final class LocalRulestackRuleDestination {
         }
         @CustomType.Setter
         public Builder localRulestackPrefixListIds(@Nullable List<String> localRulestackPrefixListIds) {
+
             this.localRulestackPrefixListIds = localRulestackPrefixListIds;
             return this;
         }

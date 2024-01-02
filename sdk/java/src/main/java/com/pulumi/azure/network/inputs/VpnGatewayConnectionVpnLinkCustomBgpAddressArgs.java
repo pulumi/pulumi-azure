@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VpnGatewayConnectionVpnLinkCustomBgpAddressArgs extends com.p
         }
 
         public VpnGatewayConnectionVpnLinkCustomBgpAddressArgs build() {
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
-            $.ipConfigurationId = Objects.requireNonNull($.ipConfigurationId, "expected parameter 'ipConfigurationId' to be non-null");
+            if ($.ipAddress == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkCustomBgpAddressArgs", "ipAddress");
+            }
+            if ($.ipConfigurationId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkCustomBgpAddressArgs", "ipConfigurationId");
+            }
             return $;
         }
     }

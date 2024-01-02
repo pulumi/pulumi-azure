@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ScheduledQueryRulesAlertTriggerMetricTriggerArgs extends com.
         }
 
         public ScheduledQueryRulesAlertTriggerMetricTriggerArgs build() {
-            $.metricTriggerType = Objects.requireNonNull($.metricTriggerType, "expected parameter 'metricTriggerType' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.metricTriggerType == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertTriggerMetricTriggerArgs", "metricTriggerType");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertTriggerMetricTriggerArgs", "operator");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertTriggerMetricTriggerArgs", "threshold");
+            }
             return $;
         }
     }

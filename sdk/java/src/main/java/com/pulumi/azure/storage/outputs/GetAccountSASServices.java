@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetAccountSASServices {
 
         @CustomType.Setter
         public Builder blob(Boolean blob) {
-            this.blob = Objects.requireNonNull(blob);
+            if (blob == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASServices", "blob");
+            }
+            this.blob = blob;
             return this;
         }
         @CustomType.Setter
         public Builder file(Boolean file) {
-            this.file = Objects.requireNonNull(file);
+            if (file == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASServices", "file");
+            }
+            this.file = file;
             return this;
         }
         @CustomType.Setter
         public Builder queue(Boolean queue) {
-            this.queue = Objects.requireNonNull(queue);
+            if (queue == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASServices", "queue");
+            }
+            this.queue = queue;
             return this;
         }
         @CustomType.Setter
         public Builder table(Boolean table) {
-            this.table = Objects.requireNonNull(table);
+            if (table == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASServices", "table");
+            }
+            this.table = table;
             return this;
         }
         public GetAccountSASServices build() {

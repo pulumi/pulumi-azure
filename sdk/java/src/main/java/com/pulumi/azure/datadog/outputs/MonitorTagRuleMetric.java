@@ -48,6 +48,7 @@ public final class MonitorTagRuleMetric {
 
         @CustomType.Setter
         public Builder filters(@Nullable List<MonitorTagRuleMetricFilter> filters) {
+
             this.filters = filters;
             return this;
         }

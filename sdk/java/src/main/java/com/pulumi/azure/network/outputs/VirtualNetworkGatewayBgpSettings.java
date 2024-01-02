@@ -74,16 +74,19 @@ public final class VirtualNetworkGatewayBgpSettings {
 
         @CustomType.Setter
         public Builder asn(@Nullable Integer asn) {
+
             this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder peerWeight(@Nullable Integer peerWeight) {
+
             this.peerWeight = peerWeight;
             return this;
         }
         @CustomType.Setter
         public Builder peeringAddresses(@Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses) {
+
             this.peeringAddresses = peeringAddresses;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class WindowsWebAppAuthSettingsTwitterArgs extends com.pulumi.resou
         }
 
         public WindowsWebAppAuthSettingsTwitterArgs build() {
-            $.consumerKey = Objects.requireNonNull($.consumerKey, "expected parameter 'consumerKey' to be non-null");
+            if ($.consumerKey == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppAuthSettingsTwitterArgs", "consumerKey");
+            }
             return $;
         }
     }

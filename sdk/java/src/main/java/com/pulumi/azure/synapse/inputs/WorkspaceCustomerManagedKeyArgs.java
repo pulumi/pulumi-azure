@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         public WorkspaceCustomerManagedKeyArgs build() {
-            $.keyVersionlessId = Objects.requireNonNull($.keyVersionlessId, "expected parameter 'keyVersionlessId' to be non-null");
+            if ($.keyVersionlessId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceCustomerManagedKeyArgs", "keyVersionlessId");
+            }
             return $;
         }
     }

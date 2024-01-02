@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,10 @@ public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
 
         @CustomType.Setter
         public Builder customIps(List<String> customIps) {
-            this.customIps = Objects.requireNonNull(customIps);
+            if (customIps == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayBgpSettingsInstance1BgpPeeringAddress", "customIps");
+            }
+            this.customIps = customIps;
             return this;
         }
         public Builder customIps(String... customIps) {
@@ -95,6 +99,7 @@ public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
         }
         @CustomType.Setter
         public Builder defaultIps(@Nullable List<String> defaultIps) {
+
             this.defaultIps = defaultIps;
             return this;
         }
@@ -103,11 +108,13 @@ public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
         }
         @CustomType.Setter
         public Builder ipConfigurationId(@Nullable String ipConfigurationId) {
+
             this.ipConfigurationId = ipConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder tunnelIps(@Nullable List<String> tunnelIps) {
+
             this.tunnelIps = tunnelIps;
             return this;
         }

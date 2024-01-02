@@ -4,6 +4,7 @@
 package com.pulumi.azure.orbital.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class SpacecraftLink {
 
         @CustomType.Setter
         public Builder bandwidthMhz(Double bandwidthMhz) {
-            this.bandwidthMhz = Objects.requireNonNull(bandwidthMhz);
+            if (bandwidthMhz == null) {
+              throw new MissingRequiredPropertyException("SpacecraftLink", "bandwidthMhz");
+            }
+            this.bandwidthMhz = bandwidthMhz;
             return this;
         }
         @CustomType.Setter
         public Builder centerFrequencyMhz(Double centerFrequencyMhz) {
-            this.centerFrequencyMhz = Objects.requireNonNull(centerFrequencyMhz);
+            if (centerFrequencyMhz == null) {
+              throw new MissingRequiredPropertyException("SpacecraftLink", "centerFrequencyMhz");
+            }
+            this.centerFrequencyMhz = centerFrequencyMhz;
             return this;
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("SpacecraftLink", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SpacecraftLink", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder polarization(String polarization) {
-            this.polarization = Objects.requireNonNull(polarization);
+            if (polarization == null) {
+              throw new MissingRequiredPropertyException("SpacecraftLink", "polarization");
+            }
+            this.polarization = polarization;
             return this;
         }
         public SpacecraftLink build() {

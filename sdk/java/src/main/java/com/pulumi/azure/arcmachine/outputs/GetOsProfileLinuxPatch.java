@@ -4,6 +4,7 @@
 package com.pulumi.azure.arcmachine.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetOsProfileLinuxPatch {
 
         @CustomType.Setter
         public Builder assessmentMode(String assessmentMode) {
-            this.assessmentMode = Objects.requireNonNull(assessmentMode);
+            if (assessmentMode == null) {
+              throw new MissingRequiredPropertyException("GetOsProfileLinuxPatch", "assessmentMode");
+            }
+            this.assessmentMode = assessmentMode;
             return this;
         }
         @CustomType.Setter
         public Builder patchMode(String patchMode) {
-            this.patchMode = Objects.requireNonNull(patchMode);
+            if (patchMode == null) {
+              throw new MissingRequiredPropertyException("GetOsProfileLinuxPatch", "patchMode");
+            }
+            this.patchMode = patchMode;
             return this;
         }
         public GetOsProfileLinuxPatch build() {

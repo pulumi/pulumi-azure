@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -579,12 +580,24 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LinkedServiceSftpArgs build() {
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "authenticationType");
+            }
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "dataFactoryId");
+            }
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "host");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "password");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "port");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceSftpArgs", "username");
+            }
             return $;
         }
     }

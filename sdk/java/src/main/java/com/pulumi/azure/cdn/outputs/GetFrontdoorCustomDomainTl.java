@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetFrontdoorCustomDomainTl {
 
         @CustomType.Setter
         public Builder cdnFrontdoorSecretId(String cdnFrontdoorSecretId) {
-            this.cdnFrontdoorSecretId = Objects.requireNonNull(cdnFrontdoorSecretId);
+            if (cdnFrontdoorSecretId == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "cdnFrontdoorSecretId");
+            }
+            this.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder certificateType(String certificateType) {
-            this.certificateType = Objects.requireNonNull(certificateType);
+            if (certificateType == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "certificateType");
+            }
+            this.certificateType = certificateType;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
-            this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
+            if (minimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "minimumTlsVersion");
+            }
+            this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         public GetFrontdoorCustomDomainTl build() {

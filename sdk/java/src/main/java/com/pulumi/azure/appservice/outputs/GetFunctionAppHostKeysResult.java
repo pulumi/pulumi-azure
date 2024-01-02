@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -152,52 +153,82 @@ public final class GetFunctionAppHostKeysResult {
 
         @CustomType.Setter
         public Builder blobsExtensionKey(String blobsExtensionKey) {
-            this.blobsExtensionKey = Objects.requireNonNull(blobsExtensionKey);
+            if (blobsExtensionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "blobsExtensionKey");
+            }
+            this.blobsExtensionKey = blobsExtensionKey;
             return this;
         }
         @CustomType.Setter
         public Builder defaultFunctionKey(String defaultFunctionKey) {
-            this.defaultFunctionKey = Objects.requireNonNull(defaultFunctionKey);
+            if (defaultFunctionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "defaultFunctionKey");
+            }
+            this.defaultFunctionKey = defaultFunctionKey;
             return this;
         }
         @CustomType.Setter
         public Builder durabletaskExtensionKey(String durabletaskExtensionKey) {
-            this.durabletaskExtensionKey = Objects.requireNonNull(durabletaskExtensionKey);
+            if (durabletaskExtensionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "durabletaskExtensionKey");
+            }
+            this.durabletaskExtensionKey = durabletaskExtensionKey;
             return this;
         }
         @CustomType.Setter
         public Builder eventGridExtensionConfigKey(String eventGridExtensionConfigKey) {
-            this.eventGridExtensionConfigKey = Objects.requireNonNull(eventGridExtensionConfigKey);
+            if (eventGridExtensionConfigKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "eventGridExtensionConfigKey");
+            }
+            this.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder signalrExtensionKey(String signalrExtensionKey) {
-            this.signalrExtensionKey = Objects.requireNonNull(signalrExtensionKey);
+            if (signalrExtensionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "signalrExtensionKey");
+            }
+            this.signalrExtensionKey = signalrExtensionKey;
             return this;
         }
         @CustomType.Setter
         public Builder webpubsubExtensionKey(String webpubsubExtensionKey) {
-            this.webpubsubExtensionKey = Objects.requireNonNull(webpubsubExtensionKey);
+            if (webpubsubExtensionKey == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppHostKeysResult", "webpubsubExtensionKey");
+            }
+            this.webpubsubExtensionKey = webpubsubExtensionKey;
             return this;
         }
         public GetFunctionAppHostKeysResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class VirtualHubRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public VirtualHubRouteArgs build() {
-            $.addressPrefixes = Objects.requireNonNull($.addressPrefixes, "expected parameter 'addressPrefixes' to be non-null");
-            $.nextHopIpAddress = Objects.requireNonNull($.nextHopIpAddress, "expected parameter 'nextHopIpAddress' to be non-null");
+            if ($.addressPrefixes == null) {
+                throw new MissingRequiredPropertyException("VirtualHubRouteArgs", "addressPrefixes");
+            }
+            if ($.nextHopIpAddress == null) {
+                throw new MissingRequiredPropertyException("VirtualHubRouteArgs", "nextHopIpAddress");
+            }
             return $;
         }
     }

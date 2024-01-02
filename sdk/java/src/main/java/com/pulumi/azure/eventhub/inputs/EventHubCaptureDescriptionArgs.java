@@ -6,6 +6,7 @@ package com.pulumi.azure.eventhub.inputs;
 import com.pulumi.azure.eventhub.inputs.EventHubCaptureDescriptionDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -264,9 +265,15 @@ public final class EventHubCaptureDescriptionArgs extends com.pulumi.resources.R
         }
 
         public EventHubCaptureDescriptionArgs build() {
-            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.encoding = Objects.requireNonNull($.encoding, "expected parameter 'encoding' to be non-null");
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionArgs", "destination");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionArgs", "enabled");
+            }
+            if ($.encoding == null) {
+                throw new MissingRequiredPropertyException("EventHubCaptureDescriptionArgs", "encoding");
+            }
             return $;
         }
     }

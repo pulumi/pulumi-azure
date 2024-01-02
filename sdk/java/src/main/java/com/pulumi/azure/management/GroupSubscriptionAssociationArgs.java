@@ -5,6 +5,7 @@ package com.pulumi.azure.management;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GroupSubscriptionAssociationArgs extends com.pulumi.resources
         }
 
         public GroupSubscriptionAssociationArgs build() {
-            $.managementGroupId = Objects.requireNonNull($.managementGroupId, "expected parameter 'managementGroupId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.managementGroupId == null) {
+                throw new MissingRequiredPropertyException("GroupSubscriptionAssociationArgs", "managementGroupId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("GroupSubscriptionAssociationArgs", "subscriptionId");
+            }
             return $;
         }
     }

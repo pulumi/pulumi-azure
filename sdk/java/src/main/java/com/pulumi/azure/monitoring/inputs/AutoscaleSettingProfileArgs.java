@@ -9,6 +9,7 @@ import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRecurrenceArgs;
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -239,8 +240,12 @@ public final class AutoscaleSettingProfileArgs extends com.pulumi.resources.Reso
         }
 
         public AutoscaleSettingProfileArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileArgs", "capacity");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileArgs", "name");
+            }
             return $;
         }
     }

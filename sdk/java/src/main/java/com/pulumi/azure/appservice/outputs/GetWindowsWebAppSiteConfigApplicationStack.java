@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -239,97 +240,154 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder currentStack(String currentStack) {
-            this.currentStack = Objects.requireNonNull(currentStack);
+            if (currentStack == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "currentStack");
+            }
+            this.currentStack = currentStack;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerName(String dockerContainerName) {
-            this.dockerContainerName = Objects.requireNonNull(dockerContainerName);
+            if (dockerContainerName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerName");
+            }
+            this.dockerContainerName = dockerContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerRegistry(String dockerContainerRegistry) {
-            this.dockerContainerRegistry = Objects.requireNonNull(dockerContainerRegistry);
+            if (dockerContainerRegistry == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerRegistry");
+            }
+            this.dockerContainerRegistry = dockerContainerRegistry;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerTag(String dockerContainerTag) {
-            this.dockerContainerTag = Objects.requireNonNull(dockerContainerTag);
+            if (dockerContainerTag == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerContainerTag");
+            }
+            this.dockerContainerTag = dockerContainerTag;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageName(String dockerImageName) {
-            this.dockerImageName = Objects.requireNonNull(dockerImageName);
+            if (dockerImageName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerImageName");
+            }
+            this.dockerImageName = dockerImageName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryPassword(String dockerRegistryPassword) {
-            this.dockerRegistryPassword = Objects.requireNonNull(dockerRegistryPassword);
+            if (dockerRegistryPassword == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerRegistryPassword");
+            }
+            this.dockerRegistryPassword = dockerRegistryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUrl(String dockerRegistryUrl) {
-            this.dockerRegistryUrl = Objects.requireNonNull(dockerRegistryUrl);
+            if (dockerRegistryUrl == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerRegistryUrl");
+            }
+            this.dockerRegistryUrl = dockerRegistryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUsername(String dockerRegistryUsername) {
-            this.dockerRegistryUsername = Objects.requireNonNull(dockerRegistryUsername);
+            if (dockerRegistryUsername == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dockerRegistryUsername");
+            }
+            this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetCoreVersion(String dotnetCoreVersion) {
-            this.dotnetCoreVersion = Objects.requireNonNull(dotnetCoreVersion);
+            if (dotnetCoreVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dotnetCoreVersion");
+            }
+            this.dotnetCoreVersion = dotnetCoreVersion;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
-            this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
+            if (dotnetVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "dotnetVersion");
+            }
+            this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaContainer(String javaContainer) {
-            this.javaContainer = Objects.requireNonNull(javaContainer);
+            if (javaContainer == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "javaContainer");
+            }
+            this.javaContainer = javaContainer;
             return this;
         }
         @CustomType.Setter
         public Builder javaContainerVersion(String javaContainerVersion) {
-            this.javaContainerVersion = Objects.requireNonNull(javaContainerVersion);
+            if (javaContainerVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "javaContainerVersion");
+            }
+            this.javaContainerVersion = javaContainerVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaEmbeddedServerEnabled(Boolean javaEmbeddedServerEnabled) {
-            this.javaEmbeddedServerEnabled = Objects.requireNonNull(javaEmbeddedServerEnabled);
+            if (javaEmbeddedServerEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "javaEmbeddedServerEnabled");
+            }
+            this.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
-            this.nodeVersion = Objects.requireNonNull(nodeVersion);
+            if (nodeVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "nodeVersion");
+            }
+            this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder phpVersion(String phpVersion) {
-            this.phpVersion = Objects.requireNonNull(phpVersion);
+            if (phpVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "phpVersion");
+            }
+            this.phpVersion = phpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder python(Boolean python) {
-            this.python = Objects.requireNonNull(python);
+            if (python == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "python");
+            }
+            this.python = python;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
-            this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            if (pythonVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "pythonVersion");
+            }
+            this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tomcatVersion(String tomcatVersion) {
-            this.tomcatVersion = Objects.requireNonNull(tomcatVersion);
+            if (tomcatVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigApplicationStack", "tomcatVersion");
+            }
+            this.tomcatVersion = tomcatVersion;
             return this;
         }
         public GetWindowsWebAppSiteConfigApplicationStack build() {

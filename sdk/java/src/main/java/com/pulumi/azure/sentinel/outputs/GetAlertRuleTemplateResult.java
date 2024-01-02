@@ -7,6 +7,7 @@ import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateNrtTemplate;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateScheduledTemplate;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateSecurityIncidentTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -106,27 +107,42 @@ public final class GetAlertRuleTemplateResult {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
-            this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            if (logAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "logAnalyticsWorkspaceId");
+            }
+            this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nrtTemplates(List<GetAlertRuleTemplateNrtTemplate> nrtTemplates) {
-            this.nrtTemplates = Objects.requireNonNull(nrtTemplates);
+            if (nrtTemplates == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "nrtTemplates");
+            }
+            this.nrtTemplates = nrtTemplates;
             return this;
         }
         public Builder nrtTemplates(GetAlertRuleTemplateNrtTemplate... nrtTemplates) {
@@ -134,7 +150,10 @@ public final class GetAlertRuleTemplateResult {
         }
         @CustomType.Setter
         public Builder scheduledTemplates(List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates) {
-            this.scheduledTemplates = Objects.requireNonNull(scheduledTemplates);
+            if (scheduledTemplates == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "scheduledTemplates");
+            }
+            this.scheduledTemplates = scheduledTemplates;
             return this;
         }
         public Builder scheduledTemplates(GetAlertRuleTemplateScheduledTemplate... scheduledTemplates) {
@@ -142,7 +161,10 @@ public final class GetAlertRuleTemplateResult {
         }
         @CustomType.Setter
         public Builder securityIncidentTemplates(List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates) {
-            this.securityIncidentTemplates = Objects.requireNonNull(securityIncidentTemplates);
+            if (securityIncidentTemplates == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateResult", "securityIncidentTemplates");
+            }
+            this.securityIncidentTemplates = securityIncidentTemplates;
             return this;
         }
         public Builder securityIncidentTemplates(GetAlertRuleTemplateSecurityIncidentTemplate... securityIncidentTemplates) {

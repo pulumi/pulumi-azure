@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class SpringCloudAppMysqlAssociationArgs extends com.pulumi.resourc
         }
 
         public SpringCloudAppMysqlAssociationArgs build() {
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.mysqlServerId = Objects.requireNonNull($.mysqlServerId, "expected parameter 'mysqlServerId' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppMysqlAssociationArgs", "databaseName");
+            }
+            if ($.mysqlServerId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppMysqlAssociationArgs", "mysqlServerId");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppMysqlAssociationArgs", "password");
+            }
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppMysqlAssociationArgs", "springCloudAppId");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppMysqlAssociationArgs", "username");
+            }
             return $;
         }
     }

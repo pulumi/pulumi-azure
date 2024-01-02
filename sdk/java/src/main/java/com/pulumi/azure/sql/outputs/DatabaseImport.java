@@ -4,6 +4,7 @@
 package com.pulumi.azure.sql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,37 +129,56 @@ public final class DatabaseImport {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder administratorLoginPassword(String administratorLoginPassword) {
-            this.administratorLoginPassword = Objects.requireNonNull(administratorLoginPassword);
+            if (administratorLoginPassword == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "administratorLoginPassword");
+            }
+            this.administratorLoginPassword = administratorLoginPassword;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
-            this.authenticationType = Objects.requireNonNull(authenticationType);
+            if (authenticationType == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "authenticationType");
+            }
+            this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder operationMode(@Nullable String operationMode) {
+
             this.operationMode = operationMode;
             return this;
         }
         @CustomType.Setter
         public Builder storageKey(String storageKey) {
-            this.storageKey = Objects.requireNonNull(storageKey);
+            if (storageKey == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "storageKey");
+            }
+            this.storageKey = storageKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageKeyType(String storageKeyType) {
-            this.storageKeyType = Objects.requireNonNull(storageKeyType);
+            if (storageKeyType == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "storageKeyType");
+            }
+            this.storageKeyType = storageKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder storageUri(String storageUri) {
-            this.storageUri = Objects.requireNonNull(storageUri);
+            if (storageUri == null) {
+              throw new MissingRequiredPropertyException("DatabaseImport", "storageUri");
+            }
+            this.storageUri = storageUri;
             return this;
         }
         public DatabaseImport build() {

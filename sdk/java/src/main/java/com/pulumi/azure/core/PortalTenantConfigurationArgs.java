@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class PortalTenantConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public PortalTenantConfigurationArgs build() {
-            $.privateMarkdownStorageEnforced = Objects.requireNonNull($.privateMarkdownStorageEnforced, "expected parameter 'privateMarkdownStorageEnforced' to be non-null");
+            if ($.privateMarkdownStorageEnforced == null) {
+                throw new MissingRequiredPropertyException("PortalTenantConfigurationArgs", "privateMarkdownStorageEnforced");
+            }
             return $;
         }
     }

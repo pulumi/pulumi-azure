@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -183,52 +184,82 @@ public final class GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
 
         @CustomType.Setter
         public Builder authorisationEndpoint(String authorisationEndpoint) {
-            this.authorisationEndpoint = Objects.requireNonNull(authorisationEndpoint);
+            if (authorisationEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "authorisationEndpoint");
+            }
+            this.authorisationEndpoint = authorisationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder certificationUri(String certificationUri) {
-            this.certificationUri = Objects.requireNonNull(certificationUri);
+            if (certificationUri == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "certificationUri");
+            }
+            this.certificationUri = certificationUri;
             return this;
         }
         @CustomType.Setter
         public Builder clientCredentialMethod(String clientCredentialMethod) {
-            this.clientCredentialMethod = Objects.requireNonNull(clientCredentialMethod);
+            if (clientCredentialMethod == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "clientCredentialMethod");
+            }
+            this.clientCredentialMethod = clientCredentialMethod;
             return this;
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder issuerEndpoint(String issuerEndpoint) {
-            this.issuerEndpoint = Objects.requireNonNull(issuerEndpoint);
+            if (issuerEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "issuerEndpoint");
+            }
+            this.issuerEndpoint = issuerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameClaimType(String nameClaimType) {
-            this.nameClaimType = Objects.requireNonNull(nameClaimType);
+            if (nameClaimType == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "nameClaimType");
+            }
+            this.nameClaimType = nameClaimType;
             return this;
         }
         @CustomType.Setter
         public Builder openidConfigurationEndpoint(String openidConfigurationEndpoint) {
-            this.openidConfigurationEndpoint = Objects.requireNonNull(openidConfigurationEndpoint);
+            if (openidConfigurationEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "openidConfigurationEndpoint");
+            }
+            this.openidConfigurationEndpoint = openidConfigurationEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<String> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {
@@ -236,7 +267,10 @@ public final class GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
         }
         @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
-            this.tokenEndpoint = Objects.requireNonNull(tokenEndpoint);
+            if (tokenEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2CustomOidcV2", "tokenEndpoint");
+            }
+            this.tokenEndpoint = tokenEndpoint;
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2CustomOidcV2 build() {

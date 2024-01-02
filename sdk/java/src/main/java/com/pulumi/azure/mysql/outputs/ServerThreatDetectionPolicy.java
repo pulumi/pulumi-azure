@@ -131,6 +131,7 @@ public final class ServerThreatDetectionPolicy {
 
         @CustomType.Setter
         public Builder disabledAlerts(@Nullable List<String> disabledAlerts) {
+
             this.disabledAlerts = disabledAlerts;
             return this;
         }
@@ -139,11 +140,13 @@ public final class ServerThreatDetectionPolicy {
         }
         @CustomType.Setter
         public Builder emailAccountAdmins(@Nullable Boolean emailAccountAdmins) {
+
             this.emailAccountAdmins = emailAccountAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder emailAddresses(@Nullable List<String> emailAddresses) {
+
             this.emailAddresses = emailAddresses;
             return this;
         }
@@ -152,21 +155,25 @@ public final class ServerThreatDetectionPolicy {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder retentionDays(@Nullable Integer retentionDays) {
+
             this.retentionDays = retentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountAccessKey(@Nullable String storageAccountAccessKey) {
+
             this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageEndpoint(@Nullable String storageEndpoint) {
+
             this.storageEndpoint = storageEndpoint;
             return this;
         }

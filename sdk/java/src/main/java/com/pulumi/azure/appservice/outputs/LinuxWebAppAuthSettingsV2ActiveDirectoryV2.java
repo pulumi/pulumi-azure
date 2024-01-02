@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -197,6 +198,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
 
         @CustomType.Setter
         public Builder allowedApplications(@Nullable List<String> allowedApplications) {
+
             this.allowedApplications = allowedApplications;
             return this;
         }
@@ -205,6 +207,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedAudiences(@Nullable List<String> allowedAudiences) {
+
             this.allowedAudiences = allowedAudiences;
             return this;
         }
@@ -213,6 +216,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedGroups(@Nullable List<String> allowedGroups) {
+
             this.allowedGroups = allowedGroups;
             return this;
         }
@@ -221,6 +225,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedIdentities(@Nullable List<String> allowedIdentities) {
+
             this.allowedIdentities = allowedIdentities;
             return this;
         }
@@ -229,21 +234,27 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2ActiveDirectoryV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretCertificateThumbprint(@Nullable String clientSecretCertificateThumbprint) {
+
             this.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
+
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder jwtAllowedClientApplications(@Nullable List<String> jwtAllowedClientApplications) {
+
             this.jwtAllowedClientApplications = jwtAllowedClientApplications;
             return this;
         }
@@ -252,6 +263,7 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder jwtAllowedGroups(@Nullable List<String> jwtAllowedGroups) {
+
             this.jwtAllowedGroups = jwtAllowedGroups;
             return this;
         }
@@ -260,16 +272,21 @@ public final class LinuxWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder loginParameters(@Nullable Map<String,String> loginParameters) {
+
             this.loginParameters = loginParameters;
             return this;
         }
         @CustomType.Setter
         public Builder tenantAuthEndpoint(String tenantAuthEndpoint) {
-            this.tenantAuthEndpoint = Objects.requireNonNull(tenantAuthEndpoint);
+            if (tenantAuthEndpoint == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2ActiveDirectoryV2", "tenantAuthEndpoint");
+            }
+            this.tenantAuthEndpoint = tenantAuthEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder wwwAuthenticationDisabled(@Nullable Boolean wwwAuthenticationDisabled) {
+
             this.wwwAuthenticationDisabled = wwwAuthenticationDisabled;
             return this;
         }

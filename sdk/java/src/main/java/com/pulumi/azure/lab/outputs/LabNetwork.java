@@ -72,16 +72,19 @@ public final class LabNetwork {
 
         @CustomType.Setter
         public Builder loadBalancerId(@Nullable String loadBalancerId) {
+
             this.loadBalancerId = loadBalancerId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpId(@Nullable String publicIpId) {
+
             this.publicIpId = publicIpId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

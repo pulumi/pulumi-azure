@@ -87,11 +87,13 @@ public final class ConfigurationBackupSchedulePolicy {
 
         @CustomType.Setter
         public Builder schedulePolicyType(@Nullable String schedulePolicyType) {
+
             this.schedulePolicyType = schedulePolicyType;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleRunDays(@Nullable List<String> scheduleRunDays) {
+
             this.scheduleRunDays = scheduleRunDays;
             return this;
         }
@@ -100,11 +102,13 @@ public final class ConfigurationBackupSchedulePolicy {
         }
         @CustomType.Setter
         public Builder scheduleRunFrequency(@Nullable String scheduleRunFrequency) {
+
             this.scheduleRunFrequency = scheduleRunFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleRunTimes(@Nullable List<String> scheduleRunTimes) {
+
             this.scheduleRunTimes = scheduleRunTimes;
             return this;
         }

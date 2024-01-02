@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -557,8 +558,12 @@ public final class LinkedServiceDataLakeStorageGen2Args extends com.pulumi.resou
         }
 
         public LinkedServiceDataLakeStorageGen2Args build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceDataLakeStorageGen2Args", "dataFactoryId");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceDataLakeStorageGen2Args", "url");
+            }
             return $;
         }
     }

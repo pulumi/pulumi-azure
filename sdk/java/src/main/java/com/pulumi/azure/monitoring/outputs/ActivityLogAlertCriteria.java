@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.ActivityLogAlertCriteriaResourceHealth;
 import com.pulumi.azure.monitoring.outputs.ActivityLogAlertCriteriaServiceHealth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -369,21 +370,27 @@ public final class ActivityLogAlertCriteria {
 
         @CustomType.Setter
         public Builder caller(@Nullable String caller) {
+
             this.caller = caller;
             return this;
         }
         @CustomType.Setter
         public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+            if (category == null) {
+              throw new MissingRequiredPropertyException("ActivityLogAlertCriteria", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder level(@Nullable String level) {
+
             this.level = level;
             return this;
         }
         @CustomType.Setter
         public Builder levels(@Nullable List<String> levels) {
+
             this.levels = levels;
             return this;
         }
@@ -392,31 +399,37 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder operationName(@Nullable String operationName) {
+
             this.operationName = operationName;
             return this;
         }
         @CustomType.Setter
         public Builder recommendationCategory(@Nullable String recommendationCategory) {
+
             this.recommendationCategory = recommendationCategory;
             return this;
         }
         @CustomType.Setter
         public Builder recommendationImpact(@Nullable String recommendationImpact) {
+
             this.recommendationImpact = recommendationImpact;
             return this;
         }
         @CustomType.Setter
         public Builder recommendationType(@Nullable String recommendationType) {
+
             this.recommendationType = recommendationType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroup(@Nullable String resourceGroup) {
+
             this.resourceGroup = resourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroups(@Nullable List<String> resourceGroups) {
+
             this.resourceGroups = resourceGroups;
             return this;
         }
@@ -425,6 +438,7 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder resourceHealths(@Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths) {
+
             this.resourceHealths = resourceHealths;
             return this;
         }
@@ -433,11 +447,13 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder resourceId(@Nullable String resourceId) {
+
             this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceIds(@Nullable List<String> resourceIds) {
+
             this.resourceIds = resourceIds;
             return this;
         }
@@ -446,11 +462,13 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder resourceProvider(@Nullable String resourceProvider) {
+
             this.resourceProvider = resourceProvider;
             return this;
         }
         @CustomType.Setter
         public Builder resourceProviders(@Nullable List<String> resourceProviders) {
+
             this.resourceProviders = resourceProviders;
             return this;
         }
@@ -459,11 +477,13 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
+
             this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+
             this.resourceTypes = resourceTypes;
             return this;
         }
@@ -472,6 +492,7 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder serviceHealths(@Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths) {
+
             this.serviceHealths = serviceHealths;
             return this;
         }
@@ -480,11 +501,13 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder statuses(@Nullable List<String> statuses) {
+
             this.statuses = statuses;
             return this;
         }
@@ -493,11 +516,13 @@ public final class ActivityLogAlertCriteria {
         }
         @CustomType.Setter
         public Builder subStatus(@Nullable String subStatus) {
+
             this.subStatus = subStatus;
             return this;
         }
         @CustomType.Setter
         public Builder subStatuses(@Nullable List<String> subStatuses) {
+
             this.subStatuses = subStatuses;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetPoolContainerConfigurationContainerRegistry {
 
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfigurationContainerRegistry", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder registryServer(String registryServer) {
-            this.registryServer = Objects.requireNonNull(registryServer);
+            if (registryServer == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfigurationContainerRegistry", "registryServer");
+            }
+            this.registryServer = registryServer;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
-            this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
+            if (userAssignedIdentityId == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfigurationContainerRegistry", "userAssignedIdentityId");
+            }
+            this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfigurationContainerRegistry", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetPoolContainerConfigurationContainerRegistry build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class VirtualNetworkSwiftConnectionArgs extends com.pulumi.resource
         }
 
         public VirtualNetworkSwiftConnectionArgs build() {
-            $.appServiceId = Objects.requireNonNull($.appServiceId, "expected parameter 'appServiceId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.appServiceId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkSwiftConnectionArgs", "appServiceId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkSwiftConnectionArgs", "subnetId");
+            }
             return $;
         }
     }

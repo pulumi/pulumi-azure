@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class RegistryTaskSourceTriggerAuthenticationArgs extends com.pulum
         }
 
         public RegistryTaskSourceTriggerAuthenticationArgs build() {
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
-            $.tokenType = Objects.requireNonNull($.tokenType, "expected parameter 'tokenType' to be non-null");
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerAuthenticationArgs", "token");
+            }
+            if ($.tokenType == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerAuthenticationArgs", "tokenType");
+            }
             return $;
         }
     }

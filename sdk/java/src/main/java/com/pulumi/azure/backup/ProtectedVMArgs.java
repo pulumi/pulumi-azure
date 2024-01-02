@@ -5,6 +5,7 @@ package com.pulumi.azure.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -332,8 +333,12 @@ public final class ProtectedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProtectedVMArgs build() {
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ProtectedVMArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProtectedVMArgs", "resourceGroupName");
+            }
             return $;
         }
     }

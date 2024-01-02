@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -101,27 +102,36 @@ public final class DatasetParquetHttpServerLocation {
 
         @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
+
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
+
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder filename(String filename) {
-            this.filename = Objects.requireNonNull(filename);
+            if (filename == null) {
+              throw new MissingRequiredPropertyException("DatasetParquetHttpServerLocation", "filename");
+            }
+            this.filename = filename;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder relativeUrl(String relativeUrl) {
-            this.relativeUrl = Objects.requireNonNull(relativeUrl);
+            if (relativeUrl == null) {
+              throw new MissingRequiredPropertyException("DatasetParquetHttpServerLocation", "relativeUrl");
+            }
+            this.relativeUrl = relativeUrl;
             return this;
         }
         public DatasetParquetHttpServerLocation build() {

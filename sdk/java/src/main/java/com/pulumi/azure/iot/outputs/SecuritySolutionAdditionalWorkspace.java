@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class SecuritySolutionAdditionalWorkspace {
 
         @CustomType.Setter
         public Builder dataTypes(List<String> dataTypes) {
-            this.dataTypes = Objects.requireNonNull(dataTypes);
+            if (dataTypes == null) {
+              throw new MissingRequiredPropertyException("SecuritySolutionAdditionalWorkspace", "dataTypes");
+            }
+            this.dataTypes = dataTypes;
             return this;
         }
         public Builder dataTypes(String... dataTypes) {
@@ -65,7 +69,10 @@ public final class SecuritySolutionAdditionalWorkspace {
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("SecuritySolutionAdditionalWorkspace", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public SecuritySolutionAdditionalWorkspace build() {

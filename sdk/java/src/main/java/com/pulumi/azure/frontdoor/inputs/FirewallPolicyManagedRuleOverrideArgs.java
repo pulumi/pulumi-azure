@@ -7,6 +7,7 @@ import com.pulumi.azure.frontdoor.inputs.FirewallPolicyManagedRuleOverrideExclus
 import com.pulumi.azure.frontdoor.inputs.FirewallPolicyManagedRuleOverrideRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -173,7 +174,9 @@ public final class FirewallPolicyManagedRuleOverrideArgs extends com.pulumi.reso
         }
 
         public FirewallPolicyManagedRuleOverrideArgs build() {
-            $.ruleGroupName = Objects.requireNonNull($.ruleGroupName, "expected parameter 'ruleGroupName' to be non-null");
+            if ($.ruleGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyManagedRuleOverrideArgs", "ruleGroupName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class IntegrationAccountCertificateKeyVaultKey {
 
         @CustomType.Setter
         public Builder keyName(String keyName) {
-            this.keyName = Objects.requireNonNull(keyName);
+            if (keyName == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountCertificateKeyVaultKey", "keyName");
+            }
+            this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("IntegrationAccountCertificateKeyVaultKey", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVersion(@Nullable String keyVersion) {
+
             this.keyVersion = keyVersion;
             return this;
         }

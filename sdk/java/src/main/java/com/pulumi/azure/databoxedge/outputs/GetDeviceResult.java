@@ -5,6 +5,7 @@ package com.pulumi.azure.databoxedge.outputs;
 
 import com.pulumi.azure.databoxedge.outputs.GetDeviceDeviceProperty;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -113,7 +114,10 @@ public final class GetDeviceResult {
 
         @CustomType.Setter
         public Builder deviceProperties(List<GetDeviceDeviceProperty> deviceProperties) {
-            this.deviceProperties = Objects.requireNonNull(deviceProperties);
+            if (deviceProperties == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "deviceProperties");
+            }
+            this.deviceProperties = deviceProperties;
             return this;
         }
         public Builder deviceProperties(GetDeviceDeviceProperty... deviceProperties) {
@@ -121,32 +125,50 @@ public final class GetDeviceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDeviceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDeviceResult build() {

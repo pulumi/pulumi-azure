@@ -68,11 +68,13 @@ public final class ScaleSetOsProfileLinuxConfig {
 
         @CustomType.Setter
         public Builder disablePasswordAuthentication(@Nullable Boolean disablePasswordAuthentication) {
+
             this.disablePasswordAuthentication = disablePasswordAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys) {
+
             this.sshKeys = sshKeys;
             return this;
         }

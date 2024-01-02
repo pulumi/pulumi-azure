@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -421,14 +422,30 @@ public final class OutputTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutputTableArgs build() {
-            $.batchSize = Objects.requireNonNull($.batchSize, "expected parameter 'batchSize' to be non-null");
-            $.partitionKey = Objects.requireNonNull($.partitionKey, "expected parameter 'partitionKey' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.rowKey = Objects.requireNonNull($.rowKey, "expected parameter 'rowKey' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
-            $.table = Objects.requireNonNull($.table, "expected parameter 'table' to be non-null");
+            if ($.batchSize == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "batchSize");
+            }
+            if ($.partitionKey == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "partitionKey");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "resourceGroupName");
+            }
+            if ($.rowKey == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "rowKey");
+            }
+            if ($.storageAccountKey == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "storageAccountKey");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "storageAccountName");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "streamAnalyticsJobName");
+            }
+            if ($.table == null) {
+                throw new MissingRequiredPropertyException("OutputTableArgs", "table");
+            }
             return $;
         }
     }

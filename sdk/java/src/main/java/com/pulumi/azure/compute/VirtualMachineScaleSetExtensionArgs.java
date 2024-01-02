@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -669,10 +670,18 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
         }
 
         public VirtualMachineScaleSetExtensionArgs build() {
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.typeHandlerVersion = Objects.requireNonNull($.typeHandlerVersion, "expected parameter 'typeHandlerVersion' to be non-null");
-            $.virtualMachineScaleSetId = Objects.requireNonNull($.virtualMachineScaleSetId, "expected parameter 'virtualMachineScaleSetId' to be non-null");
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineScaleSetExtensionArgs", "publisher");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineScaleSetExtensionArgs", "type");
+            }
+            if ($.typeHandlerVersion == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineScaleSetExtensionArgs", "typeHandlerVersion");
+            }
+            if ($.virtualMachineScaleSetId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineScaleSetExtensionArgs", "virtualMachineScaleSetId");
+            }
             return $;
         }
     }

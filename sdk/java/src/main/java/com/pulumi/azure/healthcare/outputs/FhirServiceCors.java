@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -103,7 +104,10 @@ public final class FhirServiceCors {
 
         @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
-            this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
+            if (allowedHeaders == null) {
+              throw new MissingRequiredPropertyException("FhirServiceCors", "allowedHeaders");
+            }
+            this.allowedHeaders = allowedHeaders;
             return this;
         }
         public Builder allowedHeaders(String... allowedHeaders) {
@@ -111,7 +115,10 @@ public final class FhirServiceCors {
         }
         @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = Objects.requireNonNull(allowedMethods);
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("FhirServiceCors", "allowedMethods");
+            }
+            this.allowedMethods = allowedMethods;
             return this;
         }
         public Builder allowedMethods(String... allowedMethods) {
@@ -119,7 +126,10 @@ public final class FhirServiceCors {
         }
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("FhirServiceCors", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -127,11 +137,13 @@ public final class FhirServiceCors {
         }
         @CustomType.Setter
         public Builder credentialsAllowed(@Nullable Boolean credentialsAllowed) {
+
             this.credentialsAllowed = credentialsAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder maxAgeInSeconds(@Nullable Integer maxAgeInSeconds) {
+
             this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }

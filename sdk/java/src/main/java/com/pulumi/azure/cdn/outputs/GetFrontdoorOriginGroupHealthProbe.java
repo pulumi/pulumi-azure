@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetFrontdoorOriginGroupHealthProbe {
 
         @CustomType.Setter
         public Builder intervalInSeconds(Integer intervalInSeconds) {
-            this.intervalInSeconds = Objects.requireNonNull(intervalInSeconds);
+            if (intervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupHealthProbe", "intervalInSeconds");
+            }
+            this.intervalInSeconds = intervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupHealthProbe", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupHealthProbe", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder requestType(String requestType) {
-            this.requestType = Objects.requireNonNull(requestType);
+            if (requestType == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupHealthProbe", "requestType");
+            }
+            this.requestType = requestType;
             return this;
         }
         public GetFrontdoorOriginGroupHealthProbe build() {

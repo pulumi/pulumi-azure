@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class VnpGatewayNatRuleInternalMappingArgs extends com.pulumi.resou
         }
 
         public VnpGatewayNatRuleInternalMappingArgs build() {
-            $.addressSpace = Objects.requireNonNull($.addressSpace, "expected parameter 'addressSpace' to be non-null");
+            if ($.addressSpace == null) {
+                throw new MissingRequiredPropertyException("VnpGatewayNatRuleInternalMappingArgs", "addressSpace");
+            }
             return $;
         }
     }

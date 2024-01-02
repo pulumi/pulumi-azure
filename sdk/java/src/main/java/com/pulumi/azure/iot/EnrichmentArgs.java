@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -233,11 +234,21 @@ public final class EnrichmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EnrichmentArgs build() {
-            $.endpointNames = Objects.requireNonNull($.endpointNames, "expected parameter 'endpointNames' to be non-null");
-            $.iothubName = Objects.requireNonNull($.iothubName, "expected parameter 'iothubName' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.endpointNames == null) {
+                throw new MissingRequiredPropertyException("EnrichmentArgs", "endpointNames");
+            }
+            if ($.iothubName == null) {
+                throw new MissingRequiredPropertyException("EnrichmentArgs", "iothubName");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("EnrichmentArgs", "key");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EnrichmentArgs", "resourceGroupName");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("EnrichmentArgs", "value");
+            }
             return $;
         }
     }

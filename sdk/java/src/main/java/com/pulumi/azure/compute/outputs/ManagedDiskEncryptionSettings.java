@@ -78,16 +78,19 @@ public final class ManagedDiskEncryptionSettings {
 
         @CustomType.Setter
         public Builder diskEncryptionKey(@Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
+
             this.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
+
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
         }

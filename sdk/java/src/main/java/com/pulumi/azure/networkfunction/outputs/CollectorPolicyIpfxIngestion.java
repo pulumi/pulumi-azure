@@ -4,6 +4,7 @@
 package com.pulumi.azure.networkfunction.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class CollectorPolicyIpfxIngestion {
 
         @CustomType.Setter
         public Builder sourceResourceIds(List<String> sourceResourceIds) {
-            this.sourceResourceIds = Objects.requireNonNull(sourceResourceIds);
+            if (sourceResourceIds == null) {
+              throw new MissingRequiredPropertyException("CollectorPolicyIpfxIngestion", "sourceResourceIds");
+            }
+            this.sourceResourceIds = sourceResourceIds;
             return this;
         }
         public Builder sourceResourceIds(String... sourceResourceIds) {

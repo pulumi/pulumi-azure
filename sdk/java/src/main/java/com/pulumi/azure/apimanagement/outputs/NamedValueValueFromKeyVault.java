@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class NamedValueValueFromKeyVault {
 
         @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
+
             this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder secretId(String secretId) {
-            this.secretId = Objects.requireNonNull(secretId);
+            if (secretId == null) {
+              throw new MissingRequiredPropertyException("NamedValueValueFromKeyVault", "secretId");
+            }
+            this.secretId = secretId;
             return this;
         }
         public NamedValueValueFromKeyVault build() {

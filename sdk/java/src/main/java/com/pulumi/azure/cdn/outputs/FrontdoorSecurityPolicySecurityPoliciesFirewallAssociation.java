@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 
         @CustomType.Setter
         public Builder domains(List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains) {
-            this.domains = Objects.requireNonNull(domains);
+            if (domains == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation", "domains");
+            }
+            this.domains = domains;
             return this;
         }
         public Builder domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain... domains) {
@@ -66,7 +70,10 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
         }
         @CustomType.Setter
         public Builder patternsToMatch(String patternsToMatch) {
-            this.patternsToMatch = Objects.requireNonNull(patternsToMatch);
+            if (patternsToMatch == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation", "patternsToMatch");
+            }
+            this.patternsToMatch = patternsToMatch;
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation build() {

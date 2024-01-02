@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,17 +74,22 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponent {
 
         @CustomType.Setter
         public Builder keyVaultLicense(@Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense) {
+
             this.keyVaultLicense = keyVaultLicense;
             return this;
         }
         @CustomType.Setter
         public Builder license(@Nullable String license) {
+
             this.license = license;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupComponent", "name");
+            }
+            this.name = name;
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupComponent build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile;
 import com.pulumi.azure.mobile.inputs.NetworkSimStaticIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -384,11 +385,21 @@ public final class NetworkSimArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkSimArgs build() {
-            $.authenticationKey = Objects.requireNonNull($.authenticationKey, "expected parameter 'authenticationKey' to be non-null");
-            $.integratedCircuitCardIdentifier = Objects.requireNonNull($.integratedCircuitCardIdentifier, "expected parameter 'integratedCircuitCardIdentifier' to be non-null");
-            $.internationalMobileSubscriberIdentity = Objects.requireNonNull($.internationalMobileSubscriberIdentity, "expected parameter 'internationalMobileSubscriberIdentity' to be non-null");
-            $.mobileNetworkSimGroupId = Objects.requireNonNull($.mobileNetworkSimGroupId, "expected parameter 'mobileNetworkSimGroupId' to be non-null");
-            $.operatorKeyCode = Objects.requireNonNull($.operatorKeyCode, "expected parameter 'operatorKeyCode' to be non-null");
+            if ($.authenticationKey == null) {
+                throw new MissingRequiredPropertyException("NetworkSimArgs", "authenticationKey");
+            }
+            if ($.integratedCircuitCardIdentifier == null) {
+                throw new MissingRequiredPropertyException("NetworkSimArgs", "integratedCircuitCardIdentifier");
+            }
+            if ($.internationalMobileSubscriberIdentity == null) {
+                throw new MissingRequiredPropertyException("NetworkSimArgs", "internationalMobileSubscriberIdentity");
+            }
+            if ($.mobileNetworkSimGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimArgs", "mobileNetworkSimGroupId");
+            }
+            if ($.operatorKeyCode == null) {
+                throw new MissingRequiredPropertyException("NetworkSimArgs", "operatorKeyCode");
+            }
             return $;
         }
     }

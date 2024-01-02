@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -505,10 +506,18 @@ public final class SpringCloudConfigurationServiceRepositoryArgs extends com.pul
         }
 
         public SpringCloudConfigurationServiceRepositoryArgs build() {
-            $.label = Objects.requireNonNull($.label, "expected parameter 'label' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.patterns = Objects.requireNonNull($.patterns, "expected parameter 'patterns' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.label == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepositoryArgs", "label");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepositoryArgs", "name");
+            }
+            if ($.patterns == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepositoryArgs", "patterns");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepositoryArgs", "uri");
+            }
             return $;
         }
     }

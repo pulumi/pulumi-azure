@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.VpnGatewayBgpSettingsInstance0BgpPeeringA
 import com.pulumi.azure.network.inputs.VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -227,8 +228,12 @@ public final class VpnGatewayBgpSettingsArgs extends com.pulumi.resources.Resour
         }
 
         public VpnGatewayBgpSettingsArgs build() {
-            $.asn = Objects.requireNonNull($.asn, "expected parameter 'asn' to be non-null");
-            $.peerWeight = Objects.requireNonNull($.peerWeight, "expected parameter 'peerWeight' to be non-null");
+            if ($.asn == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayBgpSettingsArgs", "asn");
+            }
+            if ($.peerWeight == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayBgpSettingsArgs", "peerWeight");
+            }
             return $;
         }
     }

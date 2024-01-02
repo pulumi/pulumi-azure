@@ -5,6 +5,7 @@ package com.pulumi.azure.maintenance;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AssignmentVirtualMachineArgs extends com.pulumi.resources.Res
         }
 
         public AssignmentVirtualMachineArgs build() {
-            $.maintenanceConfigurationId = Objects.requireNonNull($.maintenanceConfigurationId, "expected parameter 'maintenanceConfigurationId' to be non-null");
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.maintenanceConfigurationId == null) {
+                throw new MissingRequiredPropertyException("AssignmentVirtualMachineArgs", "maintenanceConfigurationId");
+            }
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("AssignmentVirtualMachineArgs", "virtualMachineId");
+            }
             return $;
         }
     }

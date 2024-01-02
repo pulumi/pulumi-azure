@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesLogFileSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -246,10 +247,18 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         public DataCollectionRuleDataSourcesLogFileArgs build() {
-            $.filePatterns = Objects.requireNonNull($.filePatterns, "expected parameter 'filePatterns' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.streams = Objects.requireNonNull($.streams, "expected parameter 'streams' to be non-null");
+            if ($.filePatterns == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileArgs", "filePatterns");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileArgs", "format");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileArgs", "name");
+            }
+            if ($.streams == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileArgs", "streams");
+            }
             return $;
         }
     }

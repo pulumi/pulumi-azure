@@ -10,6 +10,7 @@ import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurati
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -630,7 +631,9 @@ public final class VirtualNetworkGatewayVpnClientConfigurationArgs extends com.p
         }
 
         public VirtualNetworkGatewayVpnClientConfigurationArgs build() {
-            $.addressSpaces = Objects.requireNonNull($.addressSpaces, "expected parameter 'addressSpaces' to be non-null");
+            if ($.addressSpaces == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationArgs", "addressSpaces");
+            }
             return $;
         }
     }

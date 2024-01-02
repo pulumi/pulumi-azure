@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class VpnGatewayConnectionTrafficSelectorPolicy {
 
         @CustomType.Setter
         public Builder localAddressRanges(List<String> localAddressRanges) {
-            this.localAddressRanges = Objects.requireNonNull(localAddressRanges);
+            if (localAddressRanges == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionTrafficSelectorPolicy", "localAddressRanges");
+            }
+            this.localAddressRanges = localAddressRanges;
             return this;
         }
         public Builder localAddressRanges(String... localAddressRanges) {
@@ -65,7 +69,10 @@ public final class VpnGatewayConnectionTrafficSelectorPolicy {
         }
         @CustomType.Setter
         public Builder remoteAddressRanges(List<String> remoteAddressRanges) {
-            this.remoteAddressRanges = Objects.requireNonNull(remoteAddressRanges);
+            if (remoteAddressRanges == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionTrafficSelectorPolicy", "remoteAddressRanges");
+            }
+            this.remoteAddressRanges = remoteAddressRanges;
             return this;
         }
         public Builder remoteAddressRanges(String... remoteAddressRanges) {

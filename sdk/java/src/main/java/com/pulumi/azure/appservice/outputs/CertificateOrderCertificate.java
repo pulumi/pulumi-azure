@@ -86,21 +86,25 @@ public final class CertificateOrderCertificate {
 
         @CustomType.Setter
         public Builder certificateName(@Nullable String certificateName) {
+
             this.certificateName = certificateName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(@Nullable String keyVaultId) {
+
             this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultSecretName(@Nullable String keyVaultSecretName) {
+
             this.keyVaultSecretName = keyVaultSecretName;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningState(@Nullable String provisioningState) {
+
             this.provisioningState = provisioningState;
             return this;
         }

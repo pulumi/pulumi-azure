@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,10 +236,18 @@ public final class DataSourceWindowsEventArgs extends com.pulumi.resources.Resou
         }
 
         public DataSourceWindowsEventArgs build() {
-            $.eventLogName = Objects.requireNonNull($.eventLogName, "expected parameter 'eventLogName' to be non-null");
-            $.eventTypes = Objects.requireNonNull($.eventTypes, "expected parameter 'eventTypes' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.workspaceName = Objects.requireNonNull($.workspaceName, "expected parameter 'workspaceName' to be non-null");
+            if ($.eventLogName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsEventArgs", "eventLogName");
+            }
+            if ($.eventTypes == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsEventArgs", "eventTypes");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsEventArgs", "resourceGroupName");
+            }
+            if ($.workspaceName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsEventArgs", "workspaceName");
+            }
             return $;
         }
     }

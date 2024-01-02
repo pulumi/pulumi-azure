@@ -25,6 +25,7 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetTerminationN
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -2426,13 +2427,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         public WindowsVirtualMachineScaleSetArgs build() {
-            $.adminPassword = Objects.requireNonNull($.adminPassword, "expected parameter 'adminPassword' to be non-null");
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.instances = Objects.requireNonNull($.instances, "expected parameter 'instances' to be non-null");
-            $.networkInterfaces = Objects.requireNonNull($.networkInterfaces, "expected parameter 'networkInterfaces' to be non-null");
-            $.osDisk = Objects.requireNonNull($.osDisk, "expected parameter 'osDisk' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.adminPassword == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "adminPassword");
+            }
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "adminUsername");
+            }
+            if ($.instances == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "instances");
+            }
+            if ($.networkInterfaces == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "networkInterfaces");
+            }
+            if ($.osDisk == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "osDisk");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetArgs", "sku");
+            }
             return $;
         }
     }

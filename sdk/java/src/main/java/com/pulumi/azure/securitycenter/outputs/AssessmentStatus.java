@@ -4,6 +4,7 @@
 package com.pulumi.azure.securitycenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class AssessmentStatus {
 
         @CustomType.Setter
         public Builder cause(@Nullable String cause) {
+
             this.cause = cause;
             return this;
         }
         @CustomType.Setter
         public Builder code(String code) {
-            this.code = Objects.requireNonNull(code);
+            if (code == null) {
+              throw new MissingRequiredPropertyException("AssessmentStatus", "code");
+            }
+            this.code = code;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }

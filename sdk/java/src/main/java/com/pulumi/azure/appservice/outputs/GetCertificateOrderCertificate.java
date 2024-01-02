@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetCertificateOrderCertificate {
 
         @CustomType.Setter
         public Builder certificateName(String certificateName) {
-            this.certificateName = Objects.requireNonNull(certificateName);
+            if (certificateName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateOrderCertificate", "certificateName");
+            }
+            this.certificateName = certificateName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateOrderCertificate", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultSecretName(String keyVaultSecretName) {
-            this.keyVaultSecretName = Objects.requireNonNull(keyVaultSecretName);
+            if (keyVaultSecretName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateOrderCertificate", "keyVaultSecretName");
+            }
+            this.keyVaultSecretName = keyVaultSecretName;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningState(String provisioningState) {
-            this.provisioningState = Objects.requireNonNull(provisioningState);
+            if (provisioningState == null) {
+              throw new MissingRequiredPropertyException("GetCertificateOrderCertificate", "provisioningState");
+            }
+            this.provisioningState = provisioningState;
             return this;
         }
         public GetCertificateOrderCertificate build() {

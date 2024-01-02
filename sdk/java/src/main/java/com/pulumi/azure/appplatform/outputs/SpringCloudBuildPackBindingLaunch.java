@@ -58,11 +58,13 @@ public final class SpringCloudBuildPackBindingLaunch {
 
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(@Nullable Map<String,String> secrets) {
+
             this.secrets = secrets;
             return this;
         }

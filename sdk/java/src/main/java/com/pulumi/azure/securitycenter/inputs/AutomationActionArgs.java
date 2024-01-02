@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class AutomationActionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AutomationActionArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("AutomationActionArgs", "resourceId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AutomationActionArgs", "type");
+            }
             return $;
         }
     }

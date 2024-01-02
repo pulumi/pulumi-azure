@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -251,8 +252,12 @@ public final class LinuxWebAppSlotBackupScheduleArgs extends com.pulumi.resource
         }
 
         public LinuxWebAppSlotBackupScheduleArgs build() {
-            $.frequencyInterval = Objects.requireNonNull($.frequencyInterval, "expected parameter 'frequencyInterval' to be non-null");
-            $.frequencyUnit = Objects.requireNonNull($.frequencyUnit, "expected parameter 'frequencyUnit' to be non-null");
+            if ($.frequencyInterval == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotBackupScheduleArgs", "frequencyInterval");
+            }
+            if ($.frequencyUnit == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotBackupScheduleArgs", "frequencyUnit");
+            }
             return $;
         }
     }

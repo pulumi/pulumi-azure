@@ -10,6 +10,7 @@ import com.pulumi.azure.network.inputs.VpnServerConfigurationIpsecPolicyArgs;
 import com.pulumi.azure.network.inputs.VpnServerConfigurationRadiusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -503,8 +504,12 @@ public final class VpnServerConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         public VpnServerConfigurationArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.vpnAuthenticationTypes = Objects.requireNonNull($.vpnAuthenticationTypes, "expected parameter 'vpnAuthenticationTypes' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationArgs", "resourceGroupName");
+            }
+            if ($.vpnAuthenticationTypes == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationArgs", "vpnAuthenticationTypes");
+            }
             return $;
         }
     }

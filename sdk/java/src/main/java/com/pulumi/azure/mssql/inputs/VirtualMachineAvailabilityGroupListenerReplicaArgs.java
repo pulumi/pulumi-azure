@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class VirtualMachineAvailabilityGroupListenerReplicaArgs extends co
         }
 
         public VirtualMachineAvailabilityGroupListenerReplicaArgs build() {
-            $.commit = Objects.requireNonNull($.commit, "expected parameter 'commit' to be non-null");
-            $.failoverMode = Objects.requireNonNull($.failoverMode, "expected parameter 'failoverMode' to be non-null");
-            $.readableSecondary = Objects.requireNonNull($.readableSecondary, "expected parameter 'readableSecondary' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.sqlVirtualMachineId = Objects.requireNonNull($.sqlVirtualMachineId, "expected parameter 'sqlVirtualMachineId' to be non-null");
+            if ($.commit == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplicaArgs", "commit");
+            }
+            if ($.failoverMode == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplicaArgs", "failoverMode");
+            }
+            if ($.readableSecondary == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplicaArgs", "readableSecondary");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplicaArgs", "role");
+            }
+            if ($.sqlVirtualMachineId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplicaArgs", "sqlVirtualMachineId");
+            }
             return $;
         }
     }

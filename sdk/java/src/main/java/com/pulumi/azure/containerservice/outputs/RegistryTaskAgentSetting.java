@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class RegistryTaskAgentSetting {
 
         @CustomType.Setter
         public Builder cpu(Integer cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskAgentSetting", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         public RegistryTaskAgentSetting build() {

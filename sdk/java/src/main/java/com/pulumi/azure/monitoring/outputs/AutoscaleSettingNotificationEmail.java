@@ -74,6 +74,7 @@ public final class AutoscaleSettingNotificationEmail {
 
         @CustomType.Setter
         public Builder customEmails(@Nullable List<String> customEmails) {
+
             this.customEmails = customEmails;
             return this;
         }
@@ -82,11 +83,13 @@ public final class AutoscaleSettingNotificationEmail {
         }
         @CustomType.Setter
         public Builder sendToSubscriptionAdministrator(@Nullable Boolean sendToSubscriptionAdministrator) {
+
             this.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
             return this;
         }
         @CustomType.Setter
         public Builder sendToSubscriptionCoAdministrator(@Nullable Boolean sendToSubscriptionCoAdministrator) {
+
             this.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
             return this;
         }

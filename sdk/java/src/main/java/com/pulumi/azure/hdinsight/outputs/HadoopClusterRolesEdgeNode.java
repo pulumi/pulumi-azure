@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeHttpsEndpoin
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeInstallScriptAction;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -104,6 +105,7 @@ public final class HadoopClusterRolesEdgeNode {
 
         @CustomType.Setter
         public Builder httpsEndpoints(@Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints) {
+
             this.httpsEndpoints = httpsEndpoints;
             return this;
         }
@@ -112,7 +114,10 @@ public final class HadoopClusterRolesEdgeNode {
         }
         @CustomType.Setter
         public Builder installScriptActions(List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions) {
-            this.installScriptActions = Objects.requireNonNull(installScriptActions);
+            if (installScriptActions == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNode", "installScriptActions");
+            }
+            this.installScriptActions = installScriptActions;
             return this;
         }
         public Builder installScriptActions(HadoopClusterRolesEdgeNodeInstallScriptAction... installScriptActions) {
@@ -120,11 +125,15 @@ public final class HadoopClusterRolesEdgeNode {
         }
         @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
-            this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
+            if (targetInstanceCount == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNode", "targetInstanceCount");
+            }
+            this.targetInstanceCount = targetInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder uninstallScriptActions(@Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions) {
+
             this.uninstallScriptActions = uninstallScriptActions;
             return this;
         }
@@ -133,7 +142,10 @@ public final class HadoopClusterRolesEdgeNode {
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNode", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         public HadoopClusterRolesEdgeNode build() {

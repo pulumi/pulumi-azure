@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -226,8 +227,12 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.streamingCapacity = Objects.requireNonNull($.streamingCapacity, "expected parameter 'streamingCapacity' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "resourceGroupName");
+            }
+            if ($.streamingCapacity == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "streamingCapacity");
+            }
             return $;
         }
     }

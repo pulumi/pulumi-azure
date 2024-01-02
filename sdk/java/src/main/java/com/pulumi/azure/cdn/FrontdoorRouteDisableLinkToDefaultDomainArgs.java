@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -158,8 +159,12 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainArgs extends com.pulu
         }
 
         public FrontdoorRouteDisableLinkToDefaultDomainArgs build() {
-            $.cdnFrontdoorCustomDomainIds = Objects.requireNonNull($.cdnFrontdoorCustomDomainIds, "expected parameter 'cdnFrontdoorCustomDomainIds' to be non-null");
-            $.cdnFrontdoorRouteId = Objects.requireNonNull($.cdnFrontdoorRouteId, "expected parameter 'cdnFrontdoorRouteId' to be non-null");
+            if ($.cdnFrontdoorCustomDomainIds == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteDisableLinkToDefaultDomainArgs", "cdnFrontdoorCustomDomainIds");
+            }
+            if ($.cdnFrontdoorRouteId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteDisableLinkToDefaultDomainArgs", "cdnFrontdoorRouteId");
+            }
             return $;
         }
     }

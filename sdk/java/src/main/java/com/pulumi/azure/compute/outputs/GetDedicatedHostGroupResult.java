@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -128,42 +129,66 @@ public final class GetDedicatedHostGroupResult {
 
         @CustomType.Setter
         public Builder automaticPlacementEnabled(Boolean automaticPlacementEnabled) {
-            this.automaticPlacementEnabled = Objects.requireNonNull(automaticPlacementEnabled);
+            if (automaticPlacementEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "automaticPlacementEnabled");
+            }
+            this.automaticPlacementEnabled = automaticPlacementEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder platformFaultDomainCount(Integer platformFaultDomainCount) {
-            this.platformFaultDomainCount = Objects.requireNonNull(platformFaultDomainCount);
+            if (platformFaultDomainCount == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "platformFaultDomainCount");
+            }
+            this.platformFaultDomainCount = platformFaultDomainCount;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostGroupResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

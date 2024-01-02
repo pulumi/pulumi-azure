@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -211,72 +212,114 @@ public final class GetDatabaseResult {
 
         @CustomType.Setter
         public Builder collation(String collation) {
-            this.collation = Objects.requireNonNull(collation);
+            if (collation == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "collation");
+            }
+            this.collation = collation;
             return this;
         }
         @CustomType.Setter
         public Builder elasticPoolId(String elasticPoolId) {
-            this.elasticPoolId = Objects.requireNonNull(elasticPoolId);
+            if (elasticPoolId == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "elasticPoolId");
+            }
+            this.elasticPoolId = elasticPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder enclaveType(String enclaveType) {
-            this.enclaveType = Objects.requireNonNull(enclaveType);
+            if (enclaveType == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "enclaveType");
+            }
+            this.enclaveType = enclaveType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder licenseType(String licenseType) {
-            this.licenseType = Objects.requireNonNull(licenseType);
+            if (licenseType == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "licenseType");
+            }
+            this.licenseType = licenseType;
             return this;
         }
         @CustomType.Setter
         public Builder maxSizeGb(Integer maxSizeGb) {
-            this.maxSizeGb = Objects.requireNonNull(maxSizeGb);
+            if (maxSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "maxSizeGb");
+            }
+            this.maxSizeGb = maxSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder readReplicaCount(Integer readReplicaCount) {
-            this.readReplicaCount = Objects.requireNonNull(readReplicaCount);
+            if (readReplicaCount == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "readReplicaCount");
+            }
+            this.readReplicaCount = readReplicaCount;
             return this;
         }
         @CustomType.Setter
         public Builder readScale(Boolean readScale) {
-            this.readScale = Objects.requireNonNull(readScale);
+            if (readScale == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "readScale");
+            }
+            this.readScale = readScale;
             return this;
         }
         @CustomType.Setter
         public Builder serverId(String serverId) {
-            this.serverId = Objects.requireNonNull(serverId);
+            if (serverId == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "serverId");
+            }
+            this.serverId = serverId;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetDatabaseResult build() {

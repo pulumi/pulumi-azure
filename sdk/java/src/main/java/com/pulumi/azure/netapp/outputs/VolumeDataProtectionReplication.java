@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -78,22 +79,32 @@ public final class VolumeDataProtectionReplication {
 
         @CustomType.Setter
         public Builder endpointType(@Nullable String endpointType) {
+
             this.endpointType = endpointType;
             return this;
         }
         @CustomType.Setter
         public Builder remoteVolumeLocation(String remoteVolumeLocation) {
-            this.remoteVolumeLocation = Objects.requireNonNull(remoteVolumeLocation);
+            if (remoteVolumeLocation == null) {
+              throw new MissingRequiredPropertyException("VolumeDataProtectionReplication", "remoteVolumeLocation");
+            }
+            this.remoteVolumeLocation = remoteVolumeLocation;
             return this;
         }
         @CustomType.Setter
         public Builder remoteVolumeResourceId(String remoteVolumeResourceId) {
-            this.remoteVolumeResourceId = Objects.requireNonNull(remoteVolumeResourceId);
+            if (remoteVolumeResourceId == null) {
+              throw new MissingRequiredPropertyException("VolumeDataProtectionReplication", "remoteVolumeResourceId");
+            }
+            this.remoteVolumeResourceId = remoteVolumeResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder replicationFrequency(String replicationFrequency) {
-            this.replicationFrequency = Objects.requireNonNull(replicationFrequency);
+            if (replicationFrequency == null) {
+              throw new MissingRequiredPropertyException("VolumeDataProtectionReplication", "replicationFrequency");
+            }
+            this.replicationFrequency = replicationFrequency;
             return this;
         }
         public VolumeDataProtectionReplication build() {

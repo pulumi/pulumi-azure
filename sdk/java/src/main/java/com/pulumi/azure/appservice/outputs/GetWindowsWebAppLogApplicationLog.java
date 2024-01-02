@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppLogApplicationLogAzureBlobStorage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetWindowsWebAppLogApplicationLog {
 
         @CustomType.Setter
         public Builder azureBlobStorages(List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages) {
-            this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
+            if (azureBlobStorages == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppLogApplicationLog", "azureBlobStorages");
+            }
+            this.azureBlobStorages = azureBlobStorages;
             return this;
         }
         public Builder azureBlobStorages(GetWindowsWebAppLogApplicationLogAzureBlobStorage... azureBlobStorages) {
@@ -66,7 +70,10 @@ public final class GetWindowsWebAppLogApplicationLog {
         }
         @CustomType.Setter
         public Builder fileSystemLevel(String fileSystemLevel) {
-            this.fileSystemLevel = Objects.requireNonNull(fileSystemLevel);
+            if (fileSystemLevel == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppLogApplicationLog", "fileSystemLevel");
+            }
+            this.fileSystemLevel = fileSystemLevel;
             return this;
         }
         public GetWindowsWebAppLogApplicationLog build() {

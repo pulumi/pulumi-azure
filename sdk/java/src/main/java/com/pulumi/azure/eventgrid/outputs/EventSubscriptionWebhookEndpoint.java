@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -115,32 +116,40 @@ public final class EventSubscriptionWebhookEndpoint {
 
         @CustomType.Setter
         public Builder activeDirectoryAppIdOrUri(@Nullable String activeDirectoryAppIdOrUri) {
+
             this.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
             return this;
         }
         @CustomType.Setter
         public Builder activeDirectoryTenantId(@Nullable String activeDirectoryTenantId) {
+
             this.activeDirectoryTenantId = activeDirectoryTenantId;
             return this;
         }
         @CustomType.Setter
         public Builder baseUrl(@Nullable String baseUrl) {
+
             this.baseUrl = baseUrl;
             return this;
         }
         @CustomType.Setter
         public Builder maxEventsPerBatch(@Nullable Integer maxEventsPerBatch) {
+
             this.maxEventsPerBatch = maxEventsPerBatch;
             return this;
         }
         @CustomType.Setter
         public Builder preferredBatchSizeInKilobytes(@Nullable Integer preferredBatchSizeInKilobytes) {
+
             this.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionWebhookEndpoint", "url");
+            }
+            this.url = url;
             return this;
         }
         public EventSubscriptionWebhookEndpoint build() {

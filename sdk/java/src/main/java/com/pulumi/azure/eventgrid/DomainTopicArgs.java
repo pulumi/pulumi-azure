@@ -5,6 +5,7 @@ package com.pulumi.azure.eventgrid;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DomainTopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainTopicArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DomainTopicArgs", "domainName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DomainTopicArgs", "resourceGroupName");
+            }
             return $;
         }
     }

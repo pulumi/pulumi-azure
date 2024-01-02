@@ -4,6 +4,7 @@
 package com.pulumi.azure.kusto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ClusterOptimizedAutoScale {
 
         @CustomType.Setter
         public Builder maximumInstances(Integer maximumInstances) {
-            this.maximumInstances = Objects.requireNonNull(maximumInstances);
+            if (maximumInstances == null) {
+              throw new MissingRequiredPropertyException("ClusterOptimizedAutoScale", "maximumInstances");
+            }
+            this.maximumInstances = maximumInstances;
             return this;
         }
         @CustomType.Setter
         public Builder minimumInstances(Integer minimumInstances) {
-            this.minimumInstances = Objects.requireNonNull(minimumInstances);
+            if (minimumInstances == null) {
+              throw new MissingRequiredPropertyException("ClusterOptimizedAutoScale", "minimumInstances");
+            }
+            this.minimumInstances = minimumInstances;
             return this;
         }
         public ClusterOptimizedAutoScale build() {

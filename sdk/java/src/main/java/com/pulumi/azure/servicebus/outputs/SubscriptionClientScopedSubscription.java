@@ -77,16 +77,19 @@ public final class SubscriptionClientScopedSubscription {
 
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder isClientScopedSubscriptionDurable(@Nullable Boolean isClientScopedSubscriptionDurable) {
+
             this.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
             return this;
         }
         @CustomType.Setter
         public Builder isClientScopedSubscriptionShareable(@Nullable Boolean isClientScopedSubscriptionShareable) {
+
             this.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
             return this;
         }

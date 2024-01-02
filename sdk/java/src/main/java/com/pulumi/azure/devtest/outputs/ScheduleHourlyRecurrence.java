@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ScheduleHourlyRecurrence {
 
         @CustomType.Setter
         public Builder minute(Integer minute) {
-            this.minute = Objects.requireNonNull(minute);
+            if (minute == null) {
+              throw new MissingRequiredPropertyException("ScheduleHourlyRecurrence", "minute");
+            }
+            this.minute = minute;
             return this;
         }
         public ScheduleHourlyRecurrence build() {

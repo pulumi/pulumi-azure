@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetUserPlainArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.userId = Objects.requireNonNull($.userId, "expected parameter 'userId' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("GetUserPlainArgs", "apiManagementName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetUserPlainArgs", "resourceGroupName");
+            }
+            if ($.userId == null) {
+                throw new MissingRequiredPropertyException("GetUserPlainArgs", "userId");
+            }
             return $;
         }
     }

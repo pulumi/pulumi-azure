@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendHttpSettingConnectionDraining;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -245,11 +246,13 @@ public final class ApplicationGatewayBackendHttpSetting {
 
         @CustomType.Setter
         public Builder affinityCookieName(@Nullable String affinityCookieName) {
+
             this.affinityCookieName = affinityCookieName;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationCertificates(@Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates) {
+
             this.authenticationCertificates = authenticationCertificates;
             return this;
         }
@@ -258,66 +261,87 @@ public final class ApplicationGatewayBackendHttpSetting {
         }
         @CustomType.Setter
         public Builder connectionDraining(@Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining) {
+
             this.connectionDraining = connectionDraining;
             return this;
         }
         @CustomType.Setter
         public Builder cookieBasedAffinity(String cookieBasedAffinity) {
-            this.cookieBasedAffinity = Objects.requireNonNull(cookieBasedAffinity);
+            if (cookieBasedAffinity == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSetting", "cookieBasedAffinity");
+            }
+            this.cookieBasedAffinity = cookieBasedAffinity;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSetting", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pickHostNameFromBackendAddress(@Nullable Boolean pickHostNameFromBackendAddress) {
+
             this.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSetting", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder probeId(@Nullable String probeId) {
+
             this.probeId = probeId;
             return this;
         }
         @CustomType.Setter
         public Builder probeName(@Nullable String probeName) {
+
             this.probeName = probeName;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayBackendHttpSetting", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder requestTimeout(@Nullable Integer requestTimeout) {
+
             this.requestTimeout = requestTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder trustedRootCertificateNames(@Nullable List<String> trustedRootCertificateNames) {
+
             this.trustedRootCertificateNames = trustedRootCertificateNames;
             return this;
         }

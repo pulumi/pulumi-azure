@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetHostPoolRegistrationInfoArgs extends com.pulumi.resources.
         }
 
         public GetHostPoolRegistrationInfoArgs build() {
-            $.expirationDate = Objects.requireNonNull($.expirationDate, "expected parameter 'expirationDate' to be non-null");
-            $.hostpoolId = Objects.requireNonNull($.hostpoolId, "expected parameter 'hostpoolId' to be non-null");
+            if ($.expirationDate == null) {
+                throw new MissingRequiredPropertyException("GetHostPoolRegistrationInfoArgs", "expirationDate");
+            }
+            if ($.hostpoolId == null) {
+                throw new MissingRequiredPropertyException("GetHostPoolRegistrationInfoArgs", "hostpoolId");
+            }
             return $;
         }
     }

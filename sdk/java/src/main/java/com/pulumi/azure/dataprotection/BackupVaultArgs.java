@@ -6,6 +6,7 @@ package com.pulumi.azure.dataprotection;
 import com.pulumi.azure.dataprotection.inputs.BackupVaultIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -308,9 +309,15 @@ public final class BackupVaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BackupVaultArgs build() {
-            $.datastoreType = Objects.requireNonNull($.datastoreType, "expected parameter 'datastoreType' to be non-null");
-            $.redundancy = Objects.requireNonNull($.redundancy, "expected parameter 'redundancy' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.datastoreType == null) {
+                throw new MissingRequiredPropertyException("BackupVaultArgs", "datastoreType");
+            }
+            if ($.redundancy == null) {
+                throw new MissingRequiredPropertyException("BackupVaultArgs", "redundancy");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("BackupVaultArgs", "resourceGroupName");
+            }
             return $;
         }
     }

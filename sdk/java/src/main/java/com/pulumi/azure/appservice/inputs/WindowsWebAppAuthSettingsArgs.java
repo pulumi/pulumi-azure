@@ -11,6 +11,7 @@ import com.pulumi.azure.appservice.inputs.WindowsWebAppAuthSettingsMicrosoftArgs
 import com.pulumi.azure.appservice.inputs.WindowsWebAppAuthSettingsTwitterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -630,7 +631,9 @@ public final class WindowsWebAppAuthSettingsArgs extends com.pulumi.resources.Re
         }
 
         public WindowsWebAppAuthSettingsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppAuthSettingsArgs", "enabled");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetApplicationGatewayGlobal {
 
         @CustomType.Setter
         public Builder requestBufferingEnabled(Boolean requestBufferingEnabled) {
-            this.requestBufferingEnabled = Objects.requireNonNull(requestBufferingEnabled);
+            if (requestBufferingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayGlobal", "requestBufferingEnabled");
+            }
+            this.requestBufferingEnabled = requestBufferingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder responseBufferingEnabled(Boolean responseBufferingEnabled) {
-            this.responseBufferingEnabled = Objects.requireNonNull(responseBufferingEnabled);
+            if (responseBufferingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayGlobal", "responseBufferingEnabled");
+            }
+            this.responseBufferingEnabled = responseBufferingEnabled;
             return this;
         }
         public GetApplicationGatewayGlobal build() {

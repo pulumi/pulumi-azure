@@ -4,6 +4,7 @@
 package com.pulumi.azure.dns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -212,72 +213,112 @@ public final class GetSoaRecordResult {
 
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder expireTime(Integer expireTime) {
-            this.expireTime = Objects.requireNonNull(expireTime);
+            if (expireTime == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "expireTime");
+            }
+            this.expireTime = expireTime;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTtl(Integer minimumTtl) {
-            this.minimumTtl = Objects.requireNonNull(minimumTtl);
+            if (minimumTtl == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "minimumTtl");
+            }
+            this.minimumTtl = minimumTtl;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder refreshTime(Integer refreshTime) {
-            this.refreshTime = Objects.requireNonNull(refreshTime);
+            if (refreshTime == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "refreshTime");
+            }
+            this.refreshTime = refreshTime;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder retryTime(Integer retryTime) {
-            this.retryTime = Objects.requireNonNull(retryTime);
+            if (retryTime == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "retryTime");
+            }
+            this.retryTime = retryTime;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(Integer serialNumber) {
-            this.serialNumber = Objects.requireNonNull(serialNumber);
+            if (serialNumber == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "serialNumber");
+            }
+            this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder zoneName(String zoneName) {
-            this.zoneName = Objects.requireNonNull(zoneName);
+            if (zoneName == null) {
+              throw new MissingRequiredPropertyException("GetSoaRecordResult", "zoneName");
+            }
+            this.zoneName = zoneName;
             return this;
         }
         public GetSoaRecordResult build() {

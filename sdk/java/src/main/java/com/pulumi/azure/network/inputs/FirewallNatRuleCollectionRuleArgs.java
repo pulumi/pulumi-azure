@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -433,12 +434,24 @@ public final class FirewallNatRuleCollectionRuleArgs extends com.pulumi.resource
         }
 
         public FirewallNatRuleCollectionRuleArgs build() {
-            $.destinationAddresses = Objects.requireNonNull($.destinationAddresses, "expected parameter 'destinationAddresses' to be non-null");
-            $.destinationPorts = Objects.requireNonNull($.destinationPorts, "expected parameter 'destinationPorts' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocols = Objects.requireNonNull($.protocols, "expected parameter 'protocols' to be non-null");
-            $.translatedAddress = Objects.requireNonNull($.translatedAddress, "expected parameter 'translatedAddress' to be non-null");
-            $.translatedPort = Objects.requireNonNull($.translatedPort, "expected parameter 'translatedPort' to be non-null");
+            if ($.destinationAddresses == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "destinationAddresses");
+            }
+            if ($.destinationPorts == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "destinationPorts");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "name");
+            }
+            if ($.protocols == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "protocols");
+            }
+            if ($.translatedAddress == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "translatedAddress");
+            }
+            if ($.translatedPort == null) {
+                throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRuleArgs", "translatedPort");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.healthcare;
 import com.pulumi.azure.healthcare.inputs.MedtechServiceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -374,11 +375,21 @@ public final class MedtechServiceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public MedtechServiceArgs build() {
-            $.deviceMappingJson = Objects.requireNonNull($.deviceMappingJson, "expected parameter 'deviceMappingJson' to be non-null");
-            $.eventhubConsumerGroupName = Objects.requireNonNull($.eventhubConsumerGroupName, "expected parameter 'eventhubConsumerGroupName' to be non-null");
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.eventhubNamespaceName = Objects.requireNonNull($.eventhubNamespaceName, "expected parameter 'eventhubNamespaceName' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.deviceMappingJson == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceArgs", "deviceMappingJson");
+            }
+            if ($.eventhubConsumerGroupName == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceArgs", "eventhubConsumerGroupName");
+            }
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceArgs", "eventhubName");
+            }
+            if ($.eventhubNamespaceName == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceArgs", "eventhubNamespaceName");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceArgs", "workspaceId");
+            }
             return $;
         }
     }

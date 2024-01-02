@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory 
 
         @CustomType.Setter
         public Builder physicalPath(String physicalPath) {
-            this.physicalPath = Objects.requireNonNull(physicalPath);
+            if (physicalPath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory", "physicalPath");
+            }
+            this.physicalPath = physicalPath;
             return this;
         }
         @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
-            this.virtualPath = Objects.requireNonNull(virtualPath);
+            if (virtualPath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory", "virtualPath");
+            }
+            this.virtualPath = virtualPath;
             return this;
         }
         public GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory build() {

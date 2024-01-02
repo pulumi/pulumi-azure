@@ -5,6 +5,7 @@ package com.pulumi.azure.cognitive.outputs;
 
 import com.pulumi.azure.cognitive.outputs.AccountNetworkAclsVirtualNetworkRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,11 +74,15 @@ public final class AccountNetworkAcls {
 
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("AccountNetworkAcls", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }
@@ -86,6 +91,7 @@ public final class AccountNetworkAcls {
         }
         @CustomType.Setter
         public Builder virtualNetworkRules(@Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules) {
+
             this.virtualNetworkRules = virtualNetworkRules;
             return this;
         }

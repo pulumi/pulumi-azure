@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,7 +227,9 @@ public final class StorageDefenderArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public StorageDefenderArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("StorageDefenderArgs", "storageAccountId");
+            }
             return $;
         }
     }

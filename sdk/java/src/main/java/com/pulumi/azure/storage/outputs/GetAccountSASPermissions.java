@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -174,52 +175,82 @@ public final class GetAccountSASPermissions {
 
         @CustomType.Setter
         public Builder add(Boolean add) {
-            this.add = Objects.requireNonNull(add);
+            if (add == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "add");
+            }
+            this.add = add;
             return this;
         }
         @CustomType.Setter
         public Builder create(Boolean create) {
-            this.create = Objects.requireNonNull(create);
+            if (create == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "create");
+            }
+            this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(Boolean delete) {
-            this.delete = Objects.requireNonNull(delete);
+            if (delete == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "delete");
+            }
+            this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder filter(Boolean filter) {
-            this.filter = Objects.requireNonNull(filter);
+            if (filter == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "filter");
+            }
+            this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder list(Boolean list) {
-            this.list = Objects.requireNonNull(list);
+            if (list == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "list");
+            }
+            this.list = list;
             return this;
         }
         @CustomType.Setter
         public Builder process(Boolean process) {
-            this.process = Objects.requireNonNull(process);
+            if (process == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "process");
+            }
+            this.process = process;
             return this;
         }
         @CustomType.Setter
         public Builder read(Boolean read) {
-            this.read = Objects.requireNonNull(read);
+            if (read == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "read");
+            }
+            this.read = read;
             return this;
         }
         @CustomType.Setter
         public Builder tag(Boolean tag) {
-            this.tag = Objects.requireNonNull(tag);
+            if (tag == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "tag");
+            }
+            this.tag = tag;
             return this;
         }
         @CustomType.Setter
         public Builder update(Boolean update) {
-            this.update = Objects.requireNonNull(update);
+            if (update == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "update");
+            }
+            this.update = update;
             return this;
         }
         @CustomType.Setter
         public Builder write(Boolean write) {
-            this.write = Objects.requireNonNull(write);
+            if (write == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASPermissions", "write");
+            }
+            this.write = write;
             return this;
         }
         public GetAccountSASPermissions build() {

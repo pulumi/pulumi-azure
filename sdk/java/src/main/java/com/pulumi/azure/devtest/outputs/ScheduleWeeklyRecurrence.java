@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,11 +59,15 @@ public final class ScheduleWeeklyRecurrence {
 
         @CustomType.Setter
         public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("ScheduleWeeklyRecurrence", "time");
+            }
+            this.time = time;
             return this;
         }
         @CustomType.Setter
         public Builder weekDays(@Nullable List<String> weekDays) {
+
             this.weekDays = weekDays;
             return this;
         }

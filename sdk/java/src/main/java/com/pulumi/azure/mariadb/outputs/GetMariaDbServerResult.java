@@ -5,6 +5,7 @@ package com.pulumi.azure.mariadb.outputs;
 
 import com.pulumi.azure.mariadb.outputs.GetMariaDbServerStorageProfile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -169,47 +170,74 @@ public final class GetMariaDbServerResult {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder sslEnforcement(String sslEnforcement) {
-            this.sslEnforcement = Objects.requireNonNull(sslEnforcement);
+            if (sslEnforcement == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "sslEnforcement");
+            }
+            this.sslEnforcement = sslEnforcement;
             return this;
         }
         @CustomType.Setter
         public Builder storageProfiles(List<GetMariaDbServerStorageProfile> storageProfiles) {
-            this.storageProfiles = Objects.requireNonNull(storageProfiles);
+            if (storageProfiles == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "storageProfiles");
+            }
+            this.storageProfiles = storageProfiles;
             return this;
         }
         public Builder storageProfiles(GetMariaDbServerStorageProfile... storageProfiles) {
@@ -217,12 +245,18 @@ public final class GetMariaDbServerResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetMariaDbServerResult build() {

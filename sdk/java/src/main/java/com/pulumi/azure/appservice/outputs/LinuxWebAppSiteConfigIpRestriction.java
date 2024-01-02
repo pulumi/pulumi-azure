@@ -134,36 +134,43 @@ public final class LinuxWebAppSiteConfigIpRestriction {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable LinuxWebAppSiteConfigIpRestrictionHeaders headers) {
+
             this.headers = headers;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder serviceTag(@Nullable String serviceTag) {
+
             this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
+
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }

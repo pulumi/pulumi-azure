@@ -4,6 +4,7 @@
 package com.pulumi.azure.streamanalytics.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -98,22 +99,28 @@ public final class OutputServiceBusQueueSerialization {
 
         @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
+
             this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder fieldDelimiter(@Nullable String fieldDelimiter) {
+
             this.fieldDelimiter = fieldDelimiter;
             return this;
         }
         @CustomType.Setter
         public Builder format(@Nullable String format) {
+
             this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OutputServiceBusQueueSerialization", "type");
+            }
+            this.type = type;
             return this;
         }
         public OutputServiceBusQueueSerialization build() {

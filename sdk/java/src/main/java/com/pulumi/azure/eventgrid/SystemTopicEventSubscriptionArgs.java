@@ -15,6 +15,7 @@ import com.pulumi.azure.eventgrid.inputs.SystemTopicEventSubscriptionSubjectFilt
 import com.pulumi.azure.eventgrid.inputs.SystemTopicEventSubscriptionWebhookEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -911,8 +912,12 @@ public final class SystemTopicEventSubscriptionArgs extends com.pulumi.resources
         }
 
         public SystemTopicEventSubscriptionArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.systemTopic = Objects.requireNonNull($.systemTopic, "expected parameter 'systemTopic' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionArgs", "resourceGroupName");
+            }
+            if ($.systemTopic == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionArgs", "systemTopic");
+            }
             return $;
         }
     }

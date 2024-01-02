@@ -4,6 +4,7 @@
 package com.pulumi.azure.blueprint.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetPublishedVersionPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetPublishedVersionPlainArgs build() {
-            $.blueprintName = Objects.requireNonNull($.blueprintName, "expected parameter 'blueprintName' to be non-null");
-            $.scopeId = Objects.requireNonNull($.scopeId, "expected parameter 'scopeId' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.blueprintName == null) {
+                throw new MissingRequiredPropertyException("GetPublishedVersionPlainArgs", "blueprintName");
+            }
+            if ($.scopeId == null) {
+                throw new MissingRequiredPropertyException("GetPublishedVersionPlainArgs", "scopeId");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("GetPublishedVersionPlainArgs", "version");
+            }
             return $;
         }
     }

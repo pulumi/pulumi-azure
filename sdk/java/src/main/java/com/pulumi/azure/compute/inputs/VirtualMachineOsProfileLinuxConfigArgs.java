@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.VirtualMachineOsProfileLinuxConfigSshKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class VirtualMachineOsProfileLinuxConfigArgs extends com.pulumi.res
         }
 
         public VirtualMachineOsProfileLinuxConfigArgs build() {
-            $.disablePasswordAuthentication = Objects.requireNonNull($.disablePasswordAuthentication, "expected parameter 'disablePasswordAuthentication' to be non-null");
+            if ($.disablePasswordAuthentication == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfigArgs", "disablePasswordAuthentication");
+            }
             return $;
         }
     }

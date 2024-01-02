@@ -8,6 +8,7 @@ import com.pulumi.azure.eventgrid.outputs.GetDomainInboundIpRule;
 import com.pulumi.azure.eventgrid.outputs.GetDomainInputMappingDefaultValue;
 import com.pulumi.azure.eventgrid.outputs.GetDomainInputMappingField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -215,17 +216,26 @@ public final class GetDomainResult {
 
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetDomainIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetDomainIdentity... identities) {
@@ -233,7 +243,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder inboundIpRules(List<GetDomainInboundIpRule> inboundIpRules) {
-            this.inboundIpRules = Objects.requireNonNull(inboundIpRules);
+            if (inboundIpRules == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "inboundIpRules");
+            }
+            this.inboundIpRules = inboundIpRules;
             return this;
         }
         public Builder inboundIpRules(GetDomainInboundIpRule... inboundIpRules) {
@@ -241,7 +254,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder inputMappingDefaultValues(List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues) {
-            this.inputMappingDefaultValues = Objects.requireNonNull(inputMappingDefaultValues);
+            if (inputMappingDefaultValues == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "inputMappingDefaultValues");
+            }
+            this.inputMappingDefaultValues = inputMappingDefaultValues;
             return this;
         }
         public Builder inputMappingDefaultValues(GetDomainInputMappingDefaultValue... inputMappingDefaultValues) {
@@ -249,7 +265,10 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder inputMappingFields(List<GetDomainInputMappingField> inputMappingFields) {
-            this.inputMappingFields = Objects.requireNonNull(inputMappingFields);
+            if (inputMappingFields == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "inputMappingFields");
+            }
+            this.inputMappingFields = inputMappingFields;
             return this;
         }
         public Builder inputMappingFields(GetDomainInputMappingField... inputMappingFields) {
@@ -257,42 +276,66 @@ public final class GetDomainResult {
         }
         @CustomType.Setter
         public Builder inputSchema(String inputSchema) {
-            this.inputSchema = Objects.requireNonNull(inputSchema);
+            if (inputSchema == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "inputSchema");
+            }
+            this.inputSchema = inputSchema;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDomainResult build() {

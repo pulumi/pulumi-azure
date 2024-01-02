@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class ScaleSetOsProfileArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ScaleSetOsProfileArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.computerNamePrefix = Objects.requireNonNull($.computerNamePrefix, "expected parameter 'computerNamePrefix' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("ScaleSetOsProfileArgs", "adminUsername");
+            }
+            if ($.computerNamePrefix == null) {
+                throw new MissingRequiredPropertyException("ScaleSetOsProfileArgs", "computerNamePrefix");
+            }
             return $;
         }
     }

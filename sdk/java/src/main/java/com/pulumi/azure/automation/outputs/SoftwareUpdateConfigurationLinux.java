@@ -93,11 +93,13 @@ public final class SoftwareUpdateConfigurationLinux {
 
         @CustomType.Setter
         public Builder classificationIncluded(@Nullable String classificationIncluded) {
+
             this.classificationIncluded = classificationIncluded;
             return this;
         }
         @CustomType.Setter
         public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
+
             this.classificationsIncludeds = classificationsIncludeds;
             return this;
         }
@@ -106,6 +108,7 @@ public final class SoftwareUpdateConfigurationLinux {
         }
         @CustomType.Setter
         public Builder excludedPackages(@Nullable List<String> excludedPackages) {
+
             this.excludedPackages = excludedPackages;
             return this;
         }
@@ -114,6 +117,7 @@ public final class SoftwareUpdateConfigurationLinux {
         }
         @CustomType.Setter
         public Builder includedPackages(@Nullable List<String> includedPackages) {
+
             this.includedPackages = includedPackages;
             return this;
         }
@@ -122,6 +126,7 @@ public final class SoftwareUpdateConfigurationLinux {
         }
         @CustomType.Setter
         public Builder reboot(@Nullable String reboot) {
+
             this.reboot = reboot;
             return this;
         }

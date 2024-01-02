@@ -72,16 +72,19 @@ public final class RulesEngineRuleActionRequestHeader {
 
         @CustomType.Setter
         public Builder headerActionType(@Nullable String headerActionType) {
+
             this.headerActionType = headerActionType;
             return this;
         }
         @CustomType.Setter
         public Builder headerName(@Nullable String headerName) {
+
             this.headerName = headerName;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -118,37 +119,58 @@ public final class GetKubernetesClusterNetworkProfile {
 
         @CustomType.Setter
         public Builder dnsServiceIp(String dnsServiceIp) {
-            this.dnsServiceIp = Objects.requireNonNull(dnsServiceIp);
+            if (dnsServiceIp == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "dnsServiceIp");
+            }
+            this.dnsServiceIp = dnsServiceIp;
             return this;
         }
         @CustomType.Setter
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
-            this.dockerBridgeCidr = Objects.requireNonNull(dockerBridgeCidr);
+            if (dockerBridgeCidr == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "dockerBridgeCidr");
+            }
+            this.dockerBridgeCidr = dockerBridgeCidr;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerSku(String loadBalancerSku) {
-            this.loadBalancerSku = Objects.requireNonNull(loadBalancerSku);
+            if (loadBalancerSku == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "loadBalancerSku");
+            }
+            this.loadBalancerSku = loadBalancerSku;
             return this;
         }
         @CustomType.Setter
         public Builder networkPlugin(String networkPlugin) {
-            this.networkPlugin = Objects.requireNonNull(networkPlugin);
+            if (networkPlugin == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "networkPlugin");
+            }
+            this.networkPlugin = networkPlugin;
             return this;
         }
         @CustomType.Setter
         public Builder networkPolicy(String networkPolicy) {
-            this.networkPolicy = Objects.requireNonNull(networkPolicy);
+            if (networkPolicy == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "networkPolicy");
+            }
+            this.networkPolicy = networkPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder podCidr(String podCidr) {
-            this.podCidr = Objects.requireNonNull(podCidr);
+            if (podCidr == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "podCidr");
+            }
+            this.podCidr = podCidr;
             return this;
         }
         @CustomType.Setter
         public Builder serviceCidr(String serviceCidr) {
-            this.serviceCidr = Objects.requireNonNull(serviceCidr);
+            if (serviceCidr == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterNetworkProfile", "serviceCidr");
+            }
+            this.serviceCidr = serviceCidr;
             return this;
         }
         public GetKubernetesClusterNetworkProfile build() {

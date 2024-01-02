@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class PolicyCustomRuleMatchConditionMatchVariableArgs extends com.p
         }
 
         public PolicyCustomRuleMatchConditionMatchVariableArgs build() {
-            $.variableName = Objects.requireNonNull($.variableName, "expected parameter 'variableName' to be non-null");
+            if ($.variableName == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleMatchConditionMatchVariableArgs", "variableName");
+            }
             return $;
         }
     }

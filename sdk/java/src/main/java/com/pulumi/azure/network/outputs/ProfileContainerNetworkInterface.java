@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.ProfileContainerNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class ProfileContainerNetworkInterface {
 
         @CustomType.Setter
         public Builder ipConfigurations(List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("ProfileContainerNetworkInterface", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(ProfileContainerNetworkInterfaceIpConfiguration... ipConfigurations) {
@@ -66,7 +70,10 @@ public final class ProfileContainerNetworkInterface {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ProfileContainerNetworkInterface", "name");
+            }
+            this.name = name;
             return this;
         }
         public ProfileContainerNetworkInterface build() {

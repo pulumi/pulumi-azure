@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -168,7 +169,10 @@ public final class GetVirtualNetworkResult {
 
         @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
-            this.addressSpaces = Objects.requireNonNull(addressSpaces);
+            if (addressSpaces == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "addressSpaces");
+            }
+            this.addressSpaces = addressSpaces;
             return this;
         }
         public Builder addressSpaces(String... addressSpaces) {
@@ -176,7 +180,10 @@ public final class GetVirtualNetworkResult {
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -184,32 +191,50 @@ public final class GetVirtualNetworkResult {
         }
         @CustomType.Setter
         public Builder guid(String guid) {
-            this.guid = Objects.requireNonNull(guid);
+            if (guid == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "guid");
+            }
+            this.guid = guid;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -217,17 +242,26 @@ public final class GetVirtualNetworkResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vnetPeerings(Map<String,String> vnetPeerings) {
-            this.vnetPeerings = Objects.requireNonNull(vnetPeerings);
+            if (vnetPeerings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "vnetPeerings");
+            }
+            this.vnetPeerings = vnetPeerings;
             return this;
         }
         @CustomType.Setter
         public Builder vnetPeeringsAddresses(List<String> vnetPeeringsAddresses) {
-            this.vnetPeeringsAddresses = Objects.requireNonNull(vnetPeeringsAddresses);
+            if (vnetPeeringsAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "vnetPeeringsAddresses");
+            }
+            this.vnetPeeringsAddresses = vnetPeeringsAddresses;
             return this;
         }
         public Builder vnetPeeringsAddresses(String... vnetPeeringsAddresses) {
