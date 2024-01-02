@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetAppTemplateVolume {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateVolume", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageName(String storageName) {
-            this.storageName = Objects.requireNonNull(storageName);
+            if (storageName == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateVolume", "storageName");
+            }
+            this.storageName = storageName;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateVolume", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         public GetAppTemplateVolume build() {

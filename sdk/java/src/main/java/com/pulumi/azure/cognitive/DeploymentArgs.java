@@ -7,6 +7,7 @@ import com.pulumi.azure.cognitive.inputs.DeploymentModelArgs;
 import com.pulumi.azure.cognitive.inputs.DeploymentScaleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -263,9 +264,15 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeploymentArgs build() {
-            $.cognitiveAccountId = Objects.requireNonNull($.cognitiveAccountId, "expected parameter 'cognitiveAccountId' to be non-null");
-            $.model = Objects.requireNonNull($.model, "expected parameter 'model' to be non-null");
-            $.scale = Objects.requireNonNull($.scale, "expected parameter 'scale' to be non-null");
+            if ($.cognitiveAccountId == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "cognitiveAccountId");
+            }
+            if ($.model == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "model");
+            }
+            if ($.scale == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "scale");
+            }
             return $;
         }
     }

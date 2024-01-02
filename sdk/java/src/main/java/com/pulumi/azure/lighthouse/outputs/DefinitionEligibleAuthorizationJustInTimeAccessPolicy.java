@@ -78,6 +78,7 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
 
         @CustomType.Setter
         public Builder approvers(@Nullable List<DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover> approvers) {
+
             this.approvers = approvers;
             return this;
         }
@@ -86,11 +87,13 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
         }
         @CustomType.Setter
         public Builder maximumActivationDuration(@Nullable String maximumActivationDuration) {
+
             this.maximumActivationDuration = maximumActivationDuration;
             return this;
         }
         @CustomType.Setter
         public Builder multiFactorAuthProvider(@Nullable String multiFactorAuthProvider) {
+
             this.multiFactorAuthProvider = multiFactorAuthProvider;
             return this;
         }

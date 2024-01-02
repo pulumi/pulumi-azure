@@ -59,11 +59,13 @@ public final class NetworkConnectionMonitorTestConfigurationSuccessThreshold {
 
         @CustomType.Setter
         public Builder checksFailedPercent(@Nullable Integer checksFailedPercent) {
+
             this.checksFailedPercent = checksFailedPercent;
             return this;
         }
         @CustomType.Setter
         public Builder roundTripTimeMs(@Nullable Double roundTripTimeMs) {
+
             this.roundTripTimeMs = roundTripTimeMs;
             return this;
         }

@@ -59,11 +59,13 @@ public final class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDura
 
         @CustomType.Setter
         public Builder count(@Nullable Integer count) {
+
             this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder durationType(@Nullable String durationType) {
+
             this.durationType = durationType;
             return this;
         }

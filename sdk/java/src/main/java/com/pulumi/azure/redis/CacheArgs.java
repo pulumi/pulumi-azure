@@ -8,6 +8,7 @@ import com.pulumi.azure.redis.inputs.CachePatchScheduleArgs;
 import com.pulumi.azure.redis.inputs.CacheRedisConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -869,10 +870,18 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CacheArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "capacity");
+            }
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "family");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "skuName");
+            }
             return $;
         }
     }

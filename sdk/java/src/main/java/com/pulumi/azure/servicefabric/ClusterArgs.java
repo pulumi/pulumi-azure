@@ -16,6 +16,7 @@ import com.pulumi.azure.servicefabric.inputs.ClusterReverseProxyCertificateCommo
 import com.pulumi.azure.servicefabric.inputs.ClusterUpgradePolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -971,12 +972,24 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.managementEndpoint = Objects.requireNonNull($.managementEndpoint, "expected parameter 'managementEndpoint' to be non-null");
-            $.nodeTypes = Objects.requireNonNull($.nodeTypes, "expected parameter 'nodeTypes' to be non-null");
-            $.reliabilityLevel = Objects.requireNonNull($.reliabilityLevel, "expected parameter 'reliabilityLevel' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.upgradeMode = Objects.requireNonNull($.upgradeMode, "expected parameter 'upgradeMode' to be non-null");
-            $.vmImage = Objects.requireNonNull($.vmImage, "expected parameter 'vmImage' to be non-null");
+            if ($.managementEndpoint == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "managementEndpoint");
+            }
+            if ($.nodeTypes == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "nodeTypes");
+            }
+            if ($.reliabilityLevel == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "reliabilityLevel");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "resourceGroupName");
+            }
+            if ($.upgradeMode == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "upgradeMode");
+            }
+            if ($.vmImage == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "vmImage");
+            }
             return $;
         }
     }

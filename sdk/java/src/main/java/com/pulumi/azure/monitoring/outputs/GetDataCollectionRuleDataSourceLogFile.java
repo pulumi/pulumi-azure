@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDataSourceLogFileSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -100,7 +101,10 @@ public final class GetDataCollectionRuleDataSourceLogFile {
 
         @CustomType.Setter
         public Builder filePatterns(List<String> filePatterns) {
-            this.filePatterns = Objects.requireNonNull(filePatterns);
+            if (filePatterns == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFile", "filePatterns");
+            }
+            this.filePatterns = filePatterns;
             return this;
         }
         public Builder filePatterns(String... filePatterns) {
@@ -108,17 +112,26 @@ public final class GetDataCollectionRuleDataSourceLogFile {
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFile", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder settings(List<GetDataCollectionRuleDataSourceLogFileSetting> settings) {
-            this.settings = Objects.requireNonNull(settings);
+            if (settings == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFile", "settings");
+            }
+            this.settings = settings;
             return this;
         }
         public Builder settings(GetDataCollectionRuleDataSourceLogFileSetting... settings) {
@@ -126,7 +139,10 @@ public final class GetDataCollectionRuleDataSourceLogFile {
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFile", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -155,47 +156,74 @@ public final class GetVirtualHubResult {
 
         @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
-            this.addressPrefix = Objects.requireNonNull(addressPrefix);
+            if (addressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "addressPrefix");
+            }
+            this.addressPrefix = addressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder defaultRouteTableId(String defaultRouteTableId) {
-            this.defaultRouteTableId = Objects.requireNonNull(defaultRouteTableId);
+            if (defaultRouteTableId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "defaultRouteTableId");
+            }
+            this.defaultRouteTableId = defaultRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualRouterAsn(Integer virtualRouterAsn) {
-            this.virtualRouterAsn = Objects.requireNonNull(virtualRouterAsn);
+            if (virtualRouterAsn == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "virtualRouterAsn");
+            }
+            this.virtualRouterAsn = virtualRouterAsn;
             return this;
         }
         @CustomType.Setter
         public Builder virtualRouterIps(List<String> virtualRouterIps) {
-            this.virtualRouterIps = Objects.requireNonNull(virtualRouterIps);
+            if (virtualRouterIps == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "virtualRouterIps");
+            }
+            this.virtualRouterIps = virtualRouterIps;
             return this;
         }
         public Builder virtualRouterIps(String... virtualRouterIps) {
@@ -203,7 +231,10 @@ public final class GetVirtualHubResult {
         }
         @CustomType.Setter
         public Builder virtualWanId(String virtualWanId) {
-            this.virtualWanId = Objects.requireNonNull(virtualWanId);
+            if (virtualWanId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubResult", "virtualWanId");
+            }
+            this.virtualWanId = virtualWanId;
             return this;
         }
         public GetVirtualHubResult build() {

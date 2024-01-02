@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicebus.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -252,81 +253,121 @@ public final class GetSubscriptionResult {
 
         @CustomType.Setter
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
-            this.autoDeleteOnIdle = Objects.requireNonNull(autoDeleteOnIdle);
+            if (autoDeleteOnIdle == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "autoDeleteOnIdle");
+            }
+            this.autoDeleteOnIdle = autoDeleteOnIdle;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetteringOnFilterEvaluationError(Boolean deadLetteringOnFilterEvaluationError) {
-            this.deadLetteringOnFilterEvaluationError = Objects.requireNonNull(deadLetteringOnFilterEvaluationError);
+            if (deadLetteringOnFilterEvaluationError == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "deadLetteringOnFilterEvaluationError");
+            }
+            this.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
             return this;
         }
         @CustomType.Setter
         public Builder deadLetteringOnMessageExpiration(Boolean deadLetteringOnMessageExpiration) {
-            this.deadLetteringOnMessageExpiration = Objects.requireNonNull(deadLetteringOnMessageExpiration);
+            if (deadLetteringOnMessageExpiration == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "deadLetteringOnMessageExpiration");
+            }
+            this.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             return this;
         }
         @CustomType.Setter
         public Builder defaultMessageTtl(String defaultMessageTtl) {
-            this.defaultMessageTtl = Objects.requireNonNull(defaultMessageTtl);
+            if (defaultMessageTtl == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "defaultMessageTtl");
+            }
+            this.defaultMessageTtl = defaultMessageTtl;
             return this;
         }
         @CustomType.Setter
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            this.enableBatchedOperations = Objects.requireNonNull(enableBatchedOperations);
+            if (enableBatchedOperations == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "enableBatchedOperations");
+            }
+            this.enableBatchedOperations = enableBatchedOperations;
             return this;
         }
         @CustomType.Setter
         public Builder forwardDeadLetteredMessagesTo(String forwardDeadLetteredMessagesTo) {
-            this.forwardDeadLetteredMessagesTo = Objects.requireNonNull(forwardDeadLetteredMessagesTo);
+            if (forwardDeadLetteredMessagesTo == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "forwardDeadLetteredMessagesTo");
+            }
+            this.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             return this;
         }
         @CustomType.Setter
         public Builder forwardTo(String forwardTo) {
-            this.forwardTo = Objects.requireNonNull(forwardTo);
+            if (forwardTo == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "forwardTo");
+            }
+            this.forwardTo = forwardTo;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lockDuration(String lockDuration) {
-            this.lockDuration = Objects.requireNonNull(lockDuration);
+            if (lockDuration == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "lockDuration");
+            }
+            this.lockDuration = lockDuration;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeliveryCount(Integer maxDeliveryCount) {
-            this.maxDeliveryCount = Objects.requireNonNull(maxDeliveryCount);
+            if (maxDeliveryCount == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "maxDeliveryCount");
+            }
+            this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
+
             this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder requiresSession(Boolean requiresSession) {
-            this.requiresSession = Objects.requireNonNull(requiresSession);
+            if (requiresSession == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "requiresSession");
+            }
+            this.requiresSession = requiresSession;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder topicId(@Nullable String topicId) {
+
             this.topicId = topicId;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(@Nullable String topicName) {
+
             this.topicName = topicName;
             return this;
         }

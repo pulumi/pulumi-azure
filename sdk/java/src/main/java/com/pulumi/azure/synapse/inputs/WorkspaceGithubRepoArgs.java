@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -269,10 +270,18 @@ public final class WorkspaceGithubRepoArgs extends com.pulumi.resources.Resource
         }
 
         public WorkspaceGithubRepoArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
-            $.rootFolder = Objects.requireNonNull($.rootFolder, "expected parameter 'rootFolder' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceGithubRepoArgs", "accountName");
+            }
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceGithubRepoArgs", "branchName");
+            }
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceGithubRepoArgs", "repositoryName");
+            }
+            if ($.rootFolder == null) {
+                throw new MissingRequiredPropertyException("WorkspaceGithubRepoArgs", "rootFolder");
+            }
             return $;
         }
     }

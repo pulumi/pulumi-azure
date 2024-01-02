@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,16 +49,21 @@ public final class KubernetesFleetManagerHubProfile {
 
         @CustomType.Setter
         public Builder dnsPrefix(String dnsPrefix) {
-            this.dnsPrefix = Objects.requireNonNull(dnsPrefix);
+            if (dnsPrefix == null) {
+              throw new MissingRequiredPropertyException("KubernetesFleetManagerHubProfile", "dnsPrefix");
+            }
+            this.dnsPrefix = dnsPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder kubernetesVersion(@Nullable String kubernetesVersion) {
+
             this.kubernetesVersion = kubernetesVersion;
             return this;
         }

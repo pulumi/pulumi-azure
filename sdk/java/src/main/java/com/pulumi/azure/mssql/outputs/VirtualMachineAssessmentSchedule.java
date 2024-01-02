@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -91,21 +92,29 @@ public final class VirtualMachineAssessmentSchedule {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAssessmentSchedule", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder monthlyOccurrence(@Nullable Integer monthlyOccurrence) {
+
             this.monthlyOccurrence = monthlyOccurrence;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAssessmentSchedule", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyInterval(@Nullable Integer weeklyInterval) {
+
             this.weeklyInterval = weeklyInterval;
             return this;
         }

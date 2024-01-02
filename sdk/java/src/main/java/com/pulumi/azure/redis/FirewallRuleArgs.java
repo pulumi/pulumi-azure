@@ -5,6 +5,7 @@ package com.pulumi.azure.redis;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class FirewallRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FirewallRuleArgs build() {
-            $.endIp = Objects.requireNonNull($.endIp, "expected parameter 'endIp' to be non-null");
-            $.redisCacheName = Objects.requireNonNull($.redisCacheName, "expected parameter 'redisCacheName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.startIp = Objects.requireNonNull($.startIp, "expected parameter 'startIp' to be non-null");
+            if ($.endIp == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "endIp");
+            }
+            if ($.redisCacheName == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "redisCacheName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "resourceGroupName");
+            }
+            if ($.startIp == null) {
+                throw new MissingRequiredPropertyException("FirewallRuleArgs", "startIp");
+            }
             return $;
         }
     }

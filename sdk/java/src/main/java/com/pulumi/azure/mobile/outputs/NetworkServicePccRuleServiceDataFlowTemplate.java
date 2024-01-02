@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -100,16 +101,23 @@ public final class NetworkServicePccRuleServiceDataFlowTemplate {
 
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplate", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplate", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ports(@Nullable List<String> ports) {
+
             this.ports = ports;
             return this;
         }
@@ -118,7 +126,10 @@ public final class NetworkServicePccRuleServiceDataFlowTemplate {
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplate", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -126,7 +137,10 @@ public final class NetworkServicePccRuleServiceDataFlowTemplate {
         }
         @CustomType.Setter
         public Builder remoteIpLists(List<String> remoteIpLists) {
-            this.remoteIpLists = Objects.requireNonNull(remoteIpLists);
+            if (remoteIpLists == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplate", "remoteIpLists");
+            }
+            this.remoteIpLists = remoteIpLists;
             return this;
         }
         public Builder remoteIpLists(String... remoteIpLists) {

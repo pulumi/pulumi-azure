@@ -6,6 +6,7 @@ package com.pulumi.azure.elasticcloud.inputs;
 import com.pulumi.azure.elasticcloud.inputs.GetElasticsearchLogFilteringTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -197,10 +198,18 @@ public final class GetElasticsearchLogArgs extends com.pulumi.resources.Resource
         }
 
         public GetElasticsearchLogArgs build() {
-            $.filteringTags = Objects.requireNonNull($.filteringTags, "expected parameter 'filteringTags' to be non-null");
-            $.sendActivityLogs = Objects.requireNonNull($.sendActivityLogs, "expected parameter 'sendActivityLogs' to be non-null");
-            $.sendAzureadLogs = Objects.requireNonNull($.sendAzureadLogs, "expected parameter 'sendAzureadLogs' to be non-null");
-            $.sendSubscriptionLogs = Objects.requireNonNull($.sendSubscriptionLogs, "expected parameter 'sendSubscriptionLogs' to be non-null");
+            if ($.filteringTags == null) {
+                throw new MissingRequiredPropertyException("GetElasticsearchLogArgs", "filteringTags");
+            }
+            if ($.sendActivityLogs == null) {
+                throw new MissingRequiredPropertyException("GetElasticsearchLogArgs", "sendActivityLogs");
+            }
+            if ($.sendAzureadLogs == null) {
+                throw new MissingRequiredPropertyException("GetElasticsearchLogArgs", "sendAzureadLogs");
+            }
+            if ($.sendSubscriptionLogs == null) {
+                throw new MissingRequiredPropertyException("GetElasticsearchLogArgs", "sendSubscriptionLogs");
+            }
             return $;
         }
     }

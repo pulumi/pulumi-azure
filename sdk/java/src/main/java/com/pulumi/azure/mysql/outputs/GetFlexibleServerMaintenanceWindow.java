@@ -4,6 +4,7 @@
 package com.pulumi.azure.mysql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetFlexibleServerMaintenanceWindow {
 
         @CustomType.Setter
         public Builder dayOfWeek(Integer dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerMaintenanceWindow", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder startHour(Integer startHour) {
-            this.startHour = Objects.requireNonNull(startHour);
+            if (startHour == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerMaintenanceWindow", "startHour");
+            }
+            this.startHour = startHour;
             return this;
         }
         @CustomType.Setter
         public Builder startMinute(Integer startMinute) {
-            this.startMinute = Objects.requireNonNull(startMinute);
+            if (startMinute == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerMaintenanceWindow", "startMinute");
+            }
+            this.startMinute = startMinute;
             return this;
         }
         public GetFlexibleServerMaintenanceWindow build() {

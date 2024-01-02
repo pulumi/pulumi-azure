@@ -4,6 +4,7 @@
 package com.pulumi.azure.appinsights.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class StandardWebTestValidationRulesContent {
 
         @CustomType.Setter
         public Builder contentMatch(String contentMatch) {
-            this.contentMatch = Objects.requireNonNull(contentMatch);
+            if (contentMatch == null) {
+              throw new MissingRequiredPropertyException("StandardWebTestValidationRulesContent", "contentMatch");
+            }
+            this.contentMatch = contentMatch;
             return this;
         }
         @CustomType.Setter
         public Builder ignoreCase(@Nullable Boolean ignoreCase) {
+
             this.ignoreCase = ignoreCase;
             return this;
         }
         @CustomType.Setter
         public Builder passIfTextFound(@Nullable Boolean passIfTextFound) {
+
             this.passIfTextFound = passIfTextFound;
             return this;
         }

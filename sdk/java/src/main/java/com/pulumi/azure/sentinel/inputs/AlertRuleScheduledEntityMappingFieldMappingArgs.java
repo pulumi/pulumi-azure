@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AlertRuleScheduledEntityMappingFieldMappingArgs extends com.p
         }
 
         public AlertRuleScheduledEntityMappingFieldMappingArgs build() {
-            $.columnName = Objects.requireNonNull($.columnName, "expected parameter 'columnName' to be non-null");
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
+            if ($.columnName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledEntityMappingFieldMappingArgs", "columnName");
+            }
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledEntityMappingFieldMappingArgs", "identifier");
+            }
             return $;
         }
     }

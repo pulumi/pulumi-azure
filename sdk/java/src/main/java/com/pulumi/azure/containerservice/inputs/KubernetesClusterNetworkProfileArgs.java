@@ -7,6 +7,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileL
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterNetworkProfileNatGatewayProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -790,7 +791,9 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         }
 
         public KubernetesClusterNetworkProfileArgs build() {
-            $.networkPlugin = Objects.requireNonNull($.networkPlugin, "expected parameter 'networkPlugin' to be non-null");
+            if ($.networkPlugin == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterNetworkProfileArgs", "networkPlugin");
+            }
             return $;
         }
     }

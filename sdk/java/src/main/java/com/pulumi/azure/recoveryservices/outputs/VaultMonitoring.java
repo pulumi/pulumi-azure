@@ -58,11 +58,13 @@ public final class VaultMonitoring {
 
         @CustomType.Setter
         public Builder alertsForAllJobFailuresEnabled(@Nullable Boolean alertsForAllJobFailuresEnabled) {
+
             this.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder alertsForCriticalOperationFailuresEnabled(@Nullable Boolean alertsForCriticalOperationFailuresEnabled) {
+
             this.alertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
             return this;
         }

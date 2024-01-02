@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class PoolMountNfsMountArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PoolMountNfsMountArgs build() {
-            $.relativeMountPath = Objects.requireNonNull($.relativeMountPath, "expected parameter 'relativeMountPath' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.relativeMountPath == null) {
+                throw new MissingRequiredPropertyException("PoolMountNfsMountArgs", "relativeMountPath");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("PoolMountNfsMountArgs", "source");
+            }
             return $;
         }
     }

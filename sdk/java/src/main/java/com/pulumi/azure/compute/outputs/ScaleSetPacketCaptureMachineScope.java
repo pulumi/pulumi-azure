@@ -58,6 +58,7 @@ public final class ScaleSetPacketCaptureMachineScope {
 
         @CustomType.Setter
         public Builder excludeInstanceIds(@Nullable List<String> excludeInstanceIds) {
+
             this.excludeInstanceIds = excludeInstanceIds;
             return this;
         }
@@ -66,6 +67,7 @@ public final class ScaleSetPacketCaptureMachineScope {
         }
         @CustomType.Setter
         public Builder includeInstanceIds(@Nullable List<String> includeInstanceIds) {
+
             this.includeInstanceIds = includeInstanceIds;
             return this;
         }

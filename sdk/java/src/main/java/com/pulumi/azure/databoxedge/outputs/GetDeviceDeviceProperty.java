@@ -4,6 +4,7 @@
 package com.pulumi.azure.databoxedge.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -184,12 +185,18 @@ public final class GetDeviceDeviceProperty {
 
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder configuredRoleTypes(List<String> configuredRoleTypes) {
-            this.configuredRoleTypes = Objects.requireNonNull(configuredRoleTypes);
+            if (configuredRoleTypes == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "configuredRoleTypes");
+            }
+            this.configuredRoleTypes = configuredRoleTypes;
             return this;
         }
         public Builder configuredRoleTypes(String... configuredRoleTypes) {
@@ -197,47 +204,74 @@ public final class GetDeviceDeviceProperty {
         }
         @CustomType.Setter
         public Builder culture(String culture) {
-            this.culture = Objects.requireNonNull(culture);
+            if (culture == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "culture");
+            }
+            this.culture = culture;
             return this;
         }
         @CustomType.Setter
         public Builder hcsVersion(String hcsVersion) {
-            this.hcsVersion = Objects.requireNonNull(hcsVersion);
+            if (hcsVersion == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "hcsVersion");
+            }
+            this.hcsVersion = hcsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder model(String model) {
-            this.model = Objects.requireNonNull(model);
+            if (model == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "model");
+            }
+            this.model = model;
             return this;
         }
         @CustomType.Setter
         public Builder nodeCount(Integer nodeCount) {
-            this.nodeCount = Objects.requireNonNull(nodeCount);
+            if (nodeCount == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "nodeCount");
+            }
+            this.nodeCount = nodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(String serialNumber) {
-            this.serialNumber = Objects.requireNonNull(serialNumber);
+            if (serialNumber == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "serialNumber");
+            }
+            this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder softwareVersion(String softwareVersion) {
-            this.softwareVersion = Objects.requireNonNull(softwareVersion);
+            if (softwareVersion == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "softwareVersion");
+            }
+            this.softwareVersion = softwareVersion;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetDeviceDeviceProperty", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetDeviceDeviceProperty build() {

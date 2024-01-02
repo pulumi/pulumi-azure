@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -198,10 +199,18 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs ex
         }
 
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs", "action");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs", "name");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs", "priority");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs", "rules");
+            }
             return $;
         }
     }

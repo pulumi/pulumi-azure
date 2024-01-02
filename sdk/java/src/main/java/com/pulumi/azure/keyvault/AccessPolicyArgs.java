@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -376,9 +377,15 @@ public final class AccessPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccessPolicyArgs build() {
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("AccessPolicyArgs", "keyVaultId");
+            }
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("AccessPolicyArgs", "objectId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("AccessPolicyArgs", "tenantId");
+            }
             return $;
         }
     }

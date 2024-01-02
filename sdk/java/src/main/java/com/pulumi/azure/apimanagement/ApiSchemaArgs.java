@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,11 +336,21 @@ public final class ApiSchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiSchemaArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.apiName = Objects.requireNonNull($.apiName, "expected parameter 'apiName' to be non-null");
-            $.contentType = Objects.requireNonNull($.contentType, "expected parameter 'contentType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.schemaId = Objects.requireNonNull($.schemaId, "expected parameter 'schemaId' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("ApiSchemaArgs", "apiManagementName");
+            }
+            if ($.apiName == null) {
+                throw new MissingRequiredPropertyException("ApiSchemaArgs", "apiName");
+            }
+            if ($.contentType == null) {
+                throw new MissingRequiredPropertyException("ApiSchemaArgs", "contentType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApiSchemaArgs", "resourceGroupName");
+            }
+            if ($.schemaId == null) {
+                throw new MissingRequiredPropertyException("ApiSchemaArgs", "schemaId");
+            }
             return $;
         }
     }

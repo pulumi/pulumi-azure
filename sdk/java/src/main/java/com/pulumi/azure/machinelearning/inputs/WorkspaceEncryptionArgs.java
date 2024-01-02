@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class WorkspaceEncryptionArgs extends com.pulumi.resources.Resource
         }
 
         public WorkspaceEncryptionArgs build() {
-            $.keyId = Objects.requireNonNull($.keyId, "expected parameter 'keyId' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.keyId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceEncryptionArgs", "keyId");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceEncryptionArgs", "keyVaultId");
+            }
             return $;
         }
     }

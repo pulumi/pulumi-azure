@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class ReplicatedVMUnmanagedDisk {
 
         @CustomType.Setter
         public Builder diskUri(String diskUri) {
-            this.diskUri = Objects.requireNonNull(diskUri);
+            if (diskUri == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDisk", "diskUri");
+            }
+            this.diskUri = diskUri;
             return this;
         }
         @CustomType.Setter
         public Builder stagingStorageAccountId(String stagingStorageAccountId) {
-            this.stagingStorageAccountId = Objects.requireNonNull(stagingStorageAccountId);
+            if (stagingStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDisk", "stagingStorageAccountId");
+            }
+            this.stagingStorageAccountId = stagingStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder targetStorageAccountId(String targetStorageAccountId) {
-            this.targetStorageAccountId = Objects.requireNonNull(targetStorageAccountId);
+            if (targetStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDisk", "targetStorageAccountId");
+            }
+            this.targetStorageAccountId = targetStorageAccountId;
             return this;
         }
         public ReplicatedVMUnmanagedDisk build() {

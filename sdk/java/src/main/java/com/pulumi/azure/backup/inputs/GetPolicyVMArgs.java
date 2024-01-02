@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetPolicyVMArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPolicyVMArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetPolicyVMArgs", "name");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("GetPolicyVMArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetPolicyVMArgs", "resourceGroupName");
+            }
             return $;
         }
     }

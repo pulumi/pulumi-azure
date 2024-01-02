@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionSuppressionScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ActionRuleSuppressionSuppressionArgs extends com.pulumi.resou
         }
 
         public ActionRuleSuppressionSuppressionArgs build() {
-            $.recurrenceType = Objects.requireNonNull($.recurrenceType, "expected parameter 'recurrenceType' to be non-null");
+            if ($.recurrenceType == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppressionArgs", "recurrenceType");
+            }
             return $;
         }
     }

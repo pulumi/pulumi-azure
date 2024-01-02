@@ -4,6 +4,7 @@
 package com.pulumi.azure.newrelic.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class MonitorPlan {
 
         @CustomType.Setter
         public Builder billingCycle(@Nullable String billingCycle) {
+
             this.billingCycle = billingCycle;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = Objects.requireNonNull(effectiveDate);
+            if (effectiveDate == null) {
+              throw new MissingRequiredPropertyException("MonitorPlan", "effectiveDate");
+            }
+            this.effectiveDate = effectiveDate;
             return this;
         }
         @CustomType.Setter
         public Builder planId(@Nullable String planId) {
+
             this.planId = planId;
             return this;
         }
         @CustomType.Setter
         public Builder usageType(@Nullable String usageType) {
+
             this.usageType = usageType;
             return this;
         }

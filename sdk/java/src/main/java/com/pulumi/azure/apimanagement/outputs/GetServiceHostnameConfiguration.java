@@ -9,6 +9,7 @@ import com.pulumi.azure.apimanagement.outputs.GetServiceHostnameConfigurationPor
 import com.pulumi.azure.apimanagement.outputs.GetServiceHostnameConfigurationProxy;
 import com.pulumi.azure.apimanagement.outputs.GetServiceHostnameConfigurationScm;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -103,7 +104,10 @@ public final class GetServiceHostnameConfiguration {
 
         @CustomType.Setter
         public Builder developerPortals(List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals) {
-            this.developerPortals = Objects.requireNonNull(developerPortals);
+            if (developerPortals == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfiguration", "developerPortals");
+            }
+            this.developerPortals = developerPortals;
             return this;
         }
         public Builder developerPortals(GetServiceHostnameConfigurationDeveloperPortal... developerPortals) {
@@ -111,7 +115,10 @@ public final class GetServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder managements(List<GetServiceHostnameConfigurationManagement> managements) {
-            this.managements = Objects.requireNonNull(managements);
+            if (managements == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfiguration", "managements");
+            }
+            this.managements = managements;
             return this;
         }
         public Builder managements(GetServiceHostnameConfigurationManagement... managements) {
@@ -119,7 +126,10 @@ public final class GetServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder portals(List<GetServiceHostnameConfigurationPortal> portals) {
-            this.portals = Objects.requireNonNull(portals);
+            if (portals == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfiguration", "portals");
+            }
+            this.portals = portals;
             return this;
         }
         public Builder portals(GetServiceHostnameConfigurationPortal... portals) {
@@ -127,7 +137,10 @@ public final class GetServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder proxies(List<GetServiceHostnameConfigurationProxy> proxies) {
-            this.proxies = Objects.requireNonNull(proxies);
+            if (proxies == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfiguration", "proxies");
+            }
+            this.proxies = proxies;
             return this;
         }
         public Builder proxies(GetServiceHostnameConfigurationProxy... proxies) {
@@ -135,7 +148,10 @@ public final class GetServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder scms(List<GetServiceHostnameConfigurationScm> scms) {
-            this.scms = Objects.requireNonNull(scms);
+            if (scms == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfiguration", "scms");
+            }
+            this.scms = scms;
             return this;
         }
         public Builder scms(GetServiceHostnameConfigurationScm... scms) {

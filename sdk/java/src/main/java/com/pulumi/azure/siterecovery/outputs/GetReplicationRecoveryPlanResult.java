@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.outputs;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanAzureToAzureSetting;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanRecoveryGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -121,7 +122,10 @@ public final class GetReplicationRecoveryPlanResult {
 
         @CustomType.Setter
         public Builder azureToAzureSettings(List<GetReplicationRecoveryPlanAzureToAzureSetting> azureToAzureSettings) {
-            this.azureToAzureSettings = Objects.requireNonNull(azureToAzureSettings);
+            if (azureToAzureSettings == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "azureToAzureSettings");
+            }
+            this.azureToAzureSettings = azureToAzureSettings;
             return this;
         }
         public Builder azureToAzureSettings(GetReplicationRecoveryPlanAzureToAzureSetting... azureToAzureSettings) {
@@ -129,22 +133,34 @@ public final class GetReplicationRecoveryPlanResult {
         }
         @CustomType.Setter
         public Builder failoverDeploymentModel(String failoverDeploymentModel) {
-            this.failoverDeploymentModel = Objects.requireNonNull(failoverDeploymentModel);
+            if (failoverDeploymentModel == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "failoverDeploymentModel");
+            }
+            this.failoverDeploymentModel = failoverDeploymentModel;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryGroups(List<GetReplicationRecoveryPlanRecoveryGroup> recoveryGroups) {
-            this.recoveryGroups = Objects.requireNonNull(recoveryGroups);
+            if (recoveryGroups == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "recoveryGroups");
+            }
+            this.recoveryGroups = recoveryGroups;
             return this;
         }
         public Builder recoveryGroups(GetReplicationRecoveryPlanRecoveryGroup... recoveryGroups) {
@@ -152,17 +168,26 @@ public final class GetReplicationRecoveryPlanResult {
         }
         @CustomType.Setter
         public Builder recoveryVaultId(String recoveryVaultId) {
-            this.recoveryVaultId = Objects.requireNonNull(recoveryVaultId);
+            if (recoveryVaultId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "recoveryVaultId");
+            }
+            this.recoveryVaultId = recoveryVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceRecoveryFabricId(String sourceRecoveryFabricId) {
-            this.sourceRecoveryFabricId = Objects.requireNonNull(sourceRecoveryFabricId);
+            if (sourceRecoveryFabricId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "sourceRecoveryFabricId");
+            }
+            this.sourceRecoveryFabricId = sourceRecoveryFabricId;
             return this;
         }
         @CustomType.Setter
         public Builder targetRecoveryFabricId(String targetRecoveryFabricId) {
-            this.targetRecoveryFabricId = Objects.requireNonNull(targetRecoveryFabricId);
+            if (targetRecoveryFabricId == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanResult", "targetRecoveryFabricId");
+            }
+            this.targetRecoveryFabricId = targetRecoveryFabricId;
             return this;
         }
         public GetReplicationRecoveryPlanResult build() {

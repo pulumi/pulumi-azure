@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -312,11 +313,21 @@ public final class MetricAlertCriteriaArgs extends com.pulumi.resources.Resource
         }
 
         public MetricAlertCriteriaArgs build() {
-            $.aggregation = Objects.requireNonNull($.aggregation, "expected parameter 'aggregation' to be non-null");
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.metricNamespace = Objects.requireNonNull($.metricNamespace, "expected parameter 'metricNamespace' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.aggregation == null) {
+                throw new MissingRequiredPropertyException("MetricAlertCriteriaArgs", "aggregation");
+            }
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("MetricAlertCriteriaArgs", "metricName");
+            }
+            if ($.metricNamespace == null) {
+                throw new MissingRequiredPropertyException("MetricAlertCriteriaArgs", "metricNamespace");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("MetricAlertCriteriaArgs", "operator");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("MetricAlertCriteriaArgs", "threshold");
+            }
             return $;
         }
     }

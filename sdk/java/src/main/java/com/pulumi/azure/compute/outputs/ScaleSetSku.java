@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,23 @@ public final class ScaleSetSku {
 
         @CustomType.Setter
         public Builder capacity(Integer capacity) {
-            this.capacity = Objects.requireNonNull(capacity);
+            if (capacity == null) {
+              throw new MissingRequiredPropertyException("ScaleSetSku", "capacity");
+            }
+            this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ScaleSetSku", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tier(@Nullable String tier) {
+
             this.tier = tier;
             return this;
         }

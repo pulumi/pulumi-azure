@@ -5,6 +5,7 @@ package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.azure.lb.outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,7 +87,10 @@ public final class GetBackendAddressPoolBackendAddress {
 
         @CustomType.Setter
         public Builder inboundNatRulePortMappings(List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings) {
-            this.inboundNatRulePortMappings = Objects.requireNonNull(inboundNatRulePortMappings);
+            if (inboundNatRulePortMappings == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolBackendAddress", "inboundNatRulePortMappings");
+            }
+            this.inboundNatRulePortMappings = inboundNatRulePortMappings;
             return this;
         }
         public Builder inboundNatRulePortMappings(GetBackendAddressPoolBackendAddressInboundNatRulePortMapping... inboundNatRulePortMappings) {
@@ -94,17 +98,26 @@ public final class GetBackendAddressPoolBackendAddress {
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolBackendAddress", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolBackendAddress", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(String virtualNetworkId) {
-            this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
+            if (virtualNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetBackendAddressPoolBackendAddress", "virtualNetworkId");
+            }
+            this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         public GetBackendAddressPoolBackendAddress build() {

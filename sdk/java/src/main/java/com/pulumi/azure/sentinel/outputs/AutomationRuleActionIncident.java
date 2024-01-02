@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -142,16 +143,19 @@ public final class AutomationRuleActionIncident {
 
         @CustomType.Setter
         public Builder classification(@Nullable String classification) {
+
             this.classification = classification;
             return this;
         }
         @CustomType.Setter
         public Builder classificationComment(@Nullable String classificationComment) {
+
             this.classificationComment = classificationComment;
             return this;
         }
         @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
+
             this.labels = labels;
             return this;
         }
@@ -160,21 +164,27 @@ public final class AutomationRuleActionIncident {
         }
         @CustomType.Setter
         public Builder order(Integer order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("AutomationRuleActionIncident", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
+
             this.ownerId = ownerId;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable String severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }

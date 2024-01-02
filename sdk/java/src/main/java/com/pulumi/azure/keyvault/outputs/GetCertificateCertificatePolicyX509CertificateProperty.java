@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -101,7 +102,10 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
 
         @CustomType.Setter
         public Builder extendedKeyUsages(List<String> extendedKeyUsages) {
-            this.extendedKeyUsages = Objects.requireNonNull(extendedKeyUsages);
+            if (extendedKeyUsages == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificateProperty", "extendedKeyUsages");
+            }
+            this.extendedKeyUsages = extendedKeyUsages;
             return this;
         }
         public Builder extendedKeyUsages(String... extendedKeyUsages) {
@@ -109,7 +113,10 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         }
         @CustomType.Setter
         public Builder keyUsages(List<String> keyUsages) {
-            this.keyUsages = Objects.requireNonNull(keyUsages);
+            if (keyUsages == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificateProperty", "keyUsages");
+            }
+            this.keyUsages = keyUsages;
             return this;
         }
         public Builder keyUsages(String... keyUsages) {
@@ -117,12 +124,18 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificateProperty", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames) {
-            this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
+            if (subjectAlternativeNames == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificateProperty", "subjectAlternativeNames");
+            }
+            this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
         public Builder subjectAlternativeNames(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName... subjectAlternativeNames) {
@@ -130,7 +143,10 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         }
         @CustomType.Setter
         public Builder validityInMonths(Integer validityInMonths) {
-            this.validityInMonths = Objects.requireNonNull(validityInMonths);
+            if (validityInMonths == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificateProperty", "validityInMonths");
+            }
+            this.validityInMonths = validityInMonths;
             return this;
         }
         public GetCertificateCertificatePolicyX509CertificateProperty build() {

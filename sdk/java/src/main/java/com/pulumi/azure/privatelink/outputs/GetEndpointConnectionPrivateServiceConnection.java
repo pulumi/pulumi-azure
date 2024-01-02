@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -94,22 +95,34 @@ public final class GetEndpointConnectionPrivateServiceConnection {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionPrivateServiceConnection", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionPrivateServiceConnection", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder requestResponse(String requestResponse) {
-            this.requestResponse = Objects.requireNonNull(requestResponse);
+            if (requestResponse == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionPrivateServiceConnection", "requestResponse");
+            }
+            this.requestResponse = requestResponse;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetEndpointConnectionPrivateServiceConnection", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetEndpointConnectionPrivateServiceConnection build() {

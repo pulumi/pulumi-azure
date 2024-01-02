@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.outputs;
 import com.pulumi.azure.mobile.outputs.NetworkServicePccRuleQosPolicy;
 import com.pulumi.azure.mobile.outputs.NetworkServicePccRuleServiceDataFlowTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -105,22 +106,32 @@ public final class NetworkServicePccRule {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder precedence(Integer precedence) {
-            this.precedence = Objects.requireNonNull(precedence);
+            if (precedence == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRule", "precedence");
+            }
+            this.precedence = precedence;
             return this;
         }
         @CustomType.Setter
         public Builder qosPolicy(@Nullable NetworkServicePccRuleQosPolicy qosPolicy) {
+
             this.qosPolicy = qosPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder serviceDataFlowTemplates(List<NetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates) {
-            this.serviceDataFlowTemplates = Objects.requireNonNull(serviceDataFlowTemplates);
+            if (serviceDataFlowTemplates == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRule", "serviceDataFlowTemplates");
+            }
+            this.serviceDataFlowTemplates = serviceDataFlowTemplates;
             return this;
         }
         public Builder serviceDataFlowTemplates(NetworkServicePccRuleServiceDataFlowTemplate... serviceDataFlowTemplates) {
@@ -128,6 +139,7 @@ public final class NetworkServicePccRule {
         }
         @CustomType.Setter
         public Builder trafficControlEnabled(@Nullable Boolean trafficControlEnabled) {
+
             this.trafficControlEnabled = trafficControlEnabled;
             return this;
         }

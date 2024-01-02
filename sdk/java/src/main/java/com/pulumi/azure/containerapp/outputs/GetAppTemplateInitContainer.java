@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateInitContainerEnv;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateInitContainerVolumeMount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -158,7 +159,10 @@ public final class GetAppTemplateInitContainer {
 
         @CustomType.Setter
         public Builder args(List<String> args) {
-            this.args = Objects.requireNonNull(args);
+            if (args == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "args");
+            }
+            this.args = args;
             return this;
         }
         public Builder args(String... args) {
@@ -166,7 +170,10 @@ public final class GetAppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder commands(List<String> commands) {
-            this.commands = Objects.requireNonNull(commands);
+            if (commands == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "commands");
+            }
+            this.commands = commands;
             return this;
         }
         public Builder commands(String... commands) {
@@ -174,12 +181,18 @@ public final class GetAppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder cpu(Double cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder envs(List<GetAppTemplateInitContainerEnv> envs) {
-            this.envs = Objects.requireNonNull(envs);
+            if (envs == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "envs");
+            }
+            this.envs = envs;
             return this;
         }
         public Builder envs(GetAppTemplateInitContainerEnv... envs) {
@@ -187,27 +200,42 @@ public final class GetAppTemplateInitContainer {
         }
         @CustomType.Setter
         public Builder ephemeralStorage(String ephemeralStorage) {
-            this.ephemeralStorage = Objects.requireNonNull(ephemeralStorage);
+            if (ephemeralStorage == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "ephemeralStorage");
+            }
+            this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder memory(String memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder volumeMounts(List<GetAppTemplateInitContainerVolumeMount> volumeMounts) {
-            this.volumeMounts = Objects.requireNonNull(volumeMounts);
+            if (volumeMounts == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateInitContainer", "volumeMounts");
+            }
+            this.volumeMounts = volumeMounts;
             return this;
         }
         public Builder volumeMounts(GetAppTemplateInitContainerVolumeMount... volumeMounts) {

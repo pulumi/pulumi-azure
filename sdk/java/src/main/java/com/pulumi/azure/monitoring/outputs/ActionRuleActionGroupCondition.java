@@ -134,36 +134,43 @@ public final class ActionRuleActionGroupCondition {
 
         @CustomType.Setter
         public Builder alertContext(@Nullable ActionRuleActionGroupConditionAlertContext alertContext) {
+
             this.alertContext = alertContext;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleId(@Nullable ActionRuleActionGroupConditionAlertRuleId alertRuleId) {
+
             this.alertRuleId = alertRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable ActionRuleActionGroupConditionDescription description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder monitor(@Nullable ActionRuleActionGroupConditionMonitor monitor) {
+
             this.monitor = monitor;
             return this;
         }
         @CustomType.Setter
         public Builder monitorService(@Nullable ActionRuleActionGroupConditionMonitorService monitorService) {
+
             this.monitorService = monitorService;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable ActionRuleActionGroupConditionSeverity severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceType(@Nullable ActionRuleActionGroupConditionTargetResourceType targetResourceType) {
+
             this.targetResourceType = targetResourceType;
             return this;
         }

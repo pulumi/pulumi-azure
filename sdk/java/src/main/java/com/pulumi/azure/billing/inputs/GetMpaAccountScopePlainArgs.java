@@ -4,6 +4,7 @@
 package com.pulumi.azure.billing.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetMpaAccountScopePlainArgs extends com.pulumi.resources.Invo
         }
 
         public GetMpaAccountScopePlainArgs build() {
-            $.billingAccountName = Objects.requireNonNull($.billingAccountName, "expected parameter 'billingAccountName' to be non-null");
-            $.customerName = Objects.requireNonNull($.customerName, "expected parameter 'customerName' to be non-null");
+            if ($.billingAccountName == null) {
+                throw new MissingRequiredPropertyException("GetMpaAccountScopePlainArgs", "billingAccountName");
+            }
+            if ($.customerName == null) {
+                throw new MissingRequiredPropertyException("GetMpaAccountScopePlainArgs", "customerName");
+            }
             return $;
         }
     }

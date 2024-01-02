@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class EndpointPrivateDnsZoneGroup {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EndpointPrivateDnsZoneGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsZoneIds(List<String> privateDnsZoneIds) {
-            this.privateDnsZoneIds = Objects.requireNonNull(privateDnsZoneIds);
+            if (privateDnsZoneIds == null) {
+              throw new MissingRequiredPropertyException("EndpointPrivateDnsZoneGroup", "privateDnsZoneIds");
+            }
+            this.privateDnsZoneIds = privateDnsZoneIds;
             return this;
         }
         public Builder privateDnsZoneIds(String... privateDnsZoneIds) {

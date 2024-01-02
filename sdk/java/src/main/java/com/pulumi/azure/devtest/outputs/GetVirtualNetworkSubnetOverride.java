@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,27 +91,42 @@ public final class GetVirtualNetworkSubnetOverride {
 
         @CustomType.Setter
         public Builder labSubnetName(String labSubnetName) {
-            this.labSubnetName = Objects.requireNonNull(labSubnetName);
+            if (labSubnetName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkSubnetOverride", "labSubnetName");
+            }
+            this.labSubnetName = labSubnetName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkSubnetOverride", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder useInVmCreationPermission(String useInVmCreationPermission) {
-            this.useInVmCreationPermission = Objects.requireNonNull(useInVmCreationPermission);
+            if (useInVmCreationPermission == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkSubnetOverride", "useInVmCreationPermission");
+            }
+            this.useInVmCreationPermission = useInVmCreationPermission;
             return this;
         }
         @CustomType.Setter
         public Builder usePublicIpAddressPermission(String usePublicIpAddressPermission) {
-            this.usePublicIpAddressPermission = Objects.requireNonNull(usePublicIpAddressPermission);
+            if (usePublicIpAddressPermission == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkSubnetOverride", "usePublicIpAddressPermission");
+            }
+            this.usePublicIpAddressPermission = usePublicIpAddressPermission;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkPoolName(String virtualNetworkPoolName) {
-            this.virtualNetworkPoolName = Objects.requireNonNull(virtualNetworkPoolName);
+            if (virtualNetworkPoolName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkSubnetOverride", "virtualNetworkPoolName");
+            }
+            this.virtualNetworkPoolName = virtualNetworkPoolName;
             return this;
         }
         public GetVirtualNetworkSubnetOverride build() {

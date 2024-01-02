@@ -60,11 +60,13 @@ public final class FirewallPolicyDns {
 
         @CustomType.Setter
         public Builder proxyEnabled(@Nullable Boolean proxyEnabled) {
+
             this.proxyEnabled = proxyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder servers(@Nullable List<String> servers) {
+
             this.servers = servers;
             return this;
         }

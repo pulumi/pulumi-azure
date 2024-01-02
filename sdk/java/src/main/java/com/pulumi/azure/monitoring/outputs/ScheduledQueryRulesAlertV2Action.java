@@ -59,6 +59,7 @@ public final class ScheduledQueryRulesAlertV2Action {
 
         @CustomType.Setter
         public Builder actionGroups(@Nullable List<String> actionGroups) {
+
             this.actionGroups = actionGroups;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ScheduledQueryRulesAlertV2Action {
         }
         @CustomType.Setter
         public Builder customProperties(@Nullable Map<String,String> customProperties) {
+
             this.customProperties = customProperties;
             return this;
         }

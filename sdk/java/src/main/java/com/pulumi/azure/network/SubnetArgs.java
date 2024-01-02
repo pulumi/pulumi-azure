@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -541,9 +542,15 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubnetArgs build() {
-            $.addressPrefixes = Objects.requireNonNull($.addressPrefixes, "expected parameter 'addressPrefixes' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualNetworkName = Objects.requireNonNull($.virtualNetworkName, "expected parameter 'virtualNetworkName' to be non-null");
+            if ($.addressPrefixes == null) {
+                throw new MissingRequiredPropertyException("SubnetArgs", "addressPrefixes");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SubnetArgs", "resourceGroupName");
+            }
+            if ($.virtualNetworkName == null) {
+                throw new MissingRequiredPropertyException("SubnetArgs", "virtualNetworkName");
+            }
             return $;
         }
     }

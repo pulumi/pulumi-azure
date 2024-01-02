@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ManagedClusterCustomFabricSettingArgs extends com.pulumi.reso
         }
 
         public ManagedClusterCustomFabricSettingArgs build() {
-            $.parameter = Objects.requireNonNull($.parameter, "expected parameter 'parameter' to be non-null");
-            $.section = Objects.requireNonNull($.section, "expected parameter 'section' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.parameter == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSettingArgs", "parameter");
+            }
+            if ($.section == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSettingArgs", "section");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSettingArgs", "value");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.outputs;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanRecoveryGroupPostAction;
 import com.pulumi.azure.siterecovery.outputs.GetReplicationRecoveryPlanRecoveryGroupPreAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,17 +88,26 @@ public final class GetReplicationRecoveryPlanRecoveryGroup {
 
         @CustomType.Setter
         public Builder postActions(List<List<GetReplicationRecoveryPlanRecoveryGroupPostAction>> postActions) {
-            this.postActions = Objects.requireNonNull(postActions);
+            if (postActions == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroup", "postActions");
+            }
+            this.postActions = postActions;
             return this;
         }
         @CustomType.Setter
         public Builder preActions(List<List<GetReplicationRecoveryPlanRecoveryGroupPreAction>> preActions) {
-            this.preActions = Objects.requireNonNull(preActions);
+            if (preActions == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroup", "preActions");
+            }
+            this.preActions = preActions;
             return this;
         }
         @CustomType.Setter
         public Builder replicatedProtectedItems(List<String> replicatedProtectedItems) {
-            this.replicatedProtectedItems = Objects.requireNonNull(replicatedProtectedItems);
+            if (replicatedProtectedItems == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroup", "replicatedProtectedItems");
+            }
+            this.replicatedProtectedItems = replicatedProtectedItems;
             return this;
         }
         public Builder replicatedProtectedItems(String... replicatedProtectedItems) {
@@ -105,7 +115,10 @@ public final class GetReplicationRecoveryPlanRecoveryGroup {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanRecoveryGroup", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetReplicationRecoveryPlanRecoveryGroup build() {

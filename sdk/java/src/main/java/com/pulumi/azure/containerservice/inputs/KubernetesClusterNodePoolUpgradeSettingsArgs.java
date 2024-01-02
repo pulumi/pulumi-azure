@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class KubernetesClusterNodePoolUpgradeSettingsArgs extends com.pulu
         }
 
         public KubernetesClusterNodePoolUpgradeSettingsArgs build() {
-            $.maxSurge = Objects.requireNonNull($.maxSurge, "expected parameter 'maxSurge' to be non-null");
+            if ($.maxSurge == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterNodePoolUpgradeSettingsArgs", "maxSurge");
+            }
             return $;
         }
     }

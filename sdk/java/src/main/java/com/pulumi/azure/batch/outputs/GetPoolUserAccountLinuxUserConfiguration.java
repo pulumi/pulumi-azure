@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetPoolUserAccountLinuxUserConfiguration {
 
         @CustomType.Setter
         public Builder gid(Integer gid) {
-            this.gid = Objects.requireNonNull(gid);
+            if (gid == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccountLinuxUserConfiguration", "gid");
+            }
+            this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder sshPrivateKey(String sshPrivateKey) {
-            this.sshPrivateKey = Objects.requireNonNull(sshPrivateKey);
+            if (sshPrivateKey == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccountLinuxUserConfiguration", "sshPrivateKey");
+            }
+            this.sshPrivateKey = sshPrivateKey;
             return this;
         }
         @CustomType.Setter
         public Builder uid(Integer uid) {
-            this.uid = Objects.requireNonNull(uid);
+            if (uid == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccountLinuxUserConfiguration", "uid");
+            }
+            this.uid = uid;
             return this;
         }
         public GetPoolUserAccountLinuxUserConfiguration build() {

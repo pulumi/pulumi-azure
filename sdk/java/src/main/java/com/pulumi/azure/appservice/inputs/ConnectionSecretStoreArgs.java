@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ConnectionSecretStoreArgs extends com.pulumi.resources.Resour
         }
 
         public ConnectionSecretStoreArgs build() {
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("ConnectionSecretStoreArgs", "keyVaultId");
+            }
             return $;
         }
     }

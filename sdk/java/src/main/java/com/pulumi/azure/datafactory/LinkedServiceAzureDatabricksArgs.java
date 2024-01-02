@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureDatabricksKeyVaultP
 import com.pulumi.azure.datafactory.inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -572,8 +573,12 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         public LinkedServiceAzureDatabricksArgs build() {
-            $.adbDomain = Objects.requireNonNull($.adbDomain, "expected parameter 'adbDomain' to be non-null");
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.adbDomain == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksArgs", "adbDomain");
+            }
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksArgs", "dataFactoryId");
+            }
             return $;
         }
     }

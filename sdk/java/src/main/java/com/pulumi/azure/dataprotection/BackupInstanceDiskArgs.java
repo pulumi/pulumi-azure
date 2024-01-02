@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class BackupInstanceDiskArgs extends com.pulumi.resources.ResourceA
         }
 
         public BackupInstanceDiskArgs build() {
-            $.backupPolicyId = Objects.requireNonNull($.backupPolicyId, "expected parameter 'backupPolicyId' to be non-null");
-            $.diskId = Objects.requireNonNull($.diskId, "expected parameter 'diskId' to be non-null");
-            $.snapshotResourceGroupName = Objects.requireNonNull($.snapshotResourceGroupName, "expected parameter 'snapshotResourceGroupName' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.backupPolicyId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceDiskArgs", "backupPolicyId");
+            }
+            if ($.diskId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceDiskArgs", "diskId");
+            }
+            if ($.snapshotResourceGroupName == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceDiskArgs", "snapshotResourceGroupName");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceDiskArgs", "vaultId");
+            }
             return $;
         }
     }

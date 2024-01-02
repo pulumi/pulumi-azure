@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,7 +133,9 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
         }
 
         public FrontdoorSecretSecretCustomerCertificateArgs build() {
-            $.keyVaultCertificateId = Objects.requireNonNull($.keyVaultCertificateId, "expected parameter 'keyVaultCertificateId' to be non-null");
+            if ($.keyVaultCertificateId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorSecretSecretCustomerCertificateArgs", "keyVaultCertificateId");
+            }
             return $;
         }
     }

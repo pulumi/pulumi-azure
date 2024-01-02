@@ -74,6 +74,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrence {
 
         @CustomType.Setter
         public Builder dailies(@Nullable List<AlertProcessingRuleActionGroupScheduleRecurrenceDaily> dailies) {
+
             this.dailies = dailies;
             return this;
         }
@@ -82,6 +83,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrence {
         }
         @CustomType.Setter
         public Builder monthlies(@Nullable List<AlertProcessingRuleActionGroupScheduleRecurrenceMonthly> monthlies) {
+
             this.monthlies = monthlies;
             return this;
         }
@@ -90,6 +92,7 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrence {
         }
         @CustomType.Setter
         public Builder weeklies(@Nullable List<AlertProcessingRuleActionGroupScheduleRecurrenceWeekly> weeklies) {
+
             this.weeklies = weeklies;
             return this;
         }

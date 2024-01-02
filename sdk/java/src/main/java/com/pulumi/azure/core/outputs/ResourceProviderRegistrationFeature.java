@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -49,12 +50,18 @@ public final class ResourceProviderRegistrationFeature {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ResourceProviderRegistrationFeature", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder registered(Boolean registered) {
-            this.registered = Objects.requireNonNull(registered);
+            if (registered == null) {
+              throw new MissingRequiredPropertyException("ResourceProviderRegistrationFeature", "registered");
+            }
+            this.registered = registered;
             return this;
         }
         public ResourceProviderRegistrationFeature build() {

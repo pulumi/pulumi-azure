@@ -5,6 +5,7 @@ package com.pulumi.azure.relay;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,9 +300,15 @@ public final class HybridConnectionAuthorizationRuleArgs extends com.pulumi.reso
         }
 
         public HybridConnectionAuthorizationRuleArgs build() {
-            $.hybridConnectionName = Objects.requireNonNull($.hybridConnectionName, "expected parameter 'hybridConnectionName' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.hybridConnectionName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionAuthorizationRuleArgs", "hybridConnectionName");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionAuthorizationRuleArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionAuthorizationRuleArgs", "resourceGroupName");
+            }
             return $;
         }
     }

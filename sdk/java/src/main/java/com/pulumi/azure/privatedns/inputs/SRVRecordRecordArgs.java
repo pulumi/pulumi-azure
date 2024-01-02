@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class SRVRecordRecordArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public SRVRecordRecordArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.weight = Objects.requireNonNull($.weight, "expected parameter 'weight' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("SRVRecordRecordArgs", "port");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("SRVRecordRecordArgs", "priority");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("SRVRecordRecordArgs", "target");
+            }
+            if ($.weight == null) {
+                throw new MissingRequiredPropertyException("SRVRecordRecordArgs", "weight");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.azure.logicapps.inputs.StandardIdentityArgs;
 import com.pulumi.azure.logicapps.inputs.StandardSiteConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -763,10 +764,18 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public StandardArgs build() {
-            $.appServicePlanId = Objects.requireNonNull($.appServicePlanId, "expected parameter 'appServicePlanId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountAccessKey = Objects.requireNonNull($.storageAccountAccessKey, "expected parameter 'storageAccountAccessKey' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
+            if ($.appServicePlanId == null) {
+                throw new MissingRequiredPropertyException("StandardArgs", "appServicePlanId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StandardArgs", "resourceGroupName");
+            }
+            if ($.storageAccountAccessKey == null) {
+                throw new MissingRequiredPropertyException("StandardArgs", "storageAccountAccessKey");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("StandardArgs", "storageAccountName");
+            }
             return $;
         }
     }

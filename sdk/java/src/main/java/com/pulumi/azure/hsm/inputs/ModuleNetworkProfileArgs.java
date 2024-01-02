@@ -5,6 +5,7 @@ package com.pulumi.azure.hsm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ModuleNetworkProfileArgs extends com.pulumi.resources.Resourc
         }
 
         public ModuleNetworkProfileArgs build() {
-            $.networkInterfacePrivateIpAddresses = Objects.requireNonNull($.networkInterfacePrivateIpAddresses, "expected parameter 'networkInterfacePrivateIpAddresses' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.networkInterfacePrivateIpAddresses == null) {
+                throw new MissingRequiredPropertyException("ModuleNetworkProfileArgs", "networkInterfacePrivateIpAddresses");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ModuleNetworkProfileArgs", "subnetId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.managementresource;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class ManangementLockArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ManangementLockArgs build() {
-            $.lockLevel = Objects.requireNonNull($.lockLevel, "expected parameter 'lockLevel' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.lockLevel == null) {
+                throw new MissingRequiredPropertyException("ManangementLockArgs", "lockLevel");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("ManangementLockArgs", "scope");
+            }
             return $;
         }
     }

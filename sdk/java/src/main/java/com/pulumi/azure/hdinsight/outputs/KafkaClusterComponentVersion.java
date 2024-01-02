@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class KafkaClusterComponentVersion {
 
         @CustomType.Setter
         public Builder kafka(String kafka) {
-            this.kafka = Objects.requireNonNull(kafka);
+            if (kafka == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterComponentVersion", "kafka");
+            }
+            this.kafka = kafka;
             return this;
         }
         public KafkaClusterComponentVersion build() {

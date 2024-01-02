@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AppServiceAuthSettingsTwitterArgs extends com.pulumi.resource
         }
 
         public AppServiceAuthSettingsTwitterArgs build() {
-            $.consumerKey = Objects.requireNonNull($.consumerKey, "expected parameter 'consumerKey' to be non-null");
-            $.consumerSecret = Objects.requireNonNull($.consumerSecret, "expected parameter 'consumerSecret' to be non-null");
+            if ($.consumerKey == null) {
+                throw new MissingRequiredPropertyException("AppServiceAuthSettingsTwitterArgs", "consumerKey");
+            }
+            if ($.consumerSecret == null) {
+                throw new MissingRequiredPropertyException("AppServiceAuthSettingsTwitterArgs", "consumerSecret");
+            }
             return $;
         }
     }

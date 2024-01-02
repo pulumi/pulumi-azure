@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class WindowsVirtualMachineScaleSetSourceImageReference {
 
         @CustomType.Setter
         public Builder offer(String offer) {
-            this.offer = Objects.requireNonNull(offer);
+            if (offer == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSourceImageReference", "offer");
+            }
+            this.offer = offer;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSourceImageReference", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSourceImageReference", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetSourceImageReference", "version");
+            }
+            this.version = version;
             return this;
         }
         public WindowsVirtualMachineScaleSetSourceImageReference build() {

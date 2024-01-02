@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,42 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
 
         @CustomType.Setter
         public Builder destinationFragment(@Nullable String destinationFragment) {
+
             this.destinationFragment = destinationFragment;
             return this;
         }
         @CustomType.Setter
         public Builder destinationHostname(String destinationHostname) {
-            this.destinationHostname = Objects.requireNonNull(destinationHostname);
+            if (destinationHostname == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleActionsUrlRedirectAction", "destinationHostname");
+            }
+            this.destinationHostname = destinationHostname;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPath(@Nullable String destinationPath) {
+
             this.destinationPath = destinationPath;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder redirectProtocol(@Nullable String redirectProtocol) {
+
             this.redirectProtocol = redirectProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder redirectType(String redirectType) {
-            this.redirectType = Objects.requireNonNull(redirectType);
+            if (redirectType == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleActionsUrlRedirectAction", "redirectType");
+            }
+            this.redirectType = redirectType;
             return this;
         }
         public FrontdoorRuleActionsUrlRedirectAction build() {

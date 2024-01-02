@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class KubernetesClusterWindowsProfileGmsaArgs extends com.pulumi.re
         }
 
         public KubernetesClusterWindowsProfileGmsaArgs build() {
-            $.dnsServer = Objects.requireNonNull($.dnsServer, "expected parameter 'dnsServer' to be non-null");
-            $.rootDomain = Objects.requireNonNull($.rootDomain, "expected parameter 'rootDomain' to be non-null");
+            if ($.dnsServer == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileGmsaArgs", "dnsServer");
+            }
+            if ($.rootDomain == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileGmsaArgs", "rootDomain");
+            }
             return $;
         }
     }

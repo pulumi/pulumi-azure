@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetExtendedLocationsArgs extends com.pulumi.resources.InvokeA
         }
 
         public GetExtendedLocationsArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetExtendedLocationsArgs", "location");
+            }
             return $;
         }
     }

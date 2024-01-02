@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApplicationGatewayGlobalArgs extends com.pulumi.resources.Res
         }
 
         public ApplicationGatewayGlobalArgs build() {
-            $.requestBufferingEnabled = Objects.requireNonNull($.requestBufferingEnabled, "expected parameter 'requestBufferingEnabled' to be non-null");
-            $.responseBufferingEnabled = Objects.requireNonNull($.responseBufferingEnabled, "expected parameter 'responseBufferingEnabled' to be non-null");
+            if ($.requestBufferingEnabled == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayGlobalArgs", "requestBufferingEnabled");
+            }
+            if ($.responseBufferingEnabled == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayGlobalArgs", "responseBufferingEnabled");
+            }
             return $;
         }
     }

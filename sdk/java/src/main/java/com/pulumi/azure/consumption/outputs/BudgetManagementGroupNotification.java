@@ -4,6 +4,7 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -103,7 +104,10 @@ public final class BudgetManagementGroupNotification {
 
         @CustomType.Setter
         public Builder contactEmails(List<String> contactEmails) {
-            this.contactEmails = Objects.requireNonNull(contactEmails);
+            if (contactEmails == null) {
+              throw new MissingRequiredPropertyException("BudgetManagementGroupNotification", "contactEmails");
+            }
+            this.contactEmails = contactEmails;
             return this;
         }
         public Builder contactEmails(String... contactEmails) {
@@ -111,21 +115,29 @@ public final class BudgetManagementGroupNotification {
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("BudgetManagementGroupNotification", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Integer threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("BudgetManagementGroupNotification", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder thresholdType(@Nullable String thresholdType) {
+
             this.thresholdType = thresholdType;
             return this;
         }

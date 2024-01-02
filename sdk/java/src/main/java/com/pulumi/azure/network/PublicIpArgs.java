@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -739,8 +740,12 @@ public final class PublicIpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PublicIpArgs build() {
-            $.allocationMethod = Objects.requireNonNull($.allocationMethod, "expected parameter 'allocationMethod' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.allocationMethod == null) {
+                throw new MissingRequiredPropertyException("PublicIpArgs", "allocationMethod");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PublicIpArgs", "resourceGroupName");
+            }
             return $;
         }
     }

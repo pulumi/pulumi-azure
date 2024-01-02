@@ -6,6 +6,7 @@ package com.pulumi.azure.search.outputs;
 import com.pulumi.azure.search.outputs.GetServiceIdentity;
 import com.pulumi.azure.search.outputs.GetServiceQueryKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -165,12 +166,18 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetServiceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetServiceIdentity... identities) {
@@ -178,27 +185,42 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder partitionCount(Integer partitionCount) {
-            this.partitionCount = Objects.requireNonNull(partitionCount);
+            if (partitionCount == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "partitionCount");
+            }
+            this.partitionCount = partitionCount;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder queryKeys(List<GetServiceQueryKey> queryKeys) {
-            this.queryKeys = Objects.requireNonNull(queryKeys);
+            if (queryKeys == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "queryKeys");
+            }
+            this.queryKeys = queryKeys;
             return this;
         }
         public Builder queryKeys(GetServiceQueryKey... queryKeys) {
@@ -206,17 +228,26 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder replicaCount(Integer replicaCount) {
-            this.replicaCount = Objects.requireNonNull(replicaCount);
+            if (replicaCount == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "replicaCount");
+            }
+            this.replicaCount = replicaCount;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         public GetServiceResult build() {

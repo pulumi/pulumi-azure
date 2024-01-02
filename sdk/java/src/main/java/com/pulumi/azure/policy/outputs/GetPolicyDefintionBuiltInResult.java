@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -175,57 +176,88 @@ public final class GetPolicyDefintionBuiltInResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder managementGroupName(@Nullable String managementGroupName) {
+
             this.managementGroupName = managementGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyRule(String policyRule) {
-            this.policyRule = Objects.requireNonNull(policyRule);
+            if (policyRule == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "policyRule");
+            }
+            this.policyRule = policyRule;
             return this;
         }
         @CustomType.Setter
         public Builder policyType(String policyType) {
-            this.policyType = Objects.requireNonNull(policyType);
+            if (policyType == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "policyType");
+            }
+            this.policyType = policyType;
             return this;
         }
         @CustomType.Setter
         public Builder roleDefinitionIds(List<String> roleDefinitionIds) {
-            this.roleDefinitionIds = Objects.requireNonNull(roleDefinitionIds);
+            if (roleDefinitionIds == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "roleDefinitionIds");
+            }
+            this.roleDefinitionIds = roleDefinitionIds;
             return this;
         }
         public Builder roleDefinitionIds(String... roleDefinitionIds) {
@@ -233,7 +265,10 @@ public final class GetPolicyDefintionBuiltInResult {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPolicyDefintionBuiltInResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetPolicyDefintionBuiltInResult build() {

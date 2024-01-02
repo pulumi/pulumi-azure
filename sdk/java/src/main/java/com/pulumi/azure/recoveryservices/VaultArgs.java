@@ -8,6 +8,7 @@ import com.pulumi.azure.recoveryservices.inputs.VaultIdentityArgs;
 import com.pulumi.azure.recoveryservices.inputs.VaultMonitoringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -578,8 +579,12 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VaultArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VaultArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("VaultArgs", "sku");
+            }
             return $;
         }
     }

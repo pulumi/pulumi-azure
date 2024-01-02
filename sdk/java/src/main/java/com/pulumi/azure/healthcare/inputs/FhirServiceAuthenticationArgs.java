@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -131,8 +132,12 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
         }
 
         public FhirServiceAuthenticationArgs build() {
-            $.audience = Objects.requireNonNull($.audience, "expected parameter 'audience' to be non-null");
-            $.authority = Objects.requireNonNull($.authority, "expected parameter 'authority' to be non-null");
+            if ($.audience == null) {
+                throw new MissingRequiredPropertyException("FhirServiceAuthenticationArgs", "audience");
+            }
+            if ($.authority == null) {
+                throw new MissingRequiredPropertyException("FhirServiceAuthenticationArgs", "authority");
+            }
             return $;
         }
     }

@@ -100,26 +100,31 @@ public final class LabRoster {
 
         @CustomType.Setter
         public Builder activeDirectoryGroupId(@Nullable String activeDirectoryGroupId) {
+
             this.activeDirectoryGroupId = activeDirectoryGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder lmsInstance(@Nullable String lmsInstance) {
+
             this.lmsInstance = lmsInstance;
             return this;
         }
         @CustomType.Setter
         public Builder ltiClientId(@Nullable String ltiClientId) {
+
             this.ltiClientId = ltiClientId;
             return this;
         }
         @CustomType.Setter
         public Builder ltiContextId(@Nullable String ltiContextId) {
+
             this.ltiContextId = ltiContextId;
             return this;
         }
         @CustomType.Setter
         public Builder ltiRosterEndpoint(@Nullable String ltiRosterEndpoint) {
+
             this.ltiRosterEndpoint = ltiRosterEndpoint;
             return this;
         }

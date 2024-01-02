@@ -88,21 +88,25 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
 
         @CustomType.Setter
         public Builder swapFileSizeMb(@Nullable Integer swapFileSizeMb) {
+
             this.swapFileSizeMb = swapFileSizeMb;
             return this;
         }
         @CustomType.Setter
         public Builder sysctlConfig(@Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig) {
+
             this.sysctlConfig = sysctlConfig;
             return this;
         }
         @CustomType.Setter
         public Builder transparentHugePageDefrag(@Nullable String transparentHugePageDefrag) {
+
             this.transparentHugePageDefrag = transparentHugePageDefrag;
             return this;
         }
         @CustomType.Setter
         public Builder transparentHugePageEnabled(@Nullable String transparentHugePageEnabled) {
+
             this.transparentHugePageEnabled = transparentHugePageEnabled;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -91,8 +92,12 @@ public final class RegistryNetworkRuleSetVirtualNetworkArgs extends com.pulumi.r
         }
 
         public RegistryNetworkRuleSetVirtualNetworkArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("RegistryNetworkRuleSetVirtualNetworkArgs", "action");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("RegistryNetworkRuleSetVirtualNetworkArgs", "subnetId");
+            }
             return $;
         }
     }

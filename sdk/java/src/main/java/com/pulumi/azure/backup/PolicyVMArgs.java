@@ -11,6 +11,7 @@ import com.pulumi.azure.backup.inputs.PolicyVMRetentionWeeklyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionYearlyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -490,9 +491,15 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyVMArgs build() {
-            $.backup = Objects.requireNonNull($.backup, "expected parameter 'backup' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.backup == null) {
+                throw new MissingRequiredPropertyException("PolicyVMArgs", "backup");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("PolicyVMArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyVMArgs", "resourceGroupName");
+            }
             return $;
         }
     }

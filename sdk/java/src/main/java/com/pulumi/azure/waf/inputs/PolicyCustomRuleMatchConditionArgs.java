@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.inputs;
 import com.pulumi.azure.waf.inputs.PolicyCustomRuleMatchConditionMatchVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -257,8 +258,12 @@ public final class PolicyCustomRuleMatchConditionArgs extends com.pulumi.resourc
         }
 
         public PolicyCustomRuleMatchConditionArgs build() {
-            $.matchVariables = Objects.requireNonNull($.matchVariables, "expected parameter 'matchVariables' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
+            if ($.matchVariables == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleMatchConditionArgs", "matchVariables");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("PolicyCustomRuleMatchConditionArgs", "operator");
+            }
             return $;
         }
     }

@@ -9,6 +9,7 @@ import com.pulumi.azure.batch.inputs.AccountKeyVaultReferenceArgs;
 import com.pulumi.azure.batch.inputs.AccountNetworkProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -614,7 +615,9 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

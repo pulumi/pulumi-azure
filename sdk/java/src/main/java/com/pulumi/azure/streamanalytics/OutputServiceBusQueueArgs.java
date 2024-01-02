@@ -6,6 +6,7 @@ package com.pulumi.azure.streamanalytics;
 import com.pulumi.azure.streamanalytics.inputs.OutputServiceBusQueueSerializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -467,11 +468,21 @@ public final class OutputServiceBusQueueArgs extends com.pulumi.resources.Resour
         }
 
         public OutputServiceBusQueueArgs build() {
-            $.queueName = Objects.requireNonNull($.queueName, "expected parameter 'queueName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.servicebusNamespace = Objects.requireNonNull($.servicebusNamespace, "expected parameter 'servicebusNamespace' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
+            if ($.queueName == null) {
+                throw new MissingRequiredPropertyException("OutputServiceBusQueueArgs", "queueName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputServiceBusQueueArgs", "resourceGroupName");
+            }
+            if ($.serialization == null) {
+                throw new MissingRequiredPropertyException("OutputServiceBusQueueArgs", "serialization");
+            }
+            if ($.servicebusNamespace == null) {
+                throw new MissingRequiredPropertyException("OutputServiceBusQueueArgs", "servicebusNamespace");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputServiceBusQueueArgs", "streamAnalyticsJobName");
+            }
             return $;
         }
     }

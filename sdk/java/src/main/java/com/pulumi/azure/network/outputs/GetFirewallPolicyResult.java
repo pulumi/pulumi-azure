@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetFirewallPolicyDn;
 import com.pulumi.azure.network.outputs.GetFirewallPolicyThreatIntelligenceAllowlist;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -120,12 +121,18 @@ public final class GetFirewallPolicyResult {
 
         @CustomType.Setter
         public Builder basePolicyId(String basePolicyId) {
-            this.basePolicyId = Objects.requireNonNull(basePolicyId);
+            if (basePolicyId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "basePolicyId");
+            }
+            this.basePolicyId = basePolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder childPolicies(List<String> childPolicies) {
-            this.childPolicies = Objects.requireNonNull(childPolicies);
+            if (childPolicies == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "childPolicies");
+            }
+            this.childPolicies = childPolicies;
             return this;
         }
         public Builder childPolicies(String... childPolicies) {
@@ -133,7 +140,10 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder dns(List<GetFirewallPolicyDn> dns) {
-            this.dns = Objects.requireNonNull(dns);
+            if (dns == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "dns");
+            }
+            this.dns = dns;
             return this;
         }
         public Builder dns(GetFirewallPolicyDn... dns) {
@@ -141,7 +151,10 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder firewalls(List<String> firewalls) {
-            this.firewalls = Objects.requireNonNull(firewalls);
+            if (firewalls == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "firewalls");
+            }
+            this.firewalls = firewalls;
             return this;
         }
         public Builder firewalls(String... firewalls) {
@@ -149,27 +162,42 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder ruleCollectionGroups(List<String> ruleCollectionGroups) {
-            this.ruleCollectionGroups = Objects.requireNonNull(ruleCollectionGroups);
+            if (ruleCollectionGroups == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "ruleCollectionGroups");
+            }
+            this.ruleCollectionGroups = ruleCollectionGroups;
             return this;
         }
         public Builder ruleCollectionGroups(String... ruleCollectionGroups) {
@@ -177,12 +205,18 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder threatIntelligenceAllowlists(List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists) {
-            this.threatIntelligenceAllowlists = Objects.requireNonNull(threatIntelligenceAllowlists);
+            if (threatIntelligenceAllowlists == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "threatIntelligenceAllowlists");
+            }
+            this.threatIntelligenceAllowlists = threatIntelligenceAllowlists;
             return this;
         }
         public Builder threatIntelligenceAllowlists(GetFirewallPolicyThreatIntelligenceAllowlist... threatIntelligenceAllowlists) {
@@ -190,7 +224,10 @@ public final class GetFirewallPolicyResult {
         }
         @CustomType.Setter
         public Builder threatIntelligenceMode(String threatIntelligenceMode) {
-            this.threatIntelligenceMode = Objects.requireNonNull(threatIntelligenceMode);
+            if (threatIntelligenceMode == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "threatIntelligenceMode");
+            }
+            this.threatIntelligenceMode = threatIntelligenceMode;
             return this;
         }
         public GetFirewallPolicyResult build() {

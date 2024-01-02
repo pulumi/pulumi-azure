@@ -4,6 +4,7 @@
 package com.pulumi.azure.consumption.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class BudgetManagementGroupTimePeriod {
 
         @CustomType.Setter
         public Builder endDate(@Nullable String endDate) {
+
             this.endDate = endDate;
             return this;
         }
         @CustomType.Setter
         public Builder startDate(String startDate) {
-            this.startDate = Objects.requireNonNull(startDate);
+            if (startDate == null) {
+              throw new MissingRequiredPropertyException("BudgetManagementGroupTimePeriod", "startDate");
+            }
+            this.startDate = startDate;
             return this;
         }
         public BudgetManagementGroupTimePeriod build() {

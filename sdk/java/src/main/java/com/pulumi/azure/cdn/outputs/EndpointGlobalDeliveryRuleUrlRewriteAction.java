@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class EndpointGlobalDeliveryRuleUrlRewriteAction {
 
         @CustomType.Setter
         public Builder destination(String destination) {
-            this.destination = Objects.requireNonNull(destination);
+            if (destination == null) {
+              throw new MissingRequiredPropertyException("EndpointGlobalDeliveryRuleUrlRewriteAction", "destination");
+            }
+            this.destination = destination;
             return this;
         }
         @CustomType.Setter
         public Builder preserveUnmatchedPath(@Nullable Boolean preserveUnmatchedPath) {
+
             this.preserveUnmatchedPath = preserveUnmatchedPath;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePattern(String sourcePattern) {
-            this.sourcePattern = Objects.requireNonNull(sourcePattern);
+            if (sourcePattern == null) {
+              throw new MissingRequiredPropertyException("EndpointGlobalDeliveryRuleUrlRewriteAction", "sourcePattern");
+            }
+            this.sourcePattern = sourcePattern;
             return this;
         }
         public EndpointGlobalDeliveryRuleUrlRewriteAction build() {

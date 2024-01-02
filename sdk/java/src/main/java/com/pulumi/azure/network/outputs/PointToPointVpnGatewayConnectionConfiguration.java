@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.PointToPointVpnGatewayConnectionConfigurationRoute;
 import com.pulumi.azure.network.outputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,22 +90,30 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
 
         @CustomType.Setter
         public Builder internetSecurityEnabled(@Nullable Boolean internetSecurityEnabled) {
+
             this.internetSecurityEnabled = internetSecurityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PointToPointVpnGatewayConnectionConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder route(@Nullable PointToPointVpnGatewayConnectionConfigurationRoute route) {
+
             this.route = route;
             return this;
         }
         @CustomType.Setter
         public Builder vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool) {
-            this.vpnClientAddressPool = Objects.requireNonNull(vpnClientAddressPool);
+            if (vpnClientAddressPool == null) {
+              throw new MissingRequiredPropertyException("PointToPointVpnGatewayConnectionConfiguration", "vpnClientAddressPool");
+            }
+            this.vpnClientAddressPool = vpnClientAddressPool;
             return this;
         }
         public PointToPointVpnGatewayConnectionConfiguration build() {

@@ -114,6 +114,7 @@ public final class AttachedDatabaseConfigurationSharing {
 
         @CustomType.Setter
         public Builder externalTablesToExcludes(@Nullable List<String> externalTablesToExcludes) {
+
             this.externalTablesToExcludes = externalTablesToExcludes;
             return this;
         }
@@ -122,6 +123,7 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         @CustomType.Setter
         public Builder externalTablesToIncludes(@Nullable List<String> externalTablesToIncludes) {
+
             this.externalTablesToIncludes = externalTablesToIncludes;
             return this;
         }
@@ -130,6 +132,7 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         @CustomType.Setter
         public Builder materializedViewsToExcludes(@Nullable List<String> materializedViewsToExcludes) {
+
             this.materializedViewsToExcludes = materializedViewsToExcludes;
             return this;
         }
@@ -138,6 +141,7 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         @CustomType.Setter
         public Builder materializedViewsToIncludes(@Nullable List<String> materializedViewsToIncludes) {
+
             this.materializedViewsToIncludes = materializedViewsToIncludes;
             return this;
         }
@@ -146,6 +150,7 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         @CustomType.Setter
         public Builder tablesToExcludes(@Nullable List<String> tablesToExcludes) {
+
             this.tablesToExcludes = tablesToExcludes;
             return this;
         }
@@ -154,6 +159,7 @@ public final class AttachedDatabaseConfigurationSharing {
         }
         @CustomType.Setter
         public Builder tablesToIncludes(@Nullable List<String> tablesToIncludes) {
+
             this.tablesToIncludes = tablesToIncludes;
             return this;
         }

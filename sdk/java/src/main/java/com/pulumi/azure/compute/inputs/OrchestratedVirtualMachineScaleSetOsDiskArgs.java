@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -272,8 +273,12 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         public OrchestratedVirtualMachineScaleSetOsDiskArgs build() {
-            $.caching = Objects.requireNonNull($.caching, "expected parameter 'caching' to be non-null");
-            $.storageAccountType = Objects.requireNonNull($.storageAccountType, "expected parameter 'storageAccountType' to be non-null");
+            if ($.caching == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsDiskArgs", "caching");
+            }
+            if ($.storageAccountType == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsDiskArgs", "storageAccountType");
+            }
             return $;
         }
     }

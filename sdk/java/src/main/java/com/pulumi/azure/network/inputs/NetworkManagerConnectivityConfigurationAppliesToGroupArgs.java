@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -196,8 +197,12 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroupArgs ext
         }
 
         public NetworkManagerConnectivityConfigurationAppliesToGroupArgs build() {
-            $.groupConnectivity = Objects.requireNonNull($.groupConnectivity, "expected parameter 'groupConnectivity' to be non-null");
-            $.networkGroupId = Objects.requireNonNull($.networkGroupId, "expected parameter 'networkGroupId' to be non-null");
+            if ($.groupConnectivity == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationAppliesToGroupArgs", "groupConnectivity");
+            }
+            if ($.networkGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationAppliesToGroupArgs", "networkGroupId");
+            }
             return $;
         }
     }

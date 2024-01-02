@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetSqlDatabaseAutoscaleSetting {
 
         @CustomType.Setter
         public Builder maxThroughput(Integer maxThroughput) {
-            this.maxThroughput = Objects.requireNonNull(maxThroughput);
+            if (maxThroughput == null) {
+              throw new MissingRequiredPropertyException("GetSqlDatabaseAutoscaleSetting", "maxThroughput");
+            }
+            this.maxThroughput = maxThroughput;
             return this;
         }
         public GetSqlDatabaseAutoscaleSetting build() {

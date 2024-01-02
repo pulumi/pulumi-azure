@@ -130,16 +130,19 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder entityMatchingMethod(@Nullable String entityMatchingMethod) {
+
             this.entityMatchingMethod = entityMatchingMethod;
             return this;
         }
         @CustomType.Setter
         public Builder groupByAlertDetails(@Nullable List<String> groupByAlertDetails) {
+
             this.groupByAlertDetails = groupByAlertDetails;
             return this;
         }
@@ -148,6 +151,7 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
         }
         @CustomType.Setter
         public Builder groupByCustomDetails(@Nullable List<String> groupByCustomDetails) {
+
             this.groupByCustomDetails = groupByCustomDetails;
             return this;
         }
@@ -156,6 +160,7 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
         }
         @CustomType.Setter
         public Builder groupByEntities(@Nullable List<String> groupByEntities) {
+
             this.groupByEntities = groupByEntities;
             return this;
         }
@@ -164,11 +169,13 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
         }
         @CustomType.Setter
         public Builder lookbackDuration(@Nullable String lookbackDuration) {
+
             this.lookbackDuration = lookbackDuration;
             return this;
         }
         @CustomType.Setter
         public Builder reopenClosedIncidents(@Nullable Boolean reopenClosedIncidents) {
+
             this.reopenClosedIncidents = reopenClosedIncidents;
             return this;
         }

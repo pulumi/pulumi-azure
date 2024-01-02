@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestrictionHeaders;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -82,36 +83,47 @@ public final class GetStandardSiteConfigIpRestriction {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder headers(GetStandardSiteConfigIpRestrictionHeaders headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder serviceTag(@Nullable String serviceTag) {
+
             this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
+
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }

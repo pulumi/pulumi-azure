@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -632,12 +633,24 @@ public final class EventGridDataConnectionArgs extends com.pulumi.resources.Reso
         }
 
         public EventGridDataConnectionArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.eventhubConsumerGroupName = Objects.requireNonNull($.eventhubConsumerGroupName, "expected parameter 'eventhubConsumerGroupName' to be non-null");
-            $.eventhubId = Objects.requireNonNull($.eventhubId, "expected parameter 'eventhubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "clusterName");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "databaseName");
+            }
+            if ($.eventhubConsumerGroupName == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "eventhubConsumerGroupName");
+            }
+            if ($.eventhubId == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "eventhubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "resourceGroupName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("EventGridDataConnectionArgs", "storageAccountId");
+            }
             return $;
         }
     }

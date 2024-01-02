@@ -73,16 +73,19 @@ public final class IoTHubCloudToDeviceFeedback {
 
         @CustomType.Setter
         public Builder lockDuration(@Nullable String lockDuration) {
+
             this.lockDuration = lockDuration;
             return this;
         }
         @CustomType.Setter
         public Builder maxDeliveryCount(@Nullable Integer maxDeliveryCount) {
+
             this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }
         @CustomType.Setter
         public Builder timeToLive(@Nullable String timeToLive) {
+
             this.timeToLive = timeToLive;
             return this;
         }

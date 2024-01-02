@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesAlertAction;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesAlertTrigger;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -248,7 +249,10 @@ public final class GetScheduledQueryRulesAlertResult {
 
         @CustomType.Setter
         public Builder actions(List<GetScheduledQueryRulesAlertAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetScheduledQueryRulesAlertAction... actions) {
@@ -256,7 +260,10 @@ public final class GetScheduledQueryRulesAlertResult {
         }
         @CustomType.Setter
         public Builder authorizedResourceIds(List<String> authorizedResourceIds) {
-            this.authorizedResourceIds = Objects.requireNonNull(authorizedResourceIds);
+            if (authorizedResourceIds == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "authorizedResourceIds");
+            }
+            this.authorizedResourceIds = authorizedResourceIds;
             return this;
         }
         public Builder authorizedResourceIds(String... authorizedResourceIds) {
@@ -264,77 +271,122 @@ public final class GetScheduledQueryRulesAlertResult {
         }
         @CustomType.Setter
         public Builder dataSourceId(String dataSourceId) {
-            this.dataSourceId = Objects.requireNonNull(dataSourceId);
+            if (dataSourceId == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "dataSourceId");
+            }
+            this.dataSourceId = dataSourceId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(Integer frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder queryType(String queryType) {
-            this.queryType = Objects.requireNonNull(queryType);
+            if (queryType == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "queryType");
+            }
+            this.queryType = queryType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder severity(Integer severity) {
-            this.severity = Objects.requireNonNull(severity);
+            if (severity == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "severity");
+            }
+            this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throttling(Integer throttling) {
-            this.throttling = Objects.requireNonNull(throttling);
+            if (throttling == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "throttling");
+            }
+            this.throttling = throttling;
             return this;
         }
         @CustomType.Setter
         public Builder timeWindow(Integer timeWindow) {
-            this.timeWindow = Objects.requireNonNull(timeWindow);
+            if (timeWindow == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "timeWindow");
+            }
+            this.timeWindow = timeWindow;
             return this;
         }
         @CustomType.Setter
         public Builder triggers(List<GetScheduledQueryRulesAlertTrigger> triggers) {
-            this.triggers = Objects.requireNonNull(triggers);
+            if (triggers == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertResult", "triggers");
+            }
+            this.triggers = triggers;
             return this;
         }
         public Builder triggers(GetScheduledQueryRulesAlertTrigger... triggers) {

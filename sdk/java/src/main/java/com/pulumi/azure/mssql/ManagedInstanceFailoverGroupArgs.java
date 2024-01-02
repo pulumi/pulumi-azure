@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.mssql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -263,9 +264,15 @@ public final class ManagedInstanceFailoverGroupArgs extends com.pulumi.resources
         }
 
         public ManagedInstanceFailoverGroupArgs build() {
-            $.managedInstanceId = Objects.requireNonNull($.managedInstanceId, "expected parameter 'managedInstanceId' to be non-null");
-            $.partnerManagedInstanceId = Objects.requireNonNull($.partnerManagedInstanceId, "expected parameter 'partnerManagedInstanceId' to be non-null");
-            $.readWriteEndpointFailoverPolicy = Objects.requireNonNull($.readWriteEndpointFailoverPolicy, "expected parameter 'readWriteEndpointFailoverPolicy' to be non-null");
+            if ($.managedInstanceId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceFailoverGroupArgs", "managedInstanceId");
+            }
+            if ($.partnerManagedInstanceId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceFailoverGroupArgs", "partnerManagedInstanceId");
+            }
+            if ($.readWriteEndpointFailoverPolicy == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceFailoverGroupArgs", "readWriteEndpointFailoverPolicy");
+            }
             return $;
         }
     }

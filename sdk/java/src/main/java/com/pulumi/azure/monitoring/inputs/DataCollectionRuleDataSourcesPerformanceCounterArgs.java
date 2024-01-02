@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -207,10 +208,18 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         public DataCollectionRuleDataSourcesPerformanceCounterArgs build() {
-            $.counterSpecifiers = Objects.requireNonNull($.counterSpecifiers, "expected parameter 'counterSpecifiers' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.samplingFrequencyInSeconds = Objects.requireNonNull($.samplingFrequencyInSeconds, "expected parameter 'samplingFrequencyInSeconds' to be non-null");
-            $.streams = Objects.requireNonNull($.streams, "expected parameter 'streams' to be non-null");
+            if ($.counterSpecifiers == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPerformanceCounterArgs", "counterSpecifiers");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPerformanceCounterArgs", "name");
+            }
+            if ($.samplingFrequencyInSeconds == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPerformanceCounterArgs", "samplingFrequencyInSeconds");
+            }
+            if ($.streams == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesPerformanceCounterArgs", "streams");
+            }
             return $;
         }
     }

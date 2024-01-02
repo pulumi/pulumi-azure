@@ -5,6 +5,7 @@ package com.pulumi.azure.cognitive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountStorageArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AccountStorageArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("AccountStorageArgs", "storageAccountId");
+            }
             return $;
         }
     }

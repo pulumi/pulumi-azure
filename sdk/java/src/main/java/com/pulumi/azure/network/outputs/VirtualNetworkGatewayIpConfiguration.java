@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,30 @@ public final class VirtualNetworkGatewayIpConfiguration {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
+
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayIpConfiguration", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public VirtualNetworkGatewayIpConfiguration build() {

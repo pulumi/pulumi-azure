@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetWindowsFunctionAppAuthSettingGithub {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppAuthSettingGithub", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
-            this.clientSecret = Objects.requireNonNull(clientSecret);
+            if (clientSecret == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppAuthSettingGithub", "clientSecret");
+            }
+            this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppAuthSettingGithub", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
-            this.oauthScopes = Objects.requireNonNull(oauthScopes);
+            if (oauthScopes == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppAuthSettingGithub", "oauthScopes");
+            }
+            this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -86,7 +87,10 @@ public final class GetDataCollectionRuleDataSourcePerformanceCounter {
 
         @CustomType.Setter
         public Builder counterSpecifiers(List<String> counterSpecifiers) {
-            this.counterSpecifiers = Objects.requireNonNull(counterSpecifiers);
+            if (counterSpecifiers == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePerformanceCounter", "counterSpecifiers");
+            }
+            this.counterSpecifiers = counterSpecifiers;
             return this;
         }
         public Builder counterSpecifiers(String... counterSpecifiers) {
@@ -94,17 +98,26 @@ public final class GetDataCollectionRuleDataSourcePerformanceCounter {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePerformanceCounter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder samplingFrequencyInSeconds(Integer samplingFrequencyInSeconds) {
-            this.samplingFrequencyInSeconds = Objects.requireNonNull(samplingFrequencyInSeconds);
+            if (samplingFrequencyInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePerformanceCounter", "samplingFrequencyInSeconds");
+            }
+            this.samplingFrequencyInSeconds = samplingFrequencyInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourcePerformanceCounter", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {

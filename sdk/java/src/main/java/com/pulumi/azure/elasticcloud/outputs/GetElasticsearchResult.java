@@ -5,6 +5,7 @@ package com.pulumi.azure.elasticcloud.outputs;
 
 import com.pulumi.azure.elasticcloud.outputs.GetElasticsearchLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -234,52 +235,82 @@ public final class GetElasticsearchResult {
 
         @CustomType.Setter
         public Builder elasticCloudDeploymentId(String elasticCloudDeploymentId) {
-            this.elasticCloudDeploymentId = Objects.requireNonNull(elasticCloudDeploymentId);
+            if (elasticCloudDeploymentId == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "elasticCloudDeploymentId");
+            }
+            this.elasticCloudDeploymentId = elasticCloudDeploymentId;
             return this;
         }
         @CustomType.Setter
         public Builder elasticCloudEmailAddress(String elasticCloudEmailAddress) {
-            this.elasticCloudEmailAddress = Objects.requireNonNull(elasticCloudEmailAddress);
+            if (elasticCloudEmailAddress == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "elasticCloudEmailAddress");
+            }
+            this.elasticCloudEmailAddress = elasticCloudEmailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder elasticCloudSsoDefaultUrl(String elasticCloudSsoDefaultUrl) {
-            this.elasticCloudSsoDefaultUrl = Objects.requireNonNull(elasticCloudSsoDefaultUrl);
+            if (elasticCloudSsoDefaultUrl == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "elasticCloudSsoDefaultUrl");
+            }
+            this.elasticCloudSsoDefaultUrl = elasticCloudSsoDefaultUrl;
             return this;
         }
         @CustomType.Setter
         public Builder elasticCloudUserId(String elasticCloudUserId) {
-            this.elasticCloudUserId = Objects.requireNonNull(elasticCloudUserId);
+            if (elasticCloudUserId == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "elasticCloudUserId");
+            }
+            this.elasticCloudUserId = elasticCloudUserId;
             return this;
         }
         @CustomType.Setter
         public Builder elasticsearchServiceUrl(String elasticsearchServiceUrl) {
-            this.elasticsearchServiceUrl = Objects.requireNonNull(elasticsearchServiceUrl);
+            if (elasticsearchServiceUrl == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "elasticsearchServiceUrl");
+            }
+            this.elasticsearchServiceUrl = elasticsearchServiceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kibanaServiceUrl(String kibanaServiceUrl) {
-            this.kibanaServiceUrl = Objects.requireNonNull(kibanaServiceUrl);
+            if (kibanaServiceUrl == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "kibanaServiceUrl");
+            }
+            this.kibanaServiceUrl = kibanaServiceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder kibanaSsoUri(String kibanaSsoUri) {
-            this.kibanaSsoUri = Objects.requireNonNull(kibanaSsoUri);
+            if (kibanaSsoUri == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "kibanaSsoUri");
+            }
+            this.kibanaSsoUri = kibanaSsoUri;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder logs(List<GetElasticsearchLog> logs) {
-            this.logs = Objects.requireNonNull(logs);
+            if (logs == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "logs");
+            }
+            this.logs = logs;
             return this;
         }
         public Builder logs(GetElasticsearchLog... logs) {
@@ -287,27 +318,42 @@ public final class GetElasticsearchResult {
         }
         @CustomType.Setter
         public Builder monitoringEnabled(Boolean monitoringEnabled) {
-            this.monitoringEnabled = Objects.requireNonNull(monitoringEnabled);
+            if (monitoringEnabled == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "monitoringEnabled");
+            }
+            this.monitoringEnabled = monitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetElasticsearchResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetElasticsearchResult build() {

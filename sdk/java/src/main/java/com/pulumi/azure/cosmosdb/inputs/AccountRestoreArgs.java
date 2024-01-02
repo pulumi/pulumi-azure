@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 import com.pulumi.azure.cosmosdb.inputs.AccountRestoreDatabaseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -170,8 +171,12 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AccountRestoreArgs build() {
-            $.restoreTimestampInUtc = Objects.requireNonNull($.restoreTimestampInUtc, "expected parameter 'restoreTimestampInUtc' to be non-null");
-            $.sourceCosmosdbAccountId = Objects.requireNonNull($.sourceCosmosdbAccountId, "expected parameter 'sourceCosmosdbAccountId' to be non-null");
+            if ($.restoreTimestampInUtc == null) {
+                throw new MissingRequiredPropertyException("AccountRestoreArgs", "restoreTimestampInUtc");
+            }
+            if ($.sourceCosmosdbAccountId == null) {
+                throw new MissingRequiredPropertyException("AccountRestoreArgs", "sourceCosmosdbAccountId");
+            }
             return $;
         }
     }

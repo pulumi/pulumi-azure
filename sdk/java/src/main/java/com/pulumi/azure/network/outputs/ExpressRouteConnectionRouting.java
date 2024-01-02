@@ -87,21 +87,25 @@ public final class ExpressRouteConnectionRouting {
 
         @CustomType.Setter
         public Builder associatedRouteTableId(@Nullable String associatedRouteTableId) {
+
             this.associatedRouteTableId = associatedRouteTableId;
             return this;
         }
         @CustomType.Setter
         public Builder inboundRouteMapId(@Nullable String inboundRouteMapId) {
+
             this.inboundRouteMapId = inboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder outboundRouteMapId(@Nullable String outboundRouteMapId) {
+
             this.outboundRouteMapId = outboundRouteMapId;
             return this;
         }
         @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
+
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
         }

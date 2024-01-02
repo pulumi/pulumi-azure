@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class HBaseClusterComponentVersionArgs extends com.pulumi.resources
         }
 
         public HBaseClusterComponentVersionArgs build() {
-            $.hbase = Objects.requireNonNull($.hbase, "expected parameter 'hbase' to be non-null");
+            if ($.hbase == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterComponentVersionArgs", "hbase");
+            }
             return $;
         }
     }

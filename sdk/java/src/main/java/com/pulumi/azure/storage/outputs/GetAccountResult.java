@@ -7,6 +7,7 @@ import com.pulumi.azure.storage.outputs.GetAccountAzureFilesAuthentication;
 import com.pulumi.azure.storage.outputs.GetAccountCustomDomain;
 import com.pulumi.azure.storage.outputs.GetAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1320,32 +1321,50 @@ public final class GetAccountResult {
 
         @CustomType.Setter
         public Builder accessTier(String accessTier) {
-            this.accessTier = Objects.requireNonNull(accessTier);
+            if (accessTier == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "accessTier");
+            }
+            this.accessTier = accessTier;
             return this;
         }
         @CustomType.Setter
         public Builder accountKind(String accountKind) {
-            this.accountKind = Objects.requireNonNull(accountKind);
+            if (accountKind == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "accountKind");
+            }
+            this.accountKind = accountKind;
             return this;
         }
         @CustomType.Setter
         public Builder accountReplicationType(String accountReplicationType) {
-            this.accountReplicationType = Objects.requireNonNull(accountReplicationType);
+            if (accountReplicationType == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "accountReplicationType");
+            }
+            this.accountReplicationType = accountReplicationType;
             return this;
         }
         @CustomType.Setter
         public Builder accountTier(String accountTier) {
-            this.accountTier = Objects.requireNonNull(accountTier);
+            if (accountTier == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "accountTier");
+            }
+            this.accountTier = accountTier;
             return this;
         }
         @CustomType.Setter
         public Builder allowNestedItemsToBePublic(Boolean allowNestedItemsToBePublic) {
-            this.allowNestedItemsToBePublic = Objects.requireNonNull(allowNestedItemsToBePublic);
+            if (allowNestedItemsToBePublic == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "allowNestedItemsToBePublic");
+            }
+            this.allowNestedItemsToBePublic = allowNestedItemsToBePublic;
             return this;
         }
         @CustomType.Setter
         public Builder azureFilesAuthentications(List<GetAccountAzureFilesAuthentication> azureFilesAuthentications) {
-            this.azureFilesAuthentications = Objects.requireNonNull(azureFilesAuthentications);
+            if (azureFilesAuthentications == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "azureFilesAuthentications");
+            }
+            this.azureFilesAuthentications = azureFilesAuthentications;
             return this;
         }
         public Builder azureFilesAuthentications(GetAccountAzureFilesAuthentication... azureFilesAuthentications) {
@@ -1353,7 +1372,10 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder customDomains(List<GetAccountCustomDomain> customDomains) {
-            this.customDomains = Objects.requireNonNull(customDomains);
+            if (customDomains == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "customDomains");
+            }
+            this.customDomains = customDomains;
             return this;
         }
         public Builder customDomains(GetAccountCustomDomain... customDomains) {
@@ -1361,17 +1383,26 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
-            this.enableHttpsTrafficOnly = Objects.requireNonNull(enableHttpsTrafficOnly);
+            if (enableHttpsTrafficOnly == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "enableHttpsTrafficOnly");
+            }
+            this.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetAccountIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetAccountIdentity... identities) {
@@ -1379,412 +1410,654 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
-            this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
+            if (infrastructureEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "infrastructureEncryptionEnabled");
+            }
+            this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder isHnsEnabled(Boolean isHnsEnabled) {
-            this.isHnsEnabled = Objects.requireNonNull(isHnsEnabled);
+            if (isHnsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "isHnsEnabled");
+            }
+            this.isHnsEnabled = isHnsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
+
             this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nfsv3Enabled(Boolean nfsv3Enabled) {
-            this.nfsv3Enabled = Objects.requireNonNull(nfsv3Enabled);
+            if (nfsv3Enabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "nfsv3Enabled");
+            }
+            this.nfsv3Enabled = nfsv3Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobConnectionString(String primaryBlobConnectionString) {
-            this.primaryBlobConnectionString = Objects.requireNonNull(primaryBlobConnectionString);
+            if (primaryBlobConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobConnectionString");
+            }
+            this.primaryBlobConnectionString = primaryBlobConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobEndpoint(String primaryBlobEndpoint) {
-            this.primaryBlobEndpoint = Objects.requireNonNull(primaryBlobEndpoint);
+            if (primaryBlobEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobEndpoint");
+            }
+            this.primaryBlobEndpoint = primaryBlobEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobHost(String primaryBlobHost) {
-            this.primaryBlobHost = Objects.requireNonNull(primaryBlobHost);
+            if (primaryBlobHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobHost");
+            }
+            this.primaryBlobHost = primaryBlobHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobInternetEndpoint(String primaryBlobInternetEndpoint) {
-            this.primaryBlobInternetEndpoint = Objects.requireNonNull(primaryBlobInternetEndpoint);
+            if (primaryBlobInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobInternetEndpoint");
+            }
+            this.primaryBlobInternetEndpoint = primaryBlobInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobInternetHost(String primaryBlobInternetHost) {
-            this.primaryBlobInternetHost = Objects.requireNonNull(primaryBlobInternetHost);
+            if (primaryBlobInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobInternetHost");
+            }
+            this.primaryBlobInternetHost = primaryBlobInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobMicrosoftEndpoint(String primaryBlobMicrosoftEndpoint) {
-            this.primaryBlobMicrosoftEndpoint = Objects.requireNonNull(primaryBlobMicrosoftEndpoint);
+            if (primaryBlobMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobMicrosoftEndpoint");
+            }
+            this.primaryBlobMicrosoftEndpoint = primaryBlobMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryBlobMicrosoftHost(String primaryBlobMicrosoftHost) {
-            this.primaryBlobMicrosoftHost = Objects.requireNonNull(primaryBlobMicrosoftHost);
+            if (primaryBlobMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryBlobMicrosoftHost");
+            }
+            this.primaryBlobMicrosoftHost = primaryBlobMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsEndpoint(String primaryDfsEndpoint) {
-            this.primaryDfsEndpoint = Objects.requireNonNull(primaryDfsEndpoint);
+            if (primaryDfsEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsEndpoint");
+            }
+            this.primaryDfsEndpoint = primaryDfsEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsHost(String primaryDfsHost) {
-            this.primaryDfsHost = Objects.requireNonNull(primaryDfsHost);
+            if (primaryDfsHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsHost");
+            }
+            this.primaryDfsHost = primaryDfsHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsInternetEndpoint(String primaryDfsInternetEndpoint) {
-            this.primaryDfsInternetEndpoint = Objects.requireNonNull(primaryDfsInternetEndpoint);
+            if (primaryDfsInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsInternetEndpoint");
+            }
+            this.primaryDfsInternetEndpoint = primaryDfsInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsInternetHost(String primaryDfsInternetHost) {
-            this.primaryDfsInternetHost = Objects.requireNonNull(primaryDfsInternetHost);
+            if (primaryDfsInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsInternetHost");
+            }
+            this.primaryDfsInternetHost = primaryDfsInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsMicrosoftEndpoint(String primaryDfsMicrosoftEndpoint) {
-            this.primaryDfsMicrosoftEndpoint = Objects.requireNonNull(primaryDfsMicrosoftEndpoint);
+            if (primaryDfsMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsMicrosoftEndpoint");
+            }
+            this.primaryDfsMicrosoftEndpoint = primaryDfsMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryDfsMicrosoftHost(String primaryDfsMicrosoftHost) {
-            this.primaryDfsMicrosoftHost = Objects.requireNonNull(primaryDfsMicrosoftHost);
+            if (primaryDfsMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryDfsMicrosoftHost");
+            }
+            this.primaryDfsMicrosoftHost = primaryDfsMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileEndpoint(String primaryFileEndpoint) {
-            this.primaryFileEndpoint = Objects.requireNonNull(primaryFileEndpoint);
+            if (primaryFileEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileEndpoint");
+            }
+            this.primaryFileEndpoint = primaryFileEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileHost(String primaryFileHost) {
-            this.primaryFileHost = Objects.requireNonNull(primaryFileHost);
+            if (primaryFileHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileHost");
+            }
+            this.primaryFileHost = primaryFileHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileInternetEndpoint(String primaryFileInternetEndpoint) {
-            this.primaryFileInternetEndpoint = Objects.requireNonNull(primaryFileInternetEndpoint);
+            if (primaryFileInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileInternetEndpoint");
+            }
+            this.primaryFileInternetEndpoint = primaryFileInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileInternetHost(String primaryFileInternetHost) {
-            this.primaryFileInternetHost = Objects.requireNonNull(primaryFileInternetHost);
+            if (primaryFileInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileInternetHost");
+            }
+            this.primaryFileInternetHost = primaryFileInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileMicrosoftEndpoint(String primaryFileMicrosoftEndpoint) {
-            this.primaryFileMicrosoftEndpoint = Objects.requireNonNull(primaryFileMicrosoftEndpoint);
+            if (primaryFileMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileMicrosoftEndpoint");
+            }
+            this.primaryFileMicrosoftEndpoint = primaryFileMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryFileMicrosoftHost(String primaryFileMicrosoftHost) {
-            this.primaryFileMicrosoftHost = Objects.requireNonNull(primaryFileMicrosoftHost);
+            if (primaryFileMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryFileMicrosoftHost");
+            }
+            this.primaryFileMicrosoftHost = primaryFileMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryLocation(String primaryLocation) {
-            this.primaryLocation = Objects.requireNonNull(primaryLocation);
+            if (primaryLocation == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryLocation");
+            }
+            this.primaryLocation = primaryLocation;
             return this;
         }
         @CustomType.Setter
         public Builder primaryQueueEndpoint(String primaryQueueEndpoint) {
-            this.primaryQueueEndpoint = Objects.requireNonNull(primaryQueueEndpoint);
+            if (primaryQueueEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryQueueEndpoint");
+            }
+            this.primaryQueueEndpoint = primaryQueueEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryQueueHost(String primaryQueueHost) {
-            this.primaryQueueHost = Objects.requireNonNull(primaryQueueHost);
+            if (primaryQueueHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryQueueHost");
+            }
+            this.primaryQueueHost = primaryQueueHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryQueueMicrosoftEndpoint(String primaryQueueMicrosoftEndpoint) {
-            this.primaryQueueMicrosoftEndpoint = Objects.requireNonNull(primaryQueueMicrosoftEndpoint);
+            if (primaryQueueMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryQueueMicrosoftEndpoint");
+            }
+            this.primaryQueueMicrosoftEndpoint = primaryQueueMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryQueueMicrosoftHost(String primaryQueueMicrosoftHost) {
-            this.primaryQueueMicrosoftHost = Objects.requireNonNull(primaryQueueMicrosoftHost);
+            if (primaryQueueMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryQueueMicrosoftHost");
+            }
+            this.primaryQueueMicrosoftHost = primaryQueueMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTableEndpoint(String primaryTableEndpoint) {
-            this.primaryTableEndpoint = Objects.requireNonNull(primaryTableEndpoint);
+            if (primaryTableEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryTableEndpoint");
+            }
+            this.primaryTableEndpoint = primaryTableEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTableHost(String primaryTableHost) {
-            this.primaryTableHost = Objects.requireNonNull(primaryTableHost);
+            if (primaryTableHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryTableHost");
+            }
+            this.primaryTableHost = primaryTableHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTableMicrosoftEndpoint(String primaryTableMicrosoftEndpoint) {
-            this.primaryTableMicrosoftEndpoint = Objects.requireNonNull(primaryTableMicrosoftEndpoint);
+            if (primaryTableMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryTableMicrosoftEndpoint");
+            }
+            this.primaryTableMicrosoftEndpoint = primaryTableMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryTableMicrosoftHost(String primaryTableMicrosoftHost) {
-            this.primaryTableMicrosoftHost = Objects.requireNonNull(primaryTableMicrosoftHost);
+            if (primaryTableMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryTableMicrosoftHost");
+            }
+            this.primaryTableMicrosoftHost = primaryTableMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebEndpoint(String primaryWebEndpoint) {
-            this.primaryWebEndpoint = Objects.requireNonNull(primaryWebEndpoint);
+            if (primaryWebEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebEndpoint");
+            }
+            this.primaryWebEndpoint = primaryWebEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebHost(String primaryWebHost) {
-            this.primaryWebHost = Objects.requireNonNull(primaryWebHost);
+            if (primaryWebHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebHost");
+            }
+            this.primaryWebHost = primaryWebHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebInternetEndpoint(String primaryWebInternetEndpoint) {
-            this.primaryWebInternetEndpoint = Objects.requireNonNull(primaryWebInternetEndpoint);
+            if (primaryWebInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebInternetEndpoint");
+            }
+            this.primaryWebInternetEndpoint = primaryWebInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebInternetHost(String primaryWebInternetHost) {
-            this.primaryWebInternetHost = Objects.requireNonNull(primaryWebInternetHost);
+            if (primaryWebInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebInternetHost");
+            }
+            this.primaryWebInternetHost = primaryWebInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebMicrosoftEndpoint(String primaryWebMicrosoftEndpoint) {
-            this.primaryWebMicrosoftEndpoint = Objects.requireNonNull(primaryWebMicrosoftEndpoint);
+            if (primaryWebMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebMicrosoftEndpoint");
+            }
+            this.primaryWebMicrosoftEndpoint = primaryWebMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder primaryWebMicrosoftHost(String primaryWebMicrosoftHost) {
-            this.primaryWebMicrosoftHost = Objects.requireNonNull(primaryWebMicrosoftHost);
+            if (primaryWebMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryWebMicrosoftHost");
+            }
+            this.primaryWebMicrosoftHost = primaryWebMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder queueEncryptionKeyType(String queueEncryptionKeyType) {
-            this.queueEncryptionKeyType = Objects.requireNonNull(queueEncryptionKeyType);
+            if (queueEncryptionKeyType == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "queueEncryptionKeyType");
+            }
+            this.queueEncryptionKeyType = queueEncryptionKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobConnectionString(String secondaryBlobConnectionString) {
-            this.secondaryBlobConnectionString = Objects.requireNonNull(secondaryBlobConnectionString);
+            if (secondaryBlobConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobConnectionString");
+            }
+            this.secondaryBlobConnectionString = secondaryBlobConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobEndpoint(String secondaryBlobEndpoint) {
-            this.secondaryBlobEndpoint = Objects.requireNonNull(secondaryBlobEndpoint);
+            if (secondaryBlobEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobEndpoint");
+            }
+            this.secondaryBlobEndpoint = secondaryBlobEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobHost(String secondaryBlobHost) {
-            this.secondaryBlobHost = Objects.requireNonNull(secondaryBlobHost);
+            if (secondaryBlobHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobHost");
+            }
+            this.secondaryBlobHost = secondaryBlobHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobInternetEndpoint(String secondaryBlobInternetEndpoint) {
-            this.secondaryBlobInternetEndpoint = Objects.requireNonNull(secondaryBlobInternetEndpoint);
+            if (secondaryBlobInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobInternetEndpoint");
+            }
+            this.secondaryBlobInternetEndpoint = secondaryBlobInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobInternetHost(String secondaryBlobInternetHost) {
-            this.secondaryBlobInternetHost = Objects.requireNonNull(secondaryBlobInternetHost);
+            if (secondaryBlobInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobInternetHost");
+            }
+            this.secondaryBlobInternetHost = secondaryBlobInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobMicrosoftEndpoint(String secondaryBlobMicrosoftEndpoint) {
-            this.secondaryBlobMicrosoftEndpoint = Objects.requireNonNull(secondaryBlobMicrosoftEndpoint);
+            if (secondaryBlobMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobMicrosoftEndpoint");
+            }
+            this.secondaryBlobMicrosoftEndpoint = secondaryBlobMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryBlobMicrosoftHost(String secondaryBlobMicrosoftHost) {
-            this.secondaryBlobMicrosoftHost = Objects.requireNonNull(secondaryBlobMicrosoftHost);
+            if (secondaryBlobMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryBlobMicrosoftHost");
+            }
+            this.secondaryBlobMicrosoftHost = secondaryBlobMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsEndpoint(String secondaryDfsEndpoint) {
-            this.secondaryDfsEndpoint = Objects.requireNonNull(secondaryDfsEndpoint);
+            if (secondaryDfsEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsEndpoint");
+            }
+            this.secondaryDfsEndpoint = secondaryDfsEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsHost(String secondaryDfsHost) {
-            this.secondaryDfsHost = Objects.requireNonNull(secondaryDfsHost);
+            if (secondaryDfsHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsHost");
+            }
+            this.secondaryDfsHost = secondaryDfsHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsInternetEndpoint(String secondaryDfsInternetEndpoint) {
-            this.secondaryDfsInternetEndpoint = Objects.requireNonNull(secondaryDfsInternetEndpoint);
+            if (secondaryDfsInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsInternetEndpoint");
+            }
+            this.secondaryDfsInternetEndpoint = secondaryDfsInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsInternetHost(String secondaryDfsInternetHost) {
-            this.secondaryDfsInternetHost = Objects.requireNonNull(secondaryDfsInternetHost);
+            if (secondaryDfsInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsInternetHost");
+            }
+            this.secondaryDfsInternetHost = secondaryDfsInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsMicrosoftEndpoint(String secondaryDfsMicrosoftEndpoint) {
-            this.secondaryDfsMicrosoftEndpoint = Objects.requireNonNull(secondaryDfsMicrosoftEndpoint);
+            if (secondaryDfsMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsMicrosoftEndpoint");
+            }
+            this.secondaryDfsMicrosoftEndpoint = secondaryDfsMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryDfsMicrosoftHost(String secondaryDfsMicrosoftHost) {
-            this.secondaryDfsMicrosoftHost = Objects.requireNonNull(secondaryDfsMicrosoftHost);
+            if (secondaryDfsMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryDfsMicrosoftHost");
+            }
+            this.secondaryDfsMicrosoftHost = secondaryDfsMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileEndpoint(String secondaryFileEndpoint) {
-            this.secondaryFileEndpoint = Objects.requireNonNull(secondaryFileEndpoint);
+            if (secondaryFileEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileEndpoint");
+            }
+            this.secondaryFileEndpoint = secondaryFileEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileHost(String secondaryFileHost) {
-            this.secondaryFileHost = Objects.requireNonNull(secondaryFileHost);
+            if (secondaryFileHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileHost");
+            }
+            this.secondaryFileHost = secondaryFileHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileInternetEndpoint(String secondaryFileInternetEndpoint) {
-            this.secondaryFileInternetEndpoint = Objects.requireNonNull(secondaryFileInternetEndpoint);
+            if (secondaryFileInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileInternetEndpoint");
+            }
+            this.secondaryFileInternetEndpoint = secondaryFileInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileInternetHost(String secondaryFileInternetHost) {
-            this.secondaryFileInternetHost = Objects.requireNonNull(secondaryFileInternetHost);
+            if (secondaryFileInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileInternetHost");
+            }
+            this.secondaryFileInternetHost = secondaryFileInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileMicrosoftEndpoint(String secondaryFileMicrosoftEndpoint) {
-            this.secondaryFileMicrosoftEndpoint = Objects.requireNonNull(secondaryFileMicrosoftEndpoint);
+            if (secondaryFileMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileMicrosoftEndpoint");
+            }
+            this.secondaryFileMicrosoftEndpoint = secondaryFileMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryFileMicrosoftHost(String secondaryFileMicrosoftHost) {
-            this.secondaryFileMicrosoftHost = Objects.requireNonNull(secondaryFileMicrosoftHost);
+            if (secondaryFileMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryFileMicrosoftHost");
+            }
+            this.secondaryFileMicrosoftHost = secondaryFileMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryLocation(String secondaryLocation) {
-            this.secondaryLocation = Objects.requireNonNull(secondaryLocation);
+            if (secondaryLocation == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryLocation");
+            }
+            this.secondaryLocation = secondaryLocation;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryQueueEndpoint(String secondaryQueueEndpoint) {
-            this.secondaryQueueEndpoint = Objects.requireNonNull(secondaryQueueEndpoint);
+            if (secondaryQueueEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryQueueEndpoint");
+            }
+            this.secondaryQueueEndpoint = secondaryQueueEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryQueueHost(String secondaryQueueHost) {
-            this.secondaryQueueHost = Objects.requireNonNull(secondaryQueueHost);
+            if (secondaryQueueHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryQueueHost");
+            }
+            this.secondaryQueueHost = secondaryQueueHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryQueueMicrosoftEndpoint(String secondaryQueueMicrosoftEndpoint) {
-            this.secondaryQueueMicrosoftEndpoint = Objects.requireNonNull(secondaryQueueMicrosoftEndpoint);
+            if (secondaryQueueMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryQueueMicrosoftEndpoint");
+            }
+            this.secondaryQueueMicrosoftEndpoint = secondaryQueueMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryQueueMicrosoftHost(String secondaryQueueMicrosoftHost) {
-            this.secondaryQueueMicrosoftHost = Objects.requireNonNull(secondaryQueueMicrosoftHost);
+            if (secondaryQueueMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryQueueMicrosoftHost");
+            }
+            this.secondaryQueueMicrosoftHost = secondaryQueueMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryTableEndpoint(String secondaryTableEndpoint) {
-            this.secondaryTableEndpoint = Objects.requireNonNull(secondaryTableEndpoint);
+            if (secondaryTableEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryTableEndpoint");
+            }
+            this.secondaryTableEndpoint = secondaryTableEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryTableHost(String secondaryTableHost) {
-            this.secondaryTableHost = Objects.requireNonNull(secondaryTableHost);
+            if (secondaryTableHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryTableHost");
+            }
+            this.secondaryTableHost = secondaryTableHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryTableMicrosoftEndpoint(String secondaryTableMicrosoftEndpoint) {
-            this.secondaryTableMicrosoftEndpoint = Objects.requireNonNull(secondaryTableMicrosoftEndpoint);
+            if (secondaryTableMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryTableMicrosoftEndpoint");
+            }
+            this.secondaryTableMicrosoftEndpoint = secondaryTableMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryTableMicrosoftHost(String secondaryTableMicrosoftHost) {
-            this.secondaryTableMicrosoftHost = Objects.requireNonNull(secondaryTableMicrosoftHost);
+            if (secondaryTableMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryTableMicrosoftHost");
+            }
+            this.secondaryTableMicrosoftHost = secondaryTableMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebEndpoint(String secondaryWebEndpoint) {
-            this.secondaryWebEndpoint = Objects.requireNonNull(secondaryWebEndpoint);
+            if (secondaryWebEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebEndpoint");
+            }
+            this.secondaryWebEndpoint = secondaryWebEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebHost(String secondaryWebHost) {
-            this.secondaryWebHost = Objects.requireNonNull(secondaryWebHost);
+            if (secondaryWebHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebHost");
+            }
+            this.secondaryWebHost = secondaryWebHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebInternetEndpoint(String secondaryWebInternetEndpoint) {
-            this.secondaryWebInternetEndpoint = Objects.requireNonNull(secondaryWebInternetEndpoint);
+            if (secondaryWebInternetEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebInternetEndpoint");
+            }
+            this.secondaryWebInternetEndpoint = secondaryWebInternetEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebInternetHost(String secondaryWebInternetHost) {
-            this.secondaryWebInternetHost = Objects.requireNonNull(secondaryWebInternetHost);
+            if (secondaryWebInternetHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebInternetHost");
+            }
+            this.secondaryWebInternetHost = secondaryWebInternetHost;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebMicrosoftEndpoint(String secondaryWebMicrosoftEndpoint) {
-            this.secondaryWebMicrosoftEndpoint = Objects.requireNonNull(secondaryWebMicrosoftEndpoint);
+            if (secondaryWebMicrosoftEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebMicrosoftEndpoint");
+            }
+            this.secondaryWebMicrosoftEndpoint = secondaryWebMicrosoftEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryWebMicrosoftHost(String secondaryWebMicrosoftHost) {
-            this.secondaryWebMicrosoftHost = Objects.requireNonNull(secondaryWebMicrosoftHost);
+            if (secondaryWebMicrosoftHost == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryWebMicrosoftHost");
+            }
+            this.secondaryWebMicrosoftHost = secondaryWebMicrosoftHost;
             return this;
         }
         @CustomType.Setter
         public Builder tableEncryptionKeyType(String tableEncryptionKeyType) {
-            this.tableEncryptionKeyType = Objects.requireNonNull(tableEncryptionKeyType);
+            if (tableEncryptionKeyType == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tableEncryptionKeyType");
+            }
+            this.tableEncryptionKeyType = tableEncryptionKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAccountResult build() {

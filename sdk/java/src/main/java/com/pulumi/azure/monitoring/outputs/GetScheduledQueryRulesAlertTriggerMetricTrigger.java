@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -69,22 +70,34 @@ public final class GetScheduledQueryRulesAlertTriggerMetricTrigger {
 
         @CustomType.Setter
         public Builder metricColumn(String metricColumn) {
-            this.metricColumn = Objects.requireNonNull(metricColumn);
+            if (metricColumn == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertTriggerMetricTrigger", "metricColumn");
+            }
+            this.metricColumn = metricColumn;
             return this;
         }
         @CustomType.Setter
         public Builder metricTriggerType(String metricTriggerType) {
-            this.metricTriggerType = Objects.requireNonNull(metricTriggerType);
+            if (metricTriggerType == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertTriggerMetricTrigger", "metricTriggerType");
+            }
+            this.metricTriggerType = metricTriggerType;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertTriggerMetricTrigger", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertTriggerMetricTrigger", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         public GetScheduledQueryRulesAlertTriggerMetricTrigger build() {

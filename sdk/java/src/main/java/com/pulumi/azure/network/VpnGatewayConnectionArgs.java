@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.VpnGatewayConnectionTrafficSelectorPolicy
 import com.pulumi.azure.network.inputs.VpnGatewayConnectionVpnLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -323,9 +324,15 @@ public final class VpnGatewayConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         public VpnGatewayConnectionArgs build() {
-            $.remoteVpnSiteId = Objects.requireNonNull($.remoteVpnSiteId, "expected parameter 'remoteVpnSiteId' to be non-null");
-            $.vpnGatewayId = Objects.requireNonNull($.vpnGatewayId, "expected parameter 'vpnGatewayId' to be non-null");
-            $.vpnLinks = Objects.requireNonNull($.vpnLinks, "expected parameter 'vpnLinks' to be non-null");
+            if ($.remoteVpnSiteId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionArgs", "remoteVpnSiteId");
+            }
+            if ($.vpnGatewayId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionArgs", "vpnGatewayId");
+            }
+            if ($.vpnLinks == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionArgs", "vpnLinks");
+            }
             return $;
         }
     }

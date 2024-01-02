@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class ApplicationGatewayWafConfigurationExclusionArgs extends com.p
         }
 
         public ApplicationGatewayWafConfigurationExclusionArgs build() {
-            $.matchVariable = Objects.requireNonNull($.matchVariable, "expected parameter 'matchVariable' to be non-null");
+            if ($.matchVariable == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationExclusionArgs", "matchVariable");
+            }
             return $;
         }
     }

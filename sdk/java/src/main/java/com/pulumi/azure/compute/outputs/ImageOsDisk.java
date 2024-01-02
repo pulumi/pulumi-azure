@@ -129,36 +129,43 @@ public final class ImageOsDisk {
 
         @CustomType.Setter
         public Builder blobUri(@Nullable String blobUri) {
+
             this.blobUri = blobUri;
             return this;
         }
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
+
             this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
+
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
+
             this.managedDiskId = managedDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder osState(@Nullable String osState) {
+
             this.osState = osState;
             return this;
         }
         @CustomType.Setter
         public Builder osType(@Nullable String osType) {
+
             this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
+
             this.sizeGb = sizeGb;
             return this;
         }

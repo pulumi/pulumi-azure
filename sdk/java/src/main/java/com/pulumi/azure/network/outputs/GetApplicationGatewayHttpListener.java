@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayHttpListenerCustomErrorConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -255,7 +256,10 @@ public final class GetApplicationGatewayHttpListener {
 
         @CustomType.Setter
         public Builder customErrorConfigurations(List<GetApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations) {
-            this.customErrorConfigurations = Objects.requireNonNull(customErrorConfigurations);
+            if (customErrorConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "customErrorConfigurations");
+            }
+            this.customErrorConfigurations = customErrorConfigurations;
             return this;
         }
         public Builder customErrorConfigurations(GetApplicationGatewayHttpListenerCustomErrorConfiguration... customErrorConfigurations) {
@@ -263,37 +267,58 @@ public final class GetApplicationGatewayHttpListener {
         }
         @CustomType.Setter
         public Builder firewallPolicyId(String firewallPolicyId) {
-            this.firewallPolicyId = Objects.requireNonNull(firewallPolicyId);
+            if (firewallPolicyId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "firewallPolicyId");
+            }
+            this.firewallPolicyId = firewallPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurationId(String frontendIpConfigurationId) {
-            this.frontendIpConfigurationId = Objects.requireNonNull(frontendIpConfigurationId);
+            if (frontendIpConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "frontendIpConfigurationId");
+            }
+            this.frontendIpConfigurationId = frontendIpConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurationName(String frontendIpConfigurationName) {
-            this.frontendIpConfigurationName = Objects.requireNonNull(frontendIpConfigurationName);
+            if (frontendIpConfigurationName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "frontendIpConfigurationName");
+            }
+            this.frontendIpConfigurationName = frontendIpConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPortId(String frontendPortId) {
-            this.frontendPortId = Objects.requireNonNull(frontendPortId);
+            if (frontendPortId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "frontendPortId");
+            }
+            this.frontendPortId = frontendPortId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPortName(String frontendPortName) {
-            this.frontendPortName = Objects.requireNonNull(frontendPortName);
+            if (frontendPortName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "frontendPortName");
+            }
+            this.frontendPortName = frontendPortName;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder hostNames(List<String> hostNames) {
-            this.hostNames = Objects.requireNonNull(hostNames);
+            if (hostNames == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "hostNames");
+            }
+            this.hostNames = hostNames;
             return this;
         }
         public Builder hostNames(String... hostNames) {
@@ -301,42 +326,66 @@ public final class GetApplicationGatewayHttpListener {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder requireSni(Boolean requireSni) {
-            this.requireSni = Objects.requireNonNull(requireSni);
+            if (requireSni == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "requireSni");
+            }
+            this.requireSni = requireSni;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertificateId(String sslCertificateId) {
-            this.sslCertificateId = Objects.requireNonNull(sslCertificateId);
+            if (sslCertificateId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "sslCertificateId");
+            }
+            this.sslCertificateId = sslCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertificateName(String sslCertificateName) {
-            this.sslCertificateName = Objects.requireNonNull(sslCertificateName);
+            if (sslCertificateName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "sslCertificateName");
+            }
+            this.sslCertificateName = sslCertificateName;
             return this;
         }
         @CustomType.Setter
         public Builder sslProfileId(String sslProfileId) {
-            this.sslProfileId = Objects.requireNonNull(sslProfileId);
+            if (sslProfileId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "sslProfileId");
+            }
+            this.sslProfileId = sslProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder sslProfileName(String sslProfileName) {
-            this.sslProfileName = Objects.requireNonNull(sslProfileName);
+            if (sslProfileName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayHttpListener", "sslProfileName");
+            }
+            this.sslProfileName = sslProfileName;
             return this;
         }
         public GetApplicationGatewayHttpListener build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class VirtualMachineKeyVaultCredential {
 
         @CustomType.Setter
         public Builder keyVaultUrl(String keyVaultUrl) {
-            this.keyVaultUrl = Objects.requireNonNull(keyVaultUrl);
+            if (keyVaultUrl == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredential", "keyVaultUrl");
+            }
+            this.keyVaultUrl = keyVaultUrl;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredential", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipalName(String servicePrincipalName) {
-            this.servicePrincipalName = Objects.requireNonNull(servicePrincipalName);
+            if (servicePrincipalName == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredential", "servicePrincipalName");
+            }
+            this.servicePrincipalName = servicePrincipalName;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipalSecret(String servicePrincipalSecret) {
-            this.servicePrincipalSecret = Objects.requireNonNull(servicePrincipalSecret);
+            if (servicePrincipalSecret == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredential", "servicePrincipalSecret");
+            }
+            this.servicePrincipalSecret = servicePrincipalSecret;
             return this;
         }
         public VirtualMachineKeyVaultCredential build() {

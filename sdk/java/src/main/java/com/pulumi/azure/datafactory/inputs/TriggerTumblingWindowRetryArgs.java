@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class TriggerTumblingWindowRetryArgs extends com.pulumi.resources.R
         }
 
         public TriggerTumblingWindowRetryArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("TriggerTumblingWindowRetryArgs", "count");
+            }
             return $;
         }
     }

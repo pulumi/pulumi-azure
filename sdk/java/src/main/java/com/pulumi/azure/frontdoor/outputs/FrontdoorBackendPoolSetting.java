@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -63,12 +64,16 @@ public final class FrontdoorBackendPoolSetting {
 
         @CustomType.Setter
         public Builder backendPoolsSendReceiveTimeoutSeconds(@Nullable Integer backendPoolsSendReceiveTimeoutSeconds) {
+
             this.backendPoolsSendReceiveTimeoutSeconds = backendPoolsSendReceiveTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder enforceBackendPoolsCertificateNameCheck(Boolean enforceBackendPoolsCertificateNameCheck) {
-            this.enforceBackendPoolsCertificateNameCheck = Objects.requireNonNull(enforceBackendPoolsCertificateNameCheck);
+            if (enforceBackendPoolsCertificateNameCheck == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPoolSetting", "enforceBackendPoolsCertificateNameCheck");
+            }
+            this.enforceBackendPoolsCertificateNameCheck = enforceBackendPoolsCertificateNameCheck;
             return this;
         }
         public FrontdoorBackendPoolSetting build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SqlContainerIndexingPolicyCompositeIndexIndex {
 
         @CustomType.Setter
         public Builder order(String order) {
-            this.order = Objects.requireNonNull(order);
+            if (order == null) {
+              throw new MissingRequiredPropertyException("SqlContainerIndexingPolicyCompositeIndexIndex", "order");
+            }
+            this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("SqlContainerIndexingPolicyCompositeIndexIndex", "path");
+            }
+            this.path = path;
             return this;
         }
         public SqlContainerIndexingPolicyCompositeIndexIndex build() {

@@ -58,11 +58,13 @@ public final class KubernetesClusterMonitorMetrics {
 
         @CustomType.Setter
         public Builder annotationsAllowed(@Nullable String annotationsAllowed) {
+
             this.annotationsAllowed = annotationsAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder labelsAllowed(@Nullable String labelsAllowed) {
+
             this.labelsAllowed = labelsAllowed;
             return this;
         }

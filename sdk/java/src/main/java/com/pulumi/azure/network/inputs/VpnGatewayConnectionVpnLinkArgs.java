@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.VpnGatewayConnectionVpnLinkCustomBgpAddre
 import com.pulumi.azure.network.inputs.VpnGatewayConnectionVpnLinkIpsecPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -639,8 +640,12 @@ public final class VpnGatewayConnectionVpnLinkArgs extends com.pulumi.resources.
         }
 
         public VpnGatewayConnectionVpnLinkArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.vpnSiteLinkId = Objects.requireNonNull($.vpnSiteLinkId, "expected parameter 'vpnSiteLinkId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkArgs", "name");
+            }
+            if ($.vpnSiteLinkId == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkArgs", "vpnSiteLinkId");
+            }
             return $;
         }
     }

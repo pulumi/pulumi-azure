@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AccountSasPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AccountSasPolicyArgs build() {
-            $.expirationPeriod = Objects.requireNonNull($.expirationPeriod, "expected parameter 'expirationPeriod' to be non-null");
+            if ($.expirationPeriod == null) {
+                throw new MissingRequiredPropertyException("AccountSasPolicyArgs", "expirationPeriod");
+            }
             return $;
         }
     }

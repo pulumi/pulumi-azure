@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization.outputs;
 
 import com.pulumi.azure.desktopvirtualization.outputs.GetHostPoolScheduledAgentUpdate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -241,62 +242,98 @@ public final class GetHostPoolResult {
 
         @CustomType.Setter
         public Builder customRdpProperties(String customRdpProperties) {
-            this.customRdpProperties = Objects.requireNonNull(customRdpProperties);
+            if (customRdpProperties == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "customRdpProperties");
+            }
+            this.customRdpProperties = customRdpProperties;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder friendlyName(String friendlyName) {
-            this.friendlyName = Objects.requireNonNull(friendlyName);
+            if (friendlyName == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "friendlyName");
+            }
+            this.friendlyName = friendlyName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerType(String loadBalancerType) {
-            this.loadBalancerType = Objects.requireNonNull(loadBalancerType);
+            if (loadBalancerType == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "loadBalancerType");
+            }
+            this.loadBalancerType = loadBalancerType;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder maximumSessionsAllowed(Integer maximumSessionsAllowed) {
-            this.maximumSessionsAllowed = Objects.requireNonNull(maximumSessionsAllowed);
+            if (maximumSessionsAllowed == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "maximumSessionsAllowed");
+            }
+            this.maximumSessionsAllowed = maximumSessionsAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder personalDesktopAssignmentType(String personalDesktopAssignmentType) {
-            this.personalDesktopAssignmentType = Objects.requireNonNull(personalDesktopAssignmentType);
+            if (personalDesktopAssignmentType == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "personalDesktopAssignmentType");
+            }
+            this.personalDesktopAssignmentType = personalDesktopAssignmentType;
             return this;
         }
         @CustomType.Setter
         public Builder preferredAppGroupType(String preferredAppGroupType) {
-            this.preferredAppGroupType = Objects.requireNonNull(preferredAppGroupType);
+            if (preferredAppGroupType == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "preferredAppGroupType");
+            }
+            this.preferredAppGroupType = preferredAppGroupType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scheduledAgentUpdates(List<GetHostPoolScheduledAgentUpdate> scheduledAgentUpdates) {
-            this.scheduledAgentUpdates = Objects.requireNonNull(scheduledAgentUpdates);
+            if (scheduledAgentUpdates == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "scheduledAgentUpdates");
+            }
+            this.scheduledAgentUpdates = scheduledAgentUpdates;
             return this;
         }
         public Builder scheduledAgentUpdates(GetHostPoolScheduledAgentUpdate... scheduledAgentUpdates) {
@@ -304,22 +341,34 @@ public final class GetHostPoolResult {
         }
         @CustomType.Setter
         public Builder startVmOnConnect(Boolean startVmOnConnect) {
-            this.startVmOnConnect = Objects.requireNonNull(startVmOnConnect);
+            if (startVmOnConnect == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "startVmOnConnect");
+            }
+            this.startVmOnConnect = startVmOnConnect;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder validateEnvironment(Boolean validateEnvironment) {
-            this.validateEnvironment = Objects.requireNonNull(validateEnvironment);
+            if (validateEnvironment == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolResult", "validateEnvironment");
+            }
+            this.validateEnvironment = validateEnvironment;
             return this;
         }
         public GetHostPoolResult build() {

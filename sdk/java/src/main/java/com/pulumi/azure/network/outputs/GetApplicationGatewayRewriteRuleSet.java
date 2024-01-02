@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayRewriteRuleSetRewriteRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,17 +73,26 @@ public final class GetApplicationGatewayRewriteRuleSet {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSet", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSet", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRules(List<GetApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules) {
-            this.rewriteRules = Objects.requireNonNull(rewriteRules);
+            if (rewriteRules == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSet", "rewriteRules");
+            }
+            this.rewriteRules = rewriteRules;
             return this;
         }
         public Builder rewriteRules(GetApplicationGatewayRewriteRuleSetRewriteRule... rewriteRules) {

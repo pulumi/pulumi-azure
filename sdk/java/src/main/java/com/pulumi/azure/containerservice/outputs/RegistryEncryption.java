@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -77,17 +78,24 @@ public final class RegistryEncryption {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder identityClientId(String identityClientId) {
-            this.identityClientId = Objects.requireNonNull(identityClientId);
+            if (identityClientId == null) {
+              throw new MissingRequiredPropertyException("RegistryEncryption", "identityClientId");
+            }
+            this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("RegistryEncryption", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         public RegistryEncryption build() {

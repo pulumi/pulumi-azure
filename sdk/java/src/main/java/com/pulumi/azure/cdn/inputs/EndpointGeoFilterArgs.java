@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class EndpointGeoFilterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EndpointGeoFilterArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.countryCodes = Objects.requireNonNull($.countryCodes, "expected parameter 'countryCodes' to be non-null");
-            $.relativePath = Objects.requireNonNull($.relativePath, "expected parameter 'relativePath' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("EndpointGeoFilterArgs", "action");
+            }
+            if ($.countryCodes == null) {
+                throw new MissingRequiredPropertyException("EndpointGeoFilterArgs", "countryCodes");
+            }
+            if ($.relativePath == null) {
+                throw new MissingRequiredPropertyException("EndpointGeoFilterArgs", "relativePath");
+            }
             return $;
         }
     }

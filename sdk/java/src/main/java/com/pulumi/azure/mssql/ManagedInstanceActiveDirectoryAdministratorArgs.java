@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class ManagedInstanceActiveDirectoryAdministratorArgs extends com.p
         }
 
         public ManagedInstanceActiveDirectoryAdministratorArgs build() {
-            $.loginUsername = Objects.requireNonNull($.loginUsername, "expected parameter 'loginUsername' to be non-null");
-            $.managedInstanceId = Objects.requireNonNull($.managedInstanceId, "expected parameter 'managedInstanceId' to be non-null");
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.loginUsername == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceActiveDirectoryAdministratorArgs", "loginUsername");
+            }
+            if ($.managedInstanceId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceActiveDirectoryAdministratorArgs", "managedInstanceId");
+            }
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceActiveDirectoryAdministratorArgs", "objectId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceActiveDirectoryAdministratorArgs", "tenantId");
+            }
             return $;
         }
     }

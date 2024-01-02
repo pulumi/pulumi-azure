@@ -8,6 +8,7 @@ import com.pulumi.azure.machinelearning.inputs.ComputeInstanceIdentityArgs;
 import com.pulumi.azure.machinelearning.inputs.ComputeInstanceSshArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -525,8 +526,12 @@ public final class ComputeInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ComputeInstanceArgs build() {
-            $.machineLearningWorkspaceId = Objects.requireNonNull($.machineLearningWorkspaceId, "expected parameter 'machineLearningWorkspaceId' to be non-null");
-            $.virtualMachineSize = Objects.requireNonNull($.virtualMachineSize, "expected parameter 'virtualMachineSize' to be non-null");
+            if ($.machineLearningWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("ComputeInstanceArgs", "machineLearningWorkspaceId");
+            }
+            if ($.virtualMachineSize == null) {
+                throw new MissingRequiredPropertyException("ComputeInstanceArgs", "virtualMachineSize");
+            }
             return $;
         }
     }

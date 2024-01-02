@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,7 +116,10 @@ public final class AccountActiveDirectory {
 
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("AccountActiveDirectory", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -123,27 +127,40 @@ public final class AccountActiveDirectory {
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("AccountActiveDirectory", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
+
             this.organizationalUnit = organizationalUnit;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("AccountActiveDirectory", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder smbServerName(String smbServerName) {
-            this.smbServerName = Objects.requireNonNull(smbServerName);
+            if (smbServerName == null) {
+              throw new MissingRequiredPropertyException("AccountActiveDirectory", "smbServerName");
+            }
+            this.smbServerName = smbServerName;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("AccountActiveDirectory", "username");
+            }
+            this.username = username;
             return this;
         }
         public AccountActiveDirectory build() {

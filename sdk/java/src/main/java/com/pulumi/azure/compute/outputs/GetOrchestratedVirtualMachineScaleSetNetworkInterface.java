@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -129,12 +130,18 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
 
         @CustomType.Setter
         public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
-            this.acceleratedNetworkingEnabled = Objects.requireNonNull(acceleratedNetworkingEnabled);
+            if (acceleratedNetworkingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "acceleratedNetworkingEnabled");
+            }
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -142,7 +149,10 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
@@ -150,22 +160,34 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
-            this.ipForwardingEnabled = Objects.requireNonNull(ipForwardingEnabled);
+            if (ipForwardingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "ipForwardingEnabled");
+            }
+            this.ipForwardingEnabled = ipForwardingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
+            if (networkSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "networkSecurityGroupId");
+            }
+            this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterface", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterface build() {

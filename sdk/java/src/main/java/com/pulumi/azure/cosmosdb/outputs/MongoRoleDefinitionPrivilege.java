@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.MongoRoleDefinitionPrivilegeResource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class MongoRoleDefinitionPrivilege {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("MongoRoleDefinitionPrivilege", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -66,7 +70,10 @@ public final class MongoRoleDefinitionPrivilege {
         }
         @CustomType.Setter
         public Builder resource(MongoRoleDefinitionPrivilegeResource resource) {
-            this.resource = Objects.requireNonNull(resource);
+            if (resource == null) {
+              throw new MissingRequiredPropertyException("MongoRoleDefinitionPrivilege", "resource");
+            }
+            this.resource = resource;
             return this;
         }
         public MongoRoleDefinitionPrivilege build() {

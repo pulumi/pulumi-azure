@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SpringCloudActiveDeploymentArgs extends com.pulumi.resources.
         }
 
         public SpringCloudActiveDeploymentArgs build() {
-            $.deploymentName = Objects.requireNonNull($.deploymentName, "expected parameter 'deploymentName' to be non-null");
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
+            if ($.deploymentName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudActiveDeploymentArgs", "deploymentName");
+            }
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudActiveDeploymentArgs", "springCloudAppId");
+            }
             return $;
         }
     }

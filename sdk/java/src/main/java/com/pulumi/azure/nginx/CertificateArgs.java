@@ -5,6 +5,7 @@ package com.pulumi.azure.nginx;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.certificateVirtualPath = Objects.requireNonNull($.certificateVirtualPath, "expected parameter 'certificateVirtualPath' to be non-null");
-            $.keyVaultSecretId = Objects.requireNonNull($.keyVaultSecretId, "expected parameter 'keyVaultSecretId' to be non-null");
-            $.keyVirtualPath = Objects.requireNonNull($.keyVirtualPath, "expected parameter 'keyVirtualPath' to be non-null");
-            $.nginxDeploymentId = Objects.requireNonNull($.nginxDeploymentId, "expected parameter 'nginxDeploymentId' to be non-null");
+            if ($.certificateVirtualPath == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificateVirtualPath");
+            }
+            if ($.keyVaultSecretId == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "keyVaultSecretId");
+            }
+            if ($.keyVirtualPath == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "keyVirtualPath");
+            }
+            if ($.nginxDeploymentId == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "nginxDeploymentId");
+            }
             return $;
         }
     }

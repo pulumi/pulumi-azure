@@ -4,6 +4,7 @@
 package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetConfigurationInstallPatchWindow {
 
         @CustomType.Setter
         public Builder classificationsToIncludes(List<String> classificationsToIncludes) {
-            this.classificationsToIncludes = Objects.requireNonNull(classificationsToIncludes);
+            if (classificationsToIncludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchWindow", "classificationsToIncludes");
+            }
+            this.classificationsToIncludes = classificationsToIncludes;
             return this;
         }
         public Builder classificationsToIncludes(String... classificationsToIncludes) {
@@ -79,7 +83,10 @@ public final class GetConfigurationInstallPatchWindow {
         }
         @CustomType.Setter
         public Builder kbNumbersToExcludes(List<String> kbNumbersToExcludes) {
-            this.kbNumbersToExcludes = Objects.requireNonNull(kbNumbersToExcludes);
+            if (kbNumbersToExcludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchWindow", "kbNumbersToExcludes");
+            }
+            this.kbNumbersToExcludes = kbNumbersToExcludes;
             return this;
         }
         public Builder kbNumbersToExcludes(String... kbNumbersToExcludes) {
@@ -87,7 +94,10 @@ public final class GetConfigurationInstallPatchWindow {
         }
         @CustomType.Setter
         public Builder kbNumbersToIncludes(List<String> kbNumbersToIncludes) {
-            this.kbNumbersToIncludes = Objects.requireNonNull(kbNumbersToIncludes);
+            if (kbNumbersToIncludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchWindow", "kbNumbersToIncludes");
+            }
+            this.kbNumbersToIncludes = kbNumbersToIncludes;
             return this;
         }
         public Builder kbNumbersToIncludes(String... kbNumbersToIncludes) {

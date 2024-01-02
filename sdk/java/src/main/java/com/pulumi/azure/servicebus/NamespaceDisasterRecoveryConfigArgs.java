@@ -5,6 +5,7 @@ package com.pulumi.azure.servicebus;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class NamespaceDisasterRecoveryConfigArgs extends com.pulumi.resour
         }
 
         public NamespaceDisasterRecoveryConfigArgs build() {
-            $.partnerNamespaceId = Objects.requireNonNull($.partnerNamespaceId, "expected parameter 'partnerNamespaceId' to be non-null");
-            $.primaryNamespaceId = Objects.requireNonNull($.primaryNamespaceId, "expected parameter 'primaryNamespaceId' to be non-null");
+            if ($.partnerNamespaceId == null) {
+                throw new MissingRequiredPropertyException("NamespaceDisasterRecoveryConfigArgs", "partnerNamespaceId");
+            }
+            if ($.primaryNamespaceId == null) {
+                throw new MissingRequiredPropertyException("NamespaceDisasterRecoveryConfigArgs", "primaryNamespaceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.cognitive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class AccountCustomerManagedKey {
 
         @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
+
             this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("AccountCustomerManagedKey", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         public AccountCustomerManagedKey build() {

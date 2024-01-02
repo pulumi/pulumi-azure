@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKe
         }
 
         public WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs build() {
-            $.secretUrl = Objects.requireNonNull($.secretUrl, "expected parameter 'secretUrl' to be non-null");
-            $.sourceVaultId = Objects.requireNonNull($.sourceVaultId, "expected parameter 'sourceVaultId' to be non-null");
+            if ($.secretUrl == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs", "secretUrl");
+            }
+            if ($.sourceVaultId == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs", "sourceVaultId");
+            }
             return $;
         }
     }

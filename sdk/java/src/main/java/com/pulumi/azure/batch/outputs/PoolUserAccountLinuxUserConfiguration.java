@@ -73,16 +73,19 @@ public final class PoolUserAccountLinuxUserConfiguration {
 
         @CustomType.Setter
         public Builder gid(@Nullable Integer gid) {
+
             this.gid = gid;
             return this;
         }
         @CustomType.Setter
         public Builder sshPrivateKey(@Nullable String sshPrivateKey) {
+
             this.sshPrivateKey = sshPrivateKey;
             return this;
         }
         @CustomType.Setter
         public Builder uid(@Nullable Integer uid) {
+
             this.uid = uid;
             return this;
         }

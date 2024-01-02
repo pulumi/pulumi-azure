@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,11 +115,15 @@ public final class CertificateCertificate {
 
         @CustomType.Setter
         public Builder contents(String contents) {
-            this.contents = Objects.requireNonNull(contents);
+            if (contents == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificate", "contents");
+            }
+            this.contents = contents;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }

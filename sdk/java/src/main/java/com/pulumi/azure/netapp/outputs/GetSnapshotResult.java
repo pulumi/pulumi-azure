@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -86,37 +87,58 @@ public final class GetSnapshotResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder poolName(String poolName) {
-            this.poolName = Objects.requireNonNull(poolName);
+            if (poolName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "poolName");
+            }
+            this.poolName = poolName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder volumeName(String volumeName) {
-            this.volumeName = Objects.requireNonNull(volumeName);
+            if (volumeName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "volumeName");
+            }
+            this.volumeName = volumeName;
             return this;
         }
         public GetSnapshotResult build() {

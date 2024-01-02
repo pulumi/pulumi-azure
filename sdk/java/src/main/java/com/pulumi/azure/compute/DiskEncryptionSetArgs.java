@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.DiskEncryptionSetIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -375,9 +376,15 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DiskEncryptionSetArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "identity");
+            }
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "keyVaultKeyId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "resourceGroupName");
+            }
             return $;
         }
     }

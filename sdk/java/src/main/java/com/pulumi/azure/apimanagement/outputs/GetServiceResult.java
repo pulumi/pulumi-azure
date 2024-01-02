@@ -8,6 +8,7 @@ import com.pulumi.azure.apimanagement.outputs.GetServiceHostnameConfiguration;
 import com.pulumi.azure.apimanagement.outputs.GetServiceIdentity;
 import com.pulumi.azure.apimanagement.outputs.GetServiceTenantAccess;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -327,7 +328,10 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder additionalLocations(List<GetServiceAdditionalLocation> additionalLocations) {
-            this.additionalLocations = Objects.requireNonNull(additionalLocations);
+            if (additionalLocations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "additionalLocations");
+            }
+            this.additionalLocations = additionalLocations;
             return this;
         }
         public Builder additionalLocations(GetServiceAdditionalLocation... additionalLocations) {
@@ -335,22 +339,34 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder developerPortalUrl(String developerPortalUrl) {
-            this.developerPortalUrl = Objects.requireNonNull(developerPortalUrl);
+            if (developerPortalUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "developerPortalUrl");
+            }
+            this.developerPortalUrl = developerPortalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayRegionalUrl(String gatewayRegionalUrl) {
-            this.gatewayRegionalUrl = Objects.requireNonNull(gatewayRegionalUrl);
+            if (gatewayRegionalUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "gatewayRegionalUrl");
+            }
+            this.gatewayRegionalUrl = gatewayRegionalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayUrl(String gatewayUrl) {
-            this.gatewayUrl = Objects.requireNonNull(gatewayUrl);
+            if (gatewayUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "gatewayUrl");
+            }
+            this.gatewayUrl = gatewayUrl;
             return this;
         }
         @CustomType.Setter
         public Builder hostnameConfigurations(List<GetServiceHostnameConfiguration> hostnameConfigurations) {
-            this.hostnameConfigurations = Objects.requireNonNull(hostnameConfigurations);
+            if (hostnameConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "hostnameConfigurations");
+            }
+            this.hostnameConfigurations = hostnameConfigurations;
             return this;
         }
         public Builder hostnameConfigurations(GetServiceHostnameConfiguration... hostnameConfigurations) {
@@ -358,12 +374,18 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetServiceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetServiceIdentity... identities) {
@@ -371,32 +393,50 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder managementApiUrl(String managementApiUrl) {
-            this.managementApiUrl = Objects.requireNonNull(managementApiUrl);
+            if (managementApiUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "managementApiUrl");
+            }
+            this.managementApiUrl = managementApiUrl;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notificationSenderEmail(String notificationSenderEmail) {
-            this.notificationSenderEmail = Objects.requireNonNull(notificationSenderEmail);
+            if (notificationSenderEmail == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "notificationSenderEmail");
+            }
+            this.notificationSenderEmail = notificationSenderEmail;
             return this;
         }
         @CustomType.Setter
         public Builder portalUrl(String portalUrl) {
-            this.portalUrl = Objects.requireNonNull(portalUrl);
+            if (portalUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "portalUrl");
+            }
+            this.portalUrl = portalUrl;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -404,12 +444,18 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
-            this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
+            if (publicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publicIpAddresses");
+            }
+            this.publicIpAddresses = publicIpAddresses;
             return this;
         }
         public Builder publicIpAddresses(String... publicIpAddresses) {
@@ -417,37 +463,56 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder publisherEmail(String publisherEmail) {
-            this.publisherEmail = Objects.requireNonNull(publisherEmail);
+            if (publisherEmail == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publisherEmail");
+            }
+            this.publisherEmail = publisherEmail;
             return this;
         }
         @CustomType.Setter
         public Builder publisherName(String publisherName) {
-            this.publisherName = Objects.requireNonNull(publisherName);
+            if (publisherName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "publisherName");
+            }
+            this.publisherName = publisherName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scmUrl(String scmUrl) {
-            this.scmUrl = Objects.requireNonNull(scmUrl);
+            if (scmUrl == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "scmUrl");
+            }
+            this.scmUrl = scmUrl;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantAccesses(List<GetServiceTenantAccess> tenantAccesses) {
-            this.tenantAccesses = Objects.requireNonNull(tenantAccesses);
+            if (tenantAccesses == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tenantAccesses");
+            }
+            this.tenantAccesses = tenantAccesses;
             return this;
         }
         public Builder tenantAccesses(GetServiceTenantAccess... tenantAccesses) {

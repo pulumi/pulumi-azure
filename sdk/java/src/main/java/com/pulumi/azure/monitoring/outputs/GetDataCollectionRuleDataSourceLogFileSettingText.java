@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetDataCollectionRuleDataSourceLogFileSettingText {
 
         @CustomType.Setter
         public Builder recordStartTimestampFormat(String recordStartTimestampFormat) {
-            this.recordStartTimestampFormat = Objects.requireNonNull(recordStartTimestampFormat);
+            if (recordStartTimestampFormat == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceLogFileSettingText", "recordStartTimestampFormat");
+            }
+            this.recordStartTimestampFormat = recordStartTimestampFormat;
             return this;
         }
         public GetDataCollectionRuleDataSourceLogFileSettingText build() {

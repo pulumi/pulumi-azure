@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class CustomProviderValidation {
 
         @CustomType.Setter
         public Builder specification(String specification) {
-            this.specification = Objects.requireNonNull(specification);
+            if (specification == null) {
+              throw new MissingRequiredPropertyException("CustomProviderValidation", "specification");
+            }
+            this.specification = specification;
             return this;
         }
         public CustomProviderValidation build() {

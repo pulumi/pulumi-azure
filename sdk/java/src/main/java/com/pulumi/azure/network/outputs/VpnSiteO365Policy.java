@@ -44,6 +44,7 @@ public final class VpnSiteO365Policy {
 
         @CustomType.Setter
         public Builder trafficCategory(@Nullable VpnSiteO365PolicyTrafficCategory trafficCategory) {
+
             this.trafficCategory = trafficCategory;
             return this;
         }

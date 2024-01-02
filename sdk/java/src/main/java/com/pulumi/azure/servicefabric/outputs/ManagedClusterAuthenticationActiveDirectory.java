@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class ManagedClusterAuthenticationActiveDirectory {
 
         @CustomType.Setter
         public Builder clientApplicationId(String clientApplicationId) {
-            this.clientApplicationId = Objects.requireNonNull(clientApplicationId);
+            if (clientApplicationId == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectory", "clientApplicationId");
+            }
+            this.clientApplicationId = clientApplicationId;
             return this;
         }
         @CustomType.Setter
         public Builder clusterApplicationId(String clusterApplicationId) {
-            this.clusterApplicationId = Objects.requireNonNull(clusterApplicationId);
+            if (clusterApplicationId == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectory", "clusterApplicationId");
+            }
+            this.clusterApplicationId = clusterApplicationId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectory", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public ManagedClusterAuthenticationActiveDirectory build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,37 +129,56 @@ public final class CacheDirectoryActiveDirectory {
 
         @CustomType.Setter
         public Builder cacheNetbiosName(String cacheNetbiosName) {
-            this.cacheNetbiosName = Objects.requireNonNull(cacheNetbiosName);
+            if (cacheNetbiosName == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "cacheNetbiosName");
+            }
+            this.cacheNetbiosName = cacheNetbiosName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsPrimaryIp(String dnsPrimaryIp) {
-            this.dnsPrimaryIp = Objects.requireNonNull(dnsPrimaryIp);
+            if (dnsPrimaryIp == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "dnsPrimaryIp");
+            }
+            this.dnsPrimaryIp = dnsPrimaryIp;
             return this;
         }
         @CustomType.Setter
         public Builder dnsSecondaryIp(@Nullable String dnsSecondaryIp) {
+
             this.dnsSecondaryIp = dnsSecondaryIp;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder domainNetbiosName(String domainNetbiosName) {
-            this.domainNetbiosName = Objects.requireNonNull(domainNetbiosName);
+            if (domainNetbiosName == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "domainNetbiosName");
+            }
+            this.domainNetbiosName = domainNetbiosName;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectory", "username");
+            }
+            this.username = username;
             return this;
         }
         public CacheDirectoryActiveDirectory build() {

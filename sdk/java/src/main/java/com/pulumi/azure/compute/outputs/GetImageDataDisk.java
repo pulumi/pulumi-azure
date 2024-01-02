@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetImageDataDisk {
 
         @CustomType.Setter
         public Builder blobUri(String blobUri) {
-            this.blobUri = Objects.requireNonNull(blobUri);
+            if (blobUri == null) {
+              throw new MissingRequiredPropertyException("GetImageDataDisk", "blobUri");
+            }
+            this.blobUri = blobUri;
             return this;
         }
         @CustomType.Setter
         public Builder caching(String caching) {
-            this.caching = Objects.requireNonNull(caching);
+            if (caching == null) {
+              throw new MissingRequiredPropertyException("GetImageDataDisk", "caching");
+            }
+            this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder lun(Integer lun) {
-            this.lun = Objects.requireNonNull(lun);
+            if (lun == null) {
+              throw new MissingRequiredPropertyException("GetImageDataDisk", "lun");
+            }
+            this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskId(String managedDiskId) {
-            this.managedDiskId = Objects.requireNonNull(managedDiskId);
+            if (managedDiskId == null) {
+              throw new MissingRequiredPropertyException("GetImageDataDisk", "managedDiskId");
+            }
+            this.managedDiskId = managedDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
-            this.sizeGb = Objects.requireNonNull(sizeGb);
+            if (sizeGb == null) {
+              throw new MissingRequiredPropertyException("GetImageDataDisk", "sizeGb");
+            }
+            this.sizeGb = sizeGb;
             return this;
         }
         public GetImageDataDisk build() {

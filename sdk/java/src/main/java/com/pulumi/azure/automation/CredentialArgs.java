@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class CredentialArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CredentialArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("CredentialArgs", "automationAccountName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("CredentialArgs", "password");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CredentialArgs", "resourceGroupName");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("CredentialArgs", "username");
+            }
             return $;
         }
     }

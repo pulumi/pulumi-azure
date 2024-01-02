@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -197,7 +198,9 @@ public final class RegistryGeoreplicationArgs extends com.pulumi.resources.Resou
         }
 
         public RegistryGeoreplicationArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("RegistryGeoreplicationArgs", "location");
+            }
             return $;
         }
     }

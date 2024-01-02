@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class WindowsFunctionAppSlotAuthSettingsTwitter {
 
         @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
-            this.consumerKey = Objects.requireNonNull(consumerKey);
+            if (consumerKey == null) {
+              throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsTwitter", "consumerKey");
+            }
+            this.consumerKey = consumerKey;
             return this;
         }
         @CustomType.Setter
         public Builder consumerSecret(@Nullable String consumerSecret) {
+
             this.consumerSecret = consumerSecret;
             return this;
         }
         @CustomType.Setter
         public Builder consumerSecretSettingName(@Nullable String consumerSecretSettingName) {
+
             this.consumerSecretSettingName = consumerSecretSettingName;
             return this;
         }

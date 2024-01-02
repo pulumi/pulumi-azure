@@ -128,36 +128,43 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaPanorama {
 
         @CustomType.Setter
         public Builder deviceGroupName(@Nullable String deviceGroupName) {
+
             this.deviceGroupName = deviceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder panoramaServer1(@Nullable String panoramaServer1) {
+
             this.panoramaServer1 = panoramaServer1;
             return this;
         }
         @CustomType.Setter
         public Builder panoramaServer2(@Nullable String panoramaServer2) {
+
             this.panoramaServer2 = panoramaServer2;
             return this;
         }
         @CustomType.Setter
         public Builder templateName(@Nullable String templateName) {
+
             this.templateName = templateName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualMachineSshKey(@Nullable String virtualMachineSshKey) {
+
             this.virtualMachineSshKey = virtualMachineSshKey;
             return this;
         }

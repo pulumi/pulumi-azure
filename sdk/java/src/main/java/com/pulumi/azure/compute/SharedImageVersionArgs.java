@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.SharedImageVersionTargetRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -656,10 +657,18 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         }
 
         public SharedImageVersionArgs build() {
-            $.galleryName = Objects.requireNonNull($.galleryName, "expected parameter 'galleryName' to be non-null");
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.targetRegions = Objects.requireNonNull($.targetRegions, "expected parameter 'targetRegions' to be non-null");
+            if ($.galleryName == null) {
+                throw new MissingRequiredPropertyException("SharedImageVersionArgs", "galleryName");
+            }
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("SharedImageVersionArgs", "imageName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SharedImageVersionArgs", "resourceGroupName");
+            }
+            if ($.targetRegions == null) {
+                throw new MissingRequiredPropertyException("SharedImageVersionArgs", "targetRegions");
+            }
             return $;
         }
     }

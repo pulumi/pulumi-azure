@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class VMWareReplicationPolicyArgs extends com.pulumi.resources.Reso
         }
 
         public VMWareReplicationPolicyArgs build() {
-            $.applicationConsistentSnapshotFrequencyInMinutes = Objects.requireNonNull($.applicationConsistentSnapshotFrequencyInMinutes, "expected parameter 'applicationConsistentSnapshotFrequencyInMinutes' to be non-null");
-            $.recoveryPointRetentionInMinutes = Objects.requireNonNull($.recoveryPointRetentionInMinutes, "expected parameter 'recoveryPointRetentionInMinutes' to be non-null");
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
+            if ($.applicationConsistentSnapshotFrequencyInMinutes == null) {
+                throw new MissingRequiredPropertyException("VMWareReplicationPolicyArgs", "applicationConsistentSnapshotFrequencyInMinutes");
+            }
+            if ($.recoveryPointRetentionInMinutes == null) {
+                throw new MissingRequiredPropertyException("VMWareReplicationPolicyArgs", "recoveryPointRetentionInMinutes");
+            }
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("VMWareReplicationPolicyArgs", "recoveryVaultId");
+            }
             return $;
         }
     }

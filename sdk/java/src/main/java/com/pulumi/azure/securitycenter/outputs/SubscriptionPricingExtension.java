@@ -4,6 +4,7 @@
 package com.pulumi.azure.securitycenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -66,12 +67,16 @@ public final class SubscriptionPricingExtension {
 
         @CustomType.Setter
         public Builder additionalExtensionProperties(@Nullable Map<String,String> additionalExtensionProperties) {
+
             this.additionalExtensionProperties = additionalExtensionProperties;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SubscriptionPricingExtension", "name");
+            }
+            this.name = name;
             return this;
         }
         public SubscriptionPricingExtension build() {

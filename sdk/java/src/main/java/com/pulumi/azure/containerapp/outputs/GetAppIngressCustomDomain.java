@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetAppIngressCustomDomain {
 
         @CustomType.Setter
         public Builder certificateBindingType(String certificateBindingType) {
-            this.certificateBindingType = Objects.requireNonNull(certificateBindingType);
+            if (certificateBindingType == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressCustomDomain", "certificateBindingType");
+            }
+            this.certificateBindingType = certificateBindingType;
             return this;
         }
         @CustomType.Setter
         public Builder certificateId(String certificateId) {
-            this.certificateId = Objects.requireNonNull(certificateId);
+            if (certificateId == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressCustomDomain", "certificateId");
+            }
+            this.certificateId = certificateId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressCustomDomain", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetAppIngressCustomDomain build() {

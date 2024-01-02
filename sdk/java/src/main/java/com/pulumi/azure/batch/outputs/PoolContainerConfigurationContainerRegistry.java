@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class PoolContainerConfigurationContainerRegistry {
 
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder registryServer(String registryServer) {
-            this.registryServer = Objects.requireNonNull(registryServer);
+            if (registryServer == null) {
+              throw new MissingRequiredPropertyException("PoolContainerConfigurationContainerRegistry", "registryServer");
+            }
+            this.registryServer = registryServer;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
         @CustomType.Setter
         public Builder userName(@Nullable String userName) {
+
             this.userName = userName;
             return this;
         }

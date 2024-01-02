@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.outputs;
 import com.pulumi.azure.mobile.outputs.GetNetworkServicePccRuleQosPolicy;
 import com.pulumi.azure.mobile.outputs.GetNetworkServicePccRuleServiceDataFlowTemplate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -103,17 +104,26 @@ public final class GetNetworkServicePccRule {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServicePccRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder precedence(Integer precedence) {
-            this.precedence = Objects.requireNonNull(precedence);
+            if (precedence == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServicePccRule", "precedence");
+            }
+            this.precedence = precedence;
             return this;
         }
         @CustomType.Setter
         public Builder qosPolicies(List<GetNetworkServicePccRuleQosPolicy> qosPolicies) {
-            this.qosPolicies = Objects.requireNonNull(qosPolicies);
+            if (qosPolicies == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServicePccRule", "qosPolicies");
+            }
+            this.qosPolicies = qosPolicies;
             return this;
         }
         public Builder qosPolicies(GetNetworkServicePccRuleQosPolicy... qosPolicies) {
@@ -121,7 +131,10 @@ public final class GetNetworkServicePccRule {
         }
         @CustomType.Setter
         public Builder serviceDataFlowTemplates(List<GetNetworkServicePccRuleServiceDataFlowTemplate> serviceDataFlowTemplates) {
-            this.serviceDataFlowTemplates = Objects.requireNonNull(serviceDataFlowTemplates);
+            if (serviceDataFlowTemplates == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServicePccRule", "serviceDataFlowTemplates");
+            }
+            this.serviceDataFlowTemplates = serviceDataFlowTemplates;
             return this;
         }
         public Builder serviceDataFlowTemplates(GetNetworkServicePccRuleServiceDataFlowTemplate... serviceDataFlowTemplates) {
@@ -129,7 +142,10 @@ public final class GetNetworkServicePccRule {
         }
         @CustomType.Setter
         public Builder trafficControlEnabled(Boolean trafficControlEnabled) {
-            this.trafficControlEnabled = Objects.requireNonNull(trafficControlEnabled);
+            if (trafficControlEnabled == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServicePccRule", "trafficControlEnabled");
+            }
+            this.trafficControlEnabled = trafficControlEnabled;
             return this;
         }
         public GetNetworkServicePccRule build() {

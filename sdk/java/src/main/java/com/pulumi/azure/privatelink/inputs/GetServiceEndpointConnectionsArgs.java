@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetServiceEndpointConnectionsArgs extends com.pulumi.resource
         }
 
         public GetServiceEndpointConnectionsArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceId = Objects.requireNonNull($.serviceId, "expected parameter 'serviceId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsArgs", "resourceGroupName");
+            }
+            if ($.serviceId == null) {
+                throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsArgs", "serviceId");
+            }
             return $;
         }
     }

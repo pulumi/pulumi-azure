@@ -6,6 +6,7 @@ package com.pulumi.azure.storage;
 import com.pulumi.azure.storage.inputs.DataLakeGen2FilesystemAceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -282,7 +283,9 @@ public final class DataLakeGen2FilesystemArgs extends com.pulumi.resources.Resou
         }
 
         public DataLakeGen2FilesystemArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("DataLakeGen2FilesystemArgs", "storageAccountId");
+            }
             return $;
         }
     }

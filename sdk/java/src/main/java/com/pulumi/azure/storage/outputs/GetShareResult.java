@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.GetShareAcl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -107,6 +108,7 @@ public final class GetShareResult {
 
         @CustomType.Setter
         public Builder acls(@Nullable List<GetShareAcl> acls) {
+
             this.acls = acls;
             return this;
         }
@@ -115,32 +117,50 @@ public final class GetShareResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder quota(Integer quota) {
-            this.quota = Objects.requireNonNull(quota);
+            if (quota == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "quota");
+            }
+            this.quota = quota;
             return this;
         }
         @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
-            this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
+            if (resourceManagerId == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "resourceManagerId");
+            }
+            this.resourceManagerId = resourceManagerId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         public GetShareResult build() {

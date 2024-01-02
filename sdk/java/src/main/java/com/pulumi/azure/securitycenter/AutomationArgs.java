@@ -7,6 +7,7 @@ import com.pulumi.azure.securitycenter.inputs.AutomationActionArgs;
 import com.pulumi.azure.securitycenter.inputs.AutomationSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -407,10 +408,18 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AutomationArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
-            $.sources = Objects.requireNonNull($.sources, "expected parameter 'sources' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("AutomationArgs", "actions");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AutomationArgs", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("AutomationArgs", "scopes");
+            }
+            if ($.sources == null) {
+                throw new MissingRequiredPropertyException("AutomationArgs", "sources");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class ContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ContactArgs build() {
-            $.alertNotifications = Objects.requireNonNull($.alertNotifications, "expected parameter 'alertNotifications' to be non-null");
-            $.alertsToAdmins = Objects.requireNonNull($.alertsToAdmins, "expected parameter 'alertsToAdmins' to be non-null");
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
+            if ($.alertNotifications == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "alertNotifications");
+            }
+            if ($.alertsToAdmins == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "alertsToAdmins");
+            }
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("ContactArgs", "email");
+            }
             return $;
         }
     }

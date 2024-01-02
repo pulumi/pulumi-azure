@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
         }
 
         public ClusterOptimizedAutoScaleArgs build() {
-            $.maximumInstances = Objects.requireNonNull($.maximumInstances, "expected parameter 'maximumInstances' to be non-null");
-            $.minimumInstances = Objects.requireNonNull($.minimumInstances, "expected parameter 'minimumInstances' to be non-null");
+            if ($.maximumInstances == null) {
+                throw new MissingRequiredPropertyException("ClusterOptimizedAutoScaleArgs", "maximumInstances");
+            }
+            if ($.minimumInstances == null) {
+                throw new MissingRequiredPropertyException("ClusterOptimizedAutoScaleArgs", "minimumInstances");
+            }
             return $;
         }
     }

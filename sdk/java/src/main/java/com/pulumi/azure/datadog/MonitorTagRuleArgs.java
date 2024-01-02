@@ -7,6 +7,7 @@ import com.pulumi.azure.datadog.inputs.MonitorTagRuleLogArgs;
 import com.pulumi.azure.datadog.inputs.MonitorTagRuleMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -210,7 +211,9 @@ public final class MonitorTagRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public MonitorTagRuleArgs build() {
-            $.datadogMonitorId = Objects.requireNonNull($.datadogMonitorId, "expected parameter 'datadogMonitorId' to be non-null");
+            if ($.datadogMonitorId == null) {
+                throw new MissingRequiredPropertyException("MonitorTagRuleArgs", "datadogMonitorId");
+            }
             return $;
         }
     }

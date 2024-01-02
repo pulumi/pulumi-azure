@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GroupDiagnosticsLogAnalytics;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -42,7 +43,10 @@ public final class GroupDiagnostics {
 
         @CustomType.Setter
         public Builder logAnalytics(GroupDiagnosticsLogAnalytics logAnalytics) {
-            this.logAnalytics = Objects.requireNonNull(logAnalytics);
+            if (logAnalytics == null) {
+              throw new MissingRequiredPropertyException("GroupDiagnostics", "logAnalytics");
+            }
+            this.logAnalytics = logAnalytics;
             return this;
         }
         public GroupDiagnostics build() {

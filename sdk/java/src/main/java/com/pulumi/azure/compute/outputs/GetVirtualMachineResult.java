@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetVirtualMachineIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -146,12 +147,18 @@ public final class GetVirtualMachineResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetVirtualMachineIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetVirtualMachineIdentity... identities) {
@@ -159,27 +166,42 @@ public final class GetVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder powerState(String powerState) {
-            this.powerState = Objects.requireNonNull(powerState);
+            if (powerState == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "powerState");
+            }
+            this.powerState = powerState;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -187,12 +209,18 @@ public final class GetVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
-            this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
+            if (publicIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "publicIpAddress");
+            }
+            this.publicIpAddress = publicIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
-            this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
+            if (publicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "publicIpAddresses");
+            }
+            this.publicIpAddresses = publicIpAddresses;
             return this;
         }
         public Builder publicIpAddresses(String... publicIpAddresses) {
@@ -200,7 +228,10 @@ public final class GetVirtualMachineResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetVirtualMachineResult build() {

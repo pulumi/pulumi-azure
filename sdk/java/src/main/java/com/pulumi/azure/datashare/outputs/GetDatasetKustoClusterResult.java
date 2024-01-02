@@ -4,6 +4,7 @@
 package com.pulumi.azure.datashare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -96,32 +97,50 @@ public final class GetDatasetKustoClusterResult {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kustoClusterId(String kustoClusterId) {
-            this.kustoClusterId = Objects.requireNonNull(kustoClusterId);
+            if (kustoClusterId == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "kustoClusterId");
+            }
+            this.kustoClusterId = kustoClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder kustoClusterLocation(String kustoClusterLocation) {
-            this.kustoClusterLocation = Objects.requireNonNull(kustoClusterLocation);
+            if (kustoClusterLocation == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "kustoClusterLocation");
+            }
+            this.kustoClusterLocation = kustoClusterLocation;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder shareId(String shareId) {
-            this.shareId = Objects.requireNonNull(shareId);
+            if (shareId == null) {
+              throw new MissingRequiredPropertyException("GetDatasetKustoClusterResult", "shareId");
+            }
+            this.shareId = shareId;
             return this;
         }
         public GetDatasetKustoClusterResult build() {

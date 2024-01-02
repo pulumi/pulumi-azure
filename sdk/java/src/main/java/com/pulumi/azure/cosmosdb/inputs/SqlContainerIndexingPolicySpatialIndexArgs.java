@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -124,7 +125,9 @@ public final class SqlContainerIndexingPolicySpatialIndexArgs extends com.pulumi
         }
 
         public SqlContainerIndexingPolicySpatialIndexArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("SqlContainerIndexingPolicySpatialIndexArgs", "path");
+            }
             return $;
         }
     }

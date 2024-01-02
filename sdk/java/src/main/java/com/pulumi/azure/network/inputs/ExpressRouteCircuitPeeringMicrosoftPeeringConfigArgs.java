@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -209,7 +210,9 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         public ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs build() {
-            $.advertisedPublicPrefixes = Objects.requireNonNull($.advertisedPublicPrefixes, "expected parameter 'advertisedPublicPrefixes' to be non-null");
+            if ($.advertisedPublicPrefixes == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs", "advertisedPublicPrefixes");
+            }
             return $;
         }
     }

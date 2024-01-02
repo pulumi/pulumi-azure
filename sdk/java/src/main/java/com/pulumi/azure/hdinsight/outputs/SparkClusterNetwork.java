@@ -63,11 +63,13 @@ public final class SparkClusterNetwork {
 
         @CustomType.Setter
         public Builder connectionDirection(@Nullable String connectionDirection) {
+
             this.connectionDirection = connectionDirection;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkEnabled(@Nullable Boolean privateLinkEnabled) {
+
             this.privateLinkEnabled = privateLinkEnabled;
             return this;
         }

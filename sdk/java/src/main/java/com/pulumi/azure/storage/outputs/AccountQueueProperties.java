@@ -90,6 +90,7 @@ public final class AccountQueueProperties {
 
         @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountQueuePropertiesCorsRule> corsRules) {
+
             this.corsRules = corsRules;
             return this;
         }
@@ -98,16 +99,19 @@ public final class AccountQueueProperties {
         }
         @CustomType.Setter
         public Builder hourMetrics(@Nullable AccountQueuePropertiesHourMetrics hourMetrics) {
+
             this.hourMetrics = hourMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder logging(@Nullable AccountQueuePropertiesLogging logging) {
+
             this.logging = logging;
             return this;
         }
         @CustomType.Setter
         public Builder minuteMetrics(@Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics) {
+
             this.minuteMetrics = minuteMetrics;
             return this;
         }

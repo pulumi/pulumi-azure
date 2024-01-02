@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class EndpointCustomDomainCdnManagedHttps {
 
         @CustomType.Setter
         public Builder certificateType(String certificateType) {
-            this.certificateType = Objects.requireNonNull(certificateType);
+            if (certificateType == null) {
+              throw new MissingRequiredPropertyException("EndpointCustomDomainCdnManagedHttps", "certificateType");
+            }
+            this.certificateType = certificateType;
             return this;
         }
         @CustomType.Setter
         public Builder protocolType(String protocolType) {
-            this.protocolType = Objects.requireNonNull(protocolType);
+            if (protocolType == null) {
+              throw new MissingRequiredPropertyException("EndpointCustomDomainCdnManagedHttps", "protocolType");
+            }
+            this.protocolType = protocolType;
             return this;
         }
         @CustomType.Setter
         public Builder tlsVersion(@Nullable String tlsVersion) {
+
             this.tlsVersion = tlsVersion;
             return this;
         }

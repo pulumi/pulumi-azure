@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -65,16 +66,23 @@ public final class FhirServiceAuthentication {
 
         @CustomType.Setter
         public Builder audience(String audience) {
-            this.audience = Objects.requireNonNull(audience);
+            if (audience == null) {
+              throw new MissingRequiredPropertyException("FhirServiceAuthentication", "audience");
+            }
+            this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder authority(String authority) {
-            this.authority = Objects.requireNonNull(authority);
+            if (authority == null) {
+              throw new MissingRequiredPropertyException("FhirServiceAuthentication", "authority");
+            }
+            this.authority = authority;
             return this;
         }
         @CustomType.Setter
         public Builder smartProxyEnabled(@Nullable Boolean smartProxyEnabled) {
+
             this.smartProxyEnabled = smartProxyEnabled;
             return this;
         }

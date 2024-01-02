@@ -5,6 +5,7 @@ package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.azure.appconfiguration.outputs.ConfigurationFeatureTargetingFilterGroup;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -74,11 +75,15 @@ public final class ConfigurationFeatureTargetingFilter {
 
         @CustomType.Setter
         public Builder defaultRolloutPercentage(Integer defaultRolloutPercentage) {
-            this.defaultRolloutPercentage = Objects.requireNonNull(defaultRolloutPercentage);
+            if (defaultRolloutPercentage == null) {
+              throw new MissingRequiredPropertyException("ConfigurationFeatureTargetingFilter", "defaultRolloutPercentage");
+            }
+            this.defaultRolloutPercentage = defaultRolloutPercentage;
             return this;
         }
         @CustomType.Setter
         public Builder groups(@Nullable List<ConfigurationFeatureTargetingFilterGroup> groups) {
+
             this.groups = groups;
             return this;
         }
@@ -87,6 +92,7 @@ public final class ConfigurationFeatureTargetingFilter {
         }
         @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
+
             this.users = users;
             return this;
         }

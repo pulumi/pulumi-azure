@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -156,9 +157,15 @@ public final class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigura
         }
 
         public VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs build() {
-            $.privateIpAddress = Objects.requireNonNull($.privateIpAddress, "expected parameter 'privateIpAddress' to be non-null");
-            $.sqlVirtualMachineId = Objects.requireNonNull($.sqlVirtualMachineId, "expected parameter 'sqlVirtualMachineId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.privateIpAddress == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs", "privateIpAddress");
+            }
+            if ($.sqlVirtualMachineId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs", "sqlVirtualMachineId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -206,8 +207,12 @@ public final class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args extends com.
         }
 
         public LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.appSecretSettingName = Objects.requireNonNull($.appSecretSettingName, "expected parameter 'appSecretSettingName' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args", "appId");
+            }
+            if ($.appSecretSettingName == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args", "appSecretSettingName");
+            }
             return $;
         }
     }

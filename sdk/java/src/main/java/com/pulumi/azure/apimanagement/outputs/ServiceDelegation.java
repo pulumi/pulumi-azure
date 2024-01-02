@@ -87,21 +87,25 @@ public final class ServiceDelegation {
 
         @CustomType.Setter
         public Builder subscriptionsEnabled(@Nullable Boolean subscriptionsEnabled) {
+
             this.subscriptionsEnabled = subscriptionsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder userRegistrationEnabled(@Nullable Boolean userRegistrationEnabled) {
+
             this.userRegistrationEnabled = userRegistrationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder validationKey(@Nullable String validationKey) {
+
             this.validationKey = validationKey;
             return this;
         }

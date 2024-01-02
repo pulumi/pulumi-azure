@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -262,11 +263,21 @@ public final class HybridConnectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HybridConnectionArgs build() {
-            $.appServiceName = Objects.requireNonNull($.appServiceName, "expected parameter 'appServiceName' to be non-null");
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.relayId = Objects.requireNonNull($.relayId, "expected parameter 'relayId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServiceName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "appServiceName");
+            }
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "hostname");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "port");
+            }
+            if ($.relayId == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "relayId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridConnectionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

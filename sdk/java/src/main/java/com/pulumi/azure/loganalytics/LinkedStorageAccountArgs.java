@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -204,10 +205,18 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         public LinkedStorageAccountArgs build() {
-            $.dataSourceType = Objects.requireNonNull($.dataSourceType, "expected parameter 'dataSourceType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountIds = Objects.requireNonNull($.storageAccountIds, "expected parameter 'storageAccountIds' to be non-null");
-            $.workspaceResourceId = Objects.requireNonNull($.workspaceResourceId, "expected parameter 'workspaceResourceId' to be non-null");
+            if ($.dataSourceType == null) {
+                throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "dataSourceType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "resourceGroupName");
+            }
+            if ($.storageAccountIds == null) {
+                throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "storageAccountIds");
+            }
+            if ($.workspaceResourceId == null) {
+                throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "workspaceResourceId");
+            }
             return $;
         }
     }

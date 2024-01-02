@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class EndpointDeliveryRuleRequestMethodCondition {
 
         @CustomType.Setter
         public Builder matchValues(List<String> matchValues) {
-            this.matchValues = Objects.requireNonNull(matchValues);
+            if (matchValues == null) {
+              throw new MissingRequiredPropertyException("EndpointDeliveryRuleRequestMethodCondition", "matchValues");
+            }
+            this.matchValues = matchValues;
             return this;
         }
         public Builder matchValues(String... matchValues) {
@@ -82,11 +86,13 @@ public final class EndpointDeliveryRuleRequestMethodCondition {
         }
         @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
+
             this.negateCondition = negateCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }

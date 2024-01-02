@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolContainerConfigurationContainerRegistry;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetPoolContainerConfiguration {
 
         @CustomType.Setter
         public Builder containerImageNames(List<String> containerImageNames) {
-            this.containerImageNames = Objects.requireNonNull(containerImageNames);
+            if (containerImageNames == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfiguration", "containerImageNames");
+            }
+            this.containerImageNames = containerImageNames;
             return this;
         }
         public Builder containerImageNames(String... containerImageNames) {
@@ -80,7 +84,10 @@ public final class GetPoolContainerConfiguration {
         }
         @CustomType.Setter
         public Builder containerRegistries(List<GetPoolContainerConfigurationContainerRegistry> containerRegistries) {
-            this.containerRegistries = Objects.requireNonNull(containerRegistries);
+            if (containerRegistries == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfiguration", "containerRegistries");
+            }
+            this.containerRegistries = containerRegistries;
             return this;
         }
         public Builder containerRegistries(GetPoolContainerConfigurationContainerRegistry... containerRegistries) {
@@ -88,7 +95,10 @@ public final class GetPoolContainerConfiguration {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPoolContainerConfiguration", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetPoolContainerConfiguration build() {

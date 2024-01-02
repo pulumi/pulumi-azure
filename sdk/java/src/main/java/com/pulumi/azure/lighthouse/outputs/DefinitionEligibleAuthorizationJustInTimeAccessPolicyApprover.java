@@ -4,6 +4,7 @@
 package com.pulumi.azure.lighthouse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover
 
         @CustomType.Setter
         public Builder principalDisplayName(@Nullable String principalDisplayName) {
+
             this.principalDisplayName = principalDisplayName;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         public DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover build() {

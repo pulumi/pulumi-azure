@@ -8,6 +8,7 @@ import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionScopeArgs;
 import com.pulumi.azure.monitoring.inputs.ActionRuleSuppressionSuppressionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -340,8 +341,12 @@ public final class ActionRuleSuppressionArgs extends com.pulumi.resources.Resour
         }
 
         public ActionRuleSuppressionArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.suppression = Objects.requireNonNull($.suppression, "expected parameter 'suppression' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionArgs", "resourceGroupName");
+            }
+            if ($.suppression == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionArgs", "suppression");
+            }
             return $;
         }
     }

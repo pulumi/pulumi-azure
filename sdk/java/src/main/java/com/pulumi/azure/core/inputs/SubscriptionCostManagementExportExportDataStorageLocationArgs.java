@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class SubscriptionCostManagementExportExportDataStorageLocationArgs
         }
 
         public SubscriptionCostManagementExportExportDataStorageLocationArgs build() {
-            $.containerId = Objects.requireNonNull($.containerId, "expected parameter 'containerId' to be non-null");
-            $.rootFolderPath = Objects.requireNonNull($.rootFolderPath, "expected parameter 'rootFolderPath' to be non-null");
+            if ($.containerId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataStorageLocationArgs", "containerId");
+            }
+            if ($.rootFolderPath == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataStorageLocationArgs", "rootFolderPath");
+            }
             return $;
         }
     }

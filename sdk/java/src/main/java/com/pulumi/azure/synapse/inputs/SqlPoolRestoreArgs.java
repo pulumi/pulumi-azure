@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SqlPoolRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SqlPoolRestoreArgs build() {
-            $.pointInTime = Objects.requireNonNull($.pointInTime, "expected parameter 'pointInTime' to be non-null");
-            $.sourceDatabaseId = Objects.requireNonNull($.sourceDatabaseId, "expected parameter 'sourceDatabaseId' to be non-null");
+            if ($.pointInTime == null) {
+                throw new MissingRequiredPropertyException("SqlPoolRestoreArgs", "pointInTime");
+            }
+            if ($.sourceDatabaseId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolRestoreArgs", "sourceDatabaseId");
+            }
             return $;
         }
     }

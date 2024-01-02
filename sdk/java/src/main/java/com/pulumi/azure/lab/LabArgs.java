@@ -11,6 +11,7 @@ import com.pulumi.azure.lab.inputs.LabSecurityArgs;
 import com.pulumi.azure.lab.inputs.LabVirtualMachineArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -527,10 +528,18 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LabArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.security = Objects.requireNonNull($.security, "expected parameter 'security' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.virtualMachine = Objects.requireNonNull($.virtualMachine, "expected parameter 'virtualMachine' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LabArgs", "resourceGroupName");
+            }
+            if ($.security == null) {
+                throw new MissingRequiredPropertyException("LabArgs", "security");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("LabArgs", "title");
+            }
+            if ($.virtualMachine == null) {
+                throw new MissingRequiredPropertyException("LabArgs", "virtualMachine");
+            }
             return $;
         }
     }

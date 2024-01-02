@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -437,9 +438,15 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         }
 
         public LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.openidConfigurationEndpoint = Objects.requireNonNull($.openidConfigurationEndpoint, "expected parameter 'openidConfigurationEndpoint' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args", "clientId");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args", "name");
+            }
+            if ($.openidConfigurationEndpoint == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args", "openidConfigurationEndpoint");
+            }
             return $;
         }
     }

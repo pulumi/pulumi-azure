@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -163,61 +164,75 @@ public final class CustomDomainGateway {
 
         @CustomType.Setter
         public Builder certificate(@Nullable String certificate) {
+
             this.certificate = certificate;
             return this;
         }
         @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
+
             this.certificatePassword = certificatePassword;
             return this;
         }
         @CustomType.Setter
         public Builder certificateSource(@Nullable String certificateSource) {
+
             this.certificateSource = certificateSource;
             return this;
         }
         @CustomType.Setter
         public Builder certificateStatus(@Nullable String certificateStatus) {
+
             this.certificateStatus = certificateStatus;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSslBinding(@Nullable Boolean defaultSslBinding) {
+
             this.defaultSslBinding = defaultSslBinding;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
+
             this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("CustomDomainGateway", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(@Nullable String keyVaultId) {
+
             this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder negotiateClientCertificate(@Nullable Boolean negotiateClientCertificate) {
+
             this.negotiateClientCertificate = negotiateClientCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder sslKeyvaultIdentityClientId(@Nullable String sslKeyvaultIdentityClientId) {
+
             this.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder subject(@Nullable String subject) {
+
             this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(@Nullable String thumbprint) {
+
             this.thumbprint = thumbprint;
             return this;
         }

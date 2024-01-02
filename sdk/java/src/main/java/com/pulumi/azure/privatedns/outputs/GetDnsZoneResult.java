@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -127,41 +128,63 @@ public final class GetDnsZoneResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfRecordSets(Integer maxNumberOfRecordSets) {
-            this.maxNumberOfRecordSets = Objects.requireNonNull(maxNumberOfRecordSets);
+            if (maxNumberOfRecordSets == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "maxNumberOfRecordSets");
+            }
+            this.maxNumberOfRecordSets = maxNumberOfRecordSets;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfVirtualNetworkLinks(Integer maxNumberOfVirtualNetworkLinks) {
-            this.maxNumberOfVirtualNetworkLinks = Objects.requireNonNull(maxNumberOfVirtualNetworkLinks);
+            if (maxNumberOfVirtualNetworkLinks == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "maxNumberOfVirtualNetworkLinks");
+            }
+            this.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfVirtualNetworkLinksWithRegistration(Integer maxNumberOfVirtualNetworkLinksWithRegistration) {
-            this.maxNumberOfVirtualNetworkLinksWithRegistration = Objects.requireNonNull(maxNumberOfVirtualNetworkLinksWithRegistration);
+            if (maxNumberOfVirtualNetworkLinksWithRegistration == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "maxNumberOfVirtualNetworkLinksWithRegistration");
+            }
+            this.maxNumberOfVirtualNetworkLinksWithRegistration = maxNumberOfVirtualNetworkLinksWithRegistration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfRecordSets(Integer numberOfRecordSets) {
-            this.numberOfRecordSets = Objects.requireNonNull(numberOfRecordSets);
+            if (numberOfRecordSets == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "numberOfRecordSets");
+            }
+            this.numberOfRecordSets = numberOfRecordSets;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDnsZoneResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile;
 import com.pulumi.azure.mobile.inputs.NetworkSimGroupIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -271,7 +272,9 @@ public final class NetworkSimGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public NetworkSimGroupArgs build() {
-            $.mobileNetworkId = Objects.requireNonNull($.mobileNetworkId, "expected parameter 'mobileNetworkId' to be non-null");
+            if ($.mobileNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimGroupArgs", "mobileNetworkId");
+            }
             return $;
         }
     }

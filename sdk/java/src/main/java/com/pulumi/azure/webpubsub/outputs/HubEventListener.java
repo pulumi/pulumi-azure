@@ -4,6 +4,7 @@
 package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,16 +87,23 @@ public final class HubEventListener {
 
         @CustomType.Setter
         public Builder eventhubName(String eventhubName) {
-            this.eventhubName = Objects.requireNonNull(eventhubName);
+            if (eventhubName == null) {
+              throw new MissingRequiredPropertyException("HubEventListener", "eventhubName");
+            }
+            this.eventhubName = eventhubName;
             return this;
         }
         @CustomType.Setter
         public Builder eventhubNamespaceName(String eventhubNamespaceName) {
-            this.eventhubNamespaceName = Objects.requireNonNull(eventhubNamespaceName);
+            if (eventhubNamespaceName == null) {
+              throw new MissingRequiredPropertyException("HubEventListener", "eventhubNamespaceName");
+            }
+            this.eventhubNamespaceName = eventhubNamespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder systemEventNameFilters(@Nullable List<String> systemEventNameFilters) {
+
             this.systemEventNameFilters = systemEventNameFilters;
             return this;
         }
@@ -104,6 +112,7 @@ public final class HubEventListener {
         }
         @CustomType.Setter
         public Builder userEventNameFilters(@Nullable List<String> userEventNameFilters) {
+
             this.userEventNameFilters = userEventNameFilters;
             return this;
         }

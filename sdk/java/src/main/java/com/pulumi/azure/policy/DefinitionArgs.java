@@ -5,6 +5,7 @@ package com.pulumi.azure.policy;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -380,9 +381,15 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DefinitionArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
-            $.policyType = Objects.requireNonNull($.policyType, "expected parameter 'policyType' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "displayName");
+            }
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "mode");
+            }
+            if ($.policyType == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "policyType");
+            }
             return $;
         }
     }

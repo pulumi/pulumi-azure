@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.azure.paloalto.outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,6 +86,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
 
         @CustomType.Setter
         public Builder egressNatIpAddressIds(@Nullable List<String> egressNatIpAddressIds) {
+
             this.egressNatIpAddressIds = egressNatIpAddressIds;
             return this;
         }
@@ -93,6 +95,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
         @CustomType.Setter
         public Builder egressNatIpAddresses(@Nullable List<String> egressNatIpAddresses) {
+
             this.egressNatIpAddresses = egressNatIpAddresses;
             return this;
         }
@@ -101,7 +104,10 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
         @CustomType.Setter
         public Builder publicIpAddressIds(List<String> publicIpAddressIds) {
-            this.publicIpAddressIds = Objects.requireNonNull(publicIpAddressIds);
+            if (publicIpAddressIds == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile", "publicIpAddressIds");
+            }
+            this.publicIpAddressIds = publicIpAddressIds;
             return this;
         }
         public Builder publicIpAddressIds(String... publicIpAddressIds) {
@@ -109,6 +115,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
         @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
+
             this.publicIpAddresses = publicIpAddresses;
             return this;
         }
@@ -117,7 +124,10 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
         @CustomType.Setter
         public Builder vnetConfiguration(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration vnetConfiguration) {
-            this.vnetConfiguration = Objects.requireNonNull(vnetConfiguration);
+            if (vnetConfiguration == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile", "vnetConfiguration");
+            }
+            this.vnetConfiguration = vnetConfiguration;
             return this;
         }
         public NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile build() {

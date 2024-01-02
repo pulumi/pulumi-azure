@@ -102,11 +102,13 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
 
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -115,16 +117,19 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
+
             this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

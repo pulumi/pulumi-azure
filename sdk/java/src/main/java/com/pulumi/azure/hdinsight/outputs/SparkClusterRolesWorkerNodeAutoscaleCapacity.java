@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SparkClusterRolesWorkerNodeAutoscaleCapacity {
 
         @CustomType.Setter
         public Builder maxInstanceCount(Integer maxInstanceCount) {
-            this.maxInstanceCount = Objects.requireNonNull(maxInstanceCount);
+            if (maxInstanceCount == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeAutoscaleCapacity", "maxInstanceCount");
+            }
+            this.maxInstanceCount = maxInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder minInstanceCount(Integer minInstanceCount) {
-            this.minInstanceCount = Objects.requireNonNull(minInstanceCount);
+            if (minInstanceCount == null) {
+              throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeAutoscaleCapacity", "minInstanceCount");
+            }
+            this.minInstanceCount = minInstanceCount;
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscaleCapacity build() {

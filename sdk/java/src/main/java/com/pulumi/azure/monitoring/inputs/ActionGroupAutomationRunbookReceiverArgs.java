@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,12 +300,24 @@ public final class ActionGroupAutomationRunbookReceiverArgs extends com.pulumi.r
         }
 
         public ActionGroupAutomationRunbookReceiverArgs build() {
-            $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
-            $.isGlobalRunbook = Objects.requireNonNull($.isGlobalRunbook, "expected parameter 'isGlobalRunbook' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.runbookName = Objects.requireNonNull($.runbookName, "expected parameter 'runbookName' to be non-null");
-            $.serviceUri = Objects.requireNonNull($.serviceUri, "expected parameter 'serviceUri' to be non-null");
-            $.webhookResourceId = Objects.requireNonNull($.webhookResourceId, "expected parameter 'webhookResourceId' to be non-null");
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "automationAccountId");
+            }
+            if ($.isGlobalRunbook == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "isGlobalRunbook");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "name");
+            }
+            if ($.runbookName == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "runbookName");
+            }
+            if ($.serviceUri == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "serviceUri");
+            }
+            if ($.webhookResourceId == null) {
+                throw new MissingRequiredPropertyException("ActionGroupAutomationRunbookReceiverArgs", "webhookResourceId");
+            }
             return $;
         }
     }

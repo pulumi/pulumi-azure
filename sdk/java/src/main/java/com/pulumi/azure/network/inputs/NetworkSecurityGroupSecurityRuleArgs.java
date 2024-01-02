@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -693,11 +694,21 @@ public final class NetworkSecurityGroupSecurityRuleArgs extends com.pulumi.resou
         }
 
         public NetworkSecurityGroupSecurityRuleArgs build() {
-            $.access = Objects.requireNonNull($.access, "expected parameter 'access' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.access == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRuleArgs", "access");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRuleArgs", "direction");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRuleArgs", "name");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRuleArgs", "priority");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRuleArgs", "protocol");
+            }
             return $;
         }
     }

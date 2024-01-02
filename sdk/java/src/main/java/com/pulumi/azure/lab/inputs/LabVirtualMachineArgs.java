@@ -9,6 +9,7 @@ import com.pulumi.azure.lab.inputs.LabVirtualMachineNonAdminUserArgs;
 import com.pulumi.azure.lab.inputs.LabVirtualMachineSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -340,9 +341,15 @@ public final class LabVirtualMachineArgs extends com.pulumi.resources.ResourceAr
         }
 
         public LabVirtualMachineArgs build() {
-            $.adminUser = Objects.requireNonNull($.adminUser, "expected parameter 'adminUser' to be non-null");
-            $.imageReference = Objects.requireNonNull($.imageReference, "expected parameter 'imageReference' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.adminUser == null) {
+                throw new MissingRequiredPropertyException("LabVirtualMachineArgs", "adminUser");
+            }
+            if ($.imageReference == null) {
+                throw new MissingRequiredPropertyException("LabVirtualMachineArgs", "imageReference");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("LabVirtualMachineArgs", "sku");
+            }
             return $;
         }
     }

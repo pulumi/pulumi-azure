@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -92,7 +93,9 @@ public final class GetContainersPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         public GetContainersPlainArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("GetContainersPlainArgs", "storageAccountId");
+            }
             return $;
         }
     }

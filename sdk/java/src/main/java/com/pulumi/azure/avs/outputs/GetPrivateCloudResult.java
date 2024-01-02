@@ -6,6 +6,7 @@ package com.pulumi.azure.avs.outputs;
 import com.pulumi.azure.avs.outputs.GetPrivateCloudCircuit;
 import com.pulumi.azure.avs.outputs.GetPrivateCloudManagementCluster;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -269,7 +270,10 @@ public final class GetPrivateCloudResult {
 
         @CustomType.Setter
         public Builder circuits(List<GetPrivateCloudCircuit> circuits) {
-            this.circuits = Objects.requireNonNull(circuits);
+            if (circuits == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "circuits");
+            }
+            this.circuits = circuits;
             return this;
         }
         public Builder circuits(GetPrivateCloudCircuit... circuits) {
@@ -277,27 +281,42 @@ public final class GetPrivateCloudResult {
         }
         @CustomType.Setter
         public Builder hcxCloudManagerEndpoint(String hcxCloudManagerEndpoint) {
-            this.hcxCloudManagerEndpoint = Objects.requireNonNull(hcxCloudManagerEndpoint);
+            if (hcxCloudManagerEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "hcxCloudManagerEndpoint");
+            }
+            this.hcxCloudManagerEndpoint = hcxCloudManagerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internetConnectionEnabled(Boolean internetConnectionEnabled) {
-            this.internetConnectionEnabled = Objects.requireNonNull(internetConnectionEnabled);
+            if (internetConnectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "internetConnectionEnabled");
+            }
+            this.internetConnectionEnabled = internetConnectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder managementClusters(List<GetPrivateCloudManagementCluster> managementClusters) {
-            this.managementClusters = Objects.requireNonNull(managementClusters);
+            if (managementClusters == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "managementClusters");
+            }
+            this.managementClusters = managementClusters;
             return this;
         }
         public Builder managementClusters(GetPrivateCloudManagementCluster... managementClusters) {
@@ -305,62 +324,98 @@ public final class GetPrivateCloudResult {
         }
         @CustomType.Setter
         public Builder managementSubnetCidr(String managementSubnetCidr) {
-            this.managementSubnetCidr = Objects.requireNonNull(managementSubnetCidr);
+            if (managementSubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "managementSubnetCidr");
+            }
+            this.managementSubnetCidr = managementSubnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSubnetCidr(String networkSubnetCidr) {
-            this.networkSubnetCidr = Objects.requireNonNull(networkSubnetCidr);
+            if (networkSubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "networkSubnetCidr");
+            }
+            this.networkSubnetCidr = networkSubnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder nsxtCertificateThumbprint(String nsxtCertificateThumbprint) {
-            this.nsxtCertificateThumbprint = Objects.requireNonNull(nsxtCertificateThumbprint);
+            if (nsxtCertificateThumbprint == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "nsxtCertificateThumbprint");
+            }
+            this.nsxtCertificateThumbprint = nsxtCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder nsxtManagerEndpoint(String nsxtManagerEndpoint) {
-            this.nsxtManagerEndpoint = Objects.requireNonNull(nsxtManagerEndpoint);
+            if (nsxtManagerEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "nsxtManagerEndpoint");
+            }
+            this.nsxtManagerEndpoint = nsxtManagerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningSubnetCidr(String provisioningSubnetCidr) {
-            this.provisioningSubnetCidr = Objects.requireNonNull(provisioningSubnetCidr);
+            if (provisioningSubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "provisioningSubnetCidr");
+            }
+            this.provisioningSubnetCidr = provisioningSubnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vcenterCertificateThumbprint(String vcenterCertificateThumbprint) {
-            this.vcenterCertificateThumbprint = Objects.requireNonNull(vcenterCertificateThumbprint);
+            if (vcenterCertificateThumbprint == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "vcenterCertificateThumbprint");
+            }
+            this.vcenterCertificateThumbprint = vcenterCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder vcsaEndpoint(String vcsaEndpoint) {
-            this.vcsaEndpoint = Objects.requireNonNull(vcsaEndpoint);
+            if (vcsaEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "vcsaEndpoint");
+            }
+            this.vcsaEndpoint = vcsaEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder vmotionSubnetCidr(String vmotionSubnetCidr) {
-            this.vmotionSubnetCidr = Objects.requireNonNull(vmotionSubnetCidr);
+            if (vmotionSubnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetPrivateCloudResult", "vmotionSubnetCidr");
+            }
+            this.vmotionSubnetCidr = vmotionSubnetCidr;
             return this;
         }
         public GetPrivateCloudResult build() {

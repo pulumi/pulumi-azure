@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetPoolFixedScale {
 
         @CustomType.Setter
         public Builder resizeTimeout(String resizeTimeout) {
-            this.resizeTimeout = Objects.requireNonNull(resizeTimeout);
+            if (resizeTimeout == null) {
+              throw new MissingRequiredPropertyException("GetPoolFixedScale", "resizeTimeout");
+            }
+            this.resizeTimeout = resizeTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder targetDedicatedNodes(Integer targetDedicatedNodes) {
-            this.targetDedicatedNodes = Objects.requireNonNull(targetDedicatedNodes);
+            if (targetDedicatedNodes == null) {
+              throw new MissingRequiredPropertyException("GetPoolFixedScale", "targetDedicatedNodes");
+            }
+            this.targetDedicatedNodes = targetDedicatedNodes;
             return this;
         }
         @CustomType.Setter
         public Builder targetLowPriorityNodes(Integer targetLowPriorityNodes) {
-            this.targetLowPriorityNodes = Objects.requireNonNull(targetLowPriorityNodes);
+            if (targetLowPriorityNodes == null) {
+              throw new MissingRequiredPropertyException("GetPoolFixedScale", "targetLowPriorityNodes");
+            }
+            this.targetLowPriorityNodes = targetLowPriorityNodes;
             return this;
         }
         public GetPoolFixedScale build() {

@@ -9,6 +9,7 @@ import com.pulumi.azure.apimanagement.inputs.DiagnosticFrontendRequestArgs;
 import com.pulumi.azure.apimanagement.inputs.DiagnosticFrontendResponseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -563,10 +564,18 @@ public final class DiagnosticArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DiagnosticArgs build() {
-            $.apiManagementLoggerId = Objects.requireNonNull($.apiManagementLoggerId, "expected parameter 'apiManagementLoggerId' to be non-null");
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementLoggerId == null) {
+                throw new MissingRequiredPropertyException("DiagnosticArgs", "apiManagementLoggerId");
+            }
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("DiagnosticArgs", "apiManagementName");
+            }
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("DiagnosticArgs", "identifier");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DiagnosticArgs", "resourceGroupName");
+            }
             return $;
         }
     }

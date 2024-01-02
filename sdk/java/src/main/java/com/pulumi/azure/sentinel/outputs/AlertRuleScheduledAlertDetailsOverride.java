@@ -102,16 +102,19 @@ public final class AlertRuleScheduledAlertDetailsOverride {
 
         @CustomType.Setter
         public Builder descriptionFormat(@Nullable String descriptionFormat) {
+
             this.descriptionFormat = descriptionFormat;
             return this;
         }
         @CustomType.Setter
         public Builder displayNameFormat(@Nullable String displayNameFormat) {
+
             this.displayNameFormat = displayNameFormat;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicProperties(@Nullable List<AlertRuleScheduledAlertDetailsOverrideDynamicProperty> dynamicProperties) {
+
             this.dynamicProperties = dynamicProperties;
             return this;
         }
@@ -120,11 +123,13 @@ public final class AlertRuleScheduledAlertDetailsOverride {
         }
         @CustomType.Setter
         public Builder severityColumnName(@Nullable String severityColumnName) {
+
             this.severityColumnName = severityColumnName;
             return this;
         }
         @CustomType.Setter
         public Builder tacticsColumnName(@Nullable String tacticsColumnName) {
+
             this.tacticsColumnName = tacticsColumnName;
             return this;
         }

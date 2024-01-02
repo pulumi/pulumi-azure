@@ -5,6 +5,7 @@ package com.pulumi.azure.dns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -274,10 +275,18 @@ public final class NsRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NsRecordArgs build() {
-            $.records = Objects.requireNonNull($.records, "expected parameter 'records' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
-            $.zoneName = Objects.requireNonNull($.zoneName, "expected parameter 'zoneName' to be non-null");
+            if ($.records == null) {
+                throw new MissingRequiredPropertyException("NsRecordArgs", "records");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NsRecordArgs", "resourceGroupName");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("NsRecordArgs", "ttl");
+            }
+            if ($.zoneName == null) {
+                throw new MissingRequiredPropertyException("NsRecordArgs", "zoneName");
+            }
             return $;
         }
     }

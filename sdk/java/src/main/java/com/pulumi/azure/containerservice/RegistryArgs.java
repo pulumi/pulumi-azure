@@ -11,6 +11,7 @@ import com.pulumi.azure.containerservice.inputs.RegistryRetentionPolicyArgs;
 import com.pulumi.azure.containerservice.inputs.RegistryTrustPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -799,8 +800,12 @@ public final class RegistryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RegistryArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RegistryArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("RegistryArgs", "sku");
+            }
             return $;
         }
     }

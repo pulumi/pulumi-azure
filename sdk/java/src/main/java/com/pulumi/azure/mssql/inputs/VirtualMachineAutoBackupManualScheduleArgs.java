@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -246,10 +247,18 @@ public final class VirtualMachineAutoBackupManualScheduleArgs extends com.pulumi
         }
 
         public VirtualMachineAutoBackupManualScheduleArgs build() {
-            $.fullBackupFrequency = Objects.requireNonNull($.fullBackupFrequency, "expected parameter 'fullBackupFrequency' to be non-null");
-            $.fullBackupStartHour = Objects.requireNonNull($.fullBackupStartHour, "expected parameter 'fullBackupStartHour' to be non-null");
-            $.fullBackupWindowInHours = Objects.requireNonNull($.fullBackupWindowInHours, "expected parameter 'fullBackupWindowInHours' to be non-null");
-            $.logBackupFrequencyInMinutes = Objects.requireNonNull($.logBackupFrequencyInMinutes, "expected parameter 'logBackupFrequencyInMinutes' to be non-null");
+            if ($.fullBackupFrequency == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualScheduleArgs", "fullBackupFrequency");
+            }
+            if ($.fullBackupStartHour == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualScheduleArgs", "fullBackupStartHour");
+            }
+            if ($.fullBackupWindowInHours == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualScheduleArgs", "fullBackupWindowInHours");
+            }
+            if ($.logBackupFrequencyInMinutes == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupManualScheduleArgs", "logBackupFrequencyInMinutes");
+            }
             return $;
         }
     }

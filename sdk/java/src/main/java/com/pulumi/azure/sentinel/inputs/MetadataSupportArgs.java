@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class MetadataSupportArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public MetadataSupportArgs build() {
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("MetadataSupportArgs", "tier");
+            }
             return $;
         }
     }

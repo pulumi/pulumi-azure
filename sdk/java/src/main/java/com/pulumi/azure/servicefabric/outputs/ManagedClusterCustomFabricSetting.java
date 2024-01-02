@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class ManagedClusterCustomFabricSetting {
 
         @CustomType.Setter
         public Builder parameter(String parameter) {
-            this.parameter = Objects.requireNonNull(parameter);
+            if (parameter == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSetting", "parameter");
+            }
+            this.parameter = parameter;
             return this;
         }
         @CustomType.Setter
         public Builder section(String section) {
-            this.section = Objects.requireNonNull(section);
+            if (section == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSetting", "section");
+            }
+            this.section = section;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterCustomFabricSetting", "value");
+            }
+            this.value = value;
             return this;
         }
         public ManagedClusterCustomFabricSetting build() {

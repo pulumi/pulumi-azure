@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class HadoopClusterMetastoresHive {
 
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
-            this.databaseName = Objects.requireNonNull(databaseName);
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterMetastoresHive", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterMetastoresHive", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder server(String server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterMetastoresHive", "server");
+            }
+            this.server = server;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterMetastoresHive", "username");
+            }
+            this.username = username;
             return this;
         }
         public HadoopClusterMetastoresHive build() {

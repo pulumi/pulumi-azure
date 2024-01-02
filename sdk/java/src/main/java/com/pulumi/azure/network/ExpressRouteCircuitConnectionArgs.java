@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -269,9 +270,15 @@ public final class ExpressRouteCircuitConnectionArgs extends com.pulumi.resource
         }
 
         public ExpressRouteCircuitConnectionArgs build() {
-            $.addressPrefixIpv4 = Objects.requireNonNull($.addressPrefixIpv4, "expected parameter 'addressPrefixIpv4' to be non-null");
-            $.peerPeeringId = Objects.requireNonNull($.peerPeeringId, "expected parameter 'peerPeeringId' to be non-null");
-            $.peeringId = Objects.requireNonNull($.peeringId, "expected parameter 'peeringId' to be non-null");
+            if ($.addressPrefixIpv4 == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitConnectionArgs", "addressPrefixIpv4");
+            }
+            if ($.peerPeeringId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitConnectionArgs", "peerPeeringId");
+            }
+            if ($.peeringId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitConnectionArgs", "peeringId");
+            }
             return $;
         }
     }

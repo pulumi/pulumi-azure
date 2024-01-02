@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -128,7 +129,9 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
         }
 
         public RunBookJobScheduleArgs build() {
-            $.scheduleName = Objects.requireNonNull($.scheduleName, "expected parameter 'scheduleName' to be non-null");
+            if ($.scheduleName == null) {
+                throw new MissingRequiredPropertyException("RunBookJobScheduleArgs", "scheduleName");
+            }
             return $;
         }
     }

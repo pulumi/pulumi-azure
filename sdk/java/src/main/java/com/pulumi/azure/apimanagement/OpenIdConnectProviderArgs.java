@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,12 +336,24 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
         }
 
         public OpenIdConnectProviderArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.metadataEndpoint = Objects.requireNonNull($.metadataEndpoint, "expected parameter 'metadataEndpoint' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "apiManagementName");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "clientSecret");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "displayName");
+            }
+            if ($.metadataEndpoint == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "metadataEndpoint");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OpenIdConnectProviderArgs", "resourceGroupName");
+            }
             return $;
         }
     }

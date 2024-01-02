@@ -58,11 +58,13 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRa
 
         @CustomType.Setter
         public Builder maximum(@Nullable Integer maximum) {
+
             this.maximum = maximum;
             return this;
         }
         @CustomType.Setter
         public Builder minimum(@Nullable Integer minimum) {
+
             this.minimum = minimum;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.media;
 import com.pulumi.azure.media.inputs.StreamingLocatorContentKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -505,10 +506,18 @@ public final class StreamingLocatorArgs extends com.pulumi.resources.ResourceArg
         }
 
         public StreamingLocatorArgs build() {
-            $.assetName = Objects.requireNonNull($.assetName, "expected parameter 'assetName' to be non-null");
-            $.mediaServicesAccountName = Objects.requireNonNull($.mediaServicesAccountName, "expected parameter 'mediaServicesAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.streamingPolicyName = Objects.requireNonNull($.streamingPolicyName, "expected parameter 'streamingPolicyName' to be non-null");
+            if ($.assetName == null) {
+                throw new MissingRequiredPropertyException("StreamingLocatorArgs", "assetName");
+            }
+            if ($.mediaServicesAccountName == null) {
+                throw new MissingRequiredPropertyException("StreamingLocatorArgs", "mediaServicesAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StreamingLocatorArgs", "resourceGroupName");
+            }
+            if ($.streamingPolicyName == null) {
+                throw new MissingRequiredPropertyException("StreamingLocatorArgs", "streamingPolicyName");
+            }
             return $;
         }
     }

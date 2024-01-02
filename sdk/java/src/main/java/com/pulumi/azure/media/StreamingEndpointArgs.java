@@ -7,6 +7,7 @@ import com.pulumi.azure.media.inputs.StreamingEndpointAccessControlArgs;
 import com.pulumi.azure.media.inputs.StreamingEndpointCrossSiteAccessPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -610,9 +611,15 @@ public final class StreamingEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         public StreamingEndpointArgs build() {
-            $.mediaServicesAccountName = Objects.requireNonNull($.mediaServicesAccountName, "expected parameter 'mediaServicesAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scaleUnits = Objects.requireNonNull($.scaleUnits, "expected parameter 'scaleUnits' to be non-null");
+            if ($.mediaServicesAccountName == null) {
+                throw new MissingRequiredPropertyException("StreamingEndpointArgs", "mediaServicesAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StreamingEndpointArgs", "resourceGroupName");
+            }
+            if ($.scaleUnits == null) {
+                throw new MissingRequiredPropertyException("StreamingEndpointArgs", "scaleUnits");
+            }
             return $;
         }
     }

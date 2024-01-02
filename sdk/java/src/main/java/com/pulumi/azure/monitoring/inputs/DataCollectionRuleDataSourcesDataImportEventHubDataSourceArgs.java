@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs
         }
 
         public DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.stream = Objects.requireNonNull($.stream, "expected parameter 'stream' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs", "name");
+            }
+            if ($.stream == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs", "stream");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -199,11 +200,13 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
 
         @CustomType.Setter
         public Builder autoUpgradeMinorVersionEnabled(@Nullable Boolean autoUpgradeMinorVersionEnabled) {
+
             this.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder extensionsToProvisionAfterVmCreations(@Nullable List<String> extensionsToProvisionAfterVmCreations) {
+
             this.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
             return this;
         }
@@ -212,47 +215,64 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         }
         @CustomType.Setter
         public Builder failureSuppressionEnabled(@Nullable Boolean failureSuppressionEnabled) {
+
             this.failureSuppressionEnabled = failureSuppressionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder forceExtensionExecutionOnChange(@Nullable String forceExtensionExecutionOnChange) {
+
             this.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetExtension", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
+
             this.protectedSettings = protectedSettings;
             return this;
         }
         @CustomType.Setter
         public Builder protectedSettingsFromKeyVault(@Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault) {
+
             this.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetExtension", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder settings(@Nullable String settings) {
+
             this.settings = settings;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetExtension", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeHandlerVersion(String typeHandlerVersion) {
-            this.typeHandlerVersion = Objects.requireNonNull(typeHandlerVersion);
+            if (typeHandlerVersion == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetExtension", "typeHandlerVersion");
+            }
+            this.typeHandlerVersion = typeHandlerVersion;
             return this;
         }
         public OrchestratedVirtualMachineScaleSetExtension build() {

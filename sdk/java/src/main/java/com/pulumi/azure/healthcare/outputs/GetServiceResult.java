@@ -6,6 +6,7 @@ package com.pulumi.azure.healthcare.outputs;
 import com.pulumi.azure.healthcare.outputs.GetServiceAuthenticationConfiguration;
 import com.pulumi.azure.healthcare.outputs.GetServiceCorsConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -163,7 +164,10 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder accessPolicyObjectIds(List<String> accessPolicyObjectIds) {
-            this.accessPolicyObjectIds = Objects.requireNonNull(accessPolicyObjectIds);
+            if (accessPolicyObjectIds == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "accessPolicyObjectIds");
+            }
+            this.accessPolicyObjectIds = accessPolicyObjectIds;
             return this;
         }
         public Builder accessPolicyObjectIds(String... accessPolicyObjectIds) {
@@ -171,7 +175,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder authenticationConfigurations(List<GetServiceAuthenticationConfiguration> authenticationConfigurations) {
-            this.authenticationConfigurations = Objects.requireNonNull(authenticationConfigurations);
+            if (authenticationConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "authenticationConfigurations");
+            }
+            this.authenticationConfigurations = authenticationConfigurations;
             return this;
         }
         public Builder authenticationConfigurations(GetServiceAuthenticationConfiguration... authenticationConfigurations) {
@@ -179,7 +186,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder corsConfigurations(List<GetServiceCorsConfiguration> corsConfigurations) {
-            this.corsConfigurations = Objects.requireNonNull(corsConfigurations);
+            if (corsConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "corsConfigurations");
+            }
+            this.corsConfigurations = corsConfigurations;
             return this;
         }
         public Builder corsConfigurations(GetServiceCorsConfiguration... corsConfigurations) {
@@ -187,42 +197,66 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder cosmosdbKeyVaultKeyVersionlessId(String cosmosdbKeyVaultKeyVersionlessId) {
-            this.cosmosdbKeyVaultKeyVersionlessId = Objects.requireNonNull(cosmosdbKeyVaultKeyVersionlessId);
+            if (cosmosdbKeyVaultKeyVersionlessId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "cosmosdbKeyVaultKeyVersionlessId");
+            }
+            this.cosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
             return this;
         }
         @CustomType.Setter
         public Builder cosmosdbThroughput(Integer cosmosdbThroughput) {
-            this.cosmosdbThroughput = Objects.requireNonNull(cosmosdbThroughput);
+            if (cosmosdbThroughput == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "cosmosdbThroughput");
+            }
+            this.cosmosdbThroughput = cosmosdbThroughput;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetServiceResult build() {

@@ -15,6 +15,7 @@ import com.pulumi.azure.eventhub.inputs.EventSubscriptionSubjectFilterArgs;
 import com.pulumi.azure.eventhub.inputs.EventSubscriptionWebhookEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -874,7 +875,9 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EventSubscriptionArgs build() {
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionArgs", "scope");
+            }
             return $;
         }
     }

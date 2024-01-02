@@ -59,6 +59,7 @@ public final class RulesEngineRuleAction {
 
         @CustomType.Setter
         public Builder requestHeaders(@Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders) {
+
             this.requestHeaders = requestHeaders;
             return this;
         }
@@ -67,6 +68,7 @@ public final class RulesEngineRuleAction {
         }
         @CustomType.Setter
         public Builder responseHeaders(@Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders) {
+
             this.responseHeaders = responseHeaders;
             return this;
         }

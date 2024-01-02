@@ -29,6 +29,7 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayUrlPathMapArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayWafConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1487,15 +1488,33 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         public ApplicationGatewayArgs build() {
-            $.backendAddressPools = Objects.requireNonNull($.backendAddressPools, "expected parameter 'backendAddressPools' to be non-null");
-            $.backendHttpSettings = Objects.requireNonNull($.backendHttpSettings, "expected parameter 'backendHttpSettings' to be non-null");
-            $.frontendIpConfigurations = Objects.requireNonNull($.frontendIpConfigurations, "expected parameter 'frontendIpConfigurations' to be non-null");
-            $.frontendPorts = Objects.requireNonNull($.frontendPorts, "expected parameter 'frontendPorts' to be non-null");
-            $.gatewayIpConfigurations = Objects.requireNonNull($.gatewayIpConfigurations, "expected parameter 'gatewayIpConfigurations' to be non-null");
-            $.httpListeners = Objects.requireNonNull($.httpListeners, "expected parameter 'httpListeners' to be non-null");
-            $.requestRoutingRules = Objects.requireNonNull($.requestRoutingRules, "expected parameter 'requestRoutingRules' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.backendAddressPools == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "backendAddressPools");
+            }
+            if ($.backendHttpSettings == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "backendHttpSettings");
+            }
+            if ($.frontendIpConfigurations == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "frontendIpConfigurations");
+            }
+            if ($.frontendPorts == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "frontendPorts");
+            }
+            if ($.gatewayIpConfigurations == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "gatewayIpConfigurations");
+            }
+            if ($.httpListeners == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "httpListeners");
+            }
+            if ($.requestRoutingRules == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "requestRoutingRules");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayArgs", "sku");
+            }
             return $;
         }
     }

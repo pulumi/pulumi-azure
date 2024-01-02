@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ChannelAlexaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelAlexaArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skillId = Objects.requireNonNull($.skillId, "expected parameter 'skillId' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelAlexaArgs", "botName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelAlexaArgs", "resourceGroupName");
+            }
+            if ($.skillId == null) {
+                throw new MissingRequiredPropertyException("ChannelAlexaArgs", "skillId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.KeyRotationPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -423,9 +424,15 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KeyArgs build() {
-            $.keyOpts = Objects.requireNonNull($.keyOpts, "expected parameter 'keyOpts' to be non-null");
-            $.keyType = Objects.requireNonNull($.keyType, "expected parameter 'keyType' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.keyOpts == null) {
+                throw new MissingRequiredPropertyException("KeyArgs", "keyOpts");
+            }
+            if ($.keyType == null) {
+                throw new MissingRequiredPropertyException("KeyArgs", "keyType");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("KeyArgs", "keyVaultId");
+            }
             return $;
         }
     }

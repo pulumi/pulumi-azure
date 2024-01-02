@@ -75,16 +75,19 @@ public final class ApiDiagnosticBackendRequest {
 
         @CustomType.Setter
         public Builder bodyBytes(@Nullable Integer bodyBytes) {
+
             this.bodyBytes = bodyBytes;
             return this;
         }
         @CustomType.Setter
         public Builder dataMasking(@Nullable ApiDiagnosticBackendRequestDataMasking dataMasking) {
+
             this.dataMasking = dataMasking;
             return this;
         }
         @CustomType.Setter
         public Builder headersToLogs(@Nullable List<String> headersToLogs) {
+
             this.headersToLogs = headersToLogs;
             return this;
         }

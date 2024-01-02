@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class KubernetesClusterConfidentialComputing {
 
         @CustomType.Setter
         public Builder sgxQuoteHelperEnabled(Boolean sgxQuoteHelperEnabled) {
-            this.sgxQuoteHelperEnabled = Objects.requireNonNull(sgxQuoteHelperEnabled);
+            if (sgxQuoteHelperEnabled == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterConfidentialComputing", "sgxQuoteHelperEnabled");
+            }
+            this.sgxQuoteHelperEnabled = sgxQuoteHelperEnabled;
             return this;
         }
         public KubernetesClusterConfidentialComputing build() {

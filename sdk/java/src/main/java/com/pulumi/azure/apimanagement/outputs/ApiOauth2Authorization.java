@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class ApiOauth2Authorization {
 
         @CustomType.Setter
         public Builder authorizationServerName(String authorizationServerName) {
-            this.authorizationServerName = Objects.requireNonNull(authorizationServerName);
+            if (authorizationServerName == null) {
+              throw new MissingRequiredPropertyException("ApiOauth2Authorization", "authorizationServerName");
+            }
+            this.authorizationServerName = authorizationServerName;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }

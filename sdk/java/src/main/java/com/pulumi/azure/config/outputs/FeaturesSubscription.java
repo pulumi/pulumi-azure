@@ -36,6 +36,7 @@ public final class FeaturesSubscription {
 
         @CustomType.Setter
         public Builder preventCancellationOnDestroy(@Nullable Boolean preventCancellationOnDestroy) {
+
             this.preventCancellationOnDestroy = preventCancellationOnDestroy;
             return this;
         }

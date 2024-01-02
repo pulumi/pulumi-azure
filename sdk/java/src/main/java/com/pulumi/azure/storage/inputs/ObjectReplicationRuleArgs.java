@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -215,8 +216,12 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         public ObjectReplicationRuleArgs build() {
-            $.destinationContainerName = Objects.requireNonNull($.destinationContainerName, "expected parameter 'destinationContainerName' to be non-null");
-            $.sourceContainerName = Objects.requireNonNull($.sourceContainerName, "expected parameter 'sourceContainerName' to be non-null");
+            if ($.destinationContainerName == null) {
+                throw new MissingRequiredPropertyException("ObjectReplicationRuleArgs", "destinationContainerName");
+            }
+            if ($.sourceContainerName == null) {
+                throw new MissingRequiredPropertyException("ObjectReplicationRuleArgs", "sourceContainerName");
+            }
             return $;
         }
     }

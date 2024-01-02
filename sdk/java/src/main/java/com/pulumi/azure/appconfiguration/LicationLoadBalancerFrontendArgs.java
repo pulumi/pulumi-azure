@@ -5,6 +5,7 @@ package com.pulumi.azure.appconfiguration;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class LicationLoadBalancerFrontendArgs extends com.pulumi.resources
         }
 
         public LicationLoadBalancerFrontendArgs build() {
-            $.applicationLoadBalancerId = Objects.requireNonNull($.applicationLoadBalancerId, "expected parameter 'applicationLoadBalancerId' to be non-null");
+            if ($.applicationLoadBalancerId == null) {
+                throw new MissingRequiredPropertyException("LicationLoadBalancerFrontendArgs", "applicationLoadBalancerId");
+            }
             return $;
         }
     }

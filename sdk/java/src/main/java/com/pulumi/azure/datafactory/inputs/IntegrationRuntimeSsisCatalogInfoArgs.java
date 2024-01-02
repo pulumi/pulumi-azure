@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,7 +262,9 @@ public final class IntegrationRuntimeSsisCatalogInfoArgs extends com.pulumi.reso
         }
 
         public IntegrationRuntimeSsisCatalogInfoArgs build() {
-            $.serverEndpoint = Objects.requireNonNull($.serverEndpoint, "expected parameter 'serverEndpoint' to be non-null");
+            if ($.serverEndpoint == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCatalogInfoArgs", "serverEndpoint");
+            }
             return $;
         }
     }

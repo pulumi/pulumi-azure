@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -410,12 +411,24 @@ public final class TimeSeriesInsightsEventSourceIothubArgs extends com.pulumi.re
         }
 
         public TimeSeriesInsightsEventSourceIothubArgs build() {
-            $.consumerGroupName = Objects.requireNonNull($.consumerGroupName, "expected parameter 'consumerGroupName' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.eventSourceResourceId = Objects.requireNonNull($.eventSourceResourceId, "expected parameter 'eventSourceResourceId' to be non-null");
-            $.iothubName = Objects.requireNonNull($.iothubName, "expected parameter 'iothubName' to be non-null");
-            $.sharedAccessKey = Objects.requireNonNull($.sharedAccessKey, "expected parameter 'sharedAccessKey' to be non-null");
-            $.sharedAccessKeyName = Objects.requireNonNull($.sharedAccessKeyName, "expected parameter 'sharedAccessKeyName' to be non-null");
+            if ($.consumerGroupName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "consumerGroupName");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "environmentId");
+            }
+            if ($.eventSourceResourceId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "eventSourceResourceId");
+            }
+            if ($.iothubName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "iothubName");
+            }
+            if ($.sharedAccessKey == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "sharedAccessKey");
+            }
+            if ($.sharedAccessKeyName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceIothubArgs", "sharedAccessKeyName");
+            }
             return $;
         }
     }

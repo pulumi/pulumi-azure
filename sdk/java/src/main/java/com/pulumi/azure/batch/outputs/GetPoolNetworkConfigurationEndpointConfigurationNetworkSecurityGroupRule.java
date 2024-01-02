@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -86,22 +87,34 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
 
         @CustomType.Setter
         public Builder access(String access) {
-            this.access = Objects.requireNonNull(access);
+            if (access == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule", "access");
+            }
+            this.access = access;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddressPrefix(String sourceAddressPrefix) {
-            this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
+            if (sourceAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule", "sourceAddressPrefix");
+            }
+            this.sourceAddressPrefix = sourceAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePortRanges(List<String> sourcePortRanges) {
-            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+            if (sourcePortRanges == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule", "sourcePortRanges");
+            }
+            this.sourcePortRanges = sourcePortRanges;
             return this;
         }
         public Builder sourcePortRanges(String... sourcePortRanges) {

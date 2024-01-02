@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class AutomationRuleActionPlaybookArgs extends com.pulumi.resources
         }
 
         public AutomationRuleActionPlaybookArgs build() {
-            $.logicAppId = Objects.requireNonNull($.logicAppId, "expected parameter 'logicAppId' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.logicAppId == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleActionPlaybookArgs", "logicAppId");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleActionPlaybookArgs", "order");
+            }
             return $;
         }
     }

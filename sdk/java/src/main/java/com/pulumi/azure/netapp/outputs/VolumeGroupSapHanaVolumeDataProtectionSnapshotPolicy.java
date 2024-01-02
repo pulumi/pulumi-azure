@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
 
         @CustomType.Setter
         public Builder snapshotPolicyId(String snapshotPolicyId) {
-            this.snapshotPolicyId = Objects.requireNonNull(snapshotPolicyId);
+            if (snapshotPolicyId == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy", "snapshotPolicyId");
+            }
+            this.snapshotPolicyId = snapshotPolicyId;
             return this;
         }
         public VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy build() {

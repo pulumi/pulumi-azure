@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -125,7 +126,9 @@ public final class ApplicationGatewayWafConfigurationDisabledRuleGroupArgs exten
         }
 
         public ApplicationGatewayWafConfigurationDisabledRuleGroupArgs build() {
-            $.ruleGroupName = Objects.requireNonNull($.ruleGroupName, "expected parameter 'ruleGroupName' to be non-null");
+            if ($.ruleGroupName == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationDisabledRuleGroupArgs", "ruleGroupName");
+            }
             return $;
         }
     }

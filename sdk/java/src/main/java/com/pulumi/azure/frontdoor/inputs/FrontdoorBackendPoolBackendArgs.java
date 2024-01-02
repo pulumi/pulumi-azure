@@ -5,6 +5,7 @@ package com.pulumi.azure.frontdoor.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -300,10 +301,18 @@ public final class FrontdoorBackendPoolBackendArgs extends com.pulumi.resources.
         }
 
         public FrontdoorBackendPoolBackendArgs build() {
-            $.address = Objects.requireNonNull($.address, "expected parameter 'address' to be non-null");
-            $.hostHeader = Objects.requireNonNull($.hostHeader, "expected parameter 'hostHeader' to be non-null");
-            $.httpPort = Objects.requireNonNull($.httpPort, "expected parameter 'httpPort' to be non-null");
-            $.httpsPort = Objects.requireNonNull($.httpsPort, "expected parameter 'httpsPort' to be non-null");
+            if ($.address == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackendArgs", "address");
+            }
+            if ($.hostHeader == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackendArgs", "hostHeader");
+            }
+            if ($.httpPort == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackendArgs", "httpPort");
+            }
+            if ($.httpsPort == null) {
+                throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackendArgs", "httpsPort");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateCustomScaleRuleAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +64,10 @@ public final class GetAppTemplateCustomScaleRule {
 
         @CustomType.Setter
         public Builder authentications(List<GetAppTemplateCustomScaleRuleAuthentication> authentications) {
-            this.authentications = Objects.requireNonNull(authentications);
+            if (authentications == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "authentications");
+            }
+            this.authentications = authentications;
             return this;
         }
         public Builder authentications(GetAppTemplateCustomScaleRuleAuthentication... authentications) {
@@ -71,17 +75,26 @@ public final class GetAppTemplateCustomScaleRule {
         }
         @CustomType.Setter
         public Builder customRuleType(String customRuleType) {
-            this.customRuleType = Objects.requireNonNull(customRuleType);
+            if (customRuleType == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "customRuleType");
+            }
+            this.customRuleType = customRuleType;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateCustomScaleRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetAppTemplateCustomScaleRule build() {

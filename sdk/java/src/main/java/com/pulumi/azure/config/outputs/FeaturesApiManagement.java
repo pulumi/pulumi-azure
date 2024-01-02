@@ -42,11 +42,13 @@ public final class FeaturesApiManagement {
 
         @CustomType.Setter
         public Builder purgeSoftDeleteOnDestroy(@Nullable Boolean purgeSoftDeleteOnDestroy) {
+
             this.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder recoverSoftDeleted(@Nullable Boolean recoverSoftDeleted) {
+
             this.recoverSoftDeleted = recoverSoftDeleted;
             return this;
         }

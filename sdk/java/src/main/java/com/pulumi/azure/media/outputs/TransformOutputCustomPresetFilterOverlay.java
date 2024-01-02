@@ -63,11 +63,13 @@ public final class TransformOutputCustomPresetFilterOverlay {
 
         @CustomType.Setter
         public Builder audio(@Nullable TransformOutputCustomPresetFilterOverlayAudio audio) {
+
             this.audio = audio;
             return this;
         }
         @CustomType.Setter
         public Builder video(@Nullable TransformOutputCustomPresetFilterOverlayVideo video) {
+
             this.video = video;
             return this;
         }

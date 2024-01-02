@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
         }
 
         public VirtualMachineOsProfileSecretVaultCertificateArgs build() {
-            $.certificateUrl = Objects.requireNonNull($.certificateUrl, "expected parameter 'certificateUrl' to be non-null");
+            if ($.certificateUrl == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileSecretVaultCertificateArgs", "certificateUrl");
+            }
             return $;
         }
     }

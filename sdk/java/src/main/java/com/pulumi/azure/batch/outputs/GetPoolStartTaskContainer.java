@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskContainerRegistry;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,12 +87,18 @@ public final class GetPoolStartTaskContainer {
 
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskContainer", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder registries(List<GetPoolStartTaskContainerRegistry> registries) {
-            this.registries = Objects.requireNonNull(registries);
+            if (registries == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskContainer", "registries");
+            }
+            this.registries = registries;
             return this;
         }
         public Builder registries(GetPoolStartTaskContainerRegistry... registries) {
@@ -99,12 +106,18 @@ public final class GetPoolStartTaskContainer {
         }
         @CustomType.Setter
         public Builder runOptions(String runOptions) {
-            this.runOptions = Objects.requireNonNull(runOptions);
+            if (runOptions == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskContainer", "runOptions");
+            }
+            this.runOptions = runOptions;
             return this;
         }
         @CustomType.Setter
         public Builder workingDirectory(String workingDirectory) {
-            this.workingDirectory = Objects.requireNonNull(workingDirectory);
+            if (workingDirectory == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskContainer", "workingDirectory");
+            }
+            this.workingDirectory = workingDirectory;
             return this;
         }
         public GetPoolStartTaskContainer build() {

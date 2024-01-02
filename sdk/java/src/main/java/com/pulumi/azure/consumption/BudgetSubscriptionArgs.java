@@ -8,6 +8,7 @@ import com.pulumi.azure.consumption.inputs.BudgetSubscriptionNotificationArgs;
 import com.pulumi.azure.consumption.inputs.BudgetSubscriptionTimePeriodArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -358,10 +359,18 @@ public final class BudgetSubscriptionArgs extends com.pulumi.resources.ResourceA
         }
 
         public BudgetSubscriptionArgs build() {
-            $.amount = Objects.requireNonNull($.amount, "expected parameter 'amount' to be non-null");
-            $.notifications = Objects.requireNonNull($.notifications, "expected parameter 'notifications' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.timePeriod = Objects.requireNonNull($.timePeriod, "expected parameter 'timePeriod' to be non-null");
+            if ($.amount == null) {
+                throw new MissingRequiredPropertyException("BudgetSubscriptionArgs", "amount");
+            }
+            if ($.notifications == null) {
+                throw new MissingRequiredPropertyException("BudgetSubscriptionArgs", "notifications");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("BudgetSubscriptionArgs", "subscriptionId");
+            }
+            if ($.timePeriod == null) {
+                throw new MissingRequiredPropertyException("BudgetSubscriptionArgs", "timePeriod");
+            }
             return $;
         }
     }

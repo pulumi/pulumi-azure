@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -245,9 +246,15 @@ public final class DataCollectionRuleDataSourcesExtensionArgs extends com.pulumi
         }
 
         public DataCollectionRuleDataSourcesExtensionArgs build() {
-            $.extensionName = Objects.requireNonNull($.extensionName, "expected parameter 'extensionName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.streams = Objects.requireNonNull($.streams, "expected parameter 'streams' to be non-null");
+            if ($.extensionName == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesExtensionArgs", "extensionName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesExtensionArgs", "name");
+            }
+            if ($.streams == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesExtensionArgs", "streams");
+            }
             return $;
         }
     }

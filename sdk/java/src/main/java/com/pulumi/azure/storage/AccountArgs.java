@@ -17,6 +17,7 @@ import com.pulumi.azure.storage.inputs.AccountSharePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountStaticWebsiteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -1453,9 +1454,15 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.accountReplicationType = Objects.requireNonNull($.accountReplicationType, "expected parameter 'accountReplicationType' to be non-null");
-            $.accountTier = Objects.requireNonNull($.accountTier, "expected parameter 'accountTier' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountReplicationType == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "accountReplicationType");
+            }
+            if ($.accountTier == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "accountTier");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

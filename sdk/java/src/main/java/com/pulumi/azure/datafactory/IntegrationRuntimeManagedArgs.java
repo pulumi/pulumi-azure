@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeManagedCustomSetupS
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeManagedVnetIntegrationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -487,8 +488,12 @@ public final class IntegrationRuntimeManagedArgs extends com.pulumi.resources.Re
         }
 
         public IntegrationRuntimeManagedArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.nodeSize = Objects.requireNonNull($.nodeSize, "expected parameter 'nodeSize' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeManagedArgs", "dataFactoryId");
+            }
+            if ($.nodeSize == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeManagedArgs", "nodeSize");
+            }
             return $;
         }
     }

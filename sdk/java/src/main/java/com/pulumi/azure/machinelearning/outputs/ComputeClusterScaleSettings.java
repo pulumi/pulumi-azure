@@ -4,6 +4,7 @@
 package com.pulumi.azure.machinelearning.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class ComputeClusterScaleSettings {
 
         @CustomType.Setter
         public Builder maxNodeCount(Integer maxNodeCount) {
-            this.maxNodeCount = Objects.requireNonNull(maxNodeCount);
+            if (maxNodeCount == null) {
+              throw new MissingRequiredPropertyException("ComputeClusterScaleSettings", "maxNodeCount");
+            }
+            this.maxNodeCount = maxNodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder minNodeCount(Integer minNodeCount) {
-            this.minNodeCount = Objects.requireNonNull(minNodeCount);
+            if (minNodeCount == null) {
+              throw new MissingRequiredPropertyException("ComputeClusterScaleSettings", "minNodeCount");
+            }
+            this.minNodeCount = minNodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownNodesAfterIdleDuration(String scaleDownNodesAfterIdleDuration) {
-            this.scaleDownNodesAfterIdleDuration = Objects.requireNonNull(scaleDownNodesAfterIdleDuration);
+            if (scaleDownNodesAfterIdleDuration == null) {
+              throw new MissingRequiredPropertyException("ComputeClusterScaleSettings", "scaleDownNodesAfterIdleDuration");
+            }
+            this.scaleDownNodesAfterIdleDuration = scaleDownNodesAfterIdleDuration;
             return this;
         }
         public ComputeClusterScaleSettings build() {

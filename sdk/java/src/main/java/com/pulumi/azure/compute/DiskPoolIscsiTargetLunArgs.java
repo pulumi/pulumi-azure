@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DiskPoolIscsiTargetLunArgs extends com.pulumi.resources.Resou
         }
 
         public DiskPoolIscsiTargetLunArgs build() {
-            $.diskPoolManagedDiskAttachmentId = Objects.requireNonNull($.diskPoolManagedDiskAttachmentId, "expected parameter 'diskPoolManagedDiskAttachmentId' to be non-null");
-            $.iscsiTargetId = Objects.requireNonNull($.iscsiTargetId, "expected parameter 'iscsiTargetId' to be non-null");
+            if ($.diskPoolManagedDiskAttachmentId == null) {
+                throw new MissingRequiredPropertyException("DiskPoolIscsiTargetLunArgs", "diskPoolManagedDiskAttachmentId");
+            }
+            if ($.iscsiTargetId == null) {
+                throw new MissingRequiredPropertyException("DiskPoolIscsiTargetLunArgs", "iscsiTargetId");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.cosmosdb.outputs.CassandraTableSchemaClusterKey;
 import com.pulumi.azure.cosmosdb.outputs.CassandraTableSchemaColumn;
 import com.pulumi.azure.cosmosdb.outputs.CassandraTableSchemaPartitionKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -74,6 +75,7 @@ public final class CassandraTableSchema {
 
         @CustomType.Setter
         public Builder clusterKeys(@Nullable List<CassandraTableSchemaClusterKey> clusterKeys) {
+
             this.clusterKeys = clusterKeys;
             return this;
         }
@@ -82,7 +84,10 @@ public final class CassandraTableSchema {
         }
         @CustomType.Setter
         public Builder columns(List<CassandraTableSchemaColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("CassandraTableSchema", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(CassandraTableSchemaColumn... columns) {
@@ -90,7 +95,10 @@ public final class CassandraTableSchema {
         }
         @CustomType.Setter
         public Builder partitionKeys(List<CassandraTableSchemaPartitionKey> partitionKeys) {
-            this.partitionKeys = Objects.requireNonNull(partitionKeys);
+            if (partitionKeys == null) {
+              throw new MissingRequiredPropertyException("CassandraTableSchema", "partitionKeys");
+            }
+            this.partitionKeys = partitionKeys;
             return this;
         }
         public Builder partitionKeys(CassandraTableSchemaPartitionKey... partitionKeys) {

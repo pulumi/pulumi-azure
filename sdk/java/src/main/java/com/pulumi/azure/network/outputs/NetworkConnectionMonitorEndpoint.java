@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.NetworkConnectionMonitorEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -144,16 +145,19 @@ public final class NetworkConnectionMonitorEndpoint {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder coverageLevel(@Nullable String coverageLevel) {
+
             this.coverageLevel = coverageLevel;
             return this;
         }
         @CustomType.Setter
         public Builder excludedIpAddresses(@Nullable List<String> excludedIpAddresses) {
+
             this.excludedIpAddresses = excludedIpAddresses;
             return this;
         }
@@ -162,11 +166,13 @@ public final class NetworkConnectionMonitorEndpoint {
         }
         @CustomType.Setter
         public Builder filter(@Nullable NetworkConnectionMonitorEndpointFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder includedIpAddresses(@Nullable List<String> includedIpAddresses) {
+
             this.includedIpAddresses = includedIpAddresses;
             return this;
         }
@@ -175,16 +181,21 @@ public final class NetworkConnectionMonitorEndpoint {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorEndpoint", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceId(@Nullable String targetResourceId) {
+
             this.targetResourceId = targetResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceType(@Nullable String targetResourceType) {
+
             this.targetResourceType = targetResourceType;
             return this;
         }

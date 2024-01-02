@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class DataCollectionRuleDataSourcesLogFileSettingsTextArgs extends 
         }
 
         public DataCollectionRuleDataSourcesLogFileSettingsTextArgs build() {
-            $.recordStartTimestampFormat = Objects.requireNonNull($.recordStartTimestampFormat, "expected parameter 'recordStartTimestampFormat' to be non-null");
+            if ($.recordStartTimestampFormat == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileSettingsTextArgs", "recordStartTimestampFormat");
+            }
             return $;
         }
     }

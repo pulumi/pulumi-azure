@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.outputs;
 import com.pulumi.azure.monitoring.outputs.ScheduledQueryRulesAlertV2CriteriaDimension;
 import com.pulumi.azure.monitoring.outputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriods;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -150,6 +151,7 @@ public final class ScheduledQueryRulesAlertV2Criteria {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<ScheduledQueryRulesAlertV2CriteriaDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -158,37 +160,52 @@ public final class ScheduledQueryRulesAlertV2Criteria {
         }
         @CustomType.Setter
         public Builder failingPeriods(@Nullable ScheduledQueryRulesAlertV2CriteriaFailingPeriods failingPeriods) {
+
             this.failingPeriods = failingPeriods;
             return this;
         }
         @CustomType.Setter
         public Builder metricMeasureColumn(@Nullable String metricMeasureColumn) {
+
             this.metricMeasureColumn = metricMeasureColumn;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Criteria", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Criteria", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder resourceIdColumn(@Nullable String resourceIdColumn) {
+
             this.resourceIdColumn = resourceIdColumn;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Criteria", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder timeAggregationMethod(String timeAggregationMethod) {
-            this.timeAggregationMethod = Objects.requireNonNull(timeAggregationMethod);
+            if (timeAggregationMethod == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2Criteria", "timeAggregationMethod");
+            }
+            this.timeAggregationMethod = timeAggregationMethod;
             return this;
         }
         public ScheduledQueryRulesAlertV2Criteria build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.azure.containerservice.outputs.GroupInitContainerSecurity;
 import com.pulumi.azure.containerservice.outputs.GroupInitContainerVolume;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -131,6 +132,7 @@ public final class GroupInitContainer {
 
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -139,26 +141,35 @@ public final class GroupInitContainer {
         }
         @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
+
             this.environmentVariables = environmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GroupInitContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GroupInitContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secureEnvironmentVariables(@Nullable Map<String,String> secureEnvironmentVariables) {
+
             this.secureEnvironmentVariables = secureEnvironmentVariables;
             return this;
         }
         @CustomType.Setter
         public Builder securities(@Nullable List<GroupInitContainerSecurity> securities) {
+
             this.securities = securities;
             return this;
         }
@@ -167,6 +178,7 @@ public final class GroupInitContainer {
         }
         @CustomType.Setter
         public Builder volumes(@Nullable List<GroupInitContainerVolume> volumes) {
+
             this.volumes = volumes;
             return this;
         }

@@ -142,6 +142,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
 
         @CustomType.Setter
         public Builder effectiveOutboundIps(@Nullable List<String> effectiveOutboundIps) {
+
             this.effectiveOutboundIps = effectiveOutboundIps;
             return this;
         }
@@ -150,21 +151,25 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(@Nullable Integer idleTimeoutInMinutes) {
+
             this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder managedOutboundIpCount(@Nullable Integer managedOutboundIpCount) {
+
             this.managedOutboundIpCount = managedOutboundIpCount;
             return this;
         }
         @CustomType.Setter
         public Builder managedOutboundIpv6Count(@Nullable Integer managedOutboundIpv6Count) {
+
             this.managedOutboundIpv6Count = managedOutboundIpv6Count;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddressIds(@Nullable List<String> outboundIpAddressIds) {
+
             this.outboundIpAddressIds = outboundIpAddressIds;
             return this;
         }
@@ -173,6 +178,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         }
         @CustomType.Setter
         public Builder outboundIpPrefixIds(@Nullable List<String> outboundIpPrefixIds) {
+
             this.outboundIpPrefixIds = outboundIpPrefixIds;
             return this;
         }
@@ -181,6 +187,7 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
         }
         @CustomType.Setter
         public Builder outboundPortsAllocated(@Nullable Integer outboundPortsAllocated) {
+
             this.outboundPortsAllocated = outboundPortsAllocated;
             return this;
         }

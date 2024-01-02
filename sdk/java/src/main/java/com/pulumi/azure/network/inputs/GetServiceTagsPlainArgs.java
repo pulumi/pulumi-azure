@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetServiceTagsPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         public GetServiceTagsPlainArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("GetServiceTagsPlainArgs", "location");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("GetServiceTagsPlainArgs", "service");
+            }
             return $;
         }
     }

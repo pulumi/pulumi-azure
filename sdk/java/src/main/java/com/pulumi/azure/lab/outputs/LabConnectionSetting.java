@@ -66,11 +66,13 @@ public final class LabConnectionSetting {
 
         @CustomType.Setter
         public Builder clientRdpAccess(@Nullable String clientRdpAccess) {
+
             this.clientRdpAccess = clientRdpAccess;
             return this;
         }
         @CustomType.Setter
         public Builder clientSshAccess(@Nullable String clientSshAccess) {
+
             this.clientSshAccess = clientSshAccess;
             return this;
         }

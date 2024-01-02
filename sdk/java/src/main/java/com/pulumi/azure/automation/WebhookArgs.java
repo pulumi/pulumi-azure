@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -374,10 +375,18 @@ public final class WebhookArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WebhookArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.expiryTime = Objects.requireNonNull($.expiryTime, "expected parameter 'expiryTime' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.runbookName = Objects.requireNonNull($.runbookName, "expected parameter 'runbookName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "automationAccountName");
+            }
+            if ($.expiryTime == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "expiryTime");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "resourceGroupName");
+            }
+            if ($.runbookName == null) {
+                throw new MissingRequiredPropertyException("WebhookArgs", "runbookName");
+            }
             return $;
         }
     }

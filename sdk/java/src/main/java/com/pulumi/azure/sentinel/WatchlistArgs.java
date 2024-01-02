@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -309,9 +310,15 @@ public final class WatchlistArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WatchlistArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.itemSearchKey = Objects.requireNonNull($.itemSearchKey, "expected parameter 'itemSearchKey' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("WatchlistArgs", "displayName");
+            }
+            if ($.itemSearchKey == null) {
+                throw new MissingRequiredPropertyException("WatchlistArgs", "itemSearchKey");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("WatchlistArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

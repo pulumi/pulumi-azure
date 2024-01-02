@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetVirtualNetworkAllowedSubnet {
 
         @CustomType.Setter
         public Builder allowPublicIp(String allowPublicIp) {
-            this.allowPublicIp = Objects.requireNonNull(allowPublicIp);
+            if (allowPublicIp == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkAllowedSubnet", "allowPublicIp");
+            }
+            this.allowPublicIp = allowPublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder labSubnetName(String labSubnetName) {
-            this.labSubnetName = Objects.requireNonNull(labSubnetName);
+            if (labSubnetName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkAllowedSubnet", "labSubnetName");
+            }
+            this.labSubnetName = labSubnetName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkAllowedSubnet", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         public GetVirtualNetworkAllowedSubnet build() {

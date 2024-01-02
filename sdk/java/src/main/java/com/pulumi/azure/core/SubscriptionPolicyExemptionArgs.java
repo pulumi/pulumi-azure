@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -383,9 +384,15 @@ public final class SubscriptionPolicyExemptionArgs extends com.pulumi.resources.
         }
 
         public SubscriptionPolicyExemptionArgs build() {
-            $.exemptionCategory = Objects.requireNonNull($.exemptionCategory, "expected parameter 'exemptionCategory' to be non-null");
-            $.policyAssignmentId = Objects.requireNonNull($.policyAssignmentId, "expected parameter 'policyAssignmentId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.exemptionCategory == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyExemptionArgs", "exemptionCategory");
+            }
+            if ($.policyAssignmentId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyExemptionArgs", "policyAssignmentId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyExemptionArgs", "subscriptionId");
+            }
             return $;
         }
     }

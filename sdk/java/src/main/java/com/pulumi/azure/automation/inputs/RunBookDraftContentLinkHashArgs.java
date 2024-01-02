@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class RunBookDraftContentLinkHashArgs extends com.pulumi.resources.
         }
 
         public RunBookDraftContentLinkHashArgs build() {
-            $.algorithm = Objects.requireNonNull($.algorithm, "expected parameter 'algorithm' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.algorithm == null) {
+                throw new MissingRequiredPropertyException("RunBookDraftContentLinkHashArgs", "algorithm");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("RunBookDraftContentLinkHashArgs", "value");
+            }
             return $;
         }
     }

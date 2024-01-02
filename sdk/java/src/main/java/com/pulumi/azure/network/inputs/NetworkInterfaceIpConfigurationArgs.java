@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -352,8 +353,12 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         }
 
         public NetworkInterfaceIpConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.privateIpAddressAllocation = Objects.requireNonNull($.privateIpAddressAllocation, "expected parameter 'privateIpAddressAllocation' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceIpConfigurationArgs", "name");
+            }
+            if ($.privateIpAddressAllocation == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceIpConfigurationArgs", "privateIpAddressAllocation");
+            }
             return $;
         }
     }

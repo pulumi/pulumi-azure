@@ -6,6 +6,7 @@ package com.pulumi.azure.hdinsight.inputs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesHeadNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -338,8 +339,12 @@ public final class KafkaClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         public KafkaClusterRolesHeadNodeArgs build() {
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterRolesHeadNodeArgs", "username");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterRolesHeadNodeArgs", "vmSize");
+            }
             return $;
         }
     }

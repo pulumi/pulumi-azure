@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,8 +236,12 @@ public final class LocalRulestackPrefixListArgs extends com.pulumi.resources.Res
         }
 
         public LocalRulestackPrefixListArgs build() {
-            $.prefixLists = Objects.requireNonNull($.prefixLists, "expected parameter 'prefixLists' to be non-null");
-            $.rulestackId = Objects.requireNonNull($.rulestackId, "expected parameter 'rulestackId' to be non-null");
+            if ($.prefixLists == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackPrefixListArgs", "prefixLists");
+            }
+            if ($.rulestackId == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackPrefixListArgs", "rulestackId");
+            }
             return $;
         }
     }

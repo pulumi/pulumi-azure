@@ -88,21 +88,25 @@ public final class AppServiceLogs {
 
         @CustomType.Setter
         public Builder applicationLogs(@Nullable AppServiceLogsApplicationLogs applicationLogs) {
+
             this.applicationLogs = applicationLogs;
             return this;
         }
         @CustomType.Setter
         public Builder detailedErrorMessagesEnabled(@Nullable Boolean detailedErrorMessagesEnabled) {
+
             this.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder failedRequestTracingEnabled(@Nullable Boolean failedRequestTracingEnabled) {
+
             this.failedRequestTracingEnabled = failedRequestTracingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpLogs(@Nullable AppServiceLogsHttpLogs httpLogs) {
+
             this.httpLogs = httpLogs;
             return this;
         }

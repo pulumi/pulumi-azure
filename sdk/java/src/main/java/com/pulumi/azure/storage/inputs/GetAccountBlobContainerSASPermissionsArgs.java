@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -271,12 +272,24 @@ public final class GetAccountBlobContainerSASPermissionsArgs extends com.pulumi.
         }
 
         public GetAccountBlobContainerSASPermissionsArgs build() {
-            $.add = Objects.requireNonNull($.add, "expected parameter 'add' to be non-null");
-            $.create = Objects.requireNonNull($.create, "expected parameter 'create' to be non-null");
-            $.delete = Objects.requireNonNull($.delete, "expected parameter 'delete' to be non-null");
-            $.list = Objects.requireNonNull($.list, "expected parameter 'list' to be non-null");
-            $.read = Objects.requireNonNull($.read, "expected parameter 'read' to be non-null");
-            $.write = Objects.requireNonNull($.write, "expected parameter 'write' to be non-null");
+            if ($.add == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "add");
+            }
+            if ($.create == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "create");
+            }
+            if ($.delete == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "delete");
+            }
+            if ($.list == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "list");
+            }
+            if ($.read == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "read");
+            }
+            if ($.write == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissionsArgs", "write");
+            }
             return $;
         }
     }

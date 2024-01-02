@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.inputs;
 import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         public PolicyManagedRulesManagedRuleSetArgs build() {
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("PolicyManagedRulesManagedRuleSetArgs", "version");
+            }
             return $;
         }
     }

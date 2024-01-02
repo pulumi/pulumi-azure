@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -204,9 +205,15 @@ public final class HBaseClusterStorageAccountArgs extends com.pulumi.resources.R
         }
 
         public HBaseClusterStorageAccountArgs build() {
-            $.isDefault = Objects.requireNonNull($.isDefault, "expected parameter 'isDefault' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
-            $.storageContainerId = Objects.requireNonNull($.storageContainerId, "expected parameter 'storageContainerId' to be non-null");
+            if ($.isDefault == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "isDefault");
+            }
+            if ($.storageAccountKey == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "storageAccountKey");
+            }
+            if ($.storageContainerId == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountArgs", "storageContainerId");
+            }
             return $;
         }
     }

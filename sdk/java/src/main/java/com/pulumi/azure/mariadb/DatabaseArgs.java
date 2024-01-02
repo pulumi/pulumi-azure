@@ -5,6 +5,7 @@ package com.pulumi.azure.mariadb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DatabaseArgs build() {
-            $.charset = Objects.requireNonNull($.charset, "expected parameter 'charset' to be non-null");
-            $.collation = Objects.requireNonNull($.collation, "expected parameter 'collation' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
+            if ($.charset == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "charset");
+            }
+            if ($.collation == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "collation");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "serverName");
+            }
             return $;
         }
     }

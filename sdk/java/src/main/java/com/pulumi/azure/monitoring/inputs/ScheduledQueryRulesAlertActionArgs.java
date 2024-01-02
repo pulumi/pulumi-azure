@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class ScheduledQueryRulesAlertActionArgs extends com.pulumi.resourc
         }
 
         public ScheduledQueryRulesAlertActionArgs build() {
-            $.actionGroups = Objects.requireNonNull($.actionGroups, "expected parameter 'actionGroups' to be non-null");
+            if ($.actionGroups == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertActionArgs", "actionGroups");
+            }
             return $;
         }
     }

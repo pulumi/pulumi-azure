@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -142,22 +143,34 @@ public final class GetPoolExtension {
 
         @CustomType.Setter
         public Builder autoUpgradeMinorVersion(Boolean autoUpgradeMinorVersion) {
-            this.autoUpgradeMinorVersion = Objects.requireNonNull(autoUpgradeMinorVersion);
+            if (autoUpgradeMinorVersion == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "autoUpgradeMinorVersion");
+            }
+            this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protectedSettings(String protectedSettings) {
-            this.protectedSettings = Objects.requireNonNull(protectedSettings);
+            if (protectedSettings == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "protectedSettings");
+            }
+            this.protectedSettings = protectedSettings;
             return this;
         }
         @CustomType.Setter
         public Builder provisionAfterExtensions(List<String> provisionAfterExtensions) {
-            this.provisionAfterExtensions = Objects.requireNonNull(provisionAfterExtensions);
+            if (provisionAfterExtensions == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "provisionAfterExtensions");
+            }
+            this.provisionAfterExtensions = provisionAfterExtensions;
             return this;
         }
         public Builder provisionAfterExtensions(String... provisionAfterExtensions) {
@@ -165,22 +178,34 @@ public final class GetPoolExtension {
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder settingsJson(String settingsJson) {
-            this.settingsJson = Objects.requireNonNull(settingsJson);
+            if (settingsJson == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "settingsJson");
+            }
+            this.settingsJson = settingsJson;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeHandlerVersion(String typeHandlerVersion) {
-            this.typeHandlerVersion = Objects.requireNonNull(typeHandlerVersion);
+            if (typeHandlerVersion == null) {
+              throw new MissingRequiredPropertyException("GetPoolExtension", "typeHandlerVersion");
+            }
+            this.typeHandlerVersion = typeHandlerVersion;
             return this;
         }
         public GetPoolExtension build() {

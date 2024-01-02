@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPor
 
         @CustomType.Setter
         public Builder maximum(Integer maximum) {
-            this.maximum = Objects.requireNonNull(maximum);
+            if (maximum == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange", "maximum");
+            }
+            this.maximum = maximum;
             return this;
         }
         @CustomType.Setter
         public Builder minimum(Integer minimum) {
-            this.minimum = Objects.requireNonNull(minimum);
+            if (minimum == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange", "minimum");
+            }
+            this.minimum = minimum;
             return this;
         }
         public GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange build() {

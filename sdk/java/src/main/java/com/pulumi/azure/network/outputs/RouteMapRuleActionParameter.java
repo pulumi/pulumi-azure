@@ -72,6 +72,7 @@ public final class RouteMapRuleActionParameter {
 
         @CustomType.Setter
         public Builder asPaths(@Nullable List<String> asPaths) {
+
             this.asPaths = asPaths;
             return this;
         }
@@ -80,6 +81,7 @@ public final class RouteMapRuleActionParameter {
         }
         @CustomType.Setter
         public Builder communities(@Nullable List<String> communities) {
+
             this.communities = communities;
             return this;
         }
@@ -88,6 +90,7 @@ public final class RouteMapRuleActionParameter {
         }
         @CustomType.Setter
         public Builder routePrefixes(@Nullable List<String> routePrefixes) {
+
             this.routePrefixes = routePrefixes;
             return this;
         }

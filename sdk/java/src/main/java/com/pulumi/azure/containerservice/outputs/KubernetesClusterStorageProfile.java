@@ -105,26 +105,31 @@ public final class KubernetesClusterStorageProfile {
 
         @CustomType.Setter
         public Builder blobDriverEnabled(@Nullable Boolean blobDriverEnabled) {
+
             this.blobDriverEnabled = blobDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder diskDriverEnabled(@Nullable Boolean diskDriverEnabled) {
+
             this.diskDriverEnabled = diskDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder diskDriverVersion(@Nullable String diskDriverVersion) {
+
             this.diskDriverVersion = diskDriverVersion;
             return this;
         }
         @CustomType.Setter
         public Builder fileDriverEnabled(@Nullable Boolean fileDriverEnabled) {
+
             this.fileDriverEnabled = fileDriverEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotControllerEnabled(@Nullable Boolean snapshotControllerEnabled) {
+
             this.snapshotControllerEnabled = snapshotControllerEnabled;
             return this;
         }

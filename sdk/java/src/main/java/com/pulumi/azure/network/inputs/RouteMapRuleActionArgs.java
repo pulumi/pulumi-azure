@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.RouteMapRuleActionParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class RouteMapRuleActionArgs extends com.pulumi.resources.ResourceA
         }
 
         public RouteMapRuleActionArgs build() {
-            $.parameters = Objects.requireNonNull($.parameters, "expected parameter 'parameters' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.parameters == null) {
+                throw new MissingRequiredPropertyException("RouteMapRuleActionArgs", "parameters");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("RouteMapRuleActionArgs", "type");
+            }
             return $;
         }
     }

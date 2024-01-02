@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.azure.storage.inputs.GetShareAclAccessPolicy;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,8 +103,12 @@ public final class GetShareAcl extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetShareAcl build() {
-            $.accessPolicies = Objects.requireNonNull($.accessPolicies, "expected parameter 'accessPolicies' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.accessPolicies == null) {
+                throw new MissingRequiredPropertyException("GetShareAcl", "accessPolicies");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("GetShareAcl", "id");
+            }
             return $;
         }
     }

@@ -15,6 +15,7 @@ import com.pulumi.azure.cosmosdb.inputs.AccountRestoreArgs;
 import com.pulumi.azure.cosmosdb.inputs.AccountVirtualNetworkRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1287,10 +1288,18 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.consistencyPolicy = Objects.requireNonNull($.consistencyPolicy, "expected parameter 'consistencyPolicy' to be non-null");
-            $.geoLocations = Objects.requireNonNull($.geoLocations, "expected parameter 'geoLocations' to be non-null");
-            $.offerType = Objects.requireNonNull($.offerType, "expected parameter 'offerType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.consistencyPolicy == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "consistencyPolicy");
+            }
+            if ($.geoLocations == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "geoLocations");
+            }
+            if ($.offerType == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "offerType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

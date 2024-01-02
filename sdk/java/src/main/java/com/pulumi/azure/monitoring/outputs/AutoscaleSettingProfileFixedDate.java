@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class AutoscaleSettingProfileFixedDate {
 
         @CustomType.Setter
         public Builder end(String end) {
-            this.end = Objects.requireNonNull(end);
+            if (end == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileFixedDate", "end");
+            }
+            this.end = end;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileFixedDate", "start");
+            }
+            this.start = start;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }

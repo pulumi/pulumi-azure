@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,7 +226,9 @@ public final class SyncArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SyncArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SyncArgs", "resourceGroupName");
+            }
             return $;
         }
     }

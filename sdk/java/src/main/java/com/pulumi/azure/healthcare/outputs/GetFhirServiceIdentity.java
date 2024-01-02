@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -77,7 +78,10 @@ public final class GetFhirServiceIdentity {
 
         @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
-            this.identityIds = Objects.requireNonNull(identityIds);
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceIdentity", "identityIds");
+            }
+            this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
@@ -85,17 +89,26 @@ public final class GetFhirServiceIdentity {
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceIdentity", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceIdentity", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceIdentity", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetFhirServiceIdentity build() {

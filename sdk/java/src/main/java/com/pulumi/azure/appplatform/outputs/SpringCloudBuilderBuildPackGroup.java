@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class SpringCloudBuilderBuildPackGroup {
 
         @CustomType.Setter
         public Builder buildPackIds(@Nullable List<String> buildPackIds) {
+
             this.buildPackIds = buildPackIds;
             return this;
         }
@@ -66,7 +68,10 @@ public final class SpringCloudBuilderBuildPackGroup {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SpringCloudBuilderBuildPackGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         public SpringCloudBuilderBuildPackGroup build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class KubernetesClusterConfidentialComputingArgs extends com.pulumi
         }
 
         public KubernetesClusterConfidentialComputingArgs build() {
-            $.sgxQuoteHelperEnabled = Objects.requireNonNull($.sgxQuoteHelperEnabled, "expected parameter 'sgxQuoteHelperEnabled' to be non-null");
+            if ($.sgxQuoteHelperEnabled == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterConfidentialComputingArgs", "sgxQuoteHelperEnabled");
+            }
             return $;
         }
     }

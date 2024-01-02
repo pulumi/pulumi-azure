@@ -4,6 +4,7 @@
 package com.pulumi.azure.managedlustre.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FileSystemEncryptionKey {
 
         @CustomType.Setter
         public Builder keyUrl(String keyUrl) {
-            this.keyUrl = Objects.requireNonNull(keyUrl);
+            if (keyUrl == null) {
+              throw new MissingRequiredPropertyException("FileSystemEncryptionKey", "keyUrl");
+            }
+            this.keyUrl = keyUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
-            this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
+            if (sourceVaultId == null) {
+              throw new MissingRequiredPropertyException("FileSystemEncryptionKey", "sourceVaultId");
+            }
+            this.sourceVaultId = sourceVaultId;
             return this;
         }
         public FileSystemEncryptionKey build() {

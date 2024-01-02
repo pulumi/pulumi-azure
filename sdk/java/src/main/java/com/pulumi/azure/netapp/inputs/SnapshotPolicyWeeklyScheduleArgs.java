@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -197,10 +198,18 @@ public final class SnapshotPolicyWeeklyScheduleArgs extends com.pulumi.resources
         }
 
         public SnapshotPolicyWeeklyScheduleArgs build() {
-            $.daysOfWeeks = Objects.requireNonNull($.daysOfWeeks, "expected parameter 'daysOfWeeks' to be non-null");
-            $.hour = Objects.requireNonNull($.hour, "expected parameter 'hour' to be non-null");
-            $.minute = Objects.requireNonNull($.minute, "expected parameter 'minute' to be non-null");
-            $.snapshotsToKeep = Objects.requireNonNull($.snapshotsToKeep, "expected parameter 'snapshotsToKeep' to be non-null");
+            if ($.daysOfWeeks == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyWeeklyScheduleArgs", "daysOfWeeks");
+            }
+            if ($.hour == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyWeeklyScheduleArgs", "hour");
+            }
+            if ($.minute == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyWeeklyScheduleArgs", "minute");
+            }
+            if ($.snapshotsToKeep == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyWeeklyScheduleArgs", "snapshotsToKeep");
+            }
             return $;
         }
     }

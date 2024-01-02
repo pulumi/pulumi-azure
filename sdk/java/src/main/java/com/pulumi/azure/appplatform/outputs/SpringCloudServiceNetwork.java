@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -130,17 +131,24 @@ public final class SpringCloudServiceNetwork {
 
         @CustomType.Setter
         public Builder appNetworkResourceGroup(@Nullable String appNetworkResourceGroup) {
+
             this.appNetworkResourceGroup = appNetworkResourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder appSubnetId(String appSubnetId) {
-            this.appSubnetId = Objects.requireNonNull(appSubnetId);
+            if (appSubnetId == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceNetwork", "appSubnetId");
+            }
+            this.appSubnetId = appSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder cidrRanges(List<String> cidrRanges) {
-            this.cidrRanges = Objects.requireNonNull(cidrRanges);
+            if (cidrRanges == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceNetwork", "cidrRanges");
+            }
+            this.cidrRanges = cidrRanges;
             return this;
         }
         public Builder cidrRanges(String... cidrRanges) {
@@ -148,22 +156,28 @@ public final class SpringCloudServiceNetwork {
         }
         @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
+
             this.outboundType = outboundType;
             return this;
         }
         @CustomType.Setter
         public Builder readTimeoutSeconds(@Nullable Integer readTimeoutSeconds) {
+
             this.readTimeoutSeconds = readTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRuntimeNetworkResourceGroup(@Nullable String serviceRuntimeNetworkResourceGroup) {
+
             this.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder serviceRuntimeSubnetId(String serviceRuntimeSubnetId) {
-            this.serviceRuntimeSubnetId = Objects.requireNonNull(serviceRuntimeSubnetId);
+            if (serviceRuntimeSubnetId == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceNetwork", "serviceRuntimeSubnetId");
+            }
+            this.serviceRuntimeSubnetId = serviceRuntimeSubnetId;
             return this;
         }
         public SpringCloudServiceNetwork build() {

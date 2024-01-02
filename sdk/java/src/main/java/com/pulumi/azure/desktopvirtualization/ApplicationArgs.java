@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -411,9 +412,15 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
-            $.applicationGroupId = Objects.requireNonNull($.applicationGroupId, "expected parameter 'applicationGroupId' to be non-null");
-            $.commandLineArgumentPolicy = Objects.requireNonNull($.commandLineArgumentPolicy, "expected parameter 'commandLineArgumentPolicy' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.applicationGroupId == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "applicationGroupId");
+            }
+            if ($.commandLineArgumentPolicy == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "commandLineArgumentPolicy");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "path");
+            }
             return $;
         }
     }

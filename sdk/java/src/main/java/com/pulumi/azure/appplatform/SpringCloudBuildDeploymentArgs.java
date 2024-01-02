@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.appplatform.inputs.SpringCloudBuildDeploymentQuotaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -349,8 +350,12 @@ public final class SpringCloudBuildDeploymentArgs extends com.pulumi.resources.R
         }
 
         public SpringCloudBuildDeploymentArgs build() {
-            $.buildResultId = Objects.requireNonNull($.buildResultId, "expected parameter 'buildResultId' to be non-null");
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
+            if ($.buildResultId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuildDeploymentArgs", "buildResultId");
+            }
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuildDeploymentArgs", "springCloudAppId");
+            }
             return $;
         }
     }

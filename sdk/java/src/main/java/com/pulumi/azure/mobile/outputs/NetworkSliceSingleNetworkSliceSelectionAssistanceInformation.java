@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation 
 
         @CustomType.Setter
         public Builder sliceDifferentiator(@Nullable String sliceDifferentiator) {
+
             this.sliceDifferentiator = sliceDifferentiator;
             return this;
         }
         @CustomType.Setter
         public Builder sliceServiceType(Integer sliceServiceType) {
-            this.sliceServiceType = Objects.requireNonNull(sliceServiceType);
+            if (sliceServiceType == null) {
+              throw new MissingRequiredPropertyException("NetworkSliceSingleNetworkSliceSelectionAssistanceInformation", "sliceServiceType");
+            }
+            this.sliceServiceType = sliceServiceType;
             return this;
         }
         public NetworkSliceSingleNetworkSliceSelectionAssistanceInformation build() {

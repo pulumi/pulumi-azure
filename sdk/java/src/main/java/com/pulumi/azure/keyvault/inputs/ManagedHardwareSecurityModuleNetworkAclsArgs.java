@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ManagedHardwareSecurityModuleNetworkAclsArgs extends com.pulu
         }
 
         public ManagedHardwareSecurityModuleNetworkAclsArgs build() {
-            $.bypass = Objects.requireNonNull($.bypass, "expected parameter 'bypass' to be non-null");
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
+            if ($.bypass == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleNetworkAclsArgs", "bypass");
+            }
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleNetworkAclsArgs", "defaultAction");
+            }
             return $;
         }
     }

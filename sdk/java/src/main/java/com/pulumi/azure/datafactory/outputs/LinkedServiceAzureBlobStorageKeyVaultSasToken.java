@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class LinkedServiceAzureBlobStorageKeyVaultSasToken {
 
         @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
-            this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
+            if (linkedServiceName == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureBlobStorageKeyVaultSasToken", "linkedServiceName");
+            }
+            this.linkedServiceName = linkedServiceName;
             return this;
         }
         @CustomType.Setter
         public Builder secretName(String secretName) {
-            this.secretName = Objects.requireNonNull(secretName);
+            if (secretName == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureBlobStorageKeyVaultSasToken", "secretName");
+            }
+            this.secretName = secretName;
             return this;
         }
         public LinkedServiceAzureBlobStorageKeyVaultSasToken build() {

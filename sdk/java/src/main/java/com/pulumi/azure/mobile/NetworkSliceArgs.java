@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile;
 import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,8 +264,12 @@ public final class NetworkSliceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkSliceArgs build() {
-            $.mobileNetworkId = Objects.requireNonNull($.mobileNetworkId, "expected parameter 'mobileNetworkId' to be non-null");
-            $.singleNetworkSliceSelectionAssistanceInformation = Objects.requireNonNull($.singleNetworkSliceSelectionAssistanceInformation, "expected parameter 'singleNetworkSliceSelectionAssistanceInformation' to be non-null");
+            if ($.mobileNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSliceArgs", "mobileNetworkId");
+            }
+            if ($.singleNetworkSliceSelectionAssistanceInformation == null) {
+                throw new MissingRequiredPropertyException("NetworkSliceArgs", "singleNetworkSliceSelectionAssistanceInformation");
+            }
             return $;
         }
     }

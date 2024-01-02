@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -129,36 +130,49 @@ public final class ServiceSecureLdap {
 
         @CustomType.Setter
         public Builder certificateExpiry(@Nullable String certificateExpiry) {
+
             this.certificateExpiry = certificateExpiry;
             return this;
         }
         @CustomType.Setter
         public Builder certificateThumbprint(@Nullable String certificateThumbprint) {
+
             this.certificateThumbprint = certificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ServiceSecureLdap", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder externalAccessEnabled(@Nullable Boolean externalAccessEnabled) {
+
             this.externalAccessEnabled = externalAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder pfxCertificate(String pfxCertificate) {
-            this.pfxCertificate = Objects.requireNonNull(pfxCertificate);
+            if (pfxCertificate == null) {
+              throw new MissingRequiredPropertyException("ServiceSecureLdap", "pfxCertificate");
+            }
+            this.pfxCertificate = pfxCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder pfxCertificatePassword(String pfxCertificatePassword) {
-            this.pfxCertificatePassword = Objects.requireNonNull(pfxCertificatePassword);
+            if (pfxCertificatePassword == null) {
+              throw new MissingRequiredPropertyException("ServiceSecureLdap", "pfxCertificatePassword");
+            }
+            this.pfxCertificatePassword = pfxCertificatePassword;
             return this;
         }
         @CustomType.Setter
         public Builder publicCertificate(@Nullable String publicCertificate) {
+
             this.publicCertificate = publicCertificate;
             return this;
         }

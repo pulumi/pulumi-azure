@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public AccountCustomerManagedKeyArgs build() {
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
-            $.userAssignedIdentityId = Objects.requireNonNull($.userAssignedIdentityId, "expected parameter 'userAssignedIdentityId' to be non-null");
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
+            if ($.userAssignedIdentityId == null) {
+                throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "userAssignedIdentityId");
+            }
             return $;
         }
     }

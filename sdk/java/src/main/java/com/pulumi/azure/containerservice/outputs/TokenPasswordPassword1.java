@@ -58,11 +58,13 @@ public final class TokenPasswordPassword1 {
 
         @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
+
             this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

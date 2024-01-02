@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SqlPoolRestore {
 
         @CustomType.Setter
         public Builder pointInTime(String pointInTime) {
-            this.pointInTime = Objects.requireNonNull(pointInTime);
+            if (pointInTime == null) {
+              throw new MissingRequiredPropertyException("SqlPoolRestore", "pointInTime");
+            }
+            this.pointInTime = pointInTime;
             return this;
         }
         @CustomType.Setter
         public Builder sourceDatabaseId(String sourceDatabaseId) {
-            this.sourceDatabaseId = Objects.requireNonNull(sourceDatabaseId);
+            if (sourceDatabaseId == null) {
+              throw new MissingRequiredPropertyException("SqlPoolRestore", "sourceDatabaseId");
+            }
+            this.sourceDatabaseId = sourceDatabaseId;
             return this;
         }
         public SqlPoolRestore build() {

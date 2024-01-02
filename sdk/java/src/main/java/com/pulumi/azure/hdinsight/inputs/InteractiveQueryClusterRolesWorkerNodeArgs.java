@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesWorkerNodeA
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesWorkerNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -422,9 +423,15 @@ public final class InteractiveQueryClusterRolesWorkerNodeArgs extends com.pulumi
         }
 
         public InteractiveQueryClusterRolesWorkerNodeArgs build() {
-            $.targetInstanceCount = Objects.requireNonNull($.targetInstanceCount, "expected parameter 'targetInstanceCount' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.targetInstanceCount == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNodeArgs", "targetInstanceCount");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNodeArgs", "username");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNodeArgs", "vmSize");
+            }
             return $;
         }
     }

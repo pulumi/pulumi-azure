@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigArgs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -981,8 +982,12 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         public WindowsWebAppSlotArgs build() {
-            $.appServiceId = Objects.requireNonNull($.appServiceId, "expected parameter 'appServiceId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.appServiceId == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotArgs", "appServiceId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotArgs", "siteConfig");
+            }
             return $;
         }
     }

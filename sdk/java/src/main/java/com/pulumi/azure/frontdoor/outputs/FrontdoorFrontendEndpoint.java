@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -116,31 +117,41 @@ public final class FrontdoorFrontendEndpoint {
 
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFrontendEndpoint", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFrontendEndpoint", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sessionAffinityEnabled(@Nullable Boolean sessionAffinityEnabled) {
+
             this.sessionAffinityEnabled = sessionAffinityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder sessionAffinityTtlSeconds(@Nullable Integer sessionAffinityTtlSeconds) {
+
             this.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder webApplicationFirewallPolicyLinkId(@Nullable String webApplicationFirewallPolicyLinkId) {
+
             this.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
             return this;
         }

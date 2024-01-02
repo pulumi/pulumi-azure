@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class AutoscaleSettingPredictive {
 
         @CustomType.Setter
         public Builder lookAheadTime(@Nullable String lookAheadTime) {
+
             this.lookAheadTime = lookAheadTime;
             return this;
         }
         @CustomType.Setter
         public Builder scaleMode(String scaleMode) {
-            this.scaleMode = Objects.requireNonNull(scaleMode);
+            if (scaleMode == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingPredictive", "scaleMode");
+            }
+            this.scaleMode = scaleMode;
             return this;
         }
         public AutoscaleSettingPredictive build() {

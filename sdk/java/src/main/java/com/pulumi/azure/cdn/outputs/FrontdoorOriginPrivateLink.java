@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -94,21 +95,29 @@ public final class FrontdoorOriginPrivateLink {
 
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("FrontdoorOriginPrivateLink", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkTargetId(String privateLinkTargetId) {
-            this.privateLinkTargetId = Objects.requireNonNull(privateLinkTargetId);
+            if (privateLinkTargetId == null) {
+              throw new MissingRequiredPropertyException("FrontdoorOriginPrivateLink", "privateLinkTargetId");
+            }
+            this.privateLinkTargetId = privateLinkTargetId;
             return this;
         }
         @CustomType.Setter
         public Builder requestMessage(@Nullable String requestMessage) {
+
             this.requestMessage = requestMessage;
             return this;
         }
         @CustomType.Setter
         public Builder targetType(@Nullable String targetType) {
+
             this.targetType = targetType;
             return this;
         }

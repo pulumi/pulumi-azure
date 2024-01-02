@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -167,9 +168,15 @@ public final class VolumeDataProtectionReplicationArgs extends com.pulumi.resour
         }
 
         public VolumeDataProtectionReplicationArgs build() {
-            $.remoteVolumeLocation = Objects.requireNonNull($.remoteVolumeLocation, "expected parameter 'remoteVolumeLocation' to be non-null");
-            $.remoteVolumeResourceId = Objects.requireNonNull($.remoteVolumeResourceId, "expected parameter 'remoteVolumeResourceId' to be non-null");
-            $.replicationFrequency = Objects.requireNonNull($.replicationFrequency, "expected parameter 'replicationFrequency' to be non-null");
+            if ($.remoteVolumeLocation == null) {
+                throw new MissingRequiredPropertyException("VolumeDataProtectionReplicationArgs", "remoteVolumeLocation");
+            }
+            if ($.remoteVolumeResourceId == null) {
+                throw new MissingRequiredPropertyException("VolumeDataProtectionReplicationArgs", "remoteVolumeResourceId");
+            }
+            if ($.replicationFrequency == null) {
+                throw new MissingRequiredPropertyException("VolumeDataProtectionReplicationArgs", "replicationFrequency");
+            }
             return $;
         }
     }

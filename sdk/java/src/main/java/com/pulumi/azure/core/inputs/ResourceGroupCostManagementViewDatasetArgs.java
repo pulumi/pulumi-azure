@@ -8,6 +8,7 @@ import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewDatasetGroupi
 import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewDatasetSortingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -221,8 +222,12 @@ public final class ResourceGroupCostManagementViewDatasetArgs extends com.pulumi
         }
 
         public ResourceGroupCostManagementViewDatasetArgs build() {
-            $.aggregations = Objects.requireNonNull($.aggregations, "expected parameter 'aggregations' to be non-null");
-            $.granularity = Objects.requireNonNull($.granularity, "expected parameter 'granularity' to be non-null");
+            if ($.aggregations == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewDatasetArgs", "aggregations");
+            }
+            if ($.granularity == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementViewDatasetArgs", "granularity");
+            }
             return $;
         }
     }

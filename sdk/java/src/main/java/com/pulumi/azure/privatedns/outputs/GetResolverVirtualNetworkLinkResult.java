@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -83,27 +84,42 @@ public final class GetResolverVirtualNetworkLinkResult {
 
         @CustomType.Setter
         public Builder dnsForwardingRulesetId(String dnsForwardingRulesetId) {
-            this.dnsForwardingRulesetId = Objects.requireNonNull(dnsForwardingRulesetId);
+            if (dnsForwardingRulesetId == null) {
+              throw new MissingRequiredPropertyException("GetResolverVirtualNetworkLinkResult", "dnsForwardingRulesetId");
+            }
+            this.dnsForwardingRulesetId = dnsForwardingRulesetId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverVirtualNetworkLinkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetResolverVirtualNetworkLinkResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverVirtualNetworkLinkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(String virtualNetworkId) {
-            this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
+            if (virtualNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetResolverVirtualNetworkLinkResult", "virtualNetworkId");
+            }
+            this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         public GetResolverVirtualNetworkLinkResult build() {

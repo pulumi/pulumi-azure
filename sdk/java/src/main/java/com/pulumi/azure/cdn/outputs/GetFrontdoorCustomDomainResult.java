@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.GetFrontdoorCustomDomainTl;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -138,47 +139,74 @@ public final class GetFrontdoorCustomDomainResult {
 
         @CustomType.Setter
         public Builder cdnFrontdoorProfileId(String cdnFrontdoorProfileId) {
-            this.cdnFrontdoorProfileId = Objects.requireNonNull(cdnFrontdoorProfileId);
+            if (cdnFrontdoorProfileId == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "cdnFrontdoorProfileId");
+            }
+            this.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder dnsZoneId(String dnsZoneId) {
-            this.dnsZoneId = Objects.requireNonNull(dnsZoneId);
+            if (dnsZoneId == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "dnsZoneId");
+            }
+            this.dnsZoneId = dnsZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+            if (expirationDate == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "expirationDate");
+            }
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profileName(String profileName) {
-            this.profileName = Objects.requireNonNull(profileName);
+            if (profileName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "profileName");
+            }
+            this.profileName = profileName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tls(List<GetFrontdoorCustomDomainTl> tls) {
-            this.tls = Objects.requireNonNull(tls);
+            if (tls == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "tls");
+            }
+            this.tls = tls;
             return this;
         }
         public Builder tls(GetFrontdoorCustomDomainTl... tls) {
@@ -186,7 +214,10 @@ public final class GetFrontdoorCustomDomainResult {
         }
         @CustomType.Setter
         public Builder validationToken(String validationToken) {
-            this.validationToken = Objects.requireNonNull(validationToken);
+            if (validationToken == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainResult", "validationToken");
+            }
+            this.validationToken = validationToken;
             return this;
         }
         public GetFrontdoorCustomDomainResult build() {

@@ -51,6 +51,7 @@ public final class DicomServiceAuthentication {
 
         @CustomType.Setter
         public Builder audiences(@Nullable List<String> audiences) {
+
             this.audiences = audiences;
             return this;
         }
@@ -59,6 +60,7 @@ public final class DicomServiceAuthentication {
         }
         @CustomType.Setter
         public Builder authority(@Nullable String authority) {
+
             this.authority = authority;
             return this;
         }

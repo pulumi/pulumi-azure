@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -209,8 +210,12 @@ public final class ActionRuleSuppressionSuppressionScheduleArgs extends com.pulu
         }
 
         public ActionRuleSuppressionSuppressionScheduleArgs build() {
-            $.endDateUtc = Objects.requireNonNull($.endDateUtc, "expected parameter 'endDateUtc' to be non-null");
-            $.startDateUtc = Objects.requireNonNull($.startDateUtc, "expected parameter 'startDateUtc' to be non-null");
+            if ($.endDateUtc == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppressionScheduleArgs", "endDateUtc");
+            }
+            if ($.startDateUtc == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppressionScheduleArgs", "startDateUtc");
+            }
             return $;
         }
     }

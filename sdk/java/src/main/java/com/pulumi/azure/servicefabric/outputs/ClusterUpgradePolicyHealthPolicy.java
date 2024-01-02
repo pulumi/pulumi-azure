@@ -58,11 +58,13 @@ public final class ClusterUpgradePolicyHealthPolicy {
 
         @CustomType.Setter
         public Builder maxUnhealthyApplicationsPercent(@Nullable Integer maxUnhealthyApplicationsPercent) {
+
             this.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnhealthyNodesPercent(@Nullable Integer maxUnhealthyNodesPercent) {
+
             this.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
             return this;
         }

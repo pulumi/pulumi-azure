@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -142,32 +143,50 @@ public final class GetAlertRuleTemplateScheduledTemplate {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder query(String query) {
-            this.query = Objects.requireNonNull(query);
+            if (query == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "query");
+            }
+            this.query = query;
             return this;
         }
         @CustomType.Setter
         public Builder queryFrequency(String queryFrequency) {
-            this.queryFrequency = Objects.requireNonNull(queryFrequency);
+            if (queryFrequency == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "queryFrequency");
+            }
+            this.queryFrequency = queryFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder queryPeriod(String queryPeriod) {
-            this.queryPeriod = Objects.requireNonNull(queryPeriod);
+            if (queryPeriod == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "queryPeriod");
+            }
+            this.queryPeriod = queryPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder severity(String severity) {
-            this.severity = Objects.requireNonNull(severity);
+            if (severity == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "severity");
+            }
+            this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder tactics(List<String> tactics) {
-            this.tactics = Objects.requireNonNull(tactics);
+            if (tactics == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "tactics");
+            }
+            this.tactics = tactics;
             return this;
         }
         public Builder tactics(String... tactics) {
@@ -175,12 +194,18 @@ public final class GetAlertRuleTemplateScheduledTemplate {
         }
         @CustomType.Setter
         public Builder triggerOperator(String triggerOperator) {
-            this.triggerOperator = Objects.requireNonNull(triggerOperator);
+            if (triggerOperator == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "triggerOperator");
+            }
+            this.triggerOperator = triggerOperator;
             return this;
         }
         @CustomType.Setter
         public Builder triggerThreshold(Integer triggerThreshold) {
-            this.triggerThreshold = Objects.requireNonNull(triggerThreshold);
+            if (triggerThreshold == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateScheduledTemplate", "triggerThreshold");
+            }
+            this.triggerThreshold = triggerThreshold;
             return this;
         }
         public GetAlertRuleTemplateScheduledTemplate build() {

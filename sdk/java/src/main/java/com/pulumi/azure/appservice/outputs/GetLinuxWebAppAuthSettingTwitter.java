@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetLinuxWebAppAuthSettingTwitter {
 
         @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
-            this.consumerKey = Objects.requireNonNull(consumerKey);
+            if (consumerKey == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingTwitter", "consumerKey");
+            }
+            this.consumerKey = consumerKey;
             return this;
         }
         @CustomType.Setter
         public Builder consumerSecret(String consumerSecret) {
-            this.consumerSecret = Objects.requireNonNull(consumerSecret);
+            if (consumerSecret == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingTwitter", "consumerSecret");
+            }
+            this.consumerSecret = consumerSecret;
             return this;
         }
         @CustomType.Setter
         public Builder consumerSecretSettingName(String consumerSecretSettingName) {
-            this.consumerSecretSettingName = Objects.requireNonNull(consumerSecretSettingName);
+            if (consumerSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppAuthSettingTwitter", "consumerSecretSettingName");
+            }
+            this.consumerSecretSettingName = consumerSecretSettingName;
             return this;
         }
         public GetLinuxWebAppAuthSettingTwitter build() {

@@ -87,11 +87,13 @@ public final class RegistryNetworkRuleSet {
 
         @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
+
             this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<RegistryNetworkRuleSetIpRule> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }
@@ -100,6 +102,7 @@ public final class RegistryNetworkRuleSet {
         }
         @CustomType.Setter
         public Builder virtualNetworks(@Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks) {
+
             this.virtualNetworks = virtualNetworks;
             return this;
         }

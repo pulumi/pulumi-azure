@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SqlFunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SqlFunctionArgs build() {
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.containerId = Objects.requireNonNull($.containerId, "expected parameter 'containerId' to be non-null");
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("SqlFunctionArgs", "body");
+            }
+            if ($.containerId == null) {
+                throw new MissingRequiredPropertyException("SqlFunctionArgs", "containerId");
+            }
             return $;
         }
     }

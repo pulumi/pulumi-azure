@@ -8,6 +8,7 @@ import com.pulumi.azure.domainservices.outputs.GetServiceReplicaSet;
 import com.pulumi.azure.domainservices.outputs.GetServiceSecureLdap;
 import com.pulumi.azure.domainservices.outputs.GetServiceSecurity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -241,42 +242,66 @@ public final class GetServiceResult {
 
         @CustomType.Setter
         public Builder deploymentId(String deploymentId) {
-            this.deploymentId = Objects.requireNonNull(deploymentId);
+            if (deploymentId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "deploymentId");
+            }
+            this.deploymentId = deploymentId;
             return this;
         }
         @CustomType.Setter
         public Builder domainConfigurationType(String domainConfigurationType) {
-            this.domainConfigurationType = Objects.requireNonNull(domainConfigurationType);
+            if (domainConfigurationType == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "domainConfigurationType");
+            }
+            this.domainConfigurationType = domainConfigurationType;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder filteredSyncEnabled(Boolean filteredSyncEnabled) {
-            this.filteredSyncEnabled = Objects.requireNonNull(filteredSyncEnabled);
+            if (filteredSyncEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "filteredSyncEnabled");
+            }
+            this.filteredSyncEnabled = filteredSyncEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notifications(List<GetServiceNotification> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+            if (notifications == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "notifications");
+            }
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(GetServiceNotification... notifications) {
@@ -284,7 +309,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder replicaSets(List<GetServiceReplicaSet> replicaSets) {
-            this.replicaSets = Objects.requireNonNull(replicaSets);
+            if (replicaSets == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "replicaSets");
+            }
+            this.replicaSets = replicaSets;
             return this;
         }
         public Builder replicaSets(GetServiceReplicaSet... replicaSets) {
@@ -292,17 +320,26 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder secureLdaps(List<GetServiceSecureLdap> secureLdaps) {
-            this.secureLdaps = Objects.requireNonNull(secureLdaps);
+            if (secureLdaps == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "secureLdaps");
+            }
+            this.secureLdaps = secureLdaps;
             return this;
         }
         public Builder secureLdaps(GetServiceSecureLdap... secureLdaps) {
@@ -310,7 +347,10 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder securities(List<GetServiceSecurity> securities) {
-            this.securities = Objects.requireNonNull(securities);
+            if (securities == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "securities");
+            }
+            this.securities = securities;
             return this;
         }
         public Builder securities(GetServiceSecurity... securities) {
@@ -318,27 +358,40 @@ public final class GetServiceResult {
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder syncOwner(String syncOwner) {
-            this.syncOwner = Objects.requireNonNull(syncOwner);
+            if (syncOwner == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "syncOwner");
+            }
+            this.syncOwner = syncOwner;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder version(Integer version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetServiceResult build() {

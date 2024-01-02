@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -139,47 +140,74 @@ public final class GetNetworkPacketCoreDataPlaneResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkPacketCoreControlPlaneId(String mobileNetworkPacketCoreControlPlaneId) {
-            this.mobileNetworkPacketCoreControlPlaneId = Objects.requireNonNull(mobileNetworkPacketCoreControlPlaneId);
+            if (mobileNetworkPacketCoreControlPlaneId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "mobileNetworkPacketCoreControlPlaneId");
+            }
+            this.mobileNetworkPacketCoreControlPlaneId = mobileNetworkPacketCoreControlPlaneId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Address(String userPlaneAccessIpv4Address) {
-            this.userPlaneAccessIpv4Address = Objects.requireNonNull(userPlaneAccessIpv4Address);
+            if (userPlaneAccessIpv4Address == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "userPlaneAccessIpv4Address");
+            }
+            this.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Gateway(String userPlaneAccessIpv4Gateway) {
-            this.userPlaneAccessIpv4Gateway = Objects.requireNonNull(userPlaneAccessIpv4Gateway);
+            if (userPlaneAccessIpv4Gateway == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "userPlaneAccessIpv4Gateway");
+            }
+            this.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessIpv4Subnet(String userPlaneAccessIpv4Subnet) {
-            this.userPlaneAccessIpv4Subnet = Objects.requireNonNull(userPlaneAccessIpv4Subnet);
+            if (userPlaneAccessIpv4Subnet == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "userPlaneAccessIpv4Subnet");
+            }
+            this.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
             return this;
         }
         @CustomType.Setter
         public Builder userPlaneAccessName(String userPlaneAccessName) {
-            this.userPlaneAccessName = Objects.requireNonNull(userPlaneAccessName);
+            if (userPlaneAccessName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreDataPlaneResult", "userPlaneAccessName");
+            }
+            this.userPlaneAccessName = userPlaneAccessName;
             return this;
         }
         public GetNetworkPacketCoreDataPlaneResult build() {

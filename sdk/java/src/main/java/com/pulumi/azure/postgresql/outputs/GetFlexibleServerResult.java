@@ -4,6 +4,7 @@
 package com.pulumi.azure.postgresql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -211,72 +212,114 @@ public final class GetFlexibleServerResult {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
-            this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
+            if (autoGrowEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "autoGrowEnabled");
+            }
+            this.autoGrowEnabled = autoGrowEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
-            this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
+            if (backupRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "backupRetentionDays");
+            }
+            this.backupRetentionDays = backupRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder delegatedSubnetId(String delegatedSubnetId) {
-            this.delegatedSubnetId = Objects.requireNonNull(delegatedSubnetId);
+            if (delegatedSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "delegatedSubnetId");
+            }
+            this.delegatedSubnetId = delegatedSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
-            this.storageMb = Objects.requireNonNull(storageMb);
+            if (storageMb == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "storageMb");
+            }
+            this.storageMb = storageMb;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetFlexibleServerResult build() {

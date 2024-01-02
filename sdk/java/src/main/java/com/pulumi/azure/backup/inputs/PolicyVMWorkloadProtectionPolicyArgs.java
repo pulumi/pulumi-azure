@@ -11,6 +11,7 @@ import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicyRetentionY
 import com.pulumi.azure.backup.inputs.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -304,8 +305,12 @@ public final class PolicyVMWorkloadProtectionPolicyArgs extends com.pulumi.resou
         }
 
         public PolicyVMWorkloadProtectionPolicyArgs build() {
-            $.backup = Objects.requireNonNull($.backup, "expected parameter 'backup' to be non-null");
-            $.policyType = Objects.requireNonNull($.policyType, "expected parameter 'policyType' to be non-null");
+            if ($.backup == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyArgs", "backup");
+            }
+            if ($.policyType == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyArgs", "policyType");
+            }
             return $;
         }
     }

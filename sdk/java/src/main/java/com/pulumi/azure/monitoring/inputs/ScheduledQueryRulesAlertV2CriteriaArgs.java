@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaDime
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -357,10 +358,18 @@ public final class ScheduledQueryRulesAlertV2CriteriaArgs extends com.pulumi.res
         }
 
         public ScheduledQueryRulesAlertV2CriteriaArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
-            $.timeAggregationMethod = Objects.requireNonNull($.timeAggregationMethod, "expected parameter 'timeAggregationMethod' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaArgs", "operator");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaArgs", "query");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaArgs", "threshold");
+            }
+            if ($.timeAggregationMethod == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaArgs", "timeAggregationMethod");
+            }
             return $;
         }
     }

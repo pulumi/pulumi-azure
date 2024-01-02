@@ -7,6 +7,7 @@ import com.pulumi.azure.cdn.inputs.EndpointCustomDomainCdnManagedHttpsArgs;
 import com.pulumi.azure.cdn.inputs.EndpointCustomDomainUserManagedHttpsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -234,8 +235,12 @@ public final class EndpointCustomDomainArgs extends com.pulumi.resources.Resourc
         }
 
         public EndpointCustomDomainArgs build() {
-            $.cdnEndpointId = Objects.requireNonNull($.cdnEndpointId, "expected parameter 'cdnEndpointId' to be non-null");
-            $.hostName = Objects.requireNonNull($.hostName, "expected parameter 'hostName' to be non-null");
+            if ($.cdnEndpointId == null) {
+                throw new MissingRequiredPropertyException("EndpointCustomDomainArgs", "cdnEndpointId");
+            }
+            if ($.hostName == null) {
+                throw new MissingRequiredPropertyException("EndpointCustomDomainArgs", "hostName");
+            }
             return $;
         }
     }

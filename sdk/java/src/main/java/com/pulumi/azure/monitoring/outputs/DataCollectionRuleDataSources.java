@@ -180,11 +180,13 @@ public final class DataCollectionRuleDataSources {
 
         @CustomType.Setter
         public Builder dataImport(@Nullable DataCollectionRuleDataSourcesDataImport dataImport) {
+
             this.dataImport = dataImport;
             return this;
         }
         @CustomType.Setter
         public Builder extensions(@Nullable List<DataCollectionRuleDataSourcesExtension> extensions) {
+
             this.extensions = extensions;
             return this;
         }
@@ -193,6 +195,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder iisLogs(@Nullable List<DataCollectionRuleDataSourcesIisLog> iisLogs) {
+
             this.iisLogs = iisLogs;
             return this;
         }
@@ -201,6 +204,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder logFiles(@Nullable List<DataCollectionRuleDataSourcesLogFile> logFiles) {
+
             this.logFiles = logFiles;
             return this;
         }
@@ -209,6 +213,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder performanceCounters(@Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters) {
+
             this.performanceCounters = performanceCounters;
             return this;
         }
@@ -217,6 +222,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder platformTelemetries(@Nullable List<DataCollectionRuleDataSourcesPlatformTelemetry> platformTelemetries) {
+
             this.platformTelemetries = platformTelemetries;
             return this;
         }
@@ -225,6 +231,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder prometheusForwarders(@Nullable List<DataCollectionRuleDataSourcesPrometheusForwarder> prometheusForwarders) {
+
             this.prometheusForwarders = prometheusForwarders;
             return this;
         }
@@ -233,6 +240,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder syslogs(@Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs) {
+
             this.syslogs = syslogs;
             return this;
         }
@@ -241,6 +249,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder windowsEventLogs(@Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs) {
+
             this.windowsEventLogs = windowsEventLogs;
             return this;
         }
@@ -249,6 +258,7 @@ public final class DataCollectionRuleDataSources {
         }
         @CustomType.Setter
         public Builder windowsFirewallLogs(@Nullable List<DataCollectionRuleDataSourcesWindowsFirewallLog> windowsFirewallLogs) {
+
             this.windowsFirewallLogs = windowsFirewallLogs;
             return this;
         }

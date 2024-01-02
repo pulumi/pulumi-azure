@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.ExpressRoutePortLink1Args;
 import com.pulumi.azure.network.inputs.ExpressRoutePortLink2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -451,10 +452,18 @@ public final class ExpressRoutePortArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ExpressRoutePortArgs build() {
-            $.bandwidthInGbps = Objects.requireNonNull($.bandwidthInGbps, "expected parameter 'bandwidthInGbps' to be non-null");
-            $.encapsulation = Objects.requireNonNull($.encapsulation, "expected parameter 'encapsulation' to be non-null");
-            $.peeringLocation = Objects.requireNonNull($.peeringLocation, "expected parameter 'peeringLocation' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.bandwidthInGbps == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortArgs", "bandwidthInGbps");
+            }
+            if ($.encapsulation == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortArgs", "encapsulation");
+            }
+            if ($.peeringLocation == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortArgs", "peeringLocation");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ExpressRoutePortArgs", "resourceGroupName");
+            }
             return $;
         }
     }

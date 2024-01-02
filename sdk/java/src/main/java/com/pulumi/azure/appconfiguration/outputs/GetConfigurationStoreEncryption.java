@@ -4,6 +4,7 @@
 package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -40,12 +41,18 @@ public final class GetConfigurationStoreEncryption {
 
         @CustomType.Setter
         public Builder identityClientId(String identityClientId) {
-            this.identityClientId = Objects.requireNonNull(identityClientId);
+            if (identityClientId == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreEncryption", "identityClientId");
+            }
+            this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyIdentifier(String keyVaultKeyIdentifier) {
-            this.keyVaultKeyIdentifier = Objects.requireNonNull(keyVaultKeyIdentifier);
+            if (keyVaultKeyIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreEncryption", "keyVaultKeyIdentifier");
+            }
+            this.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
             return this;
         }
         public GetConfigurationStoreEncryption build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.advisor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -155,42 +156,66 @@ public final class GetRecommendationsRecommendation {
 
         @CustomType.Setter
         public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+            if (category == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder impact(String impact) {
-            this.impact = Objects.requireNonNull(impact);
+            if (impact == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "impact");
+            }
+            this.impact = impact;
             return this;
         }
         @CustomType.Setter
         public Builder recommendationName(String recommendationName) {
-            this.recommendationName = Objects.requireNonNull(recommendationName);
+            if (recommendationName == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "recommendationName");
+            }
+            this.recommendationName = recommendationName;
             return this;
         }
         @CustomType.Setter
         public Builder recommendationTypeId(String recommendationTypeId) {
-            this.recommendationTypeId = Objects.requireNonNull(recommendationTypeId);
+            if (recommendationTypeId == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "recommendationTypeId");
+            }
+            this.recommendationTypeId = recommendationTypeId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(String resourceType) {
-            this.resourceType = Objects.requireNonNull(resourceType);
+            if (resourceType == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "resourceType");
+            }
+            this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder suppressionNames(List<String> suppressionNames) {
-            this.suppressionNames = Objects.requireNonNull(suppressionNames);
+            if (suppressionNames == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "suppressionNames");
+            }
+            this.suppressionNames = suppressionNames;
             return this;
         }
         public Builder suppressionNames(String... suppressionNames) {
@@ -198,7 +223,10 @@ public final class GetRecommendationsRecommendation {
         }
         @CustomType.Setter
         public Builder updatedTime(String updatedTime) {
-            this.updatedTime = Objects.requireNonNull(updatedTime);
+            if (updatedTime == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "updatedTime");
+            }
+            this.updatedTime = updatedTime;
             return this;
         }
         public GetRecommendationsRecommendation build() {

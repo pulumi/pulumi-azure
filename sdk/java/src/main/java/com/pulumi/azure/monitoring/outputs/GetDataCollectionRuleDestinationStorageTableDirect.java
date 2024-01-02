@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetDataCollectionRuleDestinationStorageTableDirect {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestinationStorageTableDirect", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestinationStorageTableDirect", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestinationStorageTableDirect", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public GetDataCollectionRuleDestinationStorageTableDirect build() {

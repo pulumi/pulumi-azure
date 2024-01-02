@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class FhirServiceOciArtifactArgs extends com.pulumi.resources.Resou
         }
 
         public FhirServiceOciArtifactArgs build() {
-            $.loginServer = Objects.requireNonNull($.loginServer, "expected parameter 'loginServer' to be non-null");
+            if ($.loginServer == null) {
+                throw new MissingRequiredPropertyException("FhirServiceOciArtifactArgs", "loginServer");
+            }
             return $;
         }
     }

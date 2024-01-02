@@ -4,6 +4,7 @@
 package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetConfigurationStoreSecondaryReadKey {
 
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreSecondaryReadKey", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreSecondaryReadKey", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder secret(String secret) {
-            this.secret = Objects.requireNonNull(secret);
+            if (secret == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreSecondaryReadKey", "secret");
+            }
+            this.secret = secret;
             return this;
         }
         public GetConfigurationStoreSecondaryReadKey build() {

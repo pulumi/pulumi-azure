@@ -89,16 +89,19 @@ public final class ProtectionContainerMappingAutomaticUpdate {
 
         @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
+
             this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder automationAccountId(@Nullable String automationAccountId) {
+
             this.automationAccountId = automationAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }

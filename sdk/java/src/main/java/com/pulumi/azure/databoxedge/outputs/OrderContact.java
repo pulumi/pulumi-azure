@@ -4,6 +4,7 @@
 package com.pulumi.azure.databoxedge.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,12 +86,18 @@ public final class OrderContact {
 
         @CustomType.Setter
         public Builder companyName(String companyName) {
-            this.companyName = Objects.requireNonNull(companyName);
+            if (companyName == null) {
+              throw new MissingRequiredPropertyException("OrderContact", "companyName");
+            }
+            this.companyName = companyName;
             return this;
         }
         @CustomType.Setter
         public Builder emails(List<String> emails) {
-            this.emails = Objects.requireNonNull(emails);
+            if (emails == null) {
+              throw new MissingRequiredPropertyException("OrderContact", "emails");
+            }
+            this.emails = emails;
             return this;
         }
         public Builder emails(String... emails) {
@@ -98,12 +105,18 @@ public final class OrderContact {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OrderContact", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = Objects.requireNonNull(phoneNumber);
+            if (phoneNumber == null) {
+              throw new MissingRequiredPropertyException("OrderContact", "phoneNumber");
+            }
+            this.phoneNumber = phoneNumber;
             return this;
         }
         public OrderContact build() {

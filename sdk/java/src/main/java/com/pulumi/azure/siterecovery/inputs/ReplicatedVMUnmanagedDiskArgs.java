@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         public ReplicatedVMUnmanagedDiskArgs build() {
-            $.diskUri = Objects.requireNonNull($.diskUri, "expected parameter 'diskUri' to be non-null");
-            $.stagingStorageAccountId = Objects.requireNonNull($.stagingStorageAccountId, "expected parameter 'stagingStorageAccountId' to be non-null");
-            $.targetStorageAccountId = Objects.requireNonNull($.targetStorageAccountId, "expected parameter 'targetStorageAccountId' to be non-null");
+            if ($.diskUri == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDiskArgs", "diskUri");
+            }
+            if ($.stagingStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDiskArgs", "stagingStorageAccountId");
+            }
+            if ($.targetStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMUnmanagedDiskArgs", "targetStorageAccountId");
+            }
             return $;
         }
     }

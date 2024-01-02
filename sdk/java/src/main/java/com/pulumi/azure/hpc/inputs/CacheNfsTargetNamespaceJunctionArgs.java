@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class CacheNfsTargetNamespaceJunctionArgs extends com.pulumi.resour
         }
 
         public CacheNfsTargetNamespaceJunctionArgs build() {
-            $.namespacePath = Objects.requireNonNull($.namespacePath, "expected parameter 'namespacePath' to be non-null");
-            $.nfsExport = Objects.requireNonNull($.nfsExport, "expected parameter 'nfsExport' to be non-null");
+            if ($.namespacePath == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetNamespaceJunctionArgs", "namespacePath");
+            }
+            if ($.nfsExport == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetNamespaceJunctionArgs", "nfsExport");
+            }
             return $;
         }
     }

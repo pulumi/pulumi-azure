@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -104,26 +105,37 @@ public final class KubernetesClusterExtensionPlan {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterExtensionPlan", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder product(String product) {
-            this.product = Objects.requireNonNull(product);
+            if (product == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterExtensionPlan", "product");
+            }
+            this.product = product;
             return this;
         }
         @CustomType.Setter
         public Builder promotionCode(@Nullable String promotionCode) {
+
             this.promotionCode = promotionCode;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterExtensionPlan", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

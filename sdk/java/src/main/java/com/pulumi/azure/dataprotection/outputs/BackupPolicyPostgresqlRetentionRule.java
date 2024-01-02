@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection.outputs;
 
 import com.pulumi.azure.dataprotection.outputs.BackupPolicyPostgresqlRetentionRuleCriteria;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -86,22 +87,34 @@ public final class BackupPolicyPostgresqlRetentionRule {
 
         @CustomType.Setter
         public Builder criteria(BackupPolicyPostgresqlRetentionRuleCriteria criteria) {
-            this.criteria = Objects.requireNonNull(criteria);
+            if (criteria == null) {
+              throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRule", "criteria");
+            }
+            this.criteria = criteria;
             return this;
         }
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRule", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         public BackupPolicyPostgresqlRetentionRule build() {

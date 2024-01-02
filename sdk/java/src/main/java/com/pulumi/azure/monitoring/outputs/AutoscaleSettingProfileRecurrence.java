@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,7 +89,10 @@ public final class AutoscaleSettingProfileRecurrence {
 
         @CustomType.Setter
         public Builder days(List<String> days) {
-            this.days = Objects.requireNonNull(days);
+            if (days == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrence", "days");
+            }
+            this.days = days;
             return this;
         }
         public Builder days(String... days) {
@@ -96,16 +100,23 @@ public final class AutoscaleSettingProfileRecurrence {
         }
         @CustomType.Setter
         public Builder hours(Integer hours) {
-            this.hours = Objects.requireNonNull(hours);
+            if (hours == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrence", "hours");
+            }
+            this.hours = hours;
             return this;
         }
         @CustomType.Setter
         public Builder minutes(Integer minutes) {
-            this.minutes = Objects.requireNonNull(minutes);
+            if (minutes == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrence", "minutes");
+            }
+            this.minutes = minutes;
             return this;
         }
         @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
+
             this.timezone = timezone;
             return this;
         }

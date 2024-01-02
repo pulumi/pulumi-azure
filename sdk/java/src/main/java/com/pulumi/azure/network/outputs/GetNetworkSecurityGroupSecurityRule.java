@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -239,22 +240,34 @@ public final class GetNetworkSecurityGroupSecurityRule {
 
         @CustomType.Setter
         public Builder access(String access) {
-            this.access = Objects.requireNonNull(access);
+            if (access == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "access");
+            }
+            this.access = access;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddressPrefix(String destinationAddressPrefix) {
-            this.destinationAddressPrefix = Objects.requireNonNull(destinationAddressPrefix);
+            if (destinationAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "destinationAddressPrefix");
+            }
+            this.destinationAddressPrefix = destinationAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddressPrefixes(List<String> destinationAddressPrefixes) {
-            this.destinationAddressPrefixes = Objects.requireNonNull(destinationAddressPrefixes);
+            if (destinationAddressPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "destinationAddressPrefixes");
+            }
+            this.destinationAddressPrefixes = destinationAddressPrefixes;
             return this;
         }
         public Builder destinationAddressPrefixes(String... destinationAddressPrefixes) {
@@ -262,6 +275,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder destinationApplicationSecurityGroupIds(@Nullable List<String> destinationApplicationSecurityGroupIds) {
+
             this.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
             return this;
         }
@@ -270,12 +284,18 @@ public final class GetNetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder destinationPortRange(String destinationPortRange) {
-            this.destinationPortRange = Objects.requireNonNull(destinationPortRange);
+            if (destinationPortRange == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "destinationPortRange");
+            }
+            this.destinationPortRange = destinationPortRange;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPortRanges(List<String> destinationPortRanges) {
-            this.destinationPortRanges = Objects.requireNonNull(destinationPortRanges);
+            if (destinationPortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "destinationPortRanges");
+            }
+            this.destinationPortRanges = destinationPortRanges;
             return this;
         }
         public Builder destinationPortRanges(String... destinationPortRanges) {
@@ -283,32 +303,50 @@ public final class GetNetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddressPrefix(String sourceAddressPrefix) {
-            this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
+            if (sourceAddressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "sourceAddressPrefix");
+            }
+            this.sourceAddressPrefix = sourceAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddressPrefixes(List<String> sourceAddressPrefixes) {
-            this.sourceAddressPrefixes = Objects.requireNonNull(sourceAddressPrefixes);
+            if (sourceAddressPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "sourceAddressPrefixes");
+            }
+            this.sourceAddressPrefixes = sourceAddressPrefixes;
             return this;
         }
         public Builder sourceAddressPrefixes(String... sourceAddressPrefixes) {
@@ -316,6 +354,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder sourceApplicationSecurityGroupIds(@Nullable List<String> sourceApplicationSecurityGroupIds) {
+
             this.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
             return this;
         }
@@ -324,12 +363,18 @@ public final class GetNetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder sourcePortRange(String sourcePortRange) {
-            this.sourcePortRange = Objects.requireNonNull(sourcePortRange);
+            if (sourcePortRange == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "sourcePortRange");
+            }
+            this.sourcePortRange = sourcePortRange;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePortRanges(List<String> sourcePortRanges) {
-            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+            if (sourcePortRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSecurityGroupSecurityRule", "sourcePortRanges");
+            }
+            this.sourcePortRanges = sourcePortRanges;
             return this;
         }
         public Builder sourcePortRanges(String... sourcePortRanges) {

@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.outputs;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupHealthProbe;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupLoadBalancing;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -127,12 +128,18 @@ public final class GetFrontdoorOriginGroupResult {
 
         @CustomType.Setter
         public Builder cdnFrontdoorProfileId(String cdnFrontdoorProfileId) {
-            this.cdnFrontdoorProfileId = Objects.requireNonNull(cdnFrontdoorProfileId);
+            if (cdnFrontdoorProfileId == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "cdnFrontdoorProfileId");
+            }
+            this.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder healthProbes(List<GetFrontdoorOriginGroupHealthProbe> healthProbes) {
-            this.healthProbes = Objects.requireNonNull(healthProbes);
+            if (healthProbes == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "healthProbes");
+            }
+            this.healthProbes = healthProbes;
             return this;
         }
         public Builder healthProbes(GetFrontdoorOriginGroupHealthProbe... healthProbes) {
@@ -140,12 +147,18 @@ public final class GetFrontdoorOriginGroupResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancings(List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings) {
-            this.loadBalancings = Objects.requireNonNull(loadBalancings);
+            if (loadBalancings == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "loadBalancings");
+            }
+            this.loadBalancings = loadBalancings;
             return this;
         }
         public Builder loadBalancings(GetFrontdoorOriginGroupLoadBalancing... loadBalancings) {
@@ -153,27 +166,42 @@ public final class GetFrontdoorOriginGroupResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profileName(String profileName) {
-            this.profileName = Objects.requireNonNull(profileName);
+            if (profileName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "profileName");
+            }
+            this.profileName = profileName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder restoreTrafficTimeToHealedOrNewEndpointInMinutes(Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes) {
-            this.restoreTrafficTimeToHealedOrNewEndpointInMinutes = Objects.requireNonNull(restoreTrafficTimeToHealedOrNewEndpointInMinutes);
+            if (restoreTrafficTimeToHealedOrNewEndpointInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "restoreTrafficTimeToHealedOrNewEndpointInMinutes");
+            }
+            this.restoreTrafficTimeToHealedOrNewEndpointInMinutes = restoreTrafficTimeToHealedOrNewEndpointInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder sessionAffinityEnabled(Boolean sessionAffinityEnabled) {
-            this.sessionAffinityEnabled = Objects.requireNonNull(sessionAffinityEnabled);
+            if (sessionAffinityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupResult", "sessionAffinityEnabled");
+            }
+            this.sessionAffinityEnabled = sessionAffinityEnabled;
             return this;
         }
         public GetFrontdoorOriginGroupResult build() {

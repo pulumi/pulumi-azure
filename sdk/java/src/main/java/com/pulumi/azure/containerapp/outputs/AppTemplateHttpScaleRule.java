@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.AppTemplateHttpScaleRuleAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,6 +74,7 @@ public final class AppTemplateHttpScaleRule {
 
         @CustomType.Setter
         public Builder authentications(@Nullable List<AppTemplateHttpScaleRuleAuthentication> authentications) {
+
             this.authentications = authentications;
             return this;
         }
@@ -81,12 +83,18 @@ public final class AppTemplateHttpScaleRule {
         }
         @CustomType.Setter
         public Builder concurrentRequests(String concurrentRequests) {
-            this.concurrentRequests = Objects.requireNonNull(concurrentRequests);
+            if (concurrentRequests == null) {
+              throw new MissingRequiredPropertyException("AppTemplateHttpScaleRule", "concurrentRequests");
+            }
+            this.concurrentRequests = concurrentRequests;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AppTemplateHttpScaleRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public AppTemplateHttpScaleRule build() {

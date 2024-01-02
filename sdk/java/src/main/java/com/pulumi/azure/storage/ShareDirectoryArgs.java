@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class ShareDirectoryArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ShareDirectoryArgs build() {
-            $.shareName = Objects.requireNonNull($.shareName, "expected parameter 'shareName' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
+            if ($.shareName == null) {
+                throw new MissingRequiredPropertyException("ShareDirectoryArgs", "shareName");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("ShareDirectoryArgs", "storageAccountName");
+            }
             return $;
         }
     }

@@ -198,56 +198,67 @@ public final class AlertProcessingRuleActionGroupCondition {
 
         @CustomType.Setter
         public Builder alertContext(@Nullable AlertProcessingRuleActionGroupConditionAlertContext alertContext) {
+
             this.alertContext = alertContext;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleId(@Nullable AlertProcessingRuleActionGroupConditionAlertRuleId alertRuleId) {
+
             this.alertRuleId = alertRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder alertRuleName(@Nullable AlertProcessingRuleActionGroupConditionAlertRuleName alertRuleName) {
+
             this.alertRuleName = alertRuleName;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable AlertProcessingRuleActionGroupConditionDescription description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder monitorCondition(@Nullable AlertProcessingRuleActionGroupConditionMonitorCondition monitorCondition) {
+
             this.monitorCondition = monitorCondition;
             return this;
         }
         @CustomType.Setter
         public Builder monitorService(@Nullable AlertProcessingRuleActionGroupConditionMonitorService monitorService) {
+
             this.monitorService = monitorService;
             return this;
         }
         @CustomType.Setter
         public Builder severity(@Nullable AlertProcessingRuleActionGroupConditionSeverity severity) {
+
             this.severity = severity;
             return this;
         }
         @CustomType.Setter
         public Builder signalType(@Nullable AlertProcessingRuleActionGroupConditionSignalType signalType) {
+
             this.signalType = signalType;
             return this;
         }
         @CustomType.Setter
         public Builder targetResource(@Nullable AlertProcessingRuleActionGroupConditionTargetResource targetResource) {
+
             this.targetResource = targetResource;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceGroup(@Nullable AlertProcessingRuleActionGroupConditionTargetResourceGroup targetResourceGroup) {
+
             this.targetResourceGroup = targetResourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceType(@Nullable AlertProcessingRuleActionGroupConditionTargetResourceType targetResourceType) {
+
             this.targetResourceType = targetResourceType;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.dns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -319,9 +320,15 @@ public final class AaaaRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AaaaRecordArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
-            $.zoneName = Objects.requireNonNull($.zoneName, "expected parameter 'zoneName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AaaaRecordArgs", "resourceGroupName");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("AaaaRecordArgs", "ttl");
+            }
+            if ($.zoneName == null) {
+                throw new MissingRequiredPropertyException("AaaaRecordArgs", "zoneName");
+            }
             return $;
         }
     }

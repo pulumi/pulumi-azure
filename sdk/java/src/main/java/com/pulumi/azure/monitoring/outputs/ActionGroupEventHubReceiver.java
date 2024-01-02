@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -141,36 +142,45 @@ public final class ActionGroupEventHubReceiver {
 
         @CustomType.Setter
         public Builder eventHubId(@Nullable String eventHubId) {
+
             this.eventHubId = eventHubId;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubName(@Nullable String eventHubName) {
+
             this.eventHubName = eventHubName;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubNamespace(@Nullable String eventHubNamespace) {
+
             this.eventHubNamespace = eventHubNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ActionGroupEventHubReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionId(@Nullable String subscriptionId) {
+
             this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
+
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }

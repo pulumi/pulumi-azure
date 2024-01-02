@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class DataCollectionRuleDataSourcesDataImportArgs extends com.pulum
         }
 
         public DataCollectionRuleDataSourcesDataImportArgs build() {
-            $.eventHubDataSources = Objects.requireNonNull($.eventHubDataSources, "expected parameter 'eventHubDataSources' to be non-null");
+            if ($.eventHubDataSources == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesDataImportArgs", "eventHubDataSources");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayProbeMatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -486,12 +487,24 @@ public final class ApplicationGatewayProbeArgs extends com.pulumi.resources.Reso
         }
 
         public ApplicationGatewayProbeArgs build() {
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.timeout = Objects.requireNonNull($.timeout, "expected parameter 'timeout' to be non-null");
-            $.unhealthyThreshold = Objects.requireNonNull($.unhealthyThreshold, "expected parameter 'unhealthyThreshold' to be non-null");
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "interval");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "name");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "path");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "protocol");
+            }
+            if ($.timeout == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "timeout");
+            }
+            if ($.unhealthyThreshold == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayProbeArgs", "unhealthyThreshold");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,7 +300,9 @@ public final class ScriptArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScriptArgs build() {
-            $.databaseId = Objects.requireNonNull($.databaseId, "expected parameter 'databaseId' to be non-null");
+            if ($.databaseId == null) {
+                throw new MissingRequiredPropertyException("ScriptArgs", "databaseId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -113,32 +114,50 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(String interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder statusCodeRange(String statusCodeRange) {
-            this.statusCodeRange = Objects.requireNonNull(statusCodeRange);
+            if (statusCodeRange == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "statusCodeRange");
+            }
+            this.statusCodeRange = statusCodeRange;
             return this;
         }
         @CustomType.Setter
         public Builder subStatus(Integer subStatus) {
-            this.subStatus = Objects.requireNonNull(subStatus);
+            if (subStatus == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "subStatus");
+            }
+            this.subStatus = subStatus;
             return this;
         }
         @CustomType.Setter
         public Builder win32StatusCode(Integer win32StatusCode) {
-            this.win32StatusCode = Objects.requireNonNull(win32StatusCode);
+            if (win32StatusCode == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode", "win32StatusCode");
+            }
+            this.win32StatusCode = win32StatusCode;
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {

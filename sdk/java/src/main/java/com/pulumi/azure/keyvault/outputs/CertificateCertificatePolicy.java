@@ -9,6 +9,7 @@ import com.pulumi.azure.keyvault.outputs.CertificateCertificatePolicyLifetimeAct
 import com.pulumi.azure.keyvault.outputs.CertificateCertificatePolicySecretProperties;
 import com.pulumi.azure.keyvault.outputs.CertificateCertificatePolicyX509CertificateProperties;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -105,16 +106,23 @@ public final class CertificateCertificatePolicy {
 
         @CustomType.Setter
         public Builder issuerParameters(CertificateCertificatePolicyIssuerParameters issuerParameters) {
-            this.issuerParameters = Objects.requireNonNull(issuerParameters);
+            if (issuerParameters == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicy", "issuerParameters");
+            }
+            this.issuerParameters = issuerParameters;
             return this;
         }
         @CustomType.Setter
         public Builder keyProperties(CertificateCertificatePolicyKeyProperties keyProperties) {
-            this.keyProperties = Objects.requireNonNull(keyProperties);
+            if (keyProperties == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicy", "keyProperties");
+            }
+            this.keyProperties = keyProperties;
             return this;
         }
         @CustomType.Setter
         public Builder lifetimeActions(@Nullable List<CertificateCertificatePolicyLifetimeAction> lifetimeActions) {
+
             this.lifetimeActions = lifetimeActions;
             return this;
         }
@@ -123,11 +131,15 @@ public final class CertificateCertificatePolicy {
         }
         @CustomType.Setter
         public Builder secretProperties(CertificateCertificatePolicySecretProperties secretProperties) {
-            this.secretProperties = Objects.requireNonNull(secretProperties);
+            if (secretProperties == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicy", "secretProperties");
+            }
+            this.secretProperties = secretProperties;
             return this;
         }
         @CustomType.Setter
         public Builder x509CertificateProperties(@Nullable CertificateCertificatePolicyX509CertificateProperties x509CertificateProperties) {
+
             this.x509CertificateProperties = x509CertificateProperties;
             return this;
         }

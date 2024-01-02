@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -507,11 +508,21 @@ public final class EndpointCosmosdbAccountArgs extends com.pulumi.resources.Reso
         }
 
         public EndpointCosmosdbAccountArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.endpointUri = Objects.requireNonNull($.endpointUri, "expected parameter 'endpointUri' to be non-null");
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("EndpointCosmosdbAccountArgs", "containerName");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("EndpointCosmosdbAccountArgs", "databaseName");
+            }
+            if ($.endpointUri == null) {
+                throw new MissingRequiredPropertyException("EndpointCosmosdbAccountArgs", "endpointUri");
+            }
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("EndpointCosmosdbAccountArgs", "iothubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointCosmosdbAccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

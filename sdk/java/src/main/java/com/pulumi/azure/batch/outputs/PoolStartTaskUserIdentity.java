@@ -63,11 +63,13 @@ public final class PoolStartTaskUserIdentity {
 
         @CustomType.Setter
         public Builder autoUser(@Nullable PoolStartTaskUserIdentityAutoUser autoUser) {
+
             this.autoUser = autoUser;
             return this;
         }
         @CustomType.Setter
         public Builder userName(@Nullable String userName) {
+
             this.userName = userName;
             return this;
         }

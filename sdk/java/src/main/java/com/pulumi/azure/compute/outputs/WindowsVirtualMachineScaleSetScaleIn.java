@@ -59,11 +59,13 @@ public final class WindowsVirtualMachineScaleSetScaleIn {
 
         @CustomType.Setter
         public Builder forceDeletionEnabled(@Nullable Boolean forceDeletionEnabled) {
+
             this.forceDeletionEnabled = forceDeletionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rule(@Nullable String rule) {
+
             this.rule = rule;
             return this;
         }

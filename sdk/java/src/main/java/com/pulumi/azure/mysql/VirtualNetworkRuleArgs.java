@@ -5,6 +5,7 @@ package com.pulumi.azure.mysql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -219,9 +220,15 @@ public final class VirtualNetworkRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         public VirtualNetworkRuleArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkRuleArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkRuleArgs", "serverName");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkRuleArgs", "subnetId");
+            }
             return $;
         }
     }

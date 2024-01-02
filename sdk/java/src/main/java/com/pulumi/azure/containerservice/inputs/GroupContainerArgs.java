@@ -12,6 +12,7 @@ import com.pulumi.azure.containerservice.inputs.GroupContainerSecurityArgs;
 import com.pulumi.azure.containerservice.inputs.GroupContainerVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -689,10 +690,18 @@ public final class GroupContainerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public GroupContainerArgs build() {
-            $.cpu = Objects.requireNonNull($.cpu, "expected parameter 'cpu' to be non-null");
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
-            $.memory = Objects.requireNonNull($.memory, "expected parameter 'memory' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.cpu == null) {
+                throw new MissingRequiredPropertyException("GroupContainerArgs", "cpu");
+            }
+            if ($.image == null) {
+                throw new MissingRequiredPropertyException("GroupContainerArgs", "image");
+            }
+            if ($.memory == null) {
+                throw new MissingRequiredPropertyException("GroupContainerArgs", "memory");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GroupContainerArgs", "name");
+            }
             return $;
         }
     }

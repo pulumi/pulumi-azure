@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetApplicationGatewayAutoscaleConfiguration {
 
         @CustomType.Setter
         public Builder maxCapacity(Integer maxCapacity) {
-            this.maxCapacity = Objects.requireNonNull(maxCapacity);
+            if (maxCapacity == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayAutoscaleConfiguration", "maxCapacity");
+            }
+            this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(Integer minCapacity) {
-            this.minCapacity = Objects.requireNonNull(minCapacity);
+            if (minCapacity == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayAutoscaleConfiguration", "minCapacity");
+            }
+            this.minCapacity = minCapacity;
             return this;
         }
         public GetApplicationGatewayAutoscaleConfiguration build() {

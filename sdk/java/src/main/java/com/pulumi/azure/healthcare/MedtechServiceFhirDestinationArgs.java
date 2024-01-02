@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class MedtechServiceFhirDestinationArgs extends com.pulumi.resource
         }
 
         public MedtechServiceFhirDestinationArgs build() {
-            $.destinationFhirMappingJson = Objects.requireNonNull($.destinationFhirMappingJson, "expected parameter 'destinationFhirMappingJson' to be non-null");
-            $.destinationFhirServiceId = Objects.requireNonNull($.destinationFhirServiceId, "expected parameter 'destinationFhirServiceId' to be non-null");
-            $.destinationIdentityResolutionType = Objects.requireNonNull($.destinationIdentityResolutionType, "expected parameter 'destinationIdentityResolutionType' to be non-null");
-            $.medtechServiceId = Objects.requireNonNull($.medtechServiceId, "expected parameter 'medtechServiceId' to be non-null");
+            if ($.destinationFhirMappingJson == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceFhirDestinationArgs", "destinationFhirMappingJson");
+            }
+            if ($.destinationFhirServiceId == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceFhirDestinationArgs", "destinationFhirServiceId");
+            }
+            if ($.destinationIdentityResolutionType == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceFhirDestinationArgs", "destinationIdentityResolutionType");
+            }
+            if ($.medtechServiceId == null) {
+                throw new MissingRequiredPropertyException("MedtechServiceFhirDestinationArgs", "medtechServiceId");
+            }
             return $;
         }
     }

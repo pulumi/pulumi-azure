@@ -7,6 +7,7 @@ import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSetti
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -74,7 +75,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
 
         @CustomType.Setter
         public Builder requests(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests) {
-            this.requests = Objects.requireNonNull(requests);
+            if (requests == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTrigger", "requests");
+            }
+            this.requests = requests;
             return this;
         }
         public Builder requests(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest... requests) {
@@ -82,6 +86,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder slowRequests(@Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
+
             this.slowRequests = slowRequests;
             return this;
         }
@@ -90,7 +95,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder statusCodes(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-            this.statusCodes = Objects.requireNonNull(statusCodes);
+            if (statusCodes == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTrigger", "statusCodes");
+            }
+            this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {

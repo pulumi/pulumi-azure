@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,8 +336,12 @@ public final class SqlPoolWorkloadClassifierArgs extends com.pulumi.resources.Re
         }
 
         public SqlPoolWorkloadClassifierArgs build() {
-            $.memberName = Objects.requireNonNull($.memberName, "expected parameter 'memberName' to be non-null");
-            $.workloadGroupId = Objects.requireNonNull($.workloadGroupId, "expected parameter 'workloadGroupId' to be non-null");
+            if ($.memberName == null) {
+                throw new MissingRequiredPropertyException("SqlPoolWorkloadClassifierArgs", "memberName");
+            }
+            if ($.workloadGroupId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolWorkloadClassifierArgs", "workloadGroupId");
+            }
             return $;
         }
     }

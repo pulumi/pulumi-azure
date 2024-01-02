@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -255,10 +256,18 @@ public final class NetworkServicePccRuleServiceDataFlowTemplateArgs extends com.
         }
 
         public NetworkServicePccRuleServiceDataFlowTemplateArgs build() {
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocols = Objects.requireNonNull($.protocols, "expected parameter 'protocols' to be non-null");
-            $.remoteIpLists = Objects.requireNonNull($.remoteIpLists, "expected parameter 'remoteIpLists' to be non-null");
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplateArgs", "direction");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplateArgs", "name");
+            }
+            if ($.protocols == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplateArgs", "protocols");
+            }
+            if ($.remoteIpLists == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleServiceDataFlowTemplateArgs", "remoteIpLists");
+            }
             return $;
         }
     }

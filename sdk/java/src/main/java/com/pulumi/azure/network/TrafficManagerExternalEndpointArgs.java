@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.TrafficManagerExternalEndpointCustomHeade
 import com.pulumi.azure.network.inputs.TrafficManagerExternalEndpointSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -444,8 +445,12 @@ public final class TrafficManagerExternalEndpointArgs extends com.pulumi.resourc
         }
 
         public TrafficManagerExternalEndpointArgs build() {
-            $.profileId = Objects.requireNonNull($.profileId, "expected parameter 'profileId' to be non-null");
-            $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
+            if ($.profileId == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerExternalEndpointArgs", "profileId");
+            }
+            if ($.target == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerExternalEndpointArgs", "target");
+            }
             return $;
         }
     }

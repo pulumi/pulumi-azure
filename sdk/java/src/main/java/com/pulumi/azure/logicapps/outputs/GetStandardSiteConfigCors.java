@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -44,7 +45,10 @@ public final class GetStandardSiteConfigCors {
 
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigCors", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -52,6 +56,7 @@ public final class GetStandardSiteConfigCors {
         }
         @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
+
             this.supportCredentials = supportCredentials;
             return this;
         }

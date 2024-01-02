@@ -5,6 +5,7 @@ package com.pulumi.azure.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -54,7 +55,9 @@ public final class ProviderFeaturesTemplateDeploymentArgs extends com.pulumi.res
         }
 
         public ProviderFeaturesTemplateDeploymentArgs build() {
-            $.deleteNestedItemsDuringDeletion = Objects.requireNonNull($.deleteNestedItemsDuringDeletion, "expected parameter 'deleteNestedItemsDuringDeletion' to be non-null");
+            if ($.deleteNestedItemsDuringDeletion == null) {
+                throw new MissingRequiredPropertyException("ProviderFeaturesTemplateDeploymentArgs", "deleteNestedItemsDuringDeletion");
+            }
             return $;
         }
     }

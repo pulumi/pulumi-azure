@@ -5,6 +5,7 @@ package com.pulumi.azure.arcmachine.outputs;
 
 import com.pulumi.azure.arcmachine.outputs.GetOsProfileWindowPatch;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetOsProfileWindow {
 
         @CustomType.Setter
         public Builder patches(List<GetOsProfileWindowPatch> patches) {
-            this.patches = Objects.requireNonNull(patches);
+            if (patches == null) {
+              throw new MissingRequiredPropertyException("GetOsProfileWindow", "patches");
+            }
+            this.patches = patches;
             return this;
         }
         public Builder patches(GetOsProfileWindowPatch... patches) {

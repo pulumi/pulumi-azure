@@ -5,6 +5,7 @@ package com.pulumi.azure.sql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -411,10 +412,18 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ElasticPoolArgs build() {
-            $.dtu = Objects.requireNonNull($.dtu, "expected parameter 'dtu' to be non-null");
-            $.edition = Objects.requireNonNull($.edition, "expected parameter 'edition' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
+            if ($.dtu == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "dtu");
+            }
+            if ($.edition == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "edition");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "serverName");
+            }
             return $;
         }
     }

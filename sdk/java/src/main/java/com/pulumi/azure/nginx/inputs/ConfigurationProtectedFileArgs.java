@@ -5,6 +5,7 @@ package com.pulumi.azure.nginx.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ConfigurationProtectedFileArgs extends com.pulumi.resources.R
         }
 
         public ConfigurationProtectedFileArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.virtualPath = Objects.requireNonNull($.virtualPath, "expected parameter 'virtualPath' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProtectedFileArgs", "content");
+            }
+            if ($.virtualPath == null) {
+                throw new MissingRequiredPropertyException("ConfigurationProtectedFileArgs", "virtualPath");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,7 +233,9 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
         }
 
         public BackendAddressPoolAddressArgs build() {
-            $.backendAddressPoolId = Objects.requireNonNull($.backendAddressPoolId, "expected parameter 'backendAddressPoolId' to be non-null");
+            if ($.backendAddressPoolId == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolAddressArgs", "backendAddressPoolId");
+            }
             return $;
         }
     }

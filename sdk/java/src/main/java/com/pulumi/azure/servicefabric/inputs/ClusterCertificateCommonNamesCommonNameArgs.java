@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +122,9 @@ public final class ClusterCertificateCommonNamesCommonNameArgs extends com.pulum
         }
 
         public ClusterCertificateCommonNamesCommonNameArgs build() {
-            $.certificateCommonName = Objects.requireNonNull($.certificateCommonName, "expected parameter 'certificateCommonName' to be non-null");
+            if ($.certificateCommonName == null) {
+                throw new MissingRequiredPropertyException("ClusterCertificateCommonNamesCommonNameArgs", "certificateCommonName");
+            }
             return $;
         }
     }

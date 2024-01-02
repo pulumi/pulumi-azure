@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,8 +190,12 @@ public final class GalleryApplicationVersionTargetRegionArgs extends com.pulumi.
         }
 
         public GalleryApplicationVersionTargetRegionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.regionalReplicaCount = Objects.requireNonNull($.regionalReplicaCount, "expected parameter 'regionalReplicaCount' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionTargetRegionArgs", "name");
+            }
+            if ($.regionalReplicaCount == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionTargetRegionArgs", "regionalReplicaCount");
+            }
             return $;
         }
     }

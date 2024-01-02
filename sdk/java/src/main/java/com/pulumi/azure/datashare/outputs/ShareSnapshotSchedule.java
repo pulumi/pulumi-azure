@@ -4,6 +4,7 @@
 package com.pulumi.azure.datashare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class ShareSnapshotSchedule {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ShareSnapshotSchedule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(String recurrence) {
-            this.recurrence = Objects.requireNonNull(recurrence);
+            if (recurrence == null) {
+              throw new MissingRequiredPropertyException("ShareSnapshotSchedule", "recurrence");
+            }
+            this.recurrence = recurrence;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("ShareSnapshotSchedule", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         public ShareSnapshotSchedule build() {

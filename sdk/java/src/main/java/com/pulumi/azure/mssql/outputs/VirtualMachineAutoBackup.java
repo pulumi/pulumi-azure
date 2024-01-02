@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.azure.mssql.outputs.VirtualMachineAutoBackupManualSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -131,36 +132,49 @@ public final class VirtualMachineAutoBackup {
 
         @CustomType.Setter
         public Builder encryptionEnabled(@Nullable Boolean encryptionEnabled) {
+
             this.encryptionEnabled = encryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionPassword(@Nullable String encryptionPassword) {
+
             this.encryptionPassword = encryptionPassword;
             return this;
         }
         @CustomType.Setter
         public Builder manualSchedule(@Nullable VirtualMachineAutoBackupManualSchedule manualSchedule) {
+
             this.manualSchedule = manualSchedule;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
-            this.retentionPeriodInDays = Objects.requireNonNull(retentionPeriodInDays);
+            if (retentionPeriodInDays == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackup", "retentionPeriodInDays");
+            }
+            this.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
-            this.storageAccountAccessKey = Objects.requireNonNull(storageAccountAccessKey);
+            if (storageAccountAccessKey == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackup", "storageAccountAccessKey");
+            }
+            this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageBlobEndpoint(String storageBlobEndpoint) {
-            this.storageBlobEndpoint = Objects.requireNonNull(storageBlobEndpoint);
+            if (storageBlobEndpoint == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAutoBackup", "storageBlobEndpoint");
+            }
+            this.storageBlobEndpoint = storageBlobEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder systemDatabasesBackupEnabled(@Nullable Boolean systemDatabasesBackupEnabled) {
+
             this.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
             return this;
         }

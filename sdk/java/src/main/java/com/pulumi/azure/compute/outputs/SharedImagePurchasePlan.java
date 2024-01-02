@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class SharedImagePurchasePlan {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SharedImagePurchasePlan", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder product(@Nullable String product) {
+
             this.product = product;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(@Nullable String publisher) {
+
             this.publisher = publisher;
             return this;
         }

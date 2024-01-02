@@ -74,16 +74,19 @@ public final class HBaseClusterMetastores {
 
         @CustomType.Setter
         public Builder ambari(@Nullable HBaseClusterMetastoresAmbari ambari) {
+
             this.ambari = ambari;
             return this;
         }
         @CustomType.Setter
         public Builder hive(@Nullable HBaseClusterMetastoresHive hive) {
+
             this.hive = hive;
             return this;
         }
         @CustomType.Setter
         public Builder oozie(@Nullable HBaseClusterMetastoresOozie oozie) {
+
             this.oozie = oozie;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceArgs;
 import com.pulumi.azure.datafactory.inputs.FlowletDataFlowTransformationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -463,7 +464,9 @@ public final class FlowletDataFlowArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FlowletDataFlowArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("FlowletDataFlowArgs", "dataFactoryId");
+            }
             return $;
         }
     }

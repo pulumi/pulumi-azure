@@ -9,6 +9,7 @@ import com.pulumi.azure.apimanagement.inputs.BackendServiceFabricClusterArgs;
 import com.pulumi.azure.apimanagement.inputs.BackendTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -487,10 +488,18 @@ public final class BackendArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BackendArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("BackendArgs", "apiManagementName");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("BackendArgs", "protocol");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("BackendArgs", "resourceGroupName");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("BackendArgs", "url");
+            }
             return $;
         }
     }

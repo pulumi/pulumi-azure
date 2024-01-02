@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.azure.batch.outputs.GetPoolUserAccountLinuxUserConfiguration;
 import com.pulumi.azure.batch.outputs.GetPoolUserAccountWindowsUserConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,12 +102,18 @@ public final class GetPoolUserAccount {
 
         @CustomType.Setter
         public Builder elevationLevel(String elevationLevel) {
-            this.elevationLevel = Objects.requireNonNull(elevationLevel);
+            if (elevationLevel == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccount", "elevationLevel");
+            }
+            this.elevationLevel = elevationLevel;
             return this;
         }
         @CustomType.Setter
         public Builder linuxUserConfigurations(List<GetPoolUserAccountLinuxUserConfiguration> linuxUserConfigurations) {
-            this.linuxUserConfigurations = Objects.requireNonNull(linuxUserConfigurations);
+            if (linuxUserConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccount", "linuxUserConfigurations");
+            }
+            this.linuxUserConfigurations = linuxUserConfigurations;
             return this;
         }
         public Builder linuxUserConfigurations(GetPoolUserAccountLinuxUserConfiguration... linuxUserConfigurations) {
@@ -114,17 +121,26 @@ public final class GetPoolUserAccount {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccount", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccount", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder windowsUserConfigurations(List<GetPoolUserAccountWindowsUserConfiguration> windowsUserConfigurations) {
-            this.windowsUserConfigurations = Objects.requireNonNull(windowsUserConfigurations);
+            if (windowsUserConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccount", "windowsUserConfigurations");
+            }
+            this.windowsUserConfigurations = windowsUserConfigurations;
             return this;
         }
         public Builder windowsUserConfigurations(GetPoolUserAccountWindowsUserConfiguration... windowsUserConfigurations) {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetVirtualHubRouteTableRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -112,12 +113,18 @@ public final class GetVirtualHubRouteTableResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder labels(List<String> labels) {
-            this.labels = Objects.requireNonNull(labels);
+            if (labels == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "labels");
+            }
+            this.labels = labels;
             return this;
         }
         public Builder labels(String... labels) {
@@ -125,17 +132,26 @@ public final class GetVirtualHubRouteTableResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<GetVirtualHubRouteTableRoute> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(GetVirtualHubRouteTableRoute... routes) {
@@ -143,12 +159,18 @@ public final class GetVirtualHubRouteTableResult {
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubName(String virtualHubName) {
-            this.virtualHubName = Objects.requireNonNull(virtualHubName);
+            if (virtualHubName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableResult", "virtualHubName");
+            }
+            this.virtualHubName = virtualHubName;
             return this;
         }
         public GetVirtualHubRouteTableResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,9 +200,15 @@ public final class AutoscaleSettingProfileRecurrenceArgs extends com.pulumi.reso
         }
 
         public AutoscaleSettingProfileRecurrenceArgs build() {
-            $.days = Objects.requireNonNull($.days, "expected parameter 'days' to be non-null");
-            $.hours = Objects.requireNonNull($.hours, "expected parameter 'hours' to be non-null");
-            $.minutes = Objects.requireNonNull($.minutes, "expected parameter 'minutes' to be non-null");
+            if ($.days == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrenceArgs", "days");
+            }
+            if ($.hours == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrenceArgs", "hours");
+            }
+            if ($.minutes == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRecurrenceArgs", "minutes");
+            }
             return $;
         }
     }

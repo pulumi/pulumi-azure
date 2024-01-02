@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -443,9 +444,15 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs build() {
-            $.destinationPorts = Objects.requireNonNull($.destinationPorts, "expected parameter 'destinationPorts' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocols = Objects.requireNonNull($.protocols, "expected parameter 'protocols' to be non-null");
+            if ($.destinationPorts == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs", "destinationPorts");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs", "name");
+            }
+            if ($.protocols == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs", "protocols");
+            }
             return $;
         }
     }

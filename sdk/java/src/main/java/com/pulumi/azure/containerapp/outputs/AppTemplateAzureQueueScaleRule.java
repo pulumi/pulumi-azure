@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.AppTemplateAzureQueueScaleRuleAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -87,7 +88,10 @@ public final class AppTemplateAzureQueueScaleRule {
 
         @CustomType.Setter
         public Builder authentications(List<AppTemplateAzureQueueScaleRuleAuthentication> authentications) {
-            this.authentications = Objects.requireNonNull(authentications);
+            if (authentications == null) {
+              throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRule", "authentications");
+            }
+            this.authentications = authentications;
             return this;
         }
         public Builder authentications(AppTemplateAzureQueueScaleRuleAuthentication... authentications) {
@@ -95,17 +99,26 @@ public final class AppTemplateAzureQueueScaleRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder queueLength(Integer queueLength) {
-            this.queueLength = Objects.requireNonNull(queueLength);
+            if (queueLength == null) {
+              throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRule", "queueLength");
+            }
+            this.queueLength = queueLength;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(String queueName) {
-            this.queueName = Objects.requireNonNull(queueName);
+            if (queueName == null) {
+              throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRule", "queueName");
+            }
+            this.queueName = queueName;
             return this;
         }
         public AppTemplateAzureQueueScaleRule build() {

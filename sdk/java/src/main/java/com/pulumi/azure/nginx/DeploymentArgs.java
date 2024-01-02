@@ -10,6 +10,7 @@ import com.pulumi.azure.nginx.inputs.DeploymentLoggingStorageAccountArgs;
 import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -604,8 +605,12 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DeploymentArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("DeploymentArgs", "sku");
+            }
             return $;
         }
     }

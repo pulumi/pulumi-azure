@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,37 +127,58 @@ public final class GetPoolMountAzureBlobFileSystem {
 
         @CustomType.Setter
         public Builder accountKey(String accountKey) {
-            this.accountKey = Objects.requireNonNull(accountKey);
+            if (accountKey == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "accountKey");
+            }
+            this.accountKey = accountKey;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder blobfuseOptions(String blobfuseOptions) {
-            this.blobfuseOptions = Objects.requireNonNull(blobfuseOptions);
+            if (blobfuseOptions == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "blobfuseOptions");
+            }
+            this.blobfuseOptions = blobfuseOptions;
             return this;
         }
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder identityId(String identityId) {
-            this.identityId = Objects.requireNonNull(identityId);
+            if (identityId == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "identityId");
+            }
+            this.identityId = identityId;
             return this;
         }
         @CustomType.Setter
         public Builder relativeMountPath(String relativeMountPath) {
-            this.relativeMountPath = Objects.requireNonNull(relativeMountPath);
+            if (relativeMountPath == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "relativeMountPath");
+            }
+            this.relativeMountPath = relativeMountPath;
             return this;
         }
         @CustomType.Setter
         public Builder sasKey(String sasKey) {
-            this.sasKey = Objects.requireNonNull(sasKey);
+            if (sasKey == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountAzureBlobFileSystem", "sasKey");
+            }
+            this.sasKey = sasKey;
             return this;
         }
         public GetPoolMountAzureBlobFileSystem build() {

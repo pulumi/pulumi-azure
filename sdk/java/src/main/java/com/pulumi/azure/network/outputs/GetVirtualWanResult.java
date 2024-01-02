@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -169,52 +170,82 @@ public final class GetVirtualWanResult {
 
         @CustomType.Setter
         public Builder allowBranchToBranchTraffic(Boolean allowBranchToBranchTraffic) {
-            this.allowBranchToBranchTraffic = Objects.requireNonNull(allowBranchToBranchTraffic);
+            if (allowBranchToBranchTraffic == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "allowBranchToBranchTraffic");
+            }
+            this.allowBranchToBranchTraffic = allowBranchToBranchTraffic;
             return this;
         }
         @CustomType.Setter
         public Builder disableVpnEncryption(Boolean disableVpnEncryption) {
-            this.disableVpnEncryption = Objects.requireNonNull(disableVpnEncryption);
+            if (disableVpnEncryption == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "disableVpnEncryption");
+            }
+            this.disableVpnEncryption = disableVpnEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder office365LocalBreakoutCategory(String office365LocalBreakoutCategory) {
-            this.office365LocalBreakoutCategory = Objects.requireNonNull(office365LocalBreakoutCategory);
+            if (office365LocalBreakoutCategory == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "office365LocalBreakoutCategory");
+            }
+            this.office365LocalBreakoutCategory = office365LocalBreakoutCategory;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubIds(List<String> virtualHubIds) {
-            this.virtualHubIds = Objects.requireNonNull(virtualHubIds);
+            if (virtualHubIds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "virtualHubIds");
+            }
+            this.virtualHubIds = virtualHubIds;
             return this;
         }
         public Builder virtualHubIds(String... virtualHubIds) {
@@ -222,7 +253,10 @@ public final class GetVirtualWanResult {
         }
         @CustomType.Setter
         public Builder vpnSiteIds(List<String> vpnSiteIds) {
-            this.vpnSiteIds = Objects.requireNonNull(vpnSiteIds);
+            if (vpnSiteIds == null) {
+              throw new MissingRequiredPropertyException("GetVirtualWanResult", "vpnSiteIds");
+            }
+            this.vpnSiteIds = vpnSiteIds;
             return this;
         }
         public Builder vpnSiteIds(String... vpnSiteIds) {

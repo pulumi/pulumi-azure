@@ -72,16 +72,19 @@ public final class VpnSiteO365PolicyTrafficCategory {
 
         @CustomType.Setter
         public Builder allowEndpointEnabled(@Nullable Boolean allowEndpointEnabled) {
+
             this.allowEndpointEnabled = allowEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder defaultEndpointEnabled(@Nullable Boolean defaultEndpointEnabled) {
+
             this.defaultEndpointEnabled = defaultEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder optimizeEndpointEnabled(@Nullable Boolean optimizeEndpointEnabled) {
+
             this.optimizeEndpointEnabled = optimizeEndpointEnabled;
             return this;
         }

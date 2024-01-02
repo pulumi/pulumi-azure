@@ -6,6 +6,7 @@ package com.pulumi.azure.notificationhub.outputs;
 import com.pulumi.azure.notificationhub.outputs.GetHubApnsCredential;
 import com.pulumi.azure.notificationhub.outputs.GetHubGcmCredential;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -120,7 +121,10 @@ public final class GetHubResult {
 
         @CustomType.Setter
         public Builder apnsCredentials(List<GetHubApnsCredential> apnsCredentials) {
-            this.apnsCredentials = Objects.requireNonNull(apnsCredentials);
+            if (apnsCredentials == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "apnsCredentials");
+            }
+            this.apnsCredentials = apnsCredentials;
             return this;
         }
         public Builder apnsCredentials(GetHubApnsCredential... apnsCredentials) {
@@ -128,7 +132,10 @@ public final class GetHubResult {
         }
         @CustomType.Setter
         public Builder gcmCredentials(List<GetHubGcmCredential> gcmCredentials) {
-            this.gcmCredentials = Objects.requireNonNull(gcmCredentials);
+            if (gcmCredentials == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "gcmCredentials");
+            }
+            this.gcmCredentials = gcmCredentials;
             return this;
         }
         public Builder gcmCredentials(GetHubGcmCredential... gcmCredentials) {
@@ -136,32 +143,50 @@ public final class GetHubResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
-            this.namespaceName = Objects.requireNonNull(namespaceName);
+            if (namespaceName == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "namespaceName");
+            }
+            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetHubResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetHubResult build() {

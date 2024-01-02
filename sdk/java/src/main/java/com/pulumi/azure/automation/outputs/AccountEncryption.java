@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,16 +77,21 @@ public final class AccountEncryption {
 
         @CustomType.Setter
         public Builder keySource(@Nullable String keySource) {
+
             this.keySource = keySource;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("AccountEncryption", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

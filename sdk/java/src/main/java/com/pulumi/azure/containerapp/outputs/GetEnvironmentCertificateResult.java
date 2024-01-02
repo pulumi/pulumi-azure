@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -139,47 +140,74 @@ public final class GetEnvironmentCertificateResult {
 
         @CustomType.Setter
         public Builder containerAppEnvironmentId(String containerAppEnvironmentId) {
-            this.containerAppEnvironmentId = Objects.requireNonNull(containerAppEnvironmentId);
+            if (containerAppEnvironmentId == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "containerAppEnvironmentId");
+            }
+            this.containerAppEnvironmentId = containerAppEnvironmentId;
             return this;
         }
         @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+            if (expirationDate == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "expirationDate");
+            }
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issueDate(String issueDate) {
-            this.issueDate = Objects.requireNonNull(issueDate);
+            if (issueDate == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "issueDate");
+            }
+            this.issueDate = issueDate;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subjectName(String subjectName) {
-            this.subjectName = Objects.requireNonNull(subjectName);
+            if (subjectName == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "subjectName");
+            }
+            this.subjectName = subjectName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentCertificateResult", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         public GetEnvironmentCertificateResult build() {

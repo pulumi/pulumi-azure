@@ -4,6 +4,7 @@
 package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -217,16 +218,19 @@ public final class LoadBalancerFrontendIpConfiguration {
 
         @CustomType.Setter
         public Builder gatewayLoadBalancerFrontendIpConfigurationId(@Nullable String gatewayLoadBalancerFrontendIpConfigurationId) {
+
             this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inboundNatRules(@Nullable List<String> inboundNatRules) {
+
             this.inboundNatRules = inboundNatRules;
             return this;
         }
@@ -235,6 +239,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         }
         @CustomType.Setter
         public Builder loadBalancerRules(@Nullable List<String> loadBalancerRules) {
+
             this.loadBalancerRules = loadBalancerRules;
             return this;
         }
@@ -243,11 +248,15 @@ public final class LoadBalancerFrontendIpConfiguration {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("LoadBalancerFrontendIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundRules(@Nullable List<String> outboundRules) {
+
             this.outboundRules = outboundRules;
             return this;
         }
@@ -256,36 +265,43 @@ public final class LoadBalancerFrontendIpConfiguration {
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
+
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressVersion(@Nullable String privateIpAddressVersion) {
+
             this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpPrefixId(@Nullable String publicIpPrefixId) {
+
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
+
             this.zones = zones;
             return this;
         }

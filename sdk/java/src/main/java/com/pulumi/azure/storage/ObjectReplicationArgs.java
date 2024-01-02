@@ -6,6 +6,7 @@ package com.pulumi.azure.storage;
 import com.pulumi.azure.storage.inputs.ObjectReplicationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -160,9 +161,15 @@ public final class ObjectReplicationArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ObjectReplicationArgs build() {
-            $.destinationStorageAccountId = Objects.requireNonNull($.destinationStorageAccountId, "expected parameter 'destinationStorageAccountId' to be non-null");
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
-            $.sourceStorageAccountId = Objects.requireNonNull($.sourceStorageAccountId, "expected parameter 'sourceStorageAccountId' to be non-null");
+            if ($.destinationStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ObjectReplicationArgs", "destinationStorageAccountId");
+            }
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("ObjectReplicationArgs", "rules");
+            }
+            if ($.sourceStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ObjectReplicationArgs", "sourceStorageAccountId");
+            }
             return $;
         }
     }

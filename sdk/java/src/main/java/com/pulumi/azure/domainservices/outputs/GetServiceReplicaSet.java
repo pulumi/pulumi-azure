@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -113,7 +114,10 @@ public final class GetServiceReplicaSet {
 
         @CustomType.Setter
         public Builder domainControllerIpAddresses(List<String> domainControllerIpAddresses) {
-            this.domainControllerIpAddresses = Objects.requireNonNull(domainControllerIpAddresses);
+            if (domainControllerIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "domainControllerIpAddresses");
+            }
+            this.domainControllerIpAddresses = domainControllerIpAddresses;
             return this;
         }
         public Builder domainControllerIpAddresses(String... domainControllerIpAddresses) {
@@ -121,27 +125,42 @@ public final class GetServiceReplicaSet {
         }
         @CustomType.Setter
         public Builder externalAccessIpAddress(String externalAccessIpAddress) {
-            this.externalAccessIpAddress = Objects.requireNonNull(externalAccessIpAddress);
+            if (externalAccessIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "externalAccessIpAddress");
+            }
+            this.externalAccessIpAddress = externalAccessIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder serviceStatus(String serviceStatus) {
-            this.serviceStatus = Objects.requireNonNull(serviceStatus);
+            if (serviceStatus == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "serviceStatus");
+            }
+            this.serviceStatus = serviceStatus;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetServiceReplicaSet", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetServiceReplicaSet build() {

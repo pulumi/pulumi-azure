@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ScalingPlanHostPoolArgs extends com.pulumi.resources.Resource
         }
 
         public ScalingPlanHostPoolArgs build() {
-            $.hostpoolId = Objects.requireNonNull($.hostpoolId, "expected parameter 'hostpoolId' to be non-null");
-            $.scalingPlanEnabled = Objects.requireNonNull($.scalingPlanEnabled, "expected parameter 'scalingPlanEnabled' to be non-null");
+            if ($.hostpoolId == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanHostPoolArgs", "hostpoolId");
+            }
+            if ($.scalingPlanEnabled == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanHostPoolArgs", "scalingPlanEnabled");
+            }
             return $;
         }
     }

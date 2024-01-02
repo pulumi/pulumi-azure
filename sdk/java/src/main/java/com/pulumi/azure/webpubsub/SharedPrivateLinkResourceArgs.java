@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -240,9 +241,15 @@ public final class SharedPrivateLinkResourceArgs extends com.pulumi.resources.Re
         }
 
         public SharedPrivateLinkResourceArgs build() {
-            $.subresourceName = Objects.requireNonNull($.subresourceName, "expected parameter 'subresourceName' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
-            $.webPubsubId = Objects.requireNonNull($.webPubsubId, "expected parameter 'webPubsubId' to be non-null");
+            if ($.subresourceName == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "subresourceName");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "targetResourceId");
+            }
+            if ($.webPubsubId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkResourceArgs", "webPubsubId");
+            }
             return $;
         }
     }

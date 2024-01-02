@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
 
         @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
-            this.authenticationType = Objects.requireNonNull(authenticationType);
+            if (authenticationType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess", "authenticationType");
+            }
+            this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder httpsServerCertificateUrl(String httpsServerCertificateUrl) {
-            this.httpsServerCertificateUrl = Objects.requireNonNull(httpsServerCertificateUrl);
+            if (httpsServerCertificateUrl == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess", "httpsServerCertificateUrl");
+            }
+            this.httpsServerCertificateUrl = httpsServerCertificateUrl;
             return this;
         }
         public GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess build() {

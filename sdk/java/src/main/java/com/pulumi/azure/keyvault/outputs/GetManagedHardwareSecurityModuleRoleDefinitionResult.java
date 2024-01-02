@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.azure.keyvault.outputs.GetManagedHardwareSecurityModuleRoleDefinitionPermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -140,7 +141,10 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
 
         @CustomType.Setter
         public Builder assignableScopes(List<String> assignableScopes) {
-            this.assignableScopes = Objects.requireNonNull(assignableScopes);
+            if (assignableScopes == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "assignableScopes");
+            }
+            this.assignableScopes = assignableScopes;
             return this;
         }
         public Builder assignableScopes(String... assignableScopes) {
@@ -148,22 +152,34 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<GetManagedHardwareSecurityModuleRoleDefinitionPermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetManagedHardwareSecurityModuleRoleDefinitionPermission... permissions) {
@@ -171,22 +187,34 @@ public final class GetManagedHardwareSecurityModuleRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
-            this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
+            if (resourceManagerId == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "resourceManagerId");
+            }
+            this.resourceManagerId = resourceManagerId;
             return this;
         }
         @CustomType.Setter
         public Builder roleName(String roleName) {
-            this.roleName = Objects.requireNonNull(roleName);
+            if (roleName == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "roleName");
+            }
+            this.roleName = roleName;
             return this;
         }
         @CustomType.Setter
         public Builder roleType(String roleType) {
-            this.roleType = Objects.requireNonNull(roleType);
+            if (roleType == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "roleType");
+            }
+            this.roleType = roleType;
             return this;
         }
         @CustomType.Setter
         public Builder vaultBaseUrl(String vaultBaseUrl) {
-            this.vaultBaseUrl = Objects.requireNonNull(vaultBaseUrl);
+            if (vaultBaseUrl == null) {
+              throw new MissingRequiredPropertyException("GetManagedHardwareSecurityModuleRoleDefinitionResult", "vaultBaseUrl");
+            }
+            this.vaultBaseUrl = vaultBaseUrl;
             return this;
         }
         public GetManagedHardwareSecurityModuleRoleDefinitionResult build() {

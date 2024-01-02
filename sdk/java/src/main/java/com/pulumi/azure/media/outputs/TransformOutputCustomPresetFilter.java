@@ -120,26 +120,31 @@ public final class TransformOutputCustomPresetFilter {
 
         @CustomType.Setter
         public Builder cropRectangle(@Nullable TransformOutputCustomPresetFilterCropRectangle cropRectangle) {
+
             this.cropRectangle = cropRectangle;
             return this;
         }
         @CustomType.Setter
         public Builder deinterlace(@Nullable TransformOutputCustomPresetFilterDeinterlace deinterlace) {
+
             this.deinterlace = deinterlace;
             return this;
         }
         @CustomType.Setter
         public Builder fadeIn(@Nullable TransformOutputCustomPresetFilterFadeIn fadeIn) {
+
             this.fadeIn = fadeIn;
             return this;
         }
         @CustomType.Setter
         public Builder fadeOut(@Nullable TransformOutputCustomPresetFilterFadeOut fadeOut) {
+
             this.fadeOut = fadeOut;
             return this;
         }
         @CustomType.Setter
         public Builder overlays(@Nullable List<TransformOutputCustomPresetFilterOverlay> overlays) {
+
             this.overlays = overlays;
             return this;
         }
@@ -148,6 +153,7 @@ public final class TransformOutputCustomPresetFilter {
         }
         @CustomType.Setter
         public Builder rotation(@Nullable String rotation) {
+
             this.rotation = rotation;
             return this;
         }

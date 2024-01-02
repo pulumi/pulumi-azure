@@ -4,6 +4,7 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ActionHttpRunAfter {
 
         @CustomType.Setter
         public Builder actionName(String actionName) {
-            this.actionName = Objects.requireNonNull(actionName);
+            if (actionName == null) {
+              throw new MissingRequiredPropertyException("ActionHttpRunAfter", "actionName");
+            }
+            this.actionName = actionName;
             return this;
         }
         @CustomType.Setter
         public Builder actionResult(String actionResult) {
-            this.actionResult = Objects.requireNonNull(actionResult);
+            if (actionResult == null) {
+              throw new MissingRequiredPropertyException("ActionHttpRunAfter", "actionResult");
+            }
+            this.actionResult = actionResult;
             return this;
         }
         public ActionHttpRunAfter build() {

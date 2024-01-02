@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -398,9 +399,15 @@ public final class ScaleSetNetworkProfileIpConfigurationArgs extends com.pulumi.
         }
 
         public ScaleSetNetworkProfileIpConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationArgs", "name");
+            }
+            if ($.primary == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationArgs", "primary");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

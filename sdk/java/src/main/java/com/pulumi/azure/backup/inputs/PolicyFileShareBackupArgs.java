@@ -6,6 +6,7 @@ package com.pulumi.azure.backup.inputs;
 import com.pulumi.azure.backup.inputs.PolicyFileShareBackupHourlyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -167,7 +168,9 @@ public final class PolicyFileShareBackupArgs extends com.pulumi.resources.Resour
         }
 
         public PolicyFileShareBackupArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareBackupArgs", "frequency");
+            }
             return $;
         }
     }

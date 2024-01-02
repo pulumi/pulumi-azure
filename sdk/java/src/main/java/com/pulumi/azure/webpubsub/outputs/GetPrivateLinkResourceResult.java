@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.azure.webpubsub.outputs.GetPrivateLinkResourceSharedPrivateLinkResourceType;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,12 +65,18 @@ public final class GetPrivateLinkResourceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkResourceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder sharedPrivateLinkResourceTypes(List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes) {
-            this.sharedPrivateLinkResourceTypes = Objects.requireNonNull(sharedPrivateLinkResourceTypes);
+            if (sharedPrivateLinkResourceTypes == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkResourceResult", "sharedPrivateLinkResourceTypes");
+            }
+            this.sharedPrivateLinkResourceTypes = sharedPrivateLinkResourceTypes;
             return this;
         }
         public Builder sharedPrivateLinkResourceTypes(GetPrivateLinkResourceSharedPrivateLinkResourceType... sharedPrivateLinkResourceTypes) {
@@ -77,7 +84,10 @@ public final class GetPrivateLinkResourceResult {
         }
         @CustomType.Setter
         public Builder webPubsubId(String webPubsubId) {
-            this.webPubsubId = Objects.requireNonNull(webPubsubId);
+            if (webPubsubId == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkResourceResult", "webPubsubId");
+            }
+            this.webPubsubId = webPubsubId;
             return this;
         }
         public GetPrivateLinkResourceResult build() {

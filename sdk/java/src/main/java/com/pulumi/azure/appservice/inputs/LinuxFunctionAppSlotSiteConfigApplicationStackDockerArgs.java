@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -240,9 +241,15 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs exte
         }
 
         public LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs build() {
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
-            $.imageTag = Objects.requireNonNull($.imageTag, "expected parameter 'imageTag' to be non-null");
-            $.registryUrl = Objects.requireNonNull($.registryUrl, "expected parameter 'registryUrl' to be non-null");
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs", "imageName");
+            }
+            if ($.imageTag == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs", "imageTag");
+            }
+            if ($.registryUrl == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs", "registryUrl");
+            }
             return $;
         }
     }

@@ -102,26 +102,31 @@ public final class RunBookDraft {
 
         @CustomType.Setter
         public Builder contentLink(@Nullable RunBookDraftContentLink contentLink) {
+
             this.contentLink = contentLink;
             return this;
         }
         @CustomType.Setter
         public Builder creationTime(@Nullable String creationTime) {
+
             this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder editModeEnabled(@Nullable Boolean editModeEnabled) {
+
             this.editModeEnabled = editModeEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+
             this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
         public Builder outputTypes(@Nullable List<String> outputTypes) {
+
             this.outputTypes = outputTypes;
             return this;
         }
@@ -130,6 +135,7 @@ public final class RunBookDraft {
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<RunBookDraftParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }

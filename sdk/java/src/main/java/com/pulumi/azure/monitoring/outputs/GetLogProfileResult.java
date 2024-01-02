@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetLogProfileRetentionPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -120,7 +121,10 @@ public final class GetLogProfileResult {
 
         @CustomType.Setter
         public Builder categories(List<String> categories) {
-            this.categories = Objects.requireNonNull(categories);
+            if (categories == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "categories");
+            }
+            this.categories = categories;
             return this;
         }
         public Builder categories(String... categories) {
@@ -128,12 +132,18 @@ public final class GetLogProfileResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locations(List<String> locations) {
-            this.locations = Objects.requireNonNull(locations);
+            if (locations == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "locations");
+            }
+            this.locations = locations;
             return this;
         }
         public Builder locations(String... locations) {
@@ -141,12 +151,18 @@ public final class GetLogProfileResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicies(List<GetLogProfileRetentionPolicy> retentionPolicies) {
-            this.retentionPolicies = Objects.requireNonNull(retentionPolicies);
+            if (retentionPolicies == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "retentionPolicies");
+            }
+            this.retentionPolicies = retentionPolicies;
             return this;
         }
         public Builder retentionPolicies(GetLogProfileRetentionPolicy... retentionPolicies) {
@@ -154,12 +170,18 @@ public final class GetLogProfileResult {
         }
         @CustomType.Setter
         public Builder servicebusRuleId(String servicebusRuleId) {
-            this.servicebusRuleId = Objects.requireNonNull(servicebusRuleId);
+            if (servicebusRuleId == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "servicebusRuleId");
+            }
+            this.servicebusRuleId = servicebusRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetLogProfileResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public GetLogProfileResult build() {

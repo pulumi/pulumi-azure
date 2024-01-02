@@ -63,11 +63,13 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
 
         @CustomType.Setter
         public Builder capacity(@Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder recurrence(@Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }

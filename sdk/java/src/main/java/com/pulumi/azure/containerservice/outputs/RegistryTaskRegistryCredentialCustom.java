@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class RegistryTaskRegistryCredentialCustom {
 
         @CustomType.Setter
         public Builder identity(@Nullable String identity) {
+
             this.identity = identity;
             return this;
         }
         @CustomType.Setter
         public Builder loginServer(String loginServer) {
-            this.loginServer = Objects.requireNonNull(loginServer);
+            if (loginServer == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskRegistryCredentialCustom", "loginServer");
+            }
+            this.loginServer = loginServer;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

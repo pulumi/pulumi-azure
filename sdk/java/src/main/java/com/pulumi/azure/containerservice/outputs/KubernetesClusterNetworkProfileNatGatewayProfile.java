@@ -74,6 +74,7 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfile {
 
         @CustomType.Setter
         public Builder effectiveOutboundIps(@Nullable List<String> effectiveOutboundIps) {
+
             this.effectiveOutboundIps = effectiveOutboundIps;
             return this;
         }
@@ -82,11 +83,13 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfile {
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(@Nullable Integer idleTimeoutInMinutes) {
+
             this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder managedOutboundIpCount(@Nullable Integer managedOutboundIpCount) {
+
             this.managedOutboundIpCount = managedOutboundIpCount;
             return this;
         }

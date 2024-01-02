@@ -9,6 +9,7 @@ import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentOverrideArgs;
 import com.pulumi.azure.core.inputs.SubscriptionPolicyAssignmentResourceSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -611,8 +612,12 @@ public final class SubscriptionPolicyAssignmentArgs extends com.pulumi.resources
         }
 
         public SubscriptionPolicyAssignmentArgs build() {
-            $.policyDefinitionId = Objects.requireNonNull($.policyDefinitionId, "expected parameter 'policyDefinitionId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.policyDefinitionId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyAssignmentArgs", "policyDefinitionId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyAssignmentArgs", "subscriptionId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -392,9 +393,15 @@ public final class LinkedServiceAzureSearchArgs extends com.pulumi.resources.Res
         }
 
         public LinkedServiceAzureSearchArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.searchServiceKey = Objects.requireNonNull($.searchServiceKey, "expected parameter 'searchServiceKey' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureSearchArgs", "dataFactoryId");
+            }
+            if ($.searchServiceKey == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureSearchArgs", "searchServiceKey");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceAzureSearchArgs", "url");
+            }
             return $;
         }
     }

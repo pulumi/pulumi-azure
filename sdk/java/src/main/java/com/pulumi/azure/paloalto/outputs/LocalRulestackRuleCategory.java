@@ -4,6 +4,7 @@
 package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class LocalRulestackRuleCategory {
 
         @CustomType.Setter
         public Builder customUrls(List<String> customUrls) {
-            this.customUrls = Objects.requireNonNull(customUrls);
+            if (customUrls == null) {
+              throw new MissingRequiredPropertyException("LocalRulestackRuleCategory", "customUrls");
+            }
+            this.customUrls = customUrls;
             return this;
         }
         public Builder customUrls(String... customUrls) {
@@ -66,6 +70,7 @@ public final class LocalRulestackRuleCategory {
         }
         @CustomType.Setter
         public Builder feeds(@Nullable List<String> feeds) {
+
             this.feeds = feeds;
             return this;
         }

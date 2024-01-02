@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         public ComputeClusterScaleSettingsArgs build() {
-            $.maxNodeCount = Objects.requireNonNull($.maxNodeCount, "expected parameter 'maxNodeCount' to be non-null");
-            $.minNodeCount = Objects.requireNonNull($.minNodeCount, "expected parameter 'minNodeCount' to be non-null");
-            $.scaleDownNodesAfterIdleDuration = Objects.requireNonNull($.scaleDownNodesAfterIdleDuration, "expected parameter 'scaleDownNodesAfterIdleDuration' to be non-null");
+            if ($.maxNodeCount == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterScaleSettingsArgs", "maxNodeCount");
+            }
+            if ($.minNodeCount == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterScaleSettingsArgs", "minNodeCount");
+            }
+            if ($.scaleDownNodesAfterIdleDuration == null) {
+                throw new MissingRequiredPropertyException("ComputeClusterScaleSettingsArgs", "scaleDownNodesAfterIdleDuration");
+            }
             return $;
         }
     }

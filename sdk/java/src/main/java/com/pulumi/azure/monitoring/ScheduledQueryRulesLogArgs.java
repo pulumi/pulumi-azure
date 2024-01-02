@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -386,9 +387,15 @@ public final class ScheduledQueryRulesLogArgs extends com.pulumi.resources.Resou
         }
 
         public ScheduledQueryRulesLogArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.dataSourceId = Objects.requireNonNull($.dataSourceId, "expected parameter 'dataSourceId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesLogArgs", "criteria");
+            }
+            if ($.dataSourceId == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesLogArgs", "dataSourceId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesLogArgs", "resourceGroupName");
+            }
             return $;
         }
     }

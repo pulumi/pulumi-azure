@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class NetworkManagerScopeConnectionArgs extends com.pulumi.resource
         }
 
         public NetworkManagerScopeConnectionArgs build() {
-            $.networkManagerId = Objects.requireNonNull($.networkManagerId, "expected parameter 'networkManagerId' to be non-null");
-            $.targetScopeId = Objects.requireNonNull($.targetScopeId, "expected parameter 'targetScopeId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.networkManagerId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerScopeConnectionArgs", "networkManagerId");
+            }
+            if ($.targetScopeId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerScopeConnectionArgs", "targetScopeId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerScopeConnectionArgs", "tenantId");
+            }
             return $;
         }
     }

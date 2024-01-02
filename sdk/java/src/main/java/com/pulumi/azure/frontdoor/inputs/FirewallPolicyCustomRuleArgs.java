@@ -6,6 +6,7 @@ package com.pulumi.azure.frontdoor.inputs;
 import com.pulumi.azure.frontdoor.inputs.FirewallPolicyCustomRuleMatchConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -349,9 +350,15 @@ public final class FirewallPolicyCustomRuleArgs extends com.pulumi.resources.Res
         }
 
         public FirewallPolicyCustomRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleArgs", "action");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleArgs", "type");
+            }
             return $;
         }
     }

@@ -73,16 +73,19 @@ public final class EligibleRoleAssignmentScheduleExpiration {
 
         @CustomType.Setter
         public Builder durationDays(@Nullable Integer durationDays) {
+
             this.durationDays = durationDays;
             return this;
         }
         @CustomType.Setter
         public Builder durationHours(@Nullable Integer durationHours) {
+
             this.durationHours = durationHours;
             return this;
         }
         @CustomType.Setter
         public Builder endDateTime(@Nullable String endDateTime) {
+
             this.endDateTime = endDateTime;
             return this;
         }

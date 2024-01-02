@@ -4,6 +4,7 @@
 package com.pulumi.azure.redis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -200,77 +201,122 @@ public final class GetCacheRedisConfiguration {
 
         @CustomType.Setter
         public Builder aofBackupEnabled(Boolean aofBackupEnabled) {
-            this.aofBackupEnabled = Objects.requireNonNull(aofBackupEnabled);
+            if (aofBackupEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "aofBackupEnabled");
+            }
+            this.aofBackupEnabled = aofBackupEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder aofStorageConnectionString0(String aofStorageConnectionString0) {
-            this.aofStorageConnectionString0 = Objects.requireNonNull(aofStorageConnectionString0);
+            if (aofStorageConnectionString0 == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "aofStorageConnectionString0");
+            }
+            this.aofStorageConnectionString0 = aofStorageConnectionString0;
             return this;
         }
         @CustomType.Setter
         public Builder aofStorageConnectionString1(String aofStorageConnectionString1) {
-            this.aofStorageConnectionString1 = Objects.requireNonNull(aofStorageConnectionString1);
+            if (aofStorageConnectionString1 == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "aofStorageConnectionString1");
+            }
+            this.aofStorageConnectionString1 = aofStorageConnectionString1;
             return this;
         }
         @CustomType.Setter
         public Builder enableAuthentication(Boolean enableAuthentication) {
-            this.enableAuthentication = Objects.requireNonNull(enableAuthentication);
+            if (enableAuthentication == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "enableAuthentication");
+            }
+            this.enableAuthentication = enableAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder maxclients(Integer maxclients) {
-            this.maxclients = Objects.requireNonNull(maxclients);
+            if (maxclients == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "maxclients");
+            }
+            this.maxclients = maxclients;
             return this;
         }
         @CustomType.Setter
         public Builder maxfragmentationmemoryReserved(Integer maxfragmentationmemoryReserved) {
-            this.maxfragmentationmemoryReserved = Objects.requireNonNull(maxfragmentationmemoryReserved);
+            if (maxfragmentationmemoryReserved == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "maxfragmentationmemoryReserved");
+            }
+            this.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryDelta(Integer maxmemoryDelta) {
-            this.maxmemoryDelta = Objects.requireNonNull(maxmemoryDelta);
+            if (maxmemoryDelta == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "maxmemoryDelta");
+            }
+            this.maxmemoryDelta = maxmemoryDelta;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryPolicy(String maxmemoryPolicy) {
-            this.maxmemoryPolicy = Objects.requireNonNull(maxmemoryPolicy);
+            if (maxmemoryPolicy == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "maxmemoryPolicy");
+            }
+            this.maxmemoryPolicy = maxmemoryPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryReserved(Integer maxmemoryReserved) {
-            this.maxmemoryReserved = Objects.requireNonNull(maxmemoryReserved);
+            if (maxmemoryReserved == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "maxmemoryReserved");
+            }
+            this.maxmemoryReserved = maxmemoryReserved;
             return this;
         }
         @CustomType.Setter
         public Builder notifyKeyspaceEvents(String notifyKeyspaceEvents) {
-            this.notifyKeyspaceEvents = Objects.requireNonNull(notifyKeyspaceEvents);
+            if (notifyKeyspaceEvents == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "notifyKeyspaceEvents");
+            }
+            this.notifyKeyspaceEvents = notifyKeyspaceEvents;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupEnabled(Boolean rdbBackupEnabled) {
-            this.rdbBackupEnabled = Objects.requireNonNull(rdbBackupEnabled);
+            if (rdbBackupEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "rdbBackupEnabled");
+            }
+            this.rdbBackupEnabled = rdbBackupEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupFrequency(Integer rdbBackupFrequency) {
-            this.rdbBackupFrequency = Objects.requireNonNull(rdbBackupFrequency);
+            if (rdbBackupFrequency == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "rdbBackupFrequency");
+            }
+            this.rdbBackupFrequency = rdbBackupFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupMaxSnapshotCount(Integer rdbBackupMaxSnapshotCount) {
-            this.rdbBackupMaxSnapshotCount = Objects.requireNonNull(rdbBackupMaxSnapshotCount);
+            if (rdbBackupMaxSnapshotCount == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "rdbBackupMaxSnapshotCount");
+            }
+            this.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             return this;
         }
         @CustomType.Setter
         public Builder rdbStorageConnectionString(String rdbStorageConnectionString) {
-            this.rdbStorageConnectionString = Objects.requireNonNull(rdbStorageConnectionString);
+            if (rdbStorageConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "rdbStorageConnectionString");
+            }
+            this.rdbStorageConnectionString = rdbStorageConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountSubscriptionId(String storageAccountSubscriptionId) {
-            this.storageAccountSubscriptionId = Objects.requireNonNull(storageAccountSubscriptionId);
+            if (storageAccountSubscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetCacheRedisConfiguration", "storageAccountSubscriptionId");
+            }
+            this.storageAccountSubscriptionId = storageAccountSubscriptionId;
             return this;
         }
         public GetCacheRedisConfiguration build() {

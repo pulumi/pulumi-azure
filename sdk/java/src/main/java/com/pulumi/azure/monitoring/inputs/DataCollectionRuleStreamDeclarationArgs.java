@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationColumnArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class DataCollectionRuleStreamDeclarationArgs extends com.pulumi.re
         }
 
         public DataCollectionRuleStreamDeclarationArgs build() {
-            $.columns = Objects.requireNonNull($.columns, "expected parameter 'columns' to be non-null");
-            $.streamName = Objects.requireNonNull($.streamName, "expected parameter 'streamName' to be non-null");
+            if ($.columns == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleStreamDeclarationArgs", "columns");
+            }
+            if ($.streamName == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleStreamDeclarationArgs", "streamName");
+            }
             return $;
         }
     }

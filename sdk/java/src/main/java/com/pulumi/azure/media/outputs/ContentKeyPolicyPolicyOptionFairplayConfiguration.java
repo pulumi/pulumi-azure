@@ -116,31 +116,37 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
 
         @CustomType.Setter
         public Builder ask(@Nullable String ask) {
+
             this.ask = ask;
             return this;
         }
         @CustomType.Setter
         public Builder offlineRentalConfiguration(@Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration) {
+
             this.offlineRentalConfiguration = offlineRentalConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder pfx(@Nullable String pfx) {
+
             this.pfx = pfx;
             return this;
         }
         @CustomType.Setter
         public Builder pfxPassword(@Nullable String pfxPassword) {
+
             this.pfxPassword = pfxPassword;
             return this;
         }
         @CustomType.Setter
         public Builder rentalAndLeaseKeyType(@Nullable String rentalAndLeaseKeyType) {
+
             this.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
             return this;
         }
         @CustomType.Setter
         public Builder rentalDurationSeconds(@Nullable Integer rentalDurationSeconds) {
+
             this.rentalDurationSeconds = rentalDurationSeconds;
             return this;
         }

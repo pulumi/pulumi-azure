@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -244,8 +245,12 @@ public final class PolicyVMBackupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PolicyVMBackupArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.time = Objects.requireNonNull($.time, "expected parameter 'time' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("PolicyVMBackupArgs", "frequency");
+            }
+            if ($.time == null) {
+                throw new MissingRequiredPropertyException("PolicyVMBackupArgs", "time");
+            }
             return $;
         }
     }

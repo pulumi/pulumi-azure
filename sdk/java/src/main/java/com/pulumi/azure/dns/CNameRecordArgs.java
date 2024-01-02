@@ -5,6 +5,7 @@ package com.pulumi.azure.dns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -308,9 +309,15 @@ public final class CNameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CNameRecordArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
-            $.zoneName = Objects.requireNonNull($.zoneName, "expected parameter 'zoneName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CNameRecordArgs", "resourceGroupName");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("CNameRecordArgs", "ttl");
+            }
+            if ($.zoneName == null) {
+                throw new MissingRequiredPropertyException("CNameRecordArgs", "zoneName");
+            }
             return $;
         }
     }

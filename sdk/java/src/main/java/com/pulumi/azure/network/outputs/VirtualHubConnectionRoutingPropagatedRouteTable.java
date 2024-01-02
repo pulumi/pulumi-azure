@@ -58,6 +58,7 @@ public final class VirtualHubConnectionRoutingPropagatedRouteTable {
 
         @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
+
             this.labels = labels;
             return this;
         }
@@ -66,6 +67,7 @@ public final class VirtualHubConnectionRoutingPropagatedRouteTable {
         }
         @CustomType.Setter
         public Builder routeTableIds(@Nullable List<String> routeTableIds) {
+
             this.routeTableIds = routeTableIds;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.hybrid.outputs;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineAgentConfigurationExtensionsAllowList;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineAgentConfigurationExtensionsBlockList;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -130,7 +131,10 @@ public final class GetComputeMachineAgentConfiguration {
 
         @CustomType.Setter
         public Builder extensionsAllowLists(List<GetComputeMachineAgentConfigurationExtensionsAllowList> extensionsAllowLists) {
-            this.extensionsAllowLists = Objects.requireNonNull(extensionsAllowLists);
+            if (extensionsAllowLists == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "extensionsAllowLists");
+            }
+            this.extensionsAllowLists = extensionsAllowLists;
             return this;
         }
         public Builder extensionsAllowLists(GetComputeMachineAgentConfigurationExtensionsAllowList... extensionsAllowLists) {
@@ -138,7 +142,10 @@ public final class GetComputeMachineAgentConfiguration {
         }
         @CustomType.Setter
         public Builder extensionsBlockLists(List<GetComputeMachineAgentConfigurationExtensionsBlockList> extensionsBlockLists) {
-            this.extensionsBlockLists = Objects.requireNonNull(extensionsBlockLists);
+            if (extensionsBlockLists == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "extensionsBlockLists");
+            }
+            this.extensionsBlockLists = extensionsBlockLists;
             return this;
         }
         public Builder extensionsBlockLists(GetComputeMachineAgentConfigurationExtensionsBlockList... extensionsBlockLists) {
@@ -146,17 +153,26 @@ public final class GetComputeMachineAgentConfiguration {
         }
         @CustomType.Setter
         public Builder extensionsEnabled(Boolean extensionsEnabled) {
-            this.extensionsEnabled = Objects.requireNonNull(extensionsEnabled);
+            if (extensionsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "extensionsEnabled");
+            }
+            this.extensionsEnabled = extensionsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder guestConfigurationEnabled(Boolean guestConfigurationEnabled) {
-            this.guestConfigurationEnabled = Objects.requireNonNull(guestConfigurationEnabled);
+            if (guestConfigurationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "guestConfigurationEnabled");
+            }
+            this.guestConfigurationEnabled = guestConfigurationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder incomingConnectionsPorts(List<String> incomingConnectionsPorts) {
-            this.incomingConnectionsPorts = Objects.requireNonNull(incomingConnectionsPorts);
+            if (incomingConnectionsPorts == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "incomingConnectionsPorts");
+            }
+            this.incomingConnectionsPorts = incomingConnectionsPorts;
             return this;
         }
         public Builder incomingConnectionsPorts(String... incomingConnectionsPorts) {
@@ -164,7 +180,10 @@ public final class GetComputeMachineAgentConfiguration {
         }
         @CustomType.Setter
         public Builder proxyBypasses(List<String> proxyBypasses) {
-            this.proxyBypasses = Objects.requireNonNull(proxyBypasses);
+            if (proxyBypasses == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "proxyBypasses");
+            }
+            this.proxyBypasses = proxyBypasses;
             return this;
         }
         public Builder proxyBypasses(String... proxyBypasses) {
@@ -172,7 +191,10 @@ public final class GetComputeMachineAgentConfiguration {
         }
         @CustomType.Setter
         public Builder proxyUrl(String proxyUrl) {
-            this.proxyUrl = Objects.requireNonNull(proxyUrl);
+            if (proxyUrl == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineAgentConfiguration", "proxyUrl");
+            }
+            this.proxyUrl = proxyUrl;
             return this;
         }
         public GetComputeMachineAgentConfiguration build() {

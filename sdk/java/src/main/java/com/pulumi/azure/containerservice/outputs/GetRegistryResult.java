@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -168,57 +169,90 @@ public final class GetRegistryResult {
 
         @CustomType.Setter
         public Builder adminEnabled(Boolean adminEnabled) {
-            this.adminEnabled = Objects.requireNonNull(adminEnabled);
+            if (adminEnabled == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "adminEnabled");
+            }
+            this.adminEnabled = adminEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder adminPassword(String adminPassword) {
-            this.adminPassword = Objects.requireNonNull(adminPassword);
+            if (adminPassword == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "adminPassword");
+            }
+            this.adminPassword = adminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder dataEndpointEnabled(Boolean dataEndpointEnabled) {
-            this.dataEndpointEnabled = Objects.requireNonNull(dataEndpointEnabled);
+            if (dataEndpointEnabled == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "dataEndpointEnabled");
+            }
+            this.dataEndpointEnabled = dataEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder loginServer(String loginServer) {
-            this.loginServer = Objects.requireNonNull(loginServer);
+            if (loginServer == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "loginServer");
+            }
+            this.loginServer = loginServer;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetRegistryResult build() {

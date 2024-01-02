@@ -268,76 +268,91 @@ public final class LinuxWebAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder dockerImage(@Nullable String dockerImage) {
+
             this.dockerImage = dockerImage;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageName(@Nullable String dockerImageName) {
+
             this.dockerImageName = dockerImageName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageTag(@Nullable String dockerImageTag) {
+
             this.dockerImageTag = dockerImageTag;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryPassword(@Nullable String dockerRegistryPassword) {
+
             this.dockerRegistryPassword = dockerRegistryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUrl(@Nullable String dockerRegistryUrl) {
+
             this.dockerRegistryUrl = dockerRegistryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUsername(@Nullable String dockerRegistryUsername) {
+
             this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
+
             this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder goVersion(@Nullable String goVersion) {
+
             this.goVersion = goVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaServer(@Nullable String javaServer) {
+
             this.javaServer = javaServer;
             return this;
         }
         @CustomType.Setter
         public Builder javaServerVersion(@Nullable String javaServerVersion) {
+
             this.javaServerVersion = javaServerVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
+
             this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
+
             this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder phpVersion(@Nullable String phpVersion) {
+
             this.phpVersion = phpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
+
             this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder rubyVersion(@Nullable String rubyVersion) {
+
             this.rubyVersion = rubyVersion;
             return this;
         }

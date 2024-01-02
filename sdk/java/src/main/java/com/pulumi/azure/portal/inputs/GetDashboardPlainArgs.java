@@ -4,6 +4,7 @@
 package com.pulumi.azure.portal.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -146,7 +147,9 @@ public final class GetDashboardPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         public GetDashboardPlainArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetDashboardPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

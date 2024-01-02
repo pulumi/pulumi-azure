@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.azure.servicefabric.outputs.ClusterReverseProxyCertificateCommonNamesCommonName;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class ClusterReverseProxyCertificateCommonNames {
 
         @CustomType.Setter
         public Builder commonNames(List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames) {
-            this.commonNames = Objects.requireNonNull(commonNames);
+            if (commonNames == null) {
+              throw new MissingRequiredPropertyException("ClusterReverseProxyCertificateCommonNames", "commonNames");
+            }
+            this.commonNames = commonNames;
             return this;
         }
         public Builder commonNames(ClusterReverseProxyCertificateCommonNamesCommonName... commonNames) {
@@ -66,7 +70,10 @@ public final class ClusterReverseProxyCertificateCommonNames {
         }
         @CustomType.Setter
         public Builder x509StoreName(String x509StoreName) {
-            this.x509StoreName = Objects.requireNonNull(x509StoreName);
+            if (x509StoreName == null) {
+              throw new MissingRequiredPropertyException("ClusterReverseProxyCertificateCommonNames", "x509StoreName");
+            }
+            this.x509StoreName = x509StoreName;
             return this;
         }
         public ClusterReverseProxyCertificateCommonNames build() {

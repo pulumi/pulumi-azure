@@ -8,6 +8,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoo
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolUpgradeSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -632,106 +633,129 @@ public final class KubernetesClusterDefaultNodePool {
 
         @CustomType.Setter
         public Builder capacityReservationGroupId(@Nullable String capacityReservationGroupId) {
+
             this.capacityReservationGroupId = capacityReservationGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder customCaTrustEnabled(@Nullable Boolean customCaTrustEnabled) {
+
             this.customCaTrustEnabled = customCaTrustEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enableAutoScaling(@Nullable Boolean enableAutoScaling) {
+
             this.enableAutoScaling = enableAutoScaling;
             return this;
         }
         @CustomType.Setter
         public Builder enableHostEncryption(@Nullable Boolean enableHostEncryption) {
+
             this.enableHostEncryption = enableHostEncryption;
             return this;
         }
         @CustomType.Setter
         public Builder enableNodePublicIp(@Nullable Boolean enableNodePublicIp) {
+
             this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
+
             this.fipsEnabled = fipsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder gpuInstance(@Nullable String gpuInstance) {
+
             this.gpuInstance = gpuInstance;
             return this;
         }
         @CustomType.Setter
         public Builder hostGroupId(@Nullable String hostGroupId) {
+
             this.hostGroupId = hostGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder kubeletConfig(@Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig) {
+
             this.kubeletConfig = kubeletConfig;
             return this;
         }
         @CustomType.Setter
         public Builder kubeletDiskType(@Nullable String kubeletDiskType) {
+
             this.kubeletDiskType = kubeletDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder linuxOsConfig(@Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig) {
+
             this.linuxOsConfig = linuxOsConfig;
             return this;
         }
         @CustomType.Setter
         public Builder maxCount(@Nullable Integer maxCount) {
+
             this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxPods(@Nullable Integer maxPods) {
+
             this.maxPods = maxPods;
             return this;
         }
         @CustomType.Setter
         public Builder messageOfTheDay(@Nullable String messageOfTheDay) {
+
             this.messageOfTheDay = messageOfTheDay;
             return this;
         }
         @CustomType.Setter
         public Builder minCount(@Nullable Integer minCount) {
+
             this.minCount = minCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterDefaultNodePool", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeCount(@Nullable Integer nodeCount) {
+
             this.nodeCount = nodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder nodeLabels(@Nullable Map<String,String> nodeLabels) {
+
             this.nodeLabels = nodeLabels;
             return this;
         }
         @CustomType.Setter
         public Builder nodeNetworkProfile(@Nullable KubernetesClusterDefaultNodePoolNodeNetworkProfile nodeNetworkProfile) {
+
             this.nodeNetworkProfile = nodeNetworkProfile;
             return this;
         }
         @CustomType.Setter
         public Builder nodePublicIpPrefixId(@Nullable String nodePublicIpPrefixId) {
+
             this.nodePublicIpPrefixId = nodePublicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder nodeTaints(@Nullable List<String> nodeTaints) {
+
             this.nodeTaints = nodeTaints;
             return this;
         }
@@ -740,91 +764,111 @@ public final class KubernetesClusterDefaultNodePool {
         }
         @CustomType.Setter
         public Builder onlyCriticalAddonsEnabled(@Nullable Boolean onlyCriticalAddonsEnabled) {
+
             this.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder orchestratorVersion(@Nullable String orchestratorVersion) {
+
             this.orchestratorVersion = orchestratorVersion;
             return this;
         }
         @CustomType.Setter
         public Builder osDiskSizeGb(@Nullable Integer osDiskSizeGb) {
+
             this.osDiskSizeGb = osDiskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder osDiskType(@Nullable String osDiskType) {
+
             this.osDiskType = osDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder osSku(@Nullable String osSku) {
+
             this.osSku = osSku;
             return this;
         }
         @CustomType.Setter
         public Builder podSubnetId(@Nullable String podSubnetId) {
+
             this.podSubnetId = podSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder proximityPlacementGroupId(@Nullable String proximityPlacementGroupId) {
+
             this.proximityPlacementGroupId = proximityPlacementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder scaleDownMode(@Nullable String scaleDownMode) {
+
             this.scaleDownMode = scaleDownMode;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotId(@Nullable String snapshotId) {
+
             this.snapshotId = snapshotId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder temporaryNameForRotation(@Nullable String temporaryNameForRotation) {
+
             this.temporaryNameForRotation = temporaryNameForRotation;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
+
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeSettings(@Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings) {
+
             this.upgradeSettings = upgradeSettings;
             return this;
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterDefaultNodePool", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         @CustomType.Setter
         public Builder vnetSubnetId(@Nullable String vnetSubnetId) {
+
             this.vnetSubnetId = vnetSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder workloadRuntime(@Nullable String workloadRuntime) {
+
             this.workloadRuntime = workloadRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
+
             this.zones = zones;
             return this;
         }

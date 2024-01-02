@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs exten
         }
 
         public NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs build() {
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs", "authenticationType");
+            }
             return $;
         }
     }

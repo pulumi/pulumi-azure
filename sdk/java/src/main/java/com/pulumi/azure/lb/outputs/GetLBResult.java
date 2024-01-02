@@ -5,6 +5,7 @@ package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.azure.lb.outputs.GetLBFrontendIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -149,7 +150,10 @@ public final class GetLBResult {
 
         @CustomType.Setter
         public Builder frontendIpConfigurations(List<GetLBFrontendIpConfiguration> frontendIpConfigurations) {
-            this.frontendIpConfigurations = Objects.requireNonNull(frontendIpConfigurations);
+            if (frontendIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "frontendIpConfigurations");
+            }
+            this.frontendIpConfigurations = frontendIpConfigurations;
             return this;
         }
         public Builder frontendIpConfigurations(GetLBFrontendIpConfiguration... frontendIpConfigurations) {
@@ -157,27 +161,42 @@ public final class GetLBResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -185,17 +204,26 @@ public final class GetLBResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLBResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetLBResult build() {

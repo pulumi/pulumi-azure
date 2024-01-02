@@ -5,6 +5,7 @@ package com.pulumi.azure.devtest;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -373,11 +374,21 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
-            $.evaluatorType = Objects.requireNonNull($.evaluatorType, "expected parameter 'evaluatorType' to be non-null");
-            $.labName = Objects.requireNonNull($.labName, "expected parameter 'labName' to be non-null");
-            $.policySetName = Objects.requireNonNull($.policySetName, "expected parameter 'policySetName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.evaluatorType == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "evaluatorType");
+            }
+            if ($.labName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "labName");
+            }
+            if ($.policySetName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "policySetName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "resourceGroupName");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "threshold");
+            }
             return $;
         }
     }

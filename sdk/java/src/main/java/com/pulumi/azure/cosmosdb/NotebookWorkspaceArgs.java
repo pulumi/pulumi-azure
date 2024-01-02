@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class NotebookWorkspaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         public NotebookWorkspaceArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("NotebookWorkspaceArgs", "accountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NotebookWorkspaceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

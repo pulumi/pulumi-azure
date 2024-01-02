@@ -88,6 +88,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
 
         @CustomType.Setter
         public Builder advertisedCommunities(@Nullable List<String> advertisedCommunities) {
+
             this.advertisedCommunities = advertisedCommunities;
             return this;
         }
@@ -96,6 +97,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         }
         @CustomType.Setter
         public Builder advertisedPublicPrefixes(@Nullable List<String> advertisedPublicPrefixes) {
+
             this.advertisedPublicPrefixes = advertisedPublicPrefixes;
             return this;
         }
@@ -104,11 +106,13 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         }
         @CustomType.Setter
         public Builder customerAsn(@Nullable Integer customerAsn) {
+
             this.customerAsn = customerAsn;
             return this;
         }
         @CustomType.Setter
         public Builder routingRegistryName(@Nullable String routingRegistryName) {
+
             this.routingRegistryName = routingRegistryName;
             return this;
         }

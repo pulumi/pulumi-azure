@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionAuthenticationAr
 import com.pulumi.azure.appplatform.inputs.SpringCloudConnectionSecretStoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -300,9 +301,15 @@ public final class SpringCloudConnectionArgs extends com.pulumi.resources.Resour
         }
 
         public SpringCloudConnectionArgs build() {
-            $.authentication = Objects.requireNonNull($.authentication, "expected parameter 'authentication' to be non-null");
-            $.springCloudId = Objects.requireNonNull($.springCloudId, "expected parameter 'springCloudId' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.authentication == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConnectionArgs", "authentication");
+            }
+            if ($.springCloudId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConnectionArgs", "springCloudId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConnectionArgs", "targetResourceId");
+            }
             return $;
         }
     }

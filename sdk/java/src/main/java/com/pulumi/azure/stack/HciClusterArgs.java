@@ -5,6 +5,7 @@ package com.pulumi.azure.stack;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -307,8 +308,12 @@ public final class HciClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HciClusterArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("HciClusterArgs", "clientId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HciClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

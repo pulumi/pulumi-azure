@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class HBaseClusterComponentVersion {
 
         @CustomType.Setter
         public Builder hbase(String hbase) {
-            this.hbase = Objects.requireNonNull(hbase);
+            if (hbase == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterComponentVersion", "hbase");
+            }
+            this.hbase = hbase;
             return this;
         }
         public HBaseClusterComponentVersion build() {

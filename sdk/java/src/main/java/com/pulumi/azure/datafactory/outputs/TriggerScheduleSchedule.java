@@ -102,6 +102,7 @@ public final class TriggerScheduleSchedule {
 
         @CustomType.Setter
         public Builder daysOfMonths(@Nullable List<Integer> daysOfMonths) {
+
             this.daysOfMonths = daysOfMonths;
             return this;
         }
@@ -110,6 +111,7 @@ public final class TriggerScheduleSchedule {
         }
         @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
+
             this.daysOfWeeks = daysOfWeeks;
             return this;
         }
@@ -118,6 +120,7 @@ public final class TriggerScheduleSchedule {
         }
         @CustomType.Setter
         public Builder hours(@Nullable List<Integer> hours) {
+
             this.hours = hours;
             return this;
         }
@@ -126,6 +129,7 @@ public final class TriggerScheduleSchedule {
         }
         @CustomType.Setter
         public Builder minutes(@Nullable List<Integer> minutes) {
+
             this.minutes = minutes;
             return this;
         }
@@ -134,6 +138,7 @@ public final class TriggerScheduleSchedule {
         }
         @CustomType.Setter
         public Builder monthlies(@Nullable List<TriggerScheduleScheduleMonthly> monthlies) {
+
             this.monthlies = monthlies;
             return this;
         }

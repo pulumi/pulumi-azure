@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -132,7 +133,10 @@ public final class BlobInventoryPolicyRuleFilter {
 
         @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
-            this.blobTypes = Objects.requireNonNull(blobTypes);
+            if (blobTypes == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleFilter", "blobTypes");
+            }
+            this.blobTypes = blobTypes;
             return this;
         }
         public Builder blobTypes(String... blobTypes) {
@@ -140,6 +144,7 @@ public final class BlobInventoryPolicyRuleFilter {
         }
         @CustomType.Setter
         public Builder excludePrefixes(@Nullable List<String> excludePrefixes) {
+
             this.excludePrefixes = excludePrefixes;
             return this;
         }
@@ -148,21 +153,25 @@ public final class BlobInventoryPolicyRuleFilter {
         }
         @CustomType.Setter
         public Builder includeBlobVersions(@Nullable Boolean includeBlobVersions) {
+
             this.includeBlobVersions = includeBlobVersions;
             return this;
         }
         @CustomType.Setter
         public Builder includeDeleted(@Nullable Boolean includeDeleted) {
+
             this.includeDeleted = includeDeleted;
             return this;
         }
         @CustomType.Setter
         public Builder includeSnapshots(@Nullable Boolean includeSnapshots) {
+
             this.includeSnapshots = includeSnapshots;
             return this;
         }
         @CustomType.Setter
         public Builder prefixMatches(@Nullable List<String> prefixMatches) {
+
             this.prefixMatches = prefixMatches;
             return this;
         }

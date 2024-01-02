@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -417,10 +418,18 @@ public final class DataConnectorThreatIntelligenceTaxiiArgs extends com.pulumi.r
         }
 
         public DataConnectorThreatIntelligenceTaxiiArgs build() {
-            $.apiRootUrl = Objects.requireNonNull($.apiRootUrl, "expected parameter 'apiRootUrl' to be non-null");
-            $.collectionId = Objects.requireNonNull($.collectionId, "expected parameter 'collectionId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.apiRootUrl == null) {
+                throw new MissingRequiredPropertyException("DataConnectorThreatIntelligenceTaxiiArgs", "apiRootUrl");
+            }
+            if ($.collectionId == null) {
+                throw new MissingRequiredPropertyException("DataConnectorThreatIntelligenceTaxiiArgs", "collectionId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("DataConnectorThreatIntelligenceTaxiiArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("DataConnectorThreatIntelligenceTaxiiArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

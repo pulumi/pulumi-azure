@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.VirtualMachineOsProfileLinuxConfigSshKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class VirtualMachineOsProfileLinuxConfig {
 
         @CustomType.Setter
         public Builder disablePasswordAuthentication(Boolean disablePasswordAuthentication) {
-            this.disablePasswordAuthentication = Objects.requireNonNull(disablePasswordAuthentication);
+            if (disablePasswordAuthentication == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfig", "disablePasswordAuthentication");
+            }
+            this.disablePasswordAuthentication = disablePasswordAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys) {
+
             this.sshKeys = sshKeys;
             return this;
         }

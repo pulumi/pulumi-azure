@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.ApiImportWsdlSelector;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -73,16 +74,23 @@ public final class ApiImport {
 
         @CustomType.Setter
         public Builder contentFormat(String contentFormat) {
-            this.contentFormat = Objects.requireNonNull(contentFormat);
+            if (contentFormat == null) {
+              throw new MissingRequiredPropertyException("ApiImport", "contentFormat");
+            }
+            this.contentFormat = contentFormat;
             return this;
         }
         @CustomType.Setter
         public Builder contentValue(String contentValue) {
-            this.contentValue = Objects.requireNonNull(contentValue);
+            if (contentValue == null) {
+              throw new MissingRequiredPropertyException("ApiImport", "contentValue");
+            }
+            this.contentValue = contentValue;
             return this;
         }
         @CustomType.Setter
         public Builder wsdlSelector(@Nullable ApiImportWsdlSelector wsdlSelector) {
+
             this.wsdlSelector = wsdlSelector;
             return this;
         }

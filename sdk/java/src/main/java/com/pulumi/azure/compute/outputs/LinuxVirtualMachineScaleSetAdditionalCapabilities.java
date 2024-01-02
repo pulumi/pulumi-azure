@@ -44,6 +44,7 @@ public final class LinuxVirtualMachineScaleSetAdditionalCapabilities {
 
         @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
+
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
         }

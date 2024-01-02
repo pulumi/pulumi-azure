@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,6 +88,7 @@ public final class ApplicationGatewayBackendAddressPool {
 
         @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
+
             this.fqdns = fqdns;
             return this;
         }
@@ -95,11 +97,13 @@ public final class ApplicationGatewayBackendAddressPool {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -108,7 +112,10 @@ public final class ApplicationGatewayBackendAddressPool {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayBackendAddressPool", "name");
+            }
+            this.name = name;
             return this;
         }
         public ApplicationGatewayBackendAddressPool build() {

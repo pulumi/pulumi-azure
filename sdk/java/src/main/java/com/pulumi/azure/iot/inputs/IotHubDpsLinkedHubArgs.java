@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,8 +227,12 @@ public final class IotHubDpsLinkedHubArgs extends com.pulumi.resources.ResourceA
         }
 
         public IotHubDpsLinkedHubArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("IotHubDpsLinkedHubArgs", "connectionString");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("IotHubDpsLinkedHubArgs", "location");
+            }
             return $;
         }
     }

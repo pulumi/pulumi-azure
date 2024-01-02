@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.AccountNetworkRulesPrivateLinkAccessArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -306,7 +307,9 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         public AccountNetworkRulesArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("AccountNetworkRulesArgs", "defaultAction");
+            }
             return $;
         }
     }

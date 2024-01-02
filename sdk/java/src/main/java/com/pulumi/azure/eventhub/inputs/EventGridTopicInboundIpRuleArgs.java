@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EventGridTopicInboundIpRuleArgs extends com.pulumi.resources.
         }
 
         public EventGridTopicInboundIpRuleArgs build() {
-            $.ipMask = Objects.requireNonNull($.ipMask, "expected parameter 'ipMask' to be non-null");
+            if ($.ipMask == null) {
+                throw new MissingRequiredPropertyException("EventGridTopicInboundIpRuleArgs", "ipMask");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -257,9 +258,15 @@ public final class FhirServiceCorsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FhirServiceCorsArgs build() {
-            $.allowedHeaders = Objects.requireNonNull($.allowedHeaders, "expected parameter 'allowedHeaders' to be non-null");
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
+            if ($.allowedHeaders == null) {
+                throw new MissingRequiredPropertyException("FhirServiceCorsArgs", "allowedHeaders");
+            }
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("FhirServiceCorsArgs", "allowedMethods");
+            }
+            if ($.allowedOrigins == null) {
+                throw new MissingRequiredPropertyException("FhirServiceCorsArgs", "allowedOrigins");
+            }
             return $;
         }
     }

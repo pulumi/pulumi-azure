@@ -7,6 +7,7 @@ import com.pulumi.azure.storage.outputs.GetAccountSASPermissions;
 import com.pulumi.azure.storage.outputs.GetAccountSASResourceTypes;
 import com.pulumi.azure.storage.outputs.GetAccountSASServices;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -116,57 +117,84 @@ public final class GetAccountSASResult {
 
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(String expiry) {
-            this.expiry = Objects.requireNonNull(expiry);
+            if (expiry == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "expiry");
+            }
+            this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(@Nullable Boolean httpsOnly) {
+
             this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable String ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(GetAccountSASPermissions permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         @CustomType.Setter
         public Builder resourceTypes(GetAccountSASResourceTypes resourceTypes) {
-            this.resourceTypes = Objects.requireNonNull(resourceTypes);
+            if (resourceTypes == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "resourceTypes");
+            }
+            this.resourceTypes = resourceTypes;
             return this;
         }
         @CustomType.Setter
         public Builder sas(String sas) {
-            this.sas = Objects.requireNonNull(sas);
+            if (sas == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "sas");
+            }
+            this.sas = sas;
             return this;
         }
         @CustomType.Setter
         public Builder services(GetAccountSASServices services) {
-            this.services = Objects.requireNonNull(services);
+            if (services == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "services");
+            }
+            this.services = services;
             return this;
         }
         @CustomType.Setter
         public Builder signedVersion(@Nullable String signedVersion) {
+
             this.signedVersion = signedVersion;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("GetAccountSASResult", "start");
+            }
+            this.start = start;
             return this;
         }
         public GetAccountSASResult build() {

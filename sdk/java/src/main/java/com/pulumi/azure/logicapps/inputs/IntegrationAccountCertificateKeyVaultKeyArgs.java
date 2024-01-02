@@ -5,6 +5,7 @@ package com.pulumi.azure.logicapps.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class IntegrationAccountCertificateKeyVaultKeyArgs extends com.pulu
         }
 
         public IntegrationAccountCertificateKeyVaultKeyArgs build() {
-            $.keyName = Objects.requireNonNull($.keyName, "expected parameter 'keyName' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.keyName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountCertificateKeyVaultKeyArgs", "keyName");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountCertificateKeyVaultKeyArgs", "keyVaultId");
+            }
             return $;
         }
     }

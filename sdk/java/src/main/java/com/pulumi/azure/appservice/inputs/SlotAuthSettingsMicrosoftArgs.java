@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class SlotAuthSettingsMicrosoftArgs extends com.pulumi.resources.Re
         }
 
         public SlotAuthSettingsMicrosoftArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("SlotAuthSettingsMicrosoftArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("SlotAuthSettingsMicrosoftArgs", "clientSecret");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.lighthouse.outputs;
 
 import com.pulumi.azure.lighthouse.outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,30 @@ public final class DefinitionEligibleAuthorization {
 
         @CustomType.Setter
         public Builder justInTimeAccessPolicy(@Nullable DefinitionEligibleAuthorizationJustInTimeAccessPolicy justInTimeAccessPolicy) {
+
             this.justInTimeAccessPolicy = justInTimeAccessPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder principalDisplayName(@Nullable String principalDisplayName) {
+
             this.principalDisplayName = principalDisplayName;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("DefinitionEligibleAuthorization", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
-            this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
+            if (roleDefinitionId == null) {
+              throw new MissingRequiredPropertyException("DefinitionEligibleAuthorization", "roleDefinitionId");
+            }
+            this.roleDefinitionId = roleDefinitionId;
             return this;
         }
         public DefinitionEligibleAuthorization build() {

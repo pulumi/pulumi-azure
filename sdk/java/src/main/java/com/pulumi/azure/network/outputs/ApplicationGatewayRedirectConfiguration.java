@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -135,41 +136,53 @@ public final class ApplicationGatewayRedirectConfiguration {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includePath(@Nullable Boolean includePath) {
+
             this.includePath = includePath;
             return this;
         }
         @CustomType.Setter
         public Builder includeQueryString(@Nullable Boolean includeQueryString) {
+
             this.includeQueryString = includeQueryString;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRedirectConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder redirectType(String redirectType) {
-            this.redirectType = Objects.requireNonNull(redirectType);
+            if (redirectType == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRedirectConfiguration", "redirectType");
+            }
+            this.redirectType = redirectType;
             return this;
         }
         @CustomType.Setter
         public Builder targetListenerId(@Nullable String targetListenerId) {
+
             this.targetListenerId = targetListenerId;
             return this;
         }
         @CustomType.Setter
         public Builder targetListenerName(@Nullable String targetListenerName) {
+
             this.targetListenerName = targetListenerName;
             return this;
         }
         @CustomType.Setter
         public Builder targetUrl(@Nullable String targetUrl) {
+
             this.targetUrl = targetUrl;
             return this;
         }

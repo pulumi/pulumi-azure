@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ElasticPoolPerDatabaseSettings {
 
         @CustomType.Setter
         public Builder maxCapacity(Double maxCapacity) {
-            this.maxCapacity = Objects.requireNonNull(maxCapacity);
+            if (maxCapacity == null) {
+              throw new MissingRequiredPropertyException("ElasticPoolPerDatabaseSettings", "maxCapacity");
+            }
+            this.maxCapacity = maxCapacity;
             return this;
         }
         @CustomType.Setter
         public Builder minCapacity(Double minCapacity) {
-            this.minCapacity = Objects.requireNonNull(minCapacity);
+            if (minCapacity == null) {
+              throw new MissingRequiredPropertyException("ElasticPoolPerDatabaseSettings", "minCapacity");
+            }
+            this.minCapacity = minCapacity;
             return this;
         }
         public ElasticPoolPerDatabaseSettings build() {

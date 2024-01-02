@@ -9,6 +9,7 @@ import com.pulumi.azure.management.inputs.GroupPolicyAssignmentOverrideArgs;
 import com.pulumi.azure.management.inputs.GroupPolicyAssignmentResourceSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -611,8 +612,12 @@ public final class GroupPolicyAssignmentArgs extends com.pulumi.resources.Resour
         }
 
         public GroupPolicyAssignmentArgs build() {
-            $.managementGroupId = Objects.requireNonNull($.managementGroupId, "expected parameter 'managementGroupId' to be non-null");
-            $.policyDefinitionId = Objects.requireNonNull($.policyDefinitionId, "expected parameter 'policyDefinitionId' to be non-null");
+            if ($.managementGroupId == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyAssignmentArgs", "managementGroupId");
+            }
+            if ($.policyDefinitionId == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyAssignmentArgs", "policyDefinitionId");
+            }
             return $;
         }
     }

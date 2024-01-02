@@ -5,6 +5,7 @@ package com.pulumi.azure.avs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -162,7 +163,9 @@ public final class PrivateCloudManagementClusterArgs extends com.pulumi.resource
         }
 
         public PrivateCloudManagementClusterArgs build() {
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("PrivateCloudManagementClusterArgs", "size");
+            }
             return $;
         }
     }

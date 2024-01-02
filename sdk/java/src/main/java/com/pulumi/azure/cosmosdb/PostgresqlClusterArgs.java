@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.cosmosdb.inputs.PostgresqlClusterMaintenanceWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -902,8 +903,12 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PostgresqlClusterArgs build() {
-            $.nodeCount = Objects.requireNonNull($.nodeCount, "expected parameter 'nodeCount' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.nodeCount == null) {
+                throw new MissingRequiredPropertyException("PostgresqlClusterArgs", "nodeCount");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PostgresqlClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

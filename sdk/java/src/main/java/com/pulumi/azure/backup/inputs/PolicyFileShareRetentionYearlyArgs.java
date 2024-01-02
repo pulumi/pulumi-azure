@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -312,8 +313,12 @@ public final class PolicyFileShareRetentionYearlyArgs extends com.pulumi.resourc
         }
 
         public PolicyFileShareRetentionYearlyArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
-            $.months = Objects.requireNonNull($.months, "expected parameter 'months' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareRetentionYearlyArgs", "count");
+            }
+            if ($.months == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareRetentionYearlyArgs", "months");
+            }
             return $;
         }
     }

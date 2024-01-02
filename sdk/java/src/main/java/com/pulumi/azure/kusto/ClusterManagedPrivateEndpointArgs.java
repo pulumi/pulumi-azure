@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,10 +299,18 @@ public final class ClusterManagedPrivateEndpointArgs extends com.pulumi.resource
         }
 
         public ClusterManagedPrivateEndpointArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.groupId = Objects.requireNonNull($.groupId, "expected parameter 'groupId' to be non-null");
-            $.privateLinkResourceId = Objects.requireNonNull($.privateLinkResourceId, "expected parameter 'privateLinkResourceId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("ClusterManagedPrivateEndpointArgs", "clusterName");
+            }
+            if ($.groupId == null) {
+                throw new MissingRequiredPropertyException("ClusterManagedPrivateEndpointArgs", "groupId");
+            }
+            if ($.privateLinkResourceId == null) {
+                throw new MissingRequiredPropertyException("ClusterManagedPrivateEndpointArgs", "privateLinkResourceId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ClusterManagedPrivateEndpointArgs", "resourceGroupName");
+            }
             return $;
         }
     }

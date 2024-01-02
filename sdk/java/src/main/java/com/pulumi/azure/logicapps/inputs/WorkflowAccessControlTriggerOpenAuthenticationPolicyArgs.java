@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps.inputs;
 import com.pulumi.azure.logicapps.inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs exte
         }
 
         public WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs build() {
-            $.claims = Objects.requireNonNull($.claims, "expected parameter 'claims' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.claims == null) {
+                throw new MissingRequiredPropertyException("WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs", "claims");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs", "name");
+            }
             return $;
         }
     }

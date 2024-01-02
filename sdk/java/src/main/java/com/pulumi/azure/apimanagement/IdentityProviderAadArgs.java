@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -272,11 +273,21 @@ public final class IdentityProviderAadArgs extends com.pulumi.resources.Resource
         }
 
         public IdentityProviderAadArgs build() {
-            $.allowedTenants = Objects.requireNonNull($.allowedTenants, "expected parameter 'allowedTenants' to be non-null");
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.allowedTenants == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadArgs", "allowedTenants");
+            }
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadArgs", "apiManagementName");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadArgs", "clientSecret");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -263,7 +264,9 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobArgs build() {
-            $.batchPoolId = Objects.requireNonNull($.batchPoolId, "expected parameter 'batchPoolId' to be non-null");
+            if ($.batchPoolId == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "batchPoolId");
+            }
             return $;
         }
     }

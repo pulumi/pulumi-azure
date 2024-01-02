@@ -115,31 +115,37 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
+
             this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
+
             this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
+
             this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder powershellCoreVersion(@Nullable String powershellCoreVersion) {
+
             this.powershellCoreVersion = powershellCoreVersion;
             return this;
         }
         @CustomType.Setter
         public Builder useCustomRuntime(@Nullable Boolean useCustomRuntime) {
+
             this.useCustomRuntime = useCustomRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(@Nullable Boolean useDotnetIsolatedRuntime) {
+
             this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
             return this;
         }

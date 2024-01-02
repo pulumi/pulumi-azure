@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.cosmosdb.inputs.TableAutoscaleSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -242,8 +243,12 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "accountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("TableArgs", "resourceGroupName");
+            }
             return $;
         }
     }

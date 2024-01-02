@@ -5,6 +5,7 @@ package com.pulumi.azure.avs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ExpressRouteAuthorizationArgs extends com.pulumi.resources.Re
         }
 
         public ExpressRouteAuthorizationArgs build() {
-            $.privateCloudId = Objects.requireNonNull($.privateCloudId, "expected parameter 'privateCloudId' to be non-null");
+            if ($.privateCloudId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteAuthorizationArgs", "privateCloudId");
+            }
             return $;
         }
     }

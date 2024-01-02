@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.BlobInventoryPolicyRuleFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,12 +311,24 @@ public final class BlobInventoryPolicyRuleArgs extends com.pulumi.resources.Reso
         }
 
         public BlobInventoryPolicyRuleArgs build() {
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
-            $.schemaFields = Objects.requireNonNull($.schemaFields, "expected parameter 'schemaFields' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.storageContainerName = Objects.requireNonNull($.storageContainerName, "expected parameter 'storageContainerName' to be non-null");
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "format");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "name");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "schedule");
+            }
+            if ($.schemaFields == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "schemaFields");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "scope");
+            }
+            if ($.storageContainerName == null) {
+                throw new MissingRequiredPropertyException("BlobInventoryPolicyRuleArgs", "storageContainerName");
+            }
             return $;
         }
     }

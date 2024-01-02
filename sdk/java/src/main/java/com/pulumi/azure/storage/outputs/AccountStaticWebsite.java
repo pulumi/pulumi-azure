@@ -58,11 +58,13 @@ public final class AccountStaticWebsite {
 
         @CustomType.Setter
         public Builder error404Document(@Nullable String error404Document) {
+
             this.error404Document = error404Document;
             return this;
         }
         @CustomType.Setter
         public Builder indexDocument(@Nullable String indexDocument) {
+
             this.indexDocument = indexDocument;
             return this;
         }

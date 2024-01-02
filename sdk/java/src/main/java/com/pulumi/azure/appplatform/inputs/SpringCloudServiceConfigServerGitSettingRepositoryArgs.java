@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudServiceConfigServerGitSett
 import com.pulumi.azure.appplatform.inputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -321,8 +322,12 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryArgs extend
         }
 
         public SpringCloudServiceConfigServerGitSettingRepositoryArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceConfigServerGitSettingRepositoryArgs", "name");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceConfigServerGitSettingRepositoryArgs", "uri");
+            }
             return $;
         }
     }

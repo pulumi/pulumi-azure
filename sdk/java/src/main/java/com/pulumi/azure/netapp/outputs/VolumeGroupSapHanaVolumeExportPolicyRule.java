@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -130,36 +131,51 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRule {
 
         @CustomType.Setter
         public Builder allowedClients(String allowedClients) {
-            this.allowedClients = Objects.requireNonNull(allowedClients);
+            if (allowedClients == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRule", "allowedClients");
+            }
+            this.allowedClients = allowedClients;
             return this;
         }
         @CustomType.Setter
         public Builder nfsv3Enabled(Boolean nfsv3Enabled) {
-            this.nfsv3Enabled = Objects.requireNonNull(nfsv3Enabled);
+            if (nfsv3Enabled == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRule", "nfsv3Enabled");
+            }
+            this.nfsv3Enabled = nfsv3Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder nfsv41Enabled(Boolean nfsv41Enabled) {
-            this.nfsv41Enabled = Objects.requireNonNull(nfsv41Enabled);
+            if (nfsv41Enabled == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRule", "nfsv41Enabled");
+            }
+            this.nfsv41Enabled = nfsv41Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder rootAccessEnabled(@Nullable Boolean rootAccessEnabled) {
+
             this.rootAccessEnabled = rootAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ruleIndex(Integer ruleIndex) {
-            this.ruleIndex = Objects.requireNonNull(ruleIndex);
+            if (ruleIndex == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeExportPolicyRule", "ruleIndex");
+            }
+            this.ruleIndex = ruleIndex;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadOnly(@Nullable Boolean unixReadOnly) {
+
             this.unixReadOnly = unixReadOnly;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadWrite(@Nullable Boolean unixReadWrite) {
+
             this.unixReadWrite = unixReadWrite;
             return this;
         }

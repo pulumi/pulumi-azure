@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.GetPolicyRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,12 +65,18 @@ public final class GetPolicyResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<GetPolicyRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(GetPolicyRule... rules) {
@@ -77,7 +84,10 @@ public final class GetPolicyResult {
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetPolicyResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public GetPolicyResult build() {

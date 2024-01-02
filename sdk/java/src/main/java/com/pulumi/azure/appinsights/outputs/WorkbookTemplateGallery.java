@@ -4,6 +4,7 @@
 package com.pulumi.azure.appinsights.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -105,26 +106,35 @@ public final class WorkbookTemplateGallery {
 
         @CustomType.Setter
         public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+            if (category == null) {
+              throw new MissingRequiredPropertyException("WorkbookTemplateGallery", "category");
+            }
+            this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WorkbookTemplateGallery", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder order(@Nullable Integer order) {
+
             this.order = order;
             return this;
         }
         @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
+
             this.resourceType = resourceType;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

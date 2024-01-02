@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -172,51 +173,63 @@ public final class ZoneSoaRecord {
 
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("ZoneSoaRecord", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder expireTime(@Nullable Integer expireTime) {
+
             this.expireTime = expireTime;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTtl(@Nullable Integer minimumTtl) {
+
             this.minimumTtl = minimumTtl;
             return this;
         }
         @CustomType.Setter
         public Builder refreshTime(@Nullable Integer refreshTime) {
+
             this.refreshTime = refreshTime;
             return this;
         }
         @CustomType.Setter
         public Builder retryTime(@Nullable Integer retryTime) {
+
             this.retryTime = retryTime;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(@Nullable Integer serialNumber) {
+
             this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
+
             this.ttl = ttl;
             return this;
         }

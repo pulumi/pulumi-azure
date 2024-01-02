@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -106,32 +107,50 @@ public final class GetLinuxFunctionAppBackupSchedule {
 
         @CustomType.Setter
         public Builder frequencyInterval(Integer frequencyInterval) {
-            this.frequencyInterval = Objects.requireNonNull(frequencyInterval);
+            if (frequencyInterval == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "frequencyInterval");
+            }
+            this.frequencyInterval = frequencyInterval;
             return this;
         }
         @CustomType.Setter
         public Builder frequencyUnit(String frequencyUnit) {
-            this.frequencyUnit = Objects.requireNonNull(frequencyUnit);
+            if (frequencyUnit == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "frequencyUnit");
+            }
+            this.frequencyUnit = frequencyUnit;
             return this;
         }
         @CustomType.Setter
         public Builder keepAtLeastOneBackup(Boolean keepAtLeastOneBackup) {
-            this.keepAtLeastOneBackup = Objects.requireNonNull(keepAtLeastOneBackup);
+            if (keepAtLeastOneBackup == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "keepAtLeastOneBackup");
+            }
+            this.keepAtLeastOneBackup = keepAtLeastOneBackup;
             return this;
         }
         @CustomType.Setter
         public Builder lastExecutionTime(String lastExecutionTime) {
-            this.lastExecutionTime = Objects.requireNonNull(lastExecutionTime);
+            if (lastExecutionTime == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "lastExecutionTime");
+            }
+            this.lastExecutionTime = lastExecutionTime;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodDays(Integer retentionPeriodDays) {
-            this.retentionPeriodDays = Objects.requireNonNull(retentionPeriodDays);
+            if (retentionPeriodDays == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "retentionPeriodDays");
+            }
+            this.retentionPeriodDays = retentionPeriodDays;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppBackupSchedule", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         public GetLinuxFunctionAppBackupSchedule build() {

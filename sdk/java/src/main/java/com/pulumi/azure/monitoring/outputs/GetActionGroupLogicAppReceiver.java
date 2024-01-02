@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetActionGroupLogicAppReceiver {
 
         @CustomType.Setter
         public Builder callbackUrl(String callbackUrl) {
-            this.callbackUrl = Objects.requireNonNull(callbackUrl);
+            if (callbackUrl == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupLogicAppReceiver", "callbackUrl");
+            }
+            this.callbackUrl = callbackUrl;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupLogicAppReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupLogicAppReceiver", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
-            this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
+            if (useCommonAlertSchema == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupLogicAppReceiver", "useCommonAlertSchema");
+            }
+            this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }
         public GetActionGroupLogicAppReceiver build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +100,10 @@ public final class GetVirtualHubRouteTableRoute {
 
         @CustomType.Setter
         public Builder destinations(List<String> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableRoute", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(String... destinations) {
@@ -107,22 +111,34 @@ public final class GetVirtualHubRouteTableRoute {
         }
         @CustomType.Setter
         public Builder destinationsType(String destinationsType) {
-            this.destinationsType = Objects.requireNonNull(destinationsType);
+            if (destinationsType == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableRoute", "destinationsType");
+            }
+            this.destinationsType = destinationsType;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableRoute", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextHop(String nextHop) {
-            this.nextHop = Objects.requireNonNull(nextHop);
+            if (nextHop == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableRoute", "nextHop");
+            }
+            this.nextHop = nextHop;
             return this;
         }
         @CustomType.Setter
         public Builder nextHopType(String nextHopType) {
-            this.nextHopType = Objects.requireNonNull(nextHopType);
+            if (nextHopType == null) {
+              throw new MissingRequiredPropertyException("GetVirtualHubRouteTableRoute", "nextHopType");
+            }
+            this.nextHopType = nextHopType;
             return this;
         }
         public GetVirtualHubRouteTableRoute build() {

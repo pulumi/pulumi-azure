@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -129,11 +130,13 @@ public final class KeyVaultAccessPolicy {
 
         @CustomType.Setter
         public Builder applicationId(@Nullable String applicationId) {
+
             this.applicationId = applicationId;
             return this;
         }
         @CustomType.Setter
         public Builder certificatePermissions(@Nullable List<String> certificatePermissions) {
+
             this.certificatePermissions = certificatePermissions;
             return this;
         }
@@ -142,6 +145,7 @@ public final class KeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder keyPermissions(@Nullable List<String> keyPermissions) {
+
             this.keyPermissions = keyPermissions;
             return this;
         }
@@ -150,11 +154,15 @@ public final class KeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder objectId(String objectId) {
-            this.objectId = Objects.requireNonNull(objectId);
+            if (objectId == null) {
+              throw new MissingRequiredPropertyException("KeyVaultAccessPolicy", "objectId");
+            }
+            this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder secretPermissions(@Nullable List<String> secretPermissions) {
+
             this.secretPermissions = secretPermissions;
             return this;
         }
@@ -163,6 +171,7 @@ public final class KeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder storagePermissions(@Nullable List<String> storagePermissions) {
+
             this.storagePermissions = storagePermissions;
             return this;
         }
@@ -171,7 +180,10 @@ public final class KeyVaultAccessPolicy {
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("KeyVaultAccessPolicy", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public KeyVaultAccessPolicy build() {

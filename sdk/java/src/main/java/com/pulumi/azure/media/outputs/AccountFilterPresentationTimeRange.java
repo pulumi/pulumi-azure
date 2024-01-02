@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -119,32 +120,40 @@ public final class AccountFilterPresentationTimeRange {
 
         @CustomType.Setter
         public Builder endInUnits(@Nullable Integer endInUnits) {
+
             this.endInUnits = endInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder forceEnd(@Nullable Boolean forceEnd) {
+
             this.forceEnd = forceEnd;
             return this;
         }
         @CustomType.Setter
         public Builder liveBackoffInUnits(@Nullable Integer liveBackoffInUnits) {
+
             this.liveBackoffInUnits = liveBackoffInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder presentationWindowInUnits(@Nullable Integer presentationWindowInUnits) {
+
             this.presentationWindowInUnits = presentationWindowInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder startInUnits(@Nullable Integer startInUnits) {
+
             this.startInUnits = startInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder unitTimescaleInMilliseconds(Integer unitTimescaleInMilliseconds) {
-            this.unitTimescaleInMilliseconds = Objects.requireNonNull(unitTimescaleInMilliseconds);
+            if (unitTimescaleInMilliseconds == null) {
+              throw new MissingRequiredPropertyException("AccountFilterPresentationTimeRange", "unitTimescaleInMilliseconds");
+            }
+            this.unitTimescaleInMilliseconds = unitTimescaleInMilliseconds;
             return this;
         }
         public AccountFilterPresentationTimeRange build() {

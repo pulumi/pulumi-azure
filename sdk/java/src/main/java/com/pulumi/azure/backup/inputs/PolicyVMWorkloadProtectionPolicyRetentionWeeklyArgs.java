@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs extends c
         }
 
         public PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs build() {
-            $.count = Objects.requireNonNull($.count, "expected parameter 'count' to be non-null");
-            $.weekdays = Objects.requireNonNull($.weekdays, "expected parameter 'weekdays' to be non-null");
+            if ($.count == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs", "count");
+            }
+            if ($.weekdays == null) {
+                throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs", "weekdays");
+            }
             return $;
         }
     }

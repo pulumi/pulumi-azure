@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -88,6 +89,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
 
         @CustomType.Setter
         public Builder advertisedCommunities(@Nullable List<String> advertisedCommunities) {
+
             this.advertisedCommunities = advertisedCommunities;
             return this;
         }
@@ -96,7 +98,10 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         }
         @CustomType.Setter
         public Builder advertisedPublicPrefixes(List<String> advertisedPublicPrefixes) {
-            this.advertisedPublicPrefixes = Objects.requireNonNull(advertisedPublicPrefixes);
+            if (advertisedPublicPrefixes == null) {
+              throw new MissingRequiredPropertyException("ExpressRouteCircuitPeeringMicrosoftPeeringConfig", "advertisedPublicPrefixes");
+            }
+            this.advertisedPublicPrefixes = advertisedPublicPrefixes;
             return this;
         }
         public Builder advertisedPublicPrefixes(String... advertisedPublicPrefixes) {
@@ -104,11 +109,13 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         }
         @CustomType.Setter
         public Builder customerAsn(@Nullable Integer customerAsn) {
+
             this.customerAsn = customerAsn;
             return this;
         }
         @CustomType.Setter
         public Builder routingRegistryName(@Nullable String routingRegistryName) {
+
             this.routingRegistryName = routingRegistryName;
             return this;
         }

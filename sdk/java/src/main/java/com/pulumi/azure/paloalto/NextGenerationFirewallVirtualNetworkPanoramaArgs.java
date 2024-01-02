@@ -8,6 +8,7 @@ import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPano
 import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -350,9 +351,15 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaArgs extends com.
         }
 
         public NextGenerationFirewallVirtualNetworkPanoramaArgs build() {
-            $.networkProfile = Objects.requireNonNull($.networkProfile, "expected parameter 'networkProfile' to be non-null");
-            $.panoramaBase64Config = Objects.requireNonNull($.panoramaBase64Config, "expected parameter 'panoramaBase64Config' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.networkProfile == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaArgs", "networkProfile");
+            }
+            if ($.panoramaBase64Config == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaArgs", "panoramaBase64Config");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.operationalinsights.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -166,7 +167,9 @@ public final class AnalyticsWorkspaceIdentityArgs extends com.pulumi.resources.R
         }
 
         public AnalyticsWorkspaceIdentityArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AnalyticsWorkspaceIdentityArgs", "type");
+            }
             return $;
         }
     }

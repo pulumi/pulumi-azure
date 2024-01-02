@@ -5,6 +5,7 @@ package com.pulumi.azure.consumption.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -237,9 +238,15 @@ public final class BudgetManagementGroupNotificationArgs extends com.pulumi.reso
         }
 
         public BudgetManagementGroupNotificationArgs build() {
-            $.contactEmails = Objects.requireNonNull($.contactEmails, "expected parameter 'contactEmails' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
+            if ($.contactEmails == null) {
+                throw new MissingRequiredPropertyException("BudgetManagementGroupNotificationArgs", "contactEmails");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("BudgetManagementGroupNotificationArgs", "operator");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("BudgetManagementGroupNotificationArgs", "threshold");
+            }
             return $;
         }
     }

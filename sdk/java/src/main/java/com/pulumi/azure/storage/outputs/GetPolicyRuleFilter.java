@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.GetPolicyRuleFilterMatchBlobIndexTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class GetPolicyRuleFilter {
 
         @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
-            this.blobTypes = Objects.requireNonNull(blobTypes);
+            if (blobTypes == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleFilter", "blobTypes");
+            }
+            this.blobTypes = blobTypes;
             return this;
         }
         public Builder blobTypes(String... blobTypes) {
@@ -80,7 +84,10 @@ public final class GetPolicyRuleFilter {
         }
         @CustomType.Setter
         public Builder matchBlobIndexTags(List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags) {
-            this.matchBlobIndexTags = Objects.requireNonNull(matchBlobIndexTags);
+            if (matchBlobIndexTags == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleFilter", "matchBlobIndexTags");
+            }
+            this.matchBlobIndexTags = matchBlobIndexTags;
             return this;
         }
         public Builder matchBlobIndexTags(GetPolicyRuleFilterMatchBlobIndexTag... matchBlobIndexTags) {
@@ -88,7 +95,10 @@ public final class GetPolicyRuleFilter {
         }
         @CustomType.Setter
         public Builder prefixMatches(List<String> prefixMatches) {
-            this.prefixMatches = Objects.requireNonNull(prefixMatches);
+            if (prefixMatches == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleFilter", "prefixMatches");
+            }
+            this.prefixMatches = prefixMatches;
             return this;
         }
         public Builder prefixMatches(String... prefixMatches) {

@@ -7,6 +7,7 @@ import com.pulumi.azure.healthcare.outputs.GetDicomServiceAuthentication;
 import com.pulumi.azure.healthcare.outputs.GetDicomServiceIdentity;
 import com.pulumi.azure.healthcare.outputs.GetDicomServicePrivateEndpoint;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -127,7 +128,10 @@ public final class GetDicomServiceResult {
 
         @CustomType.Setter
         public Builder authentications(List<GetDicomServiceAuthentication> authentications) {
-            this.authentications = Objects.requireNonNull(authentications);
+            if (authentications == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "authentications");
+            }
+            this.authentications = authentications;
             return this;
         }
         public Builder authentications(GetDicomServiceAuthentication... authentications) {
@@ -135,12 +139,18 @@ public final class GetDicomServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetDicomServiceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetDicomServiceIdentity... identities) {
@@ -148,17 +158,26 @@ public final class GetDicomServiceResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpoints(List<GetDicomServicePrivateEndpoint> privateEndpoints) {
-            this.privateEndpoints = Objects.requireNonNull(privateEndpoints);
+            if (privateEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "privateEndpoints");
+            }
+            this.privateEndpoints = privateEndpoints;
             return this;
         }
         public Builder privateEndpoints(GetDicomServicePrivateEndpoint... privateEndpoints) {
@@ -166,17 +185,26 @@ public final class GetDicomServiceResult {
         }
         @CustomType.Setter
         public Builder serviceUrl(String serviceUrl) {
-            this.serviceUrl = Objects.requireNonNull(serviceUrl);
+            if (serviceUrl == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "serviceUrl");
+            }
+            this.serviceUrl = serviceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetDicomServiceResult build() {

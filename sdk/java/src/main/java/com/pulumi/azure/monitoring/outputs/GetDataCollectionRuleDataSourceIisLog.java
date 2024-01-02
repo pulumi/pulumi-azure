@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetDataCollectionRuleDataSourceIisLog {
 
         @CustomType.Setter
         public Builder logDirectories(List<String> logDirectories) {
-            this.logDirectories = Objects.requireNonNull(logDirectories);
+            if (logDirectories == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceIisLog", "logDirectories");
+            }
+            this.logDirectories = logDirectories;
             return this;
         }
         public Builder logDirectories(String... logDirectories) {
@@ -79,12 +83,18 @@ public final class GetDataCollectionRuleDataSourceIisLog {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceIisLog", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder streams(List<String> streams) {
-            this.streams = Objects.requireNonNull(streams);
+            if (streams == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceIisLog", "streams");
+            }
+            this.streams = streams;
             return this;
         }
         public Builder streams(String... streams) {

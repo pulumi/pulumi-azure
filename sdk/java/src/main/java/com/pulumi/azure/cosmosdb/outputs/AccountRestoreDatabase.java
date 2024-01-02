@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,6 +59,7 @@ public final class AccountRestoreDatabase {
 
         @CustomType.Setter
         public Builder collectionNames(@Nullable List<String> collectionNames) {
+
             this.collectionNames = collectionNames;
             return this;
         }
@@ -66,7 +68,10 @@ public final class AccountRestoreDatabase {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AccountRestoreDatabase", "name");
+            }
+            this.name = name;
             return this;
         }
         public AccountRestoreDatabase build() {

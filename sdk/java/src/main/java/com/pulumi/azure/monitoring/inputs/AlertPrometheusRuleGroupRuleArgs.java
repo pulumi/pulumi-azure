@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleActionArgs
 import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -425,7 +426,9 @@ public final class AlertPrometheusRuleGroupRuleArgs extends com.pulumi.resources
         }
 
         public AlertPrometheusRuleGroupRuleArgs build() {
-            $.expression = Objects.requireNonNull($.expression, "expected parameter 'expression' to be non-null");
+            if ($.expression == null) {
+                throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupRuleArgs", "expression");
+            }
             return $;
         }
     }

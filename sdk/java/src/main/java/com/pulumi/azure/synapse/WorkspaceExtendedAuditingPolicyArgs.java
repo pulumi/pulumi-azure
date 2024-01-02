@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,7 +264,9 @@ public final class WorkspaceExtendedAuditingPolicyArgs extends com.pulumi.resour
         }
 
         public WorkspaceExtendedAuditingPolicyArgs build() {
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceExtendedAuditingPolicyArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

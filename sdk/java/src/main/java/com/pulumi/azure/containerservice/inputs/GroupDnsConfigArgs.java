@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -181,7 +182,9 @@ public final class GroupDnsConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public GroupDnsConfigArgs build() {
-            $.nameservers = Objects.requireNonNull($.nameservers, "expected parameter 'nameservers' to be non-null");
+            if ($.nameservers == null) {
+                throw new MissingRequiredPropertyException("GroupDnsConfigArgs", "nameservers");
+            }
             return $;
         }
     }

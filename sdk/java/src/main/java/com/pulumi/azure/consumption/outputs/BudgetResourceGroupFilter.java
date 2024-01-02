@@ -83,6 +83,7 @@ public final class BudgetResourceGroupFilter {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<BudgetResourceGroupFilterDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -91,11 +92,13 @@ public final class BudgetResourceGroupFilter {
         }
         @CustomType.Setter
         public Builder not(@Nullable BudgetResourceGroupFilterNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<BudgetResourceGroupFilterTag> tags) {
+
             this.tags = tags;
             return this;
         }

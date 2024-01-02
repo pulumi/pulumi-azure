@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetTrafficManagerProfileDnsConfig;
 import com.pulumi.azure.network.outputs.GetTrafficManagerProfileMonitorConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -167,7 +168,10 @@ public final class GetTrafficManagerProfileResult {
 
         @CustomType.Setter
         public Builder dnsConfigs(List<GetTrafficManagerProfileDnsConfig> dnsConfigs) {
-            this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
+            if (dnsConfigs == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "dnsConfigs");
+            }
+            this.dnsConfigs = dnsConfigs;
             return this;
         }
         public Builder dnsConfigs(GetTrafficManagerProfileDnsConfig... dnsConfigs) {
@@ -175,17 +179,26 @@ public final class GetTrafficManagerProfileResult {
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder monitorConfigs(List<GetTrafficManagerProfileMonitorConfig> monitorConfigs) {
-            this.monitorConfigs = Objects.requireNonNull(monitorConfigs);
+            if (monitorConfigs == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "monitorConfigs");
+            }
+            this.monitorConfigs = monitorConfigs;
             return this;
         }
         public Builder monitorConfigs(GetTrafficManagerProfileMonitorConfig... monitorConfigs) {
@@ -193,31 +206,45 @@ public final class GetTrafficManagerProfileResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder profileStatus(String profileStatus) {
-            this.profileStatus = Objects.requireNonNull(profileStatus);
+            if (profileStatus == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "profileStatus");
+            }
+            this.profileStatus = profileStatus;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder trafficRoutingMethod(String trafficRoutingMethod) {
-            this.trafficRoutingMethod = Objects.requireNonNull(trafficRoutingMethod);
+            if (trafficRoutingMethod == null) {
+              throw new MissingRequiredPropertyException("GetTrafficManagerProfileResult", "trafficRoutingMethod");
+            }
+            this.trafficRoutingMethod = trafficRoutingMethod;
             return this;
         }
         @CustomType.Setter
         public Builder trafficViewEnabled(@Nullable Boolean trafficViewEnabled) {
+
             this.trafficViewEnabled = trafficViewEnabled;
             return this;
         }

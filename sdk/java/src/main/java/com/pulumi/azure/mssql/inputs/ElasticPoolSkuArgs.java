@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ElasticPoolSkuArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ElasticPoolSkuArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolSkuArgs", "capacity");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolSkuArgs", "name");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolSkuArgs", "tier");
+            }
             return $;
         }
     }

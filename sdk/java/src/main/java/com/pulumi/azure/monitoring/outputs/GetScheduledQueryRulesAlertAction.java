@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetScheduledQueryRulesAlertAction {
 
         @CustomType.Setter
         public Builder actionGroups(List<String> actionGroups) {
-            this.actionGroups = Objects.requireNonNull(actionGroups);
+            if (actionGroups == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertAction", "actionGroups");
+            }
+            this.actionGroups = actionGroups;
             return this;
         }
         public Builder actionGroups(String... actionGroups) {
@@ -79,12 +83,18 @@ public final class GetScheduledQueryRulesAlertAction {
         }
         @CustomType.Setter
         public Builder customWebhookPayload(String customWebhookPayload) {
-            this.customWebhookPayload = Objects.requireNonNull(customWebhookPayload);
+            if (customWebhookPayload == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertAction", "customWebhookPayload");
+            }
+            this.customWebhookPayload = customWebhookPayload;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubject(String emailSubject) {
-            this.emailSubject = Objects.requireNonNull(emailSubject);
+            if (emailSubject == null) {
+              throw new MissingRequiredPropertyException("GetScheduledQueryRulesAlertAction", "emailSubject");
+            }
+            this.emailSubject = emailSubject;
             return this;
         }
         public GetScheduledQueryRulesAlertAction build() {

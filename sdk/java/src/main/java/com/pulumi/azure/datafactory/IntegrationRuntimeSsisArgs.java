@@ -12,6 +12,7 @@ import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisProxyArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisVnetIntegrationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -650,8 +651,12 @@ public final class IntegrationRuntimeSsisArgs extends com.pulumi.resources.Resou
         }
 
         public IntegrationRuntimeSsisArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.nodeSize = Objects.requireNonNull($.nodeSize, "expected parameter 'nodeSize' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisArgs", "dataFactoryId");
+            }
+            if ($.nodeSize == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisArgs", "nodeSize");
+            }
             return $;
         }
     }

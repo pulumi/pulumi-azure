@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class VirtualMachineKeyVaultCredentialArgs extends com.pulumi.resou
         }
 
         public VirtualMachineKeyVaultCredentialArgs build() {
-            $.keyVaultUrl = Objects.requireNonNull($.keyVaultUrl, "expected parameter 'keyVaultUrl' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.servicePrincipalName = Objects.requireNonNull($.servicePrincipalName, "expected parameter 'servicePrincipalName' to be non-null");
-            $.servicePrincipalSecret = Objects.requireNonNull($.servicePrincipalSecret, "expected parameter 'servicePrincipalSecret' to be non-null");
+            if ($.keyVaultUrl == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredentialArgs", "keyVaultUrl");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredentialArgs", "name");
+            }
+            if ($.servicePrincipalName == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredentialArgs", "servicePrincipalName");
+            }
+            if ($.servicePrincipalSecret == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineKeyVaultCredentialArgs", "servicePrincipalSecret");
+            }
             return $;
         }
     }

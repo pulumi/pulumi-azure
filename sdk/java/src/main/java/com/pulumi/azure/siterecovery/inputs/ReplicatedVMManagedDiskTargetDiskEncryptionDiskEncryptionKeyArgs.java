@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyA
         }
 
         public ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs build() {
-            $.secretUrl = Objects.requireNonNull($.secretUrl, "expected parameter 'secretUrl' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.secretUrl == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs", "secretUrl");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs", "vaultId");
+            }
             return $;
         }
     }

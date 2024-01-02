@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTrigg
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleScaleActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class AutoscaleSettingProfileRuleArgs extends com.pulumi.resources.
         }
 
         public AutoscaleSettingProfileRuleArgs build() {
-            $.metricTrigger = Objects.requireNonNull($.metricTrigger, "expected parameter 'metricTrigger' to be non-null");
-            $.scaleAction = Objects.requireNonNull($.scaleAction, "expected parameter 'scaleAction' to be non-null");
+            if ($.metricTrigger == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleArgs", "metricTrigger");
+            }
+            if ($.scaleAction == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleArgs", "scaleAction");
+            }
             return $;
         }
     }

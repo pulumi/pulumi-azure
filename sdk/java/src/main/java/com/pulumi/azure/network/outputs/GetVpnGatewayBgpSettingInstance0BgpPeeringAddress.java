@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
 
         @CustomType.Setter
         public Builder customIps(List<String> customIps) {
-            this.customIps = Objects.requireNonNull(customIps);
+            if (customIps == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSettingInstance0BgpPeeringAddress", "customIps");
+            }
+            this.customIps = customIps;
             return this;
         }
         public Builder customIps(String... customIps) {
@@ -93,7 +97,10 @@ public final class GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
         }
         @CustomType.Setter
         public Builder defaultIps(List<String> defaultIps) {
-            this.defaultIps = Objects.requireNonNull(defaultIps);
+            if (defaultIps == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSettingInstance0BgpPeeringAddress", "defaultIps");
+            }
+            this.defaultIps = defaultIps;
             return this;
         }
         public Builder defaultIps(String... defaultIps) {
@@ -101,12 +108,18 @@ public final class GetVpnGatewayBgpSettingInstance0BgpPeeringAddress {
         }
         @CustomType.Setter
         public Builder ipConfigurationId(String ipConfigurationId) {
-            this.ipConfigurationId = Objects.requireNonNull(ipConfigurationId);
+            if (ipConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSettingInstance0BgpPeeringAddress", "ipConfigurationId");
+            }
+            this.ipConfigurationId = ipConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder tunnelIps(List<String> tunnelIps) {
-            this.tunnelIps = Objects.requireNonNull(tunnelIps);
+            if (tunnelIps == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSettingInstance0BgpPeeringAddress", "tunnelIps");
+            }
+            this.tunnelIps = tunnelIps;
             return this;
         }
         public Builder tunnelIps(String... tunnelIps) {

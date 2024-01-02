@@ -4,6 +4,7 @@
 package com.pulumi.azure.mysql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetFlexibleServerStorage {
 
         @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
-            this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
+            if (autoGrowEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerStorage", "autoGrowEnabled");
+            }
+            this.autoGrowEnabled = autoGrowEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ioScalingEnabled(Boolean ioScalingEnabled) {
-            this.ioScalingEnabled = Objects.requireNonNull(ioScalingEnabled);
+            if (ioScalingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerStorage", "ioScalingEnabled");
+            }
+            this.ioScalingEnabled = ioScalingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder iops(Integer iops) {
-            this.iops = Objects.requireNonNull(iops);
+            if (iops == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerStorage", "iops");
+            }
+            this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
-            this.sizeGb = Objects.requireNonNull(sizeGb);
+            if (sizeGb == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerStorage", "sizeGb");
+            }
+            this.sizeGb = sizeGb;
             return this;
         }
         public GetFlexibleServerStorage build() {

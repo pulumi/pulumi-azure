@@ -4,6 +4,7 @@
 package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class PolicyPolicySettingsLogScrubbingRule {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
-            this.matchVariable = Objects.requireNonNull(matchVariable);
+            if (matchVariable == null) {
+              throw new MissingRequiredPropertyException("PolicyPolicySettingsLogScrubbingRule", "matchVariable");
+            }
+            this.matchVariable = matchVariable;
             return this;
         }
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder selectorMatchOperator(@Nullable String selectorMatchOperator) {
+
             this.selectorMatchOperator = selectorMatchOperator;
             return this;
         }

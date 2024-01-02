@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.VirtualNetworkGatewayNatRuleExternalMappi
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayNatRuleInternalMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -358,10 +359,18 @@ public final class VirtualNetworkGatewayNatRuleArgs extends com.pulumi.resources
         }
 
         public VirtualNetworkGatewayNatRuleArgs build() {
-            $.externalMappings = Objects.requireNonNull($.externalMappings, "expected parameter 'externalMappings' to be non-null");
-            $.internalMappings = Objects.requireNonNull($.internalMappings, "expected parameter 'internalMappings' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualNetworkGatewayId = Objects.requireNonNull($.virtualNetworkGatewayId, "expected parameter 'virtualNetworkGatewayId' to be non-null");
+            if ($.externalMappings == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayNatRuleArgs", "externalMappings");
+            }
+            if ($.internalMappings == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayNatRuleArgs", "internalMappings");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayNatRuleArgs", "resourceGroupName");
+            }
+            if ($.virtualNetworkGatewayId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayNatRuleArgs", "virtualNetworkGatewayId");
+            }
             return $;
         }
     }

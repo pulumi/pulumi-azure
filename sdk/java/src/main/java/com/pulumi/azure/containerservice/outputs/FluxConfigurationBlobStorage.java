@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.outputs;
 import com.pulumi.azure.containerservice.outputs.FluxConfigurationBlobStorageManagedIdentity;
 import com.pulumi.azure.containerservice.outputs.FluxConfigurationBlobStorageServicePrincipal;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -145,41 +146,51 @@ public final class FluxConfigurationBlobStorage {
 
         @CustomType.Setter
         public Builder accountKey(@Nullable String accountKey) {
+
             this.accountKey = accountKey;
             return this;
         }
         @CustomType.Setter
         public Builder containerId(String containerId) {
-            this.containerId = Objects.requireNonNull(containerId);
+            if (containerId == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBlobStorage", "containerId");
+            }
+            this.containerId = containerId;
             return this;
         }
         @CustomType.Setter
         public Builder localAuthReference(@Nullable String localAuthReference) {
+
             this.localAuthReference = localAuthReference;
             return this;
         }
         @CustomType.Setter
         public Builder managedIdentity(@Nullable FluxConfigurationBlobStorageManagedIdentity managedIdentity) {
+
             this.managedIdentity = managedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder sasToken(@Nullable String sasToken) {
+
             this.sasToken = sasToken;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipal(@Nullable FluxConfigurationBlobStorageServicePrincipal servicePrincipal) {
+
             this.servicePrincipal = servicePrincipal;
             return this;
         }
         @CustomType.Setter
         public Builder syncIntervalInSeconds(@Nullable Integer syncIntervalInSeconds) {
+
             this.syncIntervalInSeconds = syncIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }

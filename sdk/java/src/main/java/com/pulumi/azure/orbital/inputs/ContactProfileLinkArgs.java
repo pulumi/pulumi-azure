@@ -6,6 +6,7 @@ package com.pulumi.azure.orbital.inputs;
 import com.pulumi.azure.orbital.inputs.ContactProfileLinkChannelArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -197,10 +198,18 @@ public final class ContactProfileLinkArgs extends com.pulumi.resources.ResourceA
         }
 
         public ContactProfileLinkArgs build() {
-            $.channels = Objects.requireNonNull($.channels, "expected parameter 'channels' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.polarization = Objects.requireNonNull($.polarization, "expected parameter 'polarization' to be non-null");
+            if ($.channels == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkArgs", "channels");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkArgs", "direction");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkArgs", "name");
+            }
+            if ($.polarization == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkArgs", "polarization");
+            }
             return $;
         }
     }

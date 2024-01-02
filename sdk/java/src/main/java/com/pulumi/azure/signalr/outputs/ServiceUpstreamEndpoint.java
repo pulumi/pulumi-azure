@@ -4,6 +4,7 @@
 package com.pulumi.azure.signalr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -101,7 +102,10 @@ public final class ServiceUpstreamEndpoint {
 
         @CustomType.Setter
         public Builder categoryPatterns(List<String> categoryPatterns) {
-            this.categoryPatterns = Objects.requireNonNull(categoryPatterns);
+            if (categoryPatterns == null) {
+              throw new MissingRequiredPropertyException("ServiceUpstreamEndpoint", "categoryPatterns");
+            }
+            this.categoryPatterns = categoryPatterns;
             return this;
         }
         public Builder categoryPatterns(String... categoryPatterns) {
@@ -109,7 +113,10 @@ public final class ServiceUpstreamEndpoint {
         }
         @CustomType.Setter
         public Builder eventPatterns(List<String> eventPatterns) {
-            this.eventPatterns = Objects.requireNonNull(eventPatterns);
+            if (eventPatterns == null) {
+              throw new MissingRequiredPropertyException("ServiceUpstreamEndpoint", "eventPatterns");
+            }
+            this.eventPatterns = eventPatterns;
             return this;
         }
         public Builder eventPatterns(String... eventPatterns) {
@@ -117,7 +124,10 @@ public final class ServiceUpstreamEndpoint {
         }
         @CustomType.Setter
         public Builder hubPatterns(List<String> hubPatterns) {
-            this.hubPatterns = Objects.requireNonNull(hubPatterns);
+            if (hubPatterns == null) {
+              throw new MissingRequiredPropertyException("ServiceUpstreamEndpoint", "hubPatterns");
+            }
+            this.hubPatterns = hubPatterns;
             return this;
         }
         public Builder hubPatterns(String... hubPatterns) {
@@ -125,11 +135,15 @@ public final class ServiceUpstreamEndpoint {
         }
         @CustomType.Setter
         public Builder urlTemplate(String urlTemplate) {
-            this.urlTemplate = Objects.requireNonNull(urlTemplate);
+            if (urlTemplate == null) {
+              throw new MissingRequiredPropertyException("ServiceUpstreamEndpoint", "urlTemplate");
+            }
+            this.urlTemplate = urlTemplate;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

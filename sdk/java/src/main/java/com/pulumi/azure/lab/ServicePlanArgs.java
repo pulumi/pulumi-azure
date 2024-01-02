@@ -8,6 +8,7 @@ import com.pulumi.azure.lab.inputs.ServicePlanDefaultConnectionArgs;
 import com.pulumi.azure.lab.inputs.ServicePlanSupportArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -432,8 +433,12 @@ public final class ServicePlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServicePlanArgs build() {
-            $.allowedRegions = Objects.requireNonNull($.allowedRegions, "expected parameter 'allowedRegions' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.allowedRegions == null) {
+                throw new MissingRequiredPropertyException("ServicePlanArgs", "allowedRegions");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServicePlanArgs", "resourceGroupName");
+            }
             return $;
         }
     }

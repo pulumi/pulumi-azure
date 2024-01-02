@@ -7,6 +7,7 @@ import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActi
 import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -112,8 +113,12 @@ public final class CertificateCertificatePolicyLifetimeActionArgs extends com.pu
         }
 
         public CertificateCertificatePolicyLifetimeActionArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.trigger = Objects.requireNonNull($.trigger, "expected parameter 'trigger' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyLifetimeActionArgs", "action");
+            }
+            if ($.trigger == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyLifetimeActionArgs", "trigger");
+            }
             return $;
         }
     }

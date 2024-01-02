@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -373,10 +374,18 @@ public final class GatewayHostNameConfigurationArgs extends com.pulumi.resources
         }
 
         public GatewayHostNameConfigurationArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.certificateId = Objects.requireNonNull($.certificateId, "expected parameter 'certificateId' to be non-null");
-            $.gatewayName = Objects.requireNonNull($.gatewayName, "expected parameter 'gatewayName' to be non-null");
-            $.hostName = Objects.requireNonNull($.hostName, "expected parameter 'hostName' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("GatewayHostNameConfigurationArgs", "apiManagementId");
+            }
+            if ($.certificateId == null) {
+                throw new MissingRequiredPropertyException("GatewayHostNameConfigurationArgs", "certificateId");
+            }
+            if ($.gatewayName == null) {
+                throw new MissingRequiredPropertyException("GatewayHostNameConfigurationArgs", "gatewayName");
+            }
+            if ($.hostName == null) {
+                throw new MissingRequiredPropertyException("GatewayHostNameConfigurationArgs", "hostName");
+            }
             return $;
         }
     }

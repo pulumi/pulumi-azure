@@ -4,6 +4,7 @@
 package com.pulumi.azure.redis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -77,16 +78,21 @@ public final class CachePatchSchedule {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("CachePatchSchedule", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
+
             this.maintenanceWindow = maintenanceWindow;
             return this;
         }
         @CustomType.Setter
         public Builder startHourUtc(@Nullable Integer startHourUtc) {
+
             this.startHourUtc = startHourUtc;
             return this;
         }

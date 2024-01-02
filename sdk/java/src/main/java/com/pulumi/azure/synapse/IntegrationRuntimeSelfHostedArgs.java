@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class IntegrationRuntimeSelfHostedArgs extends com.pulumi.resources
         }
 
         public IntegrationRuntimeSelfHostedArgs build() {
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSelfHostedArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

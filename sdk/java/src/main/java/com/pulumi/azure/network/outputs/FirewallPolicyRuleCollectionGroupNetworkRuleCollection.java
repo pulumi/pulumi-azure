@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -87,22 +88,34 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollection", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollection", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollection", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder rules(List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollection", "rules");
+            }
+            this.rules = rules;
             return this;
         }
         public Builder rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule... rules) {

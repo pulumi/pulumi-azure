@@ -131,21 +131,25 @@ public final class TransformOutputCustomPresetCodecH265Video {
 
         @CustomType.Setter
         public Builder complexity(@Nullable String complexity) {
+
             this.complexity = complexity;
             return this;
         }
         @CustomType.Setter
         public Builder keyFrameInterval(@Nullable String keyFrameInterval) {
+
             this.keyFrameInterval = keyFrameInterval;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder layers(@Nullable List<TransformOutputCustomPresetCodecH265VideoLayer> layers) {
+
             this.layers = layers;
             return this;
         }
@@ -154,16 +158,19 @@ public final class TransformOutputCustomPresetCodecH265Video {
         }
         @CustomType.Setter
         public Builder sceneChangeDetectionEnabled(@Nullable Boolean sceneChangeDetectionEnabled) {
+
             this.sceneChangeDetectionEnabled = sceneChangeDetectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder stretchMode(@Nullable String stretchMode) {
+
             this.stretchMode = stretchMode;
             return this;
         }
         @CustomType.Setter
         public Builder syncMode(@Nullable String syncMode) {
+
             this.syncMode = syncMode;
             return this;
         }

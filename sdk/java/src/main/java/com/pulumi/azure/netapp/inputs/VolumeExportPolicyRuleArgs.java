@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -274,8 +275,12 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
         }
 
         public VolumeExportPolicyRuleArgs build() {
-            $.allowedClients = Objects.requireNonNull($.allowedClients, "expected parameter 'allowedClients' to be non-null");
-            $.ruleIndex = Objects.requireNonNull($.ruleIndex, "expected parameter 'ruleIndex' to be non-null");
+            if ($.allowedClients == null) {
+                throw new MissingRequiredPropertyException("VolumeExportPolicyRuleArgs", "allowedClients");
+            }
+            if ($.ruleIndex == null) {
+                throw new MissingRequiredPropertyException("VolumeExportPolicyRuleArgs", "ruleIndex");
+            }
             return $;
         }
     }

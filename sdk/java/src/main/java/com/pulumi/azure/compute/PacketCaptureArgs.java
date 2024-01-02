@@ -7,6 +7,7 @@ import com.pulumi.azure.compute.inputs.PacketCaptureFilterArgs;
 import com.pulumi.azure.compute.inputs.PacketCaptureStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -349,9 +350,15 @@ public final class PacketCaptureArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PacketCaptureArgs build() {
-            $.networkWatcherId = Objects.requireNonNull($.networkWatcherId, "expected parameter 'networkWatcherId' to be non-null");
-            $.storageLocation = Objects.requireNonNull($.storageLocation, "expected parameter 'storageLocation' to be non-null");
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.networkWatcherId == null) {
+                throw new MissingRequiredPropertyException("PacketCaptureArgs", "networkWatcherId");
+            }
+            if ($.storageLocation == null) {
+                throw new MissingRequiredPropertyException("PacketCaptureArgs", "storageLocation");
+            }
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("PacketCaptureArgs", "virtualMachineId");
+            }
             return $;
         }
     }

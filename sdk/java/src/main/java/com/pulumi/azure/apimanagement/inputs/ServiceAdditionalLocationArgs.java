@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.ServiceAdditionalLocationVirtualNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -414,7 +415,9 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         public ServiceAdditionalLocationArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("ServiceAdditionalLocationArgs", "location");
+            }
             return $;
         }
     }

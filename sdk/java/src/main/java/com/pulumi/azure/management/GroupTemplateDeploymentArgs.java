@@ -5,6 +5,7 @@ package com.pulumi.azure.management;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -336,7 +337,9 @@ public final class GroupTemplateDeploymentArgs extends com.pulumi.resources.Reso
         }
 
         public GroupTemplateDeploymentArgs build() {
-            $.managementGroupId = Objects.requireNonNull($.managementGroupId, "expected parameter 'managementGroupId' to be non-null");
+            if ($.managementGroupId == null) {
+                throw new MissingRequiredPropertyException("GroupTemplateDeploymentArgs", "managementGroupId");
+            }
             return $;
         }
     }

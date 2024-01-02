@@ -6,6 +6,7 @@ package com.pulumi.azure.hpc;
 import com.pulumi.azure.hpc.inputs.CacheNfsTargetNamespaceJunctionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -348,11 +349,21 @@ public final class CacheNfsTargetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public CacheNfsTargetArgs build() {
-            $.cacheName = Objects.requireNonNull($.cacheName, "expected parameter 'cacheName' to be non-null");
-            $.namespaceJunctions = Objects.requireNonNull($.namespaceJunctions, "expected parameter 'namespaceJunctions' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.targetHostName = Objects.requireNonNull($.targetHostName, "expected parameter 'targetHostName' to be non-null");
-            $.usageModel = Objects.requireNonNull($.usageModel, "expected parameter 'usageModel' to be non-null");
+            if ($.cacheName == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetArgs", "cacheName");
+            }
+            if ($.namespaceJunctions == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetArgs", "namespaceJunctions");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetArgs", "resourceGroupName");
+            }
+            if ($.targetHostName == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetArgs", "targetHostName");
+            }
+            if ($.usageModel == null) {
+                throw new MissingRequiredPropertyException("CacheNfsTargetArgs", "usageModel");
+            }
             return $;
         }
     }

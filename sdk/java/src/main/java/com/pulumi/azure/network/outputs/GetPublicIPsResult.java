@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetPublicIPsPublicIp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -84,27 +85,36 @@ public final class GetPublicIPsResult {
 
         @CustomType.Setter
         public Builder allocationType(@Nullable String allocationType) {
+
             this.allocationType = allocationType;
             return this;
         }
         @CustomType.Setter
         public Builder attachmentStatus(@Nullable String attachmentStatus) {
+
             this.attachmentStatus = attachmentStatus;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
+
             this.namePrefix = namePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder publicIps(List<GetPublicIPsPublicIp> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+            if (publicIps == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPsResult", "publicIps");
+            }
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(GetPublicIPsPublicIp... publicIps) {
@@ -112,7 +122,10 @@ public final class GetPublicIPsResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPsResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetPublicIPsResult build() {

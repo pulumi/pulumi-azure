@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,27 +102,40 @@ public final class ManagedClusterLbRule {
 
         @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
-            this.backendPort = Objects.requireNonNull(backendPort);
+            if (backendPort == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterLbRule", "backendPort");
+            }
+            this.backendPort = backendPort;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPort(Integer frontendPort) {
-            this.frontendPort = Objects.requireNonNull(frontendPort);
+            if (frontendPort == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterLbRule", "frontendPort");
+            }
+            this.frontendPort = frontendPort;
             return this;
         }
         @CustomType.Setter
         public Builder probeProtocol(String probeProtocol) {
-            this.probeProtocol = Objects.requireNonNull(probeProtocol);
+            if (probeProtocol == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterLbRule", "probeProtocol");
+            }
+            this.probeProtocol = probeProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder probeRequestPath(@Nullable String probeRequestPath) {
+
             this.probeRequestPath = probeRequestPath;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterLbRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public ManagedClusterLbRule build() {

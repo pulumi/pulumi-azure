@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs ext
         }
 
         public AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs build() {
-            $.endTime = Objects.requireNonNull($.endTime, "expected parameter 'endTime' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
+            if ($.endTime == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs", "endTime");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs", "startTime");
+            }
             return $;
         }
     }

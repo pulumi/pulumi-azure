@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyCustomRuleMatchCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -146,16 +147,21 @@ public final class FrontdoorFirewallPolicyCustomRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyCustomRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder matchConditions(@Nullable List<FrontdoorFirewallPolicyCustomRuleMatchCondition> matchConditions) {
+
             this.matchConditions = matchConditions;
             return this;
         }
@@ -164,27 +170,36 @@ public final class FrontdoorFirewallPolicyCustomRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyCustomRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimitDurationInMinutes(@Nullable Integer rateLimitDurationInMinutes) {
+
             this.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimitThreshold(@Nullable Integer rateLimitThreshold) {
+
             this.rateLimitThreshold = rateLimitThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyCustomRule", "type");
+            }
+            this.type = type;
             return this;
         }
         public FrontdoorFirewallPolicyCustomRule build() {

@@ -83,6 +83,7 @@ public final class BudgetManagementGroupFilter {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<BudgetManagementGroupFilterDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -91,11 +92,13 @@ public final class BudgetManagementGroupFilter {
         }
         @CustomType.Setter
         public Builder not(@Nullable BudgetManagementGroupFilterNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<BudgetManagementGroupFilterTag> tags) {
+
             this.tags = tags;
             return this;
         }

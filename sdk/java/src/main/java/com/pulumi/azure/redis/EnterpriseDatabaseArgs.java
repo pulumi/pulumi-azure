@@ -6,6 +6,7 @@ package com.pulumi.azure.redis;
 import com.pulumi.azure.redis.inputs.EnterpriseDatabaseModuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -468,7 +469,9 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         public EnterpriseDatabaseArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("EnterpriseDatabaseArgs", "clusterId");
+            }
             return $;
         }
     }

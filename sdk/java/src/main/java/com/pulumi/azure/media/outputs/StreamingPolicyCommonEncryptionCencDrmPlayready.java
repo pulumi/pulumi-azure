@@ -58,11 +58,13 @@ public final class StreamingPolicyCommonEncryptionCencDrmPlayready {
 
         @CustomType.Setter
         public Builder customAttributes(@Nullable String customAttributes) {
+
             this.customAttributes = customAttributes;
             return this;
         }
         @CustomType.Setter
         public Builder customLicenseAcquisitionUrlTemplate(@Nullable String customLicenseAcquisitionUrlTemplate) {
+
             this.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
             return this;
         }

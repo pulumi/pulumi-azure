@@ -6,6 +6,7 @@ package com.pulumi.azure.servicefabric.inputs;
 import com.pulumi.azure.servicefabric.inputs.ManagedClusterNodeTypeVmSecretArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -720,16 +721,36 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         public ManagedClusterNodeTypeArgs build() {
-            $.applicationPortRange = Objects.requireNonNull($.applicationPortRange, "expected parameter 'applicationPortRange' to be non-null");
-            $.dataDiskSizeGb = Objects.requireNonNull($.dataDiskSizeGb, "expected parameter 'dataDiskSizeGb' to be non-null");
-            $.ephemeralPortRange = Objects.requireNonNull($.ephemeralPortRange, "expected parameter 'ephemeralPortRange' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.vmImageOffer = Objects.requireNonNull($.vmImageOffer, "expected parameter 'vmImageOffer' to be non-null");
-            $.vmImagePublisher = Objects.requireNonNull($.vmImagePublisher, "expected parameter 'vmImagePublisher' to be non-null");
-            $.vmImageSku = Objects.requireNonNull($.vmImageSku, "expected parameter 'vmImageSku' to be non-null");
-            $.vmImageVersion = Objects.requireNonNull($.vmImageVersion, "expected parameter 'vmImageVersion' to be non-null");
-            $.vmInstanceCount = Objects.requireNonNull($.vmInstanceCount, "expected parameter 'vmInstanceCount' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.applicationPortRange == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "applicationPortRange");
+            }
+            if ($.dataDiskSizeGb == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "dataDiskSizeGb");
+            }
+            if ($.ephemeralPortRange == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "ephemeralPortRange");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "name");
+            }
+            if ($.vmImageOffer == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmImageOffer");
+            }
+            if ($.vmImagePublisher == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmImagePublisher");
+            }
+            if ($.vmImageSku == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmImageSku");
+            }
+            if ($.vmImageVersion == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmImageVersion");
+            }
+            if ($.vmInstanceCount == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmInstanceCount");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterNodeTypeArgs", "vmSize");
+            }
             return $;
         }
     }

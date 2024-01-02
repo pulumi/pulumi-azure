@@ -173,6 +173,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
 
         @CustomType.Setter
         public Builder allowedUnsafeSysctls(@Nullable List<String> allowedUnsafeSysctls) {
+
             this.allowedUnsafeSysctls = allowedUnsafeSysctls;
             return this;
         }
@@ -181,46 +182,55 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         }
         @CustomType.Setter
         public Builder containerLogMaxLine(@Nullable Integer containerLogMaxLine) {
+
             this.containerLogMaxLine = containerLogMaxLine;
             return this;
         }
         @CustomType.Setter
         public Builder containerLogMaxSizeMb(@Nullable Integer containerLogMaxSizeMb) {
+
             this.containerLogMaxSizeMb = containerLogMaxSizeMb;
             return this;
         }
         @CustomType.Setter
         public Builder cpuCfsQuotaEnabled(@Nullable Boolean cpuCfsQuotaEnabled) {
+
             this.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder cpuCfsQuotaPeriod(@Nullable String cpuCfsQuotaPeriod) {
+
             this.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
             return this;
         }
         @CustomType.Setter
         public Builder cpuManagerPolicy(@Nullable String cpuManagerPolicy) {
+
             this.cpuManagerPolicy = cpuManagerPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder imageGcHighThreshold(@Nullable Integer imageGcHighThreshold) {
+
             this.imageGcHighThreshold = imageGcHighThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder imageGcLowThreshold(@Nullable Integer imageGcLowThreshold) {
+
             this.imageGcLowThreshold = imageGcLowThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder podMaxPid(@Nullable Integer podMaxPid) {
+
             this.podMaxPid = podMaxPid;
             return this;
         }
         @CustomType.Setter
         public Builder topologyManagerPolicy(@Nullable String topologyManagerPolicy) {
+
             this.topologyManagerPolicy = topologyManagerPolicy;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -144,26 +145,33 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
 
         @CustomType.Setter
         public Builder backendPoolName(String backendPoolName) {
-            this.backendPoolName = Objects.requireNonNull(backendPoolName);
+            if (backendPoolName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRoutingRuleForwardingConfiguration", "backendPoolName");
+            }
+            this.backendPoolName = backendPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder cacheDuration(@Nullable String cacheDuration) {
+
             this.cacheDuration = cacheDuration;
             return this;
         }
         @CustomType.Setter
         public Builder cacheEnabled(@Nullable Boolean cacheEnabled) {
+
             this.cacheEnabled = cacheEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder cacheQueryParameterStripDirective(@Nullable String cacheQueryParameterStripDirective) {
+
             this.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
             return this;
         }
         @CustomType.Setter
         public Builder cacheQueryParameters(@Nullable List<String> cacheQueryParameters) {
+
             this.cacheQueryParameters = cacheQueryParameters;
             return this;
         }
@@ -172,16 +180,19 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         }
         @CustomType.Setter
         public Builder cacheUseDynamicCompression(@Nullable Boolean cacheUseDynamicCompression) {
+
             this.cacheUseDynamicCompression = cacheUseDynamicCompression;
             return this;
         }
         @CustomType.Setter
         public Builder customForwardingPath(@Nullable String customForwardingPath) {
+
             this.customForwardingPath = customForwardingPath;
             return this;
         }
         @CustomType.Setter
         public Builder forwardingProtocol(@Nullable String forwardingProtocol) {
+
             this.forwardingProtocol = forwardingProtocol;
             return this;
         }

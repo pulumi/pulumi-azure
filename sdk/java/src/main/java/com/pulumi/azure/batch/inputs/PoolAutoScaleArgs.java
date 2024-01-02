@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class PoolAutoScaleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PoolAutoScaleArgs build() {
-            $.formula = Objects.requireNonNull($.formula, "expected parameter 'formula' to be non-null");
+            if ($.formula == null) {
+                throw new MissingRequiredPropertyException("PoolAutoScaleArgs", "formula");
+            }
             return $;
         }
     }

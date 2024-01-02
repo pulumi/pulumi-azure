@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -241,7 +242,9 @@ public final class DataConnectorMicrosoftCloudAppSecurityArgs extends com.pulumi
         }
 
         public DataConnectorMicrosoftCloudAppSecurityArgs build() {
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("DataConnectorMicrosoftCloudAppSecurityArgs", "logAnalyticsWorkspaceId");
+            }
             return $;
         }
     }

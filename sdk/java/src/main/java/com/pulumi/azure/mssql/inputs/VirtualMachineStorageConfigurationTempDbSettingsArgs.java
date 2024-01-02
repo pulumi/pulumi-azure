@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -310,8 +311,12 @@ public final class VirtualMachineStorageConfigurationTempDbSettingsArgs extends 
         }
 
         public VirtualMachineStorageConfigurationTempDbSettingsArgs build() {
-            $.defaultFilePath = Objects.requireNonNull($.defaultFilePath, "expected parameter 'defaultFilePath' to be non-null");
-            $.luns = Objects.requireNonNull($.luns, "expected parameter 'luns' to be non-null");
+            if ($.defaultFilePath == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationTempDbSettingsArgs", "defaultFilePath");
+            }
+            if ($.luns == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationTempDbSettingsArgs", "luns");
+            }
             return $;
         }
     }

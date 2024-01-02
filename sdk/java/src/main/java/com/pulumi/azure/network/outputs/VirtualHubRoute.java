@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class VirtualHubRoute {
 
         @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
-            this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
+            if (addressPrefixes == null) {
+              throw new MissingRequiredPropertyException("VirtualHubRoute", "addressPrefixes");
+            }
+            this.addressPrefixes = addressPrefixes;
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
@@ -65,7 +69,10 @@ public final class VirtualHubRoute {
         }
         @CustomType.Setter
         public Builder nextHopIpAddress(String nextHopIpAddress) {
-            this.nextHopIpAddress = Objects.requireNonNull(nextHopIpAddress);
+            if (nextHopIpAddress == null) {
+              throw new MissingRequiredPropertyException("VirtualHubRoute", "nextHopIpAddress");
+            }
+            this.nextHopIpAddress = nextHopIpAddress;
             return this;
         }
         public VirtualHubRoute build() {

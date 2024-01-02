@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.CustomDatasetLinkedServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -459,10 +460,18 @@ public final class CustomDatasetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CustomDatasetArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.linkedService = Objects.requireNonNull($.linkedService, "expected parameter 'linkedService' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.typePropertiesJson = Objects.requireNonNull($.typePropertiesJson, "expected parameter 'typePropertiesJson' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("CustomDatasetArgs", "dataFactoryId");
+            }
+            if ($.linkedService == null) {
+                throw new MissingRequiredPropertyException("CustomDatasetArgs", "linkedService");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("CustomDatasetArgs", "type");
+            }
+            if ($.typePropertiesJson == null) {
+                throw new MissingRequiredPropertyException("CustomDatasetArgs", "typePropertiesJson");
+            }
             return $;
         }
     }

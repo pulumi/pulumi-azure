@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -63,22 +64,28 @@ public final class RunBookJobSchedule {
 
         @CustomType.Setter
         public Builder jobScheduleId(@Nullable String jobScheduleId) {
+
             this.jobScheduleId = jobScheduleId;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
+
             this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder runOn(@Nullable String runOn) {
+
             this.runOn = runOn;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleName(String scheduleName) {
-            this.scheduleName = Objects.requireNonNull(scheduleName);
+            if (scheduleName == null) {
+              throw new MissingRequiredPropertyException("RunBookJobSchedule", "scheduleName");
+            }
+            this.scheduleName = scheduleName;
             return this;
         }
         public RunBookJobSchedule build() {

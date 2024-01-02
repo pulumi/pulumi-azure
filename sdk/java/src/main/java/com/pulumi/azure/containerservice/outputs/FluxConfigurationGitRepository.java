@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -185,57 +186,74 @@ public final class FluxConfigurationGitRepository {
 
         @CustomType.Setter
         public Builder httpsCaCertBase64(@Nullable String httpsCaCertBase64) {
+
             this.httpsCaCertBase64 = httpsCaCertBase64;
             return this;
         }
         @CustomType.Setter
         public Builder httpsKeyBase64(@Nullable String httpsKeyBase64) {
+
             this.httpsKeyBase64 = httpsKeyBase64;
             return this;
         }
         @CustomType.Setter
         public Builder httpsUser(@Nullable String httpsUser) {
+
             this.httpsUser = httpsUser;
             return this;
         }
         @CustomType.Setter
         public Builder localAuthReference(@Nullable String localAuthReference) {
+
             this.localAuthReference = localAuthReference;
             return this;
         }
         @CustomType.Setter
         public Builder referenceType(String referenceType) {
-            this.referenceType = Objects.requireNonNull(referenceType);
+            if (referenceType == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationGitRepository", "referenceType");
+            }
+            this.referenceType = referenceType;
             return this;
         }
         @CustomType.Setter
         public Builder referenceValue(String referenceValue) {
-            this.referenceValue = Objects.requireNonNull(referenceValue);
+            if (referenceValue == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationGitRepository", "referenceValue");
+            }
+            this.referenceValue = referenceValue;
             return this;
         }
         @CustomType.Setter
         public Builder sshKnownHostsBase64(@Nullable String sshKnownHostsBase64) {
+
             this.sshKnownHostsBase64 = sshKnownHostsBase64;
             return this;
         }
         @CustomType.Setter
         public Builder sshPrivateKeyBase64(@Nullable String sshPrivateKeyBase64) {
+
             this.sshPrivateKeyBase64 = sshPrivateKeyBase64;
             return this;
         }
         @CustomType.Setter
         public Builder syncIntervalInSeconds(@Nullable Integer syncIntervalInSeconds) {
+
             this.syncIntervalInSeconds = syncIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationGitRepository", "url");
+            }
+            this.url = url;
             return this;
         }
         public FluxConfigurationGitRepository build() {

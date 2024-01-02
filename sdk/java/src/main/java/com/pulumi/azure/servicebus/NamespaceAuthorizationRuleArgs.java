@@ -5,6 +5,7 @@ package com.pulumi.azure.servicebus;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -233,7 +234,9 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         public NamespaceAuthorizationRuleArgs build() {
-            $.namespaceId = Objects.requireNonNull($.namespaceId, "expected parameter 'namespaceId' to be non-null");
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("NamespaceAuthorizationRuleArgs", "namespaceId");
+            }
             return $;
         }
     }

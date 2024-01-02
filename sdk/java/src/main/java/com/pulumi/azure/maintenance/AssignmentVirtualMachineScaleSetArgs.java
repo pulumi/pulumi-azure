@@ -5,6 +5,7 @@ package com.pulumi.azure.maintenance;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AssignmentVirtualMachineScaleSetArgs extends com.pulumi.resou
         }
 
         public AssignmentVirtualMachineScaleSetArgs build() {
-            $.maintenanceConfigurationId = Objects.requireNonNull($.maintenanceConfigurationId, "expected parameter 'maintenanceConfigurationId' to be non-null");
-            $.virtualMachineScaleSetId = Objects.requireNonNull($.virtualMachineScaleSetId, "expected parameter 'virtualMachineScaleSetId' to be non-null");
+            if ($.maintenanceConfigurationId == null) {
+                throw new MissingRequiredPropertyException("AssignmentVirtualMachineScaleSetArgs", "maintenanceConfigurationId");
+            }
+            if ($.virtualMachineScaleSetId == null) {
+                throw new MissingRequiredPropertyException("AssignmentVirtualMachineScaleSetArgs", "virtualMachineScaleSetId");
+            }
             return $;
         }
     }

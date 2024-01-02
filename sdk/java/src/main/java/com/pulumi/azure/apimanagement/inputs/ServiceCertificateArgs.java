@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class ServiceCertificateArgs extends com.pulumi.resources.ResourceA
         }
 
         public ServiceCertificateArgs build() {
-            $.encodedCertificate = Objects.requireNonNull($.encodedCertificate, "expected parameter 'encodedCertificate' to be non-null");
-            $.storeName = Objects.requireNonNull($.storeName, "expected parameter 'storeName' to be non-null");
+            if ($.encodedCertificate == null) {
+                throw new MissingRequiredPropertyException("ServiceCertificateArgs", "encodedCertificate");
+            }
+            if ($.storeName == null) {
+                throw new MissingRequiredPropertyException("ServiceCertificateArgs", "storeName");
+            }
             return $;
         }
     }

@@ -75,11 +75,13 @@ public final class IoTHubCloudToDevice {
 
         @CustomType.Setter
         public Builder defaultTtl(@Nullable String defaultTtl) {
+
             this.defaultTtl = defaultTtl;
             return this;
         }
         @CustomType.Setter
         public Builder feedbacks(@Nullable List<IoTHubCloudToDeviceFeedback> feedbacks) {
+
             this.feedbacks = feedbacks;
             return this;
         }
@@ -88,6 +90,7 @@ public final class IoTHubCloudToDevice {
         }
         @CustomType.Setter
         public Builder maxDeliveryCount(@Nullable Integer maxDeliveryCount) {
+
             this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }

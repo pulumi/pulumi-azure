@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -266,10 +267,18 @@ public final class AccountCorsRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AccountCorsRuleArgs build() {
-            $.allowedHeaders = Objects.requireNonNull($.allowedHeaders, "expected parameter 'allowedHeaders' to be non-null");
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
-            $.exposedHeaders = Objects.requireNonNull($.exposedHeaders, "expected parameter 'exposedHeaders' to be non-null");
+            if ($.allowedHeaders == null) {
+                throw new MissingRequiredPropertyException("AccountCorsRuleArgs", "allowedHeaders");
+            }
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("AccountCorsRuleArgs", "allowedMethods");
+            }
+            if ($.allowedOrigins == null) {
+                throw new MissingRequiredPropertyException("AccountCorsRuleArgs", "allowedOrigins");
+            }
+            if ($.exposedHeaders == null) {
+                throw new MissingRequiredPropertyException("AccountCorsRuleArgs", "exposedHeaders");
+            }
             return $;
         }
     }

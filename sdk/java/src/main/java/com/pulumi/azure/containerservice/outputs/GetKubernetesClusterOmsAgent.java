@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterOmsAgentOmsAgentIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -73,17 +74,26 @@ public final class GetKubernetesClusterOmsAgent {
 
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
-            this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            if (logAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterOmsAgent", "logAnalyticsWorkspaceId");
+            }
+            this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder msiAuthForMonitoringEnabled(Boolean msiAuthForMonitoringEnabled) {
-            this.msiAuthForMonitoringEnabled = Objects.requireNonNull(msiAuthForMonitoringEnabled);
+            if (msiAuthForMonitoringEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterOmsAgent", "msiAuthForMonitoringEnabled");
+            }
+            this.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder omsAgentIdentities(List<GetKubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities) {
-            this.omsAgentIdentities = Objects.requireNonNull(omsAgentIdentities);
+            if (omsAgentIdentities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterOmsAgent", "omsAgentIdentities");
+            }
+            this.omsAgentIdentities = omsAgentIdentities;
             return this;
         }
         public Builder omsAgentIdentities(GetKubernetesClusterOmsAgentOmsAgentIdentity... omsAgentIdentities) {

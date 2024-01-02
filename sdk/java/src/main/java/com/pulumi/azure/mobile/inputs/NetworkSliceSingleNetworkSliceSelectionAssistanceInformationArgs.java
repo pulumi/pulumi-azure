@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationA
         }
 
         public NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs build() {
-            $.sliceServiceType = Objects.requireNonNull($.sliceServiceType, "expected parameter 'sliceServiceType' to be non-null");
+            if ($.sliceServiceType == null) {
+                throw new MissingRequiredPropertyException("NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs", "sliceServiceType");
+            }
             return $;
         }
     }

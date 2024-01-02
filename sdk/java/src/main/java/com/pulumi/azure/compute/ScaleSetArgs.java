@@ -19,6 +19,7 @@ import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
 import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1160,12 +1161,24 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScaleSetArgs build() {
-            $.networkProfiles = Objects.requireNonNull($.networkProfiles, "expected parameter 'networkProfiles' to be non-null");
-            $.osProfile = Objects.requireNonNull($.osProfile, "expected parameter 'osProfile' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
-            $.storageProfileOsDisk = Objects.requireNonNull($.storageProfileOsDisk, "expected parameter 'storageProfileOsDisk' to be non-null");
-            $.upgradePolicyMode = Objects.requireNonNull($.upgradePolicyMode, "expected parameter 'upgradePolicyMode' to be non-null");
+            if ($.networkProfiles == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "networkProfiles");
+            }
+            if ($.osProfile == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "osProfile");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "sku");
+            }
+            if ($.storageProfileOsDisk == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "storageProfileOsDisk");
+            }
+            if ($.upgradePolicyMode == null) {
+                throw new MissingRequiredPropertyException("ScaleSetArgs", "upgradePolicyMode");
+            }
             return $;
         }
     }

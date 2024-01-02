@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PoolUserAccountWindowsUserConfigurationArgs extends com.pulum
         }
 
         public PoolUserAccountWindowsUserConfigurationArgs build() {
-            $.loginMode = Objects.requireNonNull($.loginMode, "expected parameter 'loginMode' to be non-null");
+            if ($.loginMode == null) {
+                throw new MissingRequiredPropertyException("PoolUserAccountWindowsUserConfigurationArgs", "loginMode");
+            }
             return $;
         }
     }

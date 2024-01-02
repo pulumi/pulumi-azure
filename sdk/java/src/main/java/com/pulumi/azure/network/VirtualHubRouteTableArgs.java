@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.VirtualHubRouteTableRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -209,7 +210,9 @@ public final class VirtualHubRouteTableArgs extends com.pulumi.resources.Resourc
         }
 
         public VirtualHubRouteTableArgs build() {
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("VirtualHubRouteTableArgs", "virtualHubId");
+            }
             return $;
         }
     }

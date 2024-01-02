@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -184,7 +185,9 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         }
 
         public DiagnosticSettingMetricArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
+            if ($.category == null) {
+                throw new MissingRequiredPropertyException("DiagnosticSettingMetricArgs", "category");
+            }
             return $;
         }
     }

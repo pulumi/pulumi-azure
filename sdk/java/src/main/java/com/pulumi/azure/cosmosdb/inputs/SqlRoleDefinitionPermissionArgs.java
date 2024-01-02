@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class SqlRoleDefinitionPermissionArgs extends com.pulumi.resources.
         }
 
         public SqlRoleDefinitionPermissionArgs build() {
-            $.dataActions = Objects.requireNonNull($.dataActions, "expected parameter 'dataActions' to be non-null");
+            if ($.dataActions == null) {
+                throw new MissingRequiredPropertyException("SqlRoleDefinitionPermissionArgs", "dataActions");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs ex
         }
 
         public AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs build() {
-            $.daysOfWeeks = Objects.requireNonNull($.daysOfWeeks, "expected parameter 'daysOfWeeks' to be non-null");
+            if ($.daysOfWeeks == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs", "daysOfWeeks");
+            }
             return $;
         }
     }

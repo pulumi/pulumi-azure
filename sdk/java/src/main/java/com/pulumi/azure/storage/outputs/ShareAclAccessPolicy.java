@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,16 +77,21 @@ public final class ShareAclAccessPolicy {
 
         @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
+
             this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(String permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("ShareAclAccessPolicy", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         @CustomType.Setter
         public Builder start(@Nullable String start) {
+
             this.start = start;
             return this;
         }

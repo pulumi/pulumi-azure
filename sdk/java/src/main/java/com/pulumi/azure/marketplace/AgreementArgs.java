@@ -5,6 +5,7 @@ package com.pulumi.azure.marketplace;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class AgreementArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AgreementArgs build() {
-            $.offer = Objects.requireNonNull($.offer, "expected parameter 'offer' to be non-null");
-            $.plan = Objects.requireNonNull($.plan, "expected parameter 'plan' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
+            if ($.offer == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "offer");
+            }
+            if ($.plan == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "plan");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("AgreementArgs", "publisher");
+            }
             return $;
         }
     }

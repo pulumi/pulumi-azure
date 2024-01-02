@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetApplicationGatewayBackendAddressPool {
 
         @CustomType.Setter
         public Builder fqdns(List<String> fqdns) {
-            this.fqdns = Objects.requireNonNull(fqdns);
+            if (fqdns == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendAddressPool", "fqdns");
+            }
+            this.fqdns = fqdns;
             return this;
         }
         public Builder fqdns(String... fqdns) {
@@ -93,12 +97,18 @@ public final class GetApplicationGatewayBackendAddressPool {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendAddressPool", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendAddressPool", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
@@ -106,7 +116,10 @@ public final class GetApplicationGatewayBackendAddressPool {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendAddressPool", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetApplicationGatewayBackendAddressPool build() {

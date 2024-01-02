@@ -7,6 +7,7 @@ import com.pulumi.azure.dashboard.inputs.GrafanaAzureMonitorWorkspaceIntegration
 import com.pulumi.azure.dashboard.inputs.GrafanaIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -535,7 +536,9 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GrafanaArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GrafanaArgs", "resourceGroupName");
+            }
             return $;
         }
     }

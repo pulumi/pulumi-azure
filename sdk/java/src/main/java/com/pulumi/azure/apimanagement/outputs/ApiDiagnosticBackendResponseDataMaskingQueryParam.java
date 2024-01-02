@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ApiDiagnosticBackendResponseDataMaskingQueryParam {
 
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("ApiDiagnosticBackendResponseDataMaskingQueryParam", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("ApiDiagnosticBackendResponseDataMaskingQueryParam", "value");
+            }
+            this.value = value;
             return this;
         }
         public ApiDiagnosticBackendResponseDataMaskingQueryParam build() {

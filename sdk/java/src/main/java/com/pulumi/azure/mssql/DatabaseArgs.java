@@ -9,6 +9,7 @@ import com.pulumi.azure.mssql.inputs.DatabaseShortTermRetentionPolicyArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseThreatDetectionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1192,7 +1193,9 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DatabaseArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "serverId");
+            }
             return $;
         }
     }

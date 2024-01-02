@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -233,7 +234,9 @@ public final class TopicAuthorizationRuleArgs extends com.pulumi.resources.Resou
         }
 
         public TopicAuthorizationRuleArgs build() {
-            $.topicId = Objects.requireNonNull($.topicId, "expected parameter 'topicId' to be non-null");
+            if ($.topicId == null) {
+                throw new MissingRequiredPropertyException("TopicAuthorizationRuleArgs", "topicId");
+            }
             return $;
         }
     }
