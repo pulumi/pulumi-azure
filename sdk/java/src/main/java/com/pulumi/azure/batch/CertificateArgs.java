@@ -5,6 +5,7 @@ package com.pulumi.azure.batch;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,12 +299,24 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CertificateArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.certificate = Objects.requireNonNull($.certificate, "expected parameter 'certificate' to be non-null");
-            $.format = Objects.requireNonNull($.format, "expected parameter 'format' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.thumbprint = Objects.requireNonNull($.thumbprint, "expected parameter 'thumbprint' to be non-null");
-            $.thumbprintAlgorithm = Objects.requireNonNull($.thumbprintAlgorithm, "expected parameter 'thumbprintAlgorithm' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "accountName");
+            }
+            if ($.certificate == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "certificate");
+            }
+            if ($.format == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "format");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "resourceGroupName");
+            }
+            if ($.thumbprint == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "thumbprint");
+            }
+            if ($.thumbprintAlgorithm == null) {
+                throw new MissingRequiredPropertyException("CertificateArgs", "thumbprintAlgorithm");
+            }
             return $;
         }
     }

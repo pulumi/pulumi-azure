@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetNetworkPacketCoreControlPlanePlatform {
 
         @CustomType.Setter
         public Builder arcKubernetesClusterId(String arcKubernetesClusterId) {
-            this.arcKubernetesClusterId = Objects.requireNonNull(arcKubernetesClusterId);
+            if (arcKubernetesClusterId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlanePlatform", "arcKubernetesClusterId");
+            }
+            this.arcKubernetesClusterId = arcKubernetesClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder customLocationId(String customLocationId) {
-            this.customLocationId = Objects.requireNonNull(customLocationId);
+            if (customLocationId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlanePlatform", "customLocationId");
+            }
+            this.customLocationId = customLocationId;
             return this;
         }
         @CustomType.Setter
         public Builder edgeDeviceId(String edgeDeviceId) {
-            this.edgeDeviceId = Objects.requireNonNull(edgeDeviceId);
+            if (edgeDeviceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlanePlatform", "edgeDeviceId");
+            }
+            this.edgeDeviceId = edgeDeviceId;
             return this;
         }
         @CustomType.Setter
         public Builder stackHciClusterId(String stackHciClusterId) {
-            this.stackHciClusterId = Objects.requireNonNull(stackHciClusterId);
+            if (stackHciClusterId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlanePlatform", "stackHciClusterId");
+            }
+            this.stackHciClusterId = stackHciClusterId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlanePlatform", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetNetworkPacketCoreControlPlanePlatform build() {

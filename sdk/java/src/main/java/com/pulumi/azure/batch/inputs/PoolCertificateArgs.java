@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -206,8 +207,12 @@ public final class PoolCertificateArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PoolCertificateArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
-            $.storeLocation = Objects.requireNonNull($.storeLocation, "expected parameter 'storeLocation' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("PoolCertificateArgs", "id");
+            }
+            if ($.storeLocation == null) {
+                throw new MissingRequiredPropertyException("PoolCertificateArgs", "storeLocation");
+            }
             return $;
         }
     }

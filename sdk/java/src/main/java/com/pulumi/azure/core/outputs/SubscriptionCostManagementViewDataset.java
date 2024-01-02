@@ -7,6 +7,7 @@ import com.pulumi.azure.core.outputs.SubscriptionCostManagementViewDatasetAggreg
 import com.pulumi.azure.core.outputs.SubscriptionCostManagementViewDatasetGrouping;
 import com.pulumi.azure.core.outputs.SubscriptionCostManagementViewDatasetSorting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -89,7 +90,10 @@ public final class SubscriptionCostManagementViewDataset {
 
         @CustomType.Setter
         public Builder aggregations(List<SubscriptionCostManagementViewDatasetAggregation> aggregations) {
-            this.aggregations = Objects.requireNonNull(aggregations);
+            if (aggregations == null) {
+              throw new MissingRequiredPropertyException("SubscriptionCostManagementViewDataset", "aggregations");
+            }
+            this.aggregations = aggregations;
             return this;
         }
         public Builder aggregations(SubscriptionCostManagementViewDatasetAggregation... aggregations) {
@@ -97,11 +101,15 @@ public final class SubscriptionCostManagementViewDataset {
         }
         @CustomType.Setter
         public Builder granularity(String granularity) {
-            this.granularity = Objects.requireNonNull(granularity);
+            if (granularity == null) {
+              throw new MissingRequiredPropertyException("SubscriptionCostManagementViewDataset", "granularity");
+            }
+            this.granularity = granularity;
             return this;
         }
         @CustomType.Setter
         public Builder groupings(@Nullable List<SubscriptionCostManagementViewDatasetGrouping> groupings) {
+
             this.groupings = groupings;
             return this;
         }
@@ -110,6 +118,7 @@ public final class SubscriptionCostManagementViewDataset {
         }
         @CustomType.Setter
         public Builder sortings(@Nullable List<SubscriptionCostManagementViewDatasetSorting> sortings) {
+
             this.sortings = sortings;
             return this;
         }

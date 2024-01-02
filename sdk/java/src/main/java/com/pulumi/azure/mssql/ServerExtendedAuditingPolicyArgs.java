@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -345,7 +346,9 @@ public final class ServerExtendedAuditingPolicyArgs extends com.pulumi.resources
         }
 
         public ServerExtendedAuditingPolicyArgs build() {
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("ServerExtendedAuditingPolicyArgs", "serverId");
+            }
             return $;
         }
     }

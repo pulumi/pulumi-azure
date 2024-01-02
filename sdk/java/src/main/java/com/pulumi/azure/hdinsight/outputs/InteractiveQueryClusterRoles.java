@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesHeadNode;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNode;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesZookeeperNode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -72,17 +73,26 @@ public final class InteractiveQueryClusterRoles {
 
         @CustomType.Setter
         public Builder headNode(InteractiveQueryClusterRolesHeadNode headNode) {
-            this.headNode = Objects.requireNonNull(headNode);
+            if (headNode == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRoles", "headNode");
+            }
+            this.headNode = headNode;
             return this;
         }
         @CustomType.Setter
         public Builder workerNode(InteractiveQueryClusterRolesWorkerNode workerNode) {
-            this.workerNode = Objects.requireNonNull(workerNode);
+            if (workerNode == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRoles", "workerNode");
+            }
+            this.workerNode = workerNode;
             return this;
         }
         @CustomType.Setter
         public Builder zookeeperNode(InteractiveQueryClusterRolesZookeeperNode zookeeperNode) {
-            this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
+            if (zookeeperNode == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRoles", "zookeeperNode");
+            }
+            this.zookeeperNode = zookeeperNode;
             return this;
         }
         public InteractiveQueryClusterRoles build() {

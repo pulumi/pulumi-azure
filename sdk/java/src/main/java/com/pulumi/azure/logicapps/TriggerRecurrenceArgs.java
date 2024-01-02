@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps;
 import com.pulumi.azure.logicapps.inputs.TriggerRecurrenceScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -308,9 +309,15 @@ public final class TriggerRecurrenceArgs extends com.pulumi.resources.ResourceAr
         }
 
         public TriggerRecurrenceArgs build() {
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.logicAppId = Objects.requireNonNull($.logicAppId, "expected parameter 'logicAppId' to be non-null");
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("TriggerRecurrenceArgs", "frequency");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("TriggerRecurrenceArgs", "interval");
+            }
+            if ($.logicAppId == null) {
+                throw new MissingRequiredPropertyException("TriggerRecurrenceArgs", "logicAppId");
+            }
             return $;
         }
     }

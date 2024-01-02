@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform.outputs;
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudServiceConfigServerGitSetting;
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudServiceRequiredNetworkTrafficRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -136,7 +137,10 @@ public final class GetSpringCloudServiceResult {
 
         @CustomType.Setter
         public Builder configServerGitSettings(List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings) {
-            this.configServerGitSettings = Objects.requireNonNull(configServerGitSettings);
+            if (configServerGitSettings == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "configServerGitSettings");
+            }
+            this.configServerGitSettings = configServerGitSettings;
             return this;
         }
         public Builder configServerGitSettings(GetSpringCloudServiceConfigServerGitSetting... configServerGitSettings) {
@@ -144,22 +148,34 @@ public final class GetSpringCloudServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundPublicIpAddresses(List<String> outboundPublicIpAddresses) {
-            this.outboundPublicIpAddresses = Objects.requireNonNull(outboundPublicIpAddresses);
+            if (outboundPublicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "outboundPublicIpAddresses");
+            }
+            this.outboundPublicIpAddresses = outboundPublicIpAddresses;
             return this;
         }
         public Builder outboundPublicIpAddresses(String... outboundPublicIpAddresses) {
@@ -167,7 +183,10 @@ public final class GetSpringCloudServiceResult {
         }
         @CustomType.Setter
         public Builder requiredNetworkTrafficRules(List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules) {
-            this.requiredNetworkTrafficRules = Objects.requireNonNull(requiredNetworkTrafficRules);
+            if (requiredNetworkTrafficRules == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "requiredNetworkTrafficRules");
+            }
+            this.requiredNetworkTrafficRules = requiredNetworkTrafficRules;
             return this;
         }
         public Builder requiredNetworkTrafficRules(GetSpringCloudServiceRequiredNetworkTrafficRule... requiredNetworkTrafficRules) {
@@ -175,12 +194,18 @@ public final class GetSpringCloudServiceResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetSpringCloudServiceResult build() {

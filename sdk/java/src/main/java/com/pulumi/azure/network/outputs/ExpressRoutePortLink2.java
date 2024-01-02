@@ -189,56 +189,67 @@ public final class ExpressRoutePortLink2 {
 
         @CustomType.Setter
         public Builder adminEnabled(@Nullable Boolean adminEnabled) {
+
             this.adminEnabled = adminEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder connectorType(@Nullable String connectorType) {
+
             this.connectorType = connectorType;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder interfaceName(@Nullable String interfaceName) {
+
             this.interfaceName = interfaceName;
             return this;
         }
         @CustomType.Setter
         public Builder macsecCakKeyvaultSecretId(@Nullable String macsecCakKeyvaultSecretId) {
+
             this.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder macsecCipher(@Nullable String macsecCipher) {
+
             this.macsecCipher = macsecCipher;
             return this;
         }
         @CustomType.Setter
         public Builder macsecCknKeyvaultSecretId(@Nullable String macsecCknKeyvaultSecretId) {
+
             this.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder macsecSciEnabled(@Nullable Boolean macsecSciEnabled) {
+
             this.macsecSciEnabled = macsecSciEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder patchPanelId(@Nullable String patchPanelId) {
+
             this.patchPanelId = patchPanelId;
             return this;
         }
         @CustomType.Setter
         public Builder rackId(@Nullable String rackId) {
+
             this.rackId = rackId;
             return this;
         }
         @CustomType.Setter
         public Builder routerName(@Nullable String routerName) {
+
             this.routerName = routerName;
             return this;
         }

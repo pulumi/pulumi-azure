@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -299,12 +300,24 @@ public final class DataSourceWindowsPerformanceCounterArgs extends com.pulumi.re
         }
 
         public DataSourceWindowsPerformanceCounterArgs build() {
-            $.counterName = Objects.requireNonNull($.counterName, "expected parameter 'counterName' to be non-null");
-            $.instanceName = Objects.requireNonNull($.instanceName, "expected parameter 'instanceName' to be non-null");
-            $.intervalSeconds = Objects.requireNonNull($.intervalSeconds, "expected parameter 'intervalSeconds' to be non-null");
-            $.objectName = Objects.requireNonNull($.objectName, "expected parameter 'objectName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.workspaceName = Objects.requireNonNull($.workspaceName, "expected parameter 'workspaceName' to be non-null");
+            if ($.counterName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "counterName");
+            }
+            if ($.instanceName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "instanceName");
+            }
+            if ($.intervalSeconds == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "intervalSeconds");
+            }
+            if ($.objectName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "objectName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "resourceGroupName");
+            }
+            if ($.workspaceName == null) {
+                throw new MissingRequiredPropertyException("DataSourceWindowsPerformanceCounterArgs", "workspaceName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
 
         @CustomType.Setter
         public Builder executable(String executable) {
-            this.executable = Objects.requireNonNull(executable);
+            if (executable == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction", "executable");
+            }
+            this.executable = executable;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         public GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction build() {

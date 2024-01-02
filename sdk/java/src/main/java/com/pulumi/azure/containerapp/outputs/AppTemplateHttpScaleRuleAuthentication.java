@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class AppTemplateHttpScaleRuleAuthentication {
 
         @CustomType.Setter
         public Builder secretName(String secretName) {
-            this.secretName = Objects.requireNonNull(secretName);
+            if (secretName == null) {
+              throw new MissingRequiredPropertyException("AppTemplateHttpScaleRuleAuthentication", "secretName");
+            }
+            this.secretName = secretName;
             return this;
         }
         @CustomType.Setter
         public Builder triggerParameter(@Nullable String triggerParameter) {
+
             this.triggerParameter = triggerParameter;
             return this;
         }

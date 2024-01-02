@@ -8,6 +8,7 @@ import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLoca
 import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -313,9 +314,15 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackArgs extend
         }
 
         public NextGenerationFirewallVirtualNetworkLocalRulestackArgs build() {
-            $.networkProfile = Objects.requireNonNull($.networkProfile, "expected parameter 'networkProfile' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.rulestackId = Objects.requireNonNull($.rulestackId, "expected parameter 'rulestackId' to be non-null");
+            if ($.networkProfile == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackArgs", "networkProfile");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackArgs", "resourceGroupName");
+            }
+            if ($.rulestackId == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackArgs", "rulestackId");
+            }
             return $;
         }
     }

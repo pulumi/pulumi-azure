@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.inputs;
 import com.pulumi.azure.appservice.inputs.WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,9 +201,15 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationArgs extends com
         }
 
         public WindowsWebAppSlotSiteConfigVirtualApplicationArgs build() {
-            $.physicalPath = Objects.requireNonNull($.physicalPath, "expected parameter 'physicalPath' to be non-null");
-            $.preload = Objects.requireNonNull($.preload, "expected parameter 'preload' to be non-null");
-            $.virtualPath = Objects.requireNonNull($.virtualPath, "expected parameter 'virtualPath' to be non-null");
+            if ($.physicalPath == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplicationArgs", "physicalPath");
+            }
+            if ($.preload == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplicationArgs", "preload");
+            }
+            if ($.virtualPath == null) {
+                throw new MissingRequiredPropertyException("WindowsWebAppSlotSiteConfigVirtualApplicationArgs", "virtualPath");
+            }
             return $;
         }
     }

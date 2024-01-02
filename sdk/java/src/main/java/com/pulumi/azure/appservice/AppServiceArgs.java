@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.inputs.AppServiceSourceControlArgs;
 import com.pulumi.azure.appservice.inputs.AppServiceStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -810,8 +811,12 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppServiceArgs build() {
-            $.appServicePlanId = Objects.requireNonNull($.appServicePlanId, "expected parameter 'appServicePlanId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.appServicePlanId == null) {
+                throw new MissingRequiredPropertyException("AppServiceArgs", "appServicePlanId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AppServiceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

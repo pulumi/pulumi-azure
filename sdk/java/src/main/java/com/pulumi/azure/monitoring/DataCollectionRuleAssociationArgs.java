@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -240,7 +241,9 @@ public final class DataCollectionRuleAssociationArgs extends com.pulumi.resource
         }
 
         public DataCollectionRuleAssociationArgs build() {
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleAssociationArgs", "targetResourceId");
+            }
             return $;
         }
     }

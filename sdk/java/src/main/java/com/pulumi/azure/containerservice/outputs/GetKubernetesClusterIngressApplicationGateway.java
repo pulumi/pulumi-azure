@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -106,22 +107,34 @@ public final class GetKubernetesClusterIngressApplicationGateway {
 
         @CustomType.Setter
         public Builder effectiveGatewayId(String effectiveGatewayId) {
-            this.effectiveGatewayId = Objects.requireNonNull(effectiveGatewayId);
+            if (effectiveGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "effectiveGatewayId");
+            }
+            this.effectiveGatewayId = effectiveGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayId(String gatewayId) {
-            this.gatewayId = Objects.requireNonNull(gatewayId);
+            if (gatewayId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "gatewayId");
+            }
+            this.gatewayId = gatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayName(String gatewayName) {
-            this.gatewayName = Objects.requireNonNull(gatewayName);
+            if (gatewayName == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "gatewayName");
+            }
+            this.gatewayName = gatewayName;
             return this;
         }
         @CustomType.Setter
         public Builder ingressApplicationGatewayIdentities(List<GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities) {
-            this.ingressApplicationGatewayIdentities = Objects.requireNonNull(ingressApplicationGatewayIdentities);
+            if (ingressApplicationGatewayIdentities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "ingressApplicationGatewayIdentities");
+            }
+            this.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
             return this;
         }
         public Builder ingressApplicationGatewayIdentities(GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity... ingressApplicationGatewayIdentities) {
@@ -129,12 +142,18 @@ public final class GetKubernetesClusterIngressApplicationGateway {
         }
         @CustomType.Setter
         public Builder subnetCidr(String subnetCidr) {
-            this.subnetCidr = Objects.requireNonNull(subnetCidr);
+            if (subnetCidr == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "subnetCidr");
+            }
+            this.subnetCidr = subnetCidr;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterIngressApplicationGateway", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetKubernetesClusterIngressApplicationGateway build() {

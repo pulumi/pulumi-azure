@@ -5,6 +5,7 @@ package com.pulumi.azure.hybrid.outputs;
 
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineOsProfileLinuxConfigurationPatchSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class GetComputeMachineOsProfileLinuxConfiguration {
 
         @CustomType.Setter
         public Builder patchSettings(List<GetComputeMachineOsProfileLinuxConfigurationPatchSetting> patchSettings) {
-            this.patchSettings = Objects.requireNonNull(patchSettings);
+            if (patchSettings == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineOsProfileLinuxConfiguration", "patchSettings");
+            }
+            this.patchSettings = patchSettings;
             return this;
         }
         public Builder patchSettings(GetComputeMachineOsProfileLinuxConfigurationPatchSetting... patchSettings) {

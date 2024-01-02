@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicebus.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -234,77 +235,116 @@ public final class GetTopicResult {
 
         @CustomType.Setter
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
-            this.autoDeleteOnIdle = Objects.requireNonNull(autoDeleteOnIdle);
+            if (autoDeleteOnIdle == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "autoDeleteOnIdle");
+            }
+            this.autoDeleteOnIdle = autoDeleteOnIdle;
             return this;
         }
         @CustomType.Setter
         public Builder defaultMessageTtl(String defaultMessageTtl) {
-            this.defaultMessageTtl = Objects.requireNonNull(defaultMessageTtl);
+            if (defaultMessageTtl == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "defaultMessageTtl");
+            }
+            this.defaultMessageTtl = defaultMessageTtl;
             return this;
         }
         @CustomType.Setter
         public Builder duplicateDetectionHistoryTimeWindow(String duplicateDetectionHistoryTimeWindow) {
-            this.duplicateDetectionHistoryTimeWindow = Objects.requireNonNull(duplicateDetectionHistoryTimeWindow);
+            if (duplicateDetectionHistoryTimeWindow == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "duplicateDetectionHistoryTimeWindow");
+            }
+            this.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
             return this;
         }
         @CustomType.Setter
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            this.enableBatchedOperations = Objects.requireNonNull(enableBatchedOperations);
+            if (enableBatchedOperations == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "enableBatchedOperations");
+            }
+            this.enableBatchedOperations = enableBatchedOperations;
             return this;
         }
         @CustomType.Setter
         public Builder enableExpress(Boolean enableExpress) {
-            this.enableExpress = Objects.requireNonNull(enableExpress);
+            if (enableExpress == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "enableExpress");
+            }
+            this.enableExpress = enableExpress;
             return this;
         }
         @CustomType.Setter
         public Builder enablePartitioning(Boolean enablePartitioning) {
-            this.enablePartitioning = Objects.requireNonNull(enablePartitioning);
+            if (enablePartitioning == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "enablePartitioning");
+            }
+            this.enablePartitioning = enablePartitioning;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder maxSizeInMegabytes(Integer maxSizeInMegabytes) {
-            this.maxSizeInMegabytes = Objects.requireNonNull(maxSizeInMegabytes);
+            if (maxSizeInMegabytes == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "maxSizeInMegabytes");
+            }
+            this.maxSizeInMegabytes = maxSizeInMegabytes;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceId(@Nullable String namespaceId) {
+
             this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
+
             this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder requiresDuplicateDetection(Boolean requiresDuplicateDetection) {
-            this.requiresDuplicateDetection = Objects.requireNonNull(requiresDuplicateDetection);
+            if (requiresDuplicateDetection == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "requiresDuplicateDetection");
+            }
+            this.requiresDuplicateDetection = requiresDuplicateDetection;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder supportOrdering(Boolean supportOrdering) {
-            this.supportOrdering = Objects.requireNonNull(supportOrdering);
+            if (supportOrdering == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "supportOrdering");
+            }
+            this.supportOrdering = supportOrdering;
             return this;
         }
         public GetTopicResult build() {

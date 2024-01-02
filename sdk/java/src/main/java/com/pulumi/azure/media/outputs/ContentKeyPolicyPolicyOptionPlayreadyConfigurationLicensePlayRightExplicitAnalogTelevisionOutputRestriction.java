@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
 
         @CustomType.Setter
         public Builder bestEffortEnforced(@Nullable Boolean bestEffortEnforced) {
+
             this.bestEffortEnforced = bestEffortEnforced;
             return this;
         }
         @CustomType.Setter
         public Builder controlBits(Integer controlBits) {
-            this.controlBits = Objects.requireNonNull(controlBits);
+            if (controlBits == null) {
+              throw new MissingRequiredPropertyException("ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction", "controlBits");
+            }
+            this.controlBits = controlBits;
             return this;
         }
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction build() {

@@ -58,11 +58,13 @@ public final class OrchestratedVirtualMachineScaleSetPriorityMix {
 
         @CustomType.Setter
         public Builder baseRegularCount(@Nullable Integer baseRegularCount) {
+
             this.baseRegularCount = baseRegularCount;
             return this;
         }
         @CustomType.Setter
         public Builder regularPercentageAboveBase(@Nullable Integer regularPercentageAboveBase) {
+
             this.regularPercentageAboveBase = regularPercentageAboveBase;
             return this;
         }

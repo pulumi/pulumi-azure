@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppLogApplicationLog;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppLogHttpLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,10 @@ public final class GetLinuxWebAppLog {
 
         @CustomType.Setter
         public Builder applicationLogs(List<GetLinuxWebAppLogApplicationLog> applicationLogs) {
-            this.applicationLogs = Objects.requireNonNull(applicationLogs);
+            if (applicationLogs == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLog", "applicationLogs");
+            }
+            this.applicationLogs = applicationLogs;
             return this;
         }
         public Builder applicationLogs(GetLinuxWebAppLogApplicationLog... applicationLogs) {
@@ -95,17 +99,26 @@ public final class GetLinuxWebAppLog {
         }
         @CustomType.Setter
         public Builder detailedErrorMessages(Boolean detailedErrorMessages) {
-            this.detailedErrorMessages = Objects.requireNonNull(detailedErrorMessages);
+            if (detailedErrorMessages == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLog", "detailedErrorMessages");
+            }
+            this.detailedErrorMessages = detailedErrorMessages;
             return this;
         }
         @CustomType.Setter
         public Builder failedRequestTracing(Boolean failedRequestTracing) {
-            this.failedRequestTracing = Objects.requireNonNull(failedRequestTracing);
+            if (failedRequestTracing == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLog", "failedRequestTracing");
+            }
+            this.failedRequestTracing = failedRequestTracing;
             return this;
         }
         @CustomType.Setter
         public Builder httpLogs(List<GetLinuxWebAppLogHttpLog> httpLogs) {
-            this.httpLogs = Objects.requireNonNull(httpLogs);
+            if (httpLogs == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppLog", "httpLogs");
+            }
+            this.httpLogs = httpLogs;
             return this;
         }
         public Builder httpLogs(GetLinuxWebAppLogHttpLog... httpLogs) {

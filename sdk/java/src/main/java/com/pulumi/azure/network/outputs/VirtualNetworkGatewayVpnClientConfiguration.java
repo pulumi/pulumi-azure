@@ -9,6 +9,7 @@ import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurat
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificate;
 import com.pulumi.azure.network.outputs.VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -232,22 +233,28 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
 
         @CustomType.Setter
         public Builder aadAudience(@Nullable String aadAudience) {
+
             this.aadAudience = aadAudience;
             return this;
         }
         @CustomType.Setter
         public Builder aadIssuer(@Nullable String aadIssuer) {
+
             this.aadIssuer = aadIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder aadTenant(@Nullable String aadTenant) {
+
             this.aadTenant = aadTenant;
             return this;
         }
         @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
-            this.addressSpaces = Objects.requireNonNull(addressSpaces);
+            if (addressSpaces == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfiguration", "addressSpaces");
+            }
+            this.addressSpaces = addressSpaces;
             return this;
         }
         public Builder addressSpaces(String... addressSpaces) {
@@ -255,21 +262,25 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder ipsecPolicy(@Nullable VirtualNetworkGatewayVpnClientConfigurationIpsecPolicy ipsecPolicy) {
+
             this.ipsecPolicy = ipsecPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder radiusServerAddress(@Nullable String radiusServerAddress) {
+
             this.radiusServerAddress = radiusServerAddress;
             return this;
         }
         @CustomType.Setter
         public Builder radiusServerSecret(@Nullable String radiusServerSecret) {
+
             this.radiusServerSecret = radiusServerSecret;
             return this;
         }
         @CustomType.Setter
         public Builder radiusServers(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationRadiusServer> radiusServers) {
+
             this.radiusServers = radiusServers;
             return this;
         }
@@ -278,6 +289,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder revokedCertificates(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates) {
+
             this.revokedCertificates = revokedCertificates;
             return this;
         }
@@ -286,6 +298,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder rootCertificates(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates) {
+
             this.rootCertificates = rootCertificates;
             return this;
         }
@@ -294,6 +307,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder virtualNetworkGatewayClientConnections(@Nullable List<VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnection> virtualNetworkGatewayClientConnections) {
+
             this.virtualNetworkGatewayClientConnections = virtualNetworkGatewayClientConnections;
             return this;
         }
@@ -302,6 +316,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder vpnAuthTypes(@Nullable List<String> vpnAuthTypes) {
+
             this.vpnAuthTypes = vpnAuthTypes;
             return this;
         }
@@ -310,6 +325,7 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
         }
         @CustomType.Setter
         public Builder vpnClientProtocols(@Nullable List<String> vpnClientProtocols) {
+
             this.vpnClientProtocols = vpnClientProtocols;
             return this;
         }

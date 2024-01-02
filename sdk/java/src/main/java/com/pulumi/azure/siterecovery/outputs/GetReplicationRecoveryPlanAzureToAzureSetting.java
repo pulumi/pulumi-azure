@@ -4,6 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -52,22 +53,34 @@ public final class GetReplicationRecoveryPlanAzureToAzureSetting {
 
         @CustomType.Setter
         public Builder primaryEdgeZone(String primaryEdgeZone) {
-            this.primaryEdgeZone = Objects.requireNonNull(primaryEdgeZone);
+            if (primaryEdgeZone == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanAzureToAzureSetting", "primaryEdgeZone");
+            }
+            this.primaryEdgeZone = primaryEdgeZone;
             return this;
         }
         @CustomType.Setter
         public Builder primaryZone(String primaryZone) {
-            this.primaryZone = Objects.requireNonNull(primaryZone);
+            if (primaryZone == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanAzureToAzureSetting", "primaryZone");
+            }
+            this.primaryZone = primaryZone;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryEdgeZone(String recoveryEdgeZone) {
-            this.recoveryEdgeZone = Objects.requireNonNull(recoveryEdgeZone);
+            if (recoveryEdgeZone == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanAzureToAzureSetting", "recoveryEdgeZone");
+            }
+            this.recoveryEdgeZone = recoveryEdgeZone;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryZone(String recoveryZone) {
-            this.recoveryZone = Objects.requireNonNull(recoveryZone);
+            if (recoveryZone == null) {
+              throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanAzureToAzureSetting", "recoveryZone");
+            }
+            this.recoveryZone = recoveryZone;
             return this;
         }
         public GetReplicationRecoveryPlanAzureToAzureSetting build() {

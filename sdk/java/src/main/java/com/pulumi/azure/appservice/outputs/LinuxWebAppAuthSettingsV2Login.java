@@ -191,6 +191,7 @@ public final class LinuxWebAppAuthSettingsV2Login {
 
         @CustomType.Setter
         public Builder allowedExternalRedirectUrls(@Nullable List<String> allowedExternalRedirectUrls) {
+
             this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
         }
@@ -199,51 +200,61 @@ public final class LinuxWebAppAuthSettingsV2Login {
         }
         @CustomType.Setter
         public Builder cookieExpirationConvention(@Nullable String cookieExpirationConvention) {
+
             this.cookieExpirationConvention = cookieExpirationConvention;
             return this;
         }
         @CustomType.Setter
         public Builder cookieExpirationTime(@Nullable String cookieExpirationTime) {
+
             this.cookieExpirationTime = cookieExpirationTime;
             return this;
         }
         @CustomType.Setter
         public Builder logoutEndpoint(@Nullable String logoutEndpoint) {
+
             this.logoutEndpoint = logoutEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder nonceExpirationTime(@Nullable String nonceExpirationTime) {
+
             this.nonceExpirationTime = nonceExpirationTime;
             return this;
         }
         @CustomType.Setter
         public Builder preserveUrlFragmentsForLogins(@Nullable Boolean preserveUrlFragmentsForLogins) {
+
             this.preserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRefreshExtensionTime(@Nullable Double tokenRefreshExtensionTime) {
+
             this.tokenRefreshExtensionTime = tokenRefreshExtensionTime;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreEnabled(@Nullable Boolean tokenStoreEnabled) {
+
             this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStorePath(@Nullable String tokenStorePath) {
+
             this.tokenStorePath = tokenStorePath;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreSasSettingName(@Nullable String tokenStoreSasSettingName) {
+
             this.tokenStoreSasSettingName = tokenStoreSasSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder validateNonce(@Nullable Boolean validateNonce) {
+
             this.validateNonce = validateNonce;
             return this;
         }

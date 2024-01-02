@@ -16,6 +16,7 @@ import com.pulumi.azure.compute.inputs.VirtualMachineStorageImageReferenceArgs;
 import com.pulumi.azure.compute.inputs.VirtualMachineStorageOsDiskArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1013,10 +1014,18 @@ public final class VirtualMachineArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualMachineArgs build() {
-            $.networkInterfaceIds = Objects.requireNonNull($.networkInterfaceIds, "expected parameter 'networkInterfaceIds' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageOsDisk = Objects.requireNonNull($.storageOsDisk, "expected parameter 'storageOsDisk' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.networkInterfaceIds == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineArgs", "networkInterfaceIds");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineArgs", "resourceGroupName");
+            }
+            if ($.storageOsDisk == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineArgs", "storageOsDisk");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineArgs", "vmSize");
+            }
             return $;
         }
     }

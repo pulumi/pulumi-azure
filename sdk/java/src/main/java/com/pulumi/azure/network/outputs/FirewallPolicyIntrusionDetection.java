@@ -89,11 +89,13 @@ public final class FirewallPolicyIntrusionDetection {
 
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder privateRanges(@Nullable List<String> privateRanges) {
+
             this.privateRanges = privateRanges;
             return this;
         }
@@ -102,6 +104,7 @@ public final class FirewallPolicyIntrusionDetection {
         }
         @CustomType.Setter
         public Builder signatureOverrides(@Nullable List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides) {
+
             this.signatureOverrides = signatureOverrides;
             return this;
         }
@@ -110,6 +113,7 @@ public final class FirewallPolicyIntrusionDetection {
         }
         @CustomType.Setter
         public Builder trafficBypasses(@Nullable List<FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses) {
+
             this.trafficBypasses = trafficBypasses;
             return this;
         }

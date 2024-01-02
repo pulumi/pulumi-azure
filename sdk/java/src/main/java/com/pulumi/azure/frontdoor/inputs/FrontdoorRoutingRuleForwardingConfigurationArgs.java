@@ -5,6 +5,7 @@ package com.pulumi.azure.frontdoor.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -347,7 +348,9 @@ public final class FrontdoorRoutingRuleForwardingConfigurationArgs extends com.p
         }
 
         public FrontdoorRoutingRuleForwardingConfigurationArgs build() {
-            $.backendPoolName = Objects.requireNonNull($.backendPoolName, "expected parameter 'backendPoolName' to be non-null");
+            if ($.backendPoolName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleForwardingConfigurationArgs", "backendPoolName");
+            }
             return $;
         }
     }

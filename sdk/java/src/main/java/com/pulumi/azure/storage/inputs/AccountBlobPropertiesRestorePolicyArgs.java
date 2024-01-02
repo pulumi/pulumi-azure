@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AccountBlobPropertiesRestorePolicyArgs extends com.pulumi.res
         }
 
         public AccountBlobPropertiesRestorePolicyArgs build() {
-            $.days = Objects.requireNonNull($.days, "expected parameter 'days' to be non-null");
+            if ($.days == null) {
+                throw new MissingRequiredPropertyException("AccountBlobPropertiesRestorePolicyArgs", "days");
+            }
             return $;
         }
     }

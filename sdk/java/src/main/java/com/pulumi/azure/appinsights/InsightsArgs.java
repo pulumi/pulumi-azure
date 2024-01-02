@@ -5,6 +5,7 @@ package com.pulumi.azure.appinsights;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -606,8 +607,12 @@ public final class InsightsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public InsightsArgs build() {
-            $.applicationType = Objects.requireNonNull($.applicationType, "expected parameter 'applicationType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.applicationType == null) {
+                throw new MissingRequiredPropertyException("InsightsArgs", "applicationType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("InsightsArgs", "resourceGroupName");
+            }
             return $;
         }
     }

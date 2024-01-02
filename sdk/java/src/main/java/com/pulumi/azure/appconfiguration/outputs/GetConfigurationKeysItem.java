@@ -4,6 +4,7 @@
 package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -156,47 +157,74 @@ public final class GetConfigurationKeysItem {
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder locked(Boolean locked) {
-            this.locked = Objects.requireNonNull(locked);
+            if (locked == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "locked");
+            }
+            this.locked = locked;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder vaultKeyReference(String vaultKeyReference) {
-            this.vaultKeyReference = Objects.requireNonNull(vaultKeyReference);
+            if (vaultKeyReference == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeysItem", "vaultKeyReference");
+            }
+            this.vaultKeyReference = vaultKeyReference;
             return this;
         }
         public GetConfigurationKeysItem build() {

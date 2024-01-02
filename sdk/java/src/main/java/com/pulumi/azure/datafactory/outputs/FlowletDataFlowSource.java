@@ -9,6 +9,7 @@ import com.pulumi.azure.datafactory.outputs.FlowletDataFlowSourceLinkedService;
 import com.pulumi.azure.datafactory.outputs.FlowletDataFlowSourceRejectedLinkedService;
 import com.pulumi.azure.datafactory.outputs.FlowletDataFlowSourceSchemaLinkedService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -133,36 +134,45 @@ public final class FlowletDataFlowSource {
 
         @CustomType.Setter
         public Builder dataset(@Nullable FlowletDataFlowSourceDataset dataset) {
+
             this.dataset = dataset;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder flowlet(@Nullable FlowletDataFlowSourceFlowlet flowlet) {
+
             this.flowlet = flowlet;
             return this;
         }
         @CustomType.Setter
         public Builder linkedService(@Nullable FlowletDataFlowSourceLinkedService linkedService) {
+
             this.linkedService = linkedService;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FlowletDataFlowSource", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder rejectedLinkedService(@Nullable FlowletDataFlowSourceRejectedLinkedService rejectedLinkedService) {
+
             this.rejectedLinkedService = rejectedLinkedService;
             return this;
         }
         @CustomType.Setter
         public Builder schemaLinkedService(@Nullable FlowletDataFlowSourceSchemaLinkedService schemaLinkedService) {
+
             this.schemaLinkedService = schemaLinkedService;
             return this;
         }

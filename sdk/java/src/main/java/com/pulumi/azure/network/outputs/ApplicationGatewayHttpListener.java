@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -261,6 +262,7 @@ public final class ApplicationGatewayHttpListener {
 
         @CustomType.Setter
         public Builder customErrorConfigurations(@Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations) {
+
             this.customErrorConfigurations = customErrorConfigurations;
             return this;
         }
@@ -269,36 +271,47 @@ public final class ApplicationGatewayHttpListener {
         }
         @CustomType.Setter
         public Builder firewallPolicyId(@Nullable String firewallPolicyId) {
+
             this.firewallPolicyId = firewallPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurationId(@Nullable String frontendIpConfigurationId) {
+
             this.frontendIpConfigurationId = frontendIpConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurationName(String frontendIpConfigurationName) {
-            this.frontendIpConfigurationName = Objects.requireNonNull(frontendIpConfigurationName);
+            if (frontendIpConfigurationName == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListener", "frontendIpConfigurationName");
+            }
+            this.frontendIpConfigurationName = frontendIpConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPortId(@Nullable String frontendPortId) {
+
             this.frontendPortId = frontendPortId;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPortName(String frontendPortName) {
-            this.frontendPortName = Objects.requireNonNull(frontendPortName);
+            if (frontendPortName == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListener", "frontendPortName");
+            }
+            this.frontendPortName = frontendPortName;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
+
             this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder hostNames(@Nullable List<String> hostNames) {
+
             this.hostNames = hostNames;
             return this;
         }
@@ -307,41 +320,53 @@ public final class ApplicationGatewayHttpListener {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListener", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayHttpListener", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder requireSni(@Nullable Boolean requireSni) {
+
             this.requireSni = requireSni;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertificateId(@Nullable String sslCertificateId) {
+
             this.sslCertificateId = sslCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder sslCertificateName(@Nullable String sslCertificateName) {
+
             this.sslCertificateName = sslCertificateName;
             return this;
         }
         @CustomType.Setter
         public Builder sslProfileId(@Nullable String sslProfileId) {
+
             this.sslProfileId = sslProfileId;
             return this;
         }
         @CustomType.Setter
         public Builder sslProfileName(@Nullable String sslProfileName) {
+
             this.sslProfileName = sslProfileName;
             return this;
         }

@@ -60,11 +60,13 @@ public final class ConfigurationBackupRetentionPolicyDailySchedule {
 
         @CustomType.Setter
         public Builder retentionDuration(@Nullable ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration retentionDuration) {
+
             this.retentionDuration = retentionDuration;
             return this;
         }
         @CustomType.Setter
         public Builder retentionTimes(@Nullable List<String> retentionTimes) {
+
             this.retentionTimes = retentionTimes;
             return this;
         }

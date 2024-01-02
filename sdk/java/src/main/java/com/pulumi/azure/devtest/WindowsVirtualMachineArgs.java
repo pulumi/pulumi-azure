@@ -7,6 +7,7 @@ import com.pulumi.azure.devtest.inputs.WindowsVirtualMachineGalleryImageReferenc
 import com.pulumi.azure.devtest.inputs.WindowsVirtualMachineInboundNatRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -664,15 +665,33 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         public WindowsVirtualMachineArgs build() {
-            $.galleryImageReference = Objects.requireNonNull($.galleryImageReference, "expected parameter 'galleryImageReference' to be non-null");
-            $.labName = Objects.requireNonNull($.labName, "expected parameter 'labName' to be non-null");
-            $.labSubnetName = Objects.requireNonNull($.labSubnetName, "expected parameter 'labSubnetName' to be non-null");
-            $.labVirtualNetworkId = Objects.requireNonNull($.labVirtualNetworkId, "expected parameter 'labVirtualNetworkId' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.storageType = Objects.requireNonNull($.storageType, "expected parameter 'storageType' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.galleryImageReference == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "galleryImageReference");
+            }
+            if ($.labName == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "labName");
+            }
+            if ($.labSubnetName == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "labSubnetName");
+            }
+            if ($.labVirtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "labVirtualNetworkId");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "password");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "resourceGroupName");
+            }
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "size");
+            }
+            if ($.storageType == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "storageType");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineArgs", "username");
+            }
             return $;
         }
     }

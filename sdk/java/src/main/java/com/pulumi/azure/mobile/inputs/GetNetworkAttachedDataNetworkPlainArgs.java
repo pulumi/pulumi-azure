@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetNetworkAttachedDataNetworkPlainArgs extends com.pulumi.res
         }
 
         public GetNetworkAttachedDataNetworkPlainArgs build() {
-            $.mobileNetworkDataNetworkName = Objects.requireNonNull($.mobileNetworkDataNetworkName, "expected parameter 'mobileNetworkDataNetworkName' to be non-null");
-            $.mobileNetworkPacketCoreDataPlaneId = Objects.requireNonNull($.mobileNetworkPacketCoreDataPlaneId, "expected parameter 'mobileNetworkPacketCoreDataPlaneId' to be non-null");
+            if ($.mobileNetworkDataNetworkName == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkPlainArgs", "mobileNetworkDataNetworkName");
+            }
+            if ($.mobileNetworkPacketCoreDataPlaneId == null) {
+                throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkPlainArgs", "mobileNetworkPacketCoreDataPlaneId");
+            }
             return $;
         }
     }

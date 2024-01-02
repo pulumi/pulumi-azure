@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs extends co
         }
 
         public LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs build() {
-            $.actionType = Objects.requireNonNull($.actionType, "expected parameter 'actionType' to be non-null");
+            if ($.actionType == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs", "actionType");
+            }
             return $;
         }
     }

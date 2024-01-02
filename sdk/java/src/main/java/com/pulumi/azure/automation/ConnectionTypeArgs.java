@@ -6,6 +6,7 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.automation.inputs.ConnectionTypeFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,9 +238,15 @@ public final class ConnectionTypeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ConnectionTypeArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.fields = Objects.requireNonNull($.fields, "expected parameter 'fields' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ConnectionTypeArgs", "automationAccountName");
+            }
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("ConnectionTypeArgs", "fields");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConnectionTypeArgs", "resourceGroupName");
+            }
             return $;
         }
     }

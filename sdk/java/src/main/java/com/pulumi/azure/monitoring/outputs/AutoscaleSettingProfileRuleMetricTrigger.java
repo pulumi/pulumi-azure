@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.AutoscaleSettingProfileRuleMetricTriggerDimension;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -192,6 +193,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -200,52 +202,78 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
         }
         @CustomType.Setter
         public Builder divideByInstanceCount(@Nullable Boolean divideByInstanceCount) {
+
             this.divideByInstanceCount = divideByInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+            if (metricName == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "metricName");
+            }
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
         public Builder metricNamespace(@Nullable String metricNamespace) {
+
             this.metricNamespace = metricNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder metricResourceId(String metricResourceId) {
-            this.metricResourceId = Objects.requireNonNull(metricResourceId);
+            if (metricResourceId == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "metricResourceId");
+            }
+            this.metricResourceId = metricResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder statistic(String statistic) {
-            this.statistic = Objects.requireNonNull(statistic);
+            if (statistic == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "statistic");
+            }
+            this.statistic = statistic;
             return this;
         }
         @CustomType.Setter
         public Builder threshold(Double threshold) {
-            this.threshold = Objects.requireNonNull(threshold);
+            if (threshold == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "threshold");
+            }
+            this.threshold = threshold;
             return this;
         }
         @CustomType.Setter
         public Builder timeAggregation(String timeAggregation) {
-            this.timeAggregation = Objects.requireNonNull(timeAggregation);
+            if (timeAggregation == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "timeAggregation");
+            }
+            this.timeAggregation = timeAggregation;
             return this;
         }
         @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
-            this.timeGrain = Objects.requireNonNull(timeGrain);
+            if (timeGrain == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "timeGrain");
+            }
+            this.timeGrain = timeGrain;
             return this;
         }
         @CustomType.Setter
         public Builder timeWindow(String timeWindow) {
-            this.timeWindow = Objects.requireNonNull(timeWindow);
+            if (timeWindow == null) {
+              throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTrigger", "timeWindow");
+            }
+            this.timeWindow = timeWindow;
             return this;
         }
         public AutoscaleSettingProfileRuleMetricTrigger build() {

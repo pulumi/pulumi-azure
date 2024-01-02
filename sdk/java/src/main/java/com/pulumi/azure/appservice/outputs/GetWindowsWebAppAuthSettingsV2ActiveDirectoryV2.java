@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -199,7 +200,10 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
 
         @CustomType.Setter
         public Builder allowedApplications(List<String> allowedApplications) {
-            this.allowedApplications = Objects.requireNonNull(allowedApplications);
+            if (allowedApplications == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "allowedApplications");
+            }
+            this.allowedApplications = allowedApplications;
             return this;
         }
         public Builder allowedApplications(String... allowedApplications) {
@@ -207,7 +211,10 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedAudiences(List<String> allowedAudiences) {
-            this.allowedAudiences = Objects.requireNonNull(allowedAudiences);
+            if (allowedAudiences == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "allowedAudiences");
+            }
+            this.allowedAudiences = allowedAudiences;
             return this;
         }
         public Builder allowedAudiences(String... allowedAudiences) {
@@ -215,7 +222,10 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedGroups(List<String> allowedGroups) {
-            this.allowedGroups = Objects.requireNonNull(allowedGroups);
+            if (allowedGroups == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "allowedGroups");
+            }
+            this.allowedGroups = allowedGroups;
             return this;
         }
         public Builder allowedGroups(String... allowedGroups) {
@@ -223,7 +233,10 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder allowedIdentities(List<String> allowedIdentities) {
-            this.allowedIdentities = Objects.requireNonNull(allowedIdentities);
+            if (allowedIdentities == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "allowedIdentities");
+            }
+            this.allowedIdentities = allowedIdentities;
             return this;
         }
         public Builder allowedIdentities(String... allowedIdentities) {
@@ -231,22 +244,34 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretCertificateThumbprint(String clientSecretCertificateThumbprint) {
-            this.clientSecretCertificateThumbprint = Objects.requireNonNull(clientSecretCertificateThumbprint);
+            if (clientSecretCertificateThumbprint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "clientSecretCertificateThumbprint");
+            }
+            this.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder jwtAllowedClientApplications(List<String> jwtAllowedClientApplications) {
-            this.jwtAllowedClientApplications = Objects.requireNonNull(jwtAllowedClientApplications);
+            if (jwtAllowedClientApplications == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "jwtAllowedClientApplications");
+            }
+            this.jwtAllowedClientApplications = jwtAllowedClientApplications;
             return this;
         }
         public Builder jwtAllowedClientApplications(String... jwtAllowedClientApplications) {
@@ -254,7 +279,10 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder jwtAllowedGroups(List<String> jwtAllowedGroups) {
-            this.jwtAllowedGroups = Objects.requireNonNull(jwtAllowedGroups);
+            if (jwtAllowedGroups == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "jwtAllowedGroups");
+            }
+            this.jwtAllowedGroups = jwtAllowedGroups;
             return this;
         }
         public Builder jwtAllowedGroups(String... jwtAllowedGroups) {
@@ -262,17 +290,26 @@ public final class GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 {
         }
         @CustomType.Setter
         public Builder loginParameters(Map<String,String> loginParameters) {
-            this.loginParameters = Objects.requireNonNull(loginParameters);
+            if (loginParameters == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "loginParameters");
+            }
+            this.loginParameters = loginParameters;
             return this;
         }
         @CustomType.Setter
         public Builder tenantAuthEndpoint(String tenantAuthEndpoint) {
-            this.tenantAuthEndpoint = Objects.requireNonNull(tenantAuthEndpoint);
+            if (tenantAuthEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "tenantAuthEndpoint");
+            }
+            this.tenantAuthEndpoint = tenantAuthEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder wwwAuthenticationDisabled(Boolean wwwAuthenticationDisabled) {
-            this.wwwAuthenticationDisabled = Objects.requireNonNull(wwwAuthenticationDisabled);
+            if (wwwAuthenticationDisabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2", "wwwAuthenticationDisabled");
+            }
+            this.wwwAuthenticationDisabled = wwwAuthenticationDisabled;
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2 build() {

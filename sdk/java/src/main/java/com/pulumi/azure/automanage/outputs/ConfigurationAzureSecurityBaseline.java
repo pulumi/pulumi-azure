@@ -44,6 +44,7 @@ public final class ConfigurationAzureSecurityBaseline {
 
         @CustomType.Setter
         public Builder assignmentType(@Nullable String assignmentType) {
+
             this.assignmentType = assignmentType;
             return this;
         }

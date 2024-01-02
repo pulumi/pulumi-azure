@@ -5,6 +5,7 @@ package com.pulumi.azure.appinsights.outputs;
 
 import com.pulumi.azure.appinsights.outputs.StandardWebTestRequestHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -117,16 +118,19 @@ public final class StandardWebTestRequest {
 
         @CustomType.Setter
         public Builder body(@Nullable String body) {
+
             this.body = body;
             return this;
         }
         @CustomType.Setter
         public Builder followRedirectsEnabled(@Nullable Boolean followRedirectsEnabled) {
+
             this.followRedirectsEnabled = followRedirectsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<StandardWebTestRequestHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -135,17 +139,22 @@ public final class StandardWebTestRequest {
         }
         @CustomType.Setter
         public Builder httpVerb(@Nullable String httpVerb) {
+
             this.httpVerb = httpVerb;
             return this;
         }
         @CustomType.Setter
         public Builder parseDependentRequestsEnabled(@Nullable Boolean parseDependentRequestsEnabled) {
+
             this.parseDependentRequestsEnabled = parseDependentRequestsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("StandardWebTestRequest", "url");
+            }
+            this.url = url;
             return this;
         }
         public StandardWebTestRequest build() {

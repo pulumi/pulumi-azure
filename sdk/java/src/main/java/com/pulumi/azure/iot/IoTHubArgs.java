@@ -14,6 +14,7 @@ import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
 import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -766,8 +767,12 @@ public final class IoTHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IoTHubArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IoTHubArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("IoTHubArgs", "sku");
+            }
             return $;
         }
     }

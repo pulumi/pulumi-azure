@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.cosmosdb.inputs.CassandraClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -600,9 +601,15 @@ public final class CassandraClusterArgs extends com.pulumi.resources.ResourceArg
         }
 
         public CassandraClusterArgs build() {
-            $.defaultAdminPassword = Objects.requireNonNull($.defaultAdminPassword, "expected parameter 'defaultAdminPassword' to be non-null");
-            $.delegatedManagementSubnetId = Objects.requireNonNull($.delegatedManagementSubnetId, "expected parameter 'delegatedManagementSubnetId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.defaultAdminPassword == null) {
+                throw new MissingRequiredPropertyException("CassandraClusterArgs", "defaultAdminPassword");
+            }
+            if ($.delegatedManagementSubnetId == null) {
+                throw new MissingRequiredPropertyException("CassandraClusterArgs", "delegatedManagementSubnetId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CassandraClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

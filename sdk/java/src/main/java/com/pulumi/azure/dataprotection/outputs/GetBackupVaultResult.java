@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection.outputs;
 
 import com.pulumi.azure.dataprotection.outputs.GetBackupVaultIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -127,17 +128,26 @@ public final class GetBackupVaultResult {
 
         @CustomType.Setter
         public Builder datastoreType(String datastoreType) {
-            this.datastoreType = Objects.requireNonNull(datastoreType);
+            if (datastoreType == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "datastoreType");
+            }
+            this.datastoreType = datastoreType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetBackupVaultIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetBackupVaultIdentity... identities) {
@@ -145,27 +155,42 @@ public final class GetBackupVaultResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder redundancy(String redundancy) {
-            this.redundancy = Objects.requireNonNull(redundancy);
+            if (redundancy == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "redundancy");
+            }
+            this.redundancy = redundancy;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBackupVaultResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetBackupVaultResult build() {

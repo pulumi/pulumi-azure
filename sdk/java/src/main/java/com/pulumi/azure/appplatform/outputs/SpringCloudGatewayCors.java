@@ -131,6 +131,7 @@ public final class SpringCloudGatewayCors {
 
         @CustomType.Setter
         public Builder allowedHeaders(@Nullable List<String> allowedHeaders) {
+
             this.allowedHeaders = allowedHeaders;
             return this;
         }
@@ -139,6 +140,7 @@ public final class SpringCloudGatewayCors {
         }
         @CustomType.Setter
         public Builder allowedMethods(@Nullable List<String> allowedMethods) {
+
             this.allowedMethods = allowedMethods;
             return this;
         }
@@ -147,6 +149,7 @@ public final class SpringCloudGatewayCors {
         }
         @CustomType.Setter
         public Builder allowedOriginPatterns(@Nullable List<String> allowedOriginPatterns) {
+
             this.allowedOriginPatterns = allowedOriginPatterns;
             return this;
         }
@@ -155,6 +158,7 @@ public final class SpringCloudGatewayCors {
         }
         @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+
             this.allowedOrigins = allowedOrigins;
             return this;
         }
@@ -163,11 +167,13 @@ public final class SpringCloudGatewayCors {
         }
         @CustomType.Setter
         public Builder credentialsAllowed(@Nullable Boolean credentialsAllowed) {
+
             this.credentialsAllowed = credentialsAllowed;
             return this;
         }
         @CustomType.Setter
         public Builder exposedHeaders(@Nullable List<String> exposedHeaders) {
+
             this.exposedHeaders = exposedHeaders;
             return this;
         }
@@ -176,6 +182,7 @@ public final class SpringCloudGatewayCors {
         }
         @CustomType.Setter
         public Builder maxAgeSeconds(@Nullable Integer maxAgeSeconds) {
+
             this.maxAgeSeconds = maxAgeSeconds;
             return this;
         }

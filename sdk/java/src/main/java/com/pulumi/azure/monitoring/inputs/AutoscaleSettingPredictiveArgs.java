@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AutoscaleSettingPredictiveArgs extends com.pulumi.resources.R
         }
 
         public AutoscaleSettingPredictiveArgs build() {
-            $.scaleMode = Objects.requireNonNull($.scaleMode, "expected parameter 'scaleMode' to be non-null");
+            if ($.scaleMode == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingPredictiveArgs", "scaleMode");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.consumption.outputs.GetBudgetResourceGroupFilter;
 import com.pulumi.azure.consumption.outputs.GetBudgetResourceGroupNotification;
 import com.pulumi.azure.consumption.outputs.GetBudgetResourceGroupTimePeriod;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -137,12 +138,18 @@ public final class GetBudgetResourceGroupResult {
 
         @CustomType.Setter
         public Builder amount(Double amount) {
-            this.amount = Objects.requireNonNull(amount);
+            if (amount == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "amount");
+            }
+            this.amount = amount;
             return this;
         }
         @CustomType.Setter
         public Builder filters(List<GetBudgetResourceGroupFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetBudgetResourceGroupFilter... filters) {
@@ -150,17 +157,26 @@ public final class GetBudgetResourceGroupResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notifications(List<GetBudgetResourceGroupNotification> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+            if (notifications == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "notifications");
+            }
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(GetBudgetResourceGroupNotification... notifications) {
@@ -168,17 +184,26 @@ public final class GetBudgetResourceGroupResult {
         }
         @CustomType.Setter
         public Builder resourceGroupId(String resourceGroupId) {
-            this.resourceGroupId = Objects.requireNonNull(resourceGroupId);
+            if (resourceGroupId == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "resourceGroupId");
+            }
+            this.resourceGroupId = resourceGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
-            this.timeGrain = Objects.requireNonNull(timeGrain);
+            if (timeGrain == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "timeGrain");
+            }
+            this.timeGrain = timeGrain;
             return this;
         }
         @CustomType.Setter
         public Builder timePeriods(List<GetBudgetResourceGroupTimePeriod> timePeriods) {
-            this.timePeriods = Objects.requireNonNull(timePeriods);
+            if (timePeriods == null) {
+              throw new MissingRequiredPropertyException("GetBudgetResourceGroupResult", "timePeriods");
+            }
+            this.timePeriods = timePeriods;
             return this;
         }
         public Builder timePeriods(GetBudgetResourceGroupTimePeriod... timePeriods) {

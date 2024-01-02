@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class SparkClusterRolesWorkerNodeScriptActionArgs extends com.pulum
         }
 
         public SparkClusterRolesWorkerNodeScriptActionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeScriptActionArgs", "name");
+            }
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("SparkClusterRolesWorkerNodeScriptActionArgs", "uri");
+            }
             return $;
         }
     }

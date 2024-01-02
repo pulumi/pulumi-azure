@@ -5,6 +5,7 @@ package com.pulumi.azure.avs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.clusterNodeCount = Objects.requireNonNull($.clusterNodeCount, "expected parameter 'clusterNodeCount' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.vmwareCloudId = Objects.requireNonNull($.vmwareCloudId, "expected parameter 'vmwareCloudId' to be non-null");
+            if ($.clusterNodeCount == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "clusterNodeCount");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "skuName");
+            }
+            if ($.vmwareCloudId == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "vmwareCloudId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetAccountSASResourceTypes extends com.pulumi.resources.Invok
         }
 
         public GetAccountSASResourceTypes build() {
-            $.container = Objects.requireNonNull($.container, "expected parameter 'container' to be non-null");
-            $.object = Objects.requireNonNull($.object, "expected parameter 'object' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.container == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASResourceTypes", "container");
+            }
+            if ($.object == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASResourceTypes", "object");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASResourceTypes", "service");
+            }
             return $;
         }
     }

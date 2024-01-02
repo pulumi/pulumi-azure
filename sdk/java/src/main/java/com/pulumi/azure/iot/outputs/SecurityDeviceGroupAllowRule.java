@@ -86,6 +86,7 @@ public final class SecurityDeviceGroupAllowRule {
 
         @CustomType.Setter
         public Builder connectionFromIpsNotAlloweds(@Nullable List<String> connectionFromIpsNotAlloweds) {
+
             this.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
             return this;
         }
@@ -94,6 +95,7 @@ public final class SecurityDeviceGroupAllowRule {
         }
         @CustomType.Setter
         public Builder connectionToIpsNotAlloweds(@Nullable List<String> connectionToIpsNotAlloweds) {
+
             this.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
             return this;
         }
@@ -102,6 +104,7 @@ public final class SecurityDeviceGroupAllowRule {
         }
         @CustomType.Setter
         public Builder localUsersNotAlloweds(@Nullable List<String> localUsersNotAlloweds) {
+
             this.localUsersNotAlloweds = localUsersNotAlloweds;
             return this;
         }
@@ -110,6 +113,7 @@ public final class SecurityDeviceGroupAllowRule {
         }
         @CustomType.Setter
         public Builder processesNotAlloweds(@Nullable List<String> processesNotAlloweds) {
+
             this.processesNotAlloweds = processesNotAlloweds;
             return this;
         }

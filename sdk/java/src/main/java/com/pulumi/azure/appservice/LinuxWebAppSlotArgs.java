@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.inputs.LinuxWebAppSlotSiteConfigArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSlotStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -979,8 +980,12 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public LinuxWebAppSlotArgs build() {
-            $.appServiceId = Objects.requireNonNull($.appServiceId, "expected parameter 'appServiceId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.appServiceId == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotArgs", "appServiceId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotArgs", "siteConfig");
+            }
             return $;
         }
     }

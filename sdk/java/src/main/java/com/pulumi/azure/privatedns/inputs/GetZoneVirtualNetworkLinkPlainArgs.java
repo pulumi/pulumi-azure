@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetZoneVirtualNetworkLinkPlainArgs extends com.pulumi.resourc
         }
 
         public GetZoneVirtualNetworkLinkPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.privateDnsZoneName = Objects.requireNonNull($.privateDnsZoneName, "expected parameter 'privateDnsZoneName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkPlainArgs", "name");
+            }
+            if ($.privateDnsZoneName == null) {
+                throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkPlainArgs", "privateDnsZoneName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

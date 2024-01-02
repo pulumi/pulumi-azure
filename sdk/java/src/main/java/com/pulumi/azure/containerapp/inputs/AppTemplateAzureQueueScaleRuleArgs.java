@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.inputs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateAzureQueueScaleRuleAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -198,10 +199,18 @@ public final class AppTemplateAzureQueueScaleRuleArgs extends com.pulumi.resourc
         }
 
         public AppTemplateAzureQueueScaleRuleArgs build() {
-            $.authentications = Objects.requireNonNull($.authentications, "expected parameter 'authentications' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.queueLength = Objects.requireNonNull($.queueLength, "expected parameter 'queueLength' to be non-null");
-            $.queueName = Objects.requireNonNull($.queueName, "expected parameter 'queueName' to be non-null");
+            if ($.authentications == null) {
+                throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRuleArgs", "authentications");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRuleArgs", "name");
+            }
+            if ($.queueLength == null) {
+                throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRuleArgs", "queueLength");
+            }
+            if ($.queueName == null) {
+                throw new MissingRequiredPropertyException("AppTemplateAzureQueueScaleRuleArgs", "queueName");
+            }
             return $;
         }
     }

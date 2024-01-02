@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,29 @@ public final class CacheNfsTargetNamespaceJunction {
 
         @CustomType.Setter
         public Builder accessPolicyName(@Nullable String accessPolicyName) {
+
             this.accessPolicyName = accessPolicyName;
             return this;
         }
         @CustomType.Setter
         public Builder namespacePath(String namespacePath) {
-            this.namespacePath = Objects.requireNonNull(namespacePath);
+            if (namespacePath == null) {
+              throw new MissingRequiredPropertyException("CacheNfsTargetNamespaceJunction", "namespacePath");
+            }
+            this.namespacePath = namespacePath;
             return this;
         }
         @CustomType.Setter
         public Builder nfsExport(String nfsExport) {
-            this.nfsExport = Objects.requireNonNull(nfsExport);
+            if (nfsExport == null) {
+              throw new MissingRequiredPropertyException("CacheNfsTargetNamespaceJunction", "nfsExport");
+            }
+            this.nfsExport = nfsExport;
             return this;
         }
         @CustomType.Setter
         public Builder targetPath(@Nullable String targetPath) {
+
             this.targetPath = targetPath;
             return this;
         }

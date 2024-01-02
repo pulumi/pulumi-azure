@@ -6,6 +6,7 @@ package com.pulumi.azure.datashare;
 import com.pulumi.azure.datashare.inputs.ShareSnapshotScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -262,8 +263,12 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ShareArgs build() {
-            $.accountId = Objects.requireNonNull($.accountId, "expected parameter 'accountId' to be non-null");
-            $.kind = Objects.requireNonNull($.kind, "expected parameter 'kind' to be non-null");
+            if ($.accountId == null) {
+                throw new MissingRequiredPropertyException("ShareArgs", "accountId");
+            }
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("ShareArgs", "kind");
+            }
             return $;
         }
     }

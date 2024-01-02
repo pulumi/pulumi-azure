@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -92,27 +93,42 @@ public final class GetCertificateCertificatePolicyKeyProperty {
 
         @CustomType.Setter
         public Builder curve(String curve) {
-            this.curve = Objects.requireNonNull(curve);
+            if (curve == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyKeyProperty", "curve");
+            }
+            this.curve = curve;
             return this;
         }
         @CustomType.Setter
         public Builder exportable(Boolean exportable) {
-            this.exportable = Objects.requireNonNull(exportable);
+            if (exportable == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyKeyProperty", "exportable");
+            }
+            this.exportable = exportable;
             return this;
         }
         @CustomType.Setter
         public Builder keySize(Integer keySize) {
-            this.keySize = Objects.requireNonNull(keySize);
+            if (keySize == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyKeyProperty", "keySize");
+            }
+            this.keySize = keySize;
             return this;
         }
         @CustomType.Setter
         public Builder keyType(String keyType) {
-            this.keyType = Objects.requireNonNull(keyType);
+            if (keyType == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyKeyProperty", "keyType");
+            }
+            this.keyType = keyType;
             return this;
         }
         @CustomType.Setter
         public Builder reuseKey(Boolean reuseKey) {
-            this.reuseKey = Objects.requireNonNull(reuseKey);
+            if (reuseKey == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyKeyProperty", "reuseKey");
+            }
+            this.reuseKey = reuseKey;
             return this;
         }
         public GetCertificateCertificatePolicyKeyProperty build() {

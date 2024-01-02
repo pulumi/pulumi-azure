@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,12 +299,24 @@ public final class CacheDirectoryActiveDirectoryArgs extends com.pulumi.resource
         }
 
         public CacheDirectoryActiveDirectoryArgs build() {
-            $.cacheNetbiosName = Objects.requireNonNull($.cacheNetbiosName, "expected parameter 'cacheNetbiosName' to be non-null");
-            $.dnsPrimaryIp = Objects.requireNonNull($.dnsPrimaryIp, "expected parameter 'dnsPrimaryIp' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.domainNetbiosName = Objects.requireNonNull($.domainNetbiosName, "expected parameter 'domainNetbiosName' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.cacheNetbiosName == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "cacheNetbiosName");
+            }
+            if ($.dnsPrimaryIp == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "dnsPrimaryIp");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "domainName");
+            }
+            if ($.domainNetbiosName == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "domainNetbiosName");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryActiveDirectoryArgs", "username");
+            }
             return $;
         }
     }

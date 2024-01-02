@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.outputs;
 import com.pulumi.azure.storage.outputs.GetPolicyRuleAction;
 import com.pulumi.azure.storage.outputs.GetPolicyRuleFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -88,7 +89,10 @@ public final class GetPolicyRule {
 
         @CustomType.Setter
         public Builder actions(List<GetPolicyRuleAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRule", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetPolicyRuleAction... actions) {
@@ -96,12 +100,18 @@ public final class GetPolicyRule {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRule", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder filters(List<GetPolicyRuleFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRule", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetPolicyRuleFilter... filters) {
@@ -109,7 +119,10 @@ public final class GetPolicyRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetPolicyRule build() {

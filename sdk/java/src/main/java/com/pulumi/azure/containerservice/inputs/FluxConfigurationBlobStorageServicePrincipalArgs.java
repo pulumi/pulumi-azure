@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class FluxConfigurationBlobStorageServicePrincipalArgs extends com.
         }
 
         public FluxConfigurationBlobStorageServicePrincipalArgs build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageServicePrincipalArgs", "clientId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageServicePrincipalArgs", "tenantId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class DataCollectionRuleDestinationsStorageTableDirectArgs extends 
         }
 
         public DataCollectionRuleDestinationsStorageTableDirectArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageTableDirectArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageTableDirectArgs", "storageAccountId");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageTableDirectArgs", "tableName");
+            }
             return $;
         }
     }

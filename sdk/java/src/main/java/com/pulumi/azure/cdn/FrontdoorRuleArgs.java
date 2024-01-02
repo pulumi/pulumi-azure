@@ -7,6 +7,7 @@ import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -272,9 +273,15 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FrontdoorRuleArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.cdnFrontdoorRuleSetId = Objects.requireNonNull($.cdnFrontdoorRuleSetId, "expected parameter 'cdnFrontdoorRuleSetId' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleArgs", "actions");
+            }
+            if ($.cdnFrontdoorRuleSetId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleArgs", "cdnFrontdoorRuleSetId");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleArgs", "order");
+            }
             return $;
         }
     }

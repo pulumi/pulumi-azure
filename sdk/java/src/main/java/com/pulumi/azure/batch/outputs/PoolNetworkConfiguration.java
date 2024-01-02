@@ -117,16 +117,19 @@ public final class PoolNetworkConfiguration {
 
         @CustomType.Setter
         public Builder acceleratedNetworkingEnabled(@Nullable Boolean acceleratedNetworkingEnabled) {
+
             this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicVnetAssignmentScope(@Nullable String dynamicVnetAssignmentScope) {
+
             this.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             return this;
         }
         @CustomType.Setter
         public Builder endpointConfigurations(@Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
+
             this.endpointConfigurations = endpointConfigurations;
             return this;
         }
@@ -135,11 +138,13 @@ public final class PoolNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder publicAddressProvisioningType(@Nullable String publicAddressProvisioningType) {
+
             this.publicAddressProvisioningType = publicAddressProvisioningType;
             return this;
         }
         @CustomType.Setter
         public Builder publicIps(@Nullable List<String> publicIps) {
+
             this.publicIps = publicIps;
             return this;
         }
@@ -148,6 +153,7 @@ public final class PoolNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }

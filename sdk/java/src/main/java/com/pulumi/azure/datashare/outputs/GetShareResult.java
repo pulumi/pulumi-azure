@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare.outputs;
 
 import com.pulumi.azure.datashare.outputs.GetShareSnapshotSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -120,32 +121,50 @@ public final class GetShareResult {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotSchedules(List<GetShareSnapshotSchedule> snapshotSchedules) {
-            this.snapshotSchedules = Objects.requireNonNull(snapshotSchedules);
+            if (snapshotSchedules == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "snapshotSchedules");
+            }
+            this.snapshotSchedules = snapshotSchedules;
             return this;
         }
         public Builder snapshotSchedules(GetShareSnapshotSchedule... snapshotSchedules) {
@@ -153,7 +172,10 @@ public final class GetShareResult {
         }
         @CustomType.Setter
         public Builder terms(String terms) {
-            this.terms = Objects.requireNonNull(terms);
+            if (terms == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "terms");
+            }
+            this.terms = terms;
             return this;
         }
         public GetShareResult build() {

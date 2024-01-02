@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,9 +200,15 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         }
 
         public PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs build() {
-            $.access = Objects.requireNonNull($.access, "expected parameter 'access' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
-            $.sourceAddressPrefix = Objects.requireNonNull($.sourceAddressPrefix, "expected parameter 'sourceAddressPrefix' to be non-null");
+            if ($.access == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs", "access");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs", "priority");
+            }
+            if ($.sourceAddressPrefix == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs", "sourceAddressPrefix");
+            }
             return $;
         }
     }

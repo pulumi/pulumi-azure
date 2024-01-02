@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -226,8 +227,12 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
         }
 
         public FrontdoorProfileArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorProfileArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorProfileArgs", "skuName");
+            }
             return $;
         }
     }

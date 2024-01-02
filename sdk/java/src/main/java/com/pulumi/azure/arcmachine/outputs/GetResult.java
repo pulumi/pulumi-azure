@@ -10,6 +10,7 @@ import com.pulumi.azure.arcmachine.outputs.GetLocationData;
 import com.pulumi.azure.arcmachine.outputs.GetOsProfile;
 import com.pulumi.azure.arcmachine.outputs.GetServiceStatus;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -449,17 +450,26 @@ public final class GetResult {
 
         @CustomType.Setter
         public Builder activeDirectoryFqdn(String activeDirectoryFqdn) {
-            this.activeDirectoryFqdn = Objects.requireNonNull(activeDirectoryFqdn);
+            if (activeDirectoryFqdn == null) {
+              throw new MissingRequiredPropertyException("GetResult", "activeDirectoryFqdn");
+            }
+            this.activeDirectoryFqdn = activeDirectoryFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder agentVersion(String agentVersion) {
-            this.agentVersion = Objects.requireNonNull(agentVersion);
+            if (agentVersion == null) {
+              throw new MissingRequiredPropertyException("GetResult", "agentVersion");
+            }
+            this.agentVersion = agentVersion;
             return this;
         }
         @CustomType.Setter
         public Builder agents(List<GetAgent> agents) {
-            this.agents = Objects.requireNonNull(agents);
+            if (agents == null) {
+              throw new MissingRequiredPropertyException("GetResult", "agents");
+            }
+            this.agents = agents;
             return this;
         }
         public Builder agents(GetAgent... agents) {
@@ -467,12 +477,18 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder clientPublicKey(String clientPublicKey) {
-            this.clientPublicKey = Objects.requireNonNull(clientPublicKey);
+            if (clientPublicKey == null) {
+              throw new MissingRequiredPropertyException("GetResult", "clientPublicKey");
+            }
+            this.clientPublicKey = clientPublicKey;
             return this;
         }
         @CustomType.Setter
         public Builder cloudMetadatas(List<GetCloudMetadata> cloudMetadatas) {
-            this.cloudMetadatas = Objects.requireNonNull(cloudMetadatas);
+            if (cloudMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetResult", "cloudMetadatas");
+            }
+            this.cloudMetadatas = cloudMetadatas;
             return this;
         }
         public Builder cloudMetadatas(GetCloudMetadata... cloudMetadatas) {
@@ -480,32 +496,50 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder detectedProperties(Map<String,String> detectedProperties) {
-            this.detectedProperties = Objects.requireNonNull(detectedProperties);
+            if (detectedProperties == null) {
+              throw new MissingRequiredPropertyException("GetResult", "detectedProperties");
+            }
+            this.detectedProperties = detectedProperties;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder dnsFqdn(String dnsFqdn) {
-            this.dnsFqdn = Objects.requireNonNull(dnsFqdn);
+            if (dnsFqdn == null) {
+              throw new MissingRequiredPropertyException("GetResult", "dnsFqdn");
+            }
+            this.dnsFqdn = dnsFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetIdentity... identities) {
@@ -513,17 +547,26 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder lastStatusChangeTime(String lastStatusChangeTime) {
-            this.lastStatusChangeTime = Objects.requireNonNull(lastStatusChangeTime);
+            if (lastStatusChangeTime == null) {
+              throw new MissingRequiredPropertyException("GetResult", "lastStatusChangeTime");
+            }
+            this.lastStatusChangeTime = lastStatusChangeTime;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder locationDatas(List<GetLocationData> locationDatas) {
-            this.locationDatas = Objects.requireNonNull(locationDatas);
+            if (locationDatas == null) {
+              throw new MissingRequiredPropertyException("GetResult", "locationDatas");
+            }
+            this.locationDatas = locationDatas;
             return this;
         }
         public Builder locationDatas(GetLocationData... locationDatas) {
@@ -531,27 +574,42 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder machineFqdn(String machineFqdn) {
-            this.machineFqdn = Objects.requireNonNull(machineFqdn);
+            if (machineFqdn == null) {
+              throw new MissingRequiredPropertyException("GetResult", "machineFqdn");
+            }
+            this.machineFqdn = machineFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder mssqlDiscovered(Boolean mssqlDiscovered) {
-            this.mssqlDiscovered = Objects.requireNonNull(mssqlDiscovered);
+            if (mssqlDiscovered == null) {
+              throw new MissingRequiredPropertyException("GetResult", "mssqlDiscovered");
+            }
+            this.mssqlDiscovered = mssqlDiscovered;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osName(String osName) {
-            this.osName = Objects.requireNonNull(osName);
+            if (osName == null) {
+              throw new MissingRequiredPropertyException("GetResult", "osName");
+            }
+            this.osName = osName;
             return this;
         }
         @CustomType.Setter
         public Builder osProfiles(List<GetOsProfile> osProfiles) {
-            this.osProfiles = Objects.requireNonNull(osProfiles);
+            if (osProfiles == null) {
+              throw new MissingRequiredPropertyException("GetResult", "osProfiles");
+            }
+            this.osProfiles = osProfiles;
             return this;
         }
         public Builder osProfiles(GetOsProfile... osProfiles) {
@@ -559,37 +617,58 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder osSku(String osSku) {
-            this.osSku = Objects.requireNonNull(osSku);
+            if (osSku == null) {
+              throw new MissingRequiredPropertyException("GetResult", "osSku");
+            }
+            this.osSku = osSku;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder osVersion(String osVersion) {
-            this.osVersion = Objects.requireNonNull(osVersion);
+            if (osVersion == null) {
+              throw new MissingRequiredPropertyException("GetResult", "osVersion");
+            }
+            this.osVersion = osVersion;
             return this;
         }
         @CustomType.Setter
         public Builder parentClusterResourceId(String parentClusterResourceId) {
-            this.parentClusterResourceId = Objects.requireNonNull(parentClusterResourceId);
+            if (parentClusterResourceId == null) {
+              throw new MissingRequiredPropertyException("GetResult", "parentClusterResourceId");
+            }
+            this.parentClusterResourceId = parentClusterResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkScopeResourceId(String privateLinkScopeResourceId) {
-            this.privateLinkScopeResourceId = Objects.requireNonNull(privateLinkScopeResourceId);
+            if (privateLinkScopeResourceId == null) {
+              throw new MissingRequiredPropertyException("GetResult", "privateLinkScopeResourceId");
+            }
+            this.privateLinkScopeResourceId = privateLinkScopeResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceStatuses(List<GetServiceStatus> serviceStatuses) {
-            this.serviceStatuses = Objects.requireNonNull(serviceStatuses);
+            if (serviceStatuses == null) {
+              throw new MissingRequiredPropertyException("GetResult", "serviceStatuses");
+            }
+            this.serviceStatuses = serviceStatuses;
             return this;
         }
         public Builder serviceStatuses(GetServiceStatus... serviceStatuses) {
@@ -597,22 +676,34 @@ public final class GetResult {
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetResult", "status");
+            }
+            this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder vmId(String vmId) {
-            this.vmId = Objects.requireNonNull(vmId);
+            if (vmId == null) {
+              throw new MissingRequiredPropertyException("GetResult", "vmId");
+            }
+            this.vmId = vmId;
             return this;
         }
         @CustomType.Setter
         public Builder vmUuid(String vmUuid) {
-            this.vmUuid = Objects.requireNonNull(vmUuid);
+            if (vmUuid == null) {
+              throw new MissingRequiredPropertyException("GetResult", "vmUuid");
+            }
+            this.vmUuid = vmUuid;
             return this;
         }
         public GetResult build() {

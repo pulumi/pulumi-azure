@@ -5,6 +5,7 @@ package com.pulumi.azure.lighthouse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,8 +199,12 @@ public final class DefinitionAuthorizationArgs extends com.pulumi.resources.Reso
         }
 
         public DefinitionAuthorizationArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("DefinitionAuthorizationArgs", "principalId");
+            }
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("DefinitionAuthorizationArgs", "roleDefinitionId");
+            }
             return $;
         }
     }

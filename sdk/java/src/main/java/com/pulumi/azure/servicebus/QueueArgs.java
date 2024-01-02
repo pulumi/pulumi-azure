@@ -5,6 +5,7 @@ package com.pulumi.azure.servicebus;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -723,7 +724,9 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public QueueArgs build() {
-            $.namespaceId = Objects.requireNonNull($.namespaceId, "expected parameter 'namespaceId' to be non-null");
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("QueueArgs", "namespaceId");
+            }
             return $;
         }
     }

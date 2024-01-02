@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -89,12 +90,18 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder headers(List<GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader... headers) {
@@ -102,27 +109,42 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestriction {
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder serviceTag(String serviceTag) {
-            this.serviceTag = Objects.requireNonNull(serviceTag);
+            if (serviceTag == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "serviceTag");
+            }
+            this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfigScmIpRestriction", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         public GetWindowsFunctionAppSiteConfigScmIpRestriction build() {

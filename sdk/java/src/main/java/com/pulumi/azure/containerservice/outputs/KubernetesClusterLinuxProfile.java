@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterLinuxProfileSshKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class KubernetesClusterLinuxProfile {
 
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterLinuxProfile", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder sshKey(KubernetesClusterLinuxProfileSshKey sshKey) {
-            this.sshKey = Objects.requireNonNull(sshKey);
+            if (sshKey == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterLinuxProfile", "sshKey");
+            }
+            this.sshKey = sshKey;
             return this;
         }
         public KubernetesClusterLinuxProfile build() {

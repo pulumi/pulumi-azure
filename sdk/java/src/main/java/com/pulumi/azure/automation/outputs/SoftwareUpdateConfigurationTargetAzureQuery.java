@@ -88,6 +88,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
 
         @CustomType.Setter
         public Builder locations(@Nullable List<String> locations) {
+
             this.locations = locations;
             return this;
         }
@@ -96,6 +97,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
         }
         @CustomType.Setter
         public Builder scopes(@Nullable List<String> scopes) {
+
             this.scopes = scopes;
             return this;
         }
@@ -104,11 +106,13 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
         }
         @CustomType.Setter
         public Builder tagFilter(@Nullable String tagFilter) {
+
             this.tagFilter = tagFilter;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<SoftwareUpdateConfigurationTargetAzureQueryTag> tags) {
+
             this.tags = tags;
             return this;
         }

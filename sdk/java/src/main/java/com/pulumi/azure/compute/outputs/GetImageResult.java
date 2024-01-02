@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetImageDataDisk;
 import com.pulumi.azure.compute.outputs.GetImageOsDisk;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -151,7 +152,10 @@ public final class GetImageResult {
 
         @CustomType.Setter
         public Builder dataDisks(List<GetImageDataDisk> dataDisks) {
-            this.dataDisks = Objects.requireNonNull(dataDisks);
+            if (dataDisks == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "dataDisks");
+            }
+            this.dataDisks = dataDisks;
             return this;
         }
         public Builder dataDisks(GetImageDataDisk... dataDisks) {
@@ -159,27 +163,38 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
+
             this.nameRegex = nameRegex;
             return this;
         }
         @CustomType.Setter
         public Builder osDisks(List<GetImageOsDisk> osDisks) {
-            this.osDisks = Objects.requireNonNull(osDisks);
+            if (osDisks == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "osDisks");
+            }
+            this.osDisks = osDisks;
             return this;
         }
         public Builder osDisks(GetImageOsDisk... osDisks) {
@@ -187,22 +202,32 @@ public final class GetImageResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sortDescending(@Nullable Boolean sortDescending) {
+
             this.sortDescending = sortDescending;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneResilient(Boolean zoneResilient) {
-            this.zoneResilient = Objects.requireNonNull(zoneResilient);
+            if (zoneResilient == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "zoneResilient");
+            }
+            this.zoneResilient = zoneResilient;
             return this;
         }
         public GetImageResult build() {

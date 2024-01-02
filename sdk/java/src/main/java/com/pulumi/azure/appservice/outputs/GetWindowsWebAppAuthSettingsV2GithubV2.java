@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetWindowsWebAppAuthSettingsV2GithubV2 {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2GithubV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2GithubV2", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder loginScopes(List<String> loginScopes) {
-            this.loginScopes = Objects.requireNonNull(loginScopes);
+            if (loginScopes == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2GithubV2", "loginScopes");
+            }
+            this.loginScopes = loginScopes;
             return this;
         }
         public Builder loginScopes(String... loginScopes) {

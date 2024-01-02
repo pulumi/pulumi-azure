@@ -58,11 +58,13 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory
 
         @CustomType.Setter
         public Builder physicalPath(@Nullable String physicalPath) {
+
             this.physicalPath = physicalPath;
             return this;
         }
         @CustomType.Setter
         public Builder virtualPath(@Nullable String virtualPath) {
+
             this.virtualPath = virtualPath;
             return this;
         }

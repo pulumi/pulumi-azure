@@ -6,6 +6,7 @@ package com.pulumi.azure.databricks;
 import com.pulumi.azure.databricks.inputs.WorkspaceCustomParametersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -613,8 +614,12 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "sku");
+            }
             return $;
         }
     }

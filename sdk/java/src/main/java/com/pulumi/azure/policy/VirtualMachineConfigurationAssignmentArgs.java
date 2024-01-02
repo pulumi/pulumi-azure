@@ -6,6 +6,7 @@ package com.pulumi.azure.policy;
 import com.pulumi.azure.policy.inputs.VirtualMachineConfigurationAssignmentConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class VirtualMachineConfigurationAssignmentArgs extends com.pulumi.
         }
 
         public VirtualMachineConfigurationAssignmentArgs build() {
-            $.configuration = Objects.requireNonNull($.configuration, "expected parameter 'configuration' to be non-null");
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineConfigurationAssignmentArgs", "configuration");
+            }
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineConfigurationAssignmentArgs", "virtualMachineId");
+            }
             return $;
         }
     }

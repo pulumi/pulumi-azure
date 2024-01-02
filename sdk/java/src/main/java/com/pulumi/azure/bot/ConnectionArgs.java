@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -434,11 +435,21 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectionArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceProviderName = Objects.requireNonNull($.serviceProviderName, "expected parameter 'serviceProviderName' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "botName");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "clientSecret");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "resourceGroupName");
+            }
+            if ($.serviceProviderName == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "serviceProviderName");
+            }
             return $;
         }
     }

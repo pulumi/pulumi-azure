@@ -92,11 +92,13 @@ public final class MonitorTagRuleLog {
 
         @CustomType.Setter
         public Builder aadLogEnabled(@Nullable Boolean aadLogEnabled) {
+
             this.aadLogEnabled = aadLogEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder filters(@Nullable List<MonitorTagRuleLogFilter> filters) {
+
             this.filters = filters;
             return this;
         }
@@ -105,11 +107,13 @@ public final class MonitorTagRuleLog {
         }
         @CustomType.Setter
         public Builder resourceLogEnabled(@Nullable Boolean resourceLogEnabled) {
+
             this.resourceLogEnabled = resourceLogEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionLogEnabled(@Nullable Boolean subscriptionLogEnabled) {
+
             this.subscriptionLogEnabled = subscriptionLogEnabled;
             return this;
         }

@@ -44,6 +44,7 @@ public final class VirtualNetworkGatewayCustomRoute {
 
         @CustomType.Setter
         public Builder addressPrefixes(@Nullable List<String> addressPrefixes) {
+
             this.addressPrefixes = addressPrefixes;
             return this;
         }

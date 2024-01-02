@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -334,14 +335,30 @@ public final class VpnGatewayConnectionVpnLinkIpsecPolicyArgs extends com.pulumi
         }
 
         public VpnGatewayConnectionVpnLinkIpsecPolicyArgs build() {
-            $.dhGroup = Objects.requireNonNull($.dhGroup, "expected parameter 'dhGroup' to be non-null");
-            $.encryptionAlgorithm = Objects.requireNonNull($.encryptionAlgorithm, "expected parameter 'encryptionAlgorithm' to be non-null");
-            $.ikeEncryptionAlgorithm = Objects.requireNonNull($.ikeEncryptionAlgorithm, "expected parameter 'ikeEncryptionAlgorithm' to be non-null");
-            $.ikeIntegrityAlgorithm = Objects.requireNonNull($.ikeIntegrityAlgorithm, "expected parameter 'ikeIntegrityAlgorithm' to be non-null");
-            $.integrityAlgorithm = Objects.requireNonNull($.integrityAlgorithm, "expected parameter 'integrityAlgorithm' to be non-null");
-            $.pfsGroup = Objects.requireNonNull($.pfsGroup, "expected parameter 'pfsGroup' to be non-null");
-            $.saDataSizeKb = Objects.requireNonNull($.saDataSizeKb, "expected parameter 'saDataSizeKb' to be non-null");
-            $.saLifetimeSec = Objects.requireNonNull($.saLifetimeSec, "expected parameter 'saLifetimeSec' to be non-null");
+            if ($.dhGroup == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "dhGroup");
+            }
+            if ($.encryptionAlgorithm == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "encryptionAlgorithm");
+            }
+            if ($.ikeEncryptionAlgorithm == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "ikeEncryptionAlgorithm");
+            }
+            if ($.ikeIntegrityAlgorithm == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "ikeIntegrityAlgorithm");
+            }
+            if ($.integrityAlgorithm == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "integrityAlgorithm");
+            }
+            if ($.pfsGroup == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "pfsGroup");
+            }
+            if ($.saDataSizeKb == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "saDataSizeKb");
+            }
+            if ($.saLifetimeSec == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicyArgs", "saLifetimeSec");
+            }
             return $;
         }
     }

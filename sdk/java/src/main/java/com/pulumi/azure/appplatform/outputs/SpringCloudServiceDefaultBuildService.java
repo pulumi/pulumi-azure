@@ -44,6 +44,7 @@ public final class SpringCloudServiceDefaultBuildService {
 
         @CustomType.Setter
         public Builder containerRegistryName(@Nullable String containerRegistryName) {
+
             this.containerRegistryName = containerRegistryName;
             return this;
         }

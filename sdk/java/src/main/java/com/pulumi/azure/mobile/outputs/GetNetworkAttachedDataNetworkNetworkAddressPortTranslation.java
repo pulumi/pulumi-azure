@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -98,17 +99,24 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
 
         @CustomType.Setter
         public Builder icmpPinholeTimeoutInSeconds(Integer icmpPinholeTimeoutInSeconds) {
-            this.icmpPinholeTimeoutInSeconds = Objects.requireNonNull(icmpPinholeTimeoutInSeconds);
+            if (icmpPinholeTimeoutInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "icmpPinholeTimeoutInSeconds");
+            }
+            this.icmpPinholeTimeoutInSeconds = icmpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder pinholeMaximumNumber(@Nullable Integer pinholeMaximumNumber) {
+
             this.pinholeMaximumNumber = pinholeMaximumNumber;
             return this;
         }
         @CustomType.Setter
         public Builder portRanges(List<GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange> portRanges) {
-            this.portRanges = Objects.requireNonNull(portRanges);
+            if (portRanges == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "portRanges");
+            }
+            this.portRanges = portRanges;
             return this;
         }
         public Builder portRanges(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange... portRanges) {
@@ -116,22 +124,34 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
         }
         @CustomType.Setter
         public Builder tcpPinholeTimeoutInSeconds(Integer tcpPinholeTimeoutInSeconds) {
-            this.tcpPinholeTimeoutInSeconds = Objects.requireNonNull(tcpPinholeTimeoutInSeconds);
+            if (tcpPinholeTimeoutInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "tcpPinholeTimeoutInSeconds");
+            }
+            this.tcpPinholeTimeoutInSeconds = tcpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder tcpPortReuseMinimumHoldTimeInSeconds(Integer tcpPortReuseMinimumHoldTimeInSeconds) {
-            this.tcpPortReuseMinimumHoldTimeInSeconds = Objects.requireNonNull(tcpPortReuseMinimumHoldTimeInSeconds);
+            if (tcpPortReuseMinimumHoldTimeInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "tcpPortReuseMinimumHoldTimeInSeconds");
+            }
+            this.tcpPortReuseMinimumHoldTimeInSeconds = tcpPortReuseMinimumHoldTimeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder udpPinholeTimeoutInSeconds(Integer udpPinholeTimeoutInSeconds) {
-            this.udpPinholeTimeoutInSeconds = Objects.requireNonNull(udpPinholeTimeoutInSeconds);
+            if (udpPinholeTimeoutInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "udpPinholeTimeoutInSeconds");
+            }
+            this.udpPinholeTimeoutInSeconds = udpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder udpPortReuseMinimumHoldTimeInSeconds(Integer udpPortReuseMinimumHoldTimeInSeconds) {
-            this.udpPortReuseMinimumHoldTimeInSeconds = Objects.requireNonNull(udpPortReuseMinimumHoldTimeInSeconds);
+            if (udpPortReuseMinimumHoldTimeInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkAttachedDataNetworkNetworkAddressPortTranslation", "udpPortReuseMinimumHoldTimeInSeconds");
+            }
+            this.udpPortReuseMinimumHoldTimeInSeconds = udpPortReuseMinimumHoldTimeInSeconds;
             return this;
         }
         public GetNetworkAttachedDataNetworkNetworkAddressPortTranslation build() {

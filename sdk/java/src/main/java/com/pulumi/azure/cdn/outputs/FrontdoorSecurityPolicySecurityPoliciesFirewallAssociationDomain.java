@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
 
         @CustomType.Setter
         public Builder active(@Nullable Boolean active) {
+
             this.active = active;
             return this;
         }
         @CustomType.Setter
         public Builder cdnFrontdoorDomainId(String cdnFrontdoorDomainId) {
-            this.cdnFrontdoorDomainId = Objects.requireNonNull(cdnFrontdoorDomainId);
+            if (cdnFrontdoorDomainId == null) {
+              throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain", "cdnFrontdoorDomainId");
+            }
+            this.cdnFrontdoorDomainId = cdnFrontdoorDomainId;
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain build() {

@@ -59,11 +59,13 @@ public final class AppServiceLogsApplicationLogs {
 
         @CustomType.Setter
         public Builder azureBlobStorage(@Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage) {
+
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
         @CustomType.Setter
         public Builder fileSystemLevel(@Nullable String fileSystemLevel) {
+
             this.fileSystemLevel = fileSystemLevel;
             return this;
         }

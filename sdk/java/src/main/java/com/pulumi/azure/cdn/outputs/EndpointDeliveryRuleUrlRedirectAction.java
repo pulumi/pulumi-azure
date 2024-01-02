@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,40 @@ public final class EndpointDeliveryRuleUrlRedirectAction {
 
         @CustomType.Setter
         public Builder fragment(@Nullable String fragment) {
+
             this.fragment = fragment;
             return this;
         }
         @CustomType.Setter
         public Builder hostname(@Nullable String hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
+
             this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
+
             this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder redirectType(String redirectType) {
-            this.redirectType = Objects.requireNonNull(redirectType);
+            if (redirectType == null) {
+              throw new MissingRequiredPropertyException("EndpointDeliveryRuleUrlRedirectAction", "redirectType");
+            }
+            this.redirectType = redirectType;
             return this;
         }
         public EndpointDeliveryRuleUrlRedirectAction build() {

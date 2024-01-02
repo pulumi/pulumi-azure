@@ -90,11 +90,13 @@ public final class ApiOperationRequest {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<ApiOperationRequestHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -103,6 +105,7 @@ public final class ApiOperationRequest {
         }
         @CustomType.Setter
         public Builder queryParameters(@Nullable List<ApiOperationRequestQueryParameter> queryParameters) {
+
             this.queryParameters = queryParameters;
             return this;
         }
@@ -111,6 +114,7 @@ public final class ApiOperationRequest {
         }
         @CustomType.Setter
         public Builder representations(@Nullable List<ApiOperationRequestRepresentation> representations) {
+
             this.representations = representations;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -278,7 +279,9 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubscriptionArgs build() {
-            $.subscriptionName = Objects.requireNonNull($.subscriptionName, "expected parameter 'subscriptionName' to be non-null");
+            if ($.subscriptionName == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "subscriptionName");
+            }
             return $;
         }
     }

@@ -11,6 +11,7 @@ import com.pulumi.azure.hpc.inputs.CacheDnsArgs;
 import com.pulumi.azure.hpc.inputs.CacheIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -701,10 +702,18 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CacheArgs build() {
-            $.cacheSizeInGb = Objects.requireNonNull($.cacheSizeInGb, "expected parameter 'cacheSizeInGb' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.cacheSizeInGb == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "cacheSizeInGb");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "skuName");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("CacheArgs", "subnetId");
+            }
             return $;
         }
     }

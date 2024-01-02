@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.appplatform.inputs.SpringCloudDevToolPortalSsoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -263,7 +264,9 @@ public final class SpringCloudDevToolPortalArgs extends com.pulumi.resources.Res
         }
 
         public SpringCloudDevToolPortalArgs build() {
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudDevToolPortalArgs", "springCloudServiceId");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.media.outputs.TransformOutputCustomPresetCodec;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFilter;
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormat;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -91,7 +92,10 @@ public final class TransformOutputCustomPreset {
 
         @CustomType.Setter
         public Builder codecs(List<TransformOutputCustomPresetCodec> codecs) {
-            this.codecs = Objects.requireNonNull(codecs);
+            if (codecs == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPreset", "codecs");
+            }
+            this.codecs = codecs;
             return this;
         }
         public Builder codecs(TransformOutputCustomPresetCodec... codecs) {
@@ -99,17 +103,22 @@ public final class TransformOutputCustomPreset {
         }
         @CustomType.Setter
         public Builder experimentalOptions(@Nullable Map<String,String> experimentalOptions) {
+
             this.experimentalOptions = experimentalOptions;
             return this;
         }
         @CustomType.Setter
         public Builder filter(@Nullable TransformOutputCustomPresetFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder formats(List<TransformOutputCustomPresetFormat> formats) {
-            this.formats = Objects.requireNonNull(formats);
+            if (formats == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPreset", "formats");
+            }
+            this.formats = formats;
             return this;
         }
         public Builder formats(TransformOutputCustomPresetFormat... formats) {

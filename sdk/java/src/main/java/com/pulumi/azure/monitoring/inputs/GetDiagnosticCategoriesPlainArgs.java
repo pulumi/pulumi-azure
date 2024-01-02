@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetDiagnosticCategoriesPlainArgs extends com.pulumi.resources
         }
 
         public GetDiagnosticCategoriesPlainArgs build() {
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("GetDiagnosticCategoriesPlainArgs", "resourceId");
+            }
             return $;
         }
     }

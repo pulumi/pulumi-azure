@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionConditio
 import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -350,8 +351,12 @@ public final class AlertProcessingRuleSuppressionArgs extends com.pulumi.resourc
         }
 
         public AlertProcessingRuleSuppressionArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionArgs", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleSuppressionArgs", "scopes");
+            }
             return $;
         }
     }

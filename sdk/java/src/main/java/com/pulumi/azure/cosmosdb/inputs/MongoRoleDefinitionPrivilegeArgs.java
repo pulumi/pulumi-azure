@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 import com.pulumi.azure.cosmosdb.inputs.MongoRoleDefinitionPrivilegeResourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class MongoRoleDefinitionPrivilegeArgs extends com.pulumi.resources
         }
 
         public MongoRoleDefinitionPrivilegeArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.resource = Objects.requireNonNull($.resource, "expected parameter 'resource' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("MongoRoleDefinitionPrivilegeArgs", "actions");
+            }
+            if ($.resource == null) {
+                throw new MissingRequiredPropertyException("MongoRoleDefinitionPrivilegeArgs", "resource");
+            }
             return $;
         }
     }

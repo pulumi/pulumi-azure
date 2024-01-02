@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.inputs;
 import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -208,8 +209,12 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         public FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.ruleId = Objects.requireNonNull($.ruleId, "expected parameter 'ruleId' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs", "action");
+            }
+            if ($.ruleId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs", "ruleId");
+            }
             return $;
         }
     }

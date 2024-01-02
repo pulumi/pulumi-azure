@@ -76,16 +76,19 @@ public final class ScaleSetPacketCaptureStorageLocation {
 
         @CustomType.Setter
         public Builder filePath(@Nullable String filePath) {
+
             this.filePath = filePath;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(@Nullable String storageAccountId) {
+
             this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder storagePath(@Nullable String storagePath) {
+
             this.storagePath = storagePath;
             return this;
         }

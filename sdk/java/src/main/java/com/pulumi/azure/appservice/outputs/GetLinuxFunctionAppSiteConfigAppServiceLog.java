@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetLinuxFunctionAppSiteConfigAppServiceLog {
 
         @CustomType.Setter
         public Builder diskQuotaMb(Integer diskQuotaMb) {
-            this.diskQuotaMb = Objects.requireNonNull(diskQuotaMb);
+            if (diskQuotaMb == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigAppServiceLog", "diskQuotaMb");
+            }
+            this.diskQuotaMb = diskQuotaMb;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPeriodDays(Integer retentionPeriodDays) {
-            this.retentionPeriodDays = Objects.requireNonNull(retentionPeriodDays);
+            if (retentionPeriodDays == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigAppServiceLog", "retentionPeriodDays");
+            }
+            this.retentionPeriodDays = retentionPeriodDays;
             return this;
         }
         public GetLinuxFunctionAppSiteConfigAppServiceLog build() {

@@ -10,6 +10,7 @@ import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotAuthSettingsGoogl
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotAuthSettingsMicrosoft;
 import com.pulumi.azure.appservice.outputs.LinuxFunctionAppSlotAuthSettingsTwitter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -258,16 +259,19 @@ public final class LinuxFunctionAppSlotAuthSettings {
 
         @CustomType.Setter
         public Builder activeDirectory(@Nullable LinuxFunctionAppSlotAuthSettingsActiveDirectory activeDirectory) {
+
             this.activeDirectory = activeDirectory;
             return this;
         }
         @CustomType.Setter
         public Builder additionalLoginParameters(@Nullable Map<String,String> additionalLoginParameters) {
+
             this.additionalLoginParameters = additionalLoginParameters;
             return this;
         }
         @CustomType.Setter
         public Builder allowedExternalRedirectUrls(@Nullable List<String> allowedExternalRedirectUrls) {
+
             this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
         }
@@ -276,61 +280,75 @@ public final class LinuxFunctionAppSlotAuthSettings {
         }
         @CustomType.Setter
         public Builder defaultProvider(@Nullable String defaultProvider) {
+
             this.defaultProvider = defaultProvider;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotAuthSettings", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder facebook(@Nullable LinuxFunctionAppSlotAuthSettingsFacebook facebook) {
+
             this.facebook = facebook;
             return this;
         }
         @CustomType.Setter
         public Builder github(@Nullable LinuxFunctionAppSlotAuthSettingsGithub github) {
+
             this.github = github;
             return this;
         }
         @CustomType.Setter
         public Builder google(@Nullable LinuxFunctionAppSlotAuthSettingsGoogle google) {
+
             this.google = google;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder microsoft(@Nullable LinuxFunctionAppSlotAuthSettingsMicrosoft microsoft) {
+
             this.microsoft = microsoft;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(@Nullable String runtimeVersion) {
+
             this.runtimeVersion = runtimeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRefreshExtensionHours(@Nullable Double tokenRefreshExtensionHours) {
+
             this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreEnabled(@Nullable Boolean tokenStoreEnabled) {
+
             this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder twitter(@Nullable LinuxFunctionAppSlotAuthSettingsTwitter twitter) {
+
             this.twitter = twitter;
             return this;
         }
         @CustomType.Setter
         public Builder unauthenticatedClientAction(@Nullable String unauthenticatedClientAction) {
+
             this.unauthenticatedClientAction = unauthenticatedClientAction;
             return this;
         }

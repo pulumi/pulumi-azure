@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.FirewallPolicyInsightsLogAnalyticsWorkspace;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -90,16 +91,23 @@ public final class FirewallPolicyInsights {
 
         @CustomType.Setter
         public Builder defaultLogAnalyticsWorkspaceId(String defaultLogAnalyticsWorkspaceId) {
-            this.defaultLogAnalyticsWorkspaceId = Objects.requireNonNull(defaultLogAnalyticsWorkspaceId);
+            if (defaultLogAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyInsights", "defaultLogAnalyticsWorkspaceId");
+            }
+            this.defaultLogAnalyticsWorkspaceId = defaultLogAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyInsights", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalyticsWorkspaces(@Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces) {
+
             this.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
             return this;
         }
@@ -108,6 +116,7 @@ public final class FirewallPolicyInsights {
         }
         @CustomType.Setter
         public Builder retentionInDays(@Nullable Integer retentionInDays) {
+
             this.retentionInDays = retentionInDays;
             return this;
         }

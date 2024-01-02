@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -483,14 +484,30 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         public ReferenceInputMssqlArgs build() {
-            $.database = Objects.requireNonNull($.database, "expected parameter 'database' to be non-null");
-            $.fullSnapshotQuery = Objects.requireNonNull($.fullSnapshotQuery, "expected parameter 'fullSnapshotQuery' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.refreshType = Objects.requireNonNull($.refreshType, "expected parameter 'refreshType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.database == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "database");
+            }
+            if ($.fullSnapshotQuery == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "fullSnapshotQuery");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "password");
+            }
+            if ($.refreshType == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "refreshType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "resourceGroupName");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "server");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "streamAnalyticsJobName");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("ReferenceInputMssqlArgs", "username");
+            }
             return $;
         }
     }

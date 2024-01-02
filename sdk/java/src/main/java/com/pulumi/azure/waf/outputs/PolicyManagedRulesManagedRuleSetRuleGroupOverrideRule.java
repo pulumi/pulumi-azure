@@ -4,6 +4,7 @@
 package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,22 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule", "id");
+            }
+            this.id = id;
             return this;
         }
         public PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule build() {

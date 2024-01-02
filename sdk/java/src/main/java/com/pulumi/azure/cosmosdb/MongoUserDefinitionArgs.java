@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -208,9 +209,15 @@ public final class MongoUserDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         public MongoUserDefinitionArgs build() {
-            $.cosmosMongoDatabaseId = Objects.requireNonNull($.cosmosMongoDatabaseId, "expected parameter 'cosmosMongoDatabaseId' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.cosmosMongoDatabaseId == null) {
+                throw new MissingRequiredPropertyException("MongoUserDefinitionArgs", "cosmosMongoDatabaseId");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("MongoUserDefinitionArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("MongoUserDefinitionArgs", "username");
+            }
             return $;
         }
     }

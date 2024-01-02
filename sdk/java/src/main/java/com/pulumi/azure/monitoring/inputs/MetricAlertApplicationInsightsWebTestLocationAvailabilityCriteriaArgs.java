@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
         }
 
         public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs build() {
-            $.componentId = Objects.requireNonNull($.componentId, "expected parameter 'componentId' to be non-null");
-            $.failedLocationCount = Objects.requireNonNull($.failedLocationCount, "expected parameter 'failedLocationCount' to be non-null");
-            $.webTestId = Objects.requireNonNull($.webTestId, "expected parameter 'webTestId' to be non-null");
+            if ($.componentId == null) {
+                throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs", "componentId");
+            }
+            if ($.failedLocationCount == null) {
+                throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs", "failedLocationCount");
+            }
+            if ($.webTestId == null) {
+                throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs", "webTestId");
+            }
             return $;
         }
     }

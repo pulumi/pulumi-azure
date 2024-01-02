@@ -4,6 +4,7 @@
 package com.pulumi.azure.bot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class ChannelFacebookPage {
 
         @CustomType.Setter
         public Builder accessToken(String accessToken) {
-            this.accessToken = Objects.requireNonNull(accessToken);
+            if (accessToken == null) {
+              throw new MissingRequiredPropertyException("ChannelFacebookPage", "accessToken");
+            }
+            this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("ChannelFacebookPage", "id");
+            }
+            this.id = id;
             return this;
         }
         public ChannelFacebookPage build() {

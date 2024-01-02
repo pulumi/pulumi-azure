@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.inputs;
 import com.pulumi.azure.cdn.inputs.FrontdoorSecretSecretCustomerCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -85,7 +86,9 @@ public final class FrontdoorSecretSecretArgs extends com.pulumi.resources.Resour
         }
 
         public FrontdoorSecretSecretArgs build() {
-            $.customerCertificates = Objects.requireNonNull($.customerCertificates, "expected parameter 'customerCertificates' to be non-null");
+            if ($.customerCertificates == null) {
+                throw new MissingRequiredPropertyException("FrontdoorSecretSecretArgs", "customerCertificates");
+            }
             return $;
         }
     }

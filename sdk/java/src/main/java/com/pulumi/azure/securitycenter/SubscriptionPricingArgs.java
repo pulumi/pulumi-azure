@@ -6,6 +6,7 @@ package com.pulumi.azure.securitycenter;
 import com.pulumi.azure.securitycenter.inputs.SubscriptionPricingExtensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class SubscriptionPricingArgs extends com.pulumi.resources.Resource
         }
 
         public SubscriptionPricingArgs build() {
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPricingArgs", "tier");
+            }
             return $;
         }
     }

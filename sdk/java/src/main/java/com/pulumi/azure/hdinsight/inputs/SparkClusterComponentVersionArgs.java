@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SparkClusterComponentVersionArgs extends com.pulumi.resources
         }
 
         public SparkClusterComponentVersionArgs build() {
-            $.spark = Objects.requireNonNull($.spark, "expected parameter 'spark' to be non-null");
+            if ($.spark == null) {
+                throw new MissingRequiredPropertyException("SparkClusterComponentVersionArgs", "spark");
+            }
             return $;
         }
     }

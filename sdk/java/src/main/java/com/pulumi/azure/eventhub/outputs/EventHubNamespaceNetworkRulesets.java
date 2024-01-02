@@ -6,6 +6,7 @@ package com.pulumi.azure.eventhub.outputs;
 import com.pulumi.azure.eventhub.outputs.EventHubNamespaceNetworkRulesetsIpRule;
 import com.pulumi.azure.eventhub.outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -108,11 +109,15 @@ public final class EventHubNamespaceNetworkRulesets {
 
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("EventHubNamespaceNetworkRulesets", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }
@@ -121,16 +126,19 @@ public final class EventHubNamespaceNetworkRulesets {
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
+
             this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder trustedServiceAccessEnabled(@Nullable Boolean trustedServiceAccessEnabled) {
+
             this.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkRules(@Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules) {
+
             this.virtualNetworkRules = virtualNetworkRules;
             return this;
         }

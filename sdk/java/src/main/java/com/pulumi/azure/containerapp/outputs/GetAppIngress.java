@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp.outputs;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressCustomDomain;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressTrafficWeight;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -137,12 +138,18 @@ public final class GetAppIngress {
 
         @CustomType.Setter
         public Builder allowInsecureConnections(Boolean allowInsecureConnections) {
-            this.allowInsecureConnections = Objects.requireNonNull(allowInsecureConnections);
+            if (allowInsecureConnections == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "allowInsecureConnections");
+            }
+            this.allowInsecureConnections = allowInsecureConnections;
             return this;
         }
         @CustomType.Setter
         public Builder customDomains(List<GetAppIngressCustomDomain> customDomains) {
-            this.customDomains = Objects.requireNonNull(customDomains);
+            if (customDomains == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "customDomains");
+            }
+            this.customDomains = customDomains;
             return this;
         }
         public Builder customDomains(GetAppIngressCustomDomain... customDomains) {
@@ -150,27 +157,42 @@ public final class GetAppIngress {
         }
         @CustomType.Setter
         public Builder exposedPort(Integer exposedPort) {
-            this.exposedPort = Objects.requireNonNull(exposedPort);
+            if (exposedPort == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "exposedPort");
+            }
+            this.exposedPort = exposedPort;
             return this;
         }
         @CustomType.Setter
         public Builder externalEnabled(Boolean externalEnabled) {
-            this.externalEnabled = Objects.requireNonNull(externalEnabled);
+            if (externalEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "externalEnabled");
+            }
+            this.externalEnabled = externalEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
-            this.targetPort = Objects.requireNonNull(targetPort);
+            if (targetPort == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "targetPort");
+            }
+            this.targetPort = targetPort;
             return this;
         }
         @CustomType.Setter
         public Builder trafficWeights(List<GetAppIngressTrafficWeight> trafficWeights) {
-            this.trafficWeights = Objects.requireNonNull(trafficWeights);
+            if (trafficWeights == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "trafficWeights");
+            }
+            this.trafficWeights = trafficWeights;
             return this;
         }
         public Builder trafficWeights(GetAppIngressTrafficWeight... trafficWeights) {
@@ -178,7 +200,10 @@ public final class GetAppIngress {
         }
         @CustomType.Setter
         public Builder transport(String transport) {
-            this.transport = Objects.requireNonNull(transport);
+            if (transport == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "transport");
+            }
+            this.transport = transport;
             return this;
         }
         public GetAppIngress build() {

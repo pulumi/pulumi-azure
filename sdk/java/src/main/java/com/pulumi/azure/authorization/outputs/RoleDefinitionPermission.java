@@ -86,6 +86,7 @@ public final class RoleDefinitionPermission {
 
         @CustomType.Setter
         public Builder actions(@Nullable List<String> actions) {
+
             this.actions = actions;
             return this;
         }
@@ -94,6 +95,7 @@ public final class RoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder dataActions(@Nullable List<String> dataActions) {
+
             this.dataActions = dataActions;
             return this;
         }
@@ -102,6 +104,7 @@ public final class RoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notActions(@Nullable List<String> notActions) {
+
             this.notActions = notActions;
             return this;
         }
@@ -110,6 +113,7 @@ public final class RoleDefinitionPermission {
         }
         @CustomType.Setter
         public Builder notDataActions(@Nullable List<String> notDataActions) {
+
             this.notDataActions = notDataActions;
             return this;
         }

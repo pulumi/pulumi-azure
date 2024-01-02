@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,21 @@ public final class ApplicationGatewayWafConfigurationExclusion {
 
         @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
-            this.matchVariable = Objects.requireNonNull(matchVariable);
+            if (matchVariable == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayWafConfigurationExclusion", "matchVariable");
+            }
+            this.matchVariable = matchVariable;
             return this;
         }
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder selectorMatchOperator(@Nullable String selectorMatchOperator) {
+
             this.selectorMatchOperator = selectorMatchOperator;
             return this;
         }

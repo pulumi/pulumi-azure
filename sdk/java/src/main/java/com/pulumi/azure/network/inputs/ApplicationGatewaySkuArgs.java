@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class ApplicationGatewaySkuArgs extends com.pulumi.resources.Resour
         }
 
         public ApplicationGatewaySkuArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewaySkuArgs", "name");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewaySkuArgs", "tier");
+            }
             return $;
         }
     }

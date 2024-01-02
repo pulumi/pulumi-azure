@@ -58,11 +58,13 @@ public final class FirewallPolicyIntrusionDetectionSignatureOverride {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder state(@Nullable String state) {
+
             this.state = state;
             return this;
         }

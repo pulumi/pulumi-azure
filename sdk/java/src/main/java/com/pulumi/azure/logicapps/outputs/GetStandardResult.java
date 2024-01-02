@@ -8,6 +8,7 @@ import com.pulumi.azure.logicapps.outputs.GetStandardIdentity;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfig;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteCredential;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -222,32 +223,50 @@ public final class GetStandardResult {
 
         @CustomType.Setter
         public Builder appServicePlanId(String appServicePlanId) {
-            this.appServicePlanId = Objects.requireNonNull(appServicePlanId);
+            if (appServicePlanId == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "appServicePlanId");
+            }
+            this.appServicePlanId = appServicePlanId;
             return this;
         }
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
-            this.appSettings = Objects.requireNonNull(appSettings);
+            if (appSettings == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "appSettings");
+            }
+            this.appSettings = appSettings;
             return this;
         }
         @CustomType.Setter
         public Builder bundleVersion(String bundleVersion) {
-            this.bundleVersion = Objects.requireNonNull(bundleVersion);
+            if (bundleVersion == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "bundleVersion");
+            }
+            this.bundleVersion = bundleVersion;
             return this;
         }
         @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
-            this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
+            if (clientAffinityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "clientAffinityEnabled");
+            }
+            this.clientAffinityEnabled = clientAffinityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateMode(String clientCertificateMode) {
-            this.clientCertificateMode = Objects.requireNonNull(clientCertificateMode);
+            if (clientCertificateMode == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "clientCertificateMode");
+            }
+            this.clientCertificateMode = clientCertificateMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionStrings(List<GetStandardConnectionString> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(GetStandardConnectionString... connectionStrings) {
@@ -255,32 +274,50 @@ public final class GetStandardResult {
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
-            this.defaultHostname = Objects.requireNonNull(defaultHostname);
+            if (defaultHostname == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "defaultHostname");
+            }
+            this.defaultHostname = defaultHostname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
-            this.httpsOnly = Objects.requireNonNull(httpsOnly);
+            if (httpsOnly == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "httpsOnly");
+            }
+            this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetStandardIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetStandardIdentity... identities) {
@@ -288,42 +325,66 @@ public final class GetStandardResult {
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
-            this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
+            if (possibleOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "possibleOutboundIpAddresses");
+            }
+            this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder siteConfig(GetStandardSiteConfig siteConfig) {
-            this.siteConfig = Objects.requireNonNull(siteConfig);
+            if (siteConfig == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "siteConfig");
+            }
+            this.siteConfig = siteConfig;
             return this;
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetStandardSiteCredential> siteCredentials) {
-            this.siteCredentials = Objects.requireNonNull(siteCredentials);
+            if (siteCredentials == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "siteCredentials");
+            }
+            this.siteCredentials = siteCredentials;
             return this;
         }
         public Builder siteCredentials(GetStandardSiteCredential... siteCredentials) {
@@ -331,37 +392,56 @@ public final class GetStandardResult {
         }
         @CustomType.Setter
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
-            this.storageAccountAccessKey = Objects.requireNonNull(storageAccountAccessKey);
+            if (storageAccountAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "storageAccountAccessKey");
+            }
+            this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountShareName(String storageAccountShareName) {
-            this.storageAccountShareName = Objects.requireNonNull(storageAccountShareName);
+            if (storageAccountShareName == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "storageAccountShareName");
+            }
+            this.storageAccountShareName = storageAccountShareName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder useExtensionBundle(Boolean useExtensionBundle) {
-            this.useExtensionBundle = Objects.requireNonNull(useExtensionBundle);
+            if (useExtensionBundle == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "useExtensionBundle");
+            }
+            this.useExtensionBundle = useExtensionBundle;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         public GetStandardResult build() {

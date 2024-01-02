@@ -4,6 +4,7 @@
 package com.pulumi.azure.redis.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,16 +65,21 @@ public final class EnterpriseDatabaseModule {
 
         @CustomType.Setter
         public Builder args(@Nullable String args) {
+
             this.args = args;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EnterpriseDatabaseModule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

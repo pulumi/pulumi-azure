@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.azure.backup.outputs.PolicyFileShareBackupHourly;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -81,16 +82,21 @@ public final class PolicyFileShareBackup {
 
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("PolicyFileShareBackup", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder hourly(@Nullable PolicyFileShareBackupHourly hourly) {
+
             this.hourly = hourly;
             return this;
         }
         @CustomType.Setter
         public Builder time(@Nullable String time) {
+
             this.time = time;
             return this;
         }

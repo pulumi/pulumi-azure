@@ -7,6 +7,7 @@ import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleForwardingConfigura
 import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleRedirectConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -369,10 +370,18 @@ public final class FrontdoorRoutingRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public FrontdoorRoutingRuleArgs build() {
-            $.acceptedProtocols = Objects.requireNonNull($.acceptedProtocols, "expected parameter 'acceptedProtocols' to be non-null");
-            $.frontendEndpoints = Objects.requireNonNull($.frontendEndpoints, "expected parameter 'frontendEndpoints' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.patternsToMatches = Objects.requireNonNull($.patternsToMatches, "expected parameter 'patternsToMatches' to be non-null");
+            if ($.acceptedProtocols == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleArgs", "acceptedProtocols");
+            }
+            if ($.frontendEndpoints == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleArgs", "frontendEndpoints");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleArgs", "name");
+            }
+            if ($.patternsToMatches == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleArgs", "patternsToMatches");
+            }
             return $;
         }
     }

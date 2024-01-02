@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetLocalNetworkGatewayBgpSetting {
 
         @CustomType.Setter
         public Builder asn(Integer asn) {
-            this.asn = Objects.requireNonNull(asn);
+            if (asn == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayBgpSetting", "asn");
+            }
+            this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder bgpPeeringAddress(String bgpPeeringAddress) {
-            this.bgpPeeringAddress = Objects.requireNonNull(bgpPeeringAddress);
+            if (bgpPeeringAddress == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayBgpSetting", "bgpPeeringAddress");
+            }
+            this.bgpPeeringAddress = bgpPeeringAddress;
             return this;
         }
         @CustomType.Setter
         public Builder peerWeight(Integer peerWeight) {
-            this.peerWeight = Objects.requireNonNull(peerWeight);
+            if (peerWeight == null) {
+              throw new MissingRequiredPropertyException("GetLocalNetworkGatewayBgpSetting", "peerWeight");
+            }
+            this.peerWeight = peerWeight;
             return this;
         }
         public GetLocalNetworkGatewayBgpSetting build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.appinsights;
 import com.pulumi.azure.appinsights.inputs.WorkbookTemplateGalleryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -386,9 +387,15 @@ public final class WorkbookTemplateArgs extends com.pulumi.resources.ResourceArg
         }
 
         public WorkbookTemplateArgs build() {
-            $.galleries = Objects.requireNonNull($.galleries, "expected parameter 'galleries' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.templateData = Objects.requireNonNull($.templateData, "expected parameter 'templateData' to be non-null");
+            if ($.galleries == null) {
+                throw new MissingRequiredPropertyException("WorkbookTemplateArgs", "galleries");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WorkbookTemplateArgs", "resourceGroupName");
+            }
+            if ($.templateData == null) {
+                throw new MissingRequiredPropertyException("WorkbookTemplateArgs", "templateData");
+            }
             return $;
         }
     }

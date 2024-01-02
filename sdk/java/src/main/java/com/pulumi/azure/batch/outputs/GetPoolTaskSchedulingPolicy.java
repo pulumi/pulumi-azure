@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPoolTaskSchedulingPolicy {
 
         @CustomType.Setter
         public Builder nodeFillType(String nodeFillType) {
-            this.nodeFillType = Objects.requireNonNull(nodeFillType);
+            if (nodeFillType == null) {
+              throw new MissingRequiredPropertyException("GetPoolTaskSchedulingPolicy", "nodeFillType");
+            }
+            this.nodeFillType = nodeFillType;
             return this;
         }
         public GetPoolTaskSchedulingPolicy build() {

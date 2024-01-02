@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.ActionRuleSuppressionSuppressionSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -59,11 +60,15 @@ public final class ActionRuleSuppressionSuppression {
 
         @CustomType.Setter
         public Builder recurrenceType(String recurrenceType) {
-            this.recurrenceType = Objects.requireNonNull(recurrenceType);
+            if (recurrenceType == null) {
+              throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppression", "recurrenceType");
+            }
+            this.recurrenceType = recurrenceType;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(@Nullable ActionRuleSuppressionSuppressionSchedule schedule) {
+
             this.schedule = schedule;
             return this;
         }

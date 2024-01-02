@@ -16,6 +16,7 @@ import com.pulumi.azure.monitoring.inputs.ActionGroupVoiceReceiverArgs;
 import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -792,8 +793,12 @@ public final class ActionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ActionGroupArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.shortName = Objects.requireNonNull($.shortName, "expected parameter 'shortName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActionGroupArgs", "resourceGroupName");
+            }
+            if ($.shortName == null) {
+                throw new MissingRequiredPropertyException("ActionGroupArgs", "shortName");
+            }
             return $;
         }
     }

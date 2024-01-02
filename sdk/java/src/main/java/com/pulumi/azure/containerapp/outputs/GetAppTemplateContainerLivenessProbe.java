@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateContainerLivenessProbeHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -171,12 +172,18 @@ public final class GetAppTemplateContainerLivenessProbe {
 
         @CustomType.Setter
         public Builder failureCountThreshold(Integer failureCountThreshold) {
-            this.failureCountThreshold = Objects.requireNonNull(failureCountThreshold);
+            if (failureCountThreshold == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "failureCountThreshold");
+            }
+            this.failureCountThreshold = failureCountThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder headers(List<GetAppTemplateContainerLivenessProbeHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetAppTemplateContainerLivenessProbeHeader... headers) {
@@ -184,42 +191,66 @@ public final class GetAppTemplateContainerLivenessProbe {
         }
         @CustomType.Setter
         public Builder host(String host) {
-            this.host = Objects.requireNonNull(host);
+            if (host == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "host");
+            }
+            this.host = host;
             return this;
         }
         @CustomType.Setter
         public Builder initialDelay(Integer initialDelay) {
-            this.initialDelay = Objects.requireNonNull(initialDelay);
+            if (initialDelay == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "initialDelay");
+            }
+            this.initialDelay = initialDelay;
             return this;
         }
         @CustomType.Setter
         public Builder intervalSeconds(Integer intervalSeconds) {
-            this.intervalSeconds = Objects.requireNonNull(intervalSeconds);
+            if (intervalSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "intervalSeconds");
+            }
+            this.intervalSeconds = intervalSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder terminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
-            this.terminationGracePeriodSeconds = Objects.requireNonNull(terminationGracePeriodSeconds);
+            if (terminationGracePeriodSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "terminationGracePeriodSeconds");
+            }
+            this.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeout(Integer timeout) {
-            this.timeout = Objects.requireNonNull(timeout);
+            if (timeout == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "timeout");
+            }
+            this.timeout = timeout;
             return this;
         }
         @CustomType.Setter
         public Builder transport(String transport) {
-            this.transport = Objects.requireNonNull(transport);
+            if (transport == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainerLivenessProbe", "transport");
+            }
+            this.transport = transport;
             return this;
         }
         public GetAppTemplateContainerLivenessProbe build() {

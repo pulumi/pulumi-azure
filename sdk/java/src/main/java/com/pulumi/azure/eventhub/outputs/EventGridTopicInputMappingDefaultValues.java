@@ -72,16 +72,19 @@ public final class EventGridTopicInputMappingDefaultValues {
 
         @CustomType.Setter
         public Builder dataVersion(@Nullable String dataVersion) {
+
             this.dataVersion = dataVersion;
             return this;
         }
         @CustomType.Setter
         public Builder eventType(@Nullable String eventType) {
+
             this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder subject(@Nullable String subject) {
+
             this.subject = subject;
             return this;
         }

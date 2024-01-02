@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -127,8 +128,12 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs extends 
         }
 
         public ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs build() {
-            $.minimumFailingPeriodsToTriggerAlert = Objects.requireNonNull($.minimumFailingPeriodsToTriggerAlert, "expected parameter 'minimumFailingPeriodsToTriggerAlert' to be non-null");
-            $.numberOfEvaluationPeriods = Objects.requireNonNull($.numberOfEvaluationPeriods, "expected parameter 'numberOfEvaluationPeriods' to be non-null");
+            if ($.minimumFailingPeriodsToTriggerAlert == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs", "minimumFailingPeriodsToTriggerAlert");
+            }
+            if ($.numberOfEvaluationPeriods == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs", "numberOfEvaluationPeriods");
+            }
             return $;
         }
     }

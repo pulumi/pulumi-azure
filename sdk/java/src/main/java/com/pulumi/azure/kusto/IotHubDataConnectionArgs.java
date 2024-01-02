@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -531,12 +532,24 @@ public final class IotHubDataConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         public IotHubDataConnectionArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.consumerGroup = Objects.requireNonNull($.consumerGroup, "expected parameter 'consumerGroup' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sharedAccessPolicyName = Objects.requireNonNull($.sharedAccessPolicyName, "expected parameter 'sharedAccessPolicyName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "clusterName");
+            }
+            if ($.consumerGroup == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "consumerGroup");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "databaseName");
+            }
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "iothubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "resourceGroupName");
+            }
+            if ($.sharedAccessPolicyName == null) {
+                throw new MissingRequiredPropertyException("IotHubDataConnectionArgs", "sharedAccessPolicyName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class WindowsWebAppSlotLogsHttpLogsAzureBlobStorage {
 
         @CustomType.Setter
         public Builder retentionInDays(@Nullable Integer retentionInDays) {
+
             this.retentionInDays = retentionInDays;
             return this;
         }
         @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
-            this.sasUrl = Objects.requireNonNull(sasUrl);
+            if (sasUrl == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppSlotLogsHttpLogsAzureBlobStorage", "sasUrl");
+            }
+            this.sasUrl = sasUrl;
             return this;
         }
         public WindowsWebAppSlotLogsHttpLogsAzureBlobStorage build() {

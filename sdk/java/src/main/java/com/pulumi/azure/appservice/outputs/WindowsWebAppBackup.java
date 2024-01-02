@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.WindowsWebAppBackupSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -88,22 +89,32 @@ public final class WindowsWebAppBackup {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppBackup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(WindowsWebAppBackupSchedule schedule) {
-            this.schedule = Objects.requireNonNull(schedule);
+            if (schedule == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppBackup", "schedule");
+            }
+            this.schedule = schedule;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
-            this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
+            if (storageAccountUrl == null) {
+              throw new MissingRequiredPropertyException("WindowsWebAppBackup", "storageAccountUrl");
+            }
+            this.storageAccountUrl = storageAccountUrl;
             return this;
         }
         public WindowsWebAppBackup build() {

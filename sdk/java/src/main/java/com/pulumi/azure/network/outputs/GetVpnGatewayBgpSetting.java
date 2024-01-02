@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetVpnGatewayBgpSettingInstance0BgpPeeringAddress;
 import com.pulumi.azure.network.outputs.GetVpnGatewayBgpSettingInstance1BgpPeeringAddress;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -102,17 +103,26 @@ public final class GetVpnGatewayBgpSetting {
 
         @CustomType.Setter
         public Builder asn(Integer asn) {
-            this.asn = Objects.requireNonNull(asn);
+            if (asn == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSetting", "asn");
+            }
+            this.asn = asn;
             return this;
         }
         @CustomType.Setter
         public Builder bgpPeeringAddress(String bgpPeeringAddress) {
-            this.bgpPeeringAddress = Objects.requireNonNull(bgpPeeringAddress);
+            if (bgpPeeringAddress == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSetting", "bgpPeeringAddress");
+            }
+            this.bgpPeeringAddress = bgpPeeringAddress;
             return this;
         }
         @CustomType.Setter
         public Builder instance0BgpPeeringAddresses(List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses) {
-            this.instance0BgpPeeringAddresses = Objects.requireNonNull(instance0BgpPeeringAddresses);
+            if (instance0BgpPeeringAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSetting", "instance0BgpPeeringAddresses");
+            }
+            this.instance0BgpPeeringAddresses = instance0BgpPeeringAddresses;
             return this;
         }
         public Builder instance0BgpPeeringAddresses(GetVpnGatewayBgpSettingInstance0BgpPeeringAddress... instance0BgpPeeringAddresses) {
@@ -120,7 +130,10 @@ public final class GetVpnGatewayBgpSetting {
         }
         @CustomType.Setter
         public Builder instance1BgpPeeringAddresses(List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses) {
-            this.instance1BgpPeeringAddresses = Objects.requireNonNull(instance1BgpPeeringAddresses);
+            if (instance1BgpPeeringAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSetting", "instance1BgpPeeringAddresses");
+            }
+            this.instance1BgpPeeringAddresses = instance1BgpPeeringAddresses;
             return this;
         }
         public Builder instance1BgpPeeringAddresses(GetVpnGatewayBgpSettingInstance1BgpPeeringAddress... instance1BgpPeeringAddresses) {
@@ -128,7 +141,10 @@ public final class GetVpnGatewayBgpSetting {
         }
         @CustomType.Setter
         public Builder peerWeight(Integer peerWeight) {
-            this.peerWeight = Objects.requireNonNull(peerWeight);
+            if (peerWeight == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayBgpSetting", "peerWeight");
+            }
+            this.peerWeight = peerWeight;
             return this;
         }
         public GetVpnGatewayBgpSetting build() {

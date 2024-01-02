@@ -134,36 +134,43 @@ public final class VirtualMachineSqlInstance {
 
         @CustomType.Setter
         public Builder adhocWorkloadsOptimizationEnabled(@Nullable Boolean adhocWorkloadsOptimizationEnabled) {
+
             this.adhocWorkloadsOptimizationEnabled = adhocWorkloadsOptimizationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder collation(@Nullable String collation) {
+
             this.collation = collation;
             return this;
         }
         @CustomType.Setter
         public Builder instantFileInitializationEnabled(@Nullable Boolean instantFileInitializationEnabled) {
+
             this.instantFileInitializationEnabled = instantFileInitializationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder lockPagesInMemoryEnabled(@Nullable Boolean lockPagesInMemoryEnabled) {
+
             this.lockPagesInMemoryEnabled = lockPagesInMemoryEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder maxDop(@Nullable Integer maxDop) {
+
             this.maxDop = maxDop;
             return this;
         }
         @CustomType.Setter
         public Builder maxServerMemoryMb(@Nullable Integer maxServerMemoryMb) {
+
             this.maxServerMemoryMb = maxServerMemoryMb;
             return this;
         }
         @CustomType.Setter
         public Builder minServerMemoryMb(@Nullable Integer minServerMemoryMb) {
+
             this.minServerMemoryMb = minServerMemoryMb;
             return this;
         }

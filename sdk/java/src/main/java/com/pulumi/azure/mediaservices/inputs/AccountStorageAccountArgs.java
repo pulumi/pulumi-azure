@@ -6,6 +6,7 @@ package com.pulumi.azure.mediaservices.inputs;
 import com.pulumi.azure.mediaservices.inputs.AccountStorageAccountManagedIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -160,7 +161,9 @@ public final class AccountStorageAccountArgs extends com.pulumi.resources.Resour
         }
 
         public AccountStorageAccountArgs build() {
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("AccountStorageAccountArgs", "id");
+            }
             return $;
         }
     }

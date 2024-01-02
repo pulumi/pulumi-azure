@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ClusterVirtualNetworkConfigurationArgs extends com.pulumi.res
         }
 
         public ClusterVirtualNetworkConfigurationArgs build() {
-            $.dataManagementPublicIpId = Objects.requireNonNull($.dataManagementPublicIpId, "expected parameter 'dataManagementPublicIpId' to be non-null");
-            $.enginePublicIpId = Objects.requireNonNull($.enginePublicIpId, "expected parameter 'enginePublicIpId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.dataManagementPublicIpId == null) {
+                throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfigurationArgs", "dataManagementPublicIpId");
+            }
+            if ($.enginePublicIpId == null) {
+                throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfigurationArgs", "enginePublicIpId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ClusterVirtualNetworkConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

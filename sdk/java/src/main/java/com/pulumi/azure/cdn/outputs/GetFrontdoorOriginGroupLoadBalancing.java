@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetFrontdoorOriginGroupLoadBalancing {
 
         @CustomType.Setter
         public Builder additionalLatencyInMilliseconds(Integer additionalLatencyInMilliseconds) {
-            this.additionalLatencyInMilliseconds = Objects.requireNonNull(additionalLatencyInMilliseconds);
+            if (additionalLatencyInMilliseconds == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupLoadBalancing", "additionalLatencyInMilliseconds");
+            }
+            this.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
             return this;
         }
         @CustomType.Setter
         public Builder sampleSize(Integer sampleSize) {
-            this.sampleSize = Objects.requireNonNull(sampleSize);
+            if (sampleSize == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupLoadBalancing", "sampleSize");
+            }
+            this.sampleSize = sampleSize;
             return this;
         }
         @CustomType.Setter
         public Builder successfulSamplesRequired(Integer successfulSamplesRequired) {
-            this.successfulSamplesRequired = Objects.requireNonNull(successfulSamplesRequired);
+            if (successfulSamplesRequired == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorOriginGroupLoadBalancing", "successfulSamplesRequired");
+            }
+            this.successfulSamplesRequired = successfulSamplesRequired;
             return this;
         }
         public GetFrontdoorOriginGroupLoadBalancing build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -144,52 +145,82 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
 
         @CustomType.Setter
         public Builder assignmentHash(String assignmentHash) {
-            this.assignmentHash = Objects.requireNonNull(assignmentHash);
+            if (assignmentHash == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "assignmentHash");
+            }
+            this.assignmentHash = assignmentHash;
             return this;
         }
         @CustomType.Setter
         public Builder complianceStatus(String complianceStatus) {
-            this.complianceStatus = Objects.requireNonNull(complianceStatus);
+            if (complianceStatus == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "complianceStatus");
+            }
+            this.complianceStatus = complianceStatus;
             return this;
         }
         @CustomType.Setter
         public Builder contentHash(String contentHash) {
-            this.contentHash = Objects.requireNonNull(contentHash);
+            if (contentHash == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "contentHash");
+            }
+            this.contentHash = contentHash;
             return this;
         }
         @CustomType.Setter
         public Builder contentUri(String contentUri) {
-            this.contentUri = Objects.requireNonNull(contentUri);
+            if (contentUri == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "contentUri");
+            }
+            this.contentUri = contentUri;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastComplianceStatusChecked(String lastComplianceStatusChecked) {
-            this.lastComplianceStatusChecked = Objects.requireNonNull(lastComplianceStatusChecked);
+            if (lastComplianceStatusChecked == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "lastComplianceStatusChecked");
+            }
+            this.lastComplianceStatusChecked = lastComplianceStatusChecked;
             return this;
         }
         @CustomType.Setter
         public Builder latestReportId(String latestReportId) {
-            this.latestReportId = Objects.requireNonNull(latestReportId);
+            if (latestReportId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "latestReportId");
+            }
+            this.latestReportId = latestReportId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder virtualMachineName(String virtualMachineName) {
-            this.virtualMachineName = Objects.requireNonNull(virtualMachineName);
+            if (virtualMachineName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineConfigurationAssignmentResult", "virtualMachineName");
+            }
+            this.virtualMachineName = virtualMachineName;
             return this;
         }
         public GetVirtualMachineConfigurationAssignmentResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class NetworkManagerSubscriptionConnectionArgs extends com.pulumi.r
         }
 
         public NetworkManagerSubscriptionConnectionArgs build() {
-            $.networkManagerId = Objects.requireNonNull($.networkManagerId, "expected parameter 'networkManagerId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.networkManagerId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerSubscriptionConnectionArgs", "networkManagerId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerSubscriptionConnectionArgs", "subscriptionId");
+            }
             return $;
         }
     }

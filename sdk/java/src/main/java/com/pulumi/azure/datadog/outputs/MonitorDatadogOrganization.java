@@ -4,6 +4,7 @@
 package com.pulumi.azure.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -142,41 +143,53 @@ public final class MonitorDatadogOrganization {
 
         @CustomType.Setter
         public Builder apiKey(String apiKey) {
-            this.apiKey = Objects.requireNonNull(apiKey);
+            if (apiKey == null) {
+              throw new MissingRequiredPropertyException("MonitorDatadogOrganization", "apiKey");
+            }
+            this.apiKey = apiKey;
             return this;
         }
         @CustomType.Setter
         public Builder applicationKey(String applicationKey) {
-            this.applicationKey = Objects.requireNonNull(applicationKey);
+            if (applicationKey == null) {
+              throw new MissingRequiredPropertyException("MonitorDatadogOrganization", "applicationKey");
+            }
+            this.applicationKey = applicationKey;
             return this;
         }
         @CustomType.Setter
         public Builder enterpriseAppId(@Nullable String enterpriseAppId) {
+
             this.enterpriseAppId = enterpriseAppId;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder linkingAuthCode(@Nullable String linkingAuthCode) {
+
             this.linkingAuthCode = linkingAuthCode;
             return this;
         }
         @CustomType.Setter
         public Builder linkingClientId(@Nullable String linkingClientId) {
+
             this.linkingClientId = linkingClientId;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder redirectUri(@Nullable String redirectUri) {
+
             this.redirectUri = redirectUri;
             return this;
         }

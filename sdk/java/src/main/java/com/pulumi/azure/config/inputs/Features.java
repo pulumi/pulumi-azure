@@ -113,61 +113,73 @@ public final class Features {
 
         @CustomType.Setter
         public Builder apiManagement(@Nullable FeaturesApiManagement apiManagement) {
+
             this.apiManagement = apiManagement;
             return this;
         }
         @CustomType.Setter
         public Builder appConfiguration(@Nullable FeaturesAppConfiguration appConfiguration) {
+
             this.appConfiguration = appConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder applicationInsights(@Nullable FeaturesApplicationInsights applicationInsights) {
+
             this.applicationInsights = applicationInsights;
             return this;
         }
         @CustomType.Setter
         public Builder cognitiveAccount(@Nullable FeaturesCognitiveAccount cognitiveAccount) {
+
             this.cognitiveAccount = cognitiveAccount;
             return this;
         }
         @CustomType.Setter
         public Builder keyVault(@Nullable FeaturesKeyVault keyVault) {
+
             this.keyVault = keyVault;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalyticsWorkspace(@Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace) {
+
             this.logAnalyticsWorkspace = logAnalyticsWorkspace;
             return this;
         }
         @CustomType.Setter
         public Builder managedDisk(@Nullable FeaturesManagedDisk managedDisk) {
+
             this.managedDisk = managedDisk;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroup(@Nullable FeaturesResourceGroup resourceGroup) {
+
             this.resourceGroup = resourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder subscription(@Nullable FeaturesSubscription subscription) {
+
             this.subscription = subscription;
             return this;
         }
         @CustomType.Setter
         public Builder templateDeployment(@Nullable FeaturesTemplateDeployment templateDeployment) {
+
             this.templateDeployment = templateDeployment;
             return this;
         }
         @CustomType.Setter
         public Builder virtualMachine(@Nullable FeaturesVirtualMachine virtualMachine) {
+
             this.virtualMachine = virtualMachine;
             return this;
         }
         @CustomType.Setter
         public Builder virtualMachineScaleSet(@Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet) {
+
             this.virtualMachineScaleSet = virtualMachineScaleSet;
             return this;
         }

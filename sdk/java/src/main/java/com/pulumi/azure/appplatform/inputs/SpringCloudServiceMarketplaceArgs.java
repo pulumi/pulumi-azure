@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class SpringCloudServiceMarketplaceArgs extends com.pulumi.resource
         }
 
         public SpringCloudServiceMarketplaceArgs build() {
-            $.plan = Objects.requireNonNull($.plan, "expected parameter 'plan' to be non-null");
-            $.product = Objects.requireNonNull($.product, "expected parameter 'product' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
+            if ($.plan == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceMarketplaceArgs", "plan");
+            }
+            if ($.product == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceMarketplaceArgs", "product");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceMarketplaceArgs", "publisher");
+            }
             return $;
         }
     }

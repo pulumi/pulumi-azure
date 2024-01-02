@@ -6,6 +6,7 @@ package com.pulumi.azure.maintenance.outputs;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationInstallPatch;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -170,17 +171,26 @@ public final class GetConfigurationResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder inGuestUserPatchMode(String inGuestUserPatchMode) {
-            this.inGuestUserPatchMode = Objects.requireNonNull(inGuestUserPatchMode);
+            if (inGuestUserPatchMode == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "inGuestUserPatchMode");
+            }
+            this.inGuestUserPatchMode = inGuestUserPatchMode;
             return this;
         }
         @CustomType.Setter
         public Builder installPatches(List<GetConfigurationInstallPatch> installPatches) {
-            this.installPatches = Objects.requireNonNull(installPatches);
+            if (installPatches == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "installPatches");
+            }
+            this.installPatches = installPatches;
             return this;
         }
         public Builder installPatches(GetConfigurationInstallPatch... installPatches) {
@@ -188,42 +198,66 @@ public final class GetConfigurationResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder properties(Map<String,String> properties) {
-            this.properties = Objects.requireNonNull(properties);
+            if (properties == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "properties");
+            }
+            this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder visibility(String visibility) {
-            this.visibility = Objects.requireNonNull(visibility);
+            if (visibility == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "visibility");
+            }
+            this.visibility = visibility;
             return this;
         }
         @CustomType.Setter
         public Builder windows(List<GetConfigurationWindow> windows) {
-            this.windows = Objects.requireNonNull(windows);
+            if (windows == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationResult", "windows");
+            }
+            this.windows = windows;
             return this;
         }
         public Builder windows(GetConfigurationWindow... windows) {

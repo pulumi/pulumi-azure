@@ -8,6 +8,7 @@ import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayCustomRoute;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayIpConfiguration;
 import com.pulumi.azure.network.outputs.GetVirtualNetworkGatewayVpnClientConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -257,12 +258,18 @@ public final class GetVirtualNetworkGatewayResult {
 
         @CustomType.Setter
         public Builder activeActive(Boolean activeActive) {
-            this.activeActive = Objects.requireNonNull(activeActive);
+            if (activeActive == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "activeActive");
+            }
+            this.activeActive = activeActive;
             return this;
         }
         @CustomType.Setter
         public Builder bgpSettings(List<GetVirtualNetworkGatewayBgpSetting> bgpSettings) {
-            this.bgpSettings = Objects.requireNonNull(bgpSettings);
+            if (bgpSettings == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "bgpSettings");
+            }
+            this.bgpSettings = bgpSettings;
             return this;
         }
         public Builder bgpSettings(GetVirtualNetworkGatewayBgpSetting... bgpSettings) {
@@ -270,7 +277,10 @@ public final class GetVirtualNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder customRoutes(List<GetVirtualNetworkGatewayCustomRoute> customRoutes) {
-            this.customRoutes = Objects.requireNonNull(customRoutes);
+            if (customRoutes == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "customRoutes");
+            }
+            this.customRoutes = customRoutes;
             return this;
         }
         public Builder customRoutes(GetVirtualNetworkGatewayCustomRoute... customRoutes) {
@@ -278,27 +288,42 @@ public final class GetVirtualNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder defaultLocalNetworkGatewayId(String defaultLocalNetworkGatewayId) {
-            this.defaultLocalNetworkGatewayId = Objects.requireNonNull(defaultLocalNetworkGatewayId);
+            if (defaultLocalNetworkGatewayId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "defaultLocalNetworkGatewayId");
+            }
+            this.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
             return this;
         }
         @CustomType.Setter
         public Builder enableBgp(Boolean enableBgp) {
-            this.enableBgp = Objects.requireNonNull(enableBgp);
+            if (enableBgp == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "enableBgp");
+            }
+            this.enableBgp = enableBgp;
             return this;
         }
         @CustomType.Setter
         public Builder generation(String generation) {
-            this.generation = Objects.requireNonNull(generation);
+            if (generation == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "generation");
+            }
+            this.generation = generation;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetVirtualNetworkGatewayIpConfiguration... ipConfigurations) {
@@ -306,42 +331,66 @@ public final class GetVirtualNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressEnabled(Boolean privateIpAddressEnabled) {
-            this.privateIpAddressEnabled = Objects.requireNonNull(privateIpAddressEnabled);
+            if (privateIpAddressEnabled == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "privateIpAddressEnabled");
+            }
+            this.privateIpAddressEnabled = privateIpAddressEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder vpnClientConfigurations(List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations) {
-            this.vpnClientConfigurations = Objects.requireNonNull(vpnClientConfigurations);
+            if (vpnClientConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "vpnClientConfigurations");
+            }
+            this.vpnClientConfigurations = vpnClientConfigurations;
             return this;
         }
         public Builder vpnClientConfigurations(GetVirtualNetworkGatewayVpnClientConfiguration... vpnClientConfigurations) {
@@ -349,7 +398,10 @@ public final class GetVirtualNetworkGatewayResult {
         }
         @CustomType.Setter
         public Builder vpnType(String vpnType) {
-            this.vpnType = Objects.requireNonNull(vpnType);
+            if (vpnType == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkGatewayResult", "vpnType");
+            }
+            this.vpnType = vpnType;
             return this;
         }
         public GetVirtualNetworkGatewayResult build() {

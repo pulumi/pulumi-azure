@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class SyncGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SyncGroupArgs build() {
-            $.storageSyncId = Objects.requireNonNull($.storageSyncId, "expected parameter 'storageSyncId' to be non-null");
+            if ($.storageSyncId == null) {
+                throw new MissingRequiredPropertyException("SyncGroupArgs", "storageSyncId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.redis.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -159,7 +160,9 @@ public final class CachePatchScheduleArgs extends com.pulumi.resources.ResourceA
         }
 
         public CachePatchScheduleArgs build() {
-            $.dayOfWeek = Objects.requireNonNull($.dayOfWeek, "expected parameter 'dayOfWeek' to be non-null");
+            if ($.dayOfWeek == null) {
+                throw new MissingRequiredPropertyException("CachePatchScheduleArgs", "dayOfWeek");
+            }
             return $;
         }
     }

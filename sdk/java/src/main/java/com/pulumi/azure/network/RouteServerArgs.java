@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -345,10 +346,18 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteServerArgs build() {
-            $.publicIpAddressId = Objects.requireNonNull($.publicIpAddressId, "expected parameter 'publicIpAddressId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.publicIpAddressId == null) {
+                throw new MissingRequiredPropertyException("RouteServerArgs", "publicIpAddressId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RouteServerArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("RouteServerArgs", "sku");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("RouteServerArgs", "subnetId");
+            }
             return $;
         }
     }

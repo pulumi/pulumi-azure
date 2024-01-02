@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -116,7 +117,10 @@ public final class FirewallPolicyCustomRuleMatchCondition {
 
         @CustomType.Setter
         public Builder matchValues(List<String> matchValues) {
-            this.matchValues = Objects.requireNonNull(matchValues);
+            if (matchValues == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleMatchCondition", "matchValues");
+            }
+            this.matchValues = matchValues;
             return this;
         }
         public Builder matchValues(String... matchValues) {
@@ -124,26 +128,35 @@ public final class FirewallPolicyCustomRuleMatchCondition {
         }
         @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
-            this.matchVariable = Objects.requireNonNull(matchVariable);
+            if (matchVariable == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleMatchCondition", "matchVariable");
+            }
+            this.matchVariable = matchVariable;
             return this;
         }
         @CustomType.Setter
         public Builder negationCondition(@Nullable Boolean negationCondition) {
+
             this.negationCondition = negationCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyCustomRuleMatchCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
+
             this.transforms = transforms;
             return this;
         }

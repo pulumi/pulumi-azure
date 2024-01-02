@@ -87,21 +87,25 @@ public final class TransformOutputCustomPresetCodecDdAudio {
 
         @CustomType.Setter
         public Builder bitrate(@Nullable Integer bitrate) {
+
             this.bitrate = bitrate;
             return this;
         }
         @CustomType.Setter
         public Builder channels(@Nullable Integer channels) {
+
             this.channels = channels;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder samplingRate(@Nullable Integer samplingRate) {
+
             this.samplingRate = samplingRate;
             return this;
         }

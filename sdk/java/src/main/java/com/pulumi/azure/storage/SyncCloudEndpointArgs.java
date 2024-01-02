@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class SyncCloudEndpointArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SyncCloudEndpointArgs build() {
-            $.fileShareName = Objects.requireNonNull($.fileShareName, "expected parameter 'fileShareName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.storageSyncGroupId = Objects.requireNonNull($.storageSyncGroupId, "expected parameter 'storageSyncGroupId' to be non-null");
+            if ($.fileShareName == null) {
+                throw new MissingRequiredPropertyException("SyncCloudEndpointArgs", "fileShareName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("SyncCloudEndpointArgs", "storageAccountId");
+            }
+            if ($.storageSyncGroupId == null) {
+                throw new MissingRequiredPropertyException("SyncCloudEndpointArgs", "storageSyncGroupId");
+            }
             return $;
         }
     }

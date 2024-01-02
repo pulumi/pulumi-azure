@@ -14,6 +14,7 @@ import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingsV2Login;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingsV2MicrosoftV2;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingsV2TwitterV2;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -348,7 +349,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
 
         @CustomType.Setter
         public Builder activeDirectoryV2s(List<GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2> activeDirectoryV2s) {
-            this.activeDirectoryV2s = Objects.requireNonNull(activeDirectoryV2s);
+            if (activeDirectoryV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "activeDirectoryV2s");
+            }
+            this.activeDirectoryV2s = activeDirectoryV2s;
             return this;
         }
         public Builder activeDirectoryV2s(GetWindowsWebAppAuthSettingsV2ActiveDirectoryV2... activeDirectoryV2s) {
@@ -356,7 +360,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder appleV2s(List<GetWindowsWebAppAuthSettingsV2AppleV2> appleV2s) {
-            this.appleV2s = Objects.requireNonNull(appleV2s);
+            if (appleV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "appleV2s");
+            }
+            this.appleV2s = appleV2s;
             return this;
         }
         public Builder appleV2s(GetWindowsWebAppAuthSettingsV2AppleV2... appleV2s) {
@@ -364,12 +371,18 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder authEnabled(Boolean authEnabled) {
-            this.authEnabled = Objects.requireNonNull(authEnabled);
+            if (authEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "authEnabled");
+            }
+            this.authEnabled = authEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder azureStaticWebAppV2s(List<GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2> azureStaticWebAppV2s) {
-            this.azureStaticWebAppV2s = Objects.requireNonNull(azureStaticWebAppV2s);
+            if (azureStaticWebAppV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "azureStaticWebAppV2s");
+            }
+            this.azureStaticWebAppV2s = azureStaticWebAppV2s;
             return this;
         }
         public Builder azureStaticWebAppV2s(GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2... azureStaticWebAppV2s) {
@@ -377,12 +390,18 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder configFilePath(String configFilePath) {
-            this.configFilePath = Objects.requireNonNull(configFilePath);
+            if (configFilePath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "configFilePath");
+            }
+            this.configFilePath = configFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder customOidcV2s(List<GetWindowsWebAppAuthSettingsV2CustomOidcV2> customOidcV2s) {
-            this.customOidcV2s = Objects.requireNonNull(customOidcV2s);
+            if (customOidcV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "customOidcV2s");
+            }
+            this.customOidcV2s = customOidcV2s;
             return this;
         }
         public Builder customOidcV2s(GetWindowsWebAppAuthSettingsV2CustomOidcV2... customOidcV2s) {
@@ -390,12 +409,18 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder defaultProvider(String defaultProvider) {
-            this.defaultProvider = Objects.requireNonNull(defaultProvider);
+            if (defaultProvider == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "defaultProvider");
+            }
+            this.defaultProvider = defaultProvider;
             return this;
         }
         @CustomType.Setter
         public Builder excludedPaths(List<String> excludedPaths) {
-            this.excludedPaths = Objects.requireNonNull(excludedPaths);
+            if (excludedPaths == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "excludedPaths");
+            }
+            this.excludedPaths = excludedPaths;
             return this;
         }
         public Builder excludedPaths(String... excludedPaths) {
@@ -403,7 +428,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder facebookV2s(List<GetWindowsWebAppAuthSettingsV2FacebookV2> facebookV2s) {
-            this.facebookV2s = Objects.requireNonNull(facebookV2s);
+            if (facebookV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "facebookV2s");
+            }
+            this.facebookV2s = facebookV2s;
             return this;
         }
         public Builder facebookV2s(GetWindowsWebAppAuthSettingsV2FacebookV2... facebookV2s) {
@@ -411,22 +439,34 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder forwardProxyConvention(String forwardProxyConvention) {
-            this.forwardProxyConvention = Objects.requireNonNull(forwardProxyConvention);
+            if (forwardProxyConvention == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "forwardProxyConvention");
+            }
+            this.forwardProxyConvention = forwardProxyConvention;
             return this;
         }
         @CustomType.Setter
         public Builder forwardProxyCustomHostHeaderName(String forwardProxyCustomHostHeaderName) {
-            this.forwardProxyCustomHostHeaderName = Objects.requireNonNull(forwardProxyCustomHostHeaderName);
+            if (forwardProxyCustomHostHeaderName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "forwardProxyCustomHostHeaderName");
+            }
+            this.forwardProxyCustomHostHeaderName = forwardProxyCustomHostHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder forwardProxyCustomSchemeHeaderName(String forwardProxyCustomSchemeHeaderName) {
-            this.forwardProxyCustomSchemeHeaderName = Objects.requireNonNull(forwardProxyCustomSchemeHeaderName);
+            if (forwardProxyCustomSchemeHeaderName == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "forwardProxyCustomSchemeHeaderName");
+            }
+            this.forwardProxyCustomSchemeHeaderName = forwardProxyCustomSchemeHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder githubV2s(List<GetWindowsWebAppAuthSettingsV2GithubV2> githubV2s) {
-            this.githubV2s = Objects.requireNonNull(githubV2s);
+            if (githubV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "githubV2s");
+            }
+            this.githubV2s = githubV2s;
             return this;
         }
         public Builder githubV2s(GetWindowsWebAppAuthSettingsV2GithubV2... githubV2s) {
@@ -434,7 +474,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder googleV2s(List<GetWindowsWebAppAuthSettingsV2GoogleV2> googleV2s) {
-            this.googleV2s = Objects.requireNonNull(googleV2s);
+            if (googleV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "googleV2s");
+            }
+            this.googleV2s = googleV2s;
             return this;
         }
         public Builder googleV2s(GetWindowsWebAppAuthSettingsV2GoogleV2... googleV2s) {
@@ -442,12 +485,18 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder httpRouteApiPrefix(String httpRouteApiPrefix) {
-            this.httpRouteApiPrefix = Objects.requireNonNull(httpRouteApiPrefix);
+            if (httpRouteApiPrefix == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "httpRouteApiPrefix");
+            }
+            this.httpRouteApiPrefix = httpRouteApiPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder logins(List<GetWindowsWebAppAuthSettingsV2Login> logins) {
-            this.logins = Objects.requireNonNull(logins);
+            if (logins == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "logins");
+            }
+            this.logins = logins;
             return this;
         }
         public Builder logins(GetWindowsWebAppAuthSettingsV2Login... logins) {
@@ -455,7 +504,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder microsoftV2s(List<GetWindowsWebAppAuthSettingsV2MicrosoftV2> microsoftV2s) {
-            this.microsoftV2s = Objects.requireNonNull(microsoftV2s);
+            if (microsoftV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "microsoftV2s");
+            }
+            this.microsoftV2s = microsoftV2s;
             return this;
         }
         public Builder microsoftV2s(GetWindowsWebAppAuthSettingsV2MicrosoftV2... microsoftV2s) {
@@ -463,22 +515,34 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder requireAuthentication(Boolean requireAuthentication) {
-            this.requireAuthentication = Objects.requireNonNull(requireAuthentication);
+            if (requireAuthentication == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "requireAuthentication");
+            }
+            this.requireAuthentication = requireAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder requireHttps(Boolean requireHttps) {
-            this.requireHttps = Objects.requireNonNull(requireHttps);
+            if (requireHttps == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "requireHttps");
+            }
+            this.requireHttps = requireHttps;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
-            this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
+            if (runtimeVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "runtimeVersion");
+            }
+            this.runtimeVersion = runtimeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder twitterV2s(List<GetWindowsWebAppAuthSettingsV2TwitterV2> twitterV2s) {
-            this.twitterV2s = Objects.requireNonNull(twitterV2s);
+            if (twitterV2s == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "twitterV2s");
+            }
+            this.twitterV2s = twitterV2s;
             return this;
         }
         public Builder twitterV2s(GetWindowsWebAppAuthSettingsV2TwitterV2... twitterV2s) {
@@ -486,7 +550,10 @@ public final class GetWindowsWebAppAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder unauthenticatedAction(String unauthenticatedAction) {
-            this.unauthenticatedAction = Objects.requireNonNull(unauthenticatedAction);
+            if (unauthenticatedAction == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSettingsV2", "unauthenticatedAction");
+            }
+            this.unauthenticatedAction = unauthenticatedAction;
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2 build() {

@@ -62,6 +62,7 @@ public final class NetworkManagerScope {
 
         @CustomType.Setter
         public Builder managementGroupIds(@Nullable List<String> managementGroupIds) {
+
             this.managementGroupIds = managementGroupIds;
             return this;
         }
@@ -70,6 +71,7 @@ public final class NetworkManagerScope {
         }
         @CustomType.Setter
         public Builder subscriptionIds(@Nullable List<String> subscriptionIds) {
+
             this.subscriptionIds = subscriptionIds;
             return this;
         }

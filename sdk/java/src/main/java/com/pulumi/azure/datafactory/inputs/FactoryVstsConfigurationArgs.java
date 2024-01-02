@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,12 +300,24 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public FactoryVstsConfigurationArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.branchName = Objects.requireNonNull($.branchName, "expected parameter 'branchName' to be non-null");
-            $.projectName = Objects.requireNonNull($.projectName, "expected parameter 'projectName' to be non-null");
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
-            $.rootFolder = Objects.requireNonNull($.rootFolder, "expected parameter 'rootFolder' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "accountName");
+            }
+            if ($.branchName == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "branchName");
+            }
+            if ($.projectName == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "projectName");
+            }
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "repositoryName");
+            }
+            if ($.rootFolder == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "rootFolder");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("FactoryVstsConfigurationArgs", "tenantId");
+            }
             return $;
         }
     }

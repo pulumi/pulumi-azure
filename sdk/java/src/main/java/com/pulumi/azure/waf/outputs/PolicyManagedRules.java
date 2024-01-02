@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.outputs;
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesExclusion;
 import com.pulumi.azure.waf.outputs.PolicyManagedRulesManagedRuleSet;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -59,6 +60,7 @@ public final class PolicyManagedRules {
 
         @CustomType.Setter
         public Builder exclusions(@Nullable List<PolicyManagedRulesExclusion> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -67,7 +69,10 @@ public final class PolicyManagedRules {
         }
         @CustomType.Setter
         public Builder managedRuleSets(List<PolicyManagedRulesManagedRuleSet> managedRuleSets) {
-            this.managedRuleSets = Objects.requireNonNull(managedRuleSets);
+            if (managedRuleSets == null) {
+              throw new MissingRequiredPropertyException("PolicyManagedRules", "managedRuleSets");
+            }
+            this.managedRuleSets = managedRuleSets;
             return this;
         }
         public Builder managedRuleSets(PolicyManagedRulesManagedRuleSet... managedRuleSets) {

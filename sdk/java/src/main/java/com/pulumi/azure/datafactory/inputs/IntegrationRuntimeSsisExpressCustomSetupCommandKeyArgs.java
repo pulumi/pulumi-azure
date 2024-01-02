@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory.inputs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,8 +189,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs extend
         }
 
         public IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs build() {
-            $.targetName = Objects.requireNonNull($.targetName, "expected parameter 'targetName' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
+            if ($.targetName == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs", "targetName");
+            }
+            if ($.userName == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs", "userName");
+            }
             return $;
         }
     }

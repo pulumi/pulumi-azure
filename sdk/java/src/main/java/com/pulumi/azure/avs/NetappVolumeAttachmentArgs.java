@@ -5,6 +5,7 @@ package com.pulumi.azure.avs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class NetappVolumeAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         public NetappVolumeAttachmentArgs build() {
-            $.netappVolumeId = Objects.requireNonNull($.netappVolumeId, "expected parameter 'netappVolumeId' to be non-null");
-            $.vmwareClusterId = Objects.requireNonNull($.vmwareClusterId, "expected parameter 'vmwareClusterId' to be non-null");
+            if ($.netappVolumeId == null) {
+                throw new MissingRequiredPropertyException("NetappVolumeAttachmentArgs", "netappVolumeId");
+            }
+            if ($.vmwareClusterId == null) {
+                throw new MissingRequiredPropertyException("NetappVolumeAttachmentArgs", "vmwareClusterId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class GetSharedImageVersionPlainArgs extends com.pulumi.resources.I
         }
 
         public GetSharedImageVersionPlainArgs build() {
-            $.galleryName = Objects.requireNonNull($.galleryName, "expected parameter 'galleryName' to be non-null");
-            $.imageName = Objects.requireNonNull($.imageName, "expected parameter 'imageName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.galleryName == null) {
+                throw new MissingRequiredPropertyException("GetSharedImageVersionPlainArgs", "galleryName");
+            }
+            if ($.imageName == null) {
+                throw new MissingRequiredPropertyException("GetSharedImageVersionPlainArgs", "imageName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetSharedImageVersionPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetSharedImageVersionPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

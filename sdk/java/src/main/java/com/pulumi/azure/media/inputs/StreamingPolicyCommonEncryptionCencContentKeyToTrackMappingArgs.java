@@ -6,6 +6,7 @@ package com.pulumi.azure.media.inputs;
 import com.pulumi.azure.media.inputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,7 +163,9 @@ public final class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingAr
         }
 
         public StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs build() {
-            $.tracks = Objects.requireNonNull($.tracks, "expected parameter 'tracks' to be non-null");
+            if ($.tracks == null) {
+                throw new MissingRequiredPropertyException("StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs", "tracks");
+            }
             return $;
         }
     }

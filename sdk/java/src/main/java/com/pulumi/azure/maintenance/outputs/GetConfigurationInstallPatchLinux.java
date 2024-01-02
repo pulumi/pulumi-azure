@@ -4,6 +4,7 @@
 package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetConfigurationInstallPatchLinux {
 
         @CustomType.Setter
         public Builder classificationsToIncludes(List<String> classificationsToIncludes) {
-            this.classificationsToIncludes = Objects.requireNonNull(classificationsToIncludes);
+            if (classificationsToIncludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchLinux", "classificationsToIncludes");
+            }
+            this.classificationsToIncludes = classificationsToIncludes;
             return this;
         }
         public Builder classificationsToIncludes(String... classificationsToIncludes) {
@@ -79,7 +83,10 @@ public final class GetConfigurationInstallPatchLinux {
         }
         @CustomType.Setter
         public Builder packageNamesMaskToExcludes(List<String> packageNamesMaskToExcludes) {
-            this.packageNamesMaskToExcludes = Objects.requireNonNull(packageNamesMaskToExcludes);
+            if (packageNamesMaskToExcludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchLinux", "packageNamesMaskToExcludes");
+            }
+            this.packageNamesMaskToExcludes = packageNamesMaskToExcludes;
             return this;
         }
         public Builder packageNamesMaskToExcludes(String... packageNamesMaskToExcludes) {
@@ -87,7 +94,10 @@ public final class GetConfigurationInstallPatchLinux {
         }
         @CustomType.Setter
         public Builder packageNamesMaskToIncludes(List<String> packageNamesMaskToIncludes) {
-            this.packageNamesMaskToIncludes = Objects.requireNonNull(packageNamesMaskToIncludes);
+            if (packageNamesMaskToIncludes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatchLinux", "packageNamesMaskToIncludes");
+            }
+            this.packageNamesMaskToIncludes = packageNamesMaskToIncludes;
             return this;
         }
         public Builder packageNamesMaskToIncludes(String... packageNamesMaskToIncludes) {

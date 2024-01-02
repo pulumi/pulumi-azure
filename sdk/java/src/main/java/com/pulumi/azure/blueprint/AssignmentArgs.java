@@ -6,6 +6,7 @@ package com.pulumi.azure.blueprint;
 import com.pulumi.azure.blueprint.inputs.AssignmentIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -447,9 +448,15 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AssignmentArgs build() {
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.targetSubscriptionId = Objects.requireNonNull($.targetSubscriptionId, "expected parameter 'targetSubscriptionId' to be non-null");
-            $.versionId = Objects.requireNonNull($.versionId, "expected parameter 'versionId' to be non-null");
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "identity");
+            }
+            if ($.targetSubscriptionId == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "targetSubscriptionId");
+            }
+            if ($.versionId == null) {
+                throw new MissingRequiredPropertyException("AssignmentArgs", "versionId");
+            }
             return $;
         }
     }

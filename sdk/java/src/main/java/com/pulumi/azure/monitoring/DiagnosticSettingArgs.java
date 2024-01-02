@@ -8,6 +8,7 @@ import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -594,7 +595,9 @@ public final class DiagnosticSettingArgs extends com.pulumi.resources.ResourceAr
         }
 
         public DiagnosticSettingArgs build() {
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("DiagnosticSettingArgs", "targetResourceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -127,37 +128,58 @@ public final class GetActionGroupAutomationRunbookReceiver {
 
         @CustomType.Setter
         public Builder automationAccountId(String automationAccountId) {
-            this.automationAccountId = Objects.requireNonNull(automationAccountId);
+            if (automationAccountId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "automationAccountId");
+            }
+            this.automationAccountId = automationAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder isGlobalRunbook(Boolean isGlobalRunbook) {
-            this.isGlobalRunbook = Objects.requireNonNull(isGlobalRunbook);
+            if (isGlobalRunbook == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "isGlobalRunbook");
+            }
+            this.isGlobalRunbook = isGlobalRunbook;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder runbookName(String runbookName) {
-            this.runbookName = Objects.requireNonNull(runbookName);
+            if (runbookName == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "runbookName");
+            }
+            this.runbookName = runbookName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
-            this.serviceUri = Objects.requireNonNull(serviceUri);
+            if (serviceUri == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "serviceUri");
+            }
+            this.serviceUri = serviceUri;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
-            this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
+            if (useCommonAlertSchema == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "useCommonAlertSchema");
+            }
+            this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }
         @CustomType.Setter
         public Builder webhookResourceId(String webhookResourceId) {
-            this.webhookResourceId = Objects.requireNonNull(webhookResourceId);
+            if (webhookResourceId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAutomationRunbookReceiver", "webhookResourceId");
+            }
+            this.webhookResourceId = webhookResourceId;
             return this;
         }
         public GetActionGroupAutomationRunbookReceiver build() {

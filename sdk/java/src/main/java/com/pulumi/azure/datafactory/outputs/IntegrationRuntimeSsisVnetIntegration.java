@@ -91,6 +91,7 @@ public final class IntegrationRuntimeSsisVnetIntegration {
 
         @CustomType.Setter
         public Builder publicIps(@Nullable List<String> publicIps) {
+
             this.publicIps = publicIps;
             return this;
         }
@@ -99,16 +100,19 @@ public final class IntegrationRuntimeSsisVnetIntegration {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetName(@Nullable String subnetName) {
+
             this.subnetName = subnetName;
             return this;
         }
         @CustomType.Setter
         public Builder vnetId(@Nullable String vnetId) {
+
             this.vnetId = vnetId;
             return this;
         }

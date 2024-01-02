@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class SecurityDeviceGroupRangeRuleArgs extends com.pulumi.resources
         }
 
         public SecurityDeviceGroupRangeRuleArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.max = Objects.requireNonNull($.max, "expected parameter 'max' to be non-null");
-            $.min = Objects.requireNonNull($.min, "expected parameter 'min' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("SecurityDeviceGroupRangeRuleArgs", "duration");
+            }
+            if ($.max == null) {
+                throw new MissingRequiredPropertyException("SecurityDeviceGroupRangeRuleArgs", "max");
+            }
+            if ($.min == null) {
+                throw new MissingRequiredPropertyException("SecurityDeviceGroupRangeRuleArgs", "min");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SecurityDeviceGroupRangeRuleArgs", "type");
+            }
             return $;
         }
     }

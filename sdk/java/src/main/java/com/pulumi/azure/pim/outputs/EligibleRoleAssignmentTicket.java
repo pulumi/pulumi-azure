@@ -58,11 +58,13 @@ public final class EligibleRoleAssignmentTicket {
 
         @CustomType.Setter
         public Builder number(@Nullable String number) {
+
             this.number = number;
             return this;
         }
         @CustomType.Setter
         public Builder system(@Nullable String system) {
+
             this.system = system;
             return this;
         }

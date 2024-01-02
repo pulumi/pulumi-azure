@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetKubernetesClusterKeyManagementService {
 
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKeyManagementService", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultNetworkAccess(String keyVaultNetworkAccess) {
-            this.keyVaultNetworkAccess = Objects.requireNonNull(keyVaultNetworkAccess);
+            if (keyVaultNetworkAccess == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterKeyManagementService", "keyVaultNetworkAccess");
+            }
+            this.keyVaultNetworkAccess = keyVaultNetworkAccess;
             return this;
         }
         public GetKubernetesClusterKeyManagementService build() {

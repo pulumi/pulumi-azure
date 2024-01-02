@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineSecretCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class WindowsVirtualMachineSecret {
 
         @CustomType.Setter
         public Builder certificates(List<WindowsVirtualMachineSecretCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineSecret", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(WindowsVirtualMachineSecretCertificate... certificates) {
@@ -66,7 +70,10 @@ public final class WindowsVirtualMachineSecret {
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineSecret", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         public WindowsVirtualMachineSecret build() {

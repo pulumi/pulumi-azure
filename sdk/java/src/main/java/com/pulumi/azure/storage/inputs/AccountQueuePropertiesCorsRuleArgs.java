@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -269,11 +270,21 @@ public final class AccountQueuePropertiesCorsRuleArgs extends com.pulumi.resourc
         }
 
         public AccountQueuePropertiesCorsRuleArgs build() {
-            $.allowedHeaders = Objects.requireNonNull($.allowedHeaders, "expected parameter 'allowedHeaders' to be non-null");
-            $.allowedMethods = Objects.requireNonNull($.allowedMethods, "expected parameter 'allowedMethods' to be non-null");
-            $.allowedOrigins = Objects.requireNonNull($.allowedOrigins, "expected parameter 'allowedOrigins' to be non-null");
-            $.exposedHeaders = Objects.requireNonNull($.exposedHeaders, "expected parameter 'exposedHeaders' to be non-null");
-            $.maxAgeInSeconds = Objects.requireNonNull($.maxAgeInSeconds, "expected parameter 'maxAgeInSeconds' to be non-null");
+            if ($.allowedHeaders == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRuleArgs", "allowedHeaders");
+            }
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRuleArgs", "allowedMethods");
+            }
+            if ($.allowedOrigins == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRuleArgs", "allowedOrigins");
+            }
+            if ($.exposedHeaders == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRuleArgs", "exposedHeaders");
+            }
+            if ($.maxAgeInSeconds == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRuleArgs", "maxAgeInSeconds");
+            }
             return $;
         }
     }

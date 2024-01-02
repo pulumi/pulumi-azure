@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -117,7 +118,10 @@ public final class VolumeExportPolicyRule {
 
         @CustomType.Setter
         public Builder allowedClients(List<String> allowedClients) {
-            this.allowedClients = Objects.requireNonNull(allowedClients);
+            if (allowedClients == null) {
+              throw new MissingRequiredPropertyException("VolumeExportPolicyRule", "allowedClients");
+            }
+            this.allowedClients = allowedClients;
             return this;
         }
         public Builder allowedClients(String... allowedClients) {
@@ -125,26 +129,33 @@ public final class VolumeExportPolicyRule {
         }
         @CustomType.Setter
         public Builder protocolsEnabled(@Nullable String protocolsEnabled) {
+
             this.protocolsEnabled = protocolsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rootAccessEnabled(@Nullable Boolean rootAccessEnabled) {
+
             this.rootAccessEnabled = rootAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ruleIndex(Integer ruleIndex) {
-            this.ruleIndex = Objects.requireNonNull(ruleIndex);
+            if (ruleIndex == null) {
+              throw new MissingRequiredPropertyException("VolumeExportPolicyRule", "ruleIndex");
+            }
+            this.ruleIndex = ruleIndex;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadOnly(@Nullable Boolean unixReadOnly) {
+
             this.unixReadOnly = unixReadOnly;
             return this;
         }
         @CustomType.Setter
         public Builder unixReadWrite(@Nullable Boolean unixReadWrite) {
+
             this.unixReadWrite = unixReadWrite;
             return this;
         }

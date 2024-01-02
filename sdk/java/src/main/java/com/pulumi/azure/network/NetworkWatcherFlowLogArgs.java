@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogRetentionPolicyArgs;
 import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -451,12 +452,24 @@ public final class NetworkWatcherFlowLogArgs extends com.pulumi.resources.Resour
         }
 
         public NetworkWatcherFlowLogArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.networkSecurityGroupId = Objects.requireNonNull($.networkSecurityGroupId, "expected parameter 'networkSecurityGroupId' to be non-null");
-            $.networkWatcherName = Objects.requireNonNull($.networkWatcherName, "expected parameter 'networkWatcherName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.retentionPolicy = Objects.requireNonNull($.retentionPolicy, "expected parameter 'retentionPolicy' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "enabled");
+            }
+            if ($.networkSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "networkSecurityGroupId");
+            }
+            if ($.networkWatcherName == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "networkWatcherName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "resourceGroupName");
+            }
+            if ($.retentionPolicy == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "retentionPolicy");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogArgs", "storageAccountId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -225,12 +226,18 @@ public final class GetVolumeResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder dataProtectionReplications(List<GetVolumeDataProtectionReplication> dataProtectionReplications) {
-            this.dataProtectionReplications = Objects.requireNonNull(dataProtectionReplications);
+            if (dataProtectionReplications == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "dataProtectionReplications");
+            }
+            this.dataProtectionReplications = dataProtectionReplications;
             return this;
         }
         public Builder dataProtectionReplications(GetVolumeDataProtectionReplication... dataProtectionReplications) {
@@ -238,17 +245,26 @@ public final class GetVolumeResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mountIpAddresses(List<String> mountIpAddresses) {
-            this.mountIpAddresses = Objects.requireNonNull(mountIpAddresses);
+            if (mountIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "mountIpAddresses");
+            }
+            this.mountIpAddresses = mountIpAddresses;
             return this;
         }
         public Builder mountIpAddresses(String... mountIpAddresses) {
@@ -256,22 +272,34 @@ public final class GetVolumeResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkFeatures(String networkFeatures) {
-            this.networkFeatures = Objects.requireNonNull(networkFeatures);
+            if (networkFeatures == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "networkFeatures");
+            }
+            this.networkFeatures = networkFeatures;
             return this;
         }
         @CustomType.Setter
         public Builder poolName(String poolName) {
-            this.poolName = Objects.requireNonNull(poolName);
+            if (poolName == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "poolName");
+            }
+            this.poolName = poolName;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -279,37 +307,56 @@ public final class GetVolumeResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder securityStyle(@Nullable String securityStyle) {
+
             this.securityStyle = securityStyle;
             return this;
         }
         @CustomType.Setter
         public Builder serviceLevel(String serviceLevel) {
-            this.serviceLevel = Objects.requireNonNull(serviceLevel);
+            if (serviceLevel == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "serviceLevel");
+            }
+            this.serviceLevel = serviceLevel;
             return this;
         }
         @CustomType.Setter
         public Builder storageQuotaInGb(Integer storageQuotaInGb) {
-            this.storageQuotaInGb = Objects.requireNonNull(storageQuotaInGb);
+            if (storageQuotaInGb == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "storageQuotaInGb");
+            }
+            this.storageQuotaInGb = storageQuotaInGb;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder volumePath(String volumePath) {
-            this.volumePath = Objects.requireNonNull(volumePath);
+            if (volumePath == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "volumePath");
+            }
+            this.volumePath = volumePath;
             return this;
         }
         @CustomType.Setter
         public Builder zone(String zone) {
-            this.zone = Objects.requireNonNull(zone);
+            if (zone == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "zone");
+            }
+            this.zone = zone;
             return this;
         }
         public GetVolumeResult build() {

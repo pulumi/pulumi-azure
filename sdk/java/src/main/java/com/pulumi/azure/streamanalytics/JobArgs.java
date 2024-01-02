@@ -7,6 +7,7 @@ import com.pulumi.azure.streamanalytics.inputs.JobIdentityArgs;
 import com.pulumi.azure.streamanalytics.inputs.JobJobStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -707,8 +708,12 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.transformationQuery = Objects.requireNonNull($.transformationQuery, "expected parameter 'transformationQuery' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "resourceGroupName");
+            }
+            if ($.transformationQuery == null) {
+                throw new MissingRequiredPropertyException("JobArgs", "transformationQuery");
+            }
             return $;
         }
     }

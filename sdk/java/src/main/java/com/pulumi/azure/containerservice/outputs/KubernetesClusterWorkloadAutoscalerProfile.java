@@ -91,21 +91,25 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
 
         @CustomType.Setter
         public Builder kedaEnabled(@Nullable Boolean kedaEnabled) {
+
             this.kedaEnabled = kedaEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder verticalPodAutoscalerControlledValues(@Nullable String verticalPodAutoscalerControlledValues) {
+
             this.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
             return this;
         }
         @CustomType.Setter
         public Builder verticalPodAutoscalerEnabled(@Nullable Boolean verticalPodAutoscalerEnabled) {
+
             this.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder verticalPodAutoscalerUpdateMode(@Nullable String verticalPodAutoscalerUpdateMode) {
+
             this.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
             return this;
         }

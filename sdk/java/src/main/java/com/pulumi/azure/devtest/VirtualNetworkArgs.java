@@ -6,6 +6,7 @@ package com.pulumi.azure.devtest;
 import com.pulumi.azure.devtest.inputs.VirtualNetworkSubnetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,8 +264,12 @@ public final class VirtualNetworkArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public VirtualNetworkArgs build() {
-            $.labName = Objects.requireNonNull($.labName, "expected parameter 'labName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.labName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkArgs", "labName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkArgs", "resourceGroupName");
+            }
             return $;
         }
     }

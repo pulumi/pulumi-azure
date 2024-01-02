@@ -48,16 +48,19 @@ public final class FeaturesVirtualMachineScaleSet {
 
         @CustomType.Setter
         public Builder forceDelete(@Nullable Boolean forceDelete) {
+
             this.forceDelete = forceDelete;
             return this;
         }
         @CustomType.Setter
         public Builder rollInstancesWhenRequired(@Nullable Boolean rollInstancesWhenRequired) {
+
             this.rollInstancesWhenRequired = rollInstancesWhenRequired;
             return this;
         }
         @CustomType.Setter
         public Builder scaleToZeroBeforeDeletion(@Nullable Boolean scaleToZeroBeforeDeletion) {
+
             this.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
             return this;
         }

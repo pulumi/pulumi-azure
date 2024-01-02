@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class EventSubscriptionStorageQueueEndpoint {
 
         @CustomType.Setter
         public Builder queueMessageTimeToLiveInSeconds(@Nullable Integer queueMessageTimeToLiveInSeconds) {
+
             this.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(String queueName) {
-            this.queueName = Objects.requireNonNull(queueName);
+            if (queueName == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionStorageQueueEndpoint", "queueName");
+            }
+            this.queueName = queueName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionStorageQueueEndpoint", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public EventSubscriptionStorageQueueEndpoint build() {

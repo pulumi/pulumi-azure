@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class TrafficManagerNestedEndpointSubnetArgs extends com.pulumi.res
         }
 
         public TrafficManagerNestedEndpointSubnetArgs build() {
-            $.first = Objects.requireNonNull($.first, "expected parameter 'first' to be non-null");
+            if ($.first == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerNestedEndpointSubnetArgs", "first");
+            }
             return $;
         }
     }

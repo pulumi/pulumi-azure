@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,7 +162,9 @@ public final class SmartDetectorAlertRuleActionGroupArgs extends com.pulumi.reso
         }
 
         public SmartDetectorAlertRuleActionGroupArgs build() {
-            $.ids = Objects.requireNonNull($.ids, "expected parameter 'ids' to be non-null");
+            if ($.ids == null) {
+                throw new MissingRequiredPropertyException("SmartDetectorAlertRuleActionGroupArgs", "ids");
+            }
             return $;
         }
     }

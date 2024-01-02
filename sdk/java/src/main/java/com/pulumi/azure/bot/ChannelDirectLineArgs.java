@@ -6,6 +6,7 @@ package com.pulumi.azure.bot;
 import com.pulumi.azure.bot.inputs.ChannelDirectLineSiteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,9 +200,15 @@ public final class ChannelDirectLineArgs extends com.pulumi.resources.ResourceAr
         }
 
         public ChannelDirectLineArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sites = Objects.requireNonNull($.sites, "expected parameter 'sites' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineArgs", "botName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineArgs", "resourceGroupName");
+            }
+            if ($.sites == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineArgs", "sites");
+            }
             return $;
         }
     }

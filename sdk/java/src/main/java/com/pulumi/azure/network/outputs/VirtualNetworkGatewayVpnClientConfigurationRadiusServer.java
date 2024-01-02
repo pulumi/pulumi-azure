@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRadiusServer {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationRadiusServer", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder score(Integer score) {
-            this.score = Objects.requireNonNull(score);
+            if (score == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationRadiusServer", "score");
+            }
+            this.score = score;
             return this;
         }
         @CustomType.Setter
         public Builder secret(String secret) {
-            this.secret = Objects.requireNonNull(secret);
+            if (secret == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkGatewayVpnClientConfigurationRadiusServer", "secret");
+            }
+            this.secret = secret;
             return this;
         }
         public VirtualNetworkGatewayVpnClientConfigurationRadiusServer build() {

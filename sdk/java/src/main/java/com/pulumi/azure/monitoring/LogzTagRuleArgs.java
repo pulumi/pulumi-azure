@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.LogzTagRuleTagFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,7 +238,9 @@ public final class LogzTagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogzTagRuleArgs build() {
-            $.logzMonitorId = Objects.requireNonNull($.logzMonitorId, "expected parameter 'logzMonitorId' to be non-null");
+            if ($.logzMonitorId == null) {
+                throw new MissingRequiredPropertyException("LogzTagRuleArgs", "logzMonitorId");
+            }
             return $;
         }
     }

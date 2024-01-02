@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class AccountAnalyticalStorage {
 
         @CustomType.Setter
         public Builder schemaType(String schemaType) {
-            this.schemaType = Objects.requireNonNull(schemaType);
+            if (schemaType == null) {
+              throw new MissingRequiredPropertyException("AccountAnalyticalStorage", "schemaType");
+            }
+            this.schemaType = schemaType;
             return this;
         }
         public AccountAnalyticalStorage build() {

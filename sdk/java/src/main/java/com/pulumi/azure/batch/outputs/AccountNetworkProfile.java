@@ -63,11 +63,13 @@ public final class AccountNetworkProfile {
 
         @CustomType.Setter
         public Builder accountAccess(@Nullable AccountNetworkProfileAccountAccess accountAccess) {
+
             this.accountAccess = accountAccess;
             return this;
         }
         @CustomType.Setter
         public Builder nodeManagementAccess(@Nullable AccountNetworkProfileNodeManagementAccess nodeManagementAccess) {
+
             this.nodeManagementAccess = nodeManagementAccess;
             return this;
         }

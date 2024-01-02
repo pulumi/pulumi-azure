@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelEmailArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.emailAddress = Objects.requireNonNull($.emailAddress, "expected parameter 'emailAddress' to be non-null");
-            $.emailPassword = Objects.requireNonNull($.emailPassword, "expected parameter 'emailPassword' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelEmailArgs", "botName");
+            }
+            if ($.emailAddress == null) {
+                throw new MissingRequiredPropertyException("ChannelEmailArgs", "emailAddress");
+            }
+            if ($.emailPassword == null) {
+                throw new MissingRequiredPropertyException("ChannelEmailArgs", "emailPassword");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelEmailArgs", "resourceGroupName");
+            }
             return $;
         }
     }

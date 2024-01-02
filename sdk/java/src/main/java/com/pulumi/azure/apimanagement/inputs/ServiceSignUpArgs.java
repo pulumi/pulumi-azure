@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.ServiceSignUpTermsOfServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class ServiceSignUpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceSignUpArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.termsOfService = Objects.requireNonNull($.termsOfService, "expected parameter 'termsOfService' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ServiceSignUpArgs", "enabled");
+            }
+            if ($.termsOfService == null) {
+                throw new MissingRequiredPropertyException("ServiceSignUpArgs", "termsOfService");
+            }
             return $;
         }
     }

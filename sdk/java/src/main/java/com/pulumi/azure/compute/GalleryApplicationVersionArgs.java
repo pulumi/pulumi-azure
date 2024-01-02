@@ -8,6 +8,7 @@ import com.pulumi.azure.compute.inputs.GalleryApplicationVersionSourceArgs;
 import com.pulumi.azure.compute.inputs.GalleryApplicationVersionTargetRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -499,10 +500,18 @@ public final class GalleryApplicationVersionArgs extends com.pulumi.resources.Re
         }
 
         public GalleryApplicationVersionArgs build() {
-            $.galleryApplicationId = Objects.requireNonNull($.galleryApplicationId, "expected parameter 'galleryApplicationId' to be non-null");
-            $.manageAction = Objects.requireNonNull($.manageAction, "expected parameter 'manageAction' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.targetRegions = Objects.requireNonNull($.targetRegions, "expected parameter 'targetRegions' to be non-null");
+            if ($.galleryApplicationId == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionArgs", "galleryApplicationId");
+            }
+            if ($.manageAction == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionArgs", "manageAction");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionArgs", "source");
+            }
+            if ($.targetRegions == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionArgs", "targetRegions");
+            }
             return $;
         }
     }

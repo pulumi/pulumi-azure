@@ -7,6 +7,7 @@ import com.pulumi.azure.containerapp.inputs.AppIngressCustomDomainArgs;
 import com.pulumi.azure.containerapp.inputs.AppIngressTrafficWeightArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -368,8 +369,12 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppIngressArgs build() {
-            $.targetPort = Objects.requireNonNull($.targetPort, "expected parameter 'targetPort' to be non-null");
-            $.trafficWeights = Objects.requireNonNull($.trafficWeights, "expected parameter 'trafficWeights' to be non-null");
+            if ($.targetPort == null) {
+                throw new MissingRequiredPropertyException("AppIngressArgs", "targetPort");
+            }
+            if ($.trafficWeights == null) {
+                throw new MissingRequiredPropertyException("AppIngressArgs", "trafficWeights");
+            }
             return $;
         }
     }

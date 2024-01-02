@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,10 +336,18 @@ public final class ChannelDirectLineSpeechArgs extends com.pulumi.resources.Reso
         }
 
         public ChannelDirectLineSpeechArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.cognitiveServiceAccessKey = Objects.requireNonNull($.cognitiveServiceAccessKey, "expected parameter 'cognitiveServiceAccessKey' to be non-null");
-            $.cognitiveServiceLocation = Objects.requireNonNull($.cognitiveServiceLocation, "expected parameter 'cognitiveServiceLocation' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineSpeechArgs", "botName");
+            }
+            if ($.cognitiveServiceAccessKey == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineSpeechArgs", "cognitiveServiceAccessKey");
+            }
+            if ($.cognitiveServiceLocation == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineSpeechArgs", "cognitiveServiceLocation");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelDirectLineSpeechArgs", "resourceGroupName");
+            }
             return $;
         }
     }

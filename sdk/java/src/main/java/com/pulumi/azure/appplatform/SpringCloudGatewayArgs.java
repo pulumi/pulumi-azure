@@ -10,6 +10,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayQuotaArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewaySsoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -539,7 +540,9 @@ public final class SpringCloudGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         public SpringCloudGatewayArgs build() {
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudGatewayArgs", "springCloudServiceId");
+            }
             return $;
         }
     }

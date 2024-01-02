@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class IntegrationRuntimeManagedCatalogInfoArgs extends com.pulumi.r
         }
 
         public IntegrationRuntimeManagedCatalogInfoArgs build() {
-            $.serverEndpoint = Objects.requireNonNull($.serverEndpoint, "expected parameter 'serverEndpoint' to be non-null");
+            if ($.serverEndpoint == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeManagedCatalogInfoArgs", "serverEndpoint");
+            }
             return $;
         }
     }

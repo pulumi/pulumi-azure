@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class PoolDiskEncryptionArgs extends com.pulumi.resources.ResourceA
         }
 
         public PoolDiskEncryptionArgs build() {
-            $.diskEncryptionTarget = Objects.requireNonNull($.diskEncryptionTarget, "expected parameter 'diskEncryptionTarget' to be non-null");
+            if ($.diskEncryptionTarget == null) {
+                throw new MissingRequiredPropertyException("PoolDiskEncryptionArgs", "diskEncryptionTarget");
+            }
             return $;
         }
     }

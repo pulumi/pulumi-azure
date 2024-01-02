@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.azure.servicefabric.outputs.ManagedClusterNodeTypeVmSecretCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class ManagedClusterNodeTypeVmSecret {
 
         @CustomType.Setter
         public Builder certificates(List<ManagedClusterNodeTypeVmSecretCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeTypeVmSecret", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(ManagedClusterNodeTypeVmSecretCertificate... certificates) {
@@ -66,7 +70,10 @@ public final class ManagedClusterNodeTypeVmSecret {
         }
         @CustomType.Setter
         public Builder vaultId(String vaultId) {
-            this.vaultId = Objects.requireNonNull(vaultId);
+            if (vaultId == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeTypeVmSecret", "vaultId");
+            }
+            this.vaultId = vaultId;
             return this;
         }
         public ManagedClusterNodeTypeVmSecret build() {

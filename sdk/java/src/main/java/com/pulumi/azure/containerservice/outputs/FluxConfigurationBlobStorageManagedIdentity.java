@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class FluxConfigurationBlobStorageManagedIdentity {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBlobStorageManagedIdentity", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         public FluxConfigurationBlobStorageManagedIdentity build() {

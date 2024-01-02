@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ScaleSetSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScaleSetSkuArgs build() {
-            $.capacity = Objects.requireNonNull($.capacity, "expected parameter 'capacity' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.capacity == null) {
+                throw new MissingRequiredPropertyException("ScaleSetSkuArgs", "capacity");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ScaleSetSkuArgs", "name");
+            }
             return $;
         }
     }

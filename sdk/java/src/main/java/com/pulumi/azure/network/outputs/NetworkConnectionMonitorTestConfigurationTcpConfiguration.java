@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -74,16 +75,21 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
 
         @CustomType.Setter
         public Builder destinationPortBehavior(@Nullable String destinationPortBehavior) {
+
             this.destinationPortBehavior = destinationPortBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestConfigurationTcpConfiguration", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder traceRouteEnabled(@Nullable Boolean traceRouteEnabled) {
+
             this.traceRouteEnabled = traceRouteEnabled;
             return this;
         }

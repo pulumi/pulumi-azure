@@ -87,21 +87,25 @@ public final class SpringCloudGatewaySso {
 
         @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
+
             this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
+
             this.clientSecret = clientSecret;
             return this;
         }
         @CustomType.Setter
         public Builder issuerUri(@Nullable String issuerUri) {
+
             this.issuerUri = issuerUri;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(@Nullable List<String> scopes) {
+
             this.scopes = scopes;
             return this;
         }

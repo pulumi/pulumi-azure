@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -115,17 +116,26 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
 
         @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
-            this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
+            if (domainNameLabel == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "domainNameLabel");
+            }
+            this.domainNameLabel = domainNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder ipTags(List<GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
-            this.ipTags = Objects.requireNonNull(ipTags);
+            if (ipTags == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "ipTags");
+            }
+            this.ipTags = ipTags;
             return this;
         }
         public Builder ipTags(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag... ipTags) {
@@ -133,17 +143,26 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpPrefixId(String publicIpPrefixId) {
-            this.publicIpPrefixId = Objects.requireNonNull(publicIpPrefixId);
+            if (publicIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "publicIpPrefixId");
+            }
+            this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {

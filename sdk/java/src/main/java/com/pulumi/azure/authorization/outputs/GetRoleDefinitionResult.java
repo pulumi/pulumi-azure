@@ -5,6 +5,7 @@ package com.pulumi.azure.authorization.outputs;
 
 import com.pulumi.azure.authorization.outputs.GetRoleDefinitionPermission;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -120,7 +121,10 @@ public final class GetRoleDefinitionResult {
 
         @CustomType.Setter
         public Builder assignableScopes(List<String> assignableScopes) {
-            this.assignableScopes = Objects.requireNonNull(assignableScopes);
+            if (assignableScopes == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "assignableScopes");
+            }
+            this.assignableScopes = assignableScopes;
             return this;
         }
         public Builder assignableScopes(String... assignableScopes) {
@@ -128,22 +132,34 @@ public final class GetRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(List<GetRoleDefinitionPermission> permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         public Builder permissions(GetRoleDefinitionPermission... permissions) {
@@ -151,17 +167,24 @@ public final class GetRoleDefinitionResult {
         }
         @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
-            this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
+            if (roleDefinitionId == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "roleDefinitionId");
+            }
+            this.roleDefinitionId = roleDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetRoleDefinitionResult build() {

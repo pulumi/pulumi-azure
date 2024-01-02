@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -134,7 +135,9 @@ public final class LocalRulestackRuleCategoryArgs extends com.pulumi.resources.R
         }
 
         public LocalRulestackRuleCategoryArgs build() {
-            $.customUrls = Objects.requireNonNull($.customUrls, "expected parameter 'customUrls' to be non-null");
+            if ($.customUrls == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackRuleCategoryArgs", "customUrls");
+            }
             return $;
         }
     }

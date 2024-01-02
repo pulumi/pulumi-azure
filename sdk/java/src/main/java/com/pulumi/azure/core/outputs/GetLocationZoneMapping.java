@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetLocationZoneMapping {
 
         @CustomType.Setter
         public Builder logicalZone(String logicalZone) {
-            this.logicalZone = Objects.requireNonNull(logicalZone);
+            if (logicalZone == null) {
+              throw new MissingRequiredPropertyException("GetLocationZoneMapping", "logicalZone");
+            }
+            this.logicalZone = logicalZone;
             return this;
         }
         @CustomType.Setter
         public Builder physicalZone(String physicalZone) {
-            this.physicalZone = Objects.requireNonNull(physicalZone);
+            if (physicalZone == null) {
+              throw new MissingRequiredPropertyException("GetLocationZoneMapping", "physicalZone");
+            }
+            this.physicalZone = physicalZone;
             return this;
         }
         public GetLocationZoneMapping build() {

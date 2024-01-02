@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -48,12 +49,18 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("RegistryNetworkRuleSetVirtualNetwork", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("RegistryNetworkRuleSetVirtualNetwork", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public RegistryNetworkRuleSetVirtualNetwork build() {

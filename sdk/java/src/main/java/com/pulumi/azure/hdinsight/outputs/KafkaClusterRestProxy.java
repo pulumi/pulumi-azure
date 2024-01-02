@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class KafkaClusterRestProxy {
 
         @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
-            this.securityGroupId = Objects.requireNonNull(securityGroupId);
+            if (securityGroupId == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterRestProxy", "securityGroupId");
+            }
+            this.securityGroupId = securityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder securityGroupName(String securityGroupName) {
-            this.securityGroupName = Objects.requireNonNull(securityGroupName);
+            if (securityGroupName == null) {
+              throw new MissingRequiredPropertyException("KafkaClusterRestProxy", "securityGroupName");
+            }
+            this.securityGroupName = securityGroupName;
             return this;
         }
         public KafkaClusterRestProxy build() {

@@ -9,6 +9,7 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayRewriteRuleSetRewriteRu
 import com.pulumi.azure.network.inputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -297,8 +298,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleArgs extends com.p
         }
 
         public ApplicationGatewayRewriteRuleSetRewriteRuleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.ruleSequence = Objects.requireNonNull($.ruleSequence, "expected parameter 'ruleSequence' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleArgs", "name");
+            }
+            if ($.ruleSequence == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleArgs", "ruleSequence");
+            }
             return $;
         }
     }

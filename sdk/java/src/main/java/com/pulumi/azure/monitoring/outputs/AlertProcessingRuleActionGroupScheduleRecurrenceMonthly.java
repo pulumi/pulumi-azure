@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -74,7 +75,10 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
 
         @CustomType.Setter
         public Builder daysOfMonths(List<Integer> daysOfMonths) {
-            this.daysOfMonths = Objects.requireNonNull(daysOfMonths);
+            if (daysOfMonths == null) {
+              throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupScheduleRecurrenceMonthly", "daysOfMonths");
+            }
+            this.daysOfMonths = daysOfMonths;
             return this;
         }
         public Builder daysOfMonths(Integer... daysOfMonths) {
@@ -82,11 +86,13 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
         }
         @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
+
             this.endTime = endTime;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }

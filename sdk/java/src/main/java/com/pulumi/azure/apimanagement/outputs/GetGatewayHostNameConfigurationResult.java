@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -145,52 +146,82 @@ public final class GetGatewayHostNameConfigurationResult {
 
         @CustomType.Setter
         public Builder apiManagementId(String apiManagementId) {
-            this.apiManagementId = Objects.requireNonNull(apiManagementId);
+            if (apiManagementId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "apiManagementId");
+            }
+            this.apiManagementId = apiManagementId;
             return this;
         }
         @CustomType.Setter
         public Builder certificateId(String certificateId) {
-            this.certificateId = Objects.requireNonNull(certificateId);
+            if (certificateId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "certificateId");
+            }
+            this.certificateId = certificateId;
             return this;
         }
         @CustomType.Setter
         public Builder gatewayName(String gatewayName) {
-            this.gatewayName = Objects.requireNonNull(gatewayName);
+            if (gatewayName == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "gatewayName");
+            }
+            this.gatewayName = gatewayName;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder requestClientCertificateEnabled(Boolean requestClientCertificateEnabled) {
-            this.requestClientCertificateEnabled = Objects.requireNonNull(requestClientCertificateEnabled);
+            if (requestClientCertificateEnabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "requestClientCertificateEnabled");
+            }
+            this.requestClientCertificateEnabled = requestClientCertificateEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tls10Enabled(Boolean tls10Enabled) {
-            this.tls10Enabled = Objects.requireNonNull(tls10Enabled);
+            if (tls10Enabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "tls10Enabled");
+            }
+            this.tls10Enabled = tls10Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder tls11Enabled(Boolean tls11Enabled) {
-            this.tls11Enabled = Objects.requireNonNull(tls11Enabled);
+            if (tls11Enabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayHostNameConfigurationResult", "tls11Enabled");
+            }
+            this.tls11Enabled = tls11Enabled;
             return this;
         }
         public GetGatewayHostNameConfigurationResult build() {

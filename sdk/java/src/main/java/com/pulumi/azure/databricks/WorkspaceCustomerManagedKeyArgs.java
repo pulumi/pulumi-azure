@@ -5,6 +5,7 @@ package com.pulumi.azure.databricks;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -127,8 +128,12 @@ public final class WorkspaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         public WorkspaceCustomerManagedKeyArgs build() {
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceCustomerManagedKeyArgs", "workspaceId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.eventhub;
 import com.pulumi.azure.eventhub.inputs.EventHubCaptureDescriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -324,10 +325,18 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventHubArgs build() {
-            $.messageRetention = Objects.requireNonNull($.messageRetention, "expected parameter 'messageRetention' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.partitionCount = Objects.requireNonNull($.partitionCount, "expected parameter 'partitionCount' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.messageRetention == null) {
+                throw new MissingRequiredPropertyException("EventHubArgs", "messageRetention");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("EventHubArgs", "namespaceName");
+            }
+            if ($.partitionCount == null) {
+                throw new MissingRequiredPropertyException("EventHubArgs", "partitionCount");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventHubArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
         }
 
         public PoolContainerConfigurationContainerRegistryArgs build() {
-            $.registryServer = Objects.requireNonNull($.registryServer, "expected parameter 'registryServer' to be non-null");
+            if ($.registryServer == null) {
+                throw new MissingRequiredPropertyException("PoolContainerConfigurationContainerRegistryArgs", "registryServer");
+            }
             return $;
         }
     }

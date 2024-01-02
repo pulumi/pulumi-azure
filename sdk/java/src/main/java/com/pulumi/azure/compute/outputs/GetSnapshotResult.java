@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetSnapshotEncryptionSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -152,17 +153,26 @@ public final class GetSnapshotResult {
 
         @CustomType.Setter
         public Builder creationOption(String creationOption) {
-            this.creationOption = Objects.requireNonNull(creationOption);
+            if (creationOption == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "creationOption");
+            }
+            this.creationOption = creationOption;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
-            this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
+            if (diskSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "diskSizeGb");
+            }
+            this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionSettings(List<GetSnapshotEncryptionSetting> encryptionSettings) {
-            this.encryptionSettings = Objects.requireNonNull(encryptionSettings);
+            if (encryptionSettings == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "encryptionSettings");
+            }
+            this.encryptionSettings = encryptionSettings;
             return this;
         }
         public Builder encryptionSettings(GetSnapshotEncryptionSetting... encryptionSettings) {
@@ -170,47 +180,74 @@ public final class GetSnapshotResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sourceResourceId(String sourceResourceId) {
-            this.sourceResourceId = Objects.requireNonNull(sourceResourceId);
+            if (sourceResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "sourceResourceId");
+            }
+            this.sourceResourceId = sourceResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceUri(String sourceUri) {
-            this.sourceUri = Objects.requireNonNull(sourceUri);
+            if (sourceUri == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "sourceUri");
+            }
+            this.sourceUri = sourceUri;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder timeCreated(String timeCreated) {
-            this.timeCreated = Objects.requireNonNull(timeCreated);
+            if (timeCreated == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "timeCreated");
+            }
+            this.timeCreated = timeCreated;
             return this;
         }
         @CustomType.Setter
         public Builder trustedLaunchEnabled(Boolean trustedLaunchEnabled) {
-            this.trustedLaunchEnabled = Objects.requireNonNull(trustedLaunchEnabled);
+            if (trustedLaunchEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "trustedLaunchEnabled");
+            }
+            this.trustedLaunchEnabled = trustedLaunchEnabled;
             return this;
         }
         public GetSnapshotResult build() {

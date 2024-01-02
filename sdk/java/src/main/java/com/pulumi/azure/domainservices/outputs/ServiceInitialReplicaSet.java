@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,6 +116,7 @@ public final class ServiceInitialReplicaSet {
 
         @CustomType.Setter
         public Builder domainControllerIpAddresses(@Nullable List<String> domainControllerIpAddresses) {
+
             this.domainControllerIpAddresses = domainControllerIpAddresses;
             return this;
         }
@@ -123,27 +125,34 @@ public final class ServiceInitialReplicaSet {
         }
         @CustomType.Setter
         public Builder externalAccessIpAddress(@Nullable String externalAccessIpAddress) {
+
             this.externalAccessIpAddress = externalAccessIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder serviceStatus(@Nullable String serviceStatus) {
+
             this.serviceStatus = serviceStatus;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("ServiceInitialReplicaSet", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public ServiceInitialReplicaSet build() {

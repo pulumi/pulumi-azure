@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,40 @@ public final class PoolMountAzureFileShare {
 
         @CustomType.Setter
         public Builder accountKey(String accountKey) {
-            this.accountKey = Objects.requireNonNull(accountKey);
+            if (accountKey == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureFileShare", "accountKey");
+            }
+            this.accountKey = accountKey;
             return this;
         }
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureFileShare", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder azureFileUrl(String azureFileUrl) {
-            this.azureFileUrl = Objects.requireNonNull(azureFileUrl);
+            if (azureFileUrl == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureFileShare", "azureFileUrl");
+            }
+            this.azureFileUrl = azureFileUrl;
             return this;
         }
         @CustomType.Setter
         public Builder mountOptions(@Nullable String mountOptions) {
+
             this.mountOptions = mountOptions;
             return this;
         }
         @CustomType.Setter
         public Builder relativeMountPath(String relativeMountPath) {
-            this.relativeMountPath = Objects.requireNonNull(relativeMountPath);
+            if (relativeMountPath == null) {
+              throw new MissingRequiredPropertyException("PoolMountAzureFileShare", "relativeMountPath");
+            }
+            this.relativeMountPath = relativeMountPath;
             return this;
         }
         public PoolMountAzureFileShare build() {

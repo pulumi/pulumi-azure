@@ -4,6 +4,7 @@
 package com.pulumi.azure.aadb2c.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -139,47 +140,74 @@ public final class GetDirectoryResult {
 
         @CustomType.Setter
         public Builder billingType(String billingType) {
-            this.billingType = Objects.requireNonNull(billingType);
+            if (billingType == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "billingType");
+            }
+            this.billingType = billingType;
             return this;
         }
         @CustomType.Setter
         public Builder dataResidencyLocation(String dataResidencyLocation) {
-            this.dataResidencyLocation = Objects.requireNonNull(dataResidencyLocation);
+            if (dataResidencyLocation == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "dataResidencyLocation");
+            }
+            this.dataResidencyLocation = dataResidencyLocation;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder effectiveStartDate(String effectiveStartDate) {
-            this.effectiveStartDate = Objects.requireNonNull(effectiveStartDate);
+            if (effectiveStartDate == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "effectiveStartDate");
+            }
+            this.effectiveStartDate = effectiveStartDate;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetDirectoryResult build() {

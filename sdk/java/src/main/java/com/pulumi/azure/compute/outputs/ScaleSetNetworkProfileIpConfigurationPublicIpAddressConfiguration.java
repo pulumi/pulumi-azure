@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
 
         @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
-            this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
+            if (domainNameLabel == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration", "domainNameLabel");
+            }
+            this.domainNameLabel = domainNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeout(Integer idleTimeout) {
-            this.idleTimeout = Objects.requireNonNull(idleTimeout);
+            if (idleTimeout == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration", "idleTimeout");
+            }
+            this.idleTimeout = idleTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         public ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration build() {

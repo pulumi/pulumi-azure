@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthentication {
 
         @CustomType.Setter
         public Builder audience(String audience) {
-            this.audience = Objects.requireNonNull(audience);
+            if (audience == null) {
+              throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthentication", "audience");
+            }
+            this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthentication", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder tenant(String tenant) {
-            this.tenant = Objects.requireNonNull(tenant);
+            if (tenant == null) {
+              throw new MissingRequiredPropertyException("VpnServerConfigurationAzureActiveDirectoryAuthentication", "tenant");
+            }
+            this.tenant = tenant;
             return this;
         }
         public VpnServerConfigurationAzureActiveDirectoryAuthentication build() {

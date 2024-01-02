@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.inputs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class LinuxWebAppSlotLogsApplicationLogsArgs extends com.pulumi.res
         }
 
         public LinuxWebAppSlotLogsApplicationLogsArgs build() {
-            $.fileSystemLevel = Objects.requireNonNull($.fileSystemLevel, "expected parameter 'fileSystemLevel' to be non-null");
+            if ($.fileSystemLevel == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppSlotLogsApplicationLogsArgs", "fileSystemLevel");
+            }
             return $;
         }
     }

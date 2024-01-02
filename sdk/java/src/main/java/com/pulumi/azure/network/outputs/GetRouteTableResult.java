@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetRouteTableRoute;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -136,32 +137,50 @@ public final class GetRouteTableResult {
 
         @CustomType.Setter
         public Builder bgpRoutePropagationEnabled(Boolean bgpRoutePropagationEnabled) {
-            this.bgpRoutePropagationEnabled = Objects.requireNonNull(bgpRoutePropagationEnabled);
+            if (bgpRoutePropagationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "bgpRoutePropagationEnabled");
+            }
+            this.bgpRoutePropagationEnabled = bgpRoutePropagationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder routes(List<GetRouteTableRoute> routes) {
-            this.routes = Objects.requireNonNull(routes);
+            if (routes == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "routes");
+            }
+            this.routes = routes;
             return this;
         }
         public Builder routes(GetRouteTableRoute... routes) {
@@ -169,7 +188,10 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder subnets(List<String> subnets) {
-            this.subnets = Objects.requireNonNull(subnets);
+            if (subnets == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "subnets");
+            }
+            this.subnets = subnets;
             return this;
         }
         public Builder subnets(String... subnets) {
@@ -177,7 +199,10 @@ public final class GetRouteTableResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetRouteTableResult build() {

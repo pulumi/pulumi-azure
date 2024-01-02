@@ -87,21 +87,25 @@ public final class PoolFixedScale {
 
         @CustomType.Setter
         public Builder nodeDeallocationMethod(@Nullable String nodeDeallocationMethod) {
+
             this.nodeDeallocationMethod = nodeDeallocationMethod;
             return this;
         }
         @CustomType.Setter
         public Builder resizeTimeout(@Nullable String resizeTimeout) {
+
             this.resizeTimeout = resizeTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder targetDedicatedNodes(@Nullable Integer targetDedicatedNodes) {
+
             this.targetDedicatedNodes = targetDedicatedNodes;
             return this;
         }
         @CustomType.Setter
         public Builder targetLowPriorityNodes(@Nullable Integer targetLowPriorityNodes) {
+
             this.targetLowPriorityNodes = targetLowPriorityNodes;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -98,27 +99,42 @@ public final class GetNetworkSiteResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkId(String mobileNetworkId) {
-            this.mobileNetworkId = Objects.requireNonNull(mobileNetworkId);
+            if (mobileNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "mobileNetworkId");
+            }
+            this.mobileNetworkId = mobileNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkFunctionIds(List<String> networkFunctionIds) {
-            this.networkFunctionIds = Objects.requireNonNull(networkFunctionIds);
+            if (networkFunctionIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "networkFunctionIds");
+            }
+            this.networkFunctionIds = networkFunctionIds;
             return this;
         }
         public Builder networkFunctionIds(String... networkFunctionIds) {
@@ -126,7 +142,10 @@ public final class GetNetworkSiteResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSiteResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNetworkSiteResult build() {

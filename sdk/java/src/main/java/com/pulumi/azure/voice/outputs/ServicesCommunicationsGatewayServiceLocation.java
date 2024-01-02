@@ -4,6 +4,7 @@
 package com.pulumi.azure.voice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -104,6 +105,7 @@ public final class ServicesCommunicationsGatewayServiceLocation {
 
         @CustomType.Setter
         public Builder allowedMediaSourceAddressPrefixes(@Nullable List<String> allowedMediaSourceAddressPrefixes) {
+
             this.allowedMediaSourceAddressPrefixes = allowedMediaSourceAddressPrefixes;
             return this;
         }
@@ -112,6 +114,7 @@ public final class ServicesCommunicationsGatewayServiceLocation {
         }
         @CustomType.Setter
         public Builder allowedSignalingSourceAddressPrefixes(@Nullable List<String> allowedSignalingSourceAddressPrefixes) {
+
             this.allowedSignalingSourceAddressPrefixes = allowedSignalingSourceAddressPrefixes;
             return this;
         }
@@ -120,6 +123,7 @@ public final class ServicesCommunicationsGatewayServiceLocation {
         }
         @CustomType.Setter
         public Builder esrpAddresses(@Nullable List<String> esrpAddresses) {
+
             this.esrpAddresses = esrpAddresses;
             return this;
         }
@@ -128,12 +132,18 @@ public final class ServicesCommunicationsGatewayServiceLocation {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayServiceLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder operatorAddresses(List<String> operatorAddresses) {
-            this.operatorAddresses = Objects.requireNonNull(operatorAddresses);
+            if (operatorAddresses == null) {
+              throw new MissingRequiredPropertyException("ServicesCommunicationsGatewayServiceLocation", "operatorAddresses");
+            }
+            this.operatorAddresses = operatorAddresses;
             return this;
         }
         public Builder operatorAddresses(String... operatorAddresses) {

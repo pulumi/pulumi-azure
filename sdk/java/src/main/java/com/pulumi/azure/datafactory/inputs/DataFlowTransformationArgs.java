@@ -8,6 +8,7 @@ import com.pulumi.azure.datafactory.inputs.DataFlowTransformationFlowletArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowTransformationLinkedServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -227,7 +228,9 @@ public final class DataFlowTransformationArgs extends com.pulumi.resources.Resou
         }
 
         public DataFlowTransformationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataFlowTransformationArgs", "name");
+            }
             return $;
         }
     }

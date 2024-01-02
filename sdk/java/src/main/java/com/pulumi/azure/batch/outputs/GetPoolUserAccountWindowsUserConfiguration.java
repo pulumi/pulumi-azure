@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPoolUserAccountWindowsUserConfiguration {
 
         @CustomType.Setter
         public Builder loginMode(String loginMode) {
-            this.loginMode = Objects.requireNonNull(loginMode);
+            if (loginMode == null) {
+              throw new MissingRequiredPropertyException("GetPoolUserAccountWindowsUserConfiguration", "loginMode");
+            }
+            this.loginMode = loginMode;
             return this;
         }
         public GetPoolUserAccountWindowsUserConfiguration build() {

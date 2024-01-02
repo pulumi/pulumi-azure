@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetRestorableDatabaseAccountsAccountRestorableLocation {
 
         @CustomType.Setter
         public Builder creationTime(String creationTime) {
-            this.creationTime = Objects.requireNonNull(creationTime);
+            if (creationTime == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccountRestorableLocation", "creationTime");
+            }
+            this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder deletionTime(String deletionTime) {
-            this.deletionTime = Objects.requireNonNull(deletionTime);
+            if (deletionTime == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccountRestorableLocation", "deletionTime");
+            }
+            this.deletionTime = deletionTime;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccountRestorableLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder regionalDatabaseAccountInstanceId(String regionalDatabaseAccountInstanceId) {
-            this.regionalDatabaseAccountInstanceId = Objects.requireNonNull(regionalDatabaseAccountInstanceId);
+            if (regionalDatabaseAccountInstanceId == null) {
+              throw new MissingRequiredPropertyException("GetRestorableDatabaseAccountsAccountRestorableLocation", "regionalDatabaseAccountInstanceId");
+            }
+            this.regionalDatabaseAccountInstanceId = regionalDatabaseAccountInstanceId;
             return this;
         }
         public GetRestorableDatabaseAccountsAccountRestorableLocation build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class HBaseClusterGatewayArgs extends com.pulumi.resources.Resource
         }
 
         public HBaseClusterGatewayArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterGatewayArgs", "password");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterGatewayArgs", "username");
+            }
             return $;
         }
     }

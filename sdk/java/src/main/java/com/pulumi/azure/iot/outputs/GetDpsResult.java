@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -132,46 +133,71 @@ public final class GetDpsResult {
 
         @CustomType.Setter
         public Builder allocationPolicy(String allocationPolicy) {
-            this.allocationPolicy = Objects.requireNonNull(allocationPolicy);
+            if (allocationPolicy == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "allocationPolicy");
+            }
+            this.allocationPolicy = allocationPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder deviceProvisioningHostName(String deviceProvisioningHostName) {
-            this.deviceProvisioningHostName = Objects.requireNonNull(deviceProvisioningHostName);
+            if (deviceProvisioningHostName == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "deviceProvisioningHostName");
+            }
+            this.deviceProvisioningHostName = deviceProvisioningHostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idScope(String idScope) {
-            this.idScope = Objects.requireNonNull(idScope);
+            if (idScope == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "idScope");
+            }
+            this.idScope = idScope;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceOperationsHostName(String serviceOperationsHostName) {
-            this.serviceOperationsHostName = Objects.requireNonNull(serviceOperationsHostName);
+            if (serviceOperationsHostName == null) {
+              throw new MissingRequiredPropertyException("GetDpsResult", "serviceOperationsHostName");
+            }
+            this.serviceOperationsHostName = serviceOperationsHostName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

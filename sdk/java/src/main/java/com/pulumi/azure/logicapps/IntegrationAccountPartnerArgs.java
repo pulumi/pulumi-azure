@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps;
 import com.pulumi.azure.logicapps.inputs.IntegrationAccountPartnerBusinessIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -236,9 +237,15 @@ public final class IntegrationAccountPartnerArgs extends com.pulumi.resources.Re
         }
 
         public IntegrationAccountPartnerArgs build() {
-            $.businessIdentities = Objects.requireNonNull($.businessIdentities, "expected parameter 'businessIdentities' to be non-null");
-            $.integrationAccountName = Objects.requireNonNull($.integrationAccountName, "expected parameter 'integrationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.businessIdentities == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountPartnerArgs", "businessIdentities");
+            }
+            if ($.integrationAccountName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountPartnerArgs", "integrationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountPartnerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

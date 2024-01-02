@@ -5,6 +5,7 @@ package com.pulumi.azure.eventgrid.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationA
         }
 
         public SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.storageBlobContainerName = Objects.requireNonNull($.storageBlobContainerName, "expected parameter 'storageBlobContainerName' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs", "storageAccountId");
+            }
+            if ($.storageBlobContainerName == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs", "storageBlobContainerName");
+            }
             return $;
         }
     }

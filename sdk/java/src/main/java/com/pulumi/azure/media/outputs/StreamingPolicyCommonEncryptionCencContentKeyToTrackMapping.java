@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,17 +75,22 @@ public final class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping {
 
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
+
             this.policyName = policyName;
             return this;
         }
         @CustomType.Setter
         public Builder tracks(List<StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack> tracks) {
-            this.tracks = Objects.requireNonNull(tracks);
+            if (tracks == null) {
+              throw new MissingRequiredPropertyException("StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping", "tracks");
+            }
+            this.tracks = tracks;
             return this;
         }
         public Builder tracks(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack... tracks) {

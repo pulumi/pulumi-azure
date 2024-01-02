@@ -70,6 +70,7 @@ public final class ServiceNetworkAclPublicNetwork {
 
         @CustomType.Setter
         public Builder allowedRequestTypes(@Nullable List<String> allowedRequestTypes) {
+
             this.allowedRequestTypes = allowedRequestTypes;
             return this;
         }
@@ -78,6 +79,7 @@ public final class ServiceNetworkAclPublicNetwork {
         }
         @CustomType.Setter
         public Builder deniedRequestTypes(@Nullable List<String> deniedRequestTypes) {
+
             this.deniedRequestTypes = deniedRequestTypes;
             return this;
         }

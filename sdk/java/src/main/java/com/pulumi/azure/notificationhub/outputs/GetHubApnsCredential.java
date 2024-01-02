@@ -4,6 +4,7 @@
 package com.pulumi.azure.notificationhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetHubApnsCredential {
 
         @CustomType.Setter
         public Builder applicationMode(String applicationMode) {
-            this.applicationMode = Objects.requireNonNull(applicationMode);
+            if (applicationMode == null) {
+              throw new MissingRequiredPropertyException("GetHubApnsCredential", "applicationMode");
+            }
+            this.applicationMode = applicationMode;
             return this;
         }
         @CustomType.Setter
         public Builder bundleId(String bundleId) {
-            this.bundleId = Objects.requireNonNull(bundleId);
+            if (bundleId == null) {
+              throw new MissingRequiredPropertyException("GetHubApnsCredential", "bundleId");
+            }
+            this.bundleId = bundleId;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("GetHubApnsCredential", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder teamId(String teamId) {
-            this.teamId = Objects.requireNonNull(teamId);
+            if (teamId == null) {
+              throw new MissingRequiredPropertyException("GetHubApnsCredential", "teamId");
+            }
+            this.teamId = teamId;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("GetHubApnsCredential", "token");
+            }
+            this.token = token;
             return this;
         }
         public GetHubApnsCredential build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.PoolStartTaskContainerRegistry;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -88,11 +89,15 @@ public final class PoolStartTaskContainer {
 
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("PoolStartTaskContainer", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder registries(@Nullable List<PoolStartTaskContainerRegistry> registries) {
+
             this.registries = registries;
             return this;
         }
@@ -101,11 +106,13 @@ public final class PoolStartTaskContainer {
         }
         @CustomType.Setter
         public Builder runOptions(@Nullable String runOptions) {
+
             this.runOptions = runOptions;
             return this;
         }
         @CustomType.Setter
         public Builder workingDirectory(@Nullable String workingDirectory) {
+
             this.workingDirectory = workingDirectory;
             return this;
         }

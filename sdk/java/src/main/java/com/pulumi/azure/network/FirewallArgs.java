@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.FirewallManagementIpConfigurationArgs;
 import com.pulumi.azure.network.inputs.FirewallVirtualHubArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -650,9 +651,15 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FirewallArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.skuTier = Objects.requireNonNull($.skuTier, "expected parameter 'skuTier' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "skuName");
+            }
+            if ($.skuTier == null) {
+                throw new MissingRequiredPropertyException("FirewallArgs", "skuTier");
+            }
             return $;
         }
     }

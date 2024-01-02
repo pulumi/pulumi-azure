@@ -21,6 +21,7 @@ import com.pulumi.azure.batch.inputs.PoolUserAccountArgs;
 import com.pulumi.azure.batch.inputs.PoolWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1242,11 +1243,21 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PoolArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.nodeAgentSkuId = Objects.requireNonNull($.nodeAgentSkuId, "expected parameter 'nodeAgentSkuId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageImageReference = Objects.requireNonNull($.storageImageReference, "expected parameter 'storageImageReference' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "accountName");
+            }
+            if ($.nodeAgentSkuId == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "nodeAgentSkuId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "resourceGroupName");
+            }
+            if ($.storageImageReference == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "storageImageReference");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("PoolArgs", "vmSize");
+            }
             return $;
         }
     }

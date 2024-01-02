@@ -6,6 +6,7 @@ package com.pulumi.azure.elasticsan;
 import com.pulumi.azure.elasticsan.inputs.ElasticSanSkuArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -375,9 +376,15 @@ public final class ElasticSanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ElasticSanArgs build() {
-            $.baseSizeInTib = Objects.requireNonNull($.baseSizeInTib, "expected parameter 'baseSizeInTib' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.baseSizeInTib == null) {
+                throw new MissingRequiredPropertyException("ElasticSanArgs", "baseSizeInTib");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ElasticSanArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ElasticSanArgs", "sku");
+            }
             return $;
         }
     }

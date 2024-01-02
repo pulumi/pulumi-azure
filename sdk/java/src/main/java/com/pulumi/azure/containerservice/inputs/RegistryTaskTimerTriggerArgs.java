@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class RegistryTaskTimerTriggerArgs extends com.pulumi.resources.Res
         }
 
         public RegistryTaskTimerTriggerArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskTimerTriggerArgs", "name");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskTimerTriggerArgs", "schedule");
+            }
             return $;
         }
     }

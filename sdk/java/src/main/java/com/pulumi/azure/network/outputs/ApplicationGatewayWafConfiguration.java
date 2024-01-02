@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup;
 import com.pulumi.azure.network.outputs.ApplicationGatewayWafConfigurationExclusion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -161,6 +162,7 @@ public final class ApplicationGatewayWafConfiguration {
 
         @CustomType.Setter
         public Builder disabledRuleGroups(@Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups) {
+
             this.disabledRuleGroups = disabledRuleGroups;
             return this;
         }
@@ -169,11 +171,15 @@ public final class ApplicationGatewayWafConfiguration {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayWafConfiguration", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -182,32 +188,42 @@ public final class ApplicationGatewayWafConfiguration {
         }
         @CustomType.Setter
         public Builder fileUploadLimitMb(@Nullable Integer fileUploadLimitMb) {
+
             this.fileUploadLimitMb = fileUploadLimitMb;
             return this;
         }
         @CustomType.Setter
         public Builder firewallMode(String firewallMode) {
-            this.firewallMode = Objects.requireNonNull(firewallMode);
+            if (firewallMode == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayWafConfiguration", "firewallMode");
+            }
+            this.firewallMode = firewallMode;
             return this;
         }
         @CustomType.Setter
         public Builder maxRequestBodySizeKb(@Nullable Integer maxRequestBodySizeKb) {
+
             this.maxRequestBodySizeKb = maxRequestBodySizeKb;
             return this;
         }
         @CustomType.Setter
         public Builder requestBodyCheck(@Nullable Boolean requestBodyCheck) {
+
             this.requestBodyCheck = requestBodyCheck;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSetType(@Nullable String ruleSetType) {
+
             this.ruleSetType = ruleSetType;
             return this;
         }
         @CustomType.Setter
         public Builder ruleSetVersion(String ruleSetVersion) {
-            this.ruleSetVersion = Objects.requireNonNull(ruleSetVersion);
+            if (ruleSetVersion == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayWafConfiguration", "ruleSetVersion");
+            }
+            this.ruleSetVersion = ruleSetVersion;
             return this;
         }
         public ApplicationGatewayWafConfiguration build() {

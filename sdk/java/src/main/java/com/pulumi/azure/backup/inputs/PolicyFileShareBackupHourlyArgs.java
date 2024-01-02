@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         public PolicyFileShareBackupHourlyArgs build() {
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
-            $.windowDuration = Objects.requireNonNull($.windowDuration, "expected parameter 'windowDuration' to be non-null");
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareBackupHourlyArgs", "interval");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareBackupHourlyArgs", "startTime");
+            }
+            if ($.windowDuration == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareBackupHourlyArgs", "windowDuration");
+            }
             return $;
         }
     }

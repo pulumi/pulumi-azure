@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.GroupDiagnosticsLogAnalyticsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class GroupDiagnosticsArgs extends com.pulumi.resources.ResourceArg
         }
 
         public GroupDiagnosticsArgs build() {
-            $.logAnalytics = Objects.requireNonNull($.logAnalytics, "expected parameter 'logAnalytics' to be non-null");
+            if ($.logAnalytics == null) {
+                throw new MissingRequiredPropertyException("GroupDiagnosticsArgs", "logAnalytics");
+            }
             return $;
         }
     }

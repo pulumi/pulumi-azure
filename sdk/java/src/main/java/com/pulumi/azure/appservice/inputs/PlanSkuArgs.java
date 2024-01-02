@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class PlanSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PlanSkuArgs build() {
-            $.size = Objects.requireNonNull($.size, "expected parameter 'size' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.size == null) {
+                throw new MissingRequiredPropertyException("PlanSkuArgs", "size");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("PlanSkuArgs", "tier");
+            }
             return $;
         }
     }

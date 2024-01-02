@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,7 +188,9 @@ public final class SpringCloudCustomDomainArgs extends com.pulumi.resources.Reso
         }
 
         public SpringCloudCustomDomainArgs build() {
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCustomDomainArgs", "springCloudAppId");
+            }
             return $;
         }
     }

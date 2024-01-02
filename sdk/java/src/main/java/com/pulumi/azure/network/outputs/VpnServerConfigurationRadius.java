@@ -74,6 +74,7 @@ public final class VpnServerConfigurationRadius {
 
         @CustomType.Setter
         public Builder clientRootCertificates(@Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates) {
+
             this.clientRootCertificates = clientRootCertificates;
             return this;
         }
@@ -82,6 +83,7 @@ public final class VpnServerConfigurationRadius {
         }
         @CustomType.Setter
         public Builder serverRootCertificates(@Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates) {
+
             this.serverRootCertificates = serverRootCertificates;
             return this;
         }
@@ -90,6 +92,7 @@ public final class VpnServerConfigurationRadius {
         }
         @CustomType.Setter
         public Builder servers(@Nullable List<VpnServerConfigurationRadiusServer> servers) {
+
             this.servers = servers;
             return this;
         }

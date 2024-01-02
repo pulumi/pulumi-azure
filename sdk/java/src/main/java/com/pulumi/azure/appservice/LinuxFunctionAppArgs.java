@@ -13,6 +13,7 @@ import com.pulumi.azure.appservice.inputs.LinuxFunctionAppStickySettingsArgs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1316,9 +1317,15 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         }
 
         public LinuxFunctionAppArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.servicePlanId = Objects.requireNonNull($.servicePlanId, "expected parameter 'servicePlanId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppArgs", "resourceGroupName");
+            }
+            if ($.servicePlanId == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppArgs", "servicePlanId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppArgs", "siteConfig");
+            }
             return $;
         }
     }

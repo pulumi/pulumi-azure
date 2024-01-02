@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DataCollectionRuleDestinationsEventHubDirectArgs extends com.
         }
 
         public DataCollectionRuleDestinationsEventHubDirectArgs build() {
-            $.eventHubId = Objects.requireNonNull($.eventHubId, "expected parameter 'eventHubId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.eventHubId == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsEventHubDirectArgs", "eventHubId");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsEventHubDirectArgs", "name");
+            }
             return $;
         }
     }

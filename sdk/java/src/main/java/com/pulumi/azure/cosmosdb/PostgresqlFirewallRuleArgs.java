@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class PostgresqlFirewallRuleArgs extends com.pulumi.resources.Resou
         }
 
         public PostgresqlFirewallRuleArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.endIpAddress = Objects.requireNonNull($.endIpAddress, "expected parameter 'endIpAddress' to be non-null");
-            $.startIpAddress = Objects.requireNonNull($.startIpAddress, "expected parameter 'startIpAddress' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("PostgresqlFirewallRuleArgs", "clusterId");
+            }
+            if ($.endIpAddress == null) {
+                throw new MissingRequiredPropertyException("PostgresqlFirewallRuleArgs", "endIpAddress");
+            }
+            if ($.startIpAddress == null) {
+                throw new MissingRequiredPropertyException("PostgresqlFirewallRuleArgs", "startIpAddress");
+            }
             return $;
         }
     }

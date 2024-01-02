@@ -7,6 +7,7 @@ import com.pulumi.azure.media.inputs.AccountFilterPresentationTimeRangeArgs;
 import com.pulumi.azure.media.inputs.AccountFilterTrackSelectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -275,8 +276,12 @@ public final class AccountFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountFilterArgs build() {
-            $.mediaServicesAccountName = Objects.requireNonNull($.mediaServicesAccountName, "expected parameter 'mediaServicesAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.mediaServicesAccountName == null) {
+                throw new MissingRequiredPropertyException("AccountFilterArgs", "mediaServicesAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountFilterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

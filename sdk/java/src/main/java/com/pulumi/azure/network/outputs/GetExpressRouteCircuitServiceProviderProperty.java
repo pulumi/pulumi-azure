@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetExpressRouteCircuitServiceProviderProperty {
 
         @CustomType.Setter
         public Builder bandwidthInMbps(Integer bandwidthInMbps) {
-            this.bandwidthInMbps = Objects.requireNonNull(bandwidthInMbps);
+            if (bandwidthInMbps == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitServiceProviderProperty", "bandwidthInMbps");
+            }
+            this.bandwidthInMbps = bandwidthInMbps;
             return this;
         }
         @CustomType.Setter
         public Builder peeringLocation(String peeringLocation) {
-            this.peeringLocation = Objects.requireNonNull(peeringLocation);
+            if (peeringLocation == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitServiceProviderProperty", "peeringLocation");
+            }
+            this.peeringLocation = peeringLocation;
             return this;
         }
         @CustomType.Setter
         public Builder serviceProviderName(String serviceProviderName) {
-            this.serviceProviderName = Objects.requireNonNull(serviceProviderName);
+            if (serviceProviderName == null) {
+              throw new MissingRequiredPropertyException("GetExpressRouteCircuitServiceProviderProperty", "serviceProviderName");
+            }
+            this.serviceProviderName = serviceProviderName;
             return this;
         }
         public GetExpressRouteCircuitServiceProviderProperty build() {

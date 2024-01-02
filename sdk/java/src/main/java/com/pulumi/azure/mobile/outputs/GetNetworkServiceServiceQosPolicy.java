@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkServiceServiceQosPolicyMaximumBitRate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -101,12 +102,18 @@ public final class GetNetworkServiceServiceQosPolicy {
 
         @CustomType.Setter
         public Builder allocationAndRetentionPriorityLevel(Integer allocationAndRetentionPriorityLevel) {
-            this.allocationAndRetentionPriorityLevel = Objects.requireNonNull(allocationAndRetentionPriorityLevel);
+            if (allocationAndRetentionPriorityLevel == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceServiceQosPolicy", "allocationAndRetentionPriorityLevel");
+            }
+            this.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBitRates(List<GetNetworkServiceServiceQosPolicyMaximumBitRate> maximumBitRates) {
-            this.maximumBitRates = Objects.requireNonNull(maximumBitRates);
+            if (maximumBitRates == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceServiceQosPolicy", "maximumBitRates");
+            }
+            this.maximumBitRates = maximumBitRates;
             return this;
         }
         public Builder maximumBitRates(GetNetworkServiceServiceQosPolicyMaximumBitRate... maximumBitRates) {
@@ -114,17 +121,26 @@ public final class GetNetworkServiceServiceQosPolicy {
         }
         @CustomType.Setter
         public Builder preemptionCapability(String preemptionCapability) {
-            this.preemptionCapability = Objects.requireNonNull(preemptionCapability);
+            if (preemptionCapability == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceServiceQosPolicy", "preemptionCapability");
+            }
+            this.preemptionCapability = preemptionCapability;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionVulnerability(String preemptionVulnerability) {
-            this.preemptionVulnerability = Objects.requireNonNull(preemptionVulnerability);
+            if (preemptionVulnerability == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceServiceQosPolicy", "preemptionVulnerability");
+            }
+            this.preemptionVulnerability = preemptionVulnerability;
             return this;
         }
         @CustomType.Setter
         public Builder qosIndicator(Integer qosIndicator) {
-            this.qosIndicator = Objects.requireNonNull(qosIndicator);
+            if (qosIndicator == null) {
+              throw new MissingRequiredPropertyException("GetNetworkServiceServiceQosPolicy", "qosIndicator");
+            }
+            this.qosIndicator = qosIndicator;
             return this;
         }
         public GetNetworkServiceServiceQosPolicy build() {

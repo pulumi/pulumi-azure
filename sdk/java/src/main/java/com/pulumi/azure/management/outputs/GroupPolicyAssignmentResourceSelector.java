@@ -5,6 +5,7 @@ package com.pulumi.azure.management.outputs;
 
 import com.pulumi.azure.management.outputs.GroupPolicyAssignmentResourceSelectorSelector;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -60,12 +61,16 @@ public final class GroupPolicyAssignmentResourceSelector {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder selectors(List<GroupPolicyAssignmentResourceSelectorSelector> selectors) {
-            this.selectors = Objects.requireNonNull(selectors);
+            if (selectors == null) {
+              throw new MissingRequiredPropertyException("GroupPolicyAssignmentResourceSelector", "selectors");
+            }
+            this.selectors = selectors;
             return this;
         }
         public Builder selectors(GroupPolicyAssignmentResourceSelectorSelector... selectors) {

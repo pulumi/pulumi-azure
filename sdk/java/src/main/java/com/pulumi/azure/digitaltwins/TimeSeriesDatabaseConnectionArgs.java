@@ -5,6 +5,7 @@ package com.pulumi.azure.digitaltwins;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -409,13 +410,27 @@ public final class TimeSeriesDatabaseConnectionArgs extends com.pulumi.resources
         }
 
         public TimeSeriesDatabaseConnectionArgs build() {
-            $.digitalTwinsId = Objects.requireNonNull($.digitalTwinsId, "expected parameter 'digitalTwinsId' to be non-null");
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.eventhubNamespaceEndpointUri = Objects.requireNonNull($.eventhubNamespaceEndpointUri, "expected parameter 'eventhubNamespaceEndpointUri' to be non-null");
-            $.eventhubNamespaceId = Objects.requireNonNull($.eventhubNamespaceId, "expected parameter 'eventhubNamespaceId' to be non-null");
-            $.kustoClusterId = Objects.requireNonNull($.kustoClusterId, "expected parameter 'kustoClusterId' to be non-null");
-            $.kustoClusterUri = Objects.requireNonNull($.kustoClusterUri, "expected parameter 'kustoClusterUri' to be non-null");
-            $.kustoDatabaseName = Objects.requireNonNull($.kustoDatabaseName, "expected parameter 'kustoDatabaseName' to be non-null");
+            if ($.digitalTwinsId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "digitalTwinsId");
+            }
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "eventhubName");
+            }
+            if ($.eventhubNamespaceEndpointUri == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "eventhubNamespaceEndpointUri");
+            }
+            if ($.eventhubNamespaceId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "eventhubNamespaceId");
+            }
+            if ($.kustoClusterId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "kustoClusterId");
+            }
+            if ($.kustoClusterUri == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "kustoClusterUri");
+            }
+            if ($.kustoDatabaseName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesDatabaseConnectionArgs", "kustoDatabaseName");
+            }
             return $;
         }
     }

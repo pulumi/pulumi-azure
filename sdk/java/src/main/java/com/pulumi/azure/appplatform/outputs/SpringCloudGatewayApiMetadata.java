@@ -100,26 +100,31 @@ public final class SpringCloudGatewayApiMetadata {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder documentationUrl(@Nullable String documentationUrl) {
+
             this.documentationUrl = documentationUrl;
             return this;
         }
         @CustomType.Setter
         public Builder serverUrl(@Nullable String serverUrl) {
+
             this.serverUrl = serverUrl;
             return this;
         }
         @CustomType.Setter
         public Builder title(@Nullable String title) {
+
             this.title = title;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
 
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder variableName(String variableName) {
-            this.variableName = Objects.requireNonNull(variableName);
+            if (variableName == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRuleMatchConditionMatchVariable", "variableName");
+            }
+            this.variableName = variableName;
             return this;
         }
         public PolicyCustomRuleMatchConditionMatchVariable build() {

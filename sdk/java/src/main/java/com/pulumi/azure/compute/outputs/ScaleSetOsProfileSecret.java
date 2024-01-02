@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.ScaleSetOsProfileSecretVaultCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class ScaleSetOsProfileSecret {
 
         @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
-            this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
+            if (sourceVaultId == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfileSecret", "sourceVaultId");
+            }
+            this.sourceVaultId = sourceVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder vaultCertificates(@Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates) {
+
             this.vaultCertificates = vaultCertificates;
             return this;
         }

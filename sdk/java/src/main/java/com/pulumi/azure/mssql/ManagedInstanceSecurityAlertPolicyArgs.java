@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -403,8 +404,12 @@ public final class ManagedInstanceSecurityAlertPolicyArgs extends com.pulumi.res
         }
 
         public ManagedInstanceSecurityAlertPolicyArgs build() {
-            $.managedInstanceName = Objects.requireNonNull($.managedInstanceName, "expected parameter 'managedInstanceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.managedInstanceName == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceSecurityAlertPolicyArgs", "managedInstanceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedInstanceSecurityAlertPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

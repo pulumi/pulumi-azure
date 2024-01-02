@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -102,7 +103,10 @@ public final class AccountQueuePropertiesCorsRule {
 
         @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
-            this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
+            if (allowedHeaders == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRule", "allowedHeaders");
+            }
+            this.allowedHeaders = allowedHeaders;
             return this;
         }
         public Builder allowedHeaders(String... allowedHeaders) {
@@ -110,7 +114,10 @@ public final class AccountQueuePropertiesCorsRule {
         }
         @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
-            this.allowedMethods = Objects.requireNonNull(allowedMethods);
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRule", "allowedMethods");
+            }
+            this.allowedMethods = allowedMethods;
             return this;
         }
         public Builder allowedMethods(String... allowedMethods) {
@@ -118,7 +125,10 @@ public final class AccountQueuePropertiesCorsRule {
         }
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRule", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -126,7 +136,10 @@ public final class AccountQueuePropertiesCorsRule {
         }
         @CustomType.Setter
         public Builder exposedHeaders(List<String> exposedHeaders) {
-            this.exposedHeaders = Objects.requireNonNull(exposedHeaders);
+            if (exposedHeaders == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRule", "exposedHeaders");
+            }
+            this.exposedHeaders = exposedHeaders;
             return this;
         }
         public Builder exposedHeaders(String... exposedHeaders) {
@@ -134,7 +147,10 @@ public final class AccountQueuePropertiesCorsRule {
         }
         @CustomType.Setter
         public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
-            this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
+            if (maxAgeInSeconds == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesCorsRule", "maxAgeInSeconds");
+            }
+            this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
         }
         public AccountQueuePropertiesCorsRule build() {

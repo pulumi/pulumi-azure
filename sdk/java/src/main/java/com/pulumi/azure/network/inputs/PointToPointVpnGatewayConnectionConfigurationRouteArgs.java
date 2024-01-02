@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class PointToPointVpnGatewayConnectionConfigurationRouteArgs extend
         }
 
         public PointToPointVpnGatewayConnectionConfigurationRouteArgs build() {
-            $.associatedRouteTableId = Objects.requireNonNull($.associatedRouteTableId, "expected parameter 'associatedRouteTableId' to be non-null");
+            if ($.associatedRouteTableId == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayConnectionConfigurationRouteArgs", "associatedRouteTableId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.appinsights;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,10 +262,18 @@ public final class AnalyticsItemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AnalyticsItemArgs build() {
-            $.applicationInsightsId = Objects.requireNonNull($.applicationInsightsId, "expected parameter 'applicationInsightsId' to be non-null");
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.applicationInsightsId == null) {
+                throw new MissingRequiredPropertyException("AnalyticsItemArgs", "applicationInsightsId");
+            }
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("AnalyticsItemArgs", "content");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("AnalyticsItemArgs", "scope");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AnalyticsItemArgs", "type");
+            }
             return $;
         }
     }

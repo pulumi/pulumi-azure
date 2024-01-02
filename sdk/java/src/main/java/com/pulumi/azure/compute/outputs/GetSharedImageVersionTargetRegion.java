@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -79,17 +80,26 @@ public final class GetSharedImageVersionTargetRegion {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionTargetRegion", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder regionalReplicaCount(Integer regionalReplicaCount) {
-            this.regionalReplicaCount = Objects.requireNonNull(regionalReplicaCount);
+            if (regionalReplicaCount == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionTargetRegion", "regionalReplicaCount");
+            }
+            this.regionalReplicaCount = regionalReplicaCount;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
-            this.storageAccountType = Objects.requireNonNull(storageAccountType);
+            if (storageAccountType == null) {
+              throw new MissingRequiredPropertyException("GetSharedImageVersionTargetRegion", "storageAccountType");
+            }
+            this.storageAccountType = storageAccountType;
             return this;
         }
         public GetSharedImageVersionTargetRegion build() {

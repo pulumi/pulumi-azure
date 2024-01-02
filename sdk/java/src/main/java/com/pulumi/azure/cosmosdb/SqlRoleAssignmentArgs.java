@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class SqlRoleAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         public SqlRoleAssignmentArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("SqlRoleAssignmentArgs", "accountName");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("SqlRoleAssignmentArgs", "principalId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SqlRoleAssignmentArgs", "resourceGroupName");
+            }
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("SqlRoleAssignmentArgs", "roleDefinitionId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("SqlRoleAssignmentArgs", "scope");
+            }
             return $;
         }
     }

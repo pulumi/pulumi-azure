@@ -5,6 +5,7 @@ package com.pulumi.azure.cognitive.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class AccountNetworkAclsVirtualNetworkRuleArgs extends com.pulumi.r
         }
 
         public AccountNetworkAclsVirtualNetworkRuleArgs build() {
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("AccountNetworkAclsVirtualNetworkRuleArgs", "subnetId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -72,8 +73,12 @@ public final class NextGenerationFirewallVirtualHubPanoramaDestinationNatFronten
         }
 
         public NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.publicIpAddressId = Objects.requireNonNull($.publicIpAddressId, "expected parameter 'publicIpAddressId' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs", "port");
+            }
+            if ($.publicIpAddressId == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs", "publicIpAddressId");
+            }
             return $;
         }
     }

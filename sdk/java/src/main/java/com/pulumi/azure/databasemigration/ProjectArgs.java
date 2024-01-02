@@ -5,6 +5,7 @@ package com.pulumi.azure.databasemigration;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -299,10 +300,18 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProjectArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
-            $.sourcePlatform = Objects.requireNonNull($.sourcePlatform, "expected parameter 'sourcePlatform' to be non-null");
-            $.targetPlatform = Objects.requireNonNull($.targetPlatform, "expected parameter 'targetPlatform' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "resourceGroupName");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "serviceName");
+            }
+            if ($.sourcePlatform == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "sourcePlatform");
+            }
+            if ($.targetPlatform == null) {
+                throw new MissingRequiredPropertyException("ProjectArgs", "targetPlatform");
+            }
             return $;
         }
     }

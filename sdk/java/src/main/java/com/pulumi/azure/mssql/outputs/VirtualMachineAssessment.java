@@ -73,16 +73,19 @@ public final class VirtualMachineAssessment {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder runImmediately(@Nullable Boolean runImmediately) {
+
             this.runImmediately = runImmediately;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(@Nullable VirtualMachineAssessmentSchedule schedule) {
+
             this.schedule = schedule;
             return this;
         }

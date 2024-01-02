@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -315,8 +316,12 @@ public final class SharedAccessPolicyArgs extends com.pulumi.resources.ResourceA
         }
 
         public SharedAccessPolicyArgs build() {
-            $.iothubName = Objects.requireNonNull($.iothubName, "expected parameter 'iothubName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.iothubName == null) {
+                throw new MissingRequiredPropertyException("SharedAccessPolicyArgs", "iothubName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SharedAccessPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -142,36 +142,43 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
 
         @CustomType.Setter
         public Builder cacheBehavior(@Nullable String cacheBehavior) {
+
             this.cacheBehavior = cacheBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder cacheDuration(@Nullable String cacheDuration) {
+
             this.cacheDuration = cacheDuration;
             return this;
         }
         @CustomType.Setter
         public Builder cdnFrontdoorOriginGroupId(@Nullable String cdnFrontdoorOriginGroupId) {
+
             this.cdnFrontdoorOriginGroupId = cdnFrontdoorOriginGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder compressionEnabled(@Nullable Boolean compressionEnabled) {
+
             this.compressionEnabled = compressionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder forwardingProtocol(@Nullable String forwardingProtocol) {
+
             this.forwardingProtocol = forwardingProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringCachingBehavior(@Nullable String queryStringCachingBehavior) {
+
             this.queryStringCachingBehavior = queryStringCachingBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStringParameters(@Nullable List<String> queryStringParameters) {
+
             this.queryStringParameters = queryStringParameters;
             return this;
         }

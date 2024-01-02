@@ -103,6 +103,7 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
 
         @CustomType.Setter
         public Builder accessModes(@Nullable List<String> accessModes) {
+
             this.accessModes = accessModes;
             return this;
         }
@@ -111,21 +112,25 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
         }
         @CustomType.Setter
         public Builder destinationPort(@Nullable Integer destinationPort) {
+
             this.destinationPort = destinationPort;
             return this;
         }
         @CustomType.Setter
         public Builder disableGatewayAuth(@Nullable Boolean disableGatewayAuth) {
+
             this.disableGatewayAuth = disableGatewayAuth;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder subDomainSuffix(@Nullable String subDomainSuffix) {
+
             this.subDomainSuffix = subDomainSuffix;
             return this;
         }

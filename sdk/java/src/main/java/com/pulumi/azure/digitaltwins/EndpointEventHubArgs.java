@@ -5,6 +5,7 @@ package com.pulumi.azure.digitaltwins;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class EndpointEventHubArgs extends com.pulumi.resources.ResourceArg
         }
 
         public EndpointEventHubArgs build() {
-            $.digitalTwinsId = Objects.requireNonNull($.digitalTwinsId, "expected parameter 'digitalTwinsId' to be non-null");
-            $.eventhubPrimaryConnectionString = Objects.requireNonNull($.eventhubPrimaryConnectionString, "expected parameter 'eventhubPrimaryConnectionString' to be non-null");
-            $.eventhubSecondaryConnectionString = Objects.requireNonNull($.eventhubSecondaryConnectionString, "expected parameter 'eventhubSecondaryConnectionString' to be non-null");
+            if ($.digitalTwinsId == null) {
+                throw new MissingRequiredPropertyException("EndpointEventHubArgs", "digitalTwinsId");
+            }
+            if ($.eventhubPrimaryConnectionString == null) {
+                throw new MissingRequiredPropertyException("EndpointEventHubArgs", "eventhubPrimaryConnectionString");
+            }
+            if ($.eventhubSecondaryConnectionString == null) {
+                throw new MissingRequiredPropertyException("EndpointEventHubArgs", "eventhubSecondaryConnectionString");
+            }
             return $;
         }
     }

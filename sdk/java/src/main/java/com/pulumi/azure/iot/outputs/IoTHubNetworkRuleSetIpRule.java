@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class IoTHubNetworkRuleSetIpRule {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder ipMask(String ipMask) {
-            this.ipMask = Objects.requireNonNull(ipMask);
+            if (ipMask == null) {
+              throw new MissingRequiredPropertyException("IoTHubNetworkRuleSetIpRule", "ipMask");
+            }
+            this.ipMask = ipMask;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IoTHubNetworkRuleSetIpRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public IoTHubNetworkRuleSetIpRule build() {

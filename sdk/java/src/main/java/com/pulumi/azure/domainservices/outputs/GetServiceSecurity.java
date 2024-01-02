@@ -4,6 +4,7 @@
 package com.pulumi.azure.domainservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -126,37 +127,58 @@ public final class GetServiceSecurity {
 
         @CustomType.Setter
         public Builder kerberosArmoringEnabled(Boolean kerberosArmoringEnabled) {
-            this.kerberosArmoringEnabled = Objects.requireNonNull(kerberosArmoringEnabled);
+            if (kerberosArmoringEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "kerberosArmoringEnabled");
+            }
+            this.kerberosArmoringEnabled = kerberosArmoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder kerberosRc4EncryptionEnabled(Boolean kerberosRc4EncryptionEnabled) {
-            this.kerberosRc4EncryptionEnabled = Objects.requireNonNull(kerberosRc4EncryptionEnabled);
+            if (kerberosRc4EncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "kerberosRc4EncryptionEnabled");
+            }
+            this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ntlmV1Enabled(Boolean ntlmV1Enabled) {
-            this.ntlmV1Enabled = Objects.requireNonNull(ntlmV1Enabled);
+            if (ntlmV1Enabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "ntlmV1Enabled");
+            }
+            this.ntlmV1Enabled = ntlmV1Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder syncKerberosPasswords(Boolean syncKerberosPasswords) {
-            this.syncKerberosPasswords = Objects.requireNonNull(syncKerberosPasswords);
+            if (syncKerberosPasswords == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "syncKerberosPasswords");
+            }
+            this.syncKerberosPasswords = syncKerberosPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder syncNtlmPasswords(Boolean syncNtlmPasswords) {
-            this.syncNtlmPasswords = Objects.requireNonNull(syncNtlmPasswords);
+            if (syncNtlmPasswords == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "syncNtlmPasswords");
+            }
+            this.syncNtlmPasswords = syncNtlmPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder syncOnPremPasswords(Boolean syncOnPremPasswords) {
-            this.syncOnPremPasswords = Objects.requireNonNull(syncOnPremPasswords);
+            if (syncOnPremPasswords == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "syncOnPremPasswords");
+            }
+            this.syncOnPremPasswords = syncOnPremPasswords;
             return this;
         }
         @CustomType.Setter
         public Builder tlsV1Enabled(Boolean tlsV1Enabled) {
-            this.tlsV1Enabled = Objects.requireNonNull(tlsV1Enabled);
+            if (tlsV1Enabled == null) {
+              throw new MissingRequiredPropertyException("GetServiceSecurity", "tlsV1Enabled");
+            }
+            this.tlsV1Enabled = tlsV1Enabled;
             return this;
         }
         public GetServiceSecurity build() {

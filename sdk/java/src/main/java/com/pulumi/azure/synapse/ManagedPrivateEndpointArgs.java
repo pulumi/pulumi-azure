@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -203,9 +204,15 @@ public final class ManagedPrivateEndpointArgs extends com.pulumi.resources.Resou
         }
 
         public ManagedPrivateEndpointArgs build() {
-            $.subresourceName = Objects.requireNonNull($.subresourceName, "expected parameter 'subresourceName' to be non-null");
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.subresourceName == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "subresourceName");
+            }
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "synapseWorkspaceId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("ManagedPrivateEndpointArgs", "targetResourceId");
+            }
             return $;
         }
     }

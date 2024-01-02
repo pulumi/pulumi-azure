@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class VirtualMachineAvailabilityGroupListenerReplica {
 
         @CustomType.Setter
         public Builder commit(String commit) {
-            this.commit = Objects.requireNonNull(commit);
+            if (commit == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplica", "commit");
+            }
+            this.commit = commit;
             return this;
         }
         @CustomType.Setter
         public Builder failoverMode(String failoverMode) {
-            this.failoverMode = Objects.requireNonNull(failoverMode);
+            if (failoverMode == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplica", "failoverMode");
+            }
+            this.failoverMode = failoverMode;
             return this;
         }
         @CustomType.Setter
         public Builder readableSecondary(String readableSecondary) {
-            this.readableSecondary = Objects.requireNonNull(readableSecondary);
+            if (readableSecondary == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplica", "readableSecondary");
+            }
+            this.readableSecondary = readableSecondary;
             return this;
         }
         @CustomType.Setter
         public Builder role(String role) {
-            this.role = Objects.requireNonNull(role);
+            if (role == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplica", "role");
+            }
+            this.role = role;
             return this;
         }
         @CustomType.Setter
         public Builder sqlVirtualMachineId(String sqlVirtualMachineId) {
-            this.sqlVirtualMachineId = Objects.requireNonNull(sqlVirtualMachineId);
+            if (sqlVirtualMachineId == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerReplica", "sqlVirtualMachineId");
+            }
+            this.sqlVirtualMachineId = sqlVirtualMachineId;
             return this;
         }
         public VirtualMachineAvailabilityGroupListenerReplica build() {

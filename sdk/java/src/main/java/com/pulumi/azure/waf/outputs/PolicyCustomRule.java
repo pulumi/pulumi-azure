@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.azure.waf.outputs.PolicyCustomRuleMatchCondition;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -160,22 +161,30 @@ public final class PolicyCustomRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder groupRateLimitBy(@Nullable String groupRateLimitBy) {
+
             this.groupRateLimitBy = groupRateLimitBy;
             return this;
         }
         @CustomType.Setter
         public Builder matchConditions(List<PolicyCustomRuleMatchCondition> matchConditions) {
-            this.matchConditions = Objects.requireNonNull(matchConditions);
+            if (matchConditions == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRule", "matchConditions");
+            }
+            this.matchConditions = matchConditions;
             return this;
         }
         public Builder matchConditions(PolicyCustomRuleMatchCondition... matchConditions) {
@@ -183,27 +192,36 @@ public final class PolicyCustomRule {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimitDuration(@Nullable String rateLimitDuration) {
+
             this.rateLimitDuration = rateLimitDuration;
             return this;
         }
         @CustomType.Setter
         public Builder rateLimitThreshold(@Nullable Integer rateLimitThreshold) {
+
             this.rateLimitThreshold = rateLimitThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+            if (ruleType == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRule", "ruleType");
+            }
+            this.ruleType = ruleType;
             return this;
         }
         public PolicyCustomRule build() {

@@ -74,6 +74,7 @@ public final class PoolContainerConfiguration {
 
         @CustomType.Setter
         public Builder containerImageNames(@Nullable List<String> containerImageNames) {
+
             this.containerImageNames = containerImageNames;
             return this;
         }
@@ -82,6 +83,7 @@ public final class PoolContainerConfiguration {
         }
         @CustomType.Setter
         public Builder containerRegistries(@Nullable List<PoolContainerConfigurationContainerRegistry> containerRegistries) {
+
             this.containerRegistries = containerRegistries;
             return this;
         }
@@ -90,6 +92,7 @@ public final class PoolContainerConfiguration {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

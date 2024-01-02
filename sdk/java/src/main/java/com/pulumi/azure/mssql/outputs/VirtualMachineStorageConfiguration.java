@@ -7,6 +7,7 @@ import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationDataSett
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationLogSettings;
 import com.pulumi.azure.mssql.outputs.VirtualMachineStorageConfigurationTempDbSettings;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -118,31 +119,41 @@ public final class VirtualMachineStorageConfiguration {
 
         @CustomType.Setter
         public Builder dataSettings(@Nullable VirtualMachineStorageConfigurationDataSettings dataSettings) {
+
             this.dataSettings = dataSettings;
             return this;
         }
         @CustomType.Setter
         public Builder diskType(String diskType) {
-            this.diskType = Objects.requireNonNull(diskType);
+            if (diskType == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfiguration", "diskType");
+            }
+            this.diskType = diskType;
             return this;
         }
         @CustomType.Setter
         public Builder logSettings(@Nullable VirtualMachineStorageConfigurationLogSettings logSettings) {
+
             this.logSettings = logSettings;
             return this;
         }
         @CustomType.Setter
         public Builder storageWorkloadType(String storageWorkloadType) {
-            this.storageWorkloadType = Objects.requireNonNull(storageWorkloadType);
+            if (storageWorkloadType == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfiguration", "storageWorkloadType");
+            }
+            this.storageWorkloadType = storageWorkloadType;
             return this;
         }
         @CustomType.Setter
         public Builder systemDbOnDataDiskEnabled(@Nullable Boolean systemDbOnDataDiskEnabled) {
+
             this.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tempDbSettings(@Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings) {
+
             this.tempDbSettings = tempDbSettings;
             return this;
         }

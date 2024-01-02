@@ -6,6 +6,7 @@ package com.pulumi.azure.synapse;
 import com.pulumi.azure.synapse.inputs.LinkedServiceIntegrationRuntimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -417,9 +418,15 @@ public final class LinkedServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkedServiceArgs build() {
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.typePropertiesJson = Objects.requireNonNull($.typePropertiesJson, "expected parameter 'typePropertiesJson' to be non-null");
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceArgs", "synapseWorkspaceId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceArgs", "type");
+            }
+            if ($.typePropertiesJson == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceArgs", "typePropertiesJson");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs extend
         }
 
         public ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs build() {
-            $.mode = Objects.requireNonNull($.mode, "expected parameter 'mode' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.mode == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs", "mode");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs", "value");
+            }
             return $;
         }
     }

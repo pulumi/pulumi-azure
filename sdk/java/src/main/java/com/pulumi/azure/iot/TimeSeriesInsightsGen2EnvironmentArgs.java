@@ -6,6 +6,7 @@ package com.pulumi.azure.iot;
 import com.pulumi.azure.iot.inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -348,10 +349,18 @@ public final class TimeSeriesInsightsGen2EnvironmentArgs extends com.pulumi.reso
         }
 
         public TimeSeriesInsightsGen2EnvironmentArgs build() {
-            $.idProperties = Objects.requireNonNull($.idProperties, "expected parameter 'idProperties' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.storage = Objects.requireNonNull($.storage, "expected parameter 'storage' to be non-null");
+            if ($.idProperties == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentArgs", "idProperties");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentArgs", "skuName");
+            }
+            if ($.storage == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsGen2EnvironmentArgs", "storage");
+            }
             return $;
         }
     }

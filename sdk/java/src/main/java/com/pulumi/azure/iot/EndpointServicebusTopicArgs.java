@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -343,8 +344,12 @@ public final class EndpointServicebusTopicArgs extends com.pulumi.resources.Reso
         }
 
         public EndpointServicebusTopicArgs build() {
-            $.iothubId = Objects.requireNonNull($.iothubId, "expected parameter 'iothubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.iothubId == null) {
+                throw new MissingRequiredPropertyException("EndpointServicebusTopicArgs", "iothubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointServicebusTopicArgs", "resourceGroupName");
+            }
             return $;
         }
     }

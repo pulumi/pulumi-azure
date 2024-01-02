@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -108,26 +109,37 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
 
         @CustomType.Setter
         public Builder imageName(String imageName) {
-            this.imageName = Objects.requireNonNull(imageName);
+            if (imageName == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDocker", "imageName");
+            }
+            this.imageName = imageName;
             return this;
         }
         @CustomType.Setter
         public Builder imageTag(String imageTag) {
-            this.imageTag = Objects.requireNonNull(imageTag);
+            if (imageTag == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDocker", "imageTag");
+            }
+            this.imageTag = imageTag;
             return this;
         }
         @CustomType.Setter
         public Builder registryPassword(@Nullable String registryPassword) {
+
             this.registryPassword = registryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder registryUrl(String registryUrl) {
-            this.registryUrl = Objects.requireNonNull(registryUrl);
+            if (registryUrl == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotSiteConfigApplicationStackDocker", "registryUrl");
+            }
+            this.registryUrl = registryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder registryUsername(@Nullable String registryUsername) {
+
             this.registryUsername = registryUsername;
             return this;
         }

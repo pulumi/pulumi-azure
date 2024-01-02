@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class ActionRuleSuppressionScopeArgs extends com.pulumi.resources.R
         }
 
         public ActionRuleSuppressionScopeArgs build() {
-            $.resourceIds = Objects.requireNonNull($.resourceIds, "expected parameter 'resourceIds' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.resourceIds == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionScopeArgs", "resourceIds");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ActionRuleSuppressionScopeArgs", "type");
+            }
             return $;
         }
     }

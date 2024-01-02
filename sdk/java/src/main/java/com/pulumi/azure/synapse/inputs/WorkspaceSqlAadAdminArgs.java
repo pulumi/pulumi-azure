@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class WorkspaceSqlAadAdminArgs extends com.pulumi.resources.Resourc
         }
 
         public WorkspaceSqlAadAdminArgs build() {
-            $.login = Objects.requireNonNull($.login, "expected parameter 'login' to be non-null");
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.login == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSqlAadAdminArgs", "login");
+            }
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSqlAadAdminArgs", "objectId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceSqlAadAdminArgs", "tenantId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.maintenance.outputs;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationInstallPatchLinux;
 import com.pulumi.azure.maintenance.outputs.GetConfigurationInstallPatchWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,7 +74,10 @@ public final class GetConfigurationInstallPatch {
 
         @CustomType.Setter
         public Builder linuxes(List<GetConfigurationInstallPatchLinux> linuxes) {
-            this.linuxes = Objects.requireNonNull(linuxes);
+            if (linuxes == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatch", "linuxes");
+            }
+            this.linuxes = linuxes;
             return this;
         }
         public Builder linuxes(GetConfigurationInstallPatchLinux... linuxes) {
@@ -81,12 +85,18 @@ public final class GetConfigurationInstallPatch {
         }
         @CustomType.Setter
         public Builder reboot(String reboot) {
-            this.reboot = Objects.requireNonNull(reboot);
+            if (reboot == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatch", "reboot");
+            }
+            this.reboot = reboot;
             return this;
         }
         @CustomType.Setter
         public Builder windows(List<GetConfigurationInstallPatchWindow> windows) {
-            this.windows = Objects.requireNonNull(windows);
+            if (windows == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationInstallPatch", "windows");
+            }
+            this.windows = windows;
             return this;
         }
         public Builder windows(GetConfigurationInstallPatchWindow... windows) {

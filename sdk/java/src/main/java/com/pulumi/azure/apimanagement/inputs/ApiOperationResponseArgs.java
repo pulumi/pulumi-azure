@@ -7,6 +7,7 @@ import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseHeaderArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseRepresentationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -211,7 +212,9 @@ public final class ApiOperationResponseArgs extends com.pulumi.resources.Resourc
         }
 
         public ApiOperationResponseArgs build() {
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("ApiOperationResponseArgs", "statusCode");
+            }
             return $;
         }
     }

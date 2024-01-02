@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPoolWindow {
 
         @CustomType.Setter
         public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
-            this.enableAutomaticUpdates = Objects.requireNonNull(enableAutomaticUpdates);
+            if (enableAutomaticUpdates == null) {
+              throw new MissingRequiredPropertyException("GetPoolWindow", "enableAutomaticUpdates");
+            }
+            this.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
         }
         public GetPoolWindow build() {

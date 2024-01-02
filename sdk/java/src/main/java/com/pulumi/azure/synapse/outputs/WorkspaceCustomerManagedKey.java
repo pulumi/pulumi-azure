@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class WorkspaceCustomerManagedKey {
 
         @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
+
             this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVersionlessId(String keyVersionlessId) {
-            this.keyVersionlessId = Objects.requireNonNull(keyVersionlessId);
+            if (keyVersionlessId == null) {
+              throw new MissingRequiredPropertyException("WorkspaceCustomerManagedKey", "keyVersionlessId");
+            }
+            this.keyVersionlessId = keyVersionlessId;
             return this;
         }
         public WorkspaceCustomerManagedKey build() {

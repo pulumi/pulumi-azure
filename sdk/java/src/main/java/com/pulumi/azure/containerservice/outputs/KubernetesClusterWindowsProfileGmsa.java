@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -60,12 +61,18 @@ public final class KubernetesClusterWindowsProfileGmsa {
 
         @CustomType.Setter
         public Builder dnsServer(String dnsServer) {
-            this.dnsServer = Objects.requireNonNull(dnsServer);
+            if (dnsServer == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileGmsa", "dnsServer");
+            }
+            this.dnsServer = dnsServer;
             return this;
         }
         @CustomType.Setter
         public Builder rootDomain(String rootDomain) {
-            this.rootDomain = Objects.requireNonNull(rootDomain);
+            if (rootDomain == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfileGmsa", "rootDomain");
+            }
+            this.rootDomain = rootDomain;
             return this;
         }
         public KubernetesClusterWindowsProfileGmsa build() {

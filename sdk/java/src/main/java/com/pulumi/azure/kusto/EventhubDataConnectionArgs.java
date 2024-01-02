@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -568,11 +569,21 @@ public final class EventhubDataConnectionArgs extends com.pulumi.resources.Resou
         }
 
         public EventhubDataConnectionArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.consumerGroup = Objects.requireNonNull($.consumerGroup, "expected parameter 'consumerGroup' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.eventhubId = Objects.requireNonNull($.eventhubId, "expected parameter 'eventhubId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("EventhubDataConnectionArgs", "clusterName");
+            }
+            if ($.consumerGroup == null) {
+                throw new MissingRequiredPropertyException("EventhubDataConnectionArgs", "consumerGroup");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("EventhubDataConnectionArgs", "databaseName");
+            }
+            if ($.eventhubId == null) {
+                throw new MissingRequiredPropertyException("EventhubDataConnectionArgs", "eventhubId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventhubDataConnectionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

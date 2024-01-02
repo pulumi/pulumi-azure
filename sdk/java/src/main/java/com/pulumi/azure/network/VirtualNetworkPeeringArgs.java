@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -382,9 +383,15 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         public VirtualNetworkPeeringArgs build() {
-            $.remoteVirtualNetworkId = Objects.requireNonNull($.remoteVirtualNetworkId, "expected parameter 'remoteVirtualNetworkId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.virtualNetworkName = Objects.requireNonNull($.virtualNetworkName, "expected parameter 'virtualNetworkName' to be non-null");
+            if ($.remoteVirtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "remoteVirtualNetworkId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "resourceGroupName");
+            }
+            if ($.virtualNetworkName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkPeeringArgs", "virtualNetworkName");
+            }
             return $;
         }
     }

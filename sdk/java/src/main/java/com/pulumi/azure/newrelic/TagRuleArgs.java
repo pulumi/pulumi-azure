@@ -7,6 +7,7 @@ import com.pulumi.azure.newrelic.inputs.TagRuleLogTagFilterArgs;
 import com.pulumi.azure.newrelic.inputs.TagRuleMetricTagFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -322,7 +323,9 @@ public final class TagRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TagRuleArgs build() {
-            $.monitorId = Objects.requireNonNull($.monitorId, "expected parameter 'monitorId' to be non-null");
+            if ($.monitorId == null) {
+                throw new MissingRequiredPropertyException("TagRuleArgs", "monitorId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.VpnServerConfigurationPolicyGroupPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -238,8 +239,12 @@ public final class VpnServerConfigurationPolicyGroupArgs extends com.pulumi.reso
         }
 
         public VpnServerConfigurationPolicyGroupArgs build() {
-            $.policies = Objects.requireNonNull($.policies, "expected parameter 'policies' to be non-null");
-            $.vpnServerConfigurationId = Objects.requireNonNull($.vpnServerConfigurationId, "expected parameter 'vpnServerConfigurationId' to be non-null");
+            if ($.policies == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationPolicyGroupArgs", "policies");
+            }
+            if ($.vpnServerConfigurationId == null) {
+                throw new MissingRequiredPropertyException("VpnServerConfigurationPolicyGroupArgs", "vpnServerConfigurationId");
+            }
             return $;
         }
     }

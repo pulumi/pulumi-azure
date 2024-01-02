@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.inputs;
 import com.pulumi.azure.mobile.inputs.NetworkSimPolicySliceDataNetworkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -160,9 +161,15 @@ public final class NetworkSimPolicySliceArgs extends com.pulumi.resources.Resour
         }
 
         public NetworkSimPolicySliceArgs build() {
-            $.dataNetworks = Objects.requireNonNull($.dataNetworks, "expected parameter 'dataNetworks' to be non-null");
-            $.defaultDataNetworkId = Objects.requireNonNull($.defaultDataNetworkId, "expected parameter 'defaultDataNetworkId' to be non-null");
-            $.sliceId = Objects.requireNonNull($.sliceId, "expected parameter 'sliceId' to be non-null");
+            if ($.dataNetworks == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceArgs", "dataNetworks");
+            }
+            if ($.defaultDataNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceArgs", "defaultDataNetworkId");
+            }
+            if ($.sliceId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimPolicySliceArgs", "sliceId");
+            }
             return $;
         }
     }

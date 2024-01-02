@@ -9,6 +9,7 @@ import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigCor;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -484,27 +485,42 @@ public final class GetLinuxWebAppSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
-            this.alwaysOn = Objects.requireNonNull(alwaysOn);
+            if (alwaysOn == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "alwaysOn");
+            }
+            this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
-            this.apiDefinitionUrl = Objects.requireNonNull(apiDefinitionUrl);
+            if (apiDefinitionUrl == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "apiDefinitionUrl");
+            }
+            this.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
         @CustomType.Setter
         public Builder apiManagementApiId(String apiManagementApiId) {
-            this.apiManagementApiId = Objects.requireNonNull(apiManagementApiId);
+            if (apiManagementApiId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "apiManagementApiId");
+            }
+            this.apiManagementApiId = apiManagementApiId;
             return this;
         }
         @CustomType.Setter
         public Builder appCommandLine(String appCommandLine) {
-            this.appCommandLine = Objects.requireNonNull(appCommandLine);
+            if (appCommandLine == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "appCommandLine");
+            }
+            this.appCommandLine = appCommandLine;
             return this;
         }
         @CustomType.Setter
         public Builder applicationStacks(List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks) {
-            this.applicationStacks = Objects.requireNonNull(applicationStacks);
+            if (applicationStacks == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "applicationStacks");
+            }
+            this.applicationStacks = applicationStacks;
             return this;
         }
         public Builder applicationStacks(GetLinuxWebAppSiteConfigApplicationStack... applicationStacks) {
@@ -512,12 +528,18 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder autoHealEnabled(Boolean autoHealEnabled) {
-            this.autoHealEnabled = Objects.requireNonNull(autoHealEnabled);
+            if (autoHealEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "autoHealEnabled");
+            }
+            this.autoHealEnabled = autoHealEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder autoHealSettings(List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings) {
-            this.autoHealSettings = Objects.requireNonNull(autoHealSettings);
+            if (autoHealSettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "autoHealSettings");
+            }
+            this.autoHealSettings = autoHealSettings;
             return this;
         }
         public Builder autoHealSettings(GetLinuxWebAppSiteConfigAutoHealSetting... autoHealSettings) {
@@ -525,17 +547,26 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(String containerRegistryManagedIdentityClientId) {
-            this.containerRegistryManagedIdentityClientId = Objects.requireNonNull(containerRegistryManagedIdentityClientId);
+            if (containerRegistryManagedIdentityClientId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "containerRegistryManagedIdentityClientId");
+            }
+            this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(Boolean containerRegistryUseManagedIdentity) {
-            this.containerRegistryUseManagedIdentity = Objects.requireNonNull(containerRegistryUseManagedIdentity);
+            if (containerRegistryUseManagedIdentity == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "containerRegistryUseManagedIdentity");
+            }
+            this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder cors(List<GetLinuxWebAppSiteConfigCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetLinuxWebAppSiteConfigCor... cors) {
@@ -543,7 +574,10 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder defaultDocuments(List<String> defaultDocuments) {
-            this.defaultDocuments = Objects.requireNonNull(defaultDocuments);
+            if (defaultDocuments == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "defaultDocuments");
+            }
+            this.defaultDocuments = defaultDocuments;
             return this;
         }
         public Builder defaultDocuments(String... defaultDocuments) {
@@ -551,32 +585,50 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
-            this.detailedErrorLoggingEnabled = Objects.requireNonNull(detailedErrorLoggingEnabled);
+            if (detailedErrorLoggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "detailedErrorLoggingEnabled");
+            }
+            this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
-            this.ftpsState = Objects.requireNonNull(ftpsState);
+            if (ftpsState == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "ftpsState");
+            }
+            this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(Integer healthCheckEvictionTimeInMin) {
-            this.healthCheckEvictionTimeInMin = Objects.requireNonNull(healthCheckEvictionTimeInMin);
+            if (healthCheckEvictionTimeInMin == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "healthCheckEvictionTimeInMin");
+            }
+            this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
-            this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
+            if (healthCheckPath == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "healthCheckPath");
+            }
+            this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions) {
-            this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
+            if (ipRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "ipRestrictions");
+            }
+            this.ipRestrictions = ipRestrictions;
             return this;
         }
         public Builder ipRestrictions(GetLinuxWebAppSiteConfigIpRestriction... ipRestrictions) {
@@ -584,42 +636,66 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
-            this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
+            if (linuxFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "linuxFxVersion");
+            }
+            this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancingMode(String loadBalancingMode) {
-            this.loadBalancingMode = Objects.requireNonNull(loadBalancingMode);
+            if (loadBalancingMode == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "loadBalancingMode");
+            }
+            this.loadBalancingMode = loadBalancingMode;
             return this;
         }
         @CustomType.Setter
         public Builder localMysqlEnabled(Boolean localMysqlEnabled) {
-            this.localMysqlEnabled = Objects.requireNonNull(localMysqlEnabled);
+            if (localMysqlEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "localMysqlEnabled");
+            }
+            this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder managedPipelineMode(String managedPipelineMode) {
-            this.managedPipelineMode = Objects.requireNonNull(managedPipelineMode);
+            if (managedPipelineMode == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "managedPipelineMode");
+            }
+            this.managedPipelineMode = managedPipelineMode;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
-            this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
+            if (minimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "minimumTlsVersion");
+            }
+            this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
-            this.remoteDebuggingEnabled = Objects.requireNonNull(remoteDebuggingEnabled);
+            if (remoteDebuggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "remoteDebuggingEnabled");
+            }
+            this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
-            this.remoteDebuggingVersion = Objects.requireNonNull(remoteDebuggingVersion);
+            if (remoteDebuggingVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "remoteDebuggingVersion");
+            }
+            this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions) {
-            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            if (scmIpRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "scmIpRestrictions");
+            }
+            this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
         public Builder scmIpRestrictions(GetLinuxWebAppSiteConfigScmIpRestriction... scmIpRestrictions) {
@@ -627,37 +703,58 @@ public final class GetLinuxWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder scmMinimumTlsVersion(String scmMinimumTlsVersion) {
-            this.scmMinimumTlsVersion = Objects.requireNonNull(scmMinimumTlsVersion);
+            if (scmMinimumTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "scmMinimumTlsVersion");
+            }
+            this.scmMinimumTlsVersion = scmMinimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmType(String scmType) {
-            this.scmType = Objects.requireNonNull(scmType);
+            if (scmType == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "scmType");
+            }
+            this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
-            this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
+            if (scmUseMainIpRestriction == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "scmUseMainIpRestriction");
+            }
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorker(Boolean use32BitWorker) {
-            this.use32BitWorker = Objects.requireNonNull(use32BitWorker);
+            if (use32BitWorker == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "use32BitWorker");
+            }
+            this.use32BitWorker = use32BitWorker;
             return this;
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
-            this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
+            if (vnetRouteAllEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "vnetRouteAllEnabled");
+            }
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
-            this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
+            if (websocketsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "websocketsEnabled");
+            }
+            this.websocketsEnabled = websocketsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
-            this.workerCount = Objects.requireNonNull(workerCount);
+            if (workerCount == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "workerCount");
+            }
+            this.workerCount = workerCount;
             return this;
         }
         public GetLinuxWebAppSiteConfig build() {

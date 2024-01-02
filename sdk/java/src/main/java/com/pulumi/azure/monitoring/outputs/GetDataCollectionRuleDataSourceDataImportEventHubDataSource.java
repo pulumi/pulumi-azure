@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetDataCollectionRuleDataSourceDataImportEventHubDataSource {
 
         @CustomType.Setter
         public Builder consumerGroup(String consumerGroup) {
-            this.consumerGroup = Objects.requireNonNull(consumerGroup);
+            if (consumerGroup == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceDataImportEventHubDataSource", "consumerGroup");
+            }
+            this.consumerGroup = consumerGroup;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceDataImportEventHubDataSource", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder stream(String stream) {
-            this.stream = Objects.requireNonNull(stream);
+            if (stream == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDataSourceDataImportEventHubDataSource", "stream");
+            }
+            this.stream = stream;
             return this;
         }
         public GetDataCollectionRuleDataSourceDataImportEventHubDataSource build() {

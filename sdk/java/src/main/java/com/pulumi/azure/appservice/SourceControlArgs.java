@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice;
 import com.pulumi.azure.appservice.inputs.SourceControlGithubActionConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -353,7 +354,9 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SourceControlArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("SourceControlArgs", "appId");
+            }
             return $;
         }
     }

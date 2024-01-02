@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,8 +188,12 @@ public final class HybridRunbookWorkerGroupArgs extends com.pulumi.resources.Res
         }
 
         public HybridRunbookWorkerGroupArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerGroupArgs", "automationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HybridRunbookWorkerGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

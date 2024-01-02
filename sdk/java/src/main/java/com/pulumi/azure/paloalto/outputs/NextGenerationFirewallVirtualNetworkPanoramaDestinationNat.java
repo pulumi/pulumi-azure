@@ -6,6 +6,7 @@ package com.pulumi.azure.paloalto.outputs;
 import com.pulumi.azure.paloalto.outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig;
 import com.pulumi.azure.paloalto.outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,22 +89,30 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat {
 
         @CustomType.Setter
         public Builder backendConfig(@Nullable NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfig backendConfig) {
+
             this.backendConfig = backendConfig;
             return this;
         }
         @CustomType.Setter
         public Builder frontendConfig(@Nullable NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig frontendConfig) {
+
             this.frontendConfig = frontendConfig;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNat", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNat", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaDestinationNat build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -195,8 +196,12 @@ public final class LinkedServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkedServiceArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceArgs", "resourceGroupName");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceArgs", "workspaceId");
+            }
             return $;
         }
     }

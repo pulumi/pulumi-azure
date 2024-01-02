@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetPolicyArgs build() {
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("GetPolicyArgs", "storageAccountId");
+            }
             return $;
         }
     }

@@ -73,16 +73,19 @@ public final class StreamingEndpointAccessControlIpAllow {
 
         @CustomType.Setter
         public Builder address(@Nullable String address) {
+
             this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subnetPrefixLength(@Nullable Integer subnetPrefixLength) {
+
             this.subnetPrefixLength = subnetPrefixLength;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -244,8 +245,12 @@ public final class SubscriptionPolicyRemediationArgs extends com.pulumi.resource
         }
 
         public SubscriptionPolicyRemediationArgs build() {
-            $.policyAssignmentId = Objects.requireNonNull($.policyAssignmentId, "expected parameter 'policyAssignmentId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.policyAssignmentId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyRemediationArgs", "policyAssignmentId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionPolicyRemediationArgs", "subscriptionId");
+            }
             return $;
         }
     }

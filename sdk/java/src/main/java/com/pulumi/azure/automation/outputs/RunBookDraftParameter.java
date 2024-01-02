@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,36 @@ public final class RunBookDraftParameter {
 
         @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
+
             this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("RunBookDraftParameter", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder mandatory(@Nullable Boolean mandatory) {
+
             this.mandatory = mandatory;
             return this;
         }
         @CustomType.Setter
         public Builder position(@Nullable Integer position) {
+
             this.position = position;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("RunBookDraftParameter", "type");
+            }
+            this.type = type;
             return this;
         }
         public RunBookDraftParameter build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,32 +113,50 @@ public final class GetAccountAzureFilesAuthenticationActiveDirectory {
 
         @CustomType.Setter
         public Builder domainGuid(String domainGuid) {
-            this.domainGuid = Objects.requireNonNull(domainGuid);
+            if (domainGuid == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "domainGuid");
+            }
+            this.domainGuid = domainGuid;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder domainSid(String domainSid) {
-            this.domainSid = Objects.requireNonNull(domainSid);
+            if (domainSid == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "domainSid");
+            }
+            this.domainSid = domainSid;
             return this;
         }
         @CustomType.Setter
         public Builder forestName(String forestName) {
-            this.forestName = Objects.requireNonNull(forestName);
+            if (forestName == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "forestName");
+            }
+            this.forestName = forestName;
             return this;
         }
         @CustomType.Setter
         public Builder netbiosDomainName(String netbiosDomainName) {
-            this.netbiosDomainName = Objects.requireNonNull(netbiosDomainName);
+            if (netbiosDomainName == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "netbiosDomainName");
+            }
+            this.netbiosDomainName = netbiosDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder storageSid(String storageSid) {
-            this.storageSid = Objects.requireNonNull(storageSid);
+            if (storageSid == null) {
+              throw new MissingRequiredPropertyException("GetAccountAzureFilesAuthenticationActiveDirectory", "storageSid");
+            }
+            this.storageSid = storageSid;
             return this;
         }
         public GetAccountAzureFilesAuthenticationActiveDirectory build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -78,17 +79,26 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
 
         @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
-            this.matchVariable = Objects.requireNonNull(matchVariable);
+            if (matchVariable == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion", "matchVariable");
+            }
+            this.matchVariable = matchVariable;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder selector(String selector) {
-            this.selector = Objects.requireNonNull(selector);
+            if (selector == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion", "selector");
+            }
+            this.selector = selector;
             return this;
         }
         public FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion build() {

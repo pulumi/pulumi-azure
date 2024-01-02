@@ -36,6 +36,7 @@ public final class FeaturesLogAnalyticsWorkspace {
 
         @CustomType.Setter
         public Builder permanentlyDeleteOnDestroy(@Nullable Boolean permanentlyDeleteOnDestroy) {
+
             this.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
             return this;
         }

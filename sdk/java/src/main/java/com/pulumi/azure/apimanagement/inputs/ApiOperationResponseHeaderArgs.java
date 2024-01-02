@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseHeaderExampleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -395,9 +396,15 @@ public final class ApiOperationResponseHeaderArgs extends com.pulumi.resources.R
         }
 
         public ApiOperationResponseHeaderArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.required = Objects.requireNonNull($.required, "expected parameter 'required' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApiOperationResponseHeaderArgs", "name");
+            }
+            if ($.required == null) {
+                throw new MissingRequiredPropertyException("ApiOperationResponseHeaderArgs", "required");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ApiOperationResponseHeaderArgs", "type");
+            }
             return $;
         }
     }

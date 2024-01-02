@@ -95,11 +95,13 @@ public final class LiveEventInput {
 
         @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
+
             this.accessToken = accessToken;
             return this;
         }
         @CustomType.Setter
         public Builder endpoints(@Nullable List<LiveEventInputEndpoint> endpoints) {
+
             this.endpoints = endpoints;
             return this;
         }
@@ -108,6 +110,7 @@ public final class LiveEventInput {
         }
         @CustomType.Setter
         public Builder ipAccessControlAllows(@Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows) {
+
             this.ipAccessControlAllows = ipAccessControlAllows;
             return this;
         }
@@ -116,11 +119,13 @@ public final class LiveEventInput {
         }
         @CustomType.Setter
         public Builder keyFrameIntervalDuration(@Nullable String keyFrameIntervalDuration) {
+
             this.keyFrameIntervalDuration = keyFrameIntervalDuration;
             return this;
         }
         @CustomType.Setter
         public Builder streamingProtocol(@Nullable String streamingProtocol) {
+
             this.streamingProtocol = streamingProtocol;
             return this;
         }

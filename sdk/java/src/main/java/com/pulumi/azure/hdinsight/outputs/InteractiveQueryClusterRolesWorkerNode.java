@@ -6,6 +6,7 @@ package com.pulumi.azure.hdinsight.outputs;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -172,16 +173,19 @@ public final class InteractiveQueryClusterRolesWorkerNode {
 
         @CustomType.Setter
         public Builder autoscale(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscale autoscale) {
+
             this.autoscale = autoscale;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder scriptActions(@Nullable List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions) {
+
             this.scriptActions = scriptActions;
             return this;
         }
@@ -190,6 +194,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
+
             this.sshKeys = sshKeys;
             return this;
         }
@@ -198,27 +203,38 @@ public final class InteractiveQueryClusterRolesWorkerNode {
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
-            this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
+            if (targetInstanceCount == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNode", "targetInstanceCount");
+            }
+            this.targetInstanceCount = targetInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNode", "username");
+            }
+            this.username = username;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkId(@Nullable String virtualNetworkId) {
+
             this.virtualNetworkId = virtualNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("InteractiveQueryClusterRolesWorkerNode", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         public InteractiveQueryClusterRolesWorkerNode build() {

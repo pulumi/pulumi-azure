@@ -7,6 +7,7 @@ import com.pulumi.azure.core.inputs.ResourceGroupCostManagementExportExportDataO
 import com.pulumi.azure.core.inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -338,12 +339,24 @@ public final class ResourceGroupCostManagementExportArgs extends com.pulumi.reso
         }
 
         public ResourceGroupCostManagementExportArgs build() {
-            $.exportDataOptions = Objects.requireNonNull($.exportDataOptions, "expected parameter 'exportDataOptions' to be non-null");
-            $.exportDataStorageLocation = Objects.requireNonNull($.exportDataStorageLocation, "expected parameter 'exportDataStorageLocation' to be non-null");
-            $.recurrencePeriodEndDate = Objects.requireNonNull($.recurrencePeriodEndDate, "expected parameter 'recurrencePeriodEndDate' to be non-null");
-            $.recurrencePeriodStartDate = Objects.requireNonNull($.recurrencePeriodStartDate, "expected parameter 'recurrencePeriodStartDate' to be non-null");
-            $.recurrenceType = Objects.requireNonNull($.recurrenceType, "expected parameter 'recurrenceType' to be non-null");
-            $.resourceGroupId = Objects.requireNonNull($.resourceGroupId, "expected parameter 'resourceGroupId' to be non-null");
+            if ($.exportDataOptions == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "exportDataOptions");
+            }
+            if ($.exportDataStorageLocation == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "exportDataStorageLocation");
+            }
+            if ($.recurrencePeriodEndDate == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "recurrencePeriodEndDate");
+            }
+            if ($.recurrencePeriodStartDate == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "recurrencePeriodStartDate");
+            }
+            if ($.recurrenceType == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "recurrenceType");
+            }
+            if ($.resourceGroupId == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupCostManagementExportArgs", "resourceGroupId");
+            }
             return $;
         }
     }

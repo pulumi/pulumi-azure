@@ -72,6 +72,7 @@ public final class ActivityLogAlertCriteriaResourceHealth {
 
         @CustomType.Setter
         public Builder currents(@Nullable List<String> currents) {
+
             this.currents = currents;
             return this;
         }
@@ -80,6 +81,7 @@ public final class ActivityLogAlertCriteriaResourceHealth {
         }
         @CustomType.Setter
         public Builder previouses(@Nullable List<String> previouses) {
+
             this.previouses = previouses;
             return this;
         }
@@ -88,6 +90,7 @@ public final class ActivityLogAlertCriteriaResourceHealth {
         }
         @CustomType.Setter
         public Builder reasons(@Nullable List<String> reasons) {
+
             this.reasons = reasons;
             return this;
         }

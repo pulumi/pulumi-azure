@@ -4,6 +4,7 @@
 package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetPrivateLinkResourceSharedPrivateLinkResourceType {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkResourceSharedPrivateLinkResourceType", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder subresourceName(String subresourceName) {
-            this.subresourceName = Objects.requireNonNull(subresourceName);
+            if (subresourceName == null) {
+              throw new MissingRequiredPropertyException("GetPrivateLinkResourceSharedPrivateLinkResourceType", "subresourceName");
+            }
+            this.subresourceName = subresourceName;
             return this;
         }
         public GetPrivateLinkResourceSharedPrivateLinkResourceType build() {

@@ -24,6 +24,7 @@ import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetTerminateNotif
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -2346,11 +2347,21 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         }
 
         public LinuxVirtualMachineScaleSetArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.networkInterfaces = Objects.requireNonNull($.networkInterfaces, "expected parameter 'networkInterfaces' to be non-null");
-            $.osDisk = Objects.requireNonNull($.osDisk, "expected parameter 'osDisk' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetArgs", "adminUsername");
+            }
+            if ($.networkInterfaces == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetArgs", "networkInterfaces");
+            }
+            if ($.osDisk == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetArgs", "osDisk");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetArgs", "sku");
+            }
             return $;
         }
     }

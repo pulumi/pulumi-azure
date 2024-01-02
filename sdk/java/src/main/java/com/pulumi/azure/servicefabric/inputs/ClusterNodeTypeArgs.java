@@ -7,6 +7,7 @@ import com.pulumi.azure.servicefabric.inputs.ClusterNodeTypeApplicationPortsArgs
 import com.pulumi.azure.servicefabric.inputs.ClusterNodeTypeEphemeralPortsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -525,11 +526,21 @@ public final class ClusterNodeTypeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ClusterNodeTypeArgs build() {
-            $.clientEndpointPort = Objects.requireNonNull($.clientEndpointPort, "expected parameter 'clientEndpointPort' to be non-null");
-            $.httpEndpointPort = Objects.requireNonNull($.httpEndpointPort, "expected parameter 'httpEndpointPort' to be non-null");
-            $.instanceCount = Objects.requireNonNull($.instanceCount, "expected parameter 'instanceCount' to be non-null");
-            $.isPrimary = Objects.requireNonNull($.isPrimary, "expected parameter 'isPrimary' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.clientEndpointPort == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeArgs", "clientEndpointPort");
+            }
+            if ($.httpEndpointPort == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeArgs", "httpEndpointPort");
+            }
+            if ($.instanceCount == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeArgs", "instanceCount");
+            }
+            if ($.isPrimary == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeArgs", "isPrimary");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ClusterNodeTypeArgs", "name");
+            }
             return $;
         }
     }

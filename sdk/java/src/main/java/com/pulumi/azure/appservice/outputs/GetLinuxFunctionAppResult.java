@@ -12,6 +12,7 @@ import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppSiteConfig;
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppSiteCredential;
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppStickySetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -620,12 +621,18 @@ public final class GetLinuxFunctionAppResult {
 
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
-            this.appSettings = Objects.requireNonNull(appSettings);
+            if (appSettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "appSettings");
+            }
+            this.appSettings = appSettings;
             return this;
         }
         @CustomType.Setter
         public Builder authSettings(List<GetLinuxFunctionAppAuthSetting> authSettings) {
-            this.authSettings = Objects.requireNonNull(authSettings);
+            if (authSettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "authSettings");
+            }
+            this.authSettings = authSettings;
             return this;
         }
         public Builder authSettings(GetLinuxFunctionAppAuthSetting... authSettings) {
@@ -633,7 +640,10 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder authSettingsV2s(List<GetLinuxFunctionAppAuthSettingsV2> authSettingsV2s) {
-            this.authSettingsV2s = Objects.requireNonNull(authSettingsV2s);
+            if (authSettingsV2s == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "authSettingsV2s");
+            }
+            this.authSettingsV2s = authSettingsV2s;
             return this;
         }
         public Builder authSettingsV2s(GetLinuxFunctionAppAuthSettingsV2... authSettingsV2s) {
@@ -641,12 +651,18 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder availability(String availability) {
-            this.availability = Objects.requireNonNull(availability);
+            if (availability == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "availability");
+            }
+            this.availability = availability;
             return this;
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxFunctionAppBackup> backups) {
-            this.backups = Objects.requireNonNull(backups);
+            if (backups == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "backups");
+            }
+            this.backups = backups;
             return this;
         }
         public Builder backups(GetLinuxFunctionAppBackup... backups) {
@@ -654,27 +670,42 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder builtinLoggingEnabled(Boolean builtinLoggingEnabled) {
-            this.builtinLoggingEnabled = Objects.requireNonNull(builtinLoggingEnabled);
+            if (builtinLoggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "builtinLoggingEnabled");
+            }
+            this.builtinLoggingEnabled = builtinLoggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
-            this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
+            if (clientCertificateEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "clientCertificateEnabled");
+            }
+            this.clientCertificateEnabled = clientCertificateEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
-            this.clientCertificateExclusionPaths = Objects.requireNonNull(clientCertificateExclusionPaths);
+            if (clientCertificateExclusionPaths == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "clientCertificateExclusionPaths");
+            }
+            this.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateMode(String clientCertificateMode) {
-            this.clientCertificateMode = Objects.requireNonNull(clientCertificateMode);
+            if (clientCertificateMode == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "clientCertificateMode");
+            }
+            this.clientCertificateMode = clientCertificateMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionStrings(List<GetLinuxFunctionAppConnectionString> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(GetLinuxFunctionAppConnectionString... connectionStrings) {
@@ -682,57 +713,90 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder contentShareForceDisabled(Boolean contentShareForceDisabled) {
-            this.contentShareForceDisabled = Objects.requireNonNull(contentShareForceDisabled);
+            if (contentShareForceDisabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "contentShareForceDisabled");
+            }
+            this.contentShareForceDisabled = contentShareForceDisabled;
             return this;
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder dailyMemoryTimeQuota(Integer dailyMemoryTimeQuota) {
-            this.dailyMemoryTimeQuota = Objects.requireNonNull(dailyMemoryTimeQuota);
+            if (dailyMemoryTimeQuota == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "dailyMemoryTimeQuota");
+            }
+            this.dailyMemoryTimeQuota = dailyMemoryTimeQuota;
             return this;
         }
         @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
-            this.defaultHostname = Objects.requireNonNull(defaultHostname);
+            if (defaultHostname == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "defaultHostname");
+            }
+            this.defaultHostname = defaultHostname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
-            this.ftpPublishBasicAuthenticationEnabled = Objects.requireNonNull(ftpPublishBasicAuthenticationEnabled);
+            if (ftpPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "ftpPublishBasicAuthenticationEnabled");
+            }
+            this.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder functionsExtensionVersion(String functionsExtensionVersion) {
-            this.functionsExtensionVersion = Objects.requireNonNull(functionsExtensionVersion);
+            if (functionsExtensionVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "functionsExtensionVersion");
+            }
+            this.functionsExtensionVersion = functionsExtensionVersion;
             return this;
         }
         @CustomType.Setter
         public Builder hostingEnvironmentId(String hostingEnvironmentId) {
-            this.hostingEnvironmentId = Objects.requireNonNull(hostingEnvironmentId);
+            if (hostingEnvironmentId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "hostingEnvironmentId");
+            }
+            this.hostingEnvironmentId = hostingEnvironmentId;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
-            this.httpsOnly = Objects.requireNonNull(httpsOnly);
+            if (httpsOnly == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "httpsOnly");
+            }
+            this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetLinuxFunctionAppIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetLinuxFunctionAppIdentity... identities) {
@@ -740,22 +804,34 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
-            this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
+            if (outboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "outboundIpAddressLists");
+            }
+            this.outboundIpAddressLists = outboundIpAddressLists;
             return this;
         }
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
@@ -763,12 +839,18 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
-            this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
+            if (possibleOutboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "possibleOutboundIpAddressLists");
+            }
+            this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             return this;
         }
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
@@ -776,27 +858,42 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
-            this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
+            if (possibleOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "possibleOutboundIpAddresses");
+            }
+            this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder servicePlanId(String servicePlanId) {
-            this.servicePlanId = Objects.requireNonNull(servicePlanId);
+            if (servicePlanId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "servicePlanId");
+            }
+            this.servicePlanId = servicePlanId;
             return this;
         }
         @CustomType.Setter
         public Builder siteConfigs(List<GetLinuxFunctionAppSiteConfig> siteConfigs) {
-            this.siteConfigs = Objects.requireNonNull(siteConfigs);
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "siteConfigs");
+            }
+            this.siteConfigs = siteConfigs;
             return this;
         }
         public Builder siteConfigs(GetLinuxFunctionAppSiteConfig... siteConfigs) {
@@ -804,7 +901,10 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetLinuxFunctionAppSiteCredential> siteCredentials) {
-            this.siteCredentials = Objects.requireNonNull(siteCredentials);
+            if (siteCredentials == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "siteCredentials");
+            }
+            this.siteCredentials = siteCredentials;
             return this;
         }
         public Builder siteCredentials(GetLinuxFunctionAppSiteCredential... siteCredentials) {
@@ -812,7 +912,10 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder stickySettings(List<GetLinuxFunctionAppStickySetting> stickySettings) {
-            this.stickySettings = Objects.requireNonNull(stickySettings);
+            if (stickySettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "stickySettings");
+            }
+            this.stickySettings = stickySettings;
             return this;
         }
         public Builder stickySettings(GetLinuxFunctionAppStickySetting... stickySettings) {
@@ -820,42 +923,66 @@ public final class GetLinuxFunctionAppResult {
         }
         @CustomType.Setter
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
-            this.storageAccountAccessKey = Objects.requireNonNull(storageAccountAccessKey);
+            if (storageAccountAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "storageAccountAccessKey");
+            }
+            this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder storageKeyVaultSecretId(String storageKeyVaultSecretId) {
-            this.storageKeyVaultSecretId = Objects.requireNonNull(storageKeyVaultSecretId);
+            if (storageKeyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "storageKeyVaultSecretId");
+            }
+            this.storageKeyVaultSecretId = storageKeyVaultSecretId;
             return this;
         }
         @CustomType.Setter
         public Builder storageUsesManagedIdentity(Boolean storageUsesManagedIdentity) {
-            this.storageUsesManagedIdentity = Objects.requireNonNull(storageUsesManagedIdentity);
+            if (storageUsesManagedIdentity == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "storageUsesManagedIdentity");
+            }
+            this.storageUsesManagedIdentity = storageUsesManagedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder usage(String usage) {
-            this.usage = Objects.requireNonNull(usage);
+            if (usage == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "usage");
+            }
+            this.usage = usage;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
-            this.webdeployPublishBasicAuthenticationEnabled = Objects.requireNonNull(webdeployPublishBasicAuthenticationEnabled);
+            if (webdeployPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppResult", "webdeployPublishBasicAuthenticationEnabled");
+            }
+            this.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return this;
         }
         public GetLinuxFunctionAppResult build() {

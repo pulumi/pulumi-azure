@@ -6,6 +6,7 @@ package com.pulumi.azure.core.inputs;
 import com.pulumi.azure.core.inputs.ResourceGroupPolicyAssignmentOverrideSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class ResourceGroupPolicyAssignmentOverrideArgs extends com.pulumi.
         }
 
         public ResourceGroupPolicyAssignmentOverrideArgs build() {
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupPolicyAssignmentOverrideArgs", "value");
+            }
             return $;
         }
     }

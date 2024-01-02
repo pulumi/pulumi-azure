@@ -5,6 +5,7 @@ package com.pulumi.azure.confidentialledger.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class LedgerCertificateBasedSecurityPrincipalArgs extends com.pulum
         }
 
         public LedgerCertificateBasedSecurityPrincipalArgs build() {
-            $.ledgerRoleName = Objects.requireNonNull($.ledgerRoleName, "expected parameter 'ledgerRoleName' to be non-null");
-            $.pemPublicKey = Objects.requireNonNull($.pemPublicKey, "expected parameter 'pemPublicKey' to be non-null");
+            if ($.ledgerRoleName == null) {
+                throw new MissingRequiredPropertyException("LedgerCertificateBasedSecurityPrincipalArgs", "ledgerRoleName");
+            }
+            if ($.pemPublicKey == null) {
+                throw new MissingRequiredPropertyException("LedgerCertificateBasedSecurityPrincipalArgs", "pemPublicKey");
+            }
             return $;
         }
     }

@@ -8,6 +8,7 @@ import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -388,9 +389,15 @@ public final class AutoscaleSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AutoscaleSettingArgs build() {
-            $.profiles = Objects.requireNonNull($.profiles, "expected parameter 'profiles' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.profiles == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingArgs", "profiles");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingArgs", "resourceGroupName");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingArgs", "targetResourceId");
+            }
             return $;
         }
     }

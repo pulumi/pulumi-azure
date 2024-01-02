@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class PostgresqlRoleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public PostgresqlRoleArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("PostgresqlRoleArgs", "clusterId");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("PostgresqlRoleArgs", "password");
+            }
             return $;
         }
     }

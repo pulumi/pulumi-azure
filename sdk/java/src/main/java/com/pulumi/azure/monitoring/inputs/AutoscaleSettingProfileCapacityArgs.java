@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -156,9 +157,15 @@ public final class AutoscaleSettingProfileCapacityArgs extends com.pulumi.resour
         }
 
         public AutoscaleSettingProfileCapacityArgs build() {
-            $.default_ = Objects.requireNonNull($.default_, "expected parameter 'default' to be non-null");
-            $.maximum = Objects.requireNonNull($.maximum, "expected parameter 'maximum' to be non-null");
-            $.minimum = Objects.requireNonNull($.minimum, "expected parameter 'minimum' to be non-null");
+            if ($.default_ == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileCapacityArgs", "default_");
+            }
+            if ($.maximum == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileCapacityArgs", "maximum");
+            }
+            if ($.minimum == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileCapacityArgs", "minimum");
+            }
             return $;
         }
     }

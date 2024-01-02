@@ -4,6 +4,7 @@
 package com.pulumi.azure.arckubernetes.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -144,42 +145,54 @@ public final class FluxConfigurationBucket {
 
         @CustomType.Setter
         public Builder accessKey(@Nullable String accessKey) {
+
             this.accessKey = accessKey;
             return this;
         }
         @CustomType.Setter
         public Builder bucketName(String bucketName) {
-            this.bucketName = Objects.requireNonNull(bucketName);
+            if (bucketName == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBucket", "bucketName");
+            }
+            this.bucketName = bucketName;
             return this;
         }
         @CustomType.Setter
         public Builder localAuthReference(@Nullable String localAuthReference) {
+
             this.localAuthReference = localAuthReference;
             return this;
         }
         @CustomType.Setter
         public Builder secretKeyBase64(@Nullable String secretKeyBase64) {
+
             this.secretKeyBase64 = secretKeyBase64;
             return this;
         }
         @CustomType.Setter
         public Builder syncIntervalInSeconds(@Nullable Integer syncIntervalInSeconds) {
+
             this.syncIntervalInSeconds = syncIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
+
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder tlsEnabled(@Nullable Boolean tlsEnabled) {
+
             this.tlsEnabled = tlsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("FluxConfigurationBucket", "url");
+            }
+            this.url = url;
             return this;
         }
         public FluxConfigurationBucket build() {

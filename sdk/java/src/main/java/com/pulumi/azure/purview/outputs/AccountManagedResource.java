@@ -72,16 +72,19 @@ public final class AccountManagedResource {
 
         @CustomType.Setter
         public Builder eventHubNamespaceId(@Nullable String eventHubNamespaceId) {
+
             this.eventHubNamespaceId = eventHubNamespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupId(@Nullable String resourceGroupId) {
+
             this.resourceGroupId = resourceGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(@Nullable String storageAccountId) {
+
             this.storageAccountId = storageAccountId;
             return this;
         }

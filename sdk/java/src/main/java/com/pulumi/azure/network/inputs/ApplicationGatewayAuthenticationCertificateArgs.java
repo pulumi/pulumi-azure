@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApplicationGatewayAuthenticationCertificateArgs extends com.p
         }
 
         public ApplicationGatewayAuthenticationCertificateArgs build() {
-            $.data = Objects.requireNonNull($.data, "expected parameter 'data' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.data == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayAuthenticationCertificateArgs", "data");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayAuthenticationCertificateArgs", "name");
+            }
             return $;
         }
     }

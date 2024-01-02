@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.inputs;
 import com.pulumi.azure.batch.inputs.PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -237,10 +238,18 @@ public final class PoolNetworkConfigurationEndpointConfigurationArgs extends com
         }
 
         public PoolNetworkConfigurationEndpointConfigurationArgs build() {
-            $.backendPort = Objects.requireNonNull($.backendPort, "expected parameter 'backendPort' to be non-null");
-            $.frontendPortRange = Objects.requireNonNull($.frontendPortRange, "expected parameter 'frontendPortRange' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.backendPort == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationArgs", "backendPort");
+            }
+            if ($.frontendPortRange == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationArgs", "frontendPortRange");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationArgs", "name");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("PoolNetworkConfigurationEndpointConfigurationArgs", "protocol");
+            }
             return $;
         }
     }

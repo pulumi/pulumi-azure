@@ -88,16 +88,19 @@ public final class IoTHubFallbackRoute {
 
         @CustomType.Setter
         public Builder condition(@Nullable String condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder endpointNames(@Nullable List<String> endpointNames) {
+
             this.endpointNames = endpointNames;
             return this;
         }
@@ -106,6 +109,7 @@ public final class IoTHubFallbackRoute {
         }
         @CustomType.Setter
         public Builder source(@Nullable String source) {
+
             this.source = source;
             return this;
         }

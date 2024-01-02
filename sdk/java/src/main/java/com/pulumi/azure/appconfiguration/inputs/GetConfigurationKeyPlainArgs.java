@@ -4,6 +4,7 @@
 package com.pulumi.azure.appconfiguration.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -119,8 +120,12 @@ public final class GetConfigurationKeyPlainArgs extends com.pulumi.resources.Inv
         }
 
         public GetConfigurationKeyPlainArgs build() {
-            $.configurationStoreId = Objects.requireNonNull($.configurationStoreId, "expected parameter 'configurationStoreId' to be non-null");
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
+            if ($.configurationStoreId == null) {
+                throw new MissingRequiredPropertyException("GetConfigurationKeyPlainArgs", "configurationStoreId");
+            }
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("GetConfigurationKeyPlainArgs", "key");
+            }
             return $;
         }
     }

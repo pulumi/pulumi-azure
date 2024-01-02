@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class ConsumerGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConsumerGroupArgs build() {
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "eventhubName");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConsumerGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

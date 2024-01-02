@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class ScaleSetStorageProfileDataDiskArgs extends com.pulumi.resourc
         }
 
         public ScaleSetStorageProfileDataDiskArgs build() {
-            $.createOption = Objects.requireNonNull($.createOption, "expected parameter 'createOption' to be non-null");
-            $.lun = Objects.requireNonNull($.lun, "expected parameter 'lun' to be non-null");
+            if ($.createOption == null) {
+                throw new MissingRequiredPropertyException("ScaleSetStorageProfileDataDiskArgs", "createOption");
+            }
+            if ($.lun == null) {
+                throw new MissingRequiredPropertyException("ScaleSetStorageProfileDataDiskArgs", "lun");
+            }
             return $;
         }
     }

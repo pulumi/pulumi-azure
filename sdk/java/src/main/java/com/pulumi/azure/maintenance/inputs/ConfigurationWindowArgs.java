@@ -5,6 +5,7 @@ package com.pulumi.azure.maintenance.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ConfigurationWindowArgs extends com.pulumi.resources.Resource
         }
 
         public ConfigurationWindowArgs build() {
-            $.startDateTime = Objects.requireNonNull($.startDateTime, "expected parameter 'startDateTime' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.startDateTime == null) {
+                throw new MissingRequiredPropertyException("ConfigurationWindowArgs", "startDateTime");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("ConfigurationWindowArgs", "timeZone");
+            }
             return $;
         }
     }

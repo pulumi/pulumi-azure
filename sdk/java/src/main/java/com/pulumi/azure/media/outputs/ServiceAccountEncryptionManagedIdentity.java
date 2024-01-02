@@ -59,11 +59,13 @@ public final class ServiceAccountEncryptionManagedIdentity {
 
         @CustomType.Setter
         public Builder useSystemAssignedIdentity(@Nullable Boolean useSystemAssignedIdentity) {
+
             this.useSystemAssignedIdentity = useSystemAssignedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

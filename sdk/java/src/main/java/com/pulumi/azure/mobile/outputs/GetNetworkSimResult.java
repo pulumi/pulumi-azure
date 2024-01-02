@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkSimStaticIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -168,47 +169,74 @@ public final class GetNetworkSimResult {
 
         @CustomType.Setter
         public Builder deviceType(String deviceType) {
-            this.deviceType = Objects.requireNonNull(deviceType);
+            if (deviceType == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "deviceType");
+            }
+            this.deviceType = deviceType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder integratedCircuitCardIdentifier(String integratedCircuitCardIdentifier) {
-            this.integratedCircuitCardIdentifier = Objects.requireNonNull(integratedCircuitCardIdentifier);
+            if (integratedCircuitCardIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "integratedCircuitCardIdentifier");
+            }
+            this.integratedCircuitCardIdentifier = integratedCircuitCardIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder internationalMobileSubscriberIdentity(String internationalMobileSubscriberIdentity) {
-            this.internationalMobileSubscriberIdentity = Objects.requireNonNull(internationalMobileSubscriberIdentity);
+            if (internationalMobileSubscriberIdentity == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "internationalMobileSubscriberIdentity");
+            }
+            this.internationalMobileSubscriberIdentity = internationalMobileSubscriberIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkSimGroupId(String mobileNetworkSimGroupId) {
-            this.mobileNetworkSimGroupId = Objects.requireNonNull(mobileNetworkSimGroupId);
+            if (mobileNetworkSimGroupId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "mobileNetworkSimGroupId");
+            }
+            this.mobileNetworkSimGroupId = mobileNetworkSimGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder simPolicyId(String simPolicyId) {
-            this.simPolicyId = Objects.requireNonNull(simPolicyId);
+            if (simPolicyId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "simPolicyId");
+            }
+            this.simPolicyId = simPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder simState(String simState) {
-            this.simState = Objects.requireNonNull(simState);
+            if (simState == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "simState");
+            }
+            this.simState = simState;
             return this;
         }
         @CustomType.Setter
         public Builder staticIpConfigurations(List<GetNetworkSimStaticIpConfiguration> staticIpConfigurations) {
-            this.staticIpConfigurations = Objects.requireNonNull(staticIpConfigurations);
+            if (staticIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "staticIpConfigurations");
+            }
+            this.staticIpConfigurations = staticIpConfigurations;
             return this;
         }
         public Builder staticIpConfigurations(GetNetworkSimStaticIpConfiguration... staticIpConfigurations) {
@@ -216,12 +244,18 @@ public final class GetNetworkSimResult {
         }
         @CustomType.Setter
         public Builder vendorKeyFingerprint(String vendorKeyFingerprint) {
-            this.vendorKeyFingerprint = Objects.requireNonNull(vendorKeyFingerprint);
+            if (vendorKeyFingerprint == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "vendorKeyFingerprint");
+            }
+            this.vendorKeyFingerprint = vendorKeyFingerprint;
             return this;
         }
         @CustomType.Setter
         public Builder vendorName(String vendorName) {
-            this.vendorName = Objects.requireNonNull(vendorName);
+            if (vendorName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimResult", "vendorName");
+            }
+            this.vendorName = vendorName;
             return this;
         }
         public GetNetworkSimResult build() {

@@ -7,6 +7,7 @@ import com.pulumi.azure.appservice.inputs.ConnectionAuthenticationArgs;
 import com.pulumi.azure.appservice.inputs.ConnectionSecretStoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -308,9 +309,15 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ConnectionArgs build() {
-            $.appServiceId = Objects.requireNonNull($.appServiceId, "expected parameter 'appServiceId' to be non-null");
-            $.authentication = Objects.requireNonNull($.authentication, "expected parameter 'authentication' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.appServiceId == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "appServiceId");
+            }
+            if ($.authentication == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "authentication");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("ConnectionArgs", "targetResourceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -121,11 +122,15 @@ public final class PolicyFileShareRetentionYearly {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("PolicyFileShareRetentionYearly", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder days(@Nullable List<Integer> days) {
+
             this.days = days;
             return this;
         }
@@ -134,12 +139,16 @@ public final class PolicyFileShareRetentionYearly {
         }
         @CustomType.Setter
         public Builder includeLastDays(@Nullable Boolean includeLastDays) {
+
             this.includeLastDays = includeLastDays;
             return this;
         }
         @CustomType.Setter
         public Builder months(List<String> months) {
-            this.months = Objects.requireNonNull(months);
+            if (months == null) {
+              throw new MissingRequiredPropertyException("PolicyFileShareRetentionYearly", "months");
+            }
+            this.months = months;
             return this;
         }
         public Builder months(String... months) {
@@ -147,6 +156,7 @@ public final class PolicyFileShareRetentionYearly {
         }
         @CustomType.Setter
         public Builder weekdays(@Nullable List<String> weekdays) {
+
             this.weekdays = weekdays;
             return this;
         }
@@ -155,6 +165,7 @@ public final class PolicyFileShareRetentionYearly {
         }
         @CustomType.Setter
         public Builder weeks(@Nullable List<String> weeks) {
+
             this.weeks = weeks;
             return this;
         }

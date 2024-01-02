@@ -79,16 +79,19 @@ public final class KubernetesClusterHttpProxyConfig {
 
         @CustomType.Setter
         public Builder httpProxy(@Nullable String httpProxy) {
+
             this.httpProxy = httpProxy;
             return this;
         }
         @CustomType.Setter
         public Builder httpsProxy(@Nullable String httpsProxy) {
+
             this.httpsProxy = httpsProxy;
             return this;
         }
         @CustomType.Setter
         public Builder noProxies(@Nullable List<String> noProxies) {
+
             this.noProxies = noProxies;
             return this;
         }
@@ -97,6 +100,7 @@ public final class KubernetesClusterHttpProxyConfig {
         }
         @CustomType.Setter
         public Builder trustedCa(@Nullable String trustedCa) {
+
             this.trustedCa = trustedCa;
             return this;
         }

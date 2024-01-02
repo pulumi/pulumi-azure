@@ -6,6 +6,7 @@ package com.pulumi.azure.arckubernetes;
 import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,9 +264,15 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterArgs build() {
-            $.agentPublicKeyCertificate = Objects.requireNonNull($.agentPublicKeyCertificate, "expected parameter 'agentPublicKeyCertificate' to be non-null");
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.agentPublicKeyCertificate == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "agentPublicKeyCertificate");
+            }
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "identity");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

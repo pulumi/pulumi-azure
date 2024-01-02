@@ -58,11 +58,13 @@ public final class PoolStartTaskUserIdentityAutoUser {
 
         @CustomType.Setter
         public Builder elevationLevel(@Nullable String elevationLevel) {
+
             this.elevationLevel = elevationLevel;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }

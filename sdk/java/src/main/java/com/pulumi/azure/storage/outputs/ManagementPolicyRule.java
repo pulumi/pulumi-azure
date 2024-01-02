@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.outputs;
 import com.pulumi.azure.storage.outputs.ManagementPolicyRuleActions;
 import com.pulumi.azure.storage.outputs.ManagementPolicyRuleFilters;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,22 +88,34 @@ public final class ManagementPolicyRule {
 
         @CustomType.Setter
         public Builder actions(ManagementPolicyRuleActions actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("ManagementPolicyRule", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ManagementPolicyRule", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder filters(ManagementPolicyRuleFilters filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("ManagementPolicyRule", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ManagementPolicyRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public ManagementPolicyRule build() {

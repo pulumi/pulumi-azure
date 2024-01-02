@@ -4,6 +4,7 @@
 package com.pulumi.azure.confidentialledger.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class LedgerCertificateBasedSecurityPrincipal {
 
         @CustomType.Setter
         public Builder ledgerRoleName(String ledgerRoleName) {
-            this.ledgerRoleName = Objects.requireNonNull(ledgerRoleName);
+            if (ledgerRoleName == null) {
+              throw new MissingRequiredPropertyException("LedgerCertificateBasedSecurityPrincipal", "ledgerRoleName");
+            }
+            this.ledgerRoleName = ledgerRoleName;
             return this;
         }
         @CustomType.Setter
         public Builder pemPublicKey(String pemPublicKey) {
-            this.pemPublicKey = Objects.requireNonNull(pemPublicKey);
+            if (pemPublicKey == null) {
+              throw new MissingRequiredPropertyException("LedgerCertificateBasedSecurityPrincipal", "pemPublicKey");
+            }
+            this.pemPublicKey = pemPublicKey;
             return this;
         }
         public LedgerCertificateBasedSecurityPrincipal build() {

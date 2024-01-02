@@ -7,6 +7,7 @@ import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementGuestIdentit
 import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementHostIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -412,14 +413,30 @@ public final class IntegrationAccountAgreementArgs extends com.pulumi.resources.
         }
 
         public IntegrationAccountAgreementArgs build() {
-            $.agreementType = Objects.requireNonNull($.agreementType, "expected parameter 'agreementType' to be non-null");
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.guestIdentity = Objects.requireNonNull($.guestIdentity, "expected parameter 'guestIdentity' to be non-null");
-            $.guestPartnerName = Objects.requireNonNull($.guestPartnerName, "expected parameter 'guestPartnerName' to be non-null");
-            $.hostIdentity = Objects.requireNonNull($.hostIdentity, "expected parameter 'hostIdentity' to be non-null");
-            $.hostPartnerName = Objects.requireNonNull($.hostPartnerName, "expected parameter 'hostPartnerName' to be non-null");
-            $.integrationAccountName = Objects.requireNonNull($.integrationAccountName, "expected parameter 'integrationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.agreementType == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "agreementType");
+            }
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "content");
+            }
+            if ($.guestIdentity == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "guestIdentity");
+            }
+            if ($.guestPartnerName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "guestPartnerName");
+            }
+            if ($.hostIdentity == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "hostIdentity");
+            }
+            if ($.hostPartnerName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "hostPartnerName");
+            }
+            if ($.integrationAccountName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "integrationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountAgreementArgs", "resourceGroupName");
+            }
             return $;
         }
     }

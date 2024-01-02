@@ -12,6 +12,7 @@ import com.pulumi.azure.containerapp.inputs.AppTemplateTcpScaleRuleArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateVolumeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -488,7 +489,9 @@ public final class AppTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppTemplateArgs build() {
-            $.containers = Objects.requireNonNull($.containers, "expected parameter 'containers' to be non-null");
+            if ($.containers == null) {
+                throw new MissingRequiredPropertyException("AppTemplateArgs", "containers");
+            }
             return $;
         }
     }

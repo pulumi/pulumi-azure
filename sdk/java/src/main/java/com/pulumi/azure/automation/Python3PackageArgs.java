@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -336,9 +337,15 @@ public final class Python3PackageArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public Python3PackageArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.contentUri = Objects.requireNonNull($.contentUri, "expected parameter 'contentUri' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("Python3PackageArgs", "automationAccountName");
+            }
+            if ($.contentUri == null) {
+                throw new MissingRequiredPropertyException("Python3PackageArgs", "contentUri");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("Python3PackageArgs", "resourceGroupName");
+            }
             return $;
         }
     }

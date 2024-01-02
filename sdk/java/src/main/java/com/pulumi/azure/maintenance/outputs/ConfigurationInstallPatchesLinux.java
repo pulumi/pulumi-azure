@@ -72,6 +72,7 @@ public final class ConfigurationInstallPatchesLinux {
 
         @CustomType.Setter
         public Builder classificationsToIncludes(@Nullable List<String> classificationsToIncludes) {
+
             this.classificationsToIncludes = classificationsToIncludes;
             return this;
         }
@@ -80,6 +81,7 @@ public final class ConfigurationInstallPatchesLinux {
         }
         @CustomType.Setter
         public Builder packageNamesMaskToExcludes(@Nullable List<String> packageNamesMaskToExcludes) {
+
             this.packageNamesMaskToExcludes = packageNamesMaskToExcludes;
             return this;
         }
@@ -88,6 +90,7 @@ public final class ConfigurationInstallPatchesLinux {
         }
         @CustomType.Setter
         public Builder packageNamesMaskToIncludes(@Nullable List<String> packageNamesMaskToIncludes) {
+
             this.packageNamesMaskToIncludes = packageNamesMaskToIncludes;
             return this;
         }

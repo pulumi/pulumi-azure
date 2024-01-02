@@ -86,21 +86,25 @@ public final class TransformOutputCustomPresetFilterCropRectangle {
 
         @CustomType.Setter
         public Builder height(@Nullable String height) {
+
             this.height = height;
             return this;
         }
         @CustomType.Setter
         public Builder left(@Nullable String left) {
+
             this.left = left;
             return this;
         }
         @CustomType.Setter
         public Builder top(@Nullable String top) {
+
             this.top = top;
             return this;
         }
         @CustomType.Setter
         public Builder width(@Nullable String width) {
+
             this.width = width;
             return this;
         }

@@ -131,36 +131,43 @@ public final class PolicyPolicySettings {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder fileUploadLimitInMb(@Nullable Integer fileUploadLimitInMb) {
+
             this.fileUploadLimitInMb = fileUploadLimitInMb;
             return this;
         }
         @CustomType.Setter
         public Builder logScrubbing(@Nullable PolicyPolicySettingsLogScrubbing logScrubbing) {
+
             this.logScrubbing = logScrubbing;
             return this;
         }
         @CustomType.Setter
         public Builder maxRequestBodySizeInKb(@Nullable Integer maxRequestBodySizeInKb) {
+
             this.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             return this;
         }
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder requestBodyCheck(@Nullable Boolean requestBodyCheck) {
+
             this.requestBodyCheck = requestBodyCheck;
             return this;
         }
         @CustomType.Setter
         public Builder requestBodyInspectLimitInKb(@Nullable Integer requestBodyInspectLimitInKb) {
+
             this.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
             return this;
         }

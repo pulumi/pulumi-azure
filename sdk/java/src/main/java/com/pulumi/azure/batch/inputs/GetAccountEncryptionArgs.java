@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetAccountEncryptionArgs extends com.pulumi.resources.Resourc
         }
 
         public GetAccountEncryptionArgs build() {
-            $.keyVaultKeyId = Objects.requireNonNull($.keyVaultKeyId, "expected parameter 'keyVaultKeyId' to be non-null");
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("GetAccountEncryptionArgs", "keyVaultKeyId");
+            }
             return $;
         }
     }

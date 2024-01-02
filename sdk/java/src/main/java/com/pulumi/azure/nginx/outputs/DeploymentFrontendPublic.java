@@ -44,6 +44,7 @@ public final class DeploymentFrontendPublic {
 
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }

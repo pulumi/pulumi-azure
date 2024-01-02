@@ -4,6 +4,7 @@
 package com.pulumi.azure.mariadb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetMariaDbServerStorageProfile {
 
         @CustomType.Setter
         public Builder autoGrow(String autoGrow) {
-            this.autoGrow = Objects.requireNonNull(autoGrow);
+            if (autoGrow == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerStorageProfile", "autoGrow");
+            }
+            this.autoGrow = autoGrow;
             return this;
         }
         @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
-            this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
+            if (backupRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerStorageProfile", "backupRetentionDays");
+            }
+            this.backupRetentionDays = backupRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder geoRedundantBackup(String geoRedundantBackup) {
-            this.geoRedundantBackup = Objects.requireNonNull(geoRedundantBackup);
+            if (geoRedundantBackup == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerStorageProfile", "geoRedundantBackup");
+            }
+            this.geoRedundantBackup = geoRedundantBackup;
             return this;
         }
         @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
-            this.storageMb = Objects.requireNonNull(storageMb);
+            if (storageMb == null) {
+              throw new MissingRequiredPropertyException("GetMariaDbServerStorageProfile", "storageMb");
+            }
+            this.storageMb = storageMb;
             return this;
         }
         public GetMariaDbServerStorageProfile build() {

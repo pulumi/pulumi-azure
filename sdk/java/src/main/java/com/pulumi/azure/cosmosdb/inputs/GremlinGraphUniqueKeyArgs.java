@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class GremlinGraphUniqueKeyArgs extends com.pulumi.resources.Resour
         }
 
         public GremlinGraphUniqueKeyArgs build() {
-            $.paths = Objects.requireNonNull($.paths, "expected parameter 'paths' to be non-null");
+            if ($.paths == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphUniqueKeyArgs", "paths");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,7 +189,9 @@ public final class NetworkSiteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NetworkSiteArgs build() {
-            $.mobileNetworkId = Objects.requireNonNull($.mobileNetworkId, "expected parameter 'mobileNetworkId' to be non-null");
+            if ($.mobileNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSiteArgs", "mobileNetworkId");
+            }
             return $;
         }
     }

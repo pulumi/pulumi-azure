@@ -7,6 +7,7 @@ import com.pulumi.azure.notificationhub.inputs.HubApnsCredentialArgs;
 import com.pulumi.azure.notificationhub.inputs.HubGcmCredentialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -317,8 +318,12 @@ public final class HubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HubArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("HubArgs", "namespaceName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HubArgs", "resourceGroupName");
+            }
             return $;
         }
     }

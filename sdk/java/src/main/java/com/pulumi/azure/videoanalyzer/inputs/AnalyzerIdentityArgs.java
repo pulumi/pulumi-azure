@@ -5,6 +5,7 @@ package com.pulumi.azure.videoanalyzer.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -122,8 +123,12 @@ public final class AnalyzerIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AnalyzerIdentityArgs build() {
-            $.identityIds = Objects.requireNonNull($.identityIds, "expected parameter 'identityIds' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.identityIds == null) {
+                throw new MissingRequiredPropertyException("AnalyzerIdentityArgs", "identityIds");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AnalyzerIdentityArgs", "type");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.securitycenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,22 +89,34 @@ public final class AutomationSourceRuleSetRule {
 
         @CustomType.Setter
         public Builder expectedValue(String expectedValue) {
-            this.expectedValue = Objects.requireNonNull(expectedValue);
+            if (expectedValue == null) {
+              throw new MissingRequiredPropertyException("AutomationSourceRuleSetRule", "expectedValue");
+            }
+            this.expectedValue = expectedValue;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("AutomationSourceRuleSetRule", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder propertyPath(String propertyPath) {
-            this.propertyPath = Objects.requireNonNull(propertyPath);
+            if (propertyPath == null) {
+              throw new MissingRequiredPropertyException("AutomationSourceRuleSetRule", "propertyPath");
+            }
+            this.propertyPath = propertyPath;
             return this;
         }
         @CustomType.Setter
         public Builder propertyType(String propertyType) {
-            this.propertyType = Objects.requireNonNull(propertyType);
+            if (propertyType == null) {
+              throw new MissingRequiredPropertyException("AutomationSourceRuleSetRule", "propertyType");
+            }
+            this.propertyType = propertyType;
             return this;
         }
         public AutomationSourceRuleSetRule build() {

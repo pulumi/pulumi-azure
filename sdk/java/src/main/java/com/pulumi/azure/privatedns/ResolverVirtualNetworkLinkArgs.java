@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class ResolverVirtualNetworkLinkArgs extends com.pulumi.resources.R
         }
 
         public ResolverVirtualNetworkLinkArgs build() {
-            $.dnsForwardingRulesetId = Objects.requireNonNull($.dnsForwardingRulesetId, "expected parameter 'dnsForwardingRulesetId' to be non-null");
-            $.virtualNetworkId = Objects.requireNonNull($.virtualNetworkId, "expected parameter 'virtualNetworkId' to be non-null");
+            if ($.dnsForwardingRulesetId == null) {
+                throw new MissingRequiredPropertyException("ResolverVirtualNetworkLinkArgs", "dnsForwardingRulesetId");
+            }
+            if ($.virtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("ResolverVirtualNetworkLinkArgs", "virtualNetworkId");
+            }
             return $;
         }
     }

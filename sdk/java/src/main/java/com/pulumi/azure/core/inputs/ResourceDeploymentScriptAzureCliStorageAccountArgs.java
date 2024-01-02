@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ResourceDeploymentScriptAzureCliStorageAccountArgs extends co
         }
 
         public ResourceDeploymentScriptAzureCliStorageAccountArgs build() {
-            $.key = Objects.requireNonNull($.key, "expected parameter 'key' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.key == null) {
+                throw new MissingRequiredPropertyException("ResourceDeploymentScriptAzureCliStorageAccountArgs", "key");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ResourceDeploymentScriptAzureCliStorageAccountArgs", "name");
+            }
             return $;
         }
     }

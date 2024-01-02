@@ -10,6 +10,7 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledIncidentConfigurationA
 import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledSentinelEntityMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -975,10 +976,18 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         public AlertRuleScheduledArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.severity = Objects.requireNonNull($.severity, "expected parameter 'severity' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledArgs", "query");
+            }
+            if ($.severity == null) {
+                throw new MissingRequiredPropertyException("AlertRuleScheduledArgs", "severity");
+            }
             return $;
         }
     }

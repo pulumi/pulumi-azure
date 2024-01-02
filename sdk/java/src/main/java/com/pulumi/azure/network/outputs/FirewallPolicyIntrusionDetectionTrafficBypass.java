@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -143,11 +144,13 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+
             this.destinationAddresses = destinationAddresses;
             return this;
         }
@@ -156,6 +159,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         }
         @CustomType.Setter
         public Builder destinationIpGroups(@Nullable List<String> destinationIpGroups) {
+
             this.destinationIpGroups = destinationIpGroups;
             return this;
         }
@@ -164,6 +168,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         }
         @CustomType.Setter
         public Builder destinationPorts(@Nullable List<String> destinationPorts) {
+
             this.destinationPorts = destinationPorts;
             return this;
         }
@@ -172,16 +177,23 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyIntrusionDetectionTrafficBypass", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyIntrusionDetectionTrafficBypass", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -190,6 +202,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         }
         @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
+
             this.sourceIpGroups = sourceIpGroups;
             return this;
         }

@@ -100,26 +100,31 @@ public final class StreamingLocatorContentKey {
 
         @CustomType.Setter
         public Builder contentKeyId(@Nullable String contentKeyId) {
+
             this.contentKeyId = contentKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder labelReferenceInStreamingPolicy(@Nullable String labelReferenceInStreamingPolicy) {
+
             this.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
+
             this.policyName = policyName;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

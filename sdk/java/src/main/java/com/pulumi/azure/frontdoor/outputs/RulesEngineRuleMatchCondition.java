@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -116,21 +117,27 @@ public final class RulesEngineRuleMatchCondition {
 
         @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
+
             this.negateCondition = negateCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("RulesEngineRuleMatchCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder selector(@Nullable String selector) {
+
             this.selector = selector;
             return this;
         }
         @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
+
             this.transforms = transforms;
             return this;
         }
@@ -139,6 +146,7 @@ public final class RulesEngineRuleMatchCondition {
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }
@@ -147,6 +155,7 @@ public final class RulesEngineRuleMatchCondition {
         }
         @CustomType.Setter
         public Builder variable(@Nullable String variable) {
+
             this.variable = variable;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,26 +101,33 @@ public final class PacketCaptureFilter {
 
         @CustomType.Setter
         public Builder localIpAddress(@Nullable String localIpAddress) {
+
             this.localIpAddress = localIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder localPort(@Nullable String localPort) {
+
             this.localPort = localPort;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("PacketCaptureFilter", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder remoteIpAddress(@Nullable String remoteIpAddress) {
+
             this.remoteIpAddress = remoteIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder remotePort(@Nullable String remotePort) {
+
             this.remotePort = remotePort;
             return this;
         }

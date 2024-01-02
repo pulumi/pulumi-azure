@@ -104,6 +104,7 @@ public final class ServiceHostnameConfiguration {
 
         @CustomType.Setter
         public Builder developerPortals(@Nullable List<ServiceHostnameConfigurationDeveloperPortal> developerPortals) {
+
             this.developerPortals = developerPortals;
             return this;
         }
@@ -112,6 +113,7 @@ public final class ServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder managements(@Nullable List<ServiceHostnameConfigurationManagement> managements) {
+
             this.managements = managements;
             return this;
         }
@@ -120,6 +122,7 @@ public final class ServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder portals(@Nullable List<ServiceHostnameConfigurationPortal> portals) {
+
             this.portals = portals;
             return this;
         }
@@ -128,6 +131,7 @@ public final class ServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder proxies(@Nullable List<ServiceHostnameConfigurationProxy> proxies) {
+
             this.proxies = proxies;
             return this;
         }
@@ -136,6 +140,7 @@ public final class ServiceHostnameConfiguration {
         }
         @CustomType.Setter
         public Builder scms(@Nullable List<ServiceHostnameConfigurationScm> scms) {
+
             this.scms = scms;
             return this;
         }

@@ -9,6 +9,7 @@ import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentOverrideArgs;
 import com.pulumi.azure.core.inputs.ResourcePolicyAssignmentResourceSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -619,8 +620,12 @@ public final class ResourcePolicyAssignmentArgs extends com.pulumi.resources.Res
         }
 
         public ResourcePolicyAssignmentArgs build() {
-            $.policyDefinitionId = Objects.requireNonNull($.policyDefinitionId, "expected parameter 'policyDefinitionId' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.policyDefinitionId == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyAssignmentArgs", "policyDefinitionId");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyAssignmentArgs", "resourceId");
+            }
             return $;
         }
     }

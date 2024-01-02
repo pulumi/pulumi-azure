@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.outputs.GetSpringCloudServiceConfigServerGit
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudServiceConfigServerGitSettingRepository;
 import com.pulumi.azure.appplatform.outputs.GetSpringCloudServiceConfigServerGitSettingSshAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -116,7 +117,10 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
 
         @CustomType.Setter
         public Builder httpBasicAuths(List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths) {
-            this.httpBasicAuths = Objects.requireNonNull(httpBasicAuths);
+            if (httpBasicAuths == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "httpBasicAuths");
+            }
+            this.httpBasicAuths = httpBasicAuths;
             return this;
         }
         public Builder httpBasicAuths(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth... httpBasicAuths) {
@@ -124,12 +128,18 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(List<GetSpringCloudServiceConfigServerGitSettingRepository> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(GetSpringCloudServiceConfigServerGitSettingRepository... repositories) {
@@ -137,7 +147,10 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder searchPaths(List<String> searchPaths) {
-            this.searchPaths = Objects.requireNonNull(searchPaths);
+            if (searchPaths == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "searchPaths");
+            }
+            this.searchPaths = searchPaths;
             return this;
         }
         public Builder searchPaths(String... searchPaths) {
@@ -145,7 +158,10 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder sshAuths(List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths) {
-            this.sshAuths = Objects.requireNonNull(sshAuths);
+            if (sshAuths == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "sshAuths");
+            }
+            this.sshAuths = sshAuths;
             return this;
         }
         public Builder sshAuths(GetSpringCloudServiceConfigServerGitSettingSshAuth... sshAuths) {
@@ -153,7 +169,10 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSetting", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         public GetSpringCloudServiceConfigServerGitSetting build() {

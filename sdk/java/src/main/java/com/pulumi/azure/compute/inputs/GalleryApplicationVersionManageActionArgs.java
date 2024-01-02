@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class GalleryApplicationVersionManageActionArgs extends com.pulumi.
         }
 
         public GalleryApplicationVersionManageActionArgs build() {
-            $.install = Objects.requireNonNull($.install, "expected parameter 'install' to be non-null");
-            $.remove = Objects.requireNonNull($.remove, "expected parameter 'remove' to be non-null");
+            if ($.install == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionManageActionArgs", "install");
+            }
+            if ($.remove == null) {
+                throw new MissingRequiredPropertyException("GalleryApplicationVersionManageActionArgs", "remove");
+            }
             return $;
         }
     }

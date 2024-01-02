@@ -4,6 +4,7 @@
 package com.pulumi.azure.sql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -199,61 +200,95 @@ public final class GetDatabaseResult {
 
         @CustomType.Setter
         public Builder collation(String collation) {
-            this.collation = Objects.requireNonNull(collation);
+            if (collation == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "collation");
+            }
+            this.collation = collation;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryLocation(String defaultSecondaryLocation) {
-            this.defaultSecondaryLocation = Objects.requireNonNull(defaultSecondaryLocation);
+            if (defaultSecondaryLocation == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "defaultSecondaryLocation");
+            }
+            this.defaultSecondaryLocation = defaultSecondaryLocation;
             return this;
         }
         @CustomType.Setter
         public Builder edition(String edition) {
-            this.edition = Objects.requireNonNull(edition);
+            if (edition == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "edition");
+            }
+            this.edition = edition;
             return this;
         }
         @CustomType.Setter
         public Builder elasticPoolName(String elasticPoolName) {
-            this.elasticPoolName = Objects.requireNonNull(elasticPoolName);
+            if (elasticPoolName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "elasticPoolName");
+            }
+            this.elasticPoolName = elasticPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder failoverGroupId(String failoverGroupId) {
-            this.failoverGroupId = Objects.requireNonNull(failoverGroupId);
+            if (failoverGroupId == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "failoverGroupId");
+            }
+            this.failoverGroupId = failoverGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder readScale(Boolean readScale) {
-            this.readScale = Objects.requireNonNull(readScale);
+            if (readScale == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "readScale");
+            }
+            this.readScale = readScale;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serverName(String serverName) {
-            this.serverName = Objects.requireNonNull(serverName);
+            if (serverName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "serverName");
+            }
+            this.serverName = serverName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

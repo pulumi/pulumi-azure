@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -141,42 +142,66 @@ public final class VpnGatewayConnectionVpnLinkIpsecPolicy {
 
         @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
-            this.dhGroup = Objects.requireNonNull(dhGroup);
+            if (dhGroup == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "dhGroup");
+            }
+            this.dhGroup = dhGroup;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAlgorithm(String encryptionAlgorithm) {
-            this.encryptionAlgorithm = Objects.requireNonNull(encryptionAlgorithm);
+            if (encryptionAlgorithm == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "encryptionAlgorithm");
+            }
+            this.encryptionAlgorithm = encryptionAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder ikeEncryptionAlgorithm(String ikeEncryptionAlgorithm) {
-            this.ikeEncryptionAlgorithm = Objects.requireNonNull(ikeEncryptionAlgorithm);
+            if (ikeEncryptionAlgorithm == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "ikeEncryptionAlgorithm");
+            }
+            this.ikeEncryptionAlgorithm = ikeEncryptionAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder ikeIntegrityAlgorithm(String ikeIntegrityAlgorithm) {
-            this.ikeIntegrityAlgorithm = Objects.requireNonNull(ikeIntegrityAlgorithm);
+            if (ikeIntegrityAlgorithm == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "ikeIntegrityAlgorithm");
+            }
+            this.ikeIntegrityAlgorithm = ikeIntegrityAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder integrityAlgorithm(String integrityAlgorithm) {
-            this.integrityAlgorithm = Objects.requireNonNull(integrityAlgorithm);
+            if (integrityAlgorithm == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "integrityAlgorithm");
+            }
+            this.integrityAlgorithm = integrityAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
-            this.pfsGroup = Objects.requireNonNull(pfsGroup);
+            if (pfsGroup == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "pfsGroup");
+            }
+            this.pfsGroup = pfsGroup;
             return this;
         }
         @CustomType.Setter
         public Builder saDataSizeKb(Integer saDataSizeKb) {
-            this.saDataSizeKb = Objects.requireNonNull(saDataSizeKb);
+            if (saDataSizeKb == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "saDataSizeKb");
+            }
+            this.saDataSizeKb = saDataSizeKb;
             return this;
         }
         @CustomType.Setter
         public Builder saLifetimeSec(Integer saLifetimeSec) {
-            this.saLifetimeSec = Objects.requireNonNull(saLifetimeSec);
+            if (saLifetimeSec == null) {
+              throw new MissingRequiredPropertyException("VpnGatewayConnectionVpnLinkIpsecPolicy", "saLifetimeSec");
+            }
+            this.saLifetimeSec = saLifetimeSec;
             return this;
         }
         public VpnGatewayConnectionVpnLinkIpsecPolicy build() {

@@ -12,6 +12,7 @@ import com.pulumi.azure.containerservice.inputs.GroupImageRegistryCredentialArgs
 import com.pulumi.azure.containerservice.inputs.GroupInitContainerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -954,9 +955,15 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GroupArgs build() {
-            $.containers = Objects.requireNonNull($.containers, "expected parameter 'containers' to be non-null");
-            $.osType = Objects.requireNonNull($.osType, "expected parameter 'osType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.containers == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "containers");
+            }
+            if ($.osType == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "osType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

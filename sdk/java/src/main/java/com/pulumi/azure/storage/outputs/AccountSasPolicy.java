@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class AccountSasPolicy {
 
         @CustomType.Setter
         public Builder expirationAction(@Nullable String expirationAction) {
+
             this.expirationAction = expirationAction;
             return this;
         }
         @CustomType.Setter
         public Builder expirationPeriod(String expirationPeriod) {
-            this.expirationPeriod = Objects.requireNonNull(expirationPeriod);
+            if (expirationPeriod == null) {
+              throw new MissingRequiredPropertyException("AccountSasPolicy", "expirationPeriod");
+            }
+            this.expirationPeriod = expirationPeriod;
             return this;
         }
         public AccountSasPolicy build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.network.outputs;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendHttpSettingConnectionDraining;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -243,12 +244,18 @@ public final class GetApplicationGatewayBackendHttpSetting {
 
         @CustomType.Setter
         public Builder affinityCookieName(String affinityCookieName) {
-            this.affinityCookieName = Objects.requireNonNull(affinityCookieName);
+            if (affinityCookieName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "affinityCookieName");
+            }
+            this.affinityCookieName = affinityCookieName;
             return this;
         }
         @CustomType.Setter
         public Builder authenticationCertificates(List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates) {
-            this.authenticationCertificates = Objects.requireNonNull(authenticationCertificates);
+            if (authenticationCertificates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "authenticationCertificates");
+            }
+            this.authenticationCertificates = authenticationCertificates;
             return this;
         }
         public Builder authenticationCertificates(GetApplicationGatewayBackendHttpSettingAuthenticationCertificate... authenticationCertificates) {
@@ -256,7 +263,10 @@ public final class GetApplicationGatewayBackendHttpSetting {
         }
         @CustomType.Setter
         public Builder connectionDrainings(List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings) {
-            this.connectionDrainings = Objects.requireNonNull(connectionDrainings);
+            if (connectionDrainings == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "connectionDrainings");
+            }
+            this.connectionDrainings = connectionDrainings;
             return this;
         }
         public Builder connectionDrainings(GetApplicationGatewayBackendHttpSettingConnectionDraining... connectionDrainings) {
@@ -264,62 +274,98 @@ public final class GetApplicationGatewayBackendHttpSetting {
         }
         @CustomType.Setter
         public Builder cookieBasedAffinity(String cookieBasedAffinity) {
-            this.cookieBasedAffinity = Objects.requireNonNull(cookieBasedAffinity);
+            if (cookieBasedAffinity == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "cookieBasedAffinity");
+            }
+            this.cookieBasedAffinity = cookieBasedAffinity;
             return this;
         }
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder pickHostNameFromBackendAddress(Boolean pickHostNameFromBackendAddress) {
-            this.pickHostNameFromBackendAddress = Objects.requireNonNull(pickHostNameFromBackendAddress);
+            if (pickHostNameFromBackendAddress == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "pickHostNameFromBackendAddress");
+            }
+            this.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
             return this;
         }
         @CustomType.Setter
         public Builder port(Integer port) {
-            this.port = Objects.requireNonNull(port);
+            if (port == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "port");
+            }
+            this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder probeId(String probeId) {
-            this.probeId = Objects.requireNonNull(probeId);
+            if (probeId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "probeId");
+            }
+            this.probeId = probeId;
             return this;
         }
         @CustomType.Setter
         public Builder probeName(String probeName) {
-            this.probeName = Objects.requireNonNull(probeName);
+            if (probeName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "probeName");
+            }
+            this.probeName = probeName;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder requestTimeout(Integer requestTimeout) {
-            this.requestTimeout = Objects.requireNonNull(requestTimeout);
+            if (requestTimeout == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "requestTimeout");
+            }
+            this.requestTimeout = requestTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder trustedRootCertificateNames(List<String> trustedRootCertificateNames) {
-            this.trustedRootCertificateNames = Objects.requireNonNull(trustedRootCertificateNames);
+            if (trustedRootCertificateNames == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "trustedRootCertificateNames");
+            }
+            this.trustedRootCertificateNames = trustedRootCertificateNames;
             return this;
         }
         public Builder trustedRootCertificateNames(String... trustedRootCertificateNames) {

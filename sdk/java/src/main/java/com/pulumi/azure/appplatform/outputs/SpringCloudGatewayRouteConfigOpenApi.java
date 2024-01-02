@@ -44,6 +44,7 @@ public final class SpringCloudGatewayRouteConfigOpenApi {
 
         @CustomType.Setter
         public Builder uri(@Nullable String uri) {
+
             this.uri = uri;
             return this;
         }

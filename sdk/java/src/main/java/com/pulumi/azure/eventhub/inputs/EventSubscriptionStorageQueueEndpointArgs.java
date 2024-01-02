@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class EventSubscriptionStorageQueueEndpointArgs extends com.pulumi.
         }
 
         public EventSubscriptionStorageQueueEndpointArgs build() {
-            $.queueName = Objects.requireNonNull($.queueName, "expected parameter 'queueName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.queueName == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionStorageQueueEndpointArgs", "queueName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("EventSubscriptionStorageQueueEndpointArgs", "storageAccountId");
+            }
             return $;
         }
     }

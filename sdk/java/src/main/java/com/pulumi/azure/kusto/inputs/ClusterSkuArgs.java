@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -126,7 +127,9 @@ public final class ClusterSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ClusterSkuArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ClusterSkuArgs", "name");
+            }
             return $;
         }
     }

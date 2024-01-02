@@ -18,6 +18,7 @@ import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetSourceI
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -1413,8 +1414,12 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         public OrchestratedVirtualMachineScaleSetArgs build() {
-            $.platformFaultDomainCount = Objects.requireNonNull($.platformFaultDomainCount, "expected parameter 'platformFaultDomainCount' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.platformFaultDomainCount == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetArgs", "platformFaultDomainCount");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetCodecPngImageLayer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -144,16 +145,19 @@ public final class TransformOutputCustomPresetCodecPngImage {
 
         @CustomType.Setter
         public Builder keyFrameInterval(@Nullable String keyFrameInterval) {
+
             this.keyFrameInterval = keyFrameInterval;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder layers(@Nullable List<TransformOutputCustomPresetCodecPngImageLayer> layers) {
+
             this.layers = layers;
             return this;
         }
@@ -162,26 +166,33 @@ public final class TransformOutputCustomPresetCodecPngImage {
         }
         @CustomType.Setter
         public Builder range(@Nullable String range) {
+
             this.range = range;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetCodecPngImage", "start");
+            }
+            this.start = start;
             return this;
         }
         @CustomType.Setter
         public Builder step(@Nullable String step) {
+
             this.step = step;
             return this;
         }
         @CustomType.Setter
         public Builder stretchMode(@Nullable String stretchMode) {
+
             this.stretchMode = stretchMode;
             return this;
         }
         @CustomType.Setter
         public Builder syncMode(@Nullable String syncMode) {
+
             this.syncMode = syncMode;
             return this;
         }

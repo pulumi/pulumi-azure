@@ -9,6 +9,7 @@ import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleDestination;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleIdentity;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleStreamDeclaration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -215,12 +216,18 @@ public final class GetDataCollectionRuleResult {
 
         @CustomType.Setter
         public Builder dataCollectionEndpointId(String dataCollectionEndpointId) {
-            this.dataCollectionEndpointId = Objects.requireNonNull(dataCollectionEndpointId);
+            if (dataCollectionEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "dataCollectionEndpointId");
+            }
+            this.dataCollectionEndpointId = dataCollectionEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder dataFlows(List<GetDataCollectionRuleDataFlow> dataFlows) {
-            this.dataFlows = Objects.requireNonNull(dataFlows);
+            if (dataFlows == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "dataFlows");
+            }
+            this.dataFlows = dataFlows;
             return this;
         }
         public Builder dataFlows(GetDataCollectionRuleDataFlow... dataFlows) {
@@ -228,7 +235,10 @@ public final class GetDataCollectionRuleResult {
         }
         @CustomType.Setter
         public Builder dataSources(List<GetDataCollectionRuleDataSource> dataSources) {
-            this.dataSources = Objects.requireNonNull(dataSources);
+            if (dataSources == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "dataSources");
+            }
+            this.dataSources = dataSources;
             return this;
         }
         public Builder dataSources(GetDataCollectionRuleDataSource... dataSources) {
@@ -236,12 +246,18 @@ public final class GetDataCollectionRuleResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinations(List<GetDataCollectionRuleDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(GetDataCollectionRuleDestination... destinations) {
@@ -249,12 +265,18 @@ public final class GetDataCollectionRuleResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetDataCollectionRuleIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetDataCollectionRuleIdentity... identities) {
@@ -262,32 +284,50 @@ public final class GetDataCollectionRuleResult {
         }
         @CustomType.Setter
         public Builder immutableId(String immutableId) {
-            this.immutableId = Objects.requireNonNull(immutableId);
+            if (immutableId == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "immutableId");
+            }
+            this.immutableId = immutableId;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder streamDeclarations(List<GetDataCollectionRuleStreamDeclaration> streamDeclarations) {
-            this.streamDeclarations = Objects.requireNonNull(streamDeclarations);
+            if (streamDeclarations == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "streamDeclarations");
+            }
+            this.streamDeclarations = streamDeclarations;
             return this;
         }
         public Builder streamDeclarations(GetDataCollectionRuleStreamDeclaration... streamDeclarations) {
@@ -295,7 +335,10 @@ public final class GetDataCollectionRuleResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDataCollectionRuleResult build() {

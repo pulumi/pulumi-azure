@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -557,9 +558,15 @@ public final class LinkedServiceKustoArgs extends com.pulumi.resources.ResourceA
         }
 
         public LinkedServiceKustoArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.kustoDatabaseName = Objects.requireNonNull($.kustoDatabaseName, "expected parameter 'kustoDatabaseName' to be non-null");
-            $.kustoEndpoint = Objects.requireNonNull($.kustoEndpoint, "expected parameter 'kustoEndpoint' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceKustoArgs", "dataFactoryId");
+            }
+            if ($.kustoDatabaseName == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceKustoArgs", "kustoDatabaseName");
+            }
+            if ($.kustoEndpoint == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceKustoArgs", "kustoEndpoint");
+            }
             return $;
         }
     }

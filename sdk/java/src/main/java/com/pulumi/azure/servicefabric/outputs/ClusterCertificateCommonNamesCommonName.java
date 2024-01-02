@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -62,11 +63,15 @@ public final class ClusterCertificateCommonNamesCommonName {
 
         @CustomType.Setter
         public Builder certificateCommonName(String certificateCommonName) {
-            this.certificateCommonName = Objects.requireNonNull(certificateCommonName);
+            if (certificateCommonName == null) {
+              throw new MissingRequiredPropertyException("ClusterCertificateCommonNamesCommonName", "certificateCommonName");
+            }
+            this.certificateCommonName = certificateCommonName;
             return this;
         }
         @CustomType.Setter
         public Builder certificateIssuerThumbprint(@Nullable String certificateIssuerThumbprint) {
+
             this.certificateIssuerThumbprint = certificateIssuerThumbprint;
             return this;
         }

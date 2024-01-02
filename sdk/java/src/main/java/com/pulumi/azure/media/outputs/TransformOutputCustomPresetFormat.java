@@ -93,21 +93,25 @@ public final class TransformOutputCustomPresetFormat {
 
         @CustomType.Setter
         public Builder jpg(@Nullable TransformOutputCustomPresetFormatJpg jpg) {
+
             this.jpg = jpg;
             return this;
         }
         @CustomType.Setter
         public Builder mp4(@Nullable TransformOutputCustomPresetFormatMp4 mp4) {
+
             this.mp4 = mp4;
             return this;
         }
         @CustomType.Setter
         public Builder png(@Nullable TransformOutputCustomPresetFormatPng png) {
+
             this.png = png;
             return this;
         }
         @CustomType.Setter
         public Builder transportStream(@Nullable TransformOutputCustomPresetFormatTransportStream transportStream) {
+
             this.transportStream = transportStream;
             return this;
         }

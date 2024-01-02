@@ -105,6 +105,7 @@ public final class SqlContainerIndexingPolicy {
 
         @CustomType.Setter
         public Builder compositeIndices(@Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices) {
+
             this.compositeIndices = compositeIndices;
             return this;
         }
@@ -113,6 +114,7 @@ public final class SqlContainerIndexingPolicy {
         }
         @CustomType.Setter
         public Builder excludedPaths(@Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths) {
+
             this.excludedPaths = excludedPaths;
             return this;
         }
@@ -121,6 +123,7 @@ public final class SqlContainerIndexingPolicy {
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -129,11 +132,13 @@ public final class SqlContainerIndexingPolicy {
         }
         @CustomType.Setter
         public Builder indexingMode(@Nullable String indexingMode) {
+
             this.indexingMode = indexingMode;
             return this;
         }
         @CustomType.Setter
         public Builder spatialIndices(@Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices) {
+
             this.spatialIndices = spatialIndices;
             return this;
         }

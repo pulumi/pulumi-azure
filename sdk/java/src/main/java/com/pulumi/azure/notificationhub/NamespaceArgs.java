@@ -5,6 +5,7 @@ package com.pulumi.azure.notificationhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -300,9 +301,15 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamespaceArgs build() {
-            $.namespaceType = Objects.requireNonNull($.namespaceType, "expected parameter 'namespaceType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.namespaceType == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "namespaceType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("NamespaceArgs", "skuName");
+            }
             return $;
         }
     }

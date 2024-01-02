@@ -6,6 +6,7 @@ package com.pulumi.azure.orbital.inputs;
 import com.pulumi.azure.orbital.inputs.ContactProfileLinkChannelEndPointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -274,10 +275,18 @@ public final class ContactProfileLinkChannelArgs extends com.pulumi.resources.Re
         }
 
         public ContactProfileLinkChannelArgs build() {
-            $.bandwidthMhz = Objects.requireNonNull($.bandwidthMhz, "expected parameter 'bandwidthMhz' to be non-null");
-            $.centerFrequencyMhz = Objects.requireNonNull($.centerFrequencyMhz, "expected parameter 'centerFrequencyMhz' to be non-null");
-            $.endPoints = Objects.requireNonNull($.endPoints, "expected parameter 'endPoints' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.bandwidthMhz == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelArgs", "bandwidthMhz");
+            }
+            if ($.centerFrequencyMhz == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelArgs", "centerFrequencyMhz");
+            }
+            if ($.endPoints == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelArgs", "endPoints");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelArgs", "name");
+            }
             return $;
         }
     }

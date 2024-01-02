@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile;
 import com.pulumi.azure.mobile.inputs.NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -526,9 +527,15 @@ public final class NetworkAttachedDataNetworkArgs extends com.pulumi.resources.R
         }
 
         public NetworkAttachedDataNetworkArgs build() {
-            $.dnsAddresses = Objects.requireNonNull($.dnsAddresses, "expected parameter 'dnsAddresses' to be non-null");
-            $.mobileNetworkDataNetworkName = Objects.requireNonNull($.mobileNetworkDataNetworkName, "expected parameter 'mobileNetworkDataNetworkName' to be non-null");
-            $.mobileNetworkPacketCoreDataPlaneId = Objects.requireNonNull($.mobileNetworkPacketCoreDataPlaneId, "expected parameter 'mobileNetworkPacketCoreDataPlaneId' to be non-null");
+            if ($.dnsAddresses == null) {
+                throw new MissingRequiredPropertyException("NetworkAttachedDataNetworkArgs", "dnsAddresses");
+            }
+            if ($.mobileNetworkDataNetworkName == null) {
+                throw new MissingRequiredPropertyException("NetworkAttachedDataNetworkArgs", "mobileNetworkDataNetworkName");
+            }
+            if ($.mobileNetworkPacketCoreDataPlaneId == null) {
+                throw new MissingRequiredPropertyException("NetworkAttachedDataNetworkArgs", "mobileNetworkPacketCoreDataPlaneId");
+            }
             return $;
         }
     }

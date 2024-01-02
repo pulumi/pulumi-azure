@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class NetworkInterfaceSecurityGroupAssociationArgs extends com.pulu
         }
 
         public NetworkInterfaceSecurityGroupAssociationArgs build() {
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
-            $.networkSecurityGroupId = Objects.requireNonNull($.networkSecurityGroupId, "expected parameter 'networkSecurityGroupId' to be non-null");
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceSecurityGroupAssociationArgs", "networkInterfaceId");
+            }
+            if ($.networkSecurityGroupId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceSecurityGroupAssociationArgs", "networkSecurityGroupId");
+            }
             return $;
         }
     }

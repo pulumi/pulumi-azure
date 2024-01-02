@@ -6,6 +6,7 @@ package com.pulumi.azure.loadtest;
 import com.pulumi.azure.loadtest.inputs.LoadTestIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -263,7 +264,9 @@ public final class LoadTestArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LoadTestArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LoadTestArgs", "resourceGroupName");
+            }
             return $;
         }
     }

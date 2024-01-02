@@ -5,6 +5,7 @@ package com.pulumi.azure.costmanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,9 +236,15 @@ public final class AnomalyAlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AnomalyAlertArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.emailAddresses = Objects.requireNonNull($.emailAddresses, "expected parameter 'emailAddresses' to be non-null");
-            $.emailSubject = Objects.requireNonNull($.emailSubject, "expected parameter 'emailSubject' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AnomalyAlertArgs", "displayName");
+            }
+            if ($.emailAddresses == null) {
+                throw new MissingRequiredPropertyException("AnomalyAlertArgs", "emailAddresses");
+            }
+            if ($.emailSubject == null) {
+                throw new MissingRequiredPropertyException("AnomalyAlertArgs", "emailSubject");
+            }
             return $;
         }
     }

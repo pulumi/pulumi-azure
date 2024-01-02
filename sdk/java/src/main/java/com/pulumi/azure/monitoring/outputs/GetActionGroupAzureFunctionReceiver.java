@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetActionGroupAzureFunctionReceiver {
 
         @CustomType.Setter
         public Builder functionAppResourceId(String functionAppResourceId) {
-            this.functionAppResourceId = Objects.requireNonNull(functionAppResourceId);
+            if (functionAppResourceId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAzureFunctionReceiver", "functionAppResourceId");
+            }
+            this.functionAppResourceId = functionAppResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder functionName(String functionName) {
-            this.functionName = Objects.requireNonNull(functionName);
+            if (functionName == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAzureFunctionReceiver", "functionName");
+            }
+            this.functionName = functionName;
             return this;
         }
         @CustomType.Setter
         public Builder httpTriggerUrl(String httpTriggerUrl) {
-            this.httpTriggerUrl = Objects.requireNonNull(httpTriggerUrl);
+            if (httpTriggerUrl == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAzureFunctionReceiver", "httpTriggerUrl");
+            }
+            this.httpTriggerUrl = httpTriggerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAzureFunctionReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
-            this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
+            if (useCommonAlertSchema == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupAzureFunctionReceiver", "useCommonAlertSchema");
+            }
+            this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }
         public GetActionGroupAzureFunctionReceiver build() {

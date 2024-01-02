@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,32 +115,40 @@ public final class IntegrationRuntimeSsisCatalogInfo {
 
         @CustomType.Setter
         public Builder administratorLogin(@Nullable String administratorLogin) {
+
             this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder administratorPassword(@Nullable String administratorPassword) {
+
             this.administratorPassword = administratorPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dualStandbyPairName(@Nullable String dualStandbyPairName) {
+
             this.dualStandbyPairName = dualStandbyPairName;
             return this;
         }
         @CustomType.Setter
         public Builder elasticPoolName(@Nullable String elasticPoolName) {
+
             this.elasticPoolName = elasticPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder pricingTier(@Nullable String pricingTier) {
+
             this.pricingTier = pricingTier;
             return this;
         }
         @CustomType.Setter
         public Builder serverEndpoint(String serverEndpoint) {
-            this.serverEndpoint = Objects.requireNonNull(serverEndpoint);
+            if (serverEndpoint == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisCatalogInfo", "serverEndpoint");
+            }
+            this.serverEndpoint = serverEndpoint;
             return this;
         }
         public IntegrationRuntimeSsisCatalogInfo build() {

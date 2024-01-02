@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -193,10 +194,18 @@ public final class AutomationSourceRuleSetRuleArgs extends com.pulumi.resources.
         }
 
         public AutomationSourceRuleSetRuleArgs build() {
-            $.expectedValue = Objects.requireNonNull($.expectedValue, "expected parameter 'expectedValue' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.propertyPath = Objects.requireNonNull($.propertyPath, "expected parameter 'propertyPath' to be non-null");
-            $.propertyType = Objects.requireNonNull($.propertyType, "expected parameter 'propertyType' to be non-null");
+            if ($.expectedValue == null) {
+                throw new MissingRequiredPropertyException("AutomationSourceRuleSetRuleArgs", "expectedValue");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AutomationSourceRuleSetRuleArgs", "operator");
+            }
+            if ($.propertyPath == null) {
+                throw new MissingRequiredPropertyException("AutomationSourceRuleSetRuleArgs", "propertyPath");
+            }
+            if ($.propertyType == null) {
+                throw new MissingRequiredPropertyException("AutomationSourceRuleSetRuleArgs", "propertyType");
+            }
             return $;
         }
     }

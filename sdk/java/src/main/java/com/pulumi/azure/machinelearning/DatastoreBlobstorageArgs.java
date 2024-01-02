@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -390,8 +391,12 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         }
 
         public DatastoreBlobstorageArgs build() {
-            $.storageContainerId = Objects.requireNonNull($.storageContainerId, "expected parameter 'storageContainerId' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.storageContainerId == null) {
+                throw new MissingRequiredPropertyException("DatastoreBlobstorageArgs", "storageContainerId");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("DatastoreBlobstorageArgs", "workspaceId");
+            }
             return $;
         }
     }

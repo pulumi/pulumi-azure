@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolNetworkConfigurationEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -107,17 +108,26 @@ public final class GetPoolNetworkConfiguration {
 
         @CustomType.Setter
         public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
-            this.acceleratedNetworkingEnabled = Objects.requireNonNull(acceleratedNetworkingEnabled);
+            if (acceleratedNetworkingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "acceleratedNetworkingEnabled");
+            }
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder dynamicVnetAssignmentScope(String dynamicVnetAssignmentScope) {
-            this.dynamicVnetAssignmentScope = Objects.requireNonNull(dynamicVnetAssignmentScope);
+            if (dynamicVnetAssignmentScope == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "dynamicVnetAssignmentScope");
+            }
+            this.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
             return this;
         }
         @CustomType.Setter
         public Builder endpointConfigurations(List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
-            this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
+            if (endpointConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "endpointConfigurations");
+            }
+            this.endpointConfigurations = endpointConfigurations;
             return this;
         }
         public Builder endpointConfigurations(GetPoolNetworkConfigurationEndpointConfiguration... endpointConfigurations) {
@@ -125,12 +135,18 @@ public final class GetPoolNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder publicAddressProvisioningType(String publicAddressProvisioningType) {
-            this.publicAddressProvisioningType = Objects.requireNonNull(publicAddressProvisioningType);
+            if (publicAddressProvisioningType == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "publicAddressProvisioningType");
+            }
+            this.publicAddressProvisioningType = publicAddressProvisioningType;
             return this;
         }
         @CustomType.Setter
         public Builder publicIps(List<String> publicIps) {
-            this.publicIps = Objects.requireNonNull(publicIps);
+            if (publicIps == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "publicIps");
+            }
+            this.publicIps = publicIps;
             return this;
         }
         public Builder publicIps(String... publicIps) {
@@ -138,7 +154,10 @@ public final class GetPoolNetworkConfiguration {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetPoolNetworkConfiguration build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -90,6 +91,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
 
         @CustomType.Setter
         public Builder allowedAudiences(@Nullable List<String> allowedAudiences) {
+
             this.allowedAudiences = allowedAudiences;
             return this;
         }
@@ -98,16 +100,23 @@ public final class LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
         }
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotAuthSettingsV2GoogleV2", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
-            this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
+            if (clientSecretSettingName == null) {
+              throw new MissingRequiredPropertyException("LinuxFunctionAppSlotAuthSettingsV2GoogleV2", "clientSecretSettingName");
+            }
+            this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder loginScopes(@Nullable List<String> loginScopes) {
+
             this.loginScopes = loginScopes;
             return this;
         }

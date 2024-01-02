@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetAppServicePlanSku;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -212,72 +213,114 @@ public final class GetAppServicePlanResult {
 
         @CustomType.Setter
         public Builder appServiceEnvironmentId(String appServiceEnvironmentId) {
-            this.appServiceEnvironmentId = Objects.requireNonNull(appServiceEnvironmentId);
+            if (appServiceEnvironmentId == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "appServiceEnvironmentId");
+            }
+            this.appServiceEnvironmentId = appServiceEnvironmentId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isXenon(Boolean isXenon) {
-            this.isXenon = Objects.requireNonNull(isXenon);
+            if (isXenon == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "isXenon");
+            }
+            this.isXenon = isXenon;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder maximumElasticWorkerCount(Integer maximumElasticWorkerCount) {
-            this.maximumElasticWorkerCount = Objects.requireNonNull(maximumElasticWorkerCount);
+            if (maximumElasticWorkerCount == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "maximumElasticWorkerCount");
+            }
+            this.maximumElasticWorkerCount = maximumElasticWorkerCount;
             return this;
         }
         @CustomType.Setter
         public Builder maximumNumberOfWorkers(Integer maximumNumberOfWorkers) {
-            this.maximumNumberOfWorkers = Objects.requireNonNull(maximumNumberOfWorkers);
+            if (maximumNumberOfWorkers == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "maximumNumberOfWorkers");
+            }
+            this.maximumNumberOfWorkers = maximumNumberOfWorkers;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder perSiteScaling(Boolean perSiteScaling) {
-            this.perSiteScaling = Objects.requireNonNull(perSiteScaling);
+            if (perSiteScaling == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "perSiteScaling");
+            }
+            this.perSiteScaling = perSiteScaling;
             return this;
         }
         @CustomType.Setter
         public Builder reserved(Boolean reserved) {
-            this.reserved = Objects.requireNonNull(reserved);
+            if (reserved == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "reserved");
+            }
+            this.reserved = reserved;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder sku(GetAppServicePlanSku sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
-            this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
+            if (zoneRedundant == null) {
+              throw new MissingRequiredPropertyException("GetAppServicePlanResult", "zoneRedundant");
+            }
+            this.zoneRedundant = zoneRedundant;
             return this;
         }
         public GetAppServicePlanResult build() {

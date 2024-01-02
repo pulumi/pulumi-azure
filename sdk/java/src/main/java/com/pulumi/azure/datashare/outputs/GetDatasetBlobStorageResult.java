@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare.outputs;
 
 import com.pulumi.azure.datashare.outputs.GetDatasetBlobStorageStorageAccount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -134,42 +135,66 @@ public final class GetDatasetBlobStorageResult {
 
         @CustomType.Setter
         public Builder containerName(String containerName) {
-            this.containerName = Objects.requireNonNull(containerName);
+            if (containerName == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "containerName");
+            }
+            this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder dataShareId(String dataShareId) {
-            this.dataShareId = Objects.requireNonNull(dataShareId);
+            if (dataShareId == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "dataShareId");
+            }
+            this.dataShareId = dataShareId;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder filePath(String filePath) {
-            this.filePath = Objects.requireNonNull(filePath);
+            if (filePath == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "filePath");
+            }
+            this.filePath = filePath;
             return this;
         }
         @CustomType.Setter
         public Builder folderPath(String folderPath) {
-            this.folderPath = Objects.requireNonNull(folderPath);
+            if (folderPath == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "folderPath");
+            }
+            this.folderPath = folderPath;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccounts(List<GetDatasetBlobStorageStorageAccount> storageAccounts) {
-            this.storageAccounts = Objects.requireNonNull(storageAccounts);
+            if (storageAccounts == null) {
+              throw new MissingRequiredPropertyException("GetDatasetBlobStorageResult", "storageAccounts");
+            }
+            this.storageAccounts = storageAccounts;
             return this;
         }
         public Builder storageAccounts(GetDatasetBlobStorageStorageAccount... storageAccounts) {

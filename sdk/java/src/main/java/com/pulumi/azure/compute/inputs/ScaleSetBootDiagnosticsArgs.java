@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class ScaleSetBootDiagnosticsArgs extends com.pulumi.resources.Reso
         }
 
         public ScaleSetBootDiagnosticsArgs build() {
-            $.storageUri = Objects.requireNonNull($.storageUri, "expected parameter 'storageUri' to be non-null");
+            if ($.storageUri == null) {
+                throw new MissingRequiredPropertyException("ScaleSetBootDiagnosticsArgs", "storageUri");
+            }
             return $;
         }
     }

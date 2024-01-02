@@ -6,6 +6,7 @@ package com.pulumi.azure.lb;
 import com.pulumi.azure.lb.inputs.OutboundRuleFrontendIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -349,9 +350,15 @@ public final class OutboundRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutboundRuleArgs build() {
-            $.backendAddressPoolId = Objects.requireNonNull($.backendAddressPoolId, "expected parameter 'backendAddressPoolId' to be non-null");
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.backendAddressPoolId == null) {
+                throw new MissingRequiredPropertyException("OutboundRuleArgs", "backendAddressPoolId");
+            }
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("OutboundRuleArgs", "loadbalancerId");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("OutboundRuleArgs", "protocol");
+            }
             return $;
         }
     }

@@ -29,6 +29,7 @@ import com.pulumi.azure.network.outputs.GetApplicationGatewayTrustedRootCertific
 import com.pulumi.azure.network.outputs.GetApplicationGatewayUrlPathMap;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayWafConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -530,7 +531,10 @@ public final class GetApplicationGatewayResult {
 
         @CustomType.Setter
         public Builder authenticationCertificates(List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates) {
-            this.authenticationCertificates = Objects.requireNonNull(authenticationCertificates);
+            if (authenticationCertificates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "authenticationCertificates");
+            }
+            this.authenticationCertificates = authenticationCertificates;
             return this;
         }
         public Builder authenticationCertificates(GetApplicationGatewayAuthenticationCertificate... authenticationCertificates) {
@@ -538,7 +542,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder autoscaleConfigurations(List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations) {
-            this.autoscaleConfigurations = Objects.requireNonNull(autoscaleConfigurations);
+            if (autoscaleConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "autoscaleConfigurations");
+            }
+            this.autoscaleConfigurations = autoscaleConfigurations;
             return this;
         }
         public Builder autoscaleConfigurations(GetApplicationGatewayAutoscaleConfiguration... autoscaleConfigurations) {
@@ -546,7 +553,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder backendAddressPools(List<GetApplicationGatewayBackendAddressPool> backendAddressPools) {
-            this.backendAddressPools = Objects.requireNonNull(backendAddressPools);
+            if (backendAddressPools == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "backendAddressPools");
+            }
+            this.backendAddressPools = backendAddressPools;
             return this;
         }
         public Builder backendAddressPools(GetApplicationGatewayBackendAddressPool... backendAddressPools) {
@@ -554,7 +564,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder backendHttpSettings(List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings) {
-            this.backendHttpSettings = Objects.requireNonNull(backendHttpSettings);
+            if (backendHttpSettings == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "backendHttpSettings");
+            }
+            this.backendHttpSettings = backendHttpSettings;
             return this;
         }
         public Builder backendHttpSettings(GetApplicationGatewayBackendHttpSetting... backendHttpSettings) {
@@ -562,7 +575,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder customErrorConfigurations(List<GetApplicationGatewayCustomErrorConfiguration> customErrorConfigurations) {
-            this.customErrorConfigurations = Objects.requireNonNull(customErrorConfigurations);
+            if (customErrorConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "customErrorConfigurations");
+            }
+            this.customErrorConfigurations = customErrorConfigurations;
             return this;
         }
         public Builder customErrorConfigurations(GetApplicationGatewayCustomErrorConfiguration... customErrorConfigurations) {
@@ -570,22 +586,34 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder fipsEnabled(Boolean fipsEnabled) {
-            this.fipsEnabled = Objects.requireNonNull(fipsEnabled);
+            if (fipsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "fipsEnabled");
+            }
+            this.fipsEnabled = fipsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder firewallPolicyId(String firewallPolicyId) {
-            this.firewallPolicyId = Objects.requireNonNull(firewallPolicyId);
+            if (firewallPolicyId == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "firewallPolicyId");
+            }
+            this.firewallPolicyId = firewallPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder forceFirewallPolicyAssociation(Boolean forceFirewallPolicyAssociation) {
-            this.forceFirewallPolicyAssociation = Objects.requireNonNull(forceFirewallPolicyAssociation);
+            if (forceFirewallPolicyAssociation == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "forceFirewallPolicyAssociation");
+            }
+            this.forceFirewallPolicyAssociation = forceFirewallPolicyAssociation;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurations(List<GetApplicationGatewayFrontendIpConfiguration> frontendIpConfigurations) {
-            this.frontendIpConfigurations = Objects.requireNonNull(frontendIpConfigurations);
+            if (frontendIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "frontendIpConfigurations");
+            }
+            this.frontendIpConfigurations = frontendIpConfigurations;
             return this;
         }
         public Builder frontendIpConfigurations(GetApplicationGatewayFrontendIpConfiguration... frontendIpConfigurations) {
@@ -593,7 +621,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder frontendPorts(List<GetApplicationGatewayFrontendPort> frontendPorts) {
-            this.frontendPorts = Objects.requireNonNull(frontendPorts);
+            if (frontendPorts == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "frontendPorts");
+            }
+            this.frontendPorts = frontendPorts;
             return this;
         }
         public Builder frontendPorts(GetApplicationGatewayFrontendPort... frontendPorts) {
@@ -601,7 +632,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder gatewayIpConfigurations(List<GetApplicationGatewayGatewayIpConfiguration> gatewayIpConfigurations) {
-            this.gatewayIpConfigurations = Objects.requireNonNull(gatewayIpConfigurations);
+            if (gatewayIpConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "gatewayIpConfigurations");
+            }
+            this.gatewayIpConfigurations = gatewayIpConfigurations;
             return this;
         }
         public Builder gatewayIpConfigurations(GetApplicationGatewayGatewayIpConfiguration... gatewayIpConfigurations) {
@@ -609,7 +643,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder globals(List<GetApplicationGatewayGlobal> globals) {
-            this.globals = Objects.requireNonNull(globals);
+            if (globals == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "globals");
+            }
+            this.globals = globals;
             return this;
         }
         public Builder globals(GetApplicationGatewayGlobal... globals) {
@@ -617,12 +654,18 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpListeners(List<GetApplicationGatewayHttpListener> httpListeners) {
-            this.httpListeners = Objects.requireNonNull(httpListeners);
+            if (httpListeners == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "httpListeners");
+            }
+            this.httpListeners = httpListeners;
             return this;
         }
         public Builder httpListeners(GetApplicationGatewayHttpListener... httpListeners) {
@@ -630,12 +673,18 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetApplicationGatewayIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetApplicationGatewayIdentity... identities) {
@@ -643,17 +692,26 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointConnections(List<GetApplicationGatewayPrivateEndpointConnection> privateEndpointConnections) {
-            this.privateEndpointConnections = Objects.requireNonNull(privateEndpointConnections);
+            if (privateEndpointConnections == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "privateEndpointConnections");
+            }
+            this.privateEndpointConnections = privateEndpointConnections;
             return this;
         }
         public Builder privateEndpointConnections(GetApplicationGatewayPrivateEndpointConnection... privateEndpointConnections) {
@@ -661,7 +719,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder privateLinkConfigurations(List<GetApplicationGatewayPrivateLinkConfiguration> privateLinkConfigurations) {
-            this.privateLinkConfigurations = Objects.requireNonNull(privateLinkConfigurations);
+            if (privateLinkConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "privateLinkConfigurations");
+            }
+            this.privateLinkConfigurations = privateLinkConfigurations;
             return this;
         }
         public Builder privateLinkConfigurations(GetApplicationGatewayPrivateLinkConfiguration... privateLinkConfigurations) {
@@ -669,7 +730,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder probes(List<GetApplicationGatewayProbe> probes) {
-            this.probes = Objects.requireNonNull(probes);
+            if (probes == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "probes");
+            }
+            this.probes = probes;
             return this;
         }
         public Builder probes(GetApplicationGatewayProbe... probes) {
@@ -677,7 +741,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder redirectConfigurations(List<GetApplicationGatewayRedirectConfiguration> redirectConfigurations) {
-            this.redirectConfigurations = Objects.requireNonNull(redirectConfigurations);
+            if (redirectConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "redirectConfigurations");
+            }
+            this.redirectConfigurations = redirectConfigurations;
             return this;
         }
         public Builder redirectConfigurations(GetApplicationGatewayRedirectConfiguration... redirectConfigurations) {
@@ -685,7 +752,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder requestRoutingRules(List<GetApplicationGatewayRequestRoutingRule> requestRoutingRules) {
-            this.requestRoutingRules = Objects.requireNonNull(requestRoutingRules);
+            if (requestRoutingRules == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "requestRoutingRules");
+            }
+            this.requestRoutingRules = requestRoutingRules;
             return this;
         }
         public Builder requestRoutingRules(GetApplicationGatewayRequestRoutingRule... requestRoutingRules) {
@@ -693,12 +763,18 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSets(List<GetApplicationGatewayRewriteRuleSet> rewriteRuleSets) {
-            this.rewriteRuleSets = Objects.requireNonNull(rewriteRuleSets);
+            if (rewriteRuleSets == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "rewriteRuleSets");
+            }
+            this.rewriteRuleSets = rewriteRuleSets;
             return this;
         }
         public Builder rewriteRuleSets(GetApplicationGatewayRewriteRuleSet... rewriteRuleSets) {
@@ -706,7 +782,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder skus(List<GetApplicationGatewaySkus> skus) {
-            this.skus = Objects.requireNonNull(skus);
+            if (skus == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "skus");
+            }
+            this.skus = skus;
             return this;
         }
         public Builder skus(GetApplicationGatewaySkus... skus) {
@@ -714,7 +793,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder sslCertificates(List<GetApplicationGatewaySslCertificate> sslCertificates) {
-            this.sslCertificates = Objects.requireNonNull(sslCertificates);
+            if (sslCertificates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "sslCertificates");
+            }
+            this.sslCertificates = sslCertificates;
             return this;
         }
         public Builder sslCertificates(GetApplicationGatewaySslCertificate... sslCertificates) {
@@ -722,7 +804,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder sslPolicies(List<GetApplicationGatewaySslPolicy> sslPolicies) {
-            this.sslPolicies = Objects.requireNonNull(sslPolicies);
+            if (sslPolicies == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "sslPolicies");
+            }
+            this.sslPolicies = sslPolicies;
             return this;
         }
         public Builder sslPolicies(GetApplicationGatewaySslPolicy... sslPolicies) {
@@ -730,7 +815,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder sslProfiles(List<GetApplicationGatewaySslProfile> sslProfiles) {
-            this.sslProfiles = Objects.requireNonNull(sslProfiles);
+            if (sslProfiles == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "sslProfiles");
+            }
+            this.sslProfiles = sslProfiles;
             return this;
         }
         public Builder sslProfiles(GetApplicationGatewaySslProfile... sslProfiles) {
@@ -738,12 +826,18 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder trustedClientCertificates(List<GetApplicationGatewayTrustedClientCertificate> trustedClientCertificates) {
-            this.trustedClientCertificates = Objects.requireNonNull(trustedClientCertificates);
+            if (trustedClientCertificates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "trustedClientCertificates");
+            }
+            this.trustedClientCertificates = trustedClientCertificates;
             return this;
         }
         public Builder trustedClientCertificates(GetApplicationGatewayTrustedClientCertificate... trustedClientCertificates) {
@@ -751,7 +845,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder trustedRootCertificates(List<GetApplicationGatewayTrustedRootCertificate> trustedRootCertificates) {
-            this.trustedRootCertificates = Objects.requireNonNull(trustedRootCertificates);
+            if (trustedRootCertificates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "trustedRootCertificates");
+            }
+            this.trustedRootCertificates = trustedRootCertificates;
             return this;
         }
         public Builder trustedRootCertificates(GetApplicationGatewayTrustedRootCertificate... trustedRootCertificates) {
@@ -759,7 +856,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder urlPathMaps(List<GetApplicationGatewayUrlPathMap> urlPathMaps) {
-            this.urlPathMaps = Objects.requireNonNull(urlPathMaps);
+            if (urlPathMaps == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "urlPathMaps");
+            }
+            this.urlPathMaps = urlPathMaps;
             return this;
         }
         public Builder urlPathMaps(GetApplicationGatewayUrlPathMap... urlPathMaps) {
@@ -767,7 +867,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder wafConfigurations(List<GetApplicationGatewayWafConfiguration> wafConfigurations) {
-            this.wafConfigurations = Objects.requireNonNull(wafConfigurations);
+            if (wafConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "wafConfigurations");
+            }
+            this.wafConfigurations = wafConfigurations;
             return this;
         }
         public Builder wafConfigurations(GetApplicationGatewayWafConfiguration... wafConfigurations) {
@@ -775,7 +878,10 @@ public final class GetApplicationGatewayResult {
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

@@ -73,16 +73,19 @@ public final class EventSubscriptionSubjectFilter {
 
         @CustomType.Setter
         public Builder caseSensitive(@Nullable Boolean caseSensitive) {
+
             this.caseSensitive = caseSensitive;
             return this;
         }
         @CustomType.Setter
         public Builder subjectBeginsWith(@Nullable String subjectBeginsWith) {
+
             this.subjectBeginsWith = subjectBeginsWith;
             return this;
         }
         @CustomType.Setter
         public Builder subjectEndsWith(@Nullable String subjectEndsWith) {
+
             this.subjectEndsWith = subjectEndsWith;
             return this;
         }

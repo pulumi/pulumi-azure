@@ -4,6 +4,7 @@
 package com.pulumi.azure.desktopvirtualization.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class HostPoolScheduledAgentUpdatesSchedule {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("HostPoolScheduledAgentUpdatesSchedule", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder hourOfDay(Integer hourOfDay) {
-            this.hourOfDay = Objects.requireNonNull(hourOfDay);
+            if (hourOfDay == null) {
+              throw new MissingRequiredPropertyException("HostPoolScheduledAgentUpdatesSchedule", "hourOfDay");
+            }
+            this.hourOfDay = hourOfDay;
             return this;
         }
         public HostPoolScheduledAgentUpdatesSchedule build() {

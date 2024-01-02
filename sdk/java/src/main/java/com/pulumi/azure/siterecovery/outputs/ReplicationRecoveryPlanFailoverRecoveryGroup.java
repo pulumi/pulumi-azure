@@ -59,6 +59,7 @@ public final class ReplicationRecoveryPlanFailoverRecoveryGroup {
 
         @CustomType.Setter
         public Builder postActions(@Nullable List<ReplicationRecoveryPlanFailoverRecoveryGroupPostAction> postActions) {
+
             this.postActions = postActions;
             return this;
         }
@@ -67,6 +68,7 @@ public final class ReplicationRecoveryPlanFailoverRecoveryGroup {
         }
         @CustomType.Setter
         public Builder preActions(@Nullable List<ReplicationRecoveryPlanFailoverRecoveryGroupPreAction> preActions) {
+
             this.preActions = preActions;
             return this;
         }

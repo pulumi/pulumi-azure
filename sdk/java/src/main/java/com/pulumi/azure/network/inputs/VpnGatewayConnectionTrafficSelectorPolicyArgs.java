@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class VpnGatewayConnectionTrafficSelectorPolicyArgs extends com.pul
         }
 
         public VpnGatewayConnectionTrafficSelectorPolicyArgs build() {
-            $.localAddressRanges = Objects.requireNonNull($.localAddressRanges, "expected parameter 'localAddressRanges' to be non-null");
-            $.remoteAddressRanges = Objects.requireNonNull($.remoteAddressRanges, "expected parameter 'remoteAddressRanges' to be non-null");
+            if ($.localAddressRanges == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionTrafficSelectorPolicyArgs", "localAddressRanges");
+            }
+            if ($.remoteAddressRanges == null) {
+                throw new MissingRequiredPropertyException("VpnGatewayConnectionTrafficSelectorPolicyArgs", "remoteAddressRanges");
+            }
             return $;
         }
     }

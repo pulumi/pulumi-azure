@@ -7,6 +7,7 @@ import com.pulumi.azure.waf.inputs.PolicyManagedRulesExclusionArgs;
 import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -135,7 +136,9 @@ public final class PolicyManagedRulesArgs extends com.pulumi.resources.ResourceA
         }
 
         public PolicyManagedRulesArgs build() {
-            $.managedRuleSets = Objects.requireNonNull($.managedRuleSets, "expected parameter 'managedRuleSets' to be non-null");
+            if ($.managedRuleSets == null) {
+                throw new MissingRequiredPropertyException("PolicyManagedRulesArgs", "managedRuleSets");
+            }
             return $;
         }
     }

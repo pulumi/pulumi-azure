@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class VirtualMachineWsfcDomainCredentialArgs extends com.pulumi.res
         }
 
         public VirtualMachineWsfcDomainCredentialArgs build() {
-            $.clusterBootstrapAccountPassword = Objects.requireNonNull($.clusterBootstrapAccountPassword, "expected parameter 'clusterBootstrapAccountPassword' to be non-null");
-            $.clusterOperatorAccountPassword = Objects.requireNonNull($.clusterOperatorAccountPassword, "expected parameter 'clusterOperatorAccountPassword' to be non-null");
-            $.sqlServiceAccountPassword = Objects.requireNonNull($.sqlServiceAccountPassword, "expected parameter 'sqlServiceAccountPassword' to be non-null");
+            if ($.clusterBootstrapAccountPassword == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredentialArgs", "clusterBootstrapAccountPassword");
+            }
+            if ($.clusterOperatorAccountPassword == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredentialArgs", "clusterOperatorAccountPassword");
+            }
+            if ($.sqlServiceAccountPassword == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineWsfcDomainCredentialArgs", "sqlServiceAccountPassword");
+            }
             return $;
         }
     }

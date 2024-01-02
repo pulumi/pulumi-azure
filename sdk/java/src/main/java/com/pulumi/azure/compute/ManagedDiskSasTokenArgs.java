@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -161,9 +162,15 @@ public final class ManagedDiskSasTokenArgs extends com.pulumi.resources.Resource
         }
 
         public ManagedDiskSasTokenArgs build() {
-            $.accessLevel = Objects.requireNonNull($.accessLevel, "expected parameter 'accessLevel' to be non-null");
-            $.durationInSeconds = Objects.requireNonNull($.durationInSeconds, "expected parameter 'durationInSeconds' to be non-null");
-            $.managedDiskId = Objects.requireNonNull($.managedDiskId, "expected parameter 'managedDiskId' to be non-null");
+            if ($.accessLevel == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskSasTokenArgs", "accessLevel");
+            }
+            if ($.durationInSeconds == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskSasTokenArgs", "durationInSeconds");
+            }
+            if ($.managedDiskId == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskSasTokenArgs", "managedDiskId");
+            }
             return $;
         }
     }

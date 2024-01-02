@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -81,32 +82,50 @@ public final class GetTableEntityResult {
 
         @CustomType.Setter
         public Builder entity(Map<String,String> entity) {
-            this.entity = Objects.requireNonNull(entity);
+            if (entity == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "entity");
+            }
+            this.entity = entity;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder partitionKey(String partitionKey) {
-            this.partitionKey = Objects.requireNonNull(partitionKey);
+            if (partitionKey == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "partitionKey");
+            }
+            this.partitionKey = partitionKey;
             return this;
         }
         @CustomType.Setter
         public Builder rowKey(String rowKey) {
-            this.rowKey = Objects.requireNonNull(rowKey);
+            if (rowKey == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "rowKey");
+            }
+            this.rowKey = rowKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
-            this.storageAccountName = Objects.requireNonNull(storageAccountName);
+            if (storageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "storageAccountName");
+            }
+            this.storageAccountName = storageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder tableName(String tableName) {
-            this.tableName = Objects.requireNonNull(tableName);
+            if (tableName == null) {
+              throw new MissingRequiredPropertyException("GetTableEntityResult", "tableName");
+            }
+            this.tableName = tableName;
             return this;
         }
         public GetTableEntityResult build() {

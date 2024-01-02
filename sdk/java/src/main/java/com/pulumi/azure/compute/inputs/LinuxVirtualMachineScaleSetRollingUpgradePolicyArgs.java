@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,10 +264,18 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs extends c
         }
 
         public LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs build() {
-            $.maxBatchInstancePercent = Objects.requireNonNull($.maxBatchInstancePercent, "expected parameter 'maxBatchInstancePercent' to be non-null");
-            $.maxUnhealthyInstancePercent = Objects.requireNonNull($.maxUnhealthyInstancePercent, "expected parameter 'maxUnhealthyInstancePercent' to be non-null");
-            $.maxUnhealthyUpgradedInstancePercent = Objects.requireNonNull($.maxUnhealthyUpgradedInstancePercent, "expected parameter 'maxUnhealthyUpgradedInstancePercent' to be non-null");
-            $.pauseTimeBetweenBatches = Objects.requireNonNull($.pauseTimeBetweenBatches, "expected parameter 'pauseTimeBetweenBatches' to be non-null");
+            if ($.maxBatchInstancePercent == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs", "maxBatchInstancePercent");
+            }
+            if ($.maxUnhealthyInstancePercent == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs", "maxUnhealthyInstancePercent");
+            }
+            if ($.maxUnhealthyUpgradedInstancePercent == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs", "maxUnhealthyUpgradedInstancePercent");
+            }
+            if ($.pauseTimeBetweenBatches == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs", "pauseTimeBetweenBatches");
+            }
             return $;
         }
     }

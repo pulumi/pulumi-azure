@@ -105,6 +105,7 @@ public final class FrontdoorRuleActions {
 
         @CustomType.Setter
         public Builder requestHeaderActions(@Nullable List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions) {
+
             this.requestHeaderActions = requestHeaderActions;
             return this;
         }
@@ -113,6 +114,7 @@ public final class FrontdoorRuleActions {
         }
         @CustomType.Setter
         public Builder responseHeaderActions(@Nullable List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions) {
+
             this.responseHeaderActions = responseHeaderActions;
             return this;
         }
@@ -121,16 +123,19 @@ public final class FrontdoorRuleActions {
         }
         @CustomType.Setter
         public Builder routeConfigurationOverrideAction(@Nullable FrontdoorRuleActionsRouteConfigurationOverrideAction routeConfigurationOverrideAction) {
+
             this.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
             return this;
         }
         @CustomType.Setter
         public Builder urlRedirectAction(@Nullable FrontdoorRuleActionsUrlRedirectAction urlRedirectAction) {
+
             this.urlRedirectAction = urlRedirectAction;
             return this;
         }
         @CustomType.Setter
         public Builder urlRewriteAction(@Nullable FrontdoorRuleActionsUrlRewriteAction urlRewriteAction) {
+
             this.urlRewriteAction = urlRewriteAction;
             return this;
         }

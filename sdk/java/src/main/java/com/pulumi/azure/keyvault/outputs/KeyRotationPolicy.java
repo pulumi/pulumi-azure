@@ -73,16 +73,19 @@ public final class KeyRotationPolicy {
 
         @CustomType.Setter
         public Builder automatic(@Nullable KeyRotationPolicyAutomatic automatic) {
+
             this.automatic = automatic;
             return this;
         }
         @CustomType.Setter
         public Builder expireAfter(@Nullable String expireAfter) {
+
             this.expireAfter = expireAfter;
             return this;
         }
         @CustomType.Setter
         public Builder notifyBeforeExpiry(@Nullable String notifyBeforeExpiry) {
+
             this.notifyBeforeExpiry = notifyBeforeExpiry;
             return this;
         }

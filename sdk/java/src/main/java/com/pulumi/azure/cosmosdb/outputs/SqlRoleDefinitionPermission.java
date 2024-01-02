@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +44,10 @@ public final class SqlRoleDefinitionPermission {
 
         @CustomType.Setter
         public Builder dataActions(List<String> dataActions) {
-            this.dataActions = Objects.requireNonNull(dataActions);
+            if (dataActions == null) {
+              throw new MissingRequiredPropertyException("SqlRoleDefinitionPermission", "dataActions");
+            }
+            this.dataActions = dataActions;
             return this;
         }
         public Builder dataActions(String... dataActions) {

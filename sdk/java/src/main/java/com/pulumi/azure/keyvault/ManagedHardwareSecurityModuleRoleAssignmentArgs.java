@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentArgs extends com.p
         }
 
         public ManagedHardwareSecurityModuleRoleAssignmentArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
-            $.vaultBaseUrl = Objects.requireNonNull($.vaultBaseUrl, "expected parameter 'vaultBaseUrl' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "principalId");
+            }
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "roleDefinitionId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "scope");
+            }
+            if ($.vaultBaseUrl == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleRoleAssignmentArgs", "vaultBaseUrl");
+            }
             return $;
         }
     }

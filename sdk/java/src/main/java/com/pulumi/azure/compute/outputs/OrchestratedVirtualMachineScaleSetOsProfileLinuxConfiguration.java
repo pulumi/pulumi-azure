@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -160,11 +161,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
+
             this.adminPassword = adminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adminSshKeys(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys) {
+
             this.adminSshKeys = adminSshKeys;
             return this;
         }
@@ -173,36 +176,45 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
+
             this.computerNamePrefix = computerNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder disablePasswordAuthentication(@Nullable Boolean disablePasswordAuthentication) {
+
             this.disablePasswordAuthentication = disablePasswordAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder patchAssessmentMode(@Nullable String patchAssessmentMode) {
+
             this.patchAssessmentMode = patchAssessmentMode;
             return this;
         }
         @CustomType.Setter
         public Builder patchMode(@Nullable String patchMode) {
+
             this.patchMode = patchMode;
             return this;
         }
         @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
+
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
         @CustomType.Setter
         public Builder secrets(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets) {
+
             this.secrets = secrets;
             return this;
         }

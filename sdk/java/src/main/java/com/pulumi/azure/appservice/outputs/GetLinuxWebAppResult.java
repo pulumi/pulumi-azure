@@ -14,6 +14,7 @@ import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteCredential;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppStickySetting;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppStorageAccount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -571,17 +572,26 @@ public final class GetLinuxWebAppResult {
 
         @CustomType.Setter
         public Builder appMetadata(Map<String,String> appMetadata) {
-            this.appMetadata = Objects.requireNonNull(appMetadata);
+            if (appMetadata == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "appMetadata");
+            }
+            this.appMetadata = appMetadata;
             return this;
         }
         @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
-            this.appSettings = Objects.requireNonNull(appSettings);
+            if (appSettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "appSettings");
+            }
+            this.appSettings = appSettings;
             return this;
         }
         @CustomType.Setter
         public Builder authSettings(List<GetLinuxWebAppAuthSetting> authSettings) {
-            this.authSettings = Objects.requireNonNull(authSettings);
+            if (authSettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "authSettings");
+            }
+            this.authSettings = authSettings;
             return this;
         }
         public Builder authSettings(GetLinuxWebAppAuthSetting... authSettings) {
@@ -589,7 +599,10 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder authSettingsV2s(List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s) {
-            this.authSettingsV2s = Objects.requireNonNull(authSettingsV2s);
+            if (authSettingsV2s == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "authSettingsV2s");
+            }
+            this.authSettingsV2s = authSettingsV2s;
             return this;
         }
         public Builder authSettingsV2s(GetLinuxWebAppAuthSettingsV2... authSettingsV2s) {
@@ -597,12 +610,18 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder availability(String availability) {
-            this.availability = Objects.requireNonNull(availability);
+            if (availability == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "availability");
+            }
+            this.availability = availability;
             return this;
         }
         @CustomType.Setter
         public Builder backups(List<GetLinuxWebAppBackup> backups) {
-            this.backups = Objects.requireNonNull(backups);
+            if (backups == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "backups");
+            }
+            this.backups = backups;
             return this;
         }
         public Builder backups(GetLinuxWebAppBackup... backups) {
@@ -610,27 +629,42 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
-            this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
+            if (clientAffinityEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "clientAffinityEnabled");
+            }
+            this.clientAffinityEnabled = clientAffinityEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
-            this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
+            if (clientCertificateEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "clientCertificateEnabled");
+            }
+            this.clientCertificateEnabled = clientCertificateEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateExclusionPaths(String clientCertificateExclusionPaths) {
-            this.clientCertificateExclusionPaths = Objects.requireNonNull(clientCertificateExclusionPaths);
+            if (clientCertificateExclusionPaths == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "clientCertificateExclusionPaths");
+            }
+            this.clientCertificateExclusionPaths = clientCertificateExclusionPaths;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateMode(String clientCertificateMode) {
-            this.clientCertificateMode = Objects.requireNonNull(clientCertificateMode);
+            if (clientCertificateMode == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "clientCertificateMode");
+            }
+            this.clientCertificateMode = clientCertificateMode;
             return this;
         }
         @CustomType.Setter
         public Builder connectionStrings(List<GetLinuxWebAppConnectionString> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(GetLinuxWebAppConnectionString... connectionStrings) {
@@ -638,42 +672,66 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
-            this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
+            if (customDomainVerificationId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "customDomainVerificationId");
+            }
+            this.customDomainVerificationId = customDomainVerificationId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
-            this.defaultHostname = Objects.requireNonNull(defaultHostname);
+            if (defaultHostname == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "defaultHostname");
+            }
+            this.defaultHostname = defaultHostname;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
-            this.ftpPublishBasicAuthenticationEnabled = Objects.requireNonNull(ftpPublishBasicAuthenticationEnabled);
+            if (ftpPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "ftpPublishBasicAuthenticationEnabled");
+            }
+            this.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder hostingEnvironmentId(String hostingEnvironmentId) {
-            this.hostingEnvironmentId = Objects.requireNonNull(hostingEnvironmentId);
+            if (hostingEnvironmentId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "hostingEnvironmentId");
+            }
+            this.hostingEnvironmentId = hostingEnvironmentId;
             return this;
         }
         @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
-            this.httpsOnly = Objects.requireNonNull(httpsOnly);
+            if (httpsOnly == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "httpsOnly");
+            }
+            this.httpsOnly = httpsOnly;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetLinuxWebAppIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetLinuxWebAppIdentity... identities) {
@@ -681,22 +739,34 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder keyVaultReferenceIdentityId(String keyVaultReferenceIdentityId) {
-            this.keyVaultReferenceIdentityId = Objects.requireNonNull(keyVaultReferenceIdentityId);
+            if (keyVaultReferenceIdentityId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "keyVaultReferenceIdentityId");
+            }
+            this.keyVaultReferenceIdentityId = keyVaultReferenceIdentityId;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder logs(List<GetLinuxWebAppLog> logs) {
-            this.logs = Objects.requireNonNull(logs);
+            if (logs == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "logs");
+            }
+            this.logs = logs;
             return this;
         }
         public Builder logs(GetLinuxWebAppLog... logs) {
@@ -704,12 +774,18 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
-            this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
+            if (outboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "outboundIpAddressLists");
+            }
+            this.outboundIpAddressLists = outboundIpAddressLists;
             return this;
         }
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
@@ -717,12 +793,18 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
-            this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
+            if (possibleOutboundIpAddressLists == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "possibleOutboundIpAddressLists");
+            }
+            this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
             return this;
         }
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
@@ -730,27 +812,42 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
-            this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
+            if (possibleOutboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "possibleOutboundIpAddresses");
+            }
+            this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder servicePlanId(String servicePlanId) {
-            this.servicePlanId = Objects.requireNonNull(servicePlanId);
+            if (servicePlanId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "servicePlanId");
+            }
+            this.servicePlanId = servicePlanId;
             return this;
         }
         @CustomType.Setter
         public Builder siteConfigs(List<GetLinuxWebAppSiteConfig> siteConfigs) {
-            this.siteConfigs = Objects.requireNonNull(siteConfigs);
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "siteConfigs");
+            }
+            this.siteConfigs = siteConfigs;
             return this;
         }
         public Builder siteConfigs(GetLinuxWebAppSiteConfig... siteConfigs) {
@@ -758,7 +855,10 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetLinuxWebAppSiteCredential> siteCredentials) {
-            this.siteCredentials = Objects.requireNonNull(siteCredentials);
+            if (siteCredentials == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "siteCredentials");
+            }
+            this.siteCredentials = siteCredentials;
             return this;
         }
         public Builder siteCredentials(GetLinuxWebAppSiteCredential... siteCredentials) {
@@ -766,7 +866,10 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder stickySettings(List<GetLinuxWebAppStickySetting> stickySettings) {
-            this.stickySettings = Objects.requireNonNull(stickySettings);
+            if (stickySettings == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "stickySettings");
+            }
+            this.stickySettings = stickySettings;
             return this;
         }
         public Builder stickySettings(GetLinuxWebAppStickySetting... stickySettings) {
@@ -774,7 +877,10 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder storageAccounts(List<GetLinuxWebAppStorageAccount> storageAccounts) {
-            this.storageAccounts = Objects.requireNonNull(storageAccounts);
+            if (storageAccounts == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "storageAccounts");
+            }
+            this.storageAccounts = storageAccounts;
             return this;
         }
         public Builder storageAccounts(GetLinuxWebAppStorageAccount... storageAccounts) {
@@ -782,22 +888,34 @@ public final class GetLinuxWebAppResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder usage(String usage) {
-            this.usage = Objects.requireNonNull(usage);
+            if (usage == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "usage");
+            }
+            this.usage = usage;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
-            this.webdeployPublishBasicAuthenticationEnabled = Objects.requireNonNull(webdeployPublishBasicAuthenticationEnabled);
+            if (webdeployPublishBasicAuthenticationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "webdeployPublishBasicAuthenticationEnabled");
+            }
+            this.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return this;
         }
         public GetLinuxWebAppResult build() {

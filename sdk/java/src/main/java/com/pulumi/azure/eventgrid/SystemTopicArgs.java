@@ -6,6 +6,7 @@ package com.pulumi.azure.eventgrid;
 import com.pulumi.azure.eventgrid.inputs.SystemTopicIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -316,9 +317,15 @@ public final class SystemTopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SystemTopicArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sourceArmResourceId = Objects.requireNonNull($.sourceArmResourceId, "expected parameter 'sourceArmResourceId' to be non-null");
-            $.topicType = Objects.requireNonNull($.topicType, "expected parameter 'topicType' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SystemTopicArgs", "resourceGroupName");
+            }
+            if ($.sourceArmResourceId == null) {
+                throw new MissingRequiredPropertyException("SystemTopicArgs", "sourceArmResourceId");
+            }
+            if ($.topicType == null) {
+                throw new MissingRequiredPropertyException("SystemTopicArgs", "topicType");
+            }
             return $;
         }
     }

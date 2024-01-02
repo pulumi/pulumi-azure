@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -244,8 +245,12 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
         }
 
         public ResourceGroupPolicyRemediationArgs build() {
-            $.policyAssignmentId = Objects.requireNonNull($.policyAssignmentId, "expected parameter 'policyAssignmentId' to be non-null");
-            $.resourceGroupId = Objects.requireNonNull($.resourceGroupId, "expected parameter 'resourceGroupId' to be non-null");
+            if ($.policyAssignmentId == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupPolicyRemediationArgs", "policyAssignmentId");
+            }
+            if ($.resourceGroupId == null) {
+                throw new MissingRequiredPropertyException("ResourceGroupPolicyRemediationArgs", "resourceGroupId");
+            }
             return $;
         }
     }

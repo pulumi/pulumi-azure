@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class GetContainersContainer {
 
         @CustomType.Setter
         public Builder dataPlaneId(String dataPlaneId) {
-            this.dataPlaneId = Objects.requireNonNull(dataPlaneId);
+            if (dataPlaneId == null) {
+              throw new MissingRequiredPropertyException("GetContainersContainer", "dataPlaneId");
+            }
+            this.dataPlaneId = dataPlaneId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetContainersContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
-            this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
+            if (resourceManagerId == null) {
+              throw new MissingRequiredPropertyException("GetContainersContainer", "resourceManagerId");
+            }
+            this.resourceManagerId = resourceManagerId;
             return this;
         }
         public GetContainersContainer build() {

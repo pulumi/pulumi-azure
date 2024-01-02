@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,38 @@ public final class CertificateCertificatePolicyKeyProperties {
 
         @CustomType.Setter
         public Builder curve(@Nullable String curve) {
+
             this.curve = curve;
             return this;
         }
         @CustomType.Setter
         public Builder exportable(Boolean exportable) {
-            this.exportable = Objects.requireNonNull(exportable);
+            if (exportable == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyProperties", "exportable");
+            }
+            this.exportable = exportable;
             return this;
         }
         @CustomType.Setter
         public Builder keySize(@Nullable Integer keySize) {
+
             this.keySize = keySize;
             return this;
         }
         @CustomType.Setter
         public Builder keyType(String keyType) {
-            this.keyType = Objects.requireNonNull(keyType);
+            if (keyType == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyProperties", "keyType");
+            }
+            this.keyType = keyType;
             return this;
         }
         @CustomType.Setter
         public Builder reuseKey(Boolean reuseKey) {
-            this.reuseKey = Objects.requireNonNull(reuseKey);
+            if (reuseKey == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyProperties", "reuseKey");
+            }
+            this.reuseKey = reuseKey;
             return this;
         }
         public CertificateCertificatePolicyKeyProperties build() {

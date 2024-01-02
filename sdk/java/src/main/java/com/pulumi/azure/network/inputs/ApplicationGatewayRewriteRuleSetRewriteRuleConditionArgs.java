@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs exte
         }
 
         public ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs build() {
-            $.pattern = Objects.requireNonNull($.pattern, "expected parameter 'pattern' to be non-null");
-            $.variable = Objects.requireNonNull($.variable, "expected parameter 'variable' to be non-null");
+            if ($.pattern == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs", "pattern");
+            }
+            if ($.variable == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs", "variable");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -182,7 +183,10 @@ public final class GetNetworkInterfaceIpConfiguration {
 
         @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolsIds(List<String> applicationGatewayBackendAddressPoolsIds) {
-            this.applicationGatewayBackendAddressPoolsIds = Objects.requireNonNull(applicationGatewayBackendAddressPoolsIds);
+            if (applicationGatewayBackendAddressPoolsIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "applicationGatewayBackendAddressPoolsIds");
+            }
+            this.applicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
             return this;
         }
         public Builder applicationGatewayBackendAddressPoolsIds(String... applicationGatewayBackendAddressPoolsIds) {
@@ -190,7 +194,10 @@ public final class GetNetworkInterfaceIpConfiguration {
         }
         @CustomType.Setter
         public Builder applicationSecurityGroupIds(List<String> applicationSecurityGroupIds) {
-            this.applicationSecurityGroupIds = Objects.requireNonNull(applicationSecurityGroupIds);
+            if (applicationSecurityGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "applicationSecurityGroupIds");
+            }
+            this.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
         }
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
@@ -198,12 +205,18 @@ public final class GetNetworkInterfaceIpConfiguration {
         }
         @CustomType.Setter
         public Builder gatewayLoadBalancerFrontendIpConfigurationId(String gatewayLoadBalancerFrontendIpConfigurationId) {
-            this.gatewayLoadBalancerFrontendIpConfigurationId = Objects.requireNonNull(gatewayLoadBalancerFrontendIpConfigurationId);
+            if (gatewayLoadBalancerFrontendIpConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "gatewayLoadBalancerFrontendIpConfigurationId");
+            }
+            this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolsIds(List<String> loadBalancerBackendAddressPoolsIds) {
-            this.loadBalancerBackendAddressPoolsIds = Objects.requireNonNull(loadBalancerBackendAddressPoolsIds);
+            if (loadBalancerBackendAddressPoolsIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "loadBalancerBackendAddressPoolsIds");
+            }
+            this.loadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
             return this;
         }
         public Builder loadBalancerBackendAddressPoolsIds(String... loadBalancerBackendAddressPoolsIds) {
@@ -211,7 +224,10 @@ public final class GetNetworkInterfaceIpConfiguration {
         }
         @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(List<String> loadBalancerInboundNatRulesIds) {
-            this.loadBalancerInboundNatRulesIds = Objects.requireNonNull(loadBalancerInboundNatRulesIds);
+            if (loadBalancerInboundNatRulesIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "loadBalancerInboundNatRulesIds");
+            }
+            this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
             return this;
         }
         public Builder loadBalancerInboundNatRulesIds(String... loadBalancerInboundNatRulesIds) {
@@ -219,37 +235,58 @@ public final class GetNetworkInterfaceIpConfiguration {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
-            this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
+            if (privateIpAddressAllocation == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "privateIpAddressAllocation");
+            }
+            this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddressVersion(String privateIpAddressVersion) {
-            this.privateIpAddressVersion = Objects.requireNonNull(privateIpAddressVersion);
+            if (privateIpAddressVersion == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "privateIpAddressVersion");
+            }
+            this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public GetNetworkInterfaceIpConfiguration build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.appplatform.inputs.SpringCloudBuildPackBindingLaunchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,7 +189,9 @@ public final class SpringCloudBuildPackBindingArgs extends com.pulumi.resources.
         }
 
         public SpringCloudBuildPackBindingArgs build() {
-            $.springCloudBuilderId = Objects.requireNonNull($.springCloudBuilderId, "expected parameter 'springCloudBuilderId' to be non-null");
+            if ($.springCloudBuilderId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuildPackBindingArgs", "springCloudBuilderId");
+            }
             return $;
         }
     }

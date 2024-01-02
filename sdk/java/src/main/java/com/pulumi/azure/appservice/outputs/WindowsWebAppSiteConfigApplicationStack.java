@@ -359,96 +359,115 @@ public final class WindowsWebAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder currentStack(@Nullable String currentStack) {
+
             this.currentStack = currentStack;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerName(@Nullable String dockerContainerName) {
+
             this.dockerContainerName = dockerContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerRegistry(@Nullable String dockerContainerRegistry) {
+
             this.dockerContainerRegistry = dockerContainerRegistry;
             return this;
         }
         @CustomType.Setter
         public Builder dockerContainerTag(@Nullable String dockerContainerTag) {
+
             this.dockerContainerTag = dockerContainerTag;
             return this;
         }
         @CustomType.Setter
         public Builder dockerImageName(@Nullable String dockerImageName) {
+
             this.dockerImageName = dockerImageName;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryPassword(@Nullable String dockerRegistryPassword) {
+
             this.dockerRegistryPassword = dockerRegistryPassword;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUrl(@Nullable String dockerRegistryUrl) {
+
             this.dockerRegistryUrl = dockerRegistryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder dockerRegistryUsername(@Nullable String dockerRegistryUsername) {
+
             this.dockerRegistryUsername = dockerRegistryUsername;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetCoreVersion(@Nullable String dotnetCoreVersion) {
+
             this.dotnetCoreVersion = dotnetCoreVersion;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
+
             this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaContainer(@Nullable String javaContainer) {
+
             this.javaContainer = javaContainer;
             return this;
         }
         @CustomType.Setter
         public Builder javaContainerVersion(@Nullable String javaContainerVersion) {
+
             this.javaContainerVersion = javaContainerVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaEmbeddedServerEnabled(@Nullable Boolean javaEmbeddedServerEnabled) {
+
             this.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
+
             this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
+
             this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder phpVersion(@Nullable String phpVersion) {
+
             this.phpVersion = phpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder python(@Nullable Boolean python) {
+
             this.python = python;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
+
             this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tomcatVersion(@Nullable String tomcatVersion) {
+
             this.tomcatVersion = tomcatVersion;
             return this;
         }

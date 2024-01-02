@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,16 +88,21 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
 
         @CustomType.Setter
         public Builder parameterValues(@Nullable String parameterValues) {
+
             this.parameterValues = parameterValues;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
-            this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
+            if (policyDefinitionId == null) {
+              throw new MissingRequiredPropertyException("PolicySetDefinitionPolicyDefinitionReference", "policyDefinitionId");
+            }
+            this.policyDefinitionId = policyDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder policyGroupNames(@Nullable List<String> policyGroupNames) {
+
             this.policyGroupNames = policyGroupNames;
             return this;
         }
@@ -105,6 +111,7 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
         }
         @CustomType.Setter
         public Builder referenceId(@Nullable String referenceId) {
+
             this.referenceId = referenceId;
             return this;
         }

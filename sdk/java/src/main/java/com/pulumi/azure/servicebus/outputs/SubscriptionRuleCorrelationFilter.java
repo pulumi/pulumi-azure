@@ -161,46 +161,55 @@ public final class SubscriptionRuleCorrelationFilter {
 
         @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
+
             this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder correlationId(@Nullable String correlationId) {
+
             this.correlationId = correlationId;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder messageId(@Nullable String messageId) {
+
             this.messageId = messageId;
             return this;
         }
         @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
+
             this.properties = properties;
             return this;
         }
         @CustomType.Setter
         public Builder replyTo(@Nullable String replyTo) {
+
             this.replyTo = replyTo;
             return this;
         }
         @CustomType.Setter
         public Builder replyToSessionId(@Nullable String replyToSessionId) {
+
             this.replyToSessionId = replyToSessionId;
             return this;
         }
         @CustomType.Setter
         public Builder sessionId(@Nullable String sessionId) {
+
             this.sessionId = sessionId;
             return this;
         }
         @CustomType.Setter
         public Builder to(@Nullable String to) {
+
             this.to = to;
             return this;
         }

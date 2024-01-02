@@ -5,6 +5,7 @@ package com.pulumi.azure.databoxedge.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -196,10 +197,18 @@ public final class OrderContactArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OrderContactArgs build() {
-            $.companyName = Objects.requireNonNull($.companyName, "expected parameter 'companyName' to be non-null");
-            $.emails = Objects.requireNonNull($.emails, "expected parameter 'emails' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
+            if ($.companyName == null) {
+                throw new MissingRequiredPropertyException("OrderContactArgs", "companyName");
+            }
+            if ($.emails == null) {
+                throw new MissingRequiredPropertyException("OrderContactArgs", "emails");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("OrderContactArgs", "name");
+            }
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("OrderContactArgs", "phoneNumber");
+            }
             return $;
         }
     }

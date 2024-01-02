@@ -87,21 +87,25 @@ public final class ServiceAccountEncryption {
 
         @CustomType.Setter
         public Builder currentKeyIdentifier(@Nullable String currentKeyIdentifier) {
+
             this.currentKeyIdentifier = currentKeyIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyIdentifier(@Nullable String keyVaultKeyIdentifier) {
+
             this.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
             return this;
         }
         @CustomType.Setter
         public Builder managedIdentity(@Nullable ServiceAccountEncryptionManagedIdentity managedIdentity) {
+
             this.managedIdentity = managedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

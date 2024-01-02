@@ -6,6 +6,7 @@ package com.pulumi.azure.frontdoor;
 import com.pulumi.azure.frontdoor.inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -152,8 +153,12 @@ public final class CustomHttpsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public CustomHttpsConfigurationArgs build() {
-            $.customHttpsProvisioningEnabled = Objects.requireNonNull($.customHttpsProvisioningEnabled, "expected parameter 'customHttpsProvisioningEnabled' to be non-null");
-            $.frontendEndpointId = Objects.requireNonNull($.frontendEndpointId, "expected parameter 'frontendEndpointId' to be non-null");
+            if ($.customHttpsProvisioningEnabled == null) {
+                throw new MissingRequiredPropertyException("CustomHttpsConfigurationArgs", "customHttpsProvisioningEnabled");
+            }
+            if ($.frontendEndpointId == null) {
+                throw new MissingRequiredPropertyException("CustomHttpsConfigurationArgs", "frontendEndpointId");
+            }
             return $;
         }
     }

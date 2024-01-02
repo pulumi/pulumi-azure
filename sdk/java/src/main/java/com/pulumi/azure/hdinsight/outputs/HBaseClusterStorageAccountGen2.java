@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -93,22 +94,34 @@ public final class HBaseClusterStorageAccountGen2 {
 
         @CustomType.Setter
         public Builder filesystemId(String filesystemId) {
-            this.filesystemId = Objects.requireNonNull(filesystemId);
+            if (filesystemId == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "filesystemId");
+            }
+            this.filesystemId = filesystemId;
             return this;
         }
         @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
-            this.isDefault = Objects.requireNonNull(isDefault);
+            if (isDefault == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "isDefault");
+            }
+            this.isDefault = isDefault;
             return this;
         }
         @CustomType.Setter
         public Builder managedIdentityResourceId(String managedIdentityResourceId) {
-            this.managedIdentityResourceId = Objects.requireNonNull(managedIdentityResourceId);
+            if (managedIdentityResourceId == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "managedIdentityResourceId");
+            }
+            this.managedIdentityResourceId = managedIdentityResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder storageResourceId(String storageResourceId) {
-            this.storageResourceId = Objects.requireNonNull(storageResourceId);
+            if (storageResourceId == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "storageResourceId");
+            }
+            this.storageResourceId = storageResourceId;
             return this;
         }
         public HBaseClusterStorageAccountGen2 build() {

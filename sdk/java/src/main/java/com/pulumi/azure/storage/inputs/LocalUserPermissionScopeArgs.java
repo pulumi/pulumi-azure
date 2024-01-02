@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.LocalUserPermissionScopePermissionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -149,9 +150,15 @@ public final class LocalUserPermissionScopeArgs extends com.pulumi.resources.Res
         }
 
         public LocalUserPermissionScopeArgs build() {
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.resourceName = Objects.requireNonNull($.resourceName, "expected parameter 'resourceName' to be non-null");
-            $.service = Objects.requireNonNull($.service, "expected parameter 'service' to be non-null");
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("LocalUserPermissionScopeArgs", "permissions");
+            }
+            if ($.resourceName == null) {
+                throw new MissingRequiredPropertyException("LocalUserPermissionScopeArgs", "resourceName");
+            }
+            if ($.service == null) {
+                throw new MissingRequiredPropertyException("LocalUserPermissionScopeArgs", "service");
+            }
             return $;
         }
     }

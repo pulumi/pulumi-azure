@@ -7,6 +7,7 @@ import com.pulumi.azure.healthcare.outputs.GetFhirServiceAuthentication;
 import com.pulumi.azure.healthcare.outputs.GetFhirServiceCor;
 import com.pulumi.azure.healthcare.outputs.GetFhirServiceIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -186,7 +187,10 @@ public final class GetFhirServiceResult {
 
         @CustomType.Setter
         public Builder accessPolicyObjectIds(List<String> accessPolicyObjectIds) {
-            this.accessPolicyObjectIds = Objects.requireNonNull(accessPolicyObjectIds);
+            if (accessPolicyObjectIds == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "accessPolicyObjectIds");
+            }
+            this.accessPolicyObjectIds = accessPolicyObjectIds;
             return this;
         }
         public Builder accessPolicyObjectIds(String... accessPolicyObjectIds) {
@@ -194,7 +198,10 @@ public final class GetFhirServiceResult {
         }
         @CustomType.Setter
         public Builder authentications(List<GetFhirServiceAuthentication> authentications) {
-            this.authentications = Objects.requireNonNull(authentications);
+            if (authentications == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "authentications");
+            }
+            this.authentications = authentications;
             return this;
         }
         public Builder authentications(GetFhirServiceAuthentication... authentications) {
@@ -202,12 +209,18 @@ public final class GetFhirServiceResult {
         }
         @CustomType.Setter
         public Builder configurationExportStorageAccountName(String configurationExportStorageAccountName) {
-            this.configurationExportStorageAccountName = Objects.requireNonNull(configurationExportStorageAccountName);
+            if (configurationExportStorageAccountName == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "configurationExportStorageAccountName");
+            }
+            this.configurationExportStorageAccountName = configurationExportStorageAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder containerRegistryLoginServerUrls(List<String> containerRegistryLoginServerUrls) {
-            this.containerRegistryLoginServerUrls = Objects.requireNonNull(containerRegistryLoginServerUrls);
+            if (containerRegistryLoginServerUrls == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "containerRegistryLoginServerUrls");
+            }
+            this.containerRegistryLoginServerUrls = containerRegistryLoginServerUrls;
             return this;
         }
         public Builder containerRegistryLoginServerUrls(String... containerRegistryLoginServerUrls) {
@@ -215,7 +228,10 @@ public final class GetFhirServiceResult {
         }
         @CustomType.Setter
         public Builder cors(List<GetFhirServiceCor> cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         public Builder cors(GetFhirServiceCor... cors) {
@@ -223,12 +239,18 @@ public final class GetFhirServiceResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetFhirServiceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetFhirServiceIdentity... identities) {
@@ -236,27 +258,40 @@ public final class GetFhirServiceResult {
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetFhirServiceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetFhirServiceResult build() {

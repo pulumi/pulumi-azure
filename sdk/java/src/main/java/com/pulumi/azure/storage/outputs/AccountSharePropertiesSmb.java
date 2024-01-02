@@ -102,6 +102,7 @@ public final class AccountSharePropertiesSmb {
 
         @CustomType.Setter
         public Builder authenticationTypes(@Nullable List<String> authenticationTypes) {
+
             this.authenticationTypes = authenticationTypes;
             return this;
         }
@@ -110,6 +111,7 @@ public final class AccountSharePropertiesSmb {
         }
         @CustomType.Setter
         public Builder channelEncryptionTypes(@Nullable List<String> channelEncryptionTypes) {
+
             this.channelEncryptionTypes = channelEncryptionTypes;
             return this;
         }
@@ -118,6 +120,7 @@ public final class AccountSharePropertiesSmb {
         }
         @CustomType.Setter
         public Builder kerberosTicketEncryptionTypes(@Nullable List<String> kerberosTicketEncryptionTypes) {
+
             this.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
             return this;
         }
@@ -126,11 +129,13 @@ public final class AccountSharePropertiesSmb {
         }
         @CustomType.Setter
         public Builder multichannelEnabled(@Nullable Boolean multichannelEnabled) {
+
             this.multichannelEnabled = multichannelEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder versions(@Nullable List<String> versions) {
+
             this.versions = versions;
             return this;
         }

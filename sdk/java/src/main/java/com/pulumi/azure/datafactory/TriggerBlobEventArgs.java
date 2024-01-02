@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory;
 import com.pulumi.azure.datafactory.inputs.TriggerBlobEventPipelineArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -525,10 +526,18 @@ public final class TriggerBlobEventArgs extends com.pulumi.resources.ResourceArg
         }
 
         public TriggerBlobEventArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.pipelines = Objects.requireNonNull($.pipelines, "expected parameter 'pipelines' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("TriggerBlobEventArgs", "dataFactoryId");
+            }
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("TriggerBlobEventArgs", "events");
+            }
+            if ($.pipelines == null) {
+                throw new MissingRequiredPropertyException("TriggerBlobEventArgs", "pipelines");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("TriggerBlobEventArgs", "storageAccountId");
+            }
             return $;
         }
     }

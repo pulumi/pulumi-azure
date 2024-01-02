@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class VirtualMachineStorageConfigurationLogSettings {
 
         @CustomType.Setter
         public Builder defaultFilePath(String defaultFilePath) {
-            this.defaultFilePath = Objects.requireNonNull(defaultFilePath);
+            if (defaultFilePath == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationLogSettings", "defaultFilePath");
+            }
+            this.defaultFilePath = defaultFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder luns(List<Integer> luns) {
-            this.luns = Objects.requireNonNull(luns);
+            if (luns == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineStorageConfigurationLogSettings", "luns");
+            }
+            this.luns = luns;
             return this;
         }
         public Builder luns(Integer... luns) {

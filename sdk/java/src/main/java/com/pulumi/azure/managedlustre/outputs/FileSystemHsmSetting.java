@@ -4,6 +4,7 @@
 package com.pulumi.azure.managedlustre.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -76,17 +77,24 @@ public final class FileSystemHsmSetting {
 
         @CustomType.Setter
         public Builder containerId(String containerId) {
-            this.containerId = Objects.requireNonNull(containerId);
+            if (containerId == null) {
+              throw new MissingRequiredPropertyException("FileSystemHsmSetting", "containerId");
+            }
+            this.containerId = containerId;
             return this;
         }
         @CustomType.Setter
         public Builder importPrefix(@Nullable String importPrefix) {
+
             this.importPrefix = importPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder loggingContainerId(String loggingContainerId) {
-            this.loggingContainerId = Objects.requireNonNull(loggingContainerId);
+            if (loggingContainerId == null) {
+              throw new MissingRequiredPropertyException("FileSystemHsmSetting", "loggingContainerId");
+            }
+            this.loggingContainerId = loggingContainerId;
             return this;
         }
         public FileSystemHsmSetting build() {

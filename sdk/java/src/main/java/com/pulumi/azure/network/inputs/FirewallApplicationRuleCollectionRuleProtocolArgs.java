@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class FirewallApplicationRuleCollectionRuleProtocolArgs extends com
         }
 
         public FirewallApplicationRuleCollectionRuleProtocolArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("FirewallApplicationRuleCollectionRuleProtocolArgs", "port");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("FirewallApplicationRuleCollectionRuleProtocolArgs", "type");
+            }
             return $;
         }
     }

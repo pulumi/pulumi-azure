@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AutoProvisioningArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AutoProvisioningArgs build() {
-            $.autoProvision = Objects.requireNonNull($.autoProvision, "expected parameter 'autoProvision' to be non-null");
+            if ($.autoProvision == null) {
+                throw new MissingRequiredPropertyException("AutoProvisioningArgs", "autoProvision");
+            }
             return $;
         }
     }

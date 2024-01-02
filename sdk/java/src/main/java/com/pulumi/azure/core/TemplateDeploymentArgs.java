@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -270,8 +271,12 @@ public final class TemplateDeploymentArgs extends com.pulumi.resources.ResourceA
         }
 
         public TemplateDeploymentArgs build() {
-            $.deploymentMode = Objects.requireNonNull($.deploymentMode, "expected parameter 'deploymentMode' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.deploymentMode == null) {
+                throw new MissingRequiredPropertyException("TemplateDeploymentArgs", "deploymentMode");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("TemplateDeploymentArgs", "resourceGroupName");
+            }
             return $;
         }
     }

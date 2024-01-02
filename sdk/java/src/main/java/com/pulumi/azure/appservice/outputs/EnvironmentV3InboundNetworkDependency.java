@@ -73,11 +73,13 @@ public final class EnvironmentV3InboundNetworkDependency {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }
@@ -86,6 +88,7 @@ public final class EnvironmentV3InboundNetworkDependency {
         }
         @CustomType.Setter
         public Builder ports(@Nullable List<String> ports) {
+
             this.ports = ports;
             return this;
         }

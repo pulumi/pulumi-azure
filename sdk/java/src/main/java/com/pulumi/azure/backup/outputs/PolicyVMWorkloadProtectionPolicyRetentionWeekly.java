@@ -4,6 +4,7 @@
 package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class PolicyVMWorkloadProtectionPolicyRetentionWeekly {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyRetentionWeekly", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder weekdays(List<String> weekdays) {
-            this.weekdays = Objects.requireNonNull(weekdays);
+            if (weekdays == null) {
+              throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicyRetentionWeekly", "weekdays");
+            }
+            this.weekdays = weekdays;
             return this;
         }
         public Builder weekdays(String... weekdays) {

@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.appplatform.inputs.SpringCloudConfigurationServiceRepositoryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class SpringCloudConfigurationServiceArgs extends com.pulumi.resour
         }
 
         public SpringCloudConfigurationServiceArgs build() {
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceArgs", "springCloudServiceId");
+            }
             return $;
         }
     }

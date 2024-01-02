@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,9 +227,15 @@ public final class CertificateCertificatePolicyKeyPropertiesArgs extends com.pul
         }
 
         public CertificateCertificatePolicyKeyPropertiesArgs build() {
-            $.exportable = Objects.requireNonNull($.exportable, "expected parameter 'exportable' to be non-null");
-            $.keyType = Objects.requireNonNull($.keyType, "expected parameter 'keyType' to be non-null");
-            $.reuseKey = Objects.requireNonNull($.reuseKey, "expected parameter 'reuseKey' to be non-null");
+            if ($.exportable == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyPropertiesArgs", "exportable");
+            }
+            if ($.keyType == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyPropertiesArgs", "keyType");
+            }
+            if ($.reuseKey == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyKeyPropertiesArgs", "reuseKey");
+            }
             return $;
         }
     }

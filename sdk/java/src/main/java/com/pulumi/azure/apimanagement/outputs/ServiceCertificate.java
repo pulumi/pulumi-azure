@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,31 +115,41 @@ public final class ServiceCertificate {
 
         @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
+
             this.certificatePassword = certificatePassword;
             return this;
         }
         @CustomType.Setter
         public Builder encodedCertificate(String encodedCertificate) {
-            this.encodedCertificate = Objects.requireNonNull(encodedCertificate);
+            if (encodedCertificate == null) {
+              throw new MissingRequiredPropertyException("ServiceCertificate", "encodedCertificate");
+            }
+            this.encodedCertificate = encodedCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
+
             this.expiry = expiry;
             return this;
         }
         @CustomType.Setter
         public Builder storeName(String storeName) {
-            this.storeName = Objects.requireNonNull(storeName);
+            if (storeName == null) {
+              throw new MissingRequiredPropertyException("ServiceCertificate", "storeName");
+            }
+            this.storeName = storeName;
             return this;
         }
         @CustomType.Setter
         public Builder subject(@Nullable String subject) {
+
             this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(@Nullable String thumbprint) {
+
             this.thumbprint = thumbprint;
             return this;
         }

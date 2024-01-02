@@ -5,6 +5,7 @@ package com.pulumi.azure.frontdoor.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,8 +262,12 @@ public final class FrontdoorRoutingRuleRedirectConfigurationArgs extends com.pul
         }
 
         public FrontdoorRoutingRuleRedirectConfigurationArgs build() {
-            $.redirectProtocol = Objects.requireNonNull($.redirectProtocol, "expected parameter 'redirectProtocol' to be non-null");
-            $.redirectType = Objects.requireNonNull($.redirectType, "expected parameter 'redirectType' to be non-null");
+            if ($.redirectProtocol == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleRedirectConfigurationArgs", "redirectProtocol");
+            }
+            if ($.redirectType == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRoutingRuleRedirectConfigurationArgs", "redirectType");
+            }
             return $;
         }
     }

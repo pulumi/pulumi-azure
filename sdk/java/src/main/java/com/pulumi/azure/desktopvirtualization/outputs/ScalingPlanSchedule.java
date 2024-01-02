@@ -4,6 +4,7 @@
 package com.pulumi.azure.desktopvirtualization.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -285,7 +286,10 @@ public final class ScalingPlanSchedule {
 
         @CustomType.Setter
         public Builder daysOfWeeks(List<String> daysOfWeeks) {
-            this.daysOfWeeks = Objects.requireNonNull(daysOfWeeks);
+            if (daysOfWeeks == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "daysOfWeeks");
+            }
+            this.daysOfWeeks = daysOfWeeks;
             return this;
         }
         public Builder daysOfWeeks(String... daysOfWeeks) {
@@ -293,87 +297,134 @@ public final class ScalingPlanSchedule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder offPeakLoadBalancingAlgorithm(String offPeakLoadBalancingAlgorithm) {
-            this.offPeakLoadBalancingAlgorithm = Objects.requireNonNull(offPeakLoadBalancingAlgorithm);
+            if (offPeakLoadBalancingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "offPeakLoadBalancingAlgorithm");
+            }
+            this.offPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder offPeakStartTime(String offPeakStartTime) {
-            this.offPeakStartTime = Objects.requireNonNull(offPeakStartTime);
+            if (offPeakStartTime == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "offPeakStartTime");
+            }
+            this.offPeakStartTime = offPeakStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder peakLoadBalancingAlgorithm(String peakLoadBalancingAlgorithm) {
-            this.peakLoadBalancingAlgorithm = Objects.requireNonNull(peakLoadBalancingAlgorithm);
+            if (peakLoadBalancingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "peakLoadBalancingAlgorithm");
+            }
+            this.peakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder peakStartTime(String peakStartTime) {
-            this.peakStartTime = Objects.requireNonNull(peakStartTime);
+            if (peakStartTime == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "peakStartTime");
+            }
+            this.peakStartTime = peakStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownCapacityThresholdPercent(Integer rampDownCapacityThresholdPercent) {
-            this.rampDownCapacityThresholdPercent = Objects.requireNonNull(rampDownCapacityThresholdPercent);
+            if (rampDownCapacityThresholdPercent == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownCapacityThresholdPercent");
+            }
+            this.rampDownCapacityThresholdPercent = rampDownCapacityThresholdPercent;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownForceLogoffUsers(Boolean rampDownForceLogoffUsers) {
-            this.rampDownForceLogoffUsers = Objects.requireNonNull(rampDownForceLogoffUsers);
+            if (rampDownForceLogoffUsers == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownForceLogoffUsers");
+            }
+            this.rampDownForceLogoffUsers = rampDownForceLogoffUsers;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownLoadBalancingAlgorithm(String rampDownLoadBalancingAlgorithm) {
-            this.rampDownLoadBalancingAlgorithm = Objects.requireNonNull(rampDownLoadBalancingAlgorithm);
+            if (rampDownLoadBalancingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownLoadBalancingAlgorithm");
+            }
+            this.rampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownMinimumHostsPercent(Integer rampDownMinimumHostsPercent) {
-            this.rampDownMinimumHostsPercent = Objects.requireNonNull(rampDownMinimumHostsPercent);
+            if (rampDownMinimumHostsPercent == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownMinimumHostsPercent");
+            }
+            this.rampDownMinimumHostsPercent = rampDownMinimumHostsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownNotificationMessage(String rampDownNotificationMessage) {
-            this.rampDownNotificationMessage = Objects.requireNonNull(rampDownNotificationMessage);
+            if (rampDownNotificationMessage == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownNotificationMessage");
+            }
+            this.rampDownNotificationMessage = rampDownNotificationMessage;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownStartTime(String rampDownStartTime) {
-            this.rampDownStartTime = Objects.requireNonNull(rampDownStartTime);
+            if (rampDownStartTime == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownStartTime");
+            }
+            this.rampDownStartTime = rampDownStartTime;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownStopHostsWhen(String rampDownStopHostsWhen) {
-            this.rampDownStopHostsWhen = Objects.requireNonNull(rampDownStopHostsWhen);
+            if (rampDownStopHostsWhen == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownStopHostsWhen");
+            }
+            this.rampDownStopHostsWhen = rampDownStopHostsWhen;
             return this;
         }
         @CustomType.Setter
         public Builder rampDownWaitTimeMinutes(Integer rampDownWaitTimeMinutes) {
-            this.rampDownWaitTimeMinutes = Objects.requireNonNull(rampDownWaitTimeMinutes);
+            if (rampDownWaitTimeMinutes == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampDownWaitTimeMinutes");
+            }
+            this.rampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder rampUpCapacityThresholdPercent(@Nullable Integer rampUpCapacityThresholdPercent) {
+
             this.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
             return this;
         }
         @CustomType.Setter
         public Builder rampUpLoadBalancingAlgorithm(String rampUpLoadBalancingAlgorithm) {
-            this.rampUpLoadBalancingAlgorithm = Objects.requireNonNull(rampUpLoadBalancingAlgorithm);
+            if (rampUpLoadBalancingAlgorithm == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampUpLoadBalancingAlgorithm");
+            }
+            this.rampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder rampUpMinimumHostsPercent(@Nullable Integer rampUpMinimumHostsPercent) {
+
             this.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
             return this;
         }
         @CustomType.Setter
         public Builder rampUpStartTime(String rampUpStartTime) {
-            this.rampUpStartTime = Objects.requireNonNull(rampUpStartTime);
+            if (rampUpStartTime == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanSchedule", "rampUpStartTime");
+            }
+            this.rampUpStartTime = rampUpStartTime;
             return this;
         }
         public ScalingPlanSchedule build() {

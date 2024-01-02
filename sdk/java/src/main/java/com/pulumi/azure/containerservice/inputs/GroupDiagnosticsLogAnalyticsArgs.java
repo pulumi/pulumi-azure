@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -188,8 +189,12 @@ public final class GroupDiagnosticsLogAnalyticsArgs extends com.pulumi.resources
         }
 
         public GroupDiagnosticsLogAnalyticsArgs build() {
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
-            $.workspaceKey = Objects.requireNonNull($.workspaceKey, "expected parameter 'workspaceKey' to be non-null");
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("GroupDiagnosticsLogAnalyticsArgs", "workspaceId");
+            }
+            if ($.workspaceKey == null) {
+                throw new MissingRequiredPropertyException("GroupDiagnosticsLogAnalyticsArgs", "workspaceKey");
+            }
             return $;
         }
     }

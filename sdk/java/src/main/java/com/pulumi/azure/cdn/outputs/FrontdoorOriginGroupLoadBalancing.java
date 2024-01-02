@@ -72,16 +72,19 @@ public final class FrontdoorOriginGroupLoadBalancing {
 
         @CustomType.Setter
         public Builder additionalLatencyInMilliseconds(@Nullable Integer additionalLatencyInMilliseconds) {
+
             this.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
             return this;
         }
         @CustomType.Setter
         public Builder sampleSize(@Nullable Integer sampleSize) {
+
             this.sampleSize = sampleSize;
             return this;
         }
         @CustomType.Setter
         public Builder successfulSamplesRequired(@Nullable Integer successfulSamplesRequired) {
+
             this.successfulSamplesRequired = successfulSamplesRequired;
             return this;
         }

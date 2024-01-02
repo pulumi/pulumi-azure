@@ -14,6 +14,7 @@ import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotAuthSettingsV2Login;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotAuthSettingsV2MicrosoftV2;
 import com.pulumi.azure.appservice.outputs.LinuxWebAppSlotAuthSettingsV2TwitterV2;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -362,31 +363,37 @@ public final class LinuxWebAppSlotAuthSettingsV2 {
 
         @CustomType.Setter
         public Builder activeDirectoryV2(@Nullable LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2 activeDirectoryV2) {
+
             this.activeDirectoryV2 = activeDirectoryV2;
             return this;
         }
         @CustomType.Setter
         public Builder appleV2(@Nullable LinuxWebAppSlotAuthSettingsV2AppleV2 appleV2) {
+
             this.appleV2 = appleV2;
             return this;
         }
         @CustomType.Setter
         public Builder authEnabled(@Nullable Boolean authEnabled) {
+
             this.authEnabled = authEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder azureStaticWebAppV2(@Nullable LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 azureStaticWebAppV2) {
+
             this.azureStaticWebAppV2 = azureStaticWebAppV2;
             return this;
         }
         @CustomType.Setter
         public Builder configFilePath(@Nullable String configFilePath) {
+
             this.configFilePath = configFilePath;
             return this;
         }
         @CustomType.Setter
         public Builder customOidcV2s(@Nullable List<LinuxWebAppSlotAuthSettingsV2CustomOidcV2> customOidcV2s) {
+
             this.customOidcV2s = customOidcV2s;
             return this;
         }
@@ -395,11 +402,13 @@ public final class LinuxWebAppSlotAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder defaultProvider(@Nullable String defaultProvider) {
+
             this.defaultProvider = defaultProvider;
             return this;
         }
         @CustomType.Setter
         public Builder excludedPaths(@Nullable List<String> excludedPaths) {
+
             this.excludedPaths = excludedPaths;
             return this;
         }
@@ -408,71 +417,87 @@ public final class LinuxWebAppSlotAuthSettingsV2 {
         }
         @CustomType.Setter
         public Builder facebookV2(@Nullable LinuxWebAppSlotAuthSettingsV2FacebookV2 facebookV2) {
+
             this.facebookV2 = facebookV2;
             return this;
         }
         @CustomType.Setter
         public Builder forwardProxyConvention(@Nullable String forwardProxyConvention) {
+
             this.forwardProxyConvention = forwardProxyConvention;
             return this;
         }
         @CustomType.Setter
         public Builder forwardProxyCustomHostHeaderName(@Nullable String forwardProxyCustomHostHeaderName) {
+
             this.forwardProxyCustomHostHeaderName = forwardProxyCustomHostHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder forwardProxyCustomSchemeHeaderName(@Nullable String forwardProxyCustomSchemeHeaderName) {
+
             this.forwardProxyCustomSchemeHeaderName = forwardProxyCustomSchemeHeaderName;
             return this;
         }
         @CustomType.Setter
         public Builder githubV2(@Nullable LinuxWebAppSlotAuthSettingsV2GithubV2 githubV2) {
+
             this.githubV2 = githubV2;
             return this;
         }
         @CustomType.Setter
         public Builder googleV2(@Nullable LinuxWebAppSlotAuthSettingsV2GoogleV2 googleV2) {
+
             this.googleV2 = googleV2;
             return this;
         }
         @CustomType.Setter
         public Builder httpRouteApiPrefix(@Nullable String httpRouteApiPrefix) {
+
             this.httpRouteApiPrefix = httpRouteApiPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder login(LinuxWebAppSlotAuthSettingsV2Login login) {
-            this.login = Objects.requireNonNull(login);
+            if (login == null) {
+              throw new MissingRequiredPropertyException("LinuxWebAppSlotAuthSettingsV2", "login");
+            }
+            this.login = login;
             return this;
         }
         @CustomType.Setter
         public Builder microsoftV2(@Nullable LinuxWebAppSlotAuthSettingsV2MicrosoftV2 microsoftV2) {
+
             this.microsoftV2 = microsoftV2;
             return this;
         }
         @CustomType.Setter
         public Builder requireAuthentication(@Nullable Boolean requireAuthentication) {
+
             this.requireAuthentication = requireAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder requireHttps(@Nullable Boolean requireHttps) {
+
             this.requireHttps = requireHttps;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(@Nullable String runtimeVersion) {
+
             this.runtimeVersion = runtimeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder twitterV2(@Nullable LinuxWebAppSlotAuthSettingsV2TwitterV2 twitterV2) {
+
             this.twitterV2 = twitterV2;
             return this;
         }
         @CustomType.Setter
         public Builder unauthenticatedAction(@Nullable String unauthenticatedAction) {
+
             this.unauthenticatedAction = unauthenticatedAction;
             return this;
         }

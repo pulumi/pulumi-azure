@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -109,42 +110,66 @@ public final class GetTopicResult {
 
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
-            this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
+            if (primaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "primaryAccessKey");
+            }
+            this.primaryAccessKey = primaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
-            this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
+            if (secondaryAccessKey == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "secondaryAccessKey");
+            }
+            this.secondaryAccessKey = secondaryAccessKey;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetTopicResult build() {

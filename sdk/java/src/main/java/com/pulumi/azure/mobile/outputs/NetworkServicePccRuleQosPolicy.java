@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.outputs;
 import com.pulumi.azure.mobile.outputs.NetworkServicePccRuleQosPolicyGuaranteedBitRate;
 import com.pulumi.azure.mobile.outputs.NetworkServicePccRuleQosPolicyMaximumBitRate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -117,32 +118,42 @@ public final class NetworkServicePccRuleQosPolicy {
 
         @CustomType.Setter
         public Builder allocationAndRetentionPriorityLevel(@Nullable Integer allocationAndRetentionPriorityLevel) {
+
             this.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder guaranteedBitRate(@Nullable NetworkServicePccRuleQosPolicyGuaranteedBitRate guaranteedBitRate) {
+
             this.guaranteedBitRate = guaranteedBitRate;
             return this;
         }
         @CustomType.Setter
         public Builder maximumBitRate(NetworkServicePccRuleQosPolicyMaximumBitRate maximumBitRate) {
-            this.maximumBitRate = Objects.requireNonNull(maximumBitRate);
+            if (maximumBitRate == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleQosPolicy", "maximumBitRate");
+            }
+            this.maximumBitRate = maximumBitRate;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionCapability(@Nullable String preemptionCapability) {
+
             this.preemptionCapability = preemptionCapability;
             return this;
         }
         @CustomType.Setter
         public Builder preemptionVulnerability(@Nullable String preemptionVulnerability) {
+
             this.preemptionVulnerability = preemptionVulnerability;
             return this;
         }
         @CustomType.Setter
         public Builder qosIndicator(Integer qosIndicator) {
-            this.qosIndicator = Objects.requireNonNull(qosIndicator);
+            if (qosIndicator == null) {
+              throw new MissingRequiredPropertyException("NetworkServicePccRuleQosPolicy", "qosIndicator");
+            }
+            this.qosIndicator = qosIndicator;
             return this;
         }
         public NetworkServicePccRuleQosPolicy build() {

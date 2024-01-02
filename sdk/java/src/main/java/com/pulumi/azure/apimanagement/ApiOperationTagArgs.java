@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApiOperationTagArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ApiOperationTagArgs build() {
-            $.apiOperationId = Objects.requireNonNull($.apiOperationId, "expected parameter 'apiOperationId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
+            if ($.apiOperationId == null) {
+                throw new MissingRequiredPropertyException("ApiOperationTagArgs", "apiOperationId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("ApiOperationTagArgs", "displayName");
+            }
             return $;
         }
     }

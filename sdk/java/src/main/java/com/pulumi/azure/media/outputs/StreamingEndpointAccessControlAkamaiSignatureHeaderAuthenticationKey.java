@@ -72,16 +72,19 @@ public final class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthentica
 
         @CustomType.Setter
         public Builder base64Key(@Nullable String base64Key) {
+
             this.base64Key = base64Key;
             return this;
         }
         @CustomType.Setter
         public Builder expiration(@Nullable String expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder identifier(@Nullable String identifier) {
+
             this.identifier = identifier;
             return this;
         }

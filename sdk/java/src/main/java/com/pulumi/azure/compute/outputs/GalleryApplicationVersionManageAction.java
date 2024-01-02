@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,16 +73,23 @@ public final class GalleryApplicationVersionManageAction {
 
         @CustomType.Setter
         public Builder install(String install) {
-            this.install = Objects.requireNonNull(install);
+            if (install == null) {
+              throw new MissingRequiredPropertyException("GalleryApplicationVersionManageAction", "install");
+            }
+            this.install = install;
             return this;
         }
         @CustomType.Setter
         public Builder remove(String remove) {
-            this.remove = Objects.requireNonNull(remove);
+            if (remove == null) {
+              throw new MissingRequiredPropertyException("GalleryApplicationVersionManageAction", "remove");
+            }
+            this.remove = remove;
             return this;
         }
         @CustomType.Setter
         public Builder update(@Nullable String update) {
+
             this.update = update;
             return this;
         }

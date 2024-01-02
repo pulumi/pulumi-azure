@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class SpringCloudCertificateArgs extends com.pulumi.resources.Resou
         }
 
         public SpringCloudCertificateArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceName = Objects.requireNonNull($.serviceName, "expected parameter 'serviceName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCertificateArgs", "resourceGroupName");
+            }
+            if ($.serviceName == null) {
+                throw new MissingRequiredPropertyException("SpringCloudCertificateArgs", "serviceName");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicat
 import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -577,7 +578,9 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
 
         public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs", "name");
+            }
             return $;
         }
     }

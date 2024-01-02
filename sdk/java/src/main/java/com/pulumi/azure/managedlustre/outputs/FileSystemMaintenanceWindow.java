@@ -4,6 +4,7 @@
 package com.pulumi.azure.managedlustre.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class FileSystemMaintenanceWindow {
 
         @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
-            this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
+            if (dayOfWeek == null) {
+              throw new MissingRequiredPropertyException("FileSystemMaintenanceWindow", "dayOfWeek");
+            }
+            this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder timeOfDayInUtc(String timeOfDayInUtc) {
-            this.timeOfDayInUtc = Objects.requireNonNull(timeOfDayInUtc);
+            if (timeOfDayInUtc == null) {
+              throw new MissingRequiredPropertyException("FileSystemMaintenanceWindow", "timeOfDayInUtc");
+            }
+            this.timeOfDayInUtc = timeOfDayInUtc;
             return this;
         }
         public FileSystemMaintenanceWindow build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.RegistryTaskSourceTriggerAuthenticationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -311,10 +312,18 @@ public final class RegistryTaskSourceTriggerArgs extends com.pulumi.resources.Re
         }
 
         public RegistryTaskSourceTriggerArgs build() {
-            $.events = Objects.requireNonNull($.events, "expected parameter 'events' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.repositoryUrl = Objects.requireNonNull($.repositoryUrl, "expected parameter 'repositoryUrl' to be non-null");
-            $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");
+            if ($.events == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerArgs", "events");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerArgs", "name");
+            }
+            if ($.repositoryUrl == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerArgs", "repositoryUrl");
+            }
+            if ($.sourceType == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskSourceTriggerArgs", "sourceType");
+            }
             return $;
         }
     }

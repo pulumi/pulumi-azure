@@ -7,6 +7,7 @@ import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSet
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.List;
 import java.util.Objects;
@@ -88,12 +89,18 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
 
         @CustomType.Setter
         public Builder privateMemoryKb(Integer privateMemoryKb) {
-            this.privateMemoryKb = Objects.requireNonNull(privateMemoryKb);
+            if (privateMemoryKb == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingTrigger", "privateMemoryKb");
+            }
+            this.privateMemoryKb = privateMemoryKb;
             return this;
         }
         @CustomType.Setter
         public Builder requests(List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest> requests) {
-            this.requests = Objects.requireNonNull(requests);
+            if (requests == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingTrigger", "requests");
+            }
+            this.requests = requests;
             return this;
         }
         public Builder requests(GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest... requests) {
@@ -101,7 +108,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder slowRequests(List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
-            this.slowRequests = Objects.requireNonNull(slowRequests);
+            if (slowRequests == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingTrigger", "slowRequests");
+            }
+            this.slowRequests = slowRequests;
             return this;
         }
         public Builder slowRequests(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
@@ -109,7 +119,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder statusCodes(List<GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-            this.statusCodes = Objects.requireNonNull(statusCodes);
+            if (statusCodes == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigAutoHealSettingTrigger", "statusCodes");
+            }
+            this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {

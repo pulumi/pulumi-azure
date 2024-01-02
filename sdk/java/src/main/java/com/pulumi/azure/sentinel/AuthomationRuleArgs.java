@@ -8,6 +8,7 @@ import com.pulumi.azure.sentinel.inputs.AuthomationRuleActionPlaybookArgs;
 import com.pulumi.azure.sentinel.inputs.AuthomationRuleConditionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -559,9 +560,15 @@ public final class AuthomationRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AuthomationRuleArgs build() {
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleArgs", "displayName");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleArgs", "logAnalyticsWorkspaceId");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("AuthomationRuleArgs", "order");
+            }
             return $;
         }
     }

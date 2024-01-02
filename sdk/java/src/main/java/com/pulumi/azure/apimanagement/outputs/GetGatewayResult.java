@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.GetGatewayLocationData;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -92,22 +93,34 @@ public final class GetGatewayResult {
 
         @CustomType.Setter
         public Builder apiManagementId(String apiManagementId) {
-            this.apiManagementId = Objects.requireNonNull(apiManagementId);
+            if (apiManagementId == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "apiManagementId");
+            }
+            this.apiManagementId = apiManagementId;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locationDatas(List<GetGatewayLocationData> locationDatas) {
-            this.locationDatas = Objects.requireNonNull(locationDatas);
+            if (locationDatas == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "locationDatas");
+            }
+            this.locationDatas = locationDatas;
             return this;
         }
         public Builder locationDatas(GetGatewayLocationData... locationDatas) {
@@ -115,7 +128,10 @@ public final class GetGatewayResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetGatewayResult build() {

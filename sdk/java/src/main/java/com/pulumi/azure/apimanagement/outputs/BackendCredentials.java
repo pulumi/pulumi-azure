@@ -89,11 +89,13 @@ public final class BackendCredentials {
 
         @CustomType.Setter
         public Builder authorization(@Nullable BackendCredentialsAuthorization authorization) {
+
             this.authorization = authorization;
             return this;
         }
         @CustomType.Setter
         public Builder certificates(@Nullable List<String> certificates) {
+
             this.certificates = certificates;
             return this;
         }
@@ -102,11 +104,13 @@ public final class BackendCredentials {
         }
         @CustomType.Setter
         public Builder header(@Nullable Map<String,String> header) {
+
             this.header = header;
             return this;
         }
         @CustomType.Setter
         public Builder query(@Nullable Map<String,String> query) {
+
             this.query = query;
             return this;
         }

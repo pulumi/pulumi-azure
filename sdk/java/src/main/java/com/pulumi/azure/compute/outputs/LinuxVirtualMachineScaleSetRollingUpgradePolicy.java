@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -116,31 +117,45 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
 
         @CustomType.Setter
         public Builder crossZoneUpgradesEnabled(@Nullable Boolean crossZoneUpgradesEnabled) {
+
             this.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder maxBatchInstancePercent(Integer maxBatchInstancePercent) {
-            this.maxBatchInstancePercent = Objects.requireNonNull(maxBatchInstancePercent);
+            if (maxBatchInstancePercent == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicy", "maxBatchInstancePercent");
+            }
+            this.maxBatchInstancePercent = maxBatchInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnhealthyInstancePercent(Integer maxUnhealthyInstancePercent) {
-            this.maxUnhealthyInstancePercent = Objects.requireNonNull(maxUnhealthyInstancePercent);
+            if (maxUnhealthyInstancePercent == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicy", "maxUnhealthyInstancePercent");
+            }
+            this.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnhealthyUpgradedInstancePercent(Integer maxUnhealthyUpgradedInstancePercent) {
-            this.maxUnhealthyUpgradedInstancePercent = Objects.requireNonNull(maxUnhealthyUpgradedInstancePercent);
+            if (maxUnhealthyUpgradedInstancePercent == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicy", "maxUnhealthyUpgradedInstancePercent");
+            }
+            this.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder pauseTimeBetweenBatches(String pauseTimeBetweenBatches) {
-            this.pauseTimeBetweenBatches = Objects.requireNonNull(pauseTimeBetweenBatches);
+            if (pauseTimeBetweenBatches == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetRollingUpgradePolicy", "pauseTimeBetweenBatches");
+            }
+            this.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
             return this;
         }
         @CustomType.Setter
         public Builder prioritizeUnhealthyInstancesEnabled(@Nullable Boolean prioritizeUnhealthyInstancesEnabled) {
+
             this.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
             return this;
         }

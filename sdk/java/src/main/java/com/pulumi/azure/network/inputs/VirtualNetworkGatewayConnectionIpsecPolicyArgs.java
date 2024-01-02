@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -344,12 +345,24 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicyArgs extends com.pu
         }
 
         public VirtualNetworkGatewayConnectionIpsecPolicyArgs build() {
-            $.dhGroup = Objects.requireNonNull($.dhGroup, "expected parameter 'dhGroup' to be non-null");
-            $.ikeEncryption = Objects.requireNonNull($.ikeEncryption, "expected parameter 'ikeEncryption' to be non-null");
-            $.ikeIntegrity = Objects.requireNonNull($.ikeIntegrity, "expected parameter 'ikeIntegrity' to be non-null");
-            $.ipsecEncryption = Objects.requireNonNull($.ipsecEncryption, "expected parameter 'ipsecEncryption' to be non-null");
-            $.ipsecIntegrity = Objects.requireNonNull($.ipsecIntegrity, "expected parameter 'ipsecIntegrity' to be non-null");
-            $.pfsGroup = Objects.requireNonNull($.pfsGroup, "expected parameter 'pfsGroup' to be non-null");
+            if ($.dhGroup == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "dhGroup");
+            }
+            if ($.ikeEncryption == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "ikeEncryption");
+            }
+            if ($.ikeIntegrity == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "ikeIntegrity");
+            }
+            if ($.ipsecEncryption == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "ipsecEncryption");
+            }
+            if ($.ipsecIntegrity == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "ipsecIntegrity");
+            }
+            if ($.pfsGroup == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionIpsecPolicyArgs", "pfsGroup");
+            }
             return $;
         }
     }

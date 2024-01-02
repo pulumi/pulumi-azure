@@ -6,6 +6,7 @@ package com.pulumi.azure.privatedns;
 import com.pulumi.azure.privatedns.inputs.ResolverForwardingRuleTargetDnsServerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -275,9 +276,15 @@ public final class ResolverForwardingRuleArgs extends com.pulumi.resources.Resou
         }
 
         public ResolverForwardingRuleArgs build() {
-            $.dnsForwardingRulesetId = Objects.requireNonNull($.dnsForwardingRulesetId, "expected parameter 'dnsForwardingRulesetId' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.targetDnsServers = Objects.requireNonNull($.targetDnsServers, "expected parameter 'targetDnsServers' to be non-null");
+            if ($.dnsForwardingRulesetId == null) {
+                throw new MissingRequiredPropertyException("ResolverForwardingRuleArgs", "dnsForwardingRulesetId");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ResolverForwardingRuleArgs", "domainName");
+            }
+            if ($.targetDnsServers == null) {
+                throw new MissingRequiredPropertyException("ResolverForwardingRuleArgs", "targetDnsServers");
+            }
             return $;
         }
     }

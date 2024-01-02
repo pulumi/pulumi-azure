@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -221,67 +222,84 @@ public final class IoTHubEndpoint {
 
         @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
+
             this.authenticationType = authenticationType;
             return this;
         }
         @CustomType.Setter
         public Builder batchFrequencyInSeconds(@Nullable Integer batchFrequencyInSeconds) {
+
             this.batchFrequencyInSeconds = batchFrequencyInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
+
             this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder containerName(@Nullable String containerName) {
+
             this.containerName = containerName;
             return this;
         }
         @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
+
             this.encoding = encoding;
             return this;
         }
         @CustomType.Setter
         public Builder endpointUri(@Nullable String endpointUri) {
+
             this.endpointUri = endpointUri;
             return this;
         }
         @CustomType.Setter
         public Builder entityPath(@Nullable String entityPath) {
+
             this.entityPath = entityPath;
             return this;
         }
         @CustomType.Setter
         public Builder fileNameFormat(@Nullable String fileNameFormat) {
+
             this.fileNameFormat = fileNameFormat;
             return this;
         }
         @CustomType.Setter
         public Builder identityId(@Nullable String identityId) {
+
             this.identityId = identityId;
             return this;
         }
         @CustomType.Setter
         public Builder maxChunkSizeInBytes(@Nullable Integer maxChunkSizeInBytes) {
+
             this.maxChunkSizeInBytes = maxChunkSizeInBytes;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IoTHubEndpoint", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("IoTHubEndpoint", "type");
+            }
+            this.type = type;
             return this;
         }
         public IoTHubEndpoint build() {

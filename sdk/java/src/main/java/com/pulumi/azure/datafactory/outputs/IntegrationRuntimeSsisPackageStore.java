@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class IntegrationRuntimeSsisPackageStore {
 
         @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
-            this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
+            if (linkedServiceName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisPackageStore", "linkedServiceName");
+            }
+            this.linkedServiceName = linkedServiceName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisPackageStore", "name");
+            }
+            this.name = name;
             return this;
         }
         public IntegrationRuntimeSsisPackageStore build() {

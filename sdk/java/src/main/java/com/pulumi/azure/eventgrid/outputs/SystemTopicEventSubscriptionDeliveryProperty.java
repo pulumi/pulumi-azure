@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,35 @@ public final class SystemTopicEventSubscriptionDeliveryProperty {
 
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionDeliveryProperty", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         @CustomType.Setter
         public Builder secret(@Nullable Boolean secret) {
+
             this.secret = secret;
             return this;
         }
         @CustomType.Setter
         public Builder sourceField(@Nullable String sourceField) {
+
             this.sourceField = sourceField;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionDeliveryProperty", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

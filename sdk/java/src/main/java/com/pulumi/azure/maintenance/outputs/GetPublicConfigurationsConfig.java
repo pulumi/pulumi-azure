@@ -4,6 +4,7 @@
 package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -140,42 +141,66 @@ public final class GetPublicConfigurationsConfig {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder duration(String duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder maintenanceScope(String maintenanceScope) {
-            this.maintenanceScope = Objects.requireNonNull(maintenanceScope);
+            if (maintenanceScope == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "maintenanceScope");
+            }
+            this.maintenanceScope = maintenanceScope;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder recurEvery(String recurEvery) {
-            this.recurEvery = Objects.requireNonNull(recurEvery);
+            if (recurEvery == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "recurEvery");
+            }
+            this.recurEvery = recurEvery;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsConfig", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public GetPublicConfigurationsConfig build() {

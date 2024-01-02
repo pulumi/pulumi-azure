@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetSpringCloudServiceConfigServerGitSettingSshAuth {
 
         @CustomType.Setter
         public Builder hostKey(String hostKey) {
-            this.hostKey = Objects.requireNonNull(hostKey);
+            if (hostKey == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSettingSshAuth", "hostKey");
+            }
+            this.hostKey = hostKey;
             return this;
         }
         @CustomType.Setter
         public Builder hostKeyAlgorithm(String hostKeyAlgorithm) {
-            this.hostKeyAlgorithm = Objects.requireNonNull(hostKeyAlgorithm);
+            if (hostKeyAlgorithm == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSettingSshAuth", "hostKeyAlgorithm");
+            }
+            this.hostKeyAlgorithm = hostKeyAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder privateKey(String privateKey) {
-            this.privateKey = Objects.requireNonNull(privateKey);
+            if (privateKey == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSettingSshAuth", "privateKey");
+            }
+            this.privateKey = privateKey;
             return this;
         }
         @CustomType.Setter
         public Builder strictHostKeyCheckingEnabled(Boolean strictHostKeyCheckingEnabled) {
-            this.strictHostKeyCheckingEnabled = Objects.requireNonNull(strictHostKeyCheckingEnabled);
+            if (strictHostKeyCheckingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSpringCloudServiceConfigServerGitSettingSshAuth", "strictHostKeyCheckingEnabled");
+            }
+            this.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
             return this;
         }
         public GetSpringCloudServiceConfigServerGitSettingSshAuth build() {

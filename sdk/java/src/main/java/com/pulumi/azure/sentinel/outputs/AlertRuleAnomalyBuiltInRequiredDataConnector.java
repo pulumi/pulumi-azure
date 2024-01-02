@@ -59,11 +59,13 @@ public final class AlertRuleAnomalyBuiltInRequiredDataConnector {
 
         @CustomType.Setter
         public Builder connectorId(@Nullable String connectorId) {
+
             this.connectorId = connectorId;
             return this;
         }
         @CustomType.Setter
         public Builder dataTypes(@Nullable List<String> dataTypes) {
+
             this.dataTypes = dataTypes;
             return this;
         }

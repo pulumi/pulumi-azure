@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -125,7 +126,9 @@ public final class KubernetesClusterWebAppRoutingArgs extends com.pulumi.resourc
         }
 
         public KubernetesClusterWebAppRoutingArgs build() {
-            $.dnsZoneId = Objects.requireNonNull($.dnsZoneId, "expected parameter 'dnsZoneId' to be non-null");
+            if ($.dnsZoneId == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterWebAppRoutingArgs", "dnsZoneId");
+            }
             return $;
         }
     }

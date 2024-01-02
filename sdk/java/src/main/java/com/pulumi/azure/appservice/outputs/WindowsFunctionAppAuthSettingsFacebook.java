@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class WindowsFunctionAppAuthSettingsFacebook {
 
         @CustomType.Setter
         public Builder appId(String appId) {
-            this.appId = Objects.requireNonNull(appId);
+            if (appId == null) {
+              throw new MissingRequiredPropertyException("WindowsFunctionAppAuthSettingsFacebook", "appId");
+            }
+            this.appId = appId;
             return this;
         }
         @CustomType.Setter
         public Builder appSecret(@Nullable String appSecret) {
+
             this.appSecret = appSecret;
             return this;
         }
         @CustomType.Setter
         public Builder appSecretSettingName(@Nullable String appSecretSettingName) {
+
             this.appSecretSettingName = appSecretSettingName;
             return this;
         }
         @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
+
             this.oauthScopes = oauthScopes;
             return this;
         }

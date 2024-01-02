@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetImagesImageDataDisk;
 import com.pulumi.azure.compute.outputs.GetImagesImageOsDisk;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -117,7 +118,10 @@ public final class GetImagesImage {
 
         @CustomType.Setter
         public Builder dataDisks(List<GetImagesImageDataDisk> dataDisks) {
-            this.dataDisks = Objects.requireNonNull(dataDisks);
+            if (dataDisks == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "dataDisks");
+            }
+            this.dataDisks = dataDisks;
             return this;
         }
         public Builder dataDisks(GetImagesImageDataDisk... dataDisks) {
@@ -125,17 +129,26 @@ public final class GetImagesImage {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder osDisks(List<GetImagesImageOsDisk> osDisks) {
-            this.osDisks = Objects.requireNonNull(osDisks);
+            if (osDisks == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "osDisks");
+            }
+            this.osDisks = osDisks;
             return this;
         }
         public Builder osDisks(GetImagesImageOsDisk... osDisks) {
@@ -143,12 +156,18 @@ public final class GetImagesImage {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneResilient(Boolean zoneResilient) {
-            this.zoneResilient = Objects.requireNonNull(zoneResilient);
+            if (zoneResilient == null) {
+              throw new MissingRequiredPropertyException("GetImagesImage", "zoneResilient");
+            }
+            this.zoneResilient = zoneResilient;
             return this;
         }
         public GetImagesImage build() {

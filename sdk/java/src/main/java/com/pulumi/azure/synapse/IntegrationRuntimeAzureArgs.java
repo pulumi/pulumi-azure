@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -299,7 +300,9 @@ public final class IntegrationRuntimeAzureArgs extends com.pulumi.resources.Reso
         }
 
         public IntegrationRuntimeAzureArgs build() {
-            $.synapseWorkspaceId = Objects.requireNonNull($.synapseWorkspaceId, "expected parameter 'synapseWorkspaceId' to be non-null");
+            if ($.synapseWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeAzureArgs", "synapseWorkspaceId");
+            }
             return $;
         }
     }

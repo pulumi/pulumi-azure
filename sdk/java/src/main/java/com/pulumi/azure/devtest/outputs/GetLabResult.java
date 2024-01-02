@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -181,62 +182,98 @@ public final class GetLabResult {
 
         @CustomType.Setter
         public Builder artifactsStorageAccountId(String artifactsStorageAccountId) {
-            this.artifactsStorageAccountId = Objects.requireNonNull(artifactsStorageAccountId);
+            if (artifactsStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "artifactsStorageAccountId");
+            }
+            this.artifactsStorageAccountId = artifactsStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPremiumStorageAccountId(String defaultPremiumStorageAccountId) {
-            this.defaultPremiumStorageAccountId = Objects.requireNonNull(defaultPremiumStorageAccountId);
+            if (defaultPremiumStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "defaultPremiumStorageAccountId");
+            }
+            this.defaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultStorageAccountId(String defaultStorageAccountId) {
-            this.defaultStorageAccountId = Objects.requireNonNull(defaultStorageAccountId);
+            if (defaultStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "defaultStorageAccountId");
+            }
+            this.defaultStorageAccountId = defaultStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder premiumDataDiskStorageAccountId(String premiumDataDiskStorageAccountId) {
-            this.premiumDataDiskStorageAccountId = Objects.requireNonNull(premiumDataDiskStorageAccountId);
+            if (premiumDataDiskStorageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "premiumDataDiskStorageAccountId");
+            }
+            this.premiumDataDiskStorageAccountId = premiumDataDiskStorageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
-            this.storageType = Objects.requireNonNull(storageType);
+            if (storageType == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "storageType");
+            }
+            this.storageType = storageType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder uniqueIdentifier(String uniqueIdentifier) {
-            this.uniqueIdentifier = Objects.requireNonNull(uniqueIdentifier);
+            if (uniqueIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetLabResult", "uniqueIdentifier");
+            }
+            this.uniqueIdentifier = uniqueIdentifier;
             return this;
         }
         public GetLabResult build() {

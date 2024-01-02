@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfileGmsa;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,21 +88,27 @@ public final class KubernetesClusterWindowsProfile {
 
         @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
+
             this.adminPassword = adminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterWindowsProfile", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder gmsa(@Nullable KubernetesClusterWindowsProfileGmsa gmsa) {
+
             this.gmsa = gmsa;
             return this;
         }
         @CustomType.Setter
         public Builder license(@Nullable String license) {
+
             this.license = license;
             return this;
         }

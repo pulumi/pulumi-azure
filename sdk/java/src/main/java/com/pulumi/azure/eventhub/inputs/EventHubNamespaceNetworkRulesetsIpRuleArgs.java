@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class EventHubNamespaceNetworkRulesetsIpRuleArgs extends com.pulumi
         }
 
         public EventHubNamespaceNetworkRulesetsIpRuleArgs build() {
-            $.ipMask = Objects.requireNonNull($.ipMask, "expected parameter 'ipMask' to be non-null");
+            if ($.ipMask == null) {
+                throw new MissingRequiredPropertyException("EventHubNamespaceNetworkRulesetsIpRuleArgs", "ipMask");
+            }
             return $;
         }
     }

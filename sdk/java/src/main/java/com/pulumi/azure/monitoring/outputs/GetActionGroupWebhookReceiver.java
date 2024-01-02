@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.GetActionGroupWebhookReceiverAadAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -79,7 +80,10 @@ public final class GetActionGroupWebhookReceiver {
 
         @CustomType.Setter
         public Builder aadAuths(List<GetActionGroupWebhookReceiverAadAuth> aadAuths) {
-            this.aadAuths = Objects.requireNonNull(aadAuths);
+            if (aadAuths == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupWebhookReceiver", "aadAuths");
+            }
+            this.aadAuths = aadAuths;
             return this;
         }
         public Builder aadAuths(GetActionGroupWebhookReceiverAadAuth... aadAuths) {
@@ -87,17 +91,26 @@ public final class GetActionGroupWebhookReceiver {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupWebhookReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
-            this.serviceUri = Objects.requireNonNull(serviceUri);
+            if (serviceUri == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupWebhookReceiver", "serviceUri");
+            }
+            this.serviceUri = serviceUri;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
-            this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
+            if (useCommonAlertSchema == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupWebhookReceiver", "useCommonAlertSchema");
+            }
+            this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }
         public GetActionGroupWebhookReceiver build() {

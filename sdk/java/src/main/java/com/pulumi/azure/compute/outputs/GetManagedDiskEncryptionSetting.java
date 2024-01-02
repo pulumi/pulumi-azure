@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.outputs;
 import com.pulumi.azure.compute.outputs.GetManagedDiskEncryptionSettingDiskEncryptionKey;
 import com.pulumi.azure.compute.outputs.GetManagedDiskEncryptionSettingKeyEncryptionKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,10 @@ public final class GetManagedDiskEncryptionSetting {
 
         @CustomType.Setter
         public Builder diskEncryptionKeys(List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys) {
-            this.diskEncryptionKeys = Objects.requireNonNull(diskEncryptionKeys);
+            if (diskEncryptionKeys == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskEncryptionSetting", "diskEncryptionKeys");
+            }
+            this.diskEncryptionKeys = diskEncryptionKeys;
             return this;
         }
         public Builder diskEncryptionKeys(GetManagedDiskEncryptionSettingDiskEncryptionKey... diskEncryptionKeys) {
@@ -73,12 +77,18 @@ public final class GetManagedDiskEncryptionSetting {
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskEncryptionSetting", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyEncryptionKeys(List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
-            this.keyEncryptionKeys = Objects.requireNonNull(keyEncryptionKeys);
+            if (keyEncryptionKeys == null) {
+              throw new MissingRequiredPropertyException("GetManagedDiskEncryptionSetting", "keyEncryptionKeys");
+            }
+            this.keyEncryptionKeys = keyEncryptionKeys;
             return this;
         }
         public Builder keyEncryptionKeys(GetManagedDiskEncryptionSettingKeyEncryptionKey... keyEncryptionKeys) {

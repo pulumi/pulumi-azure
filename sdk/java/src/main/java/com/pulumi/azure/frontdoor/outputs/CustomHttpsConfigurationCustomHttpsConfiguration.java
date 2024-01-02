@@ -120,36 +120,43 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
 
         @CustomType.Setter
         public Builder azureKeyVaultCertificateSecretName(@Nullable String azureKeyVaultCertificateSecretName) {
+
             this.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
             return this;
         }
         @CustomType.Setter
         public Builder azureKeyVaultCertificateSecretVersion(@Nullable String azureKeyVaultCertificateSecretVersion) {
+
             this.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
             return this;
         }
         @CustomType.Setter
         public Builder azureKeyVaultCertificateVaultId(@Nullable String azureKeyVaultCertificateVaultId) {
+
             this.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder certificateSource(@Nullable String certificateSource) {
+
             this.certificateSource = certificateSource;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
+
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningState(@Nullable String provisioningState) {
+
             this.provisioningState = provisioningState;
             return this;
         }
         @CustomType.Setter
         public Builder provisioningSubstate(@Nullable String provisioningSubstate) {
+
             this.provisioningSubstate = provisioningSubstate;
             return this;
         }

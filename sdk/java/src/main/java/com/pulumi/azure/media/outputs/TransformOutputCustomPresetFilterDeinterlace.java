@@ -58,11 +58,13 @@ public final class TransformOutputCustomPresetFilterDeinterlace {
 
         @CustomType.Setter
         public Builder mode(@Nullable String mode) {
+
             this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder parity(@Nullable String parity) {
+
             this.parity = parity;
             return this;
         }

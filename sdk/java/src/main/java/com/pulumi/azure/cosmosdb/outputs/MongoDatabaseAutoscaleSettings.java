@@ -44,6 +44,7 @@ public final class MongoDatabaseAutoscaleSettings {
 
         @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
+
             this.maxThroughput = maxThroughput;
             return this;
         }

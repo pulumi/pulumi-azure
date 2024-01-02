@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterExtensionPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -411,8 +412,12 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
         }
 
         public KubernetesClusterExtensionArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.extensionType = Objects.requireNonNull($.extensionType, "expected parameter 'extensionType' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterExtensionArgs", "clusterId");
+            }
+            if ($.extensionType == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterExtensionArgs", "extensionType");
+            }
             return $;
         }
     }

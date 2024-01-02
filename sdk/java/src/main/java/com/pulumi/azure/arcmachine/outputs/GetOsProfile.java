@@ -6,6 +6,7 @@ package com.pulumi.azure.arcmachine.outputs;
 import com.pulumi.azure.arcmachine.outputs.GetOsProfileLinux;
 import com.pulumi.azure.arcmachine.outputs.GetOsProfileWindow;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,12 +74,18 @@ public final class GetOsProfile {
 
         @CustomType.Setter
         public Builder computerName(String computerName) {
-            this.computerName = Objects.requireNonNull(computerName);
+            if (computerName == null) {
+              throw new MissingRequiredPropertyException("GetOsProfile", "computerName");
+            }
+            this.computerName = computerName;
             return this;
         }
         @CustomType.Setter
         public Builder linuxes(List<GetOsProfileLinux> linuxes) {
-            this.linuxes = Objects.requireNonNull(linuxes);
+            if (linuxes == null) {
+              throw new MissingRequiredPropertyException("GetOsProfile", "linuxes");
+            }
+            this.linuxes = linuxes;
             return this;
         }
         public Builder linuxes(GetOsProfileLinux... linuxes) {
@@ -86,7 +93,10 @@ public final class GetOsProfile {
         }
         @CustomType.Setter
         public Builder windows(List<GetOsProfileWindow> windows) {
-            this.windows = Objects.requireNonNull(windows);
+            if (windows == null) {
+              throw new MissingRequiredPropertyException("GetOsProfile", "windows");
+            }
+            this.windows = windows;
             return this;
         }
         public Builder windows(GetOsProfileWindow... windows) {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -86,12 +87,18 @@ public final class GetFirewallVirtualHub {
 
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetFirewallVirtualHub", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
-            this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
+            if (publicIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetFirewallVirtualHub", "publicIpAddresses");
+            }
+            this.publicIpAddresses = publicIpAddresses;
             return this;
         }
         public Builder publicIpAddresses(String... publicIpAddresses) {
@@ -99,12 +106,18 @@ public final class GetFirewallVirtualHub {
         }
         @CustomType.Setter
         public Builder publicIpCount(Integer publicIpCount) {
-            this.publicIpCount = Objects.requireNonNull(publicIpCount);
+            if (publicIpCount == null) {
+              throw new MissingRequiredPropertyException("GetFirewallVirtualHub", "publicIpCount");
+            }
+            this.publicIpCount = publicIpCount;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("GetFirewallVirtualHub", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         public GetFirewallVirtualHub build() {

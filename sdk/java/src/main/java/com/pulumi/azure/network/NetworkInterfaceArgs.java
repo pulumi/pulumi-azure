@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -549,8 +550,12 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.ResourceArg
         }
 
         public NetworkInterfaceArgs build() {
-            $.ipConfigurations = Objects.requireNonNull($.ipConfigurations, "expected parameter 'ipConfigurations' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.ipConfigurations == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceArgs", "ipConfigurations");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

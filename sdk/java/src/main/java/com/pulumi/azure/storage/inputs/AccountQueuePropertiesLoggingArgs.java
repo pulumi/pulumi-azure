@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,10 +227,18 @@ public final class AccountQueuePropertiesLoggingArgs extends com.pulumi.resource
         }
 
         public AccountQueuePropertiesLoggingArgs build() {
-            $.delete = Objects.requireNonNull($.delete, "expected parameter 'delete' to be non-null");
-            $.read = Objects.requireNonNull($.read, "expected parameter 'read' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
-            $.write = Objects.requireNonNull($.write, "expected parameter 'write' to be non-null");
+            if ($.delete == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesLoggingArgs", "delete");
+            }
+            if ($.read == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesLoggingArgs", "read");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesLoggingArgs", "version");
+            }
+            if ($.write == null) {
+                throw new MissingRequiredPropertyException("AccountQueuePropertiesLoggingArgs", "write");
+            }
             return $;
         }
     }

@@ -10,6 +10,7 @@ import com.pulumi.azure.containerapp.inputs.AppTemplateContainerStartupProbeArgs
 import com.pulumi.azure.containerapp.inputs.AppTemplateContainerVolumeMountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -584,10 +585,18 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         public AppTemplateContainerArgs build() {
-            $.cpu = Objects.requireNonNull($.cpu, "expected parameter 'cpu' to be non-null");
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
-            $.memory = Objects.requireNonNull($.memory, "expected parameter 'memory' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.cpu == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerArgs", "cpu");
+            }
+            if ($.image == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerArgs", "image");
+            }
+            if ($.memory == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerArgs", "memory");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("AppTemplateContainerArgs", "name");
+            }
             return $;
         }
     }

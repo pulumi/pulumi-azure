@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -406,9 +407,15 @@ public final class VirtualMachineStorageDataDiskArgs extends com.pulumi.resource
         }
 
         public VirtualMachineStorageDataDiskArgs build() {
-            $.createOption = Objects.requireNonNull($.createOption, "expected parameter 'createOption' to be non-null");
-            $.lun = Objects.requireNonNull($.lun, "expected parameter 'lun' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.createOption == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageDataDiskArgs", "createOption");
+            }
+            if ($.lun == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageDataDiskArgs", "lun");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineStorageDataDiskArgs", "name");
+            }
             return $;
         }
     }

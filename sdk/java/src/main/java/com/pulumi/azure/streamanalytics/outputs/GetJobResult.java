@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics.outputs;
 
 import com.pulumi.azure.streamanalytics.outputs.GetJobIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -253,37 +254,58 @@ public final class GetJobResult {
 
         @CustomType.Setter
         public Builder compatibilityLevel(String compatibilityLevel) {
-            this.compatibilityLevel = Objects.requireNonNull(compatibilityLevel);
+            if (compatibilityLevel == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "compatibilityLevel");
+            }
+            this.compatibilityLevel = compatibilityLevel;
             return this;
         }
         @CustomType.Setter
         public Builder dataLocale(String dataLocale) {
-            this.dataLocale = Objects.requireNonNull(dataLocale);
+            if (dataLocale == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "dataLocale");
+            }
+            this.dataLocale = dataLocale;
             return this;
         }
         @CustomType.Setter
         public Builder eventsLateArrivalMaxDelayInSeconds(Integer eventsLateArrivalMaxDelayInSeconds) {
-            this.eventsLateArrivalMaxDelayInSeconds = Objects.requireNonNull(eventsLateArrivalMaxDelayInSeconds);
+            if (eventsLateArrivalMaxDelayInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "eventsLateArrivalMaxDelayInSeconds");
+            }
+            this.eventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder eventsOutOfOrderMaxDelayInSeconds(Integer eventsOutOfOrderMaxDelayInSeconds) {
-            this.eventsOutOfOrderMaxDelayInSeconds = Objects.requireNonNull(eventsOutOfOrderMaxDelayInSeconds);
+            if (eventsOutOfOrderMaxDelayInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "eventsOutOfOrderMaxDelayInSeconds");
+            }
+            this.eventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder eventsOutOfOrderPolicy(String eventsOutOfOrderPolicy) {
-            this.eventsOutOfOrderPolicy = Objects.requireNonNull(eventsOutOfOrderPolicy);
+            if (eventsOutOfOrderPolicy == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "eventsOutOfOrderPolicy");
+            }
+            this.eventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetJobIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetJobIdentity... identities) {
@@ -291,52 +313,82 @@ public final class GetJobResult {
         }
         @CustomType.Setter
         public Builder jobId(String jobId) {
-            this.jobId = Objects.requireNonNull(jobId);
+            if (jobId == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "jobId");
+            }
+            this.jobId = jobId;
             return this;
         }
         @CustomType.Setter
         public Builder lastOutputTime(String lastOutputTime) {
-            this.lastOutputTime = Objects.requireNonNull(lastOutputTime);
+            if (lastOutputTime == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "lastOutputTime");
+            }
+            this.lastOutputTime = lastOutputTime;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outputErrorPolicy(String outputErrorPolicy) {
-            this.outputErrorPolicy = Objects.requireNonNull(outputErrorPolicy);
+            if (outputErrorPolicy == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "outputErrorPolicy");
+            }
+            this.outputErrorPolicy = outputErrorPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder startMode(String startMode) {
-            this.startMode = Objects.requireNonNull(startMode);
+            if (startMode == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "startMode");
+            }
+            this.startMode = startMode;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(String startTime) {
-            this.startTime = Objects.requireNonNull(startTime);
+            if (startTime == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "startTime");
+            }
+            this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder streamingUnits(Integer streamingUnits) {
-            this.streamingUnits = Objects.requireNonNull(streamingUnits);
+            if (streamingUnits == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "streamingUnits");
+            }
+            this.streamingUnits = streamingUnits;
             return this;
         }
         @CustomType.Setter
         public Builder transformationQuery(String transformationQuery) {
-            this.transformationQuery = Objects.requireNonNull(transformationQuery);
+            if (transformationQuery == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "transformationQuery");
+            }
+            this.transformationQuery = transformationQuery;
             return this;
         }
         public GetJobResult build() {

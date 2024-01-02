@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -155,47 +156,74 @@ public final class GetSubscriptionsSubscription {
 
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder locationPlacementId(String locationPlacementId) {
-            this.locationPlacementId = Objects.requireNonNull(locationPlacementId);
+            if (locationPlacementId == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "locationPlacementId");
+            }
+            this.locationPlacementId = locationPlacementId;
             return this;
         }
         @CustomType.Setter
         public Builder quotaId(String quotaId) {
-            this.quotaId = Objects.requireNonNull(quotaId);
+            if (quotaId == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "quotaId");
+            }
+            this.quotaId = quotaId;
             return this;
         }
         @CustomType.Setter
         public Builder spendingLimit(String spendingLimit) {
-            this.spendingLimit = Objects.requireNonNull(spendingLimit);
+            if (spendingLimit == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "spendingLimit");
+            }
+            this.spendingLimit = spendingLimit;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = Objects.requireNonNull(subscriptionId);
+            if (subscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "subscriptionId");
+            }
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionsSubscription", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetSubscriptionsSubscription build() {

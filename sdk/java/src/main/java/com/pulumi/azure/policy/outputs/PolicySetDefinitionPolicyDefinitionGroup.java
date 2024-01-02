@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,34 @@ public final class PolicySetDefinitionPolicyDefinitionGroup {
 
         @CustomType.Setter
         public Builder additionalMetadataResourceId(@Nullable String additionalMetadataResourceId) {
+
             this.additionalMetadataResourceId = additionalMetadataResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder category(@Nullable String category) {
+
             this.category = category;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
+
             this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PolicySetDefinitionPolicyDefinitionGroup", "name");
+            }
+            this.name = name;
             return this;
         }
         public PolicySetDefinitionPolicyDefinitionGroup build() {

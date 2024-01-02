@@ -4,6 +4,7 @@
 package com.pulumi.azure.kusto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Objects;
@@ -117,42 +118,66 @@ public final class GetDatabaseResult {
 
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder hotCachePeriod(String hotCachePeriod) {
-            this.hotCachePeriod = Objects.requireNonNull(hotCachePeriod);
+            if (hotCachePeriod == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "hotCachePeriod");
+            }
+            this.hotCachePeriod = hotCachePeriod;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder size(Double size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder softDeletePeriod(String softDeletePeriod) {
-            this.softDeletePeriod = Objects.requireNonNull(softDeletePeriod);
+            if (softDeletePeriod == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "softDeletePeriod");
+            }
+            this.softDeletePeriod = softDeletePeriod;
             return this;
         }
         public GetDatabaseResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class DatasetBinaryHttpServerLocationArgs extends com.pulumi.resour
         }
 
         public DatasetBinaryHttpServerLocationArgs build() {
-            $.filename = Objects.requireNonNull($.filename, "expected parameter 'filename' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.relativeUrl = Objects.requireNonNull($.relativeUrl, "expected parameter 'relativeUrl' to be non-null");
+            if ($.filename == null) {
+                throw new MissingRequiredPropertyException("DatasetBinaryHttpServerLocationArgs", "filename");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("DatasetBinaryHttpServerLocationArgs", "path");
+            }
+            if ($.relativeUrl == null) {
+                throw new MissingRequiredPropertyException("DatasetBinaryHttpServerLocationArgs", "relativeUrl");
+            }
             return $;
         }
     }

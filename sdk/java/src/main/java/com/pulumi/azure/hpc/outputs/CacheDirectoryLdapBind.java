@@ -4,6 +4,7 @@
 package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class CacheDirectoryLdapBind {
 
         @CustomType.Setter
         public Builder dn(String dn) {
-            this.dn = Objects.requireNonNull(dn);
+            if (dn == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryLdapBind", "dn");
+            }
+            this.dn = dn;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("CacheDirectoryLdapBind", "password");
+            }
+            this.password = password;
             return this;
         }
         public CacheDirectoryLdapBind build() {

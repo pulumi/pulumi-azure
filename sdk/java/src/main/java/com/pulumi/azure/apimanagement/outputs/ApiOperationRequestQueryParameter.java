@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.ApiOperationRequestQueryParameterExample;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -159,16 +160,19 @@ public final class ApiOperationRequestQueryParameter {
 
         @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
+
             this.defaultValue = defaultValue;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder examples(@Nullable List<ApiOperationRequestQueryParameterExample> examples) {
+
             this.examples = examples;
             return this;
         }
@@ -177,31 +181,43 @@ public final class ApiOperationRequestQueryParameter {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApiOperationRequestQueryParameter", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder required(Boolean required) {
-            this.required = Objects.requireNonNull(required);
+            if (required == null) {
+              throw new MissingRequiredPropertyException("ApiOperationRequestQueryParameter", "required");
+            }
+            this.required = required;
             return this;
         }
         @CustomType.Setter
         public Builder schemaId(@Nullable String schemaId) {
+
             this.schemaId = schemaId;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("ApiOperationRequestQueryParameter", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(@Nullable String typeName) {
+
             this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
+
             this.values = values;
             return this;
         }

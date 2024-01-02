@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.azure.privatelink.outputs.GetServiceEndpointConnectionsPrivateEndpointConnection;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -82,17 +83,26 @@ public final class GetServiceEndpointConnectionsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointConnections(List<GetServiceEndpointConnectionsPrivateEndpointConnection> privateEndpointConnections) {
-            this.privateEndpointConnections = Objects.requireNonNull(privateEndpointConnections);
+            if (privateEndpointConnections == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "privateEndpointConnections");
+            }
+            this.privateEndpointConnections = privateEndpointConnections;
             return this;
         }
         public Builder privateEndpointConnections(GetServiceEndpointConnectionsPrivateEndpointConnection... privateEndpointConnections) {
@@ -100,17 +110,26 @@ public final class GetServiceEndpointConnectionsResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceId(String serviceId) {
-            this.serviceId = Objects.requireNonNull(serviceId);
+            if (serviceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "serviceId");
+            }
+            this.serviceId = serviceId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         public GetServiceEndpointConnectionsResult build() {

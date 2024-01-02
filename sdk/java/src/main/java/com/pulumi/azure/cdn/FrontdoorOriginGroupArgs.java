@@ -7,6 +7,7 @@ import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupHealthProbeArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -273,8 +274,12 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         }
 
         public FrontdoorOriginGroupArgs build() {
-            $.cdnFrontdoorProfileId = Objects.requireNonNull($.cdnFrontdoorProfileId, "expected parameter 'cdnFrontdoorProfileId' to be non-null");
-            $.loadBalancing = Objects.requireNonNull($.loadBalancing, "expected parameter 'loadBalancing' to be non-null");
+            if ($.cdnFrontdoorProfileId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginGroupArgs", "cdnFrontdoorProfileId");
+            }
+            if ($.loadBalancing == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginGroupArgs", "loadBalancing");
+            }
             return $;
         }
     }

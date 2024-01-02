@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,17 +86,26 @@ public final class GetAlertRuleAnomalySingleSelectObservation {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalySingleSelectObservation", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalySingleSelectObservation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder supportedValues(List<String> supportedValues) {
-            this.supportedValues = Objects.requireNonNull(supportedValues);
+            if (supportedValues == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalySingleSelectObservation", "supportedValues");
+            }
+            this.supportedValues = supportedValues;
             return this;
         }
         public Builder supportedValues(String... supportedValues) {
@@ -103,7 +113,10 @@ public final class GetAlertRuleAnomalySingleSelectObservation {
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalySingleSelectObservation", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetAlertRuleAnomalySingleSelectObservation build() {

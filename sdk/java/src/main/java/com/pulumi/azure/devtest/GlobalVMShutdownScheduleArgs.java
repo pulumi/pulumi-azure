@@ -6,6 +6,7 @@ package com.pulumi.azure.devtest;
 import com.pulumi.azure.devtest.inputs.GlobalVMShutdownScheduleNotificationSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -301,10 +302,18 @@ public final class GlobalVMShutdownScheduleArgs extends com.pulumi.resources.Res
         }
 
         public GlobalVMShutdownScheduleArgs build() {
-            $.dailyRecurrenceTime = Objects.requireNonNull($.dailyRecurrenceTime, "expected parameter 'dailyRecurrenceTime' to be non-null");
-            $.notificationSettings = Objects.requireNonNull($.notificationSettings, "expected parameter 'notificationSettings' to be non-null");
-            $.timezone = Objects.requireNonNull($.timezone, "expected parameter 'timezone' to be non-null");
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.dailyRecurrenceTime == null) {
+                throw new MissingRequiredPropertyException("GlobalVMShutdownScheduleArgs", "dailyRecurrenceTime");
+            }
+            if ($.notificationSettings == null) {
+                throw new MissingRequiredPropertyException("GlobalVMShutdownScheduleArgs", "notificationSettings");
+            }
+            if ($.timezone == null) {
+                throw new MissingRequiredPropertyException("GlobalVMShutdownScheduleArgs", "timezone");
+            }
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("GlobalVMShutdownScheduleArgs", "virtualMachineId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,13 +336,27 @@ public final class DatabasePrincipalAssignmentArgs extends com.pulumi.resources.
         }
 
         public DatabasePrincipalAssignmentArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.principalType = Objects.requireNonNull($.principalType, "expected parameter 'principalType' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.role = Objects.requireNonNull($.role, "expected parameter 'role' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "clusterName");
+            }
+            if ($.databaseName == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "databaseName");
+            }
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "principalId");
+            }
+            if ($.principalType == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "principalType");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "resourceGroupName");
+            }
+            if ($.role == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "role");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("DatabasePrincipalAssignmentArgs", "tenantId");
+            }
             return $;
         }
     }

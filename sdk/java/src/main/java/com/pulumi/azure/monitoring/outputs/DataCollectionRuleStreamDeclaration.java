@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.DataCollectionRuleStreamDeclarationColumn;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class DataCollectionRuleStreamDeclaration {
 
         @CustomType.Setter
         public Builder columns(List<DataCollectionRuleStreamDeclarationColumn> columns) {
-            this.columns = Objects.requireNonNull(columns);
+            if (columns == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleStreamDeclaration", "columns");
+            }
+            this.columns = columns;
             return this;
         }
         public Builder columns(DataCollectionRuleStreamDeclarationColumn... columns) {
@@ -66,7 +70,10 @@ public final class DataCollectionRuleStreamDeclaration {
         }
         @CustomType.Setter
         public Builder streamName(String streamName) {
-            this.streamName = Objects.requireNonNull(streamName);
+            if (streamName == null) {
+              throw new MissingRequiredPropertyException("DataCollectionRuleStreamDeclaration", "streamName");
+            }
+            this.streamName = streamName;
             return this;
         }
         public DataCollectionRuleStreamDeclaration build() {

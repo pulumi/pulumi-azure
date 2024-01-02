@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -164,12 +165,18 @@ public final class GetSubnetResult {
 
         @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
-            this.addressPrefix = Objects.requireNonNull(addressPrefix);
+            if (addressPrefix == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "addressPrefix");
+            }
+            this.addressPrefix = addressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
-            this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
+            if (addressPrefixes == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "addressPrefixes");
+            }
+            this.addressPrefixes = addressPrefixes;
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
@@ -177,52 +184,82 @@ public final class GetSubnetResult {
         }
         @CustomType.Setter
         public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
-            this.enforcePrivateLinkEndpointNetworkPolicies = Objects.requireNonNull(enforcePrivateLinkEndpointNetworkPolicies);
+            if (enforcePrivateLinkEndpointNetworkPolicies == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enforcePrivateLinkEndpointNetworkPolicies");
+            }
+            this.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
             return this;
         }
         @CustomType.Setter
         public Builder enforcePrivateLinkServiceNetworkPolicies(Boolean enforcePrivateLinkServiceNetworkPolicies) {
-            this.enforcePrivateLinkServiceNetworkPolicies = Objects.requireNonNull(enforcePrivateLinkServiceNetworkPolicies);
+            if (enforcePrivateLinkServiceNetworkPolicies == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "enforcePrivateLinkServiceNetworkPolicies");
+            }
+            this.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
+            if (networkSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "networkSecurityGroupId");
+            }
+            this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
-            this.privateEndpointNetworkPoliciesEnabled = Objects.requireNonNull(privateEndpointNetworkPoliciesEnabled);
+            if (privateEndpointNetworkPoliciesEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "privateEndpointNetworkPoliciesEnabled");
+            }
+            this.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder privateLinkServiceNetworkPoliciesEnabled(Boolean privateLinkServiceNetworkPoliciesEnabled) {
-            this.privateLinkServiceNetworkPoliciesEnabled = Objects.requireNonNull(privateLinkServiceNetworkPoliciesEnabled);
+            if (privateLinkServiceNetworkPoliciesEnabled == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "privateLinkServiceNetworkPoliciesEnabled");
+            }
+            this.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
-            this.routeTableId = Objects.requireNonNull(routeTableId);
+            if (routeTableId == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "routeTableId");
+            }
+            this.routeTableId = routeTableId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpoints(List<String> serviceEndpoints) {
-            this.serviceEndpoints = Objects.requireNonNull(serviceEndpoints);
+            if (serviceEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "serviceEndpoints");
+            }
+            this.serviceEndpoints = serviceEndpoints;
             return this;
         }
         public Builder serviceEndpoints(String... serviceEndpoints) {
@@ -230,7 +267,10 @@ public final class GetSubnetResult {
         }
         @CustomType.Setter
         public Builder virtualNetworkName(String virtualNetworkName) {
-            this.virtualNetworkName = Objects.requireNonNull(virtualNetworkName);
+            if (virtualNetworkName == null) {
+              throw new MissingRequiredPropertyException("GetSubnetResult", "virtualNetworkName");
+            }
+            this.virtualNetworkName = virtualNetworkName;
             return this;
         }
         public GetSubnetResult build() {

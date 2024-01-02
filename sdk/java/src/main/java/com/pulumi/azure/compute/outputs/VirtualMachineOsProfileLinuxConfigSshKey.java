@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -64,12 +65,18 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
 
         @CustomType.Setter
         public Builder keyData(String keyData) {
-            this.keyData = Objects.requireNonNull(keyData);
+            if (keyData == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfigSshKey", "keyData");
+            }
+            this.keyData = keyData;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfigSshKey", "path");
+            }
+            this.path = path;
             return this;
         }
         public VirtualMachineOsProfileLinuxConfigSshKey build() {

@@ -25,6 +25,7 @@ import com.pulumi.azure.cdn.inputs.EndpointDeliveryRuleUrlRedirectActionArgs;
 import com.pulumi.azure.cdn.inputs.EndpointDeliveryRuleUrlRewriteActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -1005,8 +1006,12 @@ public final class EndpointDeliveryRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public EndpointDeliveryRuleArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EndpointDeliveryRuleArgs", "name");
+            }
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("EndpointDeliveryRuleArgs", "order");
+            }
             return $;
         }
     }

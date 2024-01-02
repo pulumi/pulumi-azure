@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class HypervNetworkMappingArgs extends com.pulumi.resources.Resourc
         }
 
         public HypervNetworkMappingArgs build() {
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
-            $.sourceNetworkName = Objects.requireNonNull($.sourceNetworkName, "expected parameter 'sourceNetworkName' to be non-null");
-            $.sourceSystemCenterVirtualMachineManagerName = Objects.requireNonNull($.sourceSystemCenterVirtualMachineManagerName, "expected parameter 'sourceSystemCenterVirtualMachineManagerName' to be non-null");
-            $.targetNetworkId = Objects.requireNonNull($.targetNetworkId, "expected parameter 'targetNetworkId' to be non-null");
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("HypervNetworkMappingArgs", "recoveryVaultId");
+            }
+            if ($.sourceNetworkName == null) {
+                throw new MissingRequiredPropertyException("HypervNetworkMappingArgs", "sourceNetworkName");
+            }
+            if ($.sourceSystemCenterVirtualMachineManagerName == null) {
+                throw new MissingRequiredPropertyException("HypervNetworkMappingArgs", "sourceSystemCenterVirtualMachineManagerName");
+            }
+            if ($.targetNetworkId == null) {
+                throw new MissingRequiredPropertyException("HypervNetworkMappingArgs", "targetNetworkId");
+            }
             return $;
         }
     }

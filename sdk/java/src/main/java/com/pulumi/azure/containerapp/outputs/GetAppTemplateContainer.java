@@ -9,6 +9,7 @@ import com.pulumi.azure.containerapp.outputs.GetAppTemplateContainerReadinessPro
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateContainerStartupProbe;
 import com.pulumi.azure.containerapp.outputs.GetAppTemplateContainerVolumeMount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -203,7 +204,10 @@ public final class GetAppTemplateContainer {
 
         @CustomType.Setter
         public Builder args(List<String> args) {
-            this.args = Objects.requireNonNull(args);
+            if (args == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "args");
+            }
+            this.args = args;
             return this;
         }
         public Builder args(String... args) {
@@ -211,7 +215,10 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder commands(List<String> commands) {
-            this.commands = Objects.requireNonNull(commands);
+            if (commands == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "commands");
+            }
+            this.commands = commands;
             return this;
         }
         public Builder commands(String... commands) {
@@ -219,12 +226,18 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder cpu(Double cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder envs(List<GetAppTemplateContainerEnv> envs) {
-            this.envs = Objects.requireNonNull(envs);
+            if (envs == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "envs");
+            }
+            this.envs = envs;
             return this;
         }
         public Builder envs(GetAppTemplateContainerEnv... envs) {
@@ -232,17 +245,26 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder ephemeralStorage(String ephemeralStorage) {
-            this.ephemeralStorage = Objects.requireNonNull(ephemeralStorage);
+            if (ephemeralStorage == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "ephemeralStorage");
+            }
+            this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder livenessProbes(List<GetAppTemplateContainerLivenessProbe> livenessProbes) {
-            this.livenessProbes = Objects.requireNonNull(livenessProbes);
+            if (livenessProbes == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "livenessProbes");
+            }
+            this.livenessProbes = livenessProbes;
             return this;
         }
         public Builder livenessProbes(GetAppTemplateContainerLivenessProbe... livenessProbes) {
@@ -250,17 +272,26 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder memory(String memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder readinessProbes(List<GetAppTemplateContainerReadinessProbe> readinessProbes) {
-            this.readinessProbes = Objects.requireNonNull(readinessProbes);
+            if (readinessProbes == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "readinessProbes");
+            }
+            this.readinessProbes = readinessProbes;
             return this;
         }
         public Builder readinessProbes(GetAppTemplateContainerReadinessProbe... readinessProbes) {
@@ -268,7 +299,10 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder startupProbes(List<GetAppTemplateContainerStartupProbe> startupProbes) {
-            this.startupProbes = Objects.requireNonNull(startupProbes);
+            if (startupProbes == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "startupProbes");
+            }
+            this.startupProbes = startupProbes;
             return this;
         }
         public Builder startupProbes(GetAppTemplateContainerStartupProbe... startupProbes) {
@@ -276,7 +310,10 @@ public final class GetAppTemplateContainer {
         }
         @CustomType.Setter
         public Builder volumeMounts(List<GetAppTemplateContainerVolumeMount> volumeMounts) {
-            this.volumeMounts = Objects.requireNonNull(volumeMounts);
+            if (volumeMounts == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateContainer", "volumeMounts");
+            }
+            this.volumeMounts = volumeMounts;
             return this;
         }
         public Builder volumeMounts(GetAppTemplateContainerVolumeMount... volumeMounts) {

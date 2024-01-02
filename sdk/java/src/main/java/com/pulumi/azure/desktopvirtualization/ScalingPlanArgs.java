@@ -7,6 +7,7 @@ import com.pulumi.azure.desktopvirtualization.inputs.ScalingPlanHostPoolArgs;
 import com.pulumi.azure.desktopvirtualization.inputs.ScalingPlanScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -433,9 +434,15 @@ public final class ScalingPlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScalingPlanArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.schedules = Objects.requireNonNull($.schedules, "expected parameter 'schedules' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanArgs", "resourceGroupName");
+            }
+            if ($.schedules == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanArgs", "schedules");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("ScalingPlanArgs", "timeZone");
+            }
             return $;
         }
     }

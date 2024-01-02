@@ -73,16 +73,19 @@ public final class OrderShipmentHistory {
 
         @CustomType.Setter
         public Builder additionalDetails(@Nullable Map<String,String> additionalDetails) {
+
             this.additionalDetails = additionalDetails;
             return this;
         }
         @CustomType.Setter
         public Builder comments(@Nullable String comments) {
+
             this.comments = comments;
             return this;
         }
         @CustomType.Setter
         public Builder lastUpdate(@Nullable String lastUpdate) {
+
             this.lastUpdate = lastUpdate;
             return this;
         }

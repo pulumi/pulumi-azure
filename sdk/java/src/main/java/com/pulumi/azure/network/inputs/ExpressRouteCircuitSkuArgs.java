@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -119,8 +120,12 @@ public final class ExpressRouteCircuitSkuArgs extends com.pulumi.resources.Resou
         }
 
         public ExpressRouteCircuitSkuArgs build() {
-            $.family = Objects.requireNonNull($.family, "expected parameter 'family' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.family == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitSkuArgs", "family");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteCircuitSkuArgs", "tier");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.trafficmanager.inputs.ProfileDnsConfigArgs;
 import com.pulumi.azure.trafficmanager.inputs.ProfileMonitorConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -385,10 +386,18 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProfileArgs build() {
-            $.dnsConfig = Objects.requireNonNull($.dnsConfig, "expected parameter 'dnsConfig' to be non-null");
-            $.monitorConfig = Objects.requireNonNull($.monitorConfig, "expected parameter 'monitorConfig' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.trafficRoutingMethod = Objects.requireNonNull($.trafficRoutingMethod, "expected parameter 'trafficRoutingMethod' to be non-null");
+            if ($.dnsConfig == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "dnsConfig");
+            }
+            if ($.monitorConfig == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "monitorConfig");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "resourceGroupName");
+            }
+            if ($.trafficRoutingMethod == null) {
+                throw new MissingRequiredPropertyException("ProfileArgs", "trafficRoutingMethod");
+            }
             return $;
         }
     }

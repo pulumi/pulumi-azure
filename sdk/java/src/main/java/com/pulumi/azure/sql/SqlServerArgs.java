@@ -7,6 +7,7 @@ import com.pulumi.azure.sql.inputs.SqlServerIdentityArgs;
 import com.pulumi.azure.sql.inputs.SqlServerThreatDetectionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -412,10 +413,18 @@ public final class SqlServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SqlServerArgs build() {
-            $.administratorLogin = Objects.requireNonNull($.administratorLogin, "expected parameter 'administratorLogin' to be non-null");
-            $.administratorLoginPassword = Objects.requireNonNull($.administratorLoginPassword, "expected parameter 'administratorLoginPassword' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.administratorLogin == null) {
+                throw new MissingRequiredPropertyException("SqlServerArgs", "administratorLogin");
+            }
+            if ($.administratorLoginPassword == null) {
+                throw new MissingRequiredPropertyException("SqlServerArgs", "administratorLoginPassword");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SqlServerArgs", "resourceGroupName");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("SqlServerArgs", "version");
+            }
             return $;
         }
     }

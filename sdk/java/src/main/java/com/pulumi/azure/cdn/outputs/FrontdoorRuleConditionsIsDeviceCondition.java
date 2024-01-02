@@ -73,16 +73,19 @@ public final class FrontdoorRuleConditionsIsDeviceCondition {
 
         @CustomType.Setter
         public Builder matchValues(@Nullable String matchValues) {
+
             this.matchValues = matchValues;
             return this;
         }
         @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
+
             this.negateCondition = negateCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }

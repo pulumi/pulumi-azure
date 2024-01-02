@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxFunctionAppSiteConfigApplicationStackDocker;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -135,7 +136,10 @@ public final class GetLinuxFunctionAppSiteConfigApplicationStack {
 
         @CustomType.Setter
         public Builder dockers(List<GetLinuxFunctionAppSiteConfigApplicationStackDocker> dockers) {
-            this.dockers = Objects.requireNonNull(dockers);
+            if (dockers == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "dockers");
+            }
+            this.dockers = dockers;
             return this;
         }
         public Builder dockers(GetLinuxFunctionAppSiteConfigApplicationStackDocker... dockers) {
@@ -143,37 +147,58 @@ public final class GetLinuxFunctionAppSiteConfigApplicationStack {
         }
         @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
-            this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
+            if (dotnetVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "dotnetVersion");
+            }
+            this.dotnetVersion = dotnetVersion;
             return this;
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
-            this.nodeVersion = Objects.requireNonNull(nodeVersion);
+            if (nodeVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "nodeVersion");
+            }
+            this.nodeVersion = nodeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder powershellCoreVersion(String powershellCoreVersion) {
-            this.powershellCoreVersion = Objects.requireNonNull(powershellCoreVersion);
+            if (powershellCoreVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "powershellCoreVersion");
+            }
+            this.powershellCoreVersion = powershellCoreVersion;
             return this;
         }
         @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
-            this.pythonVersion = Objects.requireNonNull(pythonVersion);
+            if (pythonVersion == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "pythonVersion");
+            }
+            this.pythonVersion = pythonVersion;
             return this;
         }
         @CustomType.Setter
         public Builder useCustomRuntime(Boolean useCustomRuntime) {
-            this.useCustomRuntime = Objects.requireNonNull(useCustomRuntime);
+            if (useCustomRuntime == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "useCustomRuntime");
+            }
+            this.useCustomRuntime = useCustomRuntime;
             return this;
         }
         @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(Boolean useDotnetIsolatedRuntime) {
-            this.useDotnetIsolatedRuntime = Objects.requireNonNull(useDotnetIsolatedRuntime);
+            if (useDotnetIsolatedRuntime == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigApplicationStack", "useDotnetIsolatedRuntime");
+            }
+            this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
             return this;
         }
         public GetLinuxFunctionAppSiteConfigApplicationStack build() {

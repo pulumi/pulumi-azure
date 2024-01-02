@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GatewayApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GatewayApiArgs build() {
-            $.apiId = Objects.requireNonNull($.apiId, "expected parameter 'apiId' to be non-null");
-            $.gatewayId = Objects.requireNonNull($.gatewayId, "expected parameter 'gatewayId' to be non-null");
+            if ($.apiId == null) {
+                throw new MissingRequiredPropertyException("GatewayApiArgs", "apiId");
+            }
+            if ($.gatewayId == null) {
+                throw new MissingRequiredPropertyException("GatewayApiArgs", "gatewayId");
+            }
             return $;
         }
     }

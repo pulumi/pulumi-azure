@@ -6,6 +6,7 @@ package com.pulumi.azure.bot;
 import com.pulumi.azure.bot.inputs.ChannelLineLineChannelArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,9 +200,15 @@ public final class ChannelLineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelLineArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.lineChannels = Objects.requireNonNull($.lineChannels, "expected parameter 'lineChannels' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelLineArgs", "botName");
+            }
+            if ($.lineChannels == null) {
+                throw new MissingRequiredPropertyException("ChannelLineArgs", "lineChannels");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelLineArgs", "resourceGroupName");
+            }
             return $;
         }
     }

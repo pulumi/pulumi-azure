@@ -86,21 +86,25 @@ public final class OrderReturnTracking {
 
         @CustomType.Setter
         public Builder carrierName(@Nullable String carrierName) {
+
             this.carrierName = carrierName;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(@Nullable String serialNumber) {
+
             this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder trackingId(@Nullable String trackingId) {
+
             this.trackingId = trackingId;
             return this;
         }
         @CustomType.Setter
         public Builder trackingUrl(@Nullable String trackingUrl) {
+
             this.trackingUrl = trackingUrl;
             return this;
         }

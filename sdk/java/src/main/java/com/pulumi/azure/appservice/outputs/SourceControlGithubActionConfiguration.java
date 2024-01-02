@@ -80,21 +80,25 @@ public final class SourceControlGithubActionConfiguration {
 
         @CustomType.Setter
         public Builder codeConfiguration(@Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration) {
+
             this.codeConfiguration = codeConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder containerConfiguration(@Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration) {
+
             this.containerConfiguration = containerConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder generateWorkflowFile(@Nullable Boolean generateWorkflowFile) {
+
             this.generateWorkflowFile = generateWorkflowFile;
             return this;
         }
         @CustomType.Setter
         public Builder linuxAction(@Nullable Boolean linuxAction) {
+
             this.linuxAction = linuxAction;
             return this;
         }

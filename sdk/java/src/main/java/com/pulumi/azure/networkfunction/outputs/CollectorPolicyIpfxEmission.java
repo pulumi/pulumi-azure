@@ -4,6 +4,7 @@
 package com.pulumi.azure.networkfunction.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class CollectorPolicyIpfxEmission {
 
         @CustomType.Setter
         public Builder destinationTypes(String destinationTypes) {
-            this.destinationTypes = Objects.requireNonNull(destinationTypes);
+            if (destinationTypes == null) {
+              throw new MissingRequiredPropertyException("CollectorPolicyIpfxEmission", "destinationTypes");
+            }
+            this.destinationTypes = destinationTypes;
             return this;
         }
         public CollectorPolicyIpfxEmission build() {

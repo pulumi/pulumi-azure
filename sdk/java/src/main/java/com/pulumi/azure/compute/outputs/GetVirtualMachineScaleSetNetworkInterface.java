@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -129,7 +130,10 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
 
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -137,17 +141,26 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            this.enableAcceleratedNetworking = Objects.requireNonNull(enableAcceleratedNetworking);
+            if (enableAcceleratedNetworking == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "enableAcceleratedNetworking");
+            }
+            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
         @CustomType.Setter
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            this.enableIpForwarding = Objects.requireNonNull(enableIpForwarding);
+            if (enableIpForwarding == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "enableIpForwarding");
+            }
+            this.enableIpForwarding = enableIpForwarding;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
@@ -155,17 +168,26 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
+            if (networkSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "networkSecurityGroupId");
+            }
+            this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder primary(Boolean primary) {
-            this.primary = Objects.requireNonNull(primary);
+            if (primary == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "primary");
+            }
+            this.primary = primary;
             return this;
         }
         public GetVirtualMachineScaleSetNetworkInterface build() {

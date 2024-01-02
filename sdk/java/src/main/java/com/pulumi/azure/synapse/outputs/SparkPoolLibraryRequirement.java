@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SparkPoolLibraryRequirement {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("SparkPoolLibraryRequirement", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder filename(String filename) {
-            this.filename = Objects.requireNonNull(filename);
+            if (filename == null) {
+              throw new MissingRequiredPropertyException("SparkPoolLibraryRequirement", "filename");
+            }
+            this.filename = filename;
             return this;
         }
         public SparkPoolLibraryRequirement build() {

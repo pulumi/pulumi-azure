@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetVpnGatewayBgpSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -128,7 +129,10 @@ public final class GetVpnGatewayResult {
 
         @CustomType.Setter
         public Builder bgpSettings(List<GetVpnGatewayBgpSetting> bgpSettings) {
-            this.bgpSettings = Objects.requireNonNull(bgpSettings);
+            if (bgpSettings == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "bgpSettings");
+            }
+            this.bgpSettings = bgpSettings;
             return this;
         }
         public Builder bgpSettings(GetVpnGatewayBgpSetting... bgpSettings) {
@@ -136,37 +140,58 @@ public final class GetVpnGatewayResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scaleUnit(Integer scaleUnit) {
-            this.scaleUnit = Objects.requireNonNull(scaleUnit);
+            if (scaleUnit == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "scaleUnit");
+            }
+            this.scaleUnit = scaleUnit;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("GetVpnGatewayResult", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         public GetVpnGatewayResult build() {

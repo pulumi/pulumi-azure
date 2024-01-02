@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -86,7 +87,10 @@ public final class GetSnapshotPolicyWeeklySchedule {
 
         @CustomType.Setter
         public Builder daysOfWeeks(List<String> daysOfWeeks) {
-            this.daysOfWeeks = Objects.requireNonNull(daysOfWeeks);
+            if (daysOfWeeks == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyWeeklySchedule", "daysOfWeeks");
+            }
+            this.daysOfWeeks = daysOfWeeks;
             return this;
         }
         public Builder daysOfWeeks(String... daysOfWeeks) {
@@ -94,17 +98,26 @@ public final class GetSnapshotPolicyWeeklySchedule {
         }
         @CustomType.Setter
         public Builder hour(Integer hour) {
-            this.hour = Objects.requireNonNull(hour);
+            if (hour == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyWeeklySchedule", "hour");
+            }
+            this.hour = hour;
             return this;
         }
         @CustomType.Setter
         public Builder minute(Integer minute) {
-            this.minute = Objects.requireNonNull(minute);
+            if (minute == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyWeeklySchedule", "minute");
+            }
+            this.minute = minute;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
-            this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
+            if (snapshotsToKeep == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotPolicyWeeklySchedule", "snapshotsToKeep");
+            }
+            this.snapshotsToKeep = snapshotsToKeep;
             return this;
         }
         public GetSnapshotPolicyWeeklySchedule build() {

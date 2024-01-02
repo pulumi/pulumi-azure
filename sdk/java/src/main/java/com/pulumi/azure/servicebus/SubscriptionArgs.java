@@ -6,6 +6,7 @@ package com.pulumi.azure.servicebus;
 import com.pulumi.azure.servicebus.inputs.SubscriptionClientScopedSubscriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -605,8 +606,12 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubscriptionArgs build() {
-            $.maxDeliveryCount = Objects.requireNonNull($.maxDeliveryCount, "expected parameter 'maxDeliveryCount' to be non-null");
-            $.topicId = Objects.requireNonNull($.topicId, "expected parameter 'topicId' to be non-null");
+            if ($.maxDeliveryCount == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "maxDeliveryCount");
+            }
+            if ($.topicId == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "topicId");
+            }
             return $;
         }
     }

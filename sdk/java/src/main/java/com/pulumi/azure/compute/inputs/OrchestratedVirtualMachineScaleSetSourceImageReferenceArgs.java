@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
         }
 
         public OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs build() {
-            $.offer = Objects.requireNonNull($.offer, "expected parameter 'offer' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.offer == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs", "offer");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs", "publisher");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs", "sku");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs", "version");
+            }
             return $;
         }
     }

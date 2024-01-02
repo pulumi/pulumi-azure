@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class ActionGroupLogicAppReceiverArgs extends com.pulumi.resources.
         }
 
         public ActionGroupLogicAppReceiverArgs build() {
-            $.callbackUrl = Objects.requireNonNull($.callbackUrl, "expected parameter 'callbackUrl' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.callbackUrl == null) {
+                throw new MissingRequiredPropertyException("ActionGroupLogicAppReceiverArgs", "callbackUrl");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ActionGroupLogicAppReceiverArgs", "name");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ActionGroupLogicAppReceiverArgs", "resourceId");
+            }
             return $;
         }
     }

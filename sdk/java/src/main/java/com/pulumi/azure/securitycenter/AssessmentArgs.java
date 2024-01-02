@@ -6,6 +6,7 @@ package com.pulumi.azure.securitycenter;
 import com.pulumi.azure.securitycenter.inputs.AssessmentStatusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -189,9 +190,15 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AssessmentArgs build() {
-            $.assessmentPolicyId = Objects.requireNonNull($.assessmentPolicyId, "expected parameter 'assessmentPolicyId' to be non-null");
-            $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.assessmentPolicyId == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "assessmentPolicyId");
+            }
+            if ($.status == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "status");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "targetResourceId");
+            }
             return $;
         }
     }

@@ -74,16 +74,19 @@ public final class ManagementPolicyRuleActions {
 
         @CustomType.Setter
         public Builder baseBlob(@Nullable ManagementPolicyRuleActionsBaseBlob baseBlob) {
+
             this.baseBlob = baseBlob;
             return this;
         }
         @CustomType.Setter
         public Builder snapshot(@Nullable ManagementPolicyRuleActionsSnapshot snapshot) {
+
             this.snapshot = snapshot;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable ManagementPolicyRuleActionsVersion version) {
+
             this.version = version;
             return this;
         }

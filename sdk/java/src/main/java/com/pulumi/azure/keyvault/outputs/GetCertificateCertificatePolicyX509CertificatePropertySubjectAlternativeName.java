@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class GetCertificateCertificatePolicyX509CertificatePropertySubject
 
         @CustomType.Setter
         public Builder dnsNames(List<String> dnsNames) {
-            this.dnsNames = Objects.requireNonNull(dnsNames);
+            if (dnsNames == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName", "dnsNames");
+            }
+            this.dnsNames = dnsNames;
             return this;
         }
         public Builder dnsNames(String... dnsNames) {
@@ -79,7 +83,10 @@ public final class GetCertificateCertificatePolicyX509CertificatePropertySubject
         }
         @CustomType.Setter
         public Builder emails(List<String> emails) {
-            this.emails = Objects.requireNonNull(emails);
+            if (emails == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName", "emails");
+            }
+            this.emails = emails;
             return this;
         }
         public Builder emails(String... emails) {
@@ -87,7 +94,10 @@ public final class GetCertificateCertificatePolicyX509CertificatePropertySubject
         }
         @CustomType.Setter
         public Builder upns(List<String> upns) {
-            this.upns = Objects.requireNonNull(upns);
+            if (upns == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName", "upns");
+            }
+            this.upns = upns;
             return this;
         }
         public Builder upns(String... upns) {

@@ -84,46 +84,55 @@ public final class FeaturesKeyVault {
 
         @CustomType.Setter
         public Builder purgeSoftDeleteOnDestroy(@Nullable Boolean purgeSoftDeleteOnDestroy) {
+
             this.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder purgeSoftDeletedCertificatesOnDestroy(@Nullable Boolean purgeSoftDeletedCertificatesOnDestroy) {
+
             this.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder purgeSoftDeletedHardwareSecurityModulesOnDestroy(@Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy) {
+
             this.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder purgeSoftDeletedKeysOnDestroy(@Nullable Boolean purgeSoftDeletedKeysOnDestroy) {
+
             this.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder purgeSoftDeletedSecretsOnDestroy(@Nullable Boolean purgeSoftDeletedSecretsOnDestroy) {
+
             this.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
             return this;
         }
         @CustomType.Setter
         public Builder recoverSoftDeletedCertificates(@Nullable Boolean recoverSoftDeletedCertificates) {
+
             this.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
             return this;
         }
         @CustomType.Setter
         public Builder recoverSoftDeletedKeyVaults(@Nullable Boolean recoverSoftDeletedKeyVaults) {
+
             this.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
             return this;
         }
         @CustomType.Setter
         public Builder recoverSoftDeletedKeys(@Nullable Boolean recoverSoftDeletedKeys) {
+
             this.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
             return this;
         }
         @CustomType.Setter
         public Builder recoverSoftDeletedSecrets(@Nullable Boolean recoverSoftDeletedSecrets) {
+
             this.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
             return this;
         }

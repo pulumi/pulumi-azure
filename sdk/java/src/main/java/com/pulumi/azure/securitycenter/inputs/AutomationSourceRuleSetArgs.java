@@ -6,6 +6,7 @@ package com.pulumi.azure.securitycenter.inputs;
 import com.pulumi.azure.securitycenter.inputs.AutomationSourceRuleSetRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -95,7 +96,9 @@ public final class AutomationSourceRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         public AutomationSourceRuleSetArgs build() {
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("AutomationSourceRuleSetArgs", "rules");
+            }
             return $;
         }
     }

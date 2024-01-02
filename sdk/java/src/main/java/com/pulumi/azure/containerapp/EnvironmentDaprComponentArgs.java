@@ -7,6 +7,7 @@ import com.pulumi.azure.containerapp.inputs.EnvironmentDaprComponentMetadataArgs
 import com.pulumi.azure.containerapp.inputs.EnvironmentDaprComponentSecretArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -416,9 +417,15 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
         }
 
         public EnvironmentDaprComponentArgs build() {
-            $.componentType = Objects.requireNonNull($.componentType, "expected parameter 'componentType' to be non-null");
-            $.containerAppEnvironmentId = Objects.requireNonNull($.containerAppEnvironmentId, "expected parameter 'containerAppEnvironmentId' to be non-null");
-            $.version = Objects.requireNonNull($.version, "expected parameter 'version' to be non-null");
+            if ($.componentType == null) {
+                throw new MissingRequiredPropertyException("EnvironmentDaprComponentArgs", "componentType");
+            }
+            if ($.containerAppEnvironmentId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentDaprComponentArgs", "containerAppEnvironmentId");
+            }
+            if ($.version == null) {
+                throw new MissingRequiredPropertyException("EnvironmentDaprComponentArgs", "version");
+            }
             return $;
         }
     }

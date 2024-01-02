@@ -8,6 +8,7 @@ import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetGroupin
 import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetSortingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -221,8 +222,12 @@ public final class SubscriptionCostManagementViewDatasetArgs extends com.pulumi.
         }
 
         public SubscriptionCostManagementViewDatasetArgs build() {
-            $.aggregations = Objects.requireNonNull($.aggregations, "expected parameter 'aggregations' to be non-null");
-            $.granularity = Objects.requireNonNull($.granularity, "expected parameter 'granularity' to be non-null");
+            if ($.aggregations == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementViewDatasetArgs", "aggregations");
+            }
+            if ($.granularity == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementViewDatasetArgs", "granularity");
+            }
             return $;
         }
     }

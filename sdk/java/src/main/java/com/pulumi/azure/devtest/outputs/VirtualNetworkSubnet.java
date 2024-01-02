@@ -72,16 +72,19 @@ public final class VirtualNetworkSubnet {
 
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder useInVirtualMachineCreation(@Nullable String useInVirtualMachineCreation) {
+
             this.useInVirtualMachineCreation = useInVirtualMachineCreation;
             return this;
         }
         @CustomType.Setter
         public Builder usePublicIpAddress(@Nullable String usePublicIpAddress) {
+
             this.usePublicIpAddress = usePublicIpAddress;
             return this;
         }

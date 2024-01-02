@@ -6,6 +6,7 @@ package com.pulumi.azure.mobile.outputs;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimPolicySlice;
 import com.pulumi.azure.mobile.outputs.GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -157,42 +158,66 @@ public final class GetNetworkSimPolicyResult {
 
         @CustomType.Setter
         public Builder defaultSliceId(String defaultSliceId) {
-            this.defaultSliceId = Objects.requireNonNull(defaultSliceId);
+            if (defaultSliceId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "defaultSliceId");
+            }
+            this.defaultSliceId = defaultSliceId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkId(String mobileNetworkId) {
-            this.mobileNetworkId = Objects.requireNonNull(mobileNetworkId);
+            if (mobileNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "mobileNetworkId");
+            }
+            this.mobileNetworkId = mobileNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder ratFrequencySelectionPriorityIndex(Integer ratFrequencySelectionPriorityIndex) {
-            this.ratFrequencySelectionPriorityIndex = Objects.requireNonNull(ratFrequencySelectionPriorityIndex);
+            if (ratFrequencySelectionPriorityIndex == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "ratFrequencySelectionPriorityIndex");
+            }
+            this.ratFrequencySelectionPriorityIndex = ratFrequencySelectionPriorityIndex;
             return this;
         }
         @CustomType.Setter
         public Builder registrationTimerInSeconds(Integer registrationTimerInSeconds) {
-            this.registrationTimerInSeconds = Objects.requireNonNull(registrationTimerInSeconds);
+            if (registrationTimerInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "registrationTimerInSeconds");
+            }
+            this.registrationTimerInSeconds = registrationTimerInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder slices(List<GetNetworkSimPolicySlice> slices) {
-            this.slices = Objects.requireNonNull(slices);
+            if (slices == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "slices");
+            }
+            this.slices = slices;
             return this;
         }
         public Builder slices(GetNetworkSimPolicySlice... slices) {
@@ -200,12 +225,18 @@ public final class GetNetworkSimPolicyResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userEquipmentAggregateMaximumBitRates(List<GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate> userEquipmentAggregateMaximumBitRates) {
-            this.userEquipmentAggregateMaximumBitRates = Objects.requireNonNull(userEquipmentAggregateMaximumBitRates);
+            if (userEquipmentAggregateMaximumBitRates == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimPolicyResult", "userEquipmentAggregateMaximumBitRates");
+            }
+            this.userEquipmentAggregateMaximumBitRates = userEquipmentAggregateMaximumBitRates;
             return this;
         }
         public Builder userEquipmentAggregateMaximumBitRates(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate... userEquipmentAggregateMaximumBitRates) {

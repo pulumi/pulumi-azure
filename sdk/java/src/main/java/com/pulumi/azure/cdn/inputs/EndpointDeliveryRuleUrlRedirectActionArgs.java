@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,7 +262,9 @@ public final class EndpointDeliveryRuleUrlRedirectActionArgs extends com.pulumi.
         }
 
         public EndpointDeliveryRuleUrlRedirectActionArgs build() {
-            $.redirectType = Objects.requireNonNull($.redirectType, "expected parameter 'redirectType' to be non-null");
+            if ($.redirectType == null) {
+                throw new MissingRequiredPropertyException("EndpointDeliveryRuleUrlRedirectActionArgs", "redirectType");
+            }
             return $;
         }
     }

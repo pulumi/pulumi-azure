@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,37 +127,58 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
 
         @CustomType.Setter
         public Builder actionRequired(String actionRequired) {
-            this.actionRequired = Objects.requireNonNull(actionRequired);
+            if (actionRequired == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "actionRequired");
+            }
+            this.actionRequired = actionRequired;
             return this;
         }
         @CustomType.Setter
         public Builder connectionId(String connectionId) {
-            this.connectionId = Objects.requireNonNull(connectionId);
+            if (connectionId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "connectionId");
+            }
+            this.connectionId = connectionId;
             return this;
         }
         @CustomType.Setter
         public Builder connectionName(String connectionName) {
-            this.connectionName = Objects.requireNonNull(connectionName);
+            if (connectionName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "connectionName");
+            }
+            this.connectionName = connectionName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointId(String privateEndpointId) {
-            this.privateEndpointId = Objects.requireNonNull(privateEndpointId);
+            if (privateEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "privateEndpointId");
+            }
+            this.privateEndpointId = privateEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder privateEndpointName(String privateEndpointName) {
-            this.privateEndpointName = Objects.requireNonNull(privateEndpointName);
+            if (privateEndpointName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "privateEndpointName");
+            }
+            this.privateEndpointName = privateEndpointName;
             return this;
         }
         @CustomType.Setter
         public Builder status(String status) {
-            this.status = Objects.requireNonNull(status);
+            if (status == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointConnectionsPrivateEndpointConnection", "status");
+            }
+            this.status = status;
             return this;
         }
         public GetServiceEndpointConnectionsPrivateEndpointConnection build() {

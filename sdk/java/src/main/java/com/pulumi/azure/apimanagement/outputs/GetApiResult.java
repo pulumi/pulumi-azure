@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.GetApiSubscriptionKeyParameterName;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,47 +238,74 @@ public final class GetApiResult {
 
         @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
-            this.apiManagementName = Objects.requireNonNull(apiManagementName);
+            if (apiManagementName == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "apiManagementName");
+            }
+            this.apiManagementName = apiManagementName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isCurrent(Boolean isCurrent) {
-            this.isCurrent = Objects.requireNonNull(isCurrent);
+            if (isCurrent == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "isCurrent");
+            }
+            this.isCurrent = isCurrent;
             return this;
         }
         @CustomType.Setter
         public Builder isOnline(Boolean isOnline) {
-            this.isOnline = Objects.requireNonNull(isOnline);
+            if (isOnline == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "isOnline");
+            }
+            this.isOnline = isOnline;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -285,27 +313,42 @@ public final class GetApiResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder revision(String revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         @CustomType.Setter
         public Builder serviceUrl(String serviceUrl) {
-            this.serviceUrl = Objects.requireNonNull(serviceUrl);
+            if (serviceUrl == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "serviceUrl");
+            }
+            this.serviceUrl = serviceUrl;
             return this;
         }
         @CustomType.Setter
         public Builder soapPassThrough(Boolean soapPassThrough) {
-            this.soapPassThrough = Objects.requireNonNull(soapPassThrough);
+            if (soapPassThrough == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "soapPassThrough");
+            }
+            this.soapPassThrough = soapPassThrough;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionKeyParameterNames(List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames) {
-            this.subscriptionKeyParameterNames = Objects.requireNonNull(subscriptionKeyParameterNames);
+            if (subscriptionKeyParameterNames == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "subscriptionKeyParameterNames");
+            }
+            this.subscriptionKeyParameterNames = subscriptionKeyParameterNames;
             return this;
         }
         public Builder subscriptionKeyParameterNames(GetApiSubscriptionKeyParameterName... subscriptionKeyParameterNames) {
@@ -313,17 +356,26 @@ public final class GetApiResult {
         }
         @CustomType.Setter
         public Builder subscriptionRequired(Boolean subscriptionRequired) {
-            this.subscriptionRequired = Objects.requireNonNull(subscriptionRequired);
+            if (subscriptionRequired == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "subscriptionRequired");
+            }
+            this.subscriptionRequired = subscriptionRequired;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder versionSetId(String versionSetId) {
-            this.versionSetId = Objects.requireNonNull(versionSetId);
+            if (versionSetId == null) {
+              throw new MissingRequiredPropertyException("GetApiResult", "versionSetId");
+            }
+            this.versionSetId = versionSetId;
             return this;
         }
         public GetApiResult build() {

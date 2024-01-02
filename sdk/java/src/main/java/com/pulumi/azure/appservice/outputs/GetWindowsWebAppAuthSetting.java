@@ -10,6 +10,7 @@ import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingGoogle;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingMicrosoft;
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppAuthSettingTwitter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -248,7 +249,10 @@ public final class GetWindowsWebAppAuthSetting {
 
         @CustomType.Setter
         public Builder activeDirectories(List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories) {
-            this.activeDirectories = Objects.requireNonNull(activeDirectories);
+            if (activeDirectories == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "activeDirectories");
+            }
+            this.activeDirectories = activeDirectories;
             return this;
         }
         public Builder activeDirectories(GetWindowsWebAppAuthSettingActiveDirectory... activeDirectories) {
@@ -256,12 +260,18 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder additionalLoginParameters(Map<String,String> additionalLoginParameters) {
-            this.additionalLoginParameters = Objects.requireNonNull(additionalLoginParameters);
+            if (additionalLoginParameters == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "additionalLoginParameters");
+            }
+            this.additionalLoginParameters = additionalLoginParameters;
             return this;
         }
         @CustomType.Setter
         public Builder allowedExternalRedirectUrls(List<String> allowedExternalRedirectUrls) {
-            this.allowedExternalRedirectUrls = Objects.requireNonNull(allowedExternalRedirectUrls);
+            if (allowedExternalRedirectUrls == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "allowedExternalRedirectUrls");
+            }
+            this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
         }
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
@@ -269,17 +279,26 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder defaultProvider(String defaultProvider) {
-            this.defaultProvider = Objects.requireNonNull(defaultProvider);
+            if (defaultProvider == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "defaultProvider");
+            }
+            this.defaultProvider = defaultProvider;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder facebooks(List<GetWindowsWebAppAuthSettingFacebook> facebooks) {
-            this.facebooks = Objects.requireNonNull(facebooks);
+            if (facebooks == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "facebooks");
+            }
+            this.facebooks = facebooks;
             return this;
         }
         public Builder facebooks(GetWindowsWebAppAuthSettingFacebook... facebooks) {
@@ -287,7 +306,10 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder githubs(List<GetWindowsWebAppAuthSettingGithub> githubs) {
-            this.githubs = Objects.requireNonNull(githubs);
+            if (githubs == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "githubs");
+            }
+            this.githubs = githubs;
             return this;
         }
         public Builder githubs(GetWindowsWebAppAuthSettingGithub... githubs) {
@@ -295,7 +317,10 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder googles(List<GetWindowsWebAppAuthSettingGoogle> googles) {
-            this.googles = Objects.requireNonNull(googles);
+            if (googles == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "googles");
+            }
+            this.googles = googles;
             return this;
         }
         public Builder googles(GetWindowsWebAppAuthSettingGoogle... googles) {
@@ -303,12 +328,18 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder microsofts(List<GetWindowsWebAppAuthSettingMicrosoft> microsofts) {
-            this.microsofts = Objects.requireNonNull(microsofts);
+            if (microsofts == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "microsofts");
+            }
+            this.microsofts = microsofts;
             return this;
         }
         public Builder microsofts(GetWindowsWebAppAuthSettingMicrosoft... microsofts) {
@@ -316,22 +347,34 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
-            this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
+            if (runtimeVersion == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "runtimeVersion");
+            }
+            this.runtimeVersion = runtimeVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tokenRefreshExtensionHours(Double tokenRefreshExtensionHours) {
-            this.tokenRefreshExtensionHours = Objects.requireNonNull(tokenRefreshExtensionHours);
+            if (tokenRefreshExtensionHours == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "tokenRefreshExtensionHours");
+            }
+            this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
             return this;
         }
         @CustomType.Setter
         public Builder tokenStoreEnabled(Boolean tokenStoreEnabled) {
-            this.tokenStoreEnabled = Objects.requireNonNull(tokenStoreEnabled);
+            if (tokenStoreEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "tokenStoreEnabled");
+            }
+            this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder twitters(List<GetWindowsWebAppAuthSettingTwitter> twitters) {
-            this.twitters = Objects.requireNonNull(twitters);
+            if (twitters == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "twitters");
+            }
+            this.twitters = twitters;
             return this;
         }
         public Builder twitters(GetWindowsWebAppAuthSettingTwitter... twitters) {
@@ -339,7 +382,10 @@ public final class GetWindowsWebAppAuthSetting {
         }
         @CustomType.Setter
         public Builder unauthenticatedClientAction(String unauthenticatedClientAction) {
-            this.unauthenticatedClientAction = Objects.requireNonNull(unauthenticatedClientAction);
+            if (unauthenticatedClientAction == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppAuthSetting", "unauthenticatedClientAction");
+            }
+            this.unauthenticatedClientAction = unauthenticatedClientAction;
             return this;
         }
         public GetWindowsWebAppAuthSetting build() {

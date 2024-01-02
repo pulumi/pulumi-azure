@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -162,26 +163,33 @@ public final class PoolExtension {
 
         @CustomType.Setter
         public Builder autoUpgradeMinorVersion(@Nullable Boolean autoUpgradeMinorVersion) {
+
             this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
             return this;
         }
         @CustomType.Setter
         public Builder automaticUpgradeEnabled(@Nullable Boolean automaticUpgradeEnabled) {
+
             this.automaticUpgradeEnabled = automaticUpgradeEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PoolExtension", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
+
             this.protectedSettings = protectedSettings;
             return this;
         }
         @CustomType.Setter
         public Builder provisionAfterExtensions(@Nullable List<String> provisionAfterExtensions) {
+
             this.provisionAfterExtensions = provisionAfterExtensions;
             return this;
         }
@@ -190,21 +198,29 @@ public final class PoolExtension {
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("PoolExtension", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         @CustomType.Setter
         public Builder settingsJson(@Nullable String settingsJson) {
+
             this.settingsJson = settingsJson;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("PoolExtension", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder typeHandlerVersion(@Nullable String typeHandlerVersion) {
+
             this.typeHandlerVersion = typeHandlerVersion;
             return this;
         }

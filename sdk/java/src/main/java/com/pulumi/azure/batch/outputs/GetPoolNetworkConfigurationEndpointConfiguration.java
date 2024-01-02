@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -101,22 +102,34 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
 
         @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
-            this.backendPort = Objects.requireNonNull(backendPort);
+            if (backendPort == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfiguration", "backendPort");
+            }
+            this.backendPort = backendPort;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPortRange(String frontendPortRange) {
-            this.frontendPortRange = Objects.requireNonNull(frontendPortRange);
+            if (frontendPortRange == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfiguration", "frontendPortRange");
+            }
+            this.frontendPortRange = frontendPortRange;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupRules(List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules) {
-            this.networkSecurityGroupRules = Objects.requireNonNull(networkSecurityGroupRules);
+            if (networkSecurityGroupRules == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfiguration", "networkSecurityGroupRules");
+            }
+            this.networkSecurityGroupRules = networkSecurityGroupRules;
             return this;
         }
         public Builder networkSecurityGroupRules(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule... networkSecurityGroupRules) {
@@ -124,7 +137,10 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetPoolNetworkConfigurationEndpointConfiguration", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public GetPoolNetworkConfigurationEndpointConfiguration build() {

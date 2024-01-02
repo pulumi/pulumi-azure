@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class JobScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobScheduleArgs build() {
-            $.startMode = Objects.requireNonNull($.startMode, "expected parameter 'startMode' to be non-null");
-            $.streamAnalyticsJobId = Objects.requireNonNull($.streamAnalyticsJobId, "expected parameter 'streamAnalyticsJobId' to be non-null");
+            if ($.startMode == null) {
+                throw new MissingRequiredPropertyException("JobScheduleArgs", "startMode");
+            }
+            if ($.streamAnalyticsJobId == null) {
+                throw new MissingRequiredPropertyException("JobScheduleArgs", "streamAnalyticsJobId");
+            }
             return $;
         }
     }

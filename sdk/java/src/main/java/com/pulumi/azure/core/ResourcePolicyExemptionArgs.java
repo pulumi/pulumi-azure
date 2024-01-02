@@ -5,6 +5,7 @@ package com.pulumi.azure.core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -383,9 +384,15 @@ public final class ResourcePolicyExemptionArgs extends com.pulumi.resources.Reso
         }
 
         public ResourcePolicyExemptionArgs build() {
-            $.exemptionCategory = Objects.requireNonNull($.exemptionCategory, "expected parameter 'exemptionCategory' to be non-null");
-            $.policyAssignmentId = Objects.requireNonNull($.policyAssignmentId, "expected parameter 'policyAssignmentId' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.exemptionCategory == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyExemptionArgs", "exemptionCategory");
+            }
+            if ($.policyAssignmentId == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyExemptionArgs", "policyAssignmentId");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResourcePolicyExemptionArgs", "resourceId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class AutoscaleSettingProfileFixedDateArgs extends com.pulumi.resou
         }
 
         public AutoscaleSettingProfileFixedDateArgs build() {
-            $.end = Objects.requireNonNull($.end, "expected parameter 'end' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.end == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileFixedDateArgs", "end");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileFixedDateArgs", "start");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,24 @@ public final class SourceControlSecurity {
 
         @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
+
             this.refreshToken = refreshToken;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("SourceControlSecurity", "token");
+            }
+            this.token = token;
             return this;
         }
         @CustomType.Setter
         public Builder tokenType(String tokenType) {
-            this.tokenType = Objects.requireNonNull(tokenType);
+            if (tokenType == null) {
+              throw new MissingRequiredPropertyException("SourceControlSecurity", "tokenType");
+            }
+            this.tokenType = tokenType;
             return this;
         }
         public SourceControlSecurity build() {

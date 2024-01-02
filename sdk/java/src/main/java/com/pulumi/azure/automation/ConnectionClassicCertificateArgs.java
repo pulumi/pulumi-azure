@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,11 +299,21 @@ public final class ConnectionClassicCertificateArgs extends com.pulumi.resources
         }
 
         public ConnectionClassicCertificateArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.certificateAssetName = Objects.requireNonNull($.certificateAssetName, "expected parameter 'certificateAssetName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.subscriptionName = Objects.requireNonNull($.subscriptionName, "expected parameter 'subscriptionName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("ConnectionClassicCertificateArgs", "automationAccountName");
+            }
+            if ($.certificateAssetName == null) {
+                throw new MissingRequiredPropertyException("ConnectionClassicCertificateArgs", "certificateAssetName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ConnectionClassicCertificateArgs", "resourceGroupName");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("ConnectionClassicCertificateArgs", "subscriptionId");
+            }
+            if ($.subscriptionName == null) {
+                throw new MissingRequiredPropertyException("ConnectionClassicCertificateArgs", "subscriptionName");
+            }
             return $;
         }
     }

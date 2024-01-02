@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,17 +103,24 @@ public final class IoTHubRoute {
 
         @CustomType.Setter
         public Builder condition(@Nullable String condition) {
+
             this.condition = condition;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("IoTHubRoute", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder endpointNames(List<String> endpointNames) {
-            this.endpointNames = Objects.requireNonNull(endpointNames);
+            if (endpointNames == null) {
+              throw new MissingRequiredPropertyException("IoTHubRoute", "endpointNames");
+            }
+            this.endpointNames = endpointNames;
             return this;
         }
         public Builder endpointNames(String... endpointNames) {
@@ -120,12 +128,18 @@ public final class IoTHubRoute {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("IoTHubRoute", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("IoTHubRoute", "source");
+            }
+            this.source = source;
             return this;
         }
         public IoTHubRoute build() {

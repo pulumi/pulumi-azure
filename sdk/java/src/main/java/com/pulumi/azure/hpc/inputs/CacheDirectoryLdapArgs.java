@@ -6,6 +6,7 @@ package com.pulumi.azure.hpc.inputs;
 import com.pulumi.azure.hpc.inputs.CacheDirectoryLdapBindArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -263,8 +264,12 @@ public final class CacheDirectoryLdapArgs extends com.pulumi.resources.ResourceA
         }
 
         public CacheDirectoryLdapArgs build() {
-            $.baseDn = Objects.requireNonNull($.baseDn, "expected parameter 'baseDn' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
+            if ($.baseDn == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryLdapArgs", "baseDn");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryLdapArgs", "server");
+            }
             return $;
         }
     }

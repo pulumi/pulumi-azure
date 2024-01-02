@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.BackendServiceFabricClusterServerX509NameArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -302,8 +303,12 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         public BackendServiceFabricClusterArgs build() {
-            $.managementEndpoints = Objects.requireNonNull($.managementEndpoints, "expected parameter 'managementEndpoints' to be non-null");
-            $.maxPartitionResolutionRetries = Objects.requireNonNull($.maxPartitionResolutionRetries, "expected parameter 'maxPartitionResolutionRetries' to be non-null");
+            if ($.managementEndpoints == null) {
+                throw new MissingRequiredPropertyException("BackendServiceFabricClusterArgs", "managementEndpoints");
+            }
+            if ($.maxPartitionResolutionRetries == null) {
+                throw new MissingRequiredPropertyException("BackendServiceFabricClusterArgs", "maxPartitionResolutionRetries");
+            }
             return $;
         }
     }

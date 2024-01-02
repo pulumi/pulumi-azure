@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.BlobInventoryPolicyRuleFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -130,27 +131,40 @@ public final class BlobInventoryPolicyRule {
 
         @CustomType.Setter
         public Builder filter(@Nullable BlobInventoryPolicyRuleFilter filter) {
+
             this.filter = filter;
             return this;
         }
         @CustomType.Setter
         public Builder format(String format) {
-            this.format = Objects.requireNonNull(format);
+            if (format == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "format");
+            }
+            this.format = format;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schedule(String schedule) {
-            this.schedule = Objects.requireNonNull(schedule);
+            if (schedule == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "schedule");
+            }
+            this.schedule = schedule;
             return this;
         }
         @CustomType.Setter
         public Builder schemaFields(List<String> schemaFields) {
-            this.schemaFields = Objects.requireNonNull(schemaFields);
+            if (schemaFields == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "schemaFields");
+            }
+            this.schemaFields = schemaFields;
             return this;
         }
         public Builder schemaFields(String... schemaFields) {
@@ -158,12 +172,18 @@ public final class BlobInventoryPolicyRule {
         }
         @CustomType.Setter
         public Builder scope(String scope) {
-            this.scope = Objects.requireNonNull(scope);
+            if (scope == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "scope");
+            }
+            this.scope = scope;
             return this;
         }
         @CustomType.Setter
         public Builder storageContainerName(String storageContainerName) {
-            this.storageContainerName = Objects.requireNonNull(storageContainerName);
+            if (storageContainerName == null) {
+              throw new MissingRequiredPropertyException("BlobInventoryPolicyRule", "storageContainerName");
+            }
+            this.storageContainerName = storageContainerName;
             return this;
         }
         public BlobInventoryPolicyRule build() {

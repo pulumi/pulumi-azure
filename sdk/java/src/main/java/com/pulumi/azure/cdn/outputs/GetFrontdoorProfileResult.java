@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -112,37 +113,58 @@ public final class GetFrontdoorProfileResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGuid(String resourceGuid) {
-            this.resourceGuid = Objects.requireNonNull(resourceGuid);
+            if (resourceGuid == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "resourceGuid");
+            }
+            this.resourceGuid = resourceGuid;
             return this;
         }
         @CustomType.Setter
         public Builder responseTimeoutSeconds(Integer responseTimeoutSeconds) {
-            this.responseTimeoutSeconds = Objects.requireNonNull(responseTimeoutSeconds);
+            if (responseTimeoutSeconds == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "responseTimeoutSeconds");
+            }
+            this.responseTimeoutSeconds = responseTimeoutSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder skuName(String skuName) {
-            this.skuName = Objects.requireNonNull(skuName);
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "skuName");
+            }
+            this.skuName = skuName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetFrontdoorProfileResult build() {

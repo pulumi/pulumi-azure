@@ -8,6 +8,7 @@ import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNatRuleC
 import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -296,8 +297,12 @@ public final class FirewallPolicyRuleCollectionGroupArgs extends com.pulumi.reso
         }
 
         public FirewallPolicyRuleCollectionGroupArgs build() {
-            $.firewallPolicyId = Objects.requireNonNull($.firewallPolicyId, "expected parameter 'firewallPolicyId' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
+            if ($.firewallPolicyId == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupArgs", "firewallPolicyId");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupArgs", "priority");
+            }
             return $;
         }
     }

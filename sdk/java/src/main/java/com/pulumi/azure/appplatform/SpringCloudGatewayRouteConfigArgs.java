@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigOpenApiA
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -414,7 +415,9 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
         }
 
         public SpringCloudGatewayRouteConfigArgs build() {
-            $.springCloudGatewayId = Objects.requireNonNull($.springCloudGatewayId, "expected parameter 'springCloudGatewayId' to be non-null");
+            if ($.springCloudGatewayId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudGatewayRouteConfigArgs", "springCloudGatewayId");
+            }
             return $;
         }
     }

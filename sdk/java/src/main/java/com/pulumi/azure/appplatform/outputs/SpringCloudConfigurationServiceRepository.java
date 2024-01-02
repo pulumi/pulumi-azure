@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,37 +201,50 @@ public final class SpringCloudConfigurationServiceRepository {
 
         @CustomType.Setter
         public Builder caCertificateId(@Nullable String caCertificateId) {
+
             this.caCertificateId = caCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder hostKey(@Nullable String hostKey) {
+
             this.hostKey = hostKey;
             return this;
         }
         @CustomType.Setter
         public Builder hostKeyAlgorithm(@Nullable String hostKeyAlgorithm) {
+
             this.hostKeyAlgorithm = hostKeyAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepository", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepository", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder patterns(List<String> patterns) {
-            this.patterns = Objects.requireNonNull(patterns);
+            if (patterns == null) {
+              throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepository", "patterns");
+            }
+            this.patterns = patterns;
             return this;
         }
         public Builder patterns(String... patterns) {
@@ -238,11 +252,13 @@ public final class SpringCloudConfigurationServiceRepository {
         }
         @CustomType.Setter
         public Builder privateKey(@Nullable String privateKey) {
+
             this.privateKey = privateKey;
             return this;
         }
         @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
+
             this.searchPaths = searchPaths;
             return this;
         }
@@ -251,16 +267,21 @@ public final class SpringCloudConfigurationServiceRepository {
         }
         @CustomType.Setter
         public Builder strictHostKeyChecking(@Nullable Boolean strictHostKeyChecking) {
+
             this.strictHostKeyChecking = strictHostKeyChecking;
             return this;
         }
         @CustomType.Setter
         public Builder uri(String uri) {
-            this.uri = Objects.requireNonNull(uri);
+            if (uri == null) {
+              throw new MissingRequiredPropertyException("SpringCloudConfigurationServiceRepository", "uri");
+            }
+            this.uri = uri;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

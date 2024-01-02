@@ -7,6 +7,7 @@ import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteConfigCors;
 import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteConfigIpRestriction;
 import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -312,52 +313,82 @@ public final class GetFunctionAppSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
-            this.alwaysOn = Objects.requireNonNull(alwaysOn);
+            if (alwaysOn == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "alwaysOn");
+            }
+            this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
-            this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
+            if (appScaleLimit == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "appScaleLimit");
+            }
+            this.appScaleLimit = appScaleLimit;
             return this;
         }
         @CustomType.Setter
         public Builder autoSwapSlotName(String autoSwapSlotName) {
-            this.autoSwapSlotName = Objects.requireNonNull(autoSwapSlotName);
+            if (autoSwapSlotName == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "autoSwapSlotName");
+            }
+            this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
         @CustomType.Setter
         public Builder cors(GetFunctionAppSiteConfigCors cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetFrameworkVersion(String dotnetFrameworkVersion) {
-            this.dotnetFrameworkVersion = Objects.requireNonNull(dotnetFrameworkVersion);
+            if (dotnetFrameworkVersion == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "dotnetFrameworkVersion");
+            }
+            this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
         @CustomType.Setter
         public Builder elasticInstanceMinimum(Integer elasticInstanceMinimum) {
-            this.elasticInstanceMinimum = Objects.requireNonNull(elasticInstanceMinimum);
+            if (elasticInstanceMinimum == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "elasticInstanceMinimum");
+            }
+            this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
-            this.ftpsState = Objects.requireNonNull(ftpsState);
+            if (ftpsState == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "ftpsState");
+            }
+            this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
-            this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
+            if (healthCheckPath == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "healthCheckPath");
+            }
+            this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
-            this.http2Enabled = Objects.requireNonNull(http2Enabled);
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "http2Enabled");
+            }
+            this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions) {
-            this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
+            if (ipRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "ipRestrictions");
+            }
+            this.ipRestrictions = ipRestrictions;
             return this;
         }
         public Builder ipRestrictions(GetFunctionAppSiteConfigIpRestriction... ipRestrictions) {
@@ -365,32 +396,50 @@ public final class GetFunctionAppSiteConfig {
         }
         @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
-            this.javaVersion = Objects.requireNonNull(javaVersion);
+            if (javaVersion == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "javaVersion");
+            }
+            this.javaVersion = javaVersion;
             return this;
         }
         @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
-            this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
+            if (linuxFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "linuxFxVersion");
+            }
+            this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder minTlsVersion(String minTlsVersion) {
-            this.minTlsVersion = Objects.requireNonNull(minTlsVersion);
+            if (minTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "minTlsVersion");
+            }
+            this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
-            this.preWarmedInstanceCount = Objects.requireNonNull(preWarmedInstanceCount);
+            if (preWarmedInstanceCount == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "preWarmedInstanceCount");
+            }
+            this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
-            this.runtimeScaleMonitoringEnabled = Objects.requireNonNull(runtimeScaleMonitoringEnabled);
+            if (runtimeScaleMonitoringEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "runtimeScaleMonitoringEnabled");
+            }
+            this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions) {
-            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            if (scmIpRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "scmIpRestrictions");
+            }
+            this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
         public Builder scmIpRestrictions(GetFunctionAppSiteConfigScmIpRestriction... scmIpRestrictions) {
@@ -398,27 +447,42 @@ public final class GetFunctionAppSiteConfig {
         }
         @CustomType.Setter
         public Builder scmType(String scmType) {
-            this.scmType = Objects.requireNonNull(scmType);
+            if (scmType == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "scmType");
+            }
+            this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
-            this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
+            if (scmUseMainIpRestriction == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "scmUseMainIpRestriction");
+            }
+            this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorkerProcess(Boolean use32BitWorkerProcess) {
-            this.use32BitWorkerProcess = Objects.requireNonNull(use32BitWorkerProcess);
+            if (use32BitWorkerProcess == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "use32BitWorkerProcess");
+            }
+            this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
-            this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
+            if (vnetRouteAllEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "vnetRouteAllEnabled");
+            }
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
-            this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
+            if (websocketsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfig", "websocketsEnabled");
+            }
+            this.websocketsEnabled = websocketsEnabled;
             return this;
         }
         public GetFunctionAppSiteConfig build() {

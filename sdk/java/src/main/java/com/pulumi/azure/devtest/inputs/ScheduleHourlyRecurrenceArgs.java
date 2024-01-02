@@ -5,6 +5,7 @@ package com.pulumi.azure.devtest.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class ScheduleHourlyRecurrenceArgs extends com.pulumi.resources.Res
         }
 
         public ScheduleHourlyRecurrenceArgs build() {
-            $.minute = Objects.requireNonNull($.minute, "expected parameter 'minute' to be non-null");
+            if ($.minute == null) {
+                throw new MissingRequiredPropertyException("ScheduleHourlyRecurrenceArgs", "minute");
+            }
             return $;
         }
     }

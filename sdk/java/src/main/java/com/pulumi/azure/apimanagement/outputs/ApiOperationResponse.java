@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.outputs;
 import com.pulumi.azure.apimanagement.outputs.ApiOperationResponseHeader;
 import com.pulumi.azure.apimanagement.outputs.ApiOperationResponseRepresentation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -90,11 +91,13 @@ public final class ApiOperationResponse {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder headers(@Nullable List<ApiOperationResponseHeader> headers) {
+
             this.headers = headers;
             return this;
         }
@@ -103,6 +106,7 @@ public final class ApiOperationResponse {
         }
         @CustomType.Setter
         public Builder representations(@Nullable List<ApiOperationResponseRepresentation> representations) {
+
             this.representations = representations;
             return this;
         }
@@ -111,7 +115,10 @@ public final class ApiOperationResponse {
         }
         @CustomType.Setter
         public Builder statusCode(Integer statusCode) {
-            this.statusCode = Objects.requireNonNull(statusCode);
+            if (statusCode == null) {
+              throw new MissingRequiredPropertyException("ApiOperationResponse", "statusCode");
+            }
+            this.statusCode = statusCode;
             return this;
         }
         public ApiOperationResponse build() {
