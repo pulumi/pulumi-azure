@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class GroupContainerVolumeGitRepo {
 
         @CustomType.Setter
         public Builder directory(@Nullable String directory) {
+
             this.directory = directory;
             return this;
         }
         @CustomType.Setter
         public Builder revision(@Nullable String revision) {
+
             this.revision = revision;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GroupContainerVolumeGitRepo", "url");
+            }
+            this.url = url;
             return this;
         }
         public GroupContainerVolumeGitRepo build() {

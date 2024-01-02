@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class GetAlertRuleAnomalyPrioritizedExcludeObservation {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyPrioritizedExcludeObservation", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder exclude(String exclude) {
-            this.exclude = Objects.requireNonNull(exclude);
+            if (exclude == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyPrioritizedExcludeObservation", "exclude");
+            }
+            this.exclude = exclude;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyPrioritizedExcludeObservation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder prioritize(String prioritize) {
-            this.prioritize = Objects.requireNonNull(prioritize);
+            if (prioritize == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyPrioritizedExcludeObservation", "prioritize");
+            }
+            this.prioritize = prioritize;
             return this;
         }
         public GetAlertRuleAnomalyPrioritizedExcludeObservation build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
 
         @CustomType.Setter
         public Builder componentId(String componentId) {
-            this.componentId = Objects.requireNonNull(componentId);
+            if (componentId == null) {
+              throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria", "componentId");
+            }
+            this.componentId = componentId;
             return this;
         }
         @CustomType.Setter
         public Builder failedLocationCount(Integer failedLocationCount) {
-            this.failedLocationCount = Objects.requireNonNull(failedLocationCount);
+            if (failedLocationCount == null) {
+              throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria", "failedLocationCount");
+            }
+            this.failedLocationCount = failedLocationCount;
             return this;
         }
         @CustomType.Setter
         public Builder webTestId(String webTestId) {
-            this.webTestId = Objects.requireNonNull(webTestId);
+            if (webTestId == null) {
+              throw new MissingRequiredPropertyException("MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria", "webTestId");
+            }
+            this.webTestId = webTestId;
             return this;
         }
         public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria build() {

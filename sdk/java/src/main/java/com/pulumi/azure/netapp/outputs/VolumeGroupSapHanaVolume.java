@@ -7,6 +7,7 @@ import com.pulumi.azure.netapp.outputs.VolumeGroupSapHanaVolumeDataProtectionRep
 import com.pulumi.azure.netapp.outputs.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeGroupSapHanaVolumeExportPolicyRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -282,22 +283,30 @@ public final class VolumeGroupSapHanaVolume {
 
         @CustomType.Setter
         public Builder capacityPoolId(String capacityPoolId) {
-            this.capacityPoolId = Objects.requireNonNull(capacityPoolId);
+            if (capacityPoolId == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "capacityPoolId");
+            }
+            this.capacityPoolId = capacityPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder dataProtectionReplication(@Nullable VolumeGroupSapHanaVolumeDataProtectionReplication dataProtectionReplication) {
+
             this.dataProtectionReplication = dataProtectionReplication;
             return this;
         }
         @CustomType.Setter
         public Builder dataProtectionSnapshotPolicy(@Nullable VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy dataProtectionSnapshotPolicy) {
+
             this.dataProtectionSnapshotPolicy = dataProtectionSnapshotPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder exportPolicyRules(List<VolumeGroupSapHanaVolumeExportPolicyRule> exportPolicyRules) {
-            this.exportPolicyRules = Objects.requireNonNull(exportPolicyRules);
+            if (exportPolicyRules == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "exportPolicyRules");
+            }
+            this.exportPolicyRules = exportPolicyRules;
             return this;
         }
         public Builder exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRule... exportPolicyRules) {
@@ -305,11 +314,13 @@ public final class VolumeGroupSapHanaVolume {
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mountIpAddresses(@Nullable List<String> mountIpAddresses) {
+
             this.mountIpAddresses = mountIpAddresses;
             return this;
         }
@@ -318,62 +329,94 @@ public final class VolumeGroupSapHanaVolume {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(String protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         @CustomType.Setter
         public Builder proximityPlacementGroupId(@Nullable String proximityPlacementGroupId) {
+
             this.proximityPlacementGroupId = proximityPlacementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder securityStyle(String securityStyle) {
-            this.securityStyle = Objects.requireNonNull(securityStyle);
+            if (securityStyle == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "securityStyle");
+            }
+            this.securityStyle = securityStyle;
             return this;
         }
         @CustomType.Setter
         public Builder serviceLevel(String serviceLevel) {
-            this.serviceLevel = Objects.requireNonNull(serviceLevel);
+            if (serviceLevel == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "serviceLevel");
+            }
+            this.serviceLevel = serviceLevel;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotDirectoryVisible(Boolean snapshotDirectoryVisible) {
-            this.snapshotDirectoryVisible = Objects.requireNonNull(snapshotDirectoryVisible);
+            if (snapshotDirectoryVisible == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "snapshotDirectoryVisible");
+            }
+            this.snapshotDirectoryVisible = snapshotDirectoryVisible;
             return this;
         }
         @CustomType.Setter
         public Builder storageQuotaInGb(Integer storageQuotaInGb) {
-            this.storageQuotaInGb = Objects.requireNonNull(storageQuotaInGb);
+            if (storageQuotaInGb == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "storageQuotaInGb");
+            }
+            this.storageQuotaInGb = storageQuotaInGb;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder throughputInMibps(Double throughputInMibps) {
-            this.throughputInMibps = Objects.requireNonNull(throughputInMibps);
+            if (throughputInMibps == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "throughputInMibps");
+            }
+            this.throughputInMibps = throughputInMibps;
             return this;
         }
         @CustomType.Setter
         public Builder volumePath(String volumePath) {
-            this.volumePath = Objects.requireNonNull(volumePath);
+            if (volumePath == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "volumePath");
+            }
+            this.volumePath = volumePath;
             return this;
         }
         @CustomType.Setter
         public Builder volumeSpecName(String volumeSpecName) {
-            this.volumeSpecName = Objects.requireNonNull(volumeSpecName);
+            if (volumeSpecName == null) {
+              throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolume", "volumeSpecName");
+            }
+            this.volumeSpecName = volumeSpecName;
             return this;
         }
         public VolumeGroupSapHanaVolume build() {

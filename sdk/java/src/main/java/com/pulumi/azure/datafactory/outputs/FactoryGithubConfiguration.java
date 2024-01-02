@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -119,32 +120,48 @@ public final class FactoryGithubConfiguration {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder branchName(String branchName) {
-            this.branchName = Objects.requireNonNull(branchName);
+            if (branchName == null) {
+              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "branchName");
+            }
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder gitUrl(String gitUrl) {
-            this.gitUrl = Objects.requireNonNull(gitUrl);
+            if (gitUrl == null) {
+              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "gitUrl");
+            }
+            this.gitUrl = gitUrl;
             return this;
         }
         @CustomType.Setter
         public Builder publishingEnabled(@Nullable Boolean publishingEnabled) {
+
             this.publishingEnabled = publishingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
-            this.rootFolder = Objects.requireNonNull(rootFolder);
+            if (rootFolder == null) {
+              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "rootFolder");
+            }
+            this.rootFolder = rootFolder;
             return this;
         }
         public FactoryGithubConfiguration build() {

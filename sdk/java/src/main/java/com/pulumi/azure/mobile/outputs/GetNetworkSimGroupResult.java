@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkSimGroupIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -113,17 +114,26 @@ public final class GetNetworkSimGroupResult {
 
         @CustomType.Setter
         public Builder encryptionKeyUrl(String encryptionKeyUrl) {
-            this.encryptionKeyUrl = Objects.requireNonNull(encryptionKeyUrl);
+            if (encryptionKeyUrl == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "encryptionKeyUrl");
+            }
+            this.encryptionKeyUrl = encryptionKeyUrl;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetNetworkSimGroupIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetNetworkSimGroupIdentity... identities) {
@@ -131,22 +141,34 @@ public final class GetNetworkSimGroupResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkId(String mobileNetworkId) {
-            this.mobileNetworkId = Objects.requireNonNull(mobileNetworkId);
+            if (mobileNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "mobileNetworkId");
+            }
+            this.mobileNetworkId = mobileNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSimGroupResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNetworkSimGroupResult build() {

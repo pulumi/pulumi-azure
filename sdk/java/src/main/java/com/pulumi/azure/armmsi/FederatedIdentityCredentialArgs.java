@@ -5,6 +5,7 @@ package com.pulumi.azure.armmsi;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class FederatedIdentityCredentialArgs extends com.pulumi.resources.
         }
 
         public FederatedIdentityCredentialArgs build() {
-            $.audience = Objects.requireNonNull($.audience, "expected parameter 'audience' to be non-null");
-            $.issuer = Objects.requireNonNull($.issuer, "expected parameter 'issuer' to be non-null");
-            $.parentId = Objects.requireNonNull($.parentId, "expected parameter 'parentId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.subject = Objects.requireNonNull($.subject, "expected parameter 'subject' to be non-null");
+            if ($.audience == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "audience");
+            }
+            if ($.issuer == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "issuer");
+            }
+            if ($.parentId == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "parentId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "resourceGroupName");
+            }
+            if ($.subject == null) {
+                throw new MissingRequiredPropertyException("FederatedIdentityCredentialArgs", "subject");
+            }
             return $;
         }
     }

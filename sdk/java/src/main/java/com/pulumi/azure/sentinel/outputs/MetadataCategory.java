@@ -58,6 +58,7 @@ public final class MetadataCategory {
 
         @CustomType.Setter
         public Builder domains(@Nullable List<String> domains) {
+
             this.domains = domains;
             return this;
         }
@@ -66,6 +67,7 @@ public final class MetadataCategory {
         }
         @CustomType.Setter
         public Builder verticals(@Nullable List<String> verticals) {
+
             this.verticals = verticals;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class EventSubscriptionAdvancedFilterIsNotNull {
 
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionAdvancedFilterIsNotNull", "key");
+            }
+            this.key = key;
             return this;
         }
         public EventSubscriptionAdvancedFilterIsNotNull build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -64,12 +65,18 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
 
         @CustomType.Setter
         public Builder minimumFailingPeriodsToTriggerAlert(Integer minimumFailingPeriodsToTriggerAlert) {
-            this.minimumFailingPeriodsToTriggerAlert = Objects.requireNonNull(minimumFailingPeriodsToTriggerAlert);
+            if (minimumFailingPeriodsToTriggerAlert == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaFailingPeriods", "minimumFailingPeriodsToTriggerAlert");
+            }
+            this.minimumFailingPeriodsToTriggerAlert = minimumFailingPeriodsToTriggerAlert;
             return this;
         }
         @CustomType.Setter
         public Builder numberOfEvaluationPeriods(Integer numberOfEvaluationPeriods) {
-            this.numberOfEvaluationPeriods = Objects.requireNonNull(numberOfEvaluationPeriods);
+            if (numberOfEvaluationPeriods == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertV2CriteriaFailingPeriods", "numberOfEvaluationPeriods");
+            }
+            this.numberOfEvaluationPeriods = numberOfEvaluationPeriods;
             return this;
         }
         public ScheduledQueryRulesAlertV2CriteriaFailingPeriods build() {

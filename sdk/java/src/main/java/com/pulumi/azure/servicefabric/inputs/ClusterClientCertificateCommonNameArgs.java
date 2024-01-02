@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -159,8 +160,12 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
         }
 
         public ClusterClientCertificateCommonNameArgs build() {
-            $.commonName = Objects.requireNonNull($.commonName, "expected parameter 'commonName' to be non-null");
-            $.isAdmin = Objects.requireNonNull($.isAdmin, "expected parameter 'isAdmin' to be non-null");
+            if ($.commonName == null) {
+                throw new MissingRequiredPropertyException("ClusterClientCertificateCommonNameArgs", "commonName");
+            }
+            if ($.isAdmin == null) {
+                throw new MissingRequiredPropertyException("ClusterClientCertificateCommonNameArgs", "isAdmin");
+            }
             return $;
         }
     }

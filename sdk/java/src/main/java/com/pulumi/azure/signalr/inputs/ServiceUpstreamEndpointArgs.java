@@ -5,6 +5,7 @@ package com.pulumi.azure.signalr.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -255,10 +256,18 @@ public final class ServiceUpstreamEndpointArgs extends com.pulumi.resources.Reso
         }
 
         public ServiceUpstreamEndpointArgs build() {
-            $.categoryPatterns = Objects.requireNonNull($.categoryPatterns, "expected parameter 'categoryPatterns' to be non-null");
-            $.eventPatterns = Objects.requireNonNull($.eventPatterns, "expected parameter 'eventPatterns' to be non-null");
-            $.hubPatterns = Objects.requireNonNull($.hubPatterns, "expected parameter 'hubPatterns' to be non-null");
-            $.urlTemplate = Objects.requireNonNull($.urlTemplate, "expected parameter 'urlTemplate' to be non-null");
+            if ($.categoryPatterns == null) {
+                throw new MissingRequiredPropertyException("ServiceUpstreamEndpointArgs", "categoryPatterns");
+            }
+            if ($.eventPatterns == null) {
+                throw new MissingRequiredPropertyException("ServiceUpstreamEndpointArgs", "eventPatterns");
+            }
+            if ($.hubPatterns == null) {
+                throw new MissingRequiredPropertyException("ServiceUpstreamEndpointArgs", "hubPatterns");
+            }
+            if ($.urlTemplate == null) {
+                throw new MissingRequiredPropertyException("ServiceUpstreamEndpointArgs", "urlTemplate");
+            }
             return $;
         }
     }

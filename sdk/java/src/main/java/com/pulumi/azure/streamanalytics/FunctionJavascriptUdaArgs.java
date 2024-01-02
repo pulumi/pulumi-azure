@@ -7,6 +7,7 @@ import com.pulumi.azure.streamanalytics.inputs.FunctionJavascriptUdaInputArgs;
 import com.pulumi.azure.streamanalytics.inputs.FunctionJavascriptUdaOutputArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -237,10 +238,18 @@ public final class FunctionJavascriptUdaArgs extends com.pulumi.resources.Resour
         }
 
         public FunctionJavascriptUdaArgs build() {
-            $.inputs = Objects.requireNonNull($.inputs, "expected parameter 'inputs' to be non-null");
-            $.output = Objects.requireNonNull($.output, "expected parameter 'output' to be non-null");
-            $.script = Objects.requireNonNull($.script, "expected parameter 'script' to be non-null");
-            $.streamAnalyticsJobId = Objects.requireNonNull($.streamAnalyticsJobId, "expected parameter 'streamAnalyticsJobId' to be non-null");
+            if ($.inputs == null) {
+                throw new MissingRequiredPropertyException("FunctionJavascriptUdaArgs", "inputs");
+            }
+            if ($.output == null) {
+                throw new MissingRequiredPropertyException("FunctionJavascriptUdaArgs", "output");
+            }
+            if ($.script == null) {
+                throw new MissingRequiredPropertyException("FunctionJavascriptUdaArgs", "script");
+            }
+            if ($.streamAnalyticsJobId == null) {
+                throw new MissingRequiredPropertyException("FunctionJavascriptUdaArgs", "streamAnalyticsJobId");
+            }
             return $;
         }
     }

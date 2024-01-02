@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class StaticSiteCustomDomainArgs extends com.pulumi.resources.Resou
         }
 
         public StaticSiteCustomDomainArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.staticSiteId = Objects.requireNonNull($.staticSiteId, "expected parameter 'staticSiteId' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("StaticSiteCustomDomainArgs", "domainName");
+            }
+            if ($.staticSiteId == null) {
+                throw new MissingRequiredPropertyException("StaticSiteCustomDomainArgs", "staticSiteId");
+            }
             return $;
         }
     }

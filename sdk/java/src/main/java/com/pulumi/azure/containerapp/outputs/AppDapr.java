@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class AppDapr {
 
         @CustomType.Setter
         public Builder appId(String appId) {
-            this.appId = Objects.requireNonNull(appId);
+            if (appId == null) {
+              throw new MissingRequiredPropertyException("AppDapr", "appId");
+            }
+            this.appId = appId;
             return this;
         }
         @CustomType.Setter
         public Builder appPort(@Nullable Integer appPort) {
+
             this.appPort = appPort;
             return this;
         }
         @CustomType.Setter
         public Builder appProtocol(@Nullable String appProtocol) {
+
             this.appProtocol = appProtocol;
             return this;
         }

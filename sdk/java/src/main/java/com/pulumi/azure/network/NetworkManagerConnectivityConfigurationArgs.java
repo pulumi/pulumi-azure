@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationAp
 import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationHubArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -349,9 +350,15 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         }
 
         public NetworkManagerConnectivityConfigurationArgs build() {
-            $.appliesToGroups = Objects.requireNonNull($.appliesToGroups, "expected parameter 'appliesToGroups' to be non-null");
-            $.connectivityTopology = Objects.requireNonNull($.connectivityTopology, "expected parameter 'connectivityTopology' to be non-null");
-            $.networkManagerId = Objects.requireNonNull($.networkManagerId, "expected parameter 'networkManagerId' to be non-null");
+            if ($.appliesToGroups == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationArgs", "appliesToGroups");
+            }
+            if ($.connectivityTopology == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationArgs", "connectivityTopology");
+            }
+            if ($.networkManagerId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationArgs", "networkManagerId");
+            }
             return $;
         }
     }

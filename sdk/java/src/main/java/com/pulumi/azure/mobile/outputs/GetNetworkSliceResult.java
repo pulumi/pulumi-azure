@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -113,32 +114,50 @@ public final class GetNetworkSliceResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder mobileNetworkId(String mobileNetworkId) {
-            this.mobileNetworkId = Objects.requireNonNull(mobileNetworkId);
+            if (mobileNetworkId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "mobileNetworkId");
+            }
+            this.mobileNetworkId = mobileNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder singleNetworkSliceSelectionAssistanceInformations(List<GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation> singleNetworkSliceSelectionAssistanceInformations) {
-            this.singleNetworkSliceSelectionAssistanceInformations = Objects.requireNonNull(singleNetworkSliceSelectionAssistanceInformations);
+            if (singleNetworkSliceSelectionAssistanceInformations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "singleNetworkSliceSelectionAssistanceInformations");
+            }
+            this.singleNetworkSliceSelectionAssistanceInformations = singleNetworkSliceSelectionAssistanceInformations;
             return this;
         }
         public Builder singleNetworkSliceSelectionAssistanceInformations(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation... singleNetworkSliceSelectionAssistanceInformations) {
@@ -146,7 +165,10 @@ public final class GetNetworkSliceResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkSliceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetNetworkSliceResult build() {

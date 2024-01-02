@@ -5,6 +5,7 @@ package com.pulumi.azure.consumption.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class BudgetManagementGroupTimePeriodArgs extends com.pulumi.resour
         }
 
         public BudgetManagementGroupTimePeriodArgs build() {
-            $.startDate = Objects.requireNonNull($.startDate, "expected parameter 'startDate' to be non-null");
+            if ($.startDate == null) {
+                throw new MissingRequiredPropertyException("BudgetManagementGroupTimePeriodArgs", "startDate");
+            }
             return $;
         }
     }

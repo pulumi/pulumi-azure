@@ -87,21 +87,25 @@ public final class ScaleSetRollingUpgradePolicy {
 
         @CustomType.Setter
         public Builder maxBatchInstancePercent(@Nullable Integer maxBatchInstancePercent) {
+
             this.maxBatchInstancePercent = maxBatchInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnhealthyInstancePercent(@Nullable Integer maxUnhealthyInstancePercent) {
+
             this.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder maxUnhealthyUpgradedInstancePercent(@Nullable Integer maxUnhealthyUpgradedInstancePercent) {
+
             this.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             return this;
         }
         @CustomType.Setter
         public Builder pauseTimeBetweenBatches(@Nullable String pauseTimeBetweenBatches) {
+
             this.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
             return this;
         }

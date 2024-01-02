@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,28 @@ public final class IntegrationRuntimeManagedCatalogInfo {
 
         @CustomType.Setter
         public Builder administratorLogin(@Nullable String administratorLogin) {
+
             this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder administratorPassword(@Nullable String administratorPassword) {
+
             this.administratorPassword = administratorPassword;
             return this;
         }
         @CustomType.Setter
         public Builder pricingTier(@Nullable String pricingTier) {
+
             this.pricingTier = pricingTier;
             return this;
         }
         @CustomType.Setter
         public Builder serverEndpoint(String serverEndpoint) {
-            this.serverEndpoint = Objects.requireNonNull(serverEndpoint);
+            if (serverEndpoint == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeManagedCatalogInfo", "serverEndpoint");
+            }
+            this.serverEndpoint = serverEndpoint;
             return this;
         }
         public IntegrationRuntimeManagedCatalogInfo build() {

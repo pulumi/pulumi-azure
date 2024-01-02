@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigIpRestrictionHeader;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -97,12 +98,18 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder headers(List<GetLinuxWebAppSiteConfigIpRestrictionHeader> headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         public Builder headers(GetLinuxWebAppSiteConfigIpRestrictionHeader... headers) {
@@ -110,27 +117,42 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder serviceTag(String serviceTag) {
-            this.serviceTag = Objects.requireNonNull(serviceTag);
+            if (serviceTag == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "serviceTag");
+            }
+            this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigIpRestriction", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         public GetLinuxWebAppSiteConfigIpRestriction build() {

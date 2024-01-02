@@ -9,6 +9,7 @@ import com.pulumi.azure.eventgrid.inputs.DomainInputMappingDefaultValuesArgs;
 import com.pulumi.azure.eventgrid.inputs.DomainInputMappingFieldsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -537,7 +538,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DomainArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DomainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

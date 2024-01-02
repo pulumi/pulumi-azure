@@ -15,6 +15,7 @@ import com.pulumi.azure.containerservice.inputs.RegistryTaskSourceTriggerArgs;
 import com.pulumi.azure.containerservice.inputs.RegistryTaskTimerTriggerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -755,7 +756,9 @@ public final class RegistryTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RegistryTaskArgs build() {
-            $.containerRegistryId = Objects.requireNonNull($.containerRegistryId, "expected parameter 'containerRegistryId' to be non-null");
+            if ($.containerRegistryId == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskArgs", "containerRegistryId");
+            }
             return $;
         }
     }

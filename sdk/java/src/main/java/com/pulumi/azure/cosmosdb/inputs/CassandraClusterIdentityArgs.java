@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -110,7 +111,9 @@ public final class CassandraClusterIdentityArgs extends com.pulumi.resources.Res
         }
 
         public CassandraClusterIdentityArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("CassandraClusterIdentityArgs", "type");
+            }
             return $;
         }
     }

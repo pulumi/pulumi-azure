@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -536,8 +537,12 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args ext
         }
 
         public WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.tenantAuthEndpoint = Objects.requireNonNull($.tenantAuthEndpoint, "expected parameter 'tenantAuthEndpoint' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args", "clientId");
+            }
+            if ($.tenantAuthEndpoint == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args", "tenantAuthEndpoint");
+            }
             return $;
         }
     }

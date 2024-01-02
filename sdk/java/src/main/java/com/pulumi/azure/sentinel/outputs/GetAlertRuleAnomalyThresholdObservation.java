@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetAlertRuleAnomalyThresholdObservation {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyThresholdObservation", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder max(String max) {
-            this.max = Objects.requireNonNull(max);
+            if (max == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyThresholdObservation", "max");
+            }
+            this.max = max;
             return this;
         }
         @CustomType.Setter
         public Builder min(String min) {
-            this.min = Objects.requireNonNull(min);
+            if (min == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyThresholdObservation", "min");
+            }
+            this.min = min;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyThresholdObservation", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyThresholdObservation", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetAlertRuleAnomalyThresholdObservation build() {

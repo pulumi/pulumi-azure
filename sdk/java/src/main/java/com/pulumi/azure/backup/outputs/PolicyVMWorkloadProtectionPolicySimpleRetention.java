@@ -4,6 +4,7 @@
 package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class PolicyVMWorkloadProtectionPolicySimpleRetention {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("PolicyVMWorkloadProtectionPolicySimpleRetention", "count");
+            }
+            this.count = count;
             return this;
         }
         public PolicyVMWorkloadProtectionPolicySimpleRetention build() {

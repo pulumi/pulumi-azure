@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -159,31 +160,43 @@ public final class RegistryTaskDockerStep {
 
         @CustomType.Setter
         public Builder arguments(@Nullable Map<String,String> arguments) {
+
             this.arguments = arguments;
             return this;
         }
         @CustomType.Setter
         public Builder cacheEnabled(@Nullable Boolean cacheEnabled) {
+
             this.cacheEnabled = cacheEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder contextAccessToken(String contextAccessToken) {
-            this.contextAccessToken = Objects.requireNonNull(contextAccessToken);
+            if (contextAccessToken == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskDockerStep", "contextAccessToken");
+            }
+            this.contextAccessToken = contextAccessToken;
             return this;
         }
         @CustomType.Setter
         public Builder contextPath(String contextPath) {
-            this.contextPath = Objects.requireNonNull(contextPath);
+            if (contextPath == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskDockerStep", "contextPath");
+            }
+            this.contextPath = contextPath;
             return this;
         }
         @CustomType.Setter
         public Builder dockerfilePath(String dockerfilePath) {
-            this.dockerfilePath = Objects.requireNonNull(dockerfilePath);
+            if (dockerfilePath == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskDockerStep", "dockerfilePath");
+            }
+            this.dockerfilePath = dockerfilePath;
             return this;
         }
         @CustomType.Setter
         public Builder imageNames(@Nullable List<String> imageNames) {
+
             this.imageNames = imageNames;
             return this;
         }
@@ -192,16 +205,19 @@ public final class RegistryTaskDockerStep {
         }
         @CustomType.Setter
         public Builder pushEnabled(@Nullable Boolean pushEnabled) {
+
             this.pushEnabled = pushEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder secretArguments(@Nullable Map<String,String> secretArguments) {
+
             this.secretArguments = secretArguments;
             return this;
         }
         @CustomType.Setter
         public Builder target(@Nullable String target) {
+
             this.target = target;
             return this;
         }

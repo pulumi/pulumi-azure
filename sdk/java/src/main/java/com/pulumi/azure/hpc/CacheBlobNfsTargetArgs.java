@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -381,11 +382,21 @@ public final class CacheBlobNfsTargetArgs extends com.pulumi.resources.ResourceA
         }
 
         public CacheBlobNfsTargetArgs build() {
-            $.cacheName = Objects.requireNonNull($.cacheName, "expected parameter 'cacheName' to be non-null");
-            $.namespacePath = Objects.requireNonNull($.namespacePath, "expected parameter 'namespacePath' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageContainerId = Objects.requireNonNull($.storageContainerId, "expected parameter 'storageContainerId' to be non-null");
-            $.usageModel = Objects.requireNonNull($.usageModel, "expected parameter 'usageModel' to be non-null");
+            if ($.cacheName == null) {
+                throw new MissingRequiredPropertyException("CacheBlobNfsTargetArgs", "cacheName");
+            }
+            if ($.namespacePath == null) {
+                throw new MissingRequiredPropertyException("CacheBlobNfsTargetArgs", "namespacePath");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("CacheBlobNfsTargetArgs", "resourceGroupName");
+            }
+            if ($.storageContainerId == null) {
+                throw new MissingRequiredPropertyException("CacheBlobNfsTargetArgs", "storageContainerId");
+            }
+            if ($.usageModel == null) {
+                throw new MissingRequiredPropertyException("CacheBlobNfsTargetArgs", "usageModel");
+            }
             return $;
         }
     }

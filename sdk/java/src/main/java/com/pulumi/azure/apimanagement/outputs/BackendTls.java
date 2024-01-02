@@ -58,11 +58,13 @@ public final class BackendTls {
 
         @CustomType.Setter
         public Builder validateCertificateChain(@Nullable Boolean validateCertificateChain) {
+
             this.validateCertificateChain = validateCertificateChain;
             return this;
         }
         @CustomType.Setter
         public Builder validateCertificateName(@Nullable Boolean validateCertificateName) {
+
             this.validateCertificateName = validateCertificateName;
             return this;
         }

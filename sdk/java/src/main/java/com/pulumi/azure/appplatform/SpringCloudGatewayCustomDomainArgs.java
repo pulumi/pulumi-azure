@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class SpringCloudGatewayCustomDomainArgs extends com.pulumi.resourc
         }
 
         public SpringCloudGatewayCustomDomainArgs build() {
-            $.springCloudGatewayId = Objects.requireNonNull($.springCloudGatewayId, "expected parameter 'springCloudGatewayId' to be non-null");
+            if ($.springCloudGatewayId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudGatewayCustomDomainArgs", "springCloudGatewayId");
+            }
             return $;
         }
     }

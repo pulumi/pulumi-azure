@@ -5,6 +5,7 @@ package com.pulumi.azure.backup;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -156,9 +157,15 @@ public final class ContainerStorageAccountArgs extends com.pulumi.resources.Reso
         }
 
         public ContainerStorageAccountArgs build() {
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ContainerStorageAccountArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ContainerStorageAccountArgs", "resourceGroupName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("ContainerStorageAccountArgs", "storageAccountId");
+            }
             return $;
         }
     }

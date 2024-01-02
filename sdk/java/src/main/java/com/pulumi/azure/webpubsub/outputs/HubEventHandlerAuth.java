@@ -4,6 +4,7 @@
 package com.pulumi.azure.webpubsub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class HubEventHandlerAuth {
 
         @CustomType.Setter
         public Builder managedIdentityId(String managedIdentityId) {
-            this.managedIdentityId = Objects.requireNonNull(managedIdentityId);
+            if (managedIdentityId == null) {
+              throw new MissingRequiredPropertyException("HubEventHandlerAuth", "managedIdentityId");
+            }
+            this.managedIdentityId = managedIdentityId;
             return this;
         }
         public HubEventHandlerAuth build() {

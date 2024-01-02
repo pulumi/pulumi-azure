@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class SparkPoolAutoPauseArgs extends com.pulumi.resources.ResourceA
         }
 
         public SparkPoolAutoPauseArgs build() {
-            $.delayInMinutes = Objects.requireNonNull($.delayInMinutes, "expected parameter 'delayInMinutes' to be non-null");
+            if ($.delayInMinutes == null) {
+                throw new MissingRequiredPropertyException("SparkPoolAutoPauseArgs", "delayInMinutes");
+            }
             return $;
         }
     }

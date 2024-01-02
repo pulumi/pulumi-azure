@@ -7,6 +7,7 @@ import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPano
 import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -189,8 +190,12 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArg
         }
 
         public NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs", "name");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs", "protocol");
+            }
             return $;
         }
     }

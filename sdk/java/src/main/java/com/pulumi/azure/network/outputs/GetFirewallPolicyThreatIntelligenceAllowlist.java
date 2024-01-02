@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,10 @@ public final class GetFirewallPolicyThreatIntelligenceAllowlist {
 
         @CustomType.Setter
         public Builder fqdns(List<String> fqdns) {
-            this.fqdns = Objects.requireNonNull(fqdns);
+            if (fqdns == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyThreatIntelligenceAllowlist", "fqdns");
+            }
+            this.fqdns = fqdns;
             return this;
         }
         public Builder fqdns(String... fqdns) {
@@ -49,7 +53,10 @@ public final class GetFirewallPolicyThreatIntelligenceAllowlist {
         }
         @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
-            this.ipAddresses = Objects.requireNonNull(ipAddresses);
+            if (ipAddresses == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyThreatIntelligenceAllowlist", "ipAddresses");
+            }
+            this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {

@@ -7,6 +7,7 @@ import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsArgs;
 import com.pulumi.azure.storage.inputs.ManagementPolicyRuleFiltersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,10 +189,18 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public ManagementPolicyRuleArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.filters = Objects.requireNonNull($.filters, "expected parameter 'filters' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("ManagementPolicyRuleArgs", "actions");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("ManagementPolicyRuleArgs", "enabled");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("ManagementPolicyRuleArgs", "filters");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ManagementPolicyRuleArgs", "name");
+            }
             return $;
         }
     }

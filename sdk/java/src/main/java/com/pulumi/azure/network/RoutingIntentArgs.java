@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.RoutingIntentRoutingPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -162,8 +163,12 @@ public final class RoutingIntentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RoutingIntentArgs build() {
-            $.routingPolicies = Objects.requireNonNull($.routingPolicies, "expected parameter 'routingPolicies' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.routingPolicies == null) {
+                throw new MissingRequiredPropertyException("RoutingIntentArgs", "routingPolicies");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("RoutingIntentArgs", "virtualHubId");
+            }
             return $;
         }
     }

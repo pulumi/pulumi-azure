@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class AlertRuleNrtEntityMappingFieldMapping {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("AlertRuleNrtEntityMappingFieldMapping", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         @CustomType.Setter
         public Builder identifier(String identifier) {
-            this.identifier = Objects.requireNonNull(identifier);
+            if (identifier == null) {
+              throw new MissingRequiredPropertyException("AlertRuleNrtEntityMappingFieldMapping", "identifier");
+            }
+            this.identifier = identifier;
             return this;
         }
         public AlertRuleNrtEntityMappingFieldMapping build() {

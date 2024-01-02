@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SlotLogsHttpLogsFileSystem {
 
         @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
-            this.retentionInDays = Objects.requireNonNull(retentionInDays);
+            if (retentionInDays == null) {
+              throw new MissingRequiredPropertyException("SlotLogsHttpLogsFileSystem", "retentionInDays");
+            }
+            this.retentionInDays = retentionInDays;
             return this;
         }
         @CustomType.Setter
         public Builder retentionInMb(Integer retentionInMb) {
-            this.retentionInMb = Objects.requireNonNull(retentionInMb);
+            if (retentionInMb == null) {
+              throw new MissingRequiredPropertyException("SlotLogsHttpLogsFileSystem", "retentionInMb");
+            }
+            this.retentionInMb = retentionInMb;
             return this;
         }
         public SlotLogsHttpLogsFileSystem build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -63,12 +64,16 @@ public final class DiagnosticSettingLogRetentionPolicy {
 
         @CustomType.Setter
         public Builder days(@Nullable Integer days) {
+
             this.days = days;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("DiagnosticSettingLogRetentionPolicy", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         public DiagnosticSettingLogRetentionPolicy build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.policy.outputs;
 import com.pulumi.azure.policy.outputs.GetPolicyAssignmentIdentity;
 import com.pulumi.azure.policy.outputs.GetPolicyAssignmentNonComplianceMessage;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -198,27 +199,42 @@ public final class GetPolicyAssignmentResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder enforce(Boolean enforce) {
-            this.enforce = Objects.requireNonNull(enforce);
+            if (enforce == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "enforce");
+            }
+            this.enforce = enforce;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetPolicyAssignmentIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetPolicyAssignmentIdentity... identities) {
@@ -226,22 +242,34 @@ public final class GetPolicyAssignmentResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(String metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nonComplianceMessages(List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages) {
-            this.nonComplianceMessages = Objects.requireNonNull(nonComplianceMessages);
+            if (nonComplianceMessages == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "nonComplianceMessages");
+            }
+            this.nonComplianceMessages = nonComplianceMessages;
             return this;
         }
         public Builder nonComplianceMessages(GetPolicyAssignmentNonComplianceMessage... nonComplianceMessages) {
@@ -249,7 +277,10 @@ public final class GetPolicyAssignmentResult {
         }
         @CustomType.Setter
         public Builder notScopes(List<String> notScopes) {
-            this.notScopes = Objects.requireNonNull(notScopes);
+            if (notScopes == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "notScopes");
+            }
+            this.notScopes = notScopes;
             return this;
         }
         public Builder notScopes(String... notScopes) {
@@ -257,17 +288,26 @@ public final class GetPolicyAssignmentResult {
         }
         @CustomType.Setter
         public Builder parameters(String parameters) {
-            this.parameters = Objects.requireNonNull(parameters);
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "parameters");
+            }
+            this.parameters = parameters;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
-            this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
+            if (policyDefinitionId == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "policyDefinitionId");
+            }
+            this.policyDefinitionId = policyDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder scopeId(String scopeId) {
-            this.scopeId = Objects.requireNonNull(scopeId);
+            if (scopeId == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentResult", "scopeId");
+            }
+            this.scopeId = scopeId;
             return this;
         }
         public GetPolicyAssignmentResult build() {

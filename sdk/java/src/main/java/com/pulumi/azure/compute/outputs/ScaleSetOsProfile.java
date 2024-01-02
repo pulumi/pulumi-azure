@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,29 @@ public final class ScaleSetOsProfile {
 
         @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
+
             this.adminPassword = adminPassword;
             return this;
         }
         @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
-            this.adminUsername = Objects.requireNonNull(adminUsername);
+            if (adminUsername == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfile", "adminUsername");
+            }
+            this.adminUsername = adminUsername;
             return this;
         }
         @CustomType.Setter
         public Builder computerNamePrefix(String computerNamePrefix) {
-            this.computerNamePrefix = Objects.requireNonNull(computerNamePrefix);
+            if (computerNamePrefix == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfile", "computerNamePrefix");
+            }
+            this.computerNamePrefix = computerNamePrefix;
             return this;
         }
         @CustomType.Setter
         public Builder customData(@Nullable String customData) {
+
             this.customData = customData;
             return this;
         }

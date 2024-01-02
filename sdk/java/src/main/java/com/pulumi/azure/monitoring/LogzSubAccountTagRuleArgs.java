@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.monitoring.inputs.LogzSubAccountTagRuleTagFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -237,7 +238,9 @@ public final class LogzSubAccountTagRuleArgs extends com.pulumi.resources.Resour
         }
 
         public LogzSubAccountTagRuleArgs build() {
-            $.logzSubAccountId = Objects.requireNonNull($.logzSubAccountId, "expected parameter 'logzSubAccountId' to be non-null");
+            if ($.logzSubAccountId == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountTagRuleArgs", "logzSubAccountId");
+            }
             return $;
         }
     }

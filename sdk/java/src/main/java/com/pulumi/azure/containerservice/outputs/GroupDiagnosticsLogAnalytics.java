@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -87,22 +88,30 @@ public final class GroupDiagnosticsLogAnalytics {
 
         @CustomType.Setter
         public Builder logType(@Nullable String logType) {
+
             this.logType = logType;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(@Nullable Map<String,String> metadata) {
+
             this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GroupDiagnosticsLogAnalytics", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceKey(String workspaceKey) {
-            this.workspaceKey = Objects.requireNonNull(workspaceKey);
+            if (workspaceKey == null) {
+              throw new MissingRequiredPropertyException("GroupDiagnosticsLogAnalytics", "workspaceKey");
+            }
+            this.workspaceKey = workspaceKey;
             return this;
         }
         public GroupDiagnosticsLogAnalytics build() {

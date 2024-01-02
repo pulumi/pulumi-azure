@@ -6,6 +6,7 @@ package com.pulumi.azure.logicapps;
 import com.pulumi.azure.logicapps.inputs.IntegrationAccountCertificateKeyVaultKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -262,8 +263,12 @@ public final class IntegrationAccountCertificateArgs extends com.pulumi.resource
         }
 
         public IntegrationAccountCertificateArgs build() {
-            $.integrationAccountName = Objects.requireNonNull($.integrationAccountName, "expected parameter 'integrationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.integrationAccountName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountCertificateArgs", "integrationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IntegrationAccountCertificateArgs", "resourceGroupName");
+            }
             return $;
         }
     }

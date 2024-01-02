@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -463,9 +464,15 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SubscriptionArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "apiManagementName");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "displayName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SubscriptionArgs", "resourceGroupName");
+            }
             return $;
         }
     }

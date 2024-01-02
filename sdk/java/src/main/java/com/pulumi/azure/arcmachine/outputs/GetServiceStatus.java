@@ -6,6 +6,7 @@ package com.pulumi.azure.arcmachine.outputs;
 import com.pulumi.azure.arcmachine.outputs.GetServiceStatusExtensionService;
 import com.pulumi.azure.arcmachine.outputs.GetServiceStatusGuestConfigurationService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetServiceStatus {
 
         @CustomType.Setter
         public Builder extensionServices(List<GetServiceStatusExtensionService> extensionServices) {
-            this.extensionServices = Objects.requireNonNull(extensionServices);
+            if (extensionServices == null) {
+              throw new MissingRequiredPropertyException("GetServiceStatus", "extensionServices");
+            }
+            this.extensionServices = extensionServices;
             return this;
         }
         public Builder extensionServices(GetServiceStatusExtensionService... extensionServices) {
@@ -66,7 +70,10 @@ public final class GetServiceStatus {
         }
         @CustomType.Setter
         public Builder guestConfigurationServices(List<GetServiceStatusGuestConfigurationService> guestConfigurationServices) {
-            this.guestConfigurationServices = Objects.requireNonNull(guestConfigurationServices);
+            if (guestConfigurationServices == null) {
+              throw new MissingRequiredPropertyException("GetServiceStatus", "guestConfigurationServices");
+            }
+            this.guestConfigurationServices = guestConfigurationServices;
             return this;
         }
         public Builder guestConfigurationServices(GetServiceStatusGuestConfigurationService... guestConfigurationServices) {

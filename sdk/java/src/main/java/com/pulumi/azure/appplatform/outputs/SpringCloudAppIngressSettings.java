@@ -101,26 +101,31 @@ public final class SpringCloudAppIngressSettings {
 
         @CustomType.Setter
         public Builder backendProtocol(@Nullable String backendProtocol) {
+
             this.backendProtocol = backendProtocol;
             return this;
         }
         @CustomType.Setter
         public Builder readTimeoutInSeconds(@Nullable Integer readTimeoutInSeconds) {
+
             this.readTimeoutInSeconds = readTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder sendTimeoutInSeconds(@Nullable Integer sendTimeoutInSeconds) {
+
             this.sendTimeoutInSeconds = sendTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder sessionAffinity(@Nullable String sessionAffinity) {
+
             this.sessionAffinity = sessionAffinity;
             return this;
         }
         @CustomType.Setter
         public Builder sessionCookieMaxAge(@Nullable Integer sessionCookieMaxAge) {
+
             this.sessionCookieMaxAge = sessionCookieMaxAge;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.batch.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -392,9 +393,15 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PoolExtensionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PoolExtensionArgs", "name");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("PoolExtensionArgs", "publisher");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PoolExtensionArgs", "type");
+            }
             return $;
         }
     }

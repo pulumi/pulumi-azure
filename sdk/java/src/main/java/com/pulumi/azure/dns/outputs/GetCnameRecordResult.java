@@ -4,6 +4,7 @@
 package com.pulumi.azure.dns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -132,47 +133,74 @@ public final class GetCnameRecordResult {
 
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder record(String record) {
-            this.record = Objects.requireNonNull(record);
+            if (record == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "record");
+            }
+            this.record = record;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetResourceId(String targetResourceId) {
-            this.targetResourceId = Objects.requireNonNull(targetResourceId);
+            if (targetResourceId == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "targetResourceId");
+            }
+            this.targetResourceId = targetResourceId;
             return this;
         }
         @CustomType.Setter
         public Builder ttl(Integer ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+            if (ttl == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "ttl");
+            }
+            this.ttl = ttl;
             return this;
         }
         @CustomType.Setter
         public Builder zoneName(String zoneName) {
-            this.zoneName = Objects.requireNonNull(zoneName);
+            if (zoneName == null) {
+              throw new MissingRequiredPropertyException("GetCnameRecordResult", "zoneName");
+            }
+            this.zoneName = zoneName;
             return this;
         }
         public GetCnameRecordResult build() {

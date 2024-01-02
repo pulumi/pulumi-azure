@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -58,7 +59,10 @@ public final class GetAppServiceSiteConfigCor {
 
         @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
-            this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
+            if (allowedOrigins == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfigCor", "allowedOrigins");
+            }
+            this.allowedOrigins = allowedOrigins;
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
@@ -66,7 +70,10 @@ public final class GetAppServiceSiteConfigCor {
         }
         @CustomType.Setter
         public Builder supportCredentials(Boolean supportCredentials) {
-            this.supportCredentials = Objects.requireNonNull(supportCredentials);
+            if (supportCredentials == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceSiteConfigCor", "supportCredentials");
+            }
+            this.supportCredentials = supportCredentials;
             return this;
         }
         public GetAppServiceSiteConfigCor build() {

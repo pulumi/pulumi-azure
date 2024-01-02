@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesEdgeNodeInstallScript
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -259,9 +260,15 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         public HadoopClusterRolesEdgeNodeArgs build() {
-            $.installScriptActions = Objects.requireNonNull($.installScriptActions, "expected parameter 'installScriptActions' to be non-null");
-            $.targetInstanceCount = Objects.requireNonNull($.targetInstanceCount, "expected parameter 'targetInstanceCount' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.installScriptActions == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNodeArgs", "installScriptActions");
+            }
+            if ($.targetInstanceCount == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNodeArgs", "targetInstanceCount");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterRolesEdgeNodeArgs", "vmSize");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -90,21 +91,27 @@ public final class AppRegistry {
 
         @CustomType.Setter
         public Builder identity(@Nullable String identity) {
+
             this.identity = identity;
             return this;
         }
         @CustomType.Setter
         public Builder passwordSecretName(@Nullable String passwordSecretName) {
+
             this.passwordSecretName = passwordSecretName;
             return this;
         }
         @CustomType.Setter
         public Builder server(String server) {
-            this.server = Objects.requireNonNull(server);
+            if (server == null) {
+              throw new MissingRequiredPropertyException("AppRegistry", "server");
+            }
+            this.server = server;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

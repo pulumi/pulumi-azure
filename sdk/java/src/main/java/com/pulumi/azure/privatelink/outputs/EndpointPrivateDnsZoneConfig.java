@@ -88,21 +88,25 @@ public final class EndpointPrivateDnsZoneConfig {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateDnsZoneId(@Nullable String privateDnsZoneId) {
+
             this.privateDnsZoneId = privateDnsZoneId;
             return this;
         }
         @CustomType.Setter
         public Builder recordSets(@Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets) {
+
             this.recordSets = recordSets;
             return this;
         }

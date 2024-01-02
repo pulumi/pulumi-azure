@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -426,9 +427,15 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         public KubernetesClusterMaintenanceWindowAutoUpgradeArgs build() {
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.interval = Objects.requireNonNull($.interval, "expected parameter 'interval' to be non-null");
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgradeArgs", "duration");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgradeArgs", "frequency");
+            }
+            if ($.interval == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgradeArgs", "interval");
+            }
             return $;
         }
     }

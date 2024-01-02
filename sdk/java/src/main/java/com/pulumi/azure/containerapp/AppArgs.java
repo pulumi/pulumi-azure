@@ -11,6 +11,7 @@ import com.pulumi.azure.containerapp.inputs.AppSecretArgs;
 import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -519,10 +520,18 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppArgs build() {
-            $.containerAppEnvironmentId = Objects.requireNonNull($.containerAppEnvironmentId, "expected parameter 'containerAppEnvironmentId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.revisionMode = Objects.requireNonNull($.revisionMode, "expected parameter 'revisionMode' to be non-null");
-            $.template = Objects.requireNonNull($.template, "expected parameter 'template' to be non-null");
+            if ($.containerAppEnvironmentId == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "containerAppEnvironmentId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "resourceGroupName");
+            }
+            if ($.revisionMode == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "revisionMode");
+            }
+            if ($.template == null) {
+                throw new MissingRequiredPropertyException("AppArgs", "template");
+            }
             return $;
         }
     }

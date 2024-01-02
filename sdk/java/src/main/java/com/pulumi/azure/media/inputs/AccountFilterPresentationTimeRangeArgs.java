@@ -5,6 +5,7 @@ package com.pulumi.azure.media.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -270,7 +271,9 @@ public final class AccountFilterPresentationTimeRangeArgs extends com.pulumi.res
         }
 
         public AccountFilterPresentationTimeRangeArgs build() {
-            $.unitTimescaleInMilliseconds = Objects.requireNonNull($.unitTimescaleInMilliseconds, "expected parameter 'unitTimescaleInMilliseconds' to be non-null");
+            if ($.unitTimescaleInMilliseconds == null) {
+                throw new MissingRequiredPropertyException("AccountFilterPresentationTimeRangeArgs", "unitTimescaleInMilliseconds");
+            }
             return $;
         }
     }

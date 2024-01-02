@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -409,10 +410,18 @@ public final class SpringCloudAppCosmosDBAssociationArgs extends com.pulumi.reso
         }
 
         public SpringCloudAppCosmosDBAssociationArgs build() {
-            $.apiType = Objects.requireNonNull($.apiType, "expected parameter 'apiType' to be non-null");
-            $.cosmosdbAccessKey = Objects.requireNonNull($.cosmosdbAccessKey, "expected parameter 'cosmosdbAccessKey' to be non-null");
-            $.cosmosdbAccountId = Objects.requireNonNull($.cosmosdbAccountId, "expected parameter 'cosmosdbAccountId' to be non-null");
-            $.springCloudAppId = Objects.requireNonNull($.springCloudAppId, "expected parameter 'springCloudAppId' to be non-null");
+            if ($.apiType == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCosmosDBAssociationArgs", "apiType");
+            }
+            if ($.cosmosdbAccessKey == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCosmosDBAssociationArgs", "cosmosdbAccessKey");
+            }
+            if ($.cosmosdbAccountId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCosmosDBAssociationArgs", "cosmosdbAccountId");
+            }
+            if ($.springCloudAppId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudAppCosmosDBAssociationArgs", "springCloudAppId");
+            }
             return $;
         }
     }

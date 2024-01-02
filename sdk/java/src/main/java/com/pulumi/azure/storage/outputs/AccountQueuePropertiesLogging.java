@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,40 @@ public final class AccountQueuePropertiesLogging {
 
         @CustomType.Setter
         public Builder delete(Boolean delete) {
-            this.delete = Objects.requireNonNull(delete);
+            if (delete == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesLogging", "delete");
+            }
+            this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder read(Boolean read) {
-            this.read = Objects.requireNonNull(read);
+            if (read == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesLogging", "read");
+            }
+            this.read = read;
             return this;
         }
         @CustomType.Setter
         public Builder retentionPolicyDays(@Nullable Integer retentionPolicyDays) {
+
             this.retentionPolicyDays = retentionPolicyDays;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesLogging", "version");
+            }
+            this.version = version;
             return this;
         }
         @CustomType.Setter
         public Builder write(Boolean write) {
-            this.write = Objects.requireNonNull(write);
+            if (write == null) {
+              throw new MissingRequiredPropertyException("AccountQueuePropertiesLogging", "write");
+            }
+            this.write = write;
             return this;
         }
         public AccountQueuePropertiesLogging build() {

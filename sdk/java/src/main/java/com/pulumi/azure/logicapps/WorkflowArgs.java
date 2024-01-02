@@ -7,6 +7,7 @@ import com.pulumi.azure.logicapps.inputs.WorkflowAccessControlArgs;
 import com.pulumi.azure.logicapps.inputs.WorkflowIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -532,7 +533,9 @@ public final class WorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkflowArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WorkflowArgs", "resourceGroupName");
+            }
             return $;
         }
     }

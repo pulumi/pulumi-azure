@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class TransformOutputCustomPresetFormatJpg {
 
         @CustomType.Setter
         public Builder filenamePattern(String filenamePattern) {
-            this.filenamePattern = Objects.requireNonNull(filenamePattern);
+            if (filenamePattern == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFormatJpg", "filenamePattern");
+            }
+            this.filenamePattern = filenamePattern;
             return this;
         }
         public TransformOutputCustomPresetFormatJpg build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.hsm.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +58,10 @@ public final class ModuleManagementNetworkProfile {
 
         @CustomType.Setter
         public Builder networkInterfacePrivateIpAddresses(List<String> networkInterfacePrivateIpAddresses) {
-            this.networkInterfacePrivateIpAddresses = Objects.requireNonNull(networkInterfacePrivateIpAddresses);
+            if (networkInterfacePrivateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("ModuleManagementNetworkProfile", "networkInterfacePrivateIpAddresses");
+            }
+            this.networkInterfacePrivateIpAddresses = networkInterfacePrivateIpAddresses;
             return this;
         }
         public Builder networkInterfacePrivateIpAddresses(String... networkInterfacePrivateIpAddresses) {
@@ -65,7 +69,10 @@ public final class ModuleManagementNetworkProfile {
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("ModuleManagementNetworkProfile", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public ModuleManagementNetworkProfile build() {

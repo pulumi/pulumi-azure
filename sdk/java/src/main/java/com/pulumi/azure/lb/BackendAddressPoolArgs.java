@@ -6,6 +6,7 @@ package com.pulumi.azure.lb;
 import com.pulumi.azure.lb.inputs.BackendAddressPoolTunnelInterfaceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,7 +200,9 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
         }
 
         public BackendAddressPoolArgs build() {
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolArgs", "loadbalancerId");
+            }
             return $;
         }
     }

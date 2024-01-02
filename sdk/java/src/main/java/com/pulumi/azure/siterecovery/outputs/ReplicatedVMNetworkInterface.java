@@ -147,41 +147,49 @@ public final class ReplicatedVMNetworkInterface {
 
         @CustomType.Setter
         public Builder failoverTestPublicIpAddressId(@Nullable String failoverTestPublicIpAddressId) {
+
             this.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder failoverTestStaticIp(@Nullable String failoverTestStaticIp) {
+
             this.failoverTestStaticIp = failoverTestStaticIp;
             return this;
         }
         @CustomType.Setter
         public Builder failoverTestSubnetName(@Nullable String failoverTestSubnetName) {
+
             this.failoverTestSubnetName = failoverTestSubnetName;
             return this;
         }
         @CustomType.Setter
         public Builder isPrimary(@Nullable Boolean isPrimary) {
+
             this.isPrimary = isPrimary;
             return this;
         }
         @CustomType.Setter
         public Builder recoveryPublicIpAddressId(@Nullable String recoveryPublicIpAddressId) {
+
             this.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceNetworkInterfaceId(@Nullable String sourceNetworkInterfaceId) {
+
             this.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             return this;
         }
         @CustomType.Setter
         public Builder targetStaticIp(@Nullable String targetStaticIp) {
+
             this.targetStaticIp = targetStaticIp;
             return this;
         }
         @CustomType.Setter
         public Builder targetSubnetName(@Nullable String targetSubnetName) {
+
             this.targetSubnetName = targetSubnetName;
             return this;
         }

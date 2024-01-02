@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -319,12 +320,24 @@ public final class InteractiveQueryClusterSecurityProfileArgs extends com.pulumi
         }
 
         public InteractiveQueryClusterSecurityProfileArgs build() {
-            $.aaddsResourceId = Objects.requireNonNull($.aaddsResourceId, "expected parameter 'aaddsResourceId' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.domainUserPassword = Objects.requireNonNull($.domainUserPassword, "expected parameter 'domainUserPassword' to be non-null");
-            $.domainUsername = Objects.requireNonNull($.domainUsername, "expected parameter 'domainUsername' to be non-null");
-            $.ldapsUrls = Objects.requireNonNull($.ldapsUrls, "expected parameter 'ldapsUrls' to be non-null");
-            $.msiResourceId = Objects.requireNonNull($.msiResourceId, "expected parameter 'msiResourceId' to be non-null");
+            if ($.aaddsResourceId == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "aaddsResourceId");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "domainName");
+            }
+            if ($.domainUserPassword == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "domainUserPassword");
+            }
+            if ($.domainUsername == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "domainUsername");
+            }
+            if ($.ldapsUrls == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "ldapsUrls");
+            }
+            if ($.msiResourceId == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterSecurityProfileArgs", "msiResourceId");
+            }
             return $;
         }
     }

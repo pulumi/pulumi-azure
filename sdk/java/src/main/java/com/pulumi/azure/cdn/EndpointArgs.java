@@ -9,6 +9,7 @@ import com.pulumi.azure.cdn.inputs.EndpointGlobalDeliveryRuleArgs;
 import com.pulumi.azure.cdn.inputs.EndpointOriginArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -760,9 +761,15 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EndpointArgs build() {
-            $.origins = Objects.requireNonNull($.origins, "expected parameter 'origins' to be non-null");
-            $.profileName = Objects.requireNonNull($.profileName, "expected parameter 'profileName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.origins == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "origins");
+            }
+            if ($.profileName == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "profileName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EndpointArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -7,6 +7,7 @@ import com.pulumi.azure.newrelic.inputs.MonitorPlanArgs;
 import com.pulumi.azure.newrelic.inputs.MonitorUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -448,9 +449,15 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MonitorArgs build() {
-            $.plan = Objects.requireNonNull($.plan, "expected parameter 'plan' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.plan == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "plan");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "resourceGroupName");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("MonitorArgs", "user");
+            }
             return $;
         }
     }

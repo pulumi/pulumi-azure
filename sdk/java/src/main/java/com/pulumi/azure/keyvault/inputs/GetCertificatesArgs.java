@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -122,7 +123,9 @@ public final class GetCertificatesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetCertificatesArgs build() {
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("GetCertificatesArgs", "keyVaultId");
+            }
             return $;
         }
     }

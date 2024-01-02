@@ -8,6 +8,7 @@ import com.pulumi.azure.batch.inputs.PoolStartTaskResourceFileArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -325,8 +326,12 @@ public final class PoolStartTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PoolStartTaskArgs build() {
-            $.commandLine = Objects.requireNonNull($.commandLine, "expected parameter 'commandLine' to be non-null");
-            $.userIdentity = Objects.requireNonNull($.userIdentity, "expected parameter 'userIdentity' to be non-null");
+            if ($.commandLine == null) {
+                throw new MissingRequiredPropertyException("PoolStartTaskArgs", "commandLine");
+            }
+            if ($.userIdentity == null) {
+                throw new MissingRequiredPropertyException("PoolStartTaskArgs", "userIdentity");
+            }
             return $;
         }
     }

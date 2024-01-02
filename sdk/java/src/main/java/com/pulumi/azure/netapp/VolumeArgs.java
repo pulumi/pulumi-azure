@@ -8,6 +8,7 @@ import com.pulumi.azure.netapp.inputs.VolumeDataProtectionSnapshotPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeExportPolicyRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -852,13 +853,27 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VolumeArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.poolName = Objects.requireNonNull($.poolName, "expected parameter 'poolName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceLevel = Objects.requireNonNull($.serviceLevel, "expected parameter 'serviceLevel' to be non-null");
-            $.storageQuotaInGb = Objects.requireNonNull($.storageQuotaInGb, "expected parameter 'storageQuotaInGb' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.volumePath = Objects.requireNonNull($.volumePath, "expected parameter 'volumePath' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "accountName");
+            }
+            if ($.poolName == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "poolName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "resourceGroupName");
+            }
+            if ($.serviceLevel == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "serviceLevel");
+            }
+            if ($.storageQuotaInGb == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "storageQuotaInGb");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "subnetId");
+            }
+            if ($.volumePath == null) {
+                throw new MissingRequiredPropertyException("VolumeArgs", "volumePath");
+            }
             return $;
         }
     }

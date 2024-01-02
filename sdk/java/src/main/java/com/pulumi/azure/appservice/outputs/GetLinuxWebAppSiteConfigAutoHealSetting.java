@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.outputs;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingAction;
 import com.pulumi.azure.appservice.outputs.GetLinuxWebAppSiteConfigAutoHealSettingTrigger;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
 
         @CustomType.Setter
         public Builder actions(List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSetting", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetLinuxWebAppSiteConfigAutoHealSettingAction... actions) {
@@ -66,7 +70,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
         }
         @CustomType.Setter
         public Builder triggers(List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers) {
-            this.triggers = Objects.requireNonNull(triggers);
+            if (triggers == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSetting", "triggers");
+            }
+            this.triggers = triggers;
             return this;
         }
         public Builder triggers(GetLinuxWebAppSiteConfigAutoHealSettingTrigger... triggers) {

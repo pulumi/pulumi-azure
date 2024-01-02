@@ -4,6 +4,7 @@
 package com.pulumi.azure.confidentialledger.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class LedgerAzureadBasedServicePrincipal {
 
         @CustomType.Setter
         public Builder ledgerRoleName(String ledgerRoleName) {
-            this.ledgerRoleName = Objects.requireNonNull(ledgerRoleName);
+            if (ledgerRoleName == null) {
+              throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipal", "ledgerRoleName");
+            }
+            this.ledgerRoleName = ledgerRoleName;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipal", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("LedgerAzureadBasedServicePrincipal", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public LedgerAzureadBasedServicePrincipal build() {

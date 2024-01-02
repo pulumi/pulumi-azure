@@ -5,6 +5,7 @@ package com.pulumi.azure.privatelink.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class EndpointPrivateDnsZoneGroupArgs extends com.pulumi.resources.
         }
 
         public EndpointPrivateDnsZoneGroupArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.privateDnsZoneIds = Objects.requireNonNull($.privateDnsZoneIds, "expected parameter 'privateDnsZoneIds' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("EndpointPrivateDnsZoneGroupArgs", "name");
+            }
+            if ($.privateDnsZoneIds == null) {
+                throw new MissingRequiredPropertyException("EndpointPrivateDnsZoneGroupArgs", "privateDnsZoneIds");
+            }
             return $;
         }
     }

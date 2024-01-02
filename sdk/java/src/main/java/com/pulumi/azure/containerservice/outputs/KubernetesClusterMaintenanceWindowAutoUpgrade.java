@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -175,31 +176,43 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
 
         @CustomType.Setter
         public Builder dayOfMonth(@Nullable Integer dayOfMonth) {
+
             this.dayOfMonth = dayOfMonth;
             return this;
         }
         @CustomType.Setter
         public Builder dayOfWeek(@Nullable String dayOfWeek) {
+
             this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder duration(Integer duration) {
-            this.duration = Objects.requireNonNull(duration);
+            if (duration == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgrade", "duration");
+            }
+            this.duration = duration;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgrade", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder interval(Integer interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAutoUpgrade", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder notAlloweds(@Nullable List<KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed> notAlloweds) {
+
             this.notAlloweds = notAlloweds;
             return this;
         }
@@ -208,21 +221,25 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         }
         @CustomType.Setter
         public Builder startDate(@Nullable String startDate) {
+
             this.startDate = startDate;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder utcOffset(@Nullable String utcOffset) {
+
             this.utcOffset = utcOffset;
             return this;
         }
         @CustomType.Setter
         public Builder weekIndex(@Nullable String weekIndex) {
+
             this.weekIndex = weekIndex;
             return this;
         }

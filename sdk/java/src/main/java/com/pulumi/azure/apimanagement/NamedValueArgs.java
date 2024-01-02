@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement;
 import com.pulumi.azure.apimanagement.inputs.NamedValueValueFromKeyVaultArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -356,9 +357,15 @@ public final class NamedValueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public NamedValueArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("NamedValueArgs", "apiManagementName");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("NamedValueArgs", "displayName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NamedValueArgs", "resourceGroupName");
+            }
             return $;
         }
     }

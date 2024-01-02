@@ -422,81 +422,97 @@ public final class CacheRedisConfiguration {
 
         @CustomType.Setter
         public Builder activeDirectoryAuthenticationEnabled(@Nullable Boolean activeDirectoryAuthenticationEnabled) {
+
             this.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder aofBackupEnabled(@Nullable Boolean aofBackupEnabled) {
+
             this.aofBackupEnabled = aofBackupEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder aofStorageConnectionString0(@Nullable String aofStorageConnectionString0) {
+
             this.aofStorageConnectionString0 = aofStorageConnectionString0;
             return this;
         }
         @CustomType.Setter
         public Builder aofStorageConnectionString1(@Nullable String aofStorageConnectionString1) {
+
             this.aofStorageConnectionString1 = aofStorageConnectionString1;
             return this;
         }
         @CustomType.Setter
         public Builder enableAuthentication(@Nullable Boolean enableAuthentication) {
+
             this.enableAuthentication = enableAuthentication;
             return this;
         }
         @CustomType.Setter
         public Builder maxclients(@Nullable Integer maxclients) {
+
             this.maxclients = maxclients;
             return this;
         }
         @CustomType.Setter
         public Builder maxfragmentationmemoryReserved(@Nullable Integer maxfragmentationmemoryReserved) {
+
             this.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryDelta(@Nullable Integer maxmemoryDelta) {
+
             this.maxmemoryDelta = maxmemoryDelta;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryPolicy(@Nullable String maxmemoryPolicy) {
+
             this.maxmemoryPolicy = maxmemoryPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder maxmemoryReserved(@Nullable Integer maxmemoryReserved) {
+
             this.maxmemoryReserved = maxmemoryReserved;
             return this;
         }
         @CustomType.Setter
         public Builder notifyKeyspaceEvents(@Nullable String notifyKeyspaceEvents) {
+
             this.notifyKeyspaceEvents = notifyKeyspaceEvents;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupEnabled(@Nullable Boolean rdbBackupEnabled) {
+
             this.rdbBackupEnabled = rdbBackupEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupFrequency(@Nullable Integer rdbBackupFrequency) {
+
             this.rdbBackupFrequency = rdbBackupFrequency;
             return this;
         }
         @CustomType.Setter
         public Builder rdbBackupMaxSnapshotCount(@Nullable Integer rdbBackupMaxSnapshotCount) {
+
             this.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             return this;
         }
         @CustomType.Setter
         public Builder rdbStorageConnectionString(@Nullable String rdbStorageConnectionString) {
+
             this.rdbStorageConnectionString = rdbStorageConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountSubscriptionId(@Nullable String storageAccountSubscriptionId) {
+
             this.storageAccountSubscriptionId = storageAccountSubscriptionId;
             return this;
         }

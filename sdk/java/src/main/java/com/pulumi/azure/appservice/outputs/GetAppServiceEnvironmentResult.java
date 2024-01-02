@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetAppServiceEnvironmentClusterSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -178,7 +179,10 @@ public final class GetAppServiceEnvironmentResult {
 
         @CustomType.Setter
         public Builder clusterSettings(List<GetAppServiceEnvironmentClusterSetting> clusterSettings) {
-            this.clusterSettings = Objects.requireNonNull(clusterSettings);
+            if (clusterSettings == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "clusterSettings");
+            }
+            this.clusterSettings = clusterSettings;
             return this;
         }
         public Builder clusterSettings(GetAppServiceEnvironmentClusterSetting... clusterSettings) {
@@ -186,32 +190,50 @@ public final class GetAppServiceEnvironmentResult {
         }
         @CustomType.Setter
         public Builder frontEndScaleFactor(Integer frontEndScaleFactor) {
-            this.frontEndScaleFactor = Objects.requireNonNull(frontEndScaleFactor);
+            if (frontEndScaleFactor == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "frontEndScaleFactor");
+            }
+            this.frontEndScaleFactor = frontEndScaleFactor;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internalIpAddress(String internalIpAddress) {
-            this.internalIpAddress = Objects.requireNonNull(internalIpAddress);
+            if (internalIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "internalIpAddress");
+            }
+            this.internalIpAddress = internalIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder outboundIpAddresses(List<String> outboundIpAddresses) {
-            this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
+            if (outboundIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "outboundIpAddresses");
+            }
+            this.outboundIpAddresses = outboundIpAddresses;
             return this;
         }
         public Builder outboundIpAddresses(String... outboundIpAddresses) {
@@ -219,22 +241,34 @@ public final class GetAppServiceEnvironmentResult {
         }
         @CustomType.Setter
         public Builder pricingTier(String pricingTier) {
-            this.pricingTier = Objects.requireNonNull(pricingTier);
+            if (pricingTier == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "pricingTier");
+            }
+            this.pricingTier = pricingTier;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceIpAddress(String serviceIpAddress) {
-            this.serviceIpAddress = Objects.requireNonNull(serviceIpAddress);
+            if (serviceIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "serviceIpAddress");
+            }
+            this.serviceIpAddress = serviceIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAppServiceEnvironmentResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetAppServiceEnvironmentResult build() {

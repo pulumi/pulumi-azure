@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,35 @@ public final class ScaleSetStorageProfileDataDisk {
 
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
+
             this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder createOption(String createOption) {
-            this.createOption = Objects.requireNonNull(createOption);
+            if (createOption == null) {
+              throw new MissingRequiredPropertyException("ScaleSetStorageProfileDataDisk", "createOption");
+            }
+            this.createOption = createOption;
             return this;
         }
         @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
+
             this.diskSizeGb = diskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder lun(Integer lun) {
-            this.lun = Objects.requireNonNull(lun);
+            if (lun == null) {
+              throw new MissingRequiredPropertyException("ScaleSetStorageProfileDataDisk", "lun");
+            }
+            this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
+
             this.managedDiskType = managedDiskType;
             return this;
         }

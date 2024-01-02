@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -164,9 +165,15 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs exten
         }
 
         public FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs build() {
-            $.matchVariable = Objects.requireNonNull($.matchVariable, "expected parameter 'matchVariable' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.selector = Objects.requireNonNull($.selector, "expected parameter 'selector' to be non-null");
+            if ($.matchVariable == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs", "matchVariable");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs", "operator");
+            }
+            if ($.selector == null) {
+                throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs", "selector");
+            }
             return $;
         }
     }

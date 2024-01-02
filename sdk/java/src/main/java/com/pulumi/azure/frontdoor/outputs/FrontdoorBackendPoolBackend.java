@@ -4,6 +4,7 @@
 package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -130,36 +131,51 @@ public final class FrontdoorBackendPoolBackend {
 
         @CustomType.Setter
         public Builder address(String address) {
-            this.address = Objects.requireNonNull(address);
+            if (address == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackend", "address");
+            }
+            this.address = address;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder hostHeader(String hostHeader) {
-            this.hostHeader = Objects.requireNonNull(hostHeader);
+            if (hostHeader == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackend", "hostHeader");
+            }
+            this.hostHeader = hostHeader;
             return this;
         }
         @CustomType.Setter
         public Builder httpPort(Integer httpPort) {
-            this.httpPort = Objects.requireNonNull(httpPort);
+            if (httpPort == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackend", "httpPort");
+            }
+            this.httpPort = httpPort;
             return this;
         }
         @CustomType.Setter
         public Builder httpsPort(Integer httpsPort) {
-            this.httpsPort = Objects.requireNonNull(httpsPort);
+            if (httpsPort == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPoolBackend", "httpsPort");
+            }
+            this.httpsPort = httpsPort;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
+
             this.weight = weight;
             return this;
         }

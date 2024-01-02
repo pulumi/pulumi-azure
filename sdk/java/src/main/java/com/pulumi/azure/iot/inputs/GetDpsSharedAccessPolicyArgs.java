@@ -5,6 +5,7 @@ package com.pulumi.azure.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetDpsSharedAccessPolicyArgs extends com.pulumi.resources.Inv
         }
 
         public GetDpsSharedAccessPolicyArgs build() {
-            $.iothubDpsName = Objects.requireNonNull($.iothubDpsName, "expected parameter 'iothubDpsName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.iothubDpsName == null) {
+                throw new MissingRequiredPropertyException("GetDpsSharedAccessPolicyArgs", "iothubDpsName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetDpsSharedAccessPolicyArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetDpsSharedAccessPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

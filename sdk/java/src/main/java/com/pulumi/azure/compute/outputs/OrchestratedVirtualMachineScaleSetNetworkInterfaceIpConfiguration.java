@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -157,6 +158,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
         @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolIds(@Nullable List<String> applicationGatewayBackendAddressPoolIds) {
+
             this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
             return this;
         }
@@ -165,6 +167,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
         @CustomType.Setter
         public Builder applicationSecurityGroupIds(@Nullable List<String> applicationSecurityGroupIds) {
+
             this.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
         }
@@ -173,6 +176,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
         @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolIds(@Nullable List<String> loadBalancerBackendAddressPoolIds) {
+
             this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
             return this;
         }
@@ -181,16 +185,21 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
+
             this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses) {
+
             this.publicIpAddresses = publicIpAddresses;
             return this;
         }
@@ -199,11 +208,13 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
         @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
+
             this.subnetId = subnetId;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRat
 
         @CustomType.Setter
         public Builder downlink(String downlink) {
-            this.downlink = Objects.requireNonNull(downlink);
+            if (downlink == null) {
+              throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate", "downlink");
+            }
+            this.downlink = downlink;
             return this;
         }
         @CustomType.Setter
         public Builder uplink(String uplink) {
-            this.uplink = Objects.requireNonNull(uplink);
+            if (uplink == null) {
+              throw new MissingRequiredPropertyException("NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate", "uplink");
+            }
+            this.uplink = uplink;
             return this;
         }
         public NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate build() {

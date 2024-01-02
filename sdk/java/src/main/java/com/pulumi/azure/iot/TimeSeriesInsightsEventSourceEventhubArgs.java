@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -447,13 +448,27 @@ public final class TimeSeriesInsightsEventSourceEventhubArgs extends com.pulumi.
         }
 
         public TimeSeriesInsightsEventSourceEventhubArgs build() {
-            $.consumerGroupName = Objects.requireNonNull($.consumerGroupName, "expected parameter 'consumerGroupName' to be non-null");
-            $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.eventSourceResourceId = Objects.requireNonNull($.eventSourceResourceId, "expected parameter 'eventSourceResourceId' to be non-null");
-            $.eventhubName = Objects.requireNonNull($.eventhubName, "expected parameter 'eventhubName' to be non-null");
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.sharedAccessKey = Objects.requireNonNull($.sharedAccessKey, "expected parameter 'sharedAccessKey' to be non-null");
-            $.sharedAccessKeyName = Objects.requireNonNull($.sharedAccessKeyName, "expected parameter 'sharedAccessKeyName' to be non-null");
+            if ($.consumerGroupName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "consumerGroupName");
+            }
+            if ($.environmentId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "environmentId");
+            }
+            if ($.eventSourceResourceId == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "eventSourceResourceId");
+            }
+            if ($.eventhubName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "eventhubName");
+            }
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "namespaceName");
+            }
+            if ($.sharedAccessKey == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "sharedAccessKey");
+            }
+            if ($.sharedAccessKeyName == null) {
+                throw new MissingRequiredPropertyException("TimeSeriesInsightsEventSourceEventhubArgs", "sharedAccessKeyName");
+            }
             return $;
         }
     }

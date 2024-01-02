@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class CustomProviderValidationArgs extends com.pulumi.resources.Res
         }
 
         public CustomProviderValidationArgs build() {
-            $.specification = Objects.requireNonNull($.specification, "expected parameter 'specification' to be non-null");
+            if ($.specification == null) {
+                throw new MissingRequiredPropertyException("CustomProviderValidationArgs", "specification");
+            }
             return $;
         }
     }

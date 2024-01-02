@@ -17,6 +17,7 @@ import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountGen2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -784,12 +785,24 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public HBaseClusterArgs build() {
-            $.clusterVersion = Objects.requireNonNull($.clusterVersion, "expected parameter 'clusterVersion' to be non-null");
-            $.componentVersion = Objects.requireNonNull($.componentVersion, "expected parameter 'componentVersion' to be non-null");
-            $.gateway = Objects.requireNonNull($.gateway, "expected parameter 'gateway' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.roles = Objects.requireNonNull($.roles, "expected parameter 'roles' to be non-null");
-            $.tier = Objects.requireNonNull($.tier, "expected parameter 'tier' to be non-null");
+            if ($.clusterVersion == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "clusterVersion");
+            }
+            if ($.componentVersion == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "componentVersion");
+            }
+            if ($.gateway == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "gateway");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "resourceGroupName");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "roles");
+            }
+            if ($.tier == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterArgs", "tier");
+            }
             return $;
         }
     }

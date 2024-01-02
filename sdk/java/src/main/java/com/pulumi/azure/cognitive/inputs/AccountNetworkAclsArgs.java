@@ -6,6 +6,7 @@ package com.pulumi.azure.cognitive.inputs;
 import com.pulumi.azure.cognitive.inputs.AccountNetworkAclsVirtualNetworkRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -172,7 +173,9 @@ public final class AccountNetworkAclsArgs extends com.pulumi.resources.ResourceA
         }
 
         public AccountNetworkAclsArgs build() {
-            $.defaultAction = Objects.requireNonNull($.defaultAction, "expected parameter 'defaultAction' to be non-null");
+            if ($.defaultAction == null) {
+                throw new MissingRequiredPropertyException("AccountNetworkAclsArgs", "defaultAction");
+            }
             return $;
         }
     }

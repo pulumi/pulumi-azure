@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.SharedImageGallerySharingCommunityGallery;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -67,12 +68,16 @@ public final class SharedImageGallerySharing {
 
         @CustomType.Setter
         public Builder communityGallery(@Nullable SharedImageGallerySharingCommunityGallery communityGallery) {
+
             this.communityGallery = communityGallery;
             return this;
         }
         @CustomType.Setter
         public Builder permission(String permission) {
-            this.permission = Objects.requireNonNull(permission);
+            if (permission == null) {
+              throw new MissingRequiredPropertyException("SharedImageGallerySharing", "permission");
+            }
+            this.permission = permission;
             return this;
         }
         public SharedImageGallerySharing build() {

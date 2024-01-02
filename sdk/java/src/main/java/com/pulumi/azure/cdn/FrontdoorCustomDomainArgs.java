@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -241,9 +242,15 @@ public final class FrontdoorCustomDomainArgs extends com.pulumi.resources.Resour
         }
 
         public FrontdoorCustomDomainArgs build() {
-            $.cdnFrontdoorProfileId = Objects.requireNonNull($.cdnFrontdoorProfileId, "expected parameter 'cdnFrontdoorProfileId' to be non-null");
-            $.hostName = Objects.requireNonNull($.hostName, "expected parameter 'hostName' to be non-null");
-            $.tls = Objects.requireNonNull($.tls, "expected parameter 'tls' to be non-null");
+            if ($.cdnFrontdoorProfileId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorCustomDomainArgs", "cdnFrontdoorProfileId");
+            }
+            if ($.hostName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorCustomDomainArgs", "hostName");
+            }
+            if ($.tls == null) {
+                throw new MissingRequiredPropertyException("FrontdoorCustomDomainArgs", "tls");
+            }
             return $;
         }
     }

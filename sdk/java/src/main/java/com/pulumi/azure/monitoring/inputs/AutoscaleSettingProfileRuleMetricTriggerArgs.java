@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -468,14 +469,30 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
         }
 
         public AutoscaleSettingProfileRuleMetricTriggerArgs build() {
-            $.metricName = Objects.requireNonNull($.metricName, "expected parameter 'metricName' to be non-null");
-            $.metricResourceId = Objects.requireNonNull($.metricResourceId, "expected parameter 'metricResourceId' to be non-null");
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.statistic = Objects.requireNonNull($.statistic, "expected parameter 'statistic' to be non-null");
-            $.threshold = Objects.requireNonNull($.threshold, "expected parameter 'threshold' to be non-null");
-            $.timeAggregation = Objects.requireNonNull($.timeAggregation, "expected parameter 'timeAggregation' to be non-null");
-            $.timeGrain = Objects.requireNonNull($.timeGrain, "expected parameter 'timeGrain' to be non-null");
-            $.timeWindow = Objects.requireNonNull($.timeWindow, "expected parameter 'timeWindow' to be non-null");
+            if ($.metricName == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "metricName");
+            }
+            if ($.metricResourceId == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "metricResourceId");
+            }
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "operator");
+            }
+            if ($.statistic == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "statistic");
+            }
+            if ($.threshold == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "threshold");
+            }
+            if ($.timeAggregation == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "timeAggregation");
+            }
+            if ($.timeGrain == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "timeGrain");
+            }
+            if ($.timeWindow == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleMetricTriggerArgs", "timeWindow");
+            }
             return $;
         }
     }

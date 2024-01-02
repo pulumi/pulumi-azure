@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning.outputs;
 
 import com.pulumi.azure.machinelearning.outputs.GetWorkspaceIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -99,12 +100,18 @@ public final class GetWorkspaceResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetWorkspaceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetWorkspaceIdentity... identities) {
@@ -112,22 +119,34 @@ public final class GetWorkspaceResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetWorkspaceResult build() {

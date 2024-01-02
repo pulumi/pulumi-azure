@@ -75,16 +75,19 @@ public final class ServiceAuthenticationConfiguration {
 
         @CustomType.Setter
         public Builder audience(@Nullable String audience) {
+
             this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder authority(@Nullable String authority) {
+
             this.authority = authority;
             return this;
         }
         @CustomType.Setter
         public Builder smartProxyEnabled(@Nullable Boolean smartProxyEnabled) {
+
             this.smartProxyEnabled = smartProxyEnabled;
             return this;
         }

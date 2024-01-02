@@ -44,6 +44,7 @@ public final class BackupPolicyDiskRetentionRuleCriteria {
 
         @CustomType.Setter
         public Builder absoluteCriteria(@Nullable String absoluteCriteria) {
+
             this.absoluteCriteria = absoluteCriteria;
             return this;
         }

@@ -7,6 +7,7 @@ import com.pulumi.azure.sql.inputs.DatabaseImportArgs;
 import com.pulumi.azure.sql.inputs.DatabaseThreatDetectionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -767,8 +768,12 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DatabaseArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("DatabaseArgs", "serverName");
+            }
             return $;
         }
     }

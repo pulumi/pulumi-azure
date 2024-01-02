@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -80,16 +81,23 @@ public final class FrontdoorRuleActionsRequestHeaderAction {
 
         @CustomType.Setter
         public Builder headerAction(String headerAction) {
-            this.headerAction = Objects.requireNonNull(headerAction);
+            if (headerAction == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleActionsRequestHeaderAction", "headerAction");
+            }
+            this.headerAction = headerAction;
             return this;
         }
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleActionsRequestHeaderAction", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

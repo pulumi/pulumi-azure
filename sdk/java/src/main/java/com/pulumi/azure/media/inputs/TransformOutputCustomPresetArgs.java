@@ -8,6 +8,7 @@ import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFilterArgs;
 import com.pulumi.azure.media.inputs.TransformOutputCustomPresetFormatArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -212,8 +213,12 @@ public final class TransformOutputCustomPresetArgs extends com.pulumi.resources.
         }
 
         public TransformOutputCustomPresetArgs build() {
-            $.codecs = Objects.requireNonNull($.codecs, "expected parameter 'codecs' to be non-null");
-            $.formats = Objects.requireNonNull($.formats, "expected parameter 'formats' to be non-null");
+            if ($.codecs == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetArgs", "codecs");
+            }
+            if ($.formats == null) {
+                throw new MissingRequiredPropertyException("TransformOutputCustomPresetArgs", "formats");
+            }
             return $;
         }
     }

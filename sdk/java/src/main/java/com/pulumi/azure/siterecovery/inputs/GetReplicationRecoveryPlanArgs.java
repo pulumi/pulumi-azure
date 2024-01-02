@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetReplicationRecoveryPlanArgs extends com.pulumi.resources.I
         }
 
         public GetReplicationRecoveryPlanArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanArgs", "name");
+            }
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("GetReplicationRecoveryPlanArgs", "recoveryVaultId");
+            }
             return $;
         }
     }

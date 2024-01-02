@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -263,81 +264,103 @@ public final class ApplicationGatewayRequestRoutingRule {
 
         @CustomType.Setter
         public Builder backendAddressPoolId(@Nullable String backendAddressPoolId) {
+
             this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder backendAddressPoolName(@Nullable String backendAddressPoolName) {
+
             this.backendAddressPoolName = backendAddressPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsId(@Nullable String backendHttpSettingsId) {
+
             this.backendHttpSettingsId = backendHttpSettingsId;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsName(@Nullable String backendHttpSettingsName) {
+
             this.backendHttpSettingsName = backendHttpSettingsName;
             return this;
         }
         @CustomType.Setter
         public Builder httpListenerId(@Nullable String httpListenerId) {
+
             this.httpListenerId = httpListenerId;
             return this;
         }
         @CustomType.Setter
         public Builder httpListenerName(String httpListenerName) {
-            this.httpListenerName = Objects.requireNonNull(httpListenerName);
+            if (httpListenerName == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRule", "httpListenerName");
+            }
+            this.httpListenerName = httpListenerName;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
+
             this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder redirectConfigurationId(@Nullable String redirectConfigurationId) {
+
             this.redirectConfigurationId = redirectConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder redirectConfigurationName(@Nullable String redirectConfigurationName) {
+
             this.redirectConfigurationName = redirectConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetId(@Nullable String rewriteRuleSetId) {
+
             this.rewriteRuleSetId = rewriteRuleSetId;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetName(@Nullable String rewriteRuleSetName) {
+
             this.rewriteRuleSetName = rewriteRuleSetName;
             return this;
         }
         @CustomType.Setter
         public Builder ruleType(String ruleType) {
-            this.ruleType = Objects.requireNonNull(ruleType);
+            if (ruleType == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayRequestRoutingRule", "ruleType");
+            }
+            this.ruleType = ruleType;
             return this;
         }
         @CustomType.Setter
         public Builder urlPathMapId(@Nullable String urlPathMapId) {
+
             this.urlPathMapId = urlPathMapId;
             return this;
         }
         @CustomType.Setter
         public Builder urlPathMapName(@Nullable String urlPathMapName) {
+
             this.urlPathMapName = urlPathMapName;
             return this;
         }

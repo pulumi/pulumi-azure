@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -204,7 +205,9 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
         }
 
         public WindowsVirtualMachineScaleSetGalleryApplicationArgs build() {
-            $.packageReferenceId = Objects.requireNonNull($.packageReferenceId, "expected parameter 'packageReferenceId' to be non-null");
+            if ($.packageReferenceId == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetGalleryApplicationArgs", "packageReferenceId");
+            }
             return $;
         }
     }

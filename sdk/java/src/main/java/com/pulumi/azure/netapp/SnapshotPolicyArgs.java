@@ -9,6 +9,7 @@ import com.pulumi.azure.netapp.inputs.SnapshotPolicyMonthlyScheduleArgs;
 import com.pulumi.azure.netapp.inputs.SnapshotPolicyWeeklyScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -415,9 +416,15 @@ public final class SnapshotPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SnapshotPolicyArgs build() {
-            $.accountName = Objects.requireNonNull($.accountName, "expected parameter 'accountName' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.accountName == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyArgs", "accountName");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyArgs", "enabled");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SnapshotPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

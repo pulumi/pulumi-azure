@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -233,7 +234,9 @@ public final class QueueAuthorizationRuleArgs extends com.pulumi.resources.Resou
         }
 
         public QueueAuthorizationRuleArgs build() {
-            $.queueId = Objects.requireNonNull($.queueId, "expected parameter 'queueId' to be non-null");
+            if ($.queueId == null) {
+                throw new MissingRequiredPropertyException("QueueAuthorizationRuleArgs", "queueId");
+            }
             return $;
         }
     }

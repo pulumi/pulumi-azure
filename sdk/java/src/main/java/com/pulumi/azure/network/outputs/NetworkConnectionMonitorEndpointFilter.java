@@ -60,6 +60,7 @@ public final class NetworkConnectionMonitorEndpointFilter {
 
         @CustomType.Setter
         public Builder items(@Nullable List<NetworkConnectionMonitorEndpointFilterItem> items) {
+
             this.items = items;
             return this;
         }
@@ -68,6 +69,7 @@ public final class NetworkConnectionMonitorEndpointFilter {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

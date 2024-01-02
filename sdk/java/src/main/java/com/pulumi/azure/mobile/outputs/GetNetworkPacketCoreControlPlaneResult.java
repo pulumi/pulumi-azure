@@ -7,6 +7,7 @@ import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreControlPlaneIdentity;
 import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess;
 import com.pulumi.azure.mobile.outputs.GetNetworkPacketCoreControlPlanePlatform;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -246,37 +247,58 @@ public final class GetNetworkPacketCoreControlPlaneResult {
 
         @CustomType.Setter
         public Builder controlPlaneAccessIpv4Address(String controlPlaneAccessIpv4Address) {
-            this.controlPlaneAccessIpv4Address = Objects.requireNonNull(controlPlaneAccessIpv4Address);
+            if (controlPlaneAccessIpv4Address == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "controlPlaneAccessIpv4Address");
+            }
+            this.controlPlaneAccessIpv4Address = controlPlaneAccessIpv4Address;
             return this;
         }
         @CustomType.Setter
         public Builder controlPlaneAccessIpv4Gateway(String controlPlaneAccessIpv4Gateway) {
-            this.controlPlaneAccessIpv4Gateway = Objects.requireNonNull(controlPlaneAccessIpv4Gateway);
+            if (controlPlaneAccessIpv4Gateway == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "controlPlaneAccessIpv4Gateway");
+            }
+            this.controlPlaneAccessIpv4Gateway = controlPlaneAccessIpv4Gateway;
             return this;
         }
         @CustomType.Setter
         public Builder controlPlaneAccessIpv4Subnet(String controlPlaneAccessIpv4Subnet) {
-            this.controlPlaneAccessIpv4Subnet = Objects.requireNonNull(controlPlaneAccessIpv4Subnet);
+            if (controlPlaneAccessIpv4Subnet == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "controlPlaneAccessIpv4Subnet");
+            }
+            this.controlPlaneAccessIpv4Subnet = controlPlaneAccessIpv4Subnet;
             return this;
         }
         @CustomType.Setter
         public Builder controlPlaneAccessName(String controlPlaneAccessName) {
-            this.controlPlaneAccessName = Objects.requireNonNull(controlPlaneAccessName);
+            if (controlPlaneAccessName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "controlPlaneAccessName");
+            }
+            this.controlPlaneAccessName = controlPlaneAccessName;
             return this;
         }
         @CustomType.Setter
         public Builder coreNetworkTechnology(String coreNetworkTechnology) {
-            this.coreNetworkTechnology = Objects.requireNonNull(coreNetworkTechnology);
+            if (coreNetworkTechnology == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "coreNetworkTechnology");
+            }
+            this.coreNetworkTechnology = coreNetworkTechnology;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetNetworkPacketCoreControlPlaneIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetNetworkPacketCoreControlPlaneIdentity... identities) {
@@ -284,12 +306,18 @@ public final class GetNetworkPacketCoreControlPlaneResult {
         }
         @CustomType.Setter
         public Builder interoperabilitySettingsJson(String interoperabilitySettingsJson) {
-            this.interoperabilitySettingsJson = Objects.requireNonNull(interoperabilitySettingsJson);
+            if (interoperabilitySettingsJson == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "interoperabilitySettingsJson");
+            }
+            this.interoperabilitySettingsJson = interoperabilitySettingsJson;
             return this;
         }
         @CustomType.Setter
         public Builder localDiagnosticsAccesses(List<GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess> localDiagnosticsAccesses) {
-            this.localDiagnosticsAccesses = Objects.requireNonNull(localDiagnosticsAccesses);
+            if (localDiagnosticsAccesses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "localDiagnosticsAccesses");
+            }
+            this.localDiagnosticsAccesses = localDiagnosticsAccesses;
             return this;
         }
         public Builder localDiagnosticsAccesses(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess... localDiagnosticsAccesses) {
@@ -297,17 +325,26 @@ public final class GetNetworkPacketCoreControlPlaneResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder platforms(List<GetNetworkPacketCoreControlPlanePlatform> platforms) {
-            this.platforms = Objects.requireNonNull(platforms);
+            if (platforms == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "platforms");
+            }
+            this.platforms = platforms;
             return this;
         }
         public Builder platforms(GetNetworkPacketCoreControlPlanePlatform... platforms) {
@@ -315,12 +352,18 @@ public final class GetNetworkPacketCoreControlPlaneResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder siteIds(List<String> siteIds) {
-            this.siteIds = Objects.requireNonNull(siteIds);
+            if (siteIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "siteIds");
+            }
+            this.siteIds = siteIds;
             return this;
         }
         public Builder siteIds(String... siteIds) {
@@ -328,22 +371,34 @@ public final class GetNetworkPacketCoreControlPlaneResult {
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder softwareVersion(String softwareVersion) {
-            this.softwareVersion = Objects.requireNonNull(softwareVersion);
+            if (softwareVersion == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "softwareVersion");
+            }
+            this.softwareVersion = softwareVersion;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder userEquipmentMtuInBytes(Integer userEquipmentMtuInBytes) {
-            this.userEquipmentMtuInBytes = Objects.requireNonNull(userEquipmentMtuInBytes);
+            if (userEquipmentMtuInBytes == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPacketCoreControlPlaneResult", "userEquipmentMtuInBytes");
+            }
+            this.userEquipmentMtuInBytes = userEquipmentMtuInBytes;
             return this;
         }
         public GetNetworkPacketCoreControlPlaneResult build() {

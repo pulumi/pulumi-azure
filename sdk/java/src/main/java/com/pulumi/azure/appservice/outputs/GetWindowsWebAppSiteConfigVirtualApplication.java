@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,17 +88,26 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
 
         @CustomType.Setter
         public Builder physicalPath(String physicalPath) {
-            this.physicalPath = Objects.requireNonNull(physicalPath);
+            if (physicalPath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplication", "physicalPath");
+            }
+            this.physicalPath = physicalPath;
             return this;
         }
         @CustomType.Setter
         public Builder preload(Boolean preload) {
-            this.preload = Objects.requireNonNull(preload);
+            if (preload == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplication", "preload");
+            }
+            this.preload = preload;
             return this;
         }
         @CustomType.Setter
         public Builder virtualDirectories(List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories) {
-            this.virtualDirectories = Objects.requireNonNull(virtualDirectories);
+            if (virtualDirectories == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplication", "virtualDirectories");
+            }
+            this.virtualDirectories = virtualDirectories;
             return this;
         }
         public Builder virtualDirectories(GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory... virtualDirectories) {
@@ -105,7 +115,10 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
         }
         @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
-            this.virtualPath = Objects.requireNonNull(virtualPath);
+            if (virtualPath == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfigVirtualApplication", "virtualPath");
+            }
+            this.virtualPath = virtualPath;
             return this;
         }
         public GetWindowsWebAppSiteConfigVirtualApplication build() {

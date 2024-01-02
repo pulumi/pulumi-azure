@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class VirtualNetworkDdosProtectionPlanArgs extends com.pulumi.resou
         }
 
         public VirtualNetworkDdosProtectionPlanArgs build() {
-            $.enable = Objects.requireNonNull($.enable, "expected parameter 'enable' to be non-null");
-            $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
+            if ($.enable == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkDdosProtectionPlanArgs", "enable");
+            }
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkDdosProtectionPlanArgs", "id");
+            }
             return $;
         }
     }

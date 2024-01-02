@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SourceControlGithubActionConfigurationCodeConfiguration {
 
         @CustomType.Setter
         public Builder runtimeStack(String runtimeStack) {
-            this.runtimeStack = Objects.requireNonNull(runtimeStack);
+            if (runtimeStack == null) {
+              throw new MissingRequiredPropertyException("SourceControlGithubActionConfigurationCodeConfiguration", "runtimeStack");
+            }
+            this.runtimeStack = runtimeStack;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
-            this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
+            if (runtimeVersion == null) {
+              throw new MissingRequiredPropertyException("SourceControlGithubActionConfigurationCodeConfiguration", "runtimeVersion");
+            }
+            this.runtimeVersion = runtimeVersion;
             return this;
         }
         public SourceControlGithubActionConfigurationCodeConfiguration build() {

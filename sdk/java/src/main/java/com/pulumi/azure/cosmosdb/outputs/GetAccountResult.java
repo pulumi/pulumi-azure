@@ -8,6 +8,7 @@ import com.pulumi.azure.cosmosdb.outputs.GetAccountConsistencyPolicy;
 import com.pulumi.azure.cosmosdb.outputs.GetAccountGeoLocation;
 import com.pulumi.azure.cosmosdb.outputs.GetAccountVirtualNetworkRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -465,7 +466,10 @@ public final class GetAccountResult {
 
         @CustomType.Setter
         public Builder capabilities(List<GetAccountCapability> capabilities) {
-            this.capabilities = Objects.requireNonNull(capabilities);
+            if (capabilities == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "capabilities");
+            }
+            this.capabilities = capabilities;
             return this;
         }
         public Builder capabilities(GetAccountCapability... capabilities) {
@@ -473,7 +477,10 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder connectionStrings(List<String> connectionStrings) {
-            this.connectionStrings = Objects.requireNonNull(connectionStrings);
+            if (connectionStrings == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "connectionStrings");
+            }
+            this.connectionStrings = connectionStrings;
             return this;
         }
         public Builder connectionStrings(String... connectionStrings) {
@@ -481,7 +488,10 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder consistencyPolicies(List<GetAccountConsistencyPolicy> consistencyPolicies) {
-            this.consistencyPolicies = Objects.requireNonNull(consistencyPolicies);
+            if (consistencyPolicies == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "consistencyPolicies");
+            }
+            this.consistencyPolicies = consistencyPolicies;
             return this;
         }
         public Builder consistencyPolicies(GetAccountConsistencyPolicy... consistencyPolicies) {
@@ -489,27 +499,42 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder enableAutomaticFailover(Boolean enableAutomaticFailover) {
-            this.enableAutomaticFailover = Objects.requireNonNull(enableAutomaticFailover);
+            if (enableAutomaticFailover == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "enableAutomaticFailover");
+            }
+            this.enableAutomaticFailover = enableAutomaticFailover;
             return this;
         }
         @CustomType.Setter
         public Builder enableFreeTier(Boolean enableFreeTier) {
-            this.enableFreeTier = Objects.requireNonNull(enableFreeTier);
+            if (enableFreeTier == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "enableFreeTier");
+            }
+            this.enableFreeTier = enableFreeTier;
             return this;
         }
         @CustomType.Setter
         public Builder enableMultipleWriteLocations(Boolean enableMultipleWriteLocations) {
-            this.enableMultipleWriteLocations = Objects.requireNonNull(enableMultipleWriteLocations);
+            if (enableMultipleWriteLocations == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "enableMultipleWriteLocations");
+            }
+            this.enableMultipleWriteLocations = enableMultipleWriteLocations;
             return this;
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder geoLocations(List<GetAccountGeoLocation> geoLocations) {
-            this.geoLocations = Objects.requireNonNull(geoLocations);
+            if (geoLocations == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "geoLocations");
+            }
+            this.geoLocations = geoLocations;
             return this;
         }
         public Builder geoLocations(GetAccountGeoLocation... geoLocations) {
@@ -517,77 +542,122 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipRangeFilter(String ipRangeFilter) {
-            this.ipRangeFilter = Objects.requireNonNull(ipRangeFilter);
+            if (ipRangeFilter == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "ipRangeFilter");
+            }
+            this.ipRangeFilter = ipRangeFilter;
             return this;
         }
         @CustomType.Setter
         public Builder isVirtualNetworkFilterEnabled(Boolean isVirtualNetworkFilterEnabled) {
-            this.isVirtualNetworkFilterEnabled = Objects.requireNonNull(isVirtualNetworkFilterEnabled);
+            if (isVirtualNetworkFilterEnabled == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "isVirtualNetworkFilterEnabled");
+            }
+            this.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder kind(String kind) {
-            this.kind = Objects.requireNonNull(kind);
+            if (kind == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "kind");
+            }
+            this.kind = kind;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder offerType(String offerType) {
-            this.offerType = Objects.requireNonNull(offerType);
+            if (offerType == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "offerType");
+            }
+            this.offerType = offerType;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryMongodbConnectionString(String primaryMongodbConnectionString) {
-            this.primaryMongodbConnectionString = Objects.requireNonNull(primaryMongodbConnectionString);
+            if (primaryMongodbConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryMongodbConnectionString");
+            }
+            this.primaryMongodbConnectionString = primaryMongodbConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryReadonlyKey(String primaryReadonlyKey) {
-            this.primaryReadonlyKey = Objects.requireNonNull(primaryReadonlyKey);
+            if (primaryReadonlyKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryReadonlyKey");
+            }
+            this.primaryReadonlyKey = primaryReadonlyKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryReadonlyMongodbConnectionString(String primaryReadonlyMongodbConnectionString) {
-            this.primaryReadonlyMongodbConnectionString = Objects.requireNonNull(primaryReadonlyMongodbConnectionString);
+            if (primaryReadonlyMongodbConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryReadonlyMongodbConnectionString");
+            }
+            this.primaryReadonlyMongodbConnectionString = primaryReadonlyMongodbConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryReadonlySqlConnectionString(String primaryReadonlySqlConnectionString) {
-            this.primaryReadonlySqlConnectionString = Objects.requireNonNull(primaryReadonlySqlConnectionString);
+            if (primaryReadonlySqlConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primaryReadonlySqlConnectionString");
+            }
+            this.primaryReadonlySqlConnectionString = primaryReadonlySqlConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primarySqlConnectionString(String primarySqlConnectionString) {
-            this.primarySqlConnectionString = Objects.requireNonNull(primarySqlConnectionString);
+            if (primarySqlConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "primarySqlConnectionString");
+            }
+            this.primarySqlConnectionString = primarySqlConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder readEndpoints(List<String> readEndpoints) {
-            this.readEndpoints = Objects.requireNonNull(readEndpoints);
+            if (readEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "readEndpoints");
+            }
+            this.readEndpoints = readEndpoints;
             return this;
         }
         public Builder readEndpoints(String... readEndpoints) {
@@ -595,47 +665,74 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryMongodbConnectionString(String secondaryMongodbConnectionString) {
-            this.secondaryMongodbConnectionString = Objects.requireNonNull(secondaryMongodbConnectionString);
+            if (secondaryMongodbConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryMongodbConnectionString");
+            }
+            this.secondaryMongodbConnectionString = secondaryMongodbConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryReadonlyKey(String secondaryReadonlyKey) {
-            this.secondaryReadonlyKey = Objects.requireNonNull(secondaryReadonlyKey);
+            if (secondaryReadonlyKey == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryReadonlyKey");
+            }
+            this.secondaryReadonlyKey = secondaryReadonlyKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryReadonlyMongodbConnectionString(String secondaryReadonlyMongodbConnectionString) {
-            this.secondaryReadonlyMongodbConnectionString = Objects.requireNonNull(secondaryReadonlyMongodbConnectionString);
+            if (secondaryReadonlyMongodbConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryReadonlyMongodbConnectionString");
+            }
+            this.secondaryReadonlyMongodbConnectionString = secondaryReadonlyMongodbConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryReadonlySqlConnectionString(String secondaryReadonlySqlConnectionString) {
-            this.secondaryReadonlySqlConnectionString = Objects.requireNonNull(secondaryReadonlySqlConnectionString);
+            if (secondaryReadonlySqlConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondaryReadonlySqlConnectionString");
+            }
+            this.secondaryReadonlySqlConnectionString = secondaryReadonlySqlConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondarySqlConnectionString(String secondarySqlConnectionString) {
-            this.secondarySqlConnectionString = Objects.requireNonNull(secondarySqlConnectionString);
+            if (secondarySqlConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "secondarySqlConnectionString");
+            }
+            this.secondarySqlConnectionString = secondarySqlConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkRules(List<GetAccountVirtualNetworkRule> virtualNetworkRules) {
-            this.virtualNetworkRules = Objects.requireNonNull(virtualNetworkRules);
+            if (virtualNetworkRules == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "virtualNetworkRules");
+            }
+            this.virtualNetworkRules = virtualNetworkRules;
             return this;
         }
         public Builder virtualNetworkRules(GetAccountVirtualNetworkRule... virtualNetworkRules) {
@@ -643,7 +740,10 @@ public final class GetAccountResult {
         }
         @CustomType.Setter
         public Builder writeEndpoints(List<String> writeEndpoints) {
-            this.writeEndpoints = Objects.requireNonNull(writeEndpoints);
+            if (writeEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "writeEndpoints");
+            }
+            this.writeEndpoints = writeEndpoints;
             return this;
         }
         public Builder writeEndpoints(String... writeEndpoints) {

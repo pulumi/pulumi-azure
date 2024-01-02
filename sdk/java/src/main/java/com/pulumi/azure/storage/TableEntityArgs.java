@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -223,11 +224,21 @@ public final class TableEntityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableEntityArgs build() {
-            $.entity = Objects.requireNonNull($.entity, "expected parameter 'entity' to be non-null");
-            $.partitionKey = Objects.requireNonNull($.partitionKey, "expected parameter 'partitionKey' to be non-null");
-            $.rowKey = Objects.requireNonNull($.rowKey, "expected parameter 'rowKey' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
-            $.tableName = Objects.requireNonNull($.tableName, "expected parameter 'tableName' to be non-null");
+            if ($.entity == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "entity");
+            }
+            if ($.partitionKey == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "partitionKey");
+            }
+            if ($.rowKey == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "rowKey");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "storageAccountName");
+            }
+            if ($.tableName == null) {
+                throw new MissingRequiredPropertyException("TableEntityArgs", "tableName");
+            }
             return $;
         }
     }

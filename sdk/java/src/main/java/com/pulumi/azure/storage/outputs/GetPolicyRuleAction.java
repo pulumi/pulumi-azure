@@ -7,6 +7,7 @@ import com.pulumi.azure.storage.outputs.GetPolicyRuleActionBaseBlob;
 import com.pulumi.azure.storage.outputs.GetPolicyRuleActionSnapshot;
 import com.pulumi.azure.storage.outputs.GetPolicyRuleActionVersion;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,7 +74,10 @@ public final class GetPolicyRuleAction {
 
         @CustomType.Setter
         public Builder baseBlobs(List<GetPolicyRuleActionBaseBlob> baseBlobs) {
-            this.baseBlobs = Objects.requireNonNull(baseBlobs);
+            if (baseBlobs == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleAction", "baseBlobs");
+            }
+            this.baseBlobs = baseBlobs;
             return this;
         }
         public Builder baseBlobs(GetPolicyRuleActionBaseBlob... baseBlobs) {
@@ -81,7 +85,10 @@ public final class GetPolicyRuleAction {
         }
         @CustomType.Setter
         public Builder snapshots(List<GetPolicyRuleActionSnapshot> snapshots) {
-            this.snapshots = Objects.requireNonNull(snapshots);
+            if (snapshots == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleAction", "snapshots");
+            }
+            this.snapshots = snapshots;
             return this;
         }
         public Builder snapshots(GetPolicyRuleActionSnapshot... snapshots) {
@@ -89,7 +96,10 @@ public final class GetPolicyRuleAction {
         }
         @CustomType.Setter
         public Builder versions(List<GetPolicyRuleActionVersion> versions) {
-            this.versions = Objects.requireNonNull(versions);
+            if (versions == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleAction", "versions");
+            }
+            this.versions = versions;
             return this;
         }
         public Builder versions(GetPolicyRuleActionVersion... versions) {

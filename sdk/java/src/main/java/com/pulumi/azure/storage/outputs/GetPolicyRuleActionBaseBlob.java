@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -225,72 +226,114 @@ public final class GetPolicyRuleActionBaseBlob {
 
         @CustomType.Setter
         public Builder autoTierToHotFromCoolEnabled(Boolean autoTierToHotFromCoolEnabled) {
-            this.autoTierToHotFromCoolEnabled = Objects.requireNonNull(autoTierToHotFromCoolEnabled);
+            if (autoTierToHotFromCoolEnabled == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "autoTierToHotFromCoolEnabled");
+            }
+            this.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(Integer deleteAfterDaysSinceCreationGreaterThan) {
-            this.deleteAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(deleteAfterDaysSinceCreationGreaterThan);
+            if (deleteAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "deleteAfterDaysSinceCreationGreaterThan");
+            }
+            this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceLastAccessTimeGreaterThan(Integer deleteAfterDaysSinceLastAccessTimeGreaterThan) {
-            this.deleteAfterDaysSinceLastAccessTimeGreaterThan = Objects.requireNonNull(deleteAfterDaysSinceLastAccessTimeGreaterThan);
+            if (deleteAfterDaysSinceLastAccessTimeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "deleteAfterDaysSinceLastAccessTimeGreaterThan");
+            }
+            this.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder deleteAfterDaysSinceModificationGreaterThan(Integer deleteAfterDaysSinceModificationGreaterThan) {
-            this.deleteAfterDaysSinceModificationGreaterThan = Objects.requireNonNull(deleteAfterDaysSinceModificationGreaterThan);
+            if (deleteAfterDaysSinceModificationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "deleteAfterDaysSinceModificationGreaterThan");
+            }
+            this.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceCreationGreaterThan(Integer tierToArchiveAfterDaysSinceCreationGreaterThan) {
-            this.tierToArchiveAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToArchiveAfterDaysSinceCreationGreaterThan);
+            if (tierToArchiveAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToArchiveAfterDaysSinceCreationGreaterThan");
+            }
+            this.tierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan(Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan) {
-            this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = Objects.requireNonNull(tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan);
+            if (tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan");
+            }
+            this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
-            this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = Objects.requireNonNull(tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
+            if (tierToArchiveAfterDaysSinceLastTierChangeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan");
+            }
+            this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceModificationGreaterThan(Integer tierToArchiveAfterDaysSinceModificationGreaterThan) {
-            this.tierToArchiveAfterDaysSinceModificationGreaterThan = Objects.requireNonNull(tierToArchiveAfterDaysSinceModificationGreaterThan);
+            if (tierToArchiveAfterDaysSinceModificationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToArchiveAfterDaysSinceModificationGreaterThan");
+            }
+            this.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceCreationGreaterThan(Integer tierToColdAfterDaysSinceCreationGreaterThan) {
-            this.tierToColdAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceCreationGreaterThan);
+            if (tierToColdAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToColdAfterDaysSinceCreationGreaterThan");
+            }
+            this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceLastAccessTimeGreaterThan(Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan) {
-            this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceLastAccessTimeGreaterThan);
+            if (tierToColdAfterDaysSinceLastAccessTimeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToColdAfterDaysSinceLastAccessTimeGreaterThan");
+            }
+            this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToColdAfterDaysSinceModificationGreaterThan(Integer tierToColdAfterDaysSinceModificationGreaterThan) {
-            this.tierToColdAfterDaysSinceModificationGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceModificationGreaterThan);
+            if (tierToColdAfterDaysSinceModificationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToColdAfterDaysSinceModificationGreaterThan");
+            }
+            this.tierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceCreationGreaterThan(Integer tierToCoolAfterDaysSinceCreationGreaterThan) {
-            this.tierToCoolAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToCoolAfterDaysSinceCreationGreaterThan);
+            if (tierToCoolAfterDaysSinceCreationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToCoolAfterDaysSinceCreationGreaterThan");
+            }
+            this.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceLastAccessTimeGreaterThan(Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan) {
-            this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = Objects.requireNonNull(tierToCoolAfterDaysSinceLastAccessTimeGreaterThan);
+            if (tierToCoolAfterDaysSinceLastAccessTimeGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToCoolAfterDaysSinceLastAccessTimeGreaterThan");
+            }
+            this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
         @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceModificationGreaterThan(Integer tierToCoolAfterDaysSinceModificationGreaterThan) {
-            this.tierToCoolAfterDaysSinceModificationGreaterThan = Objects.requireNonNull(tierToCoolAfterDaysSinceModificationGreaterThan);
+            if (tierToCoolAfterDaysSinceModificationGreaterThan == null) {
+              throw new MissingRequiredPropertyException("GetPolicyRuleActionBaseBlob", "tierToCoolAfterDaysSinceModificationGreaterThan");
+            }
+            this.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
             return this;
         }
         public GetPolicyRuleActionBaseBlob build() {

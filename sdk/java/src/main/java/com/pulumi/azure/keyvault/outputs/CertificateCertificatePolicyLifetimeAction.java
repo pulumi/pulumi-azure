@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault.outputs;
 import com.pulumi.azure.keyvault.outputs.CertificateCertificatePolicyLifetimeActionAction;
 import com.pulumi.azure.keyvault.outputs.CertificateCertificatePolicyLifetimeActionTrigger;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 @CustomType
@@ -57,12 +58,18 @@ public final class CertificateCertificatePolicyLifetimeAction {
 
         @CustomType.Setter
         public Builder action(CertificateCertificatePolicyLifetimeActionAction action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicyLifetimeAction", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder trigger(CertificateCertificatePolicyLifetimeActionTrigger trigger) {
-            this.trigger = Objects.requireNonNull(trigger);
+            if (trigger == null) {
+              throw new MissingRequiredPropertyException("CertificateCertificatePolicyLifetimeAction", "trigger");
+            }
+            this.trigger = trigger;
             return this;
         }
         public CertificateCertificatePolicyLifetimeAction build() {

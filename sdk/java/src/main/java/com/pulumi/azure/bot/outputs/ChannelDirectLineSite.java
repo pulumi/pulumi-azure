@@ -4,6 +4,7 @@
 package com.pulumi.azure.bot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -200,46 +201,57 @@ public final class ChannelDirectLineSite {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder endpointParametersEnabled(@Nullable Boolean endpointParametersEnabled) {
+
             this.endpointParametersEnabled = endpointParametersEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enhancedAuthenticationEnabled(@Nullable Boolean enhancedAuthenticationEnabled) {
+
             this.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
+
             this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder key2(@Nullable String key2) {
+
             this.key2 = key2;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelDirectLineSite", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageEnabled(@Nullable Boolean storageEnabled) {
+
             this.storageEnabled = storageEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder trustedOrigins(@Nullable List<String> trustedOrigins) {
+
             this.trustedOrigins = trustedOrigins;
             return this;
         }
@@ -248,16 +260,19 @@ public final class ChannelDirectLineSite {
         }
         @CustomType.Setter
         public Builder userUploadEnabled(@Nullable Boolean userUploadEnabled) {
+
             this.userUploadEnabled = userUploadEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder v1Allowed(@Nullable Boolean v1Allowed) {
+
             this.v1Allowed = v1Allowed;
             return this;
         }
         @CustomType.Setter
         public Builder v3Allowed(@Nullable Boolean v3Allowed) {
+
             this.v3Allowed = v3Allowed;
             return this;
         }

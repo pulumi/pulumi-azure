@@ -5,6 +5,7 @@ package com.pulumi.azure.lb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class BackendAddressPoolTunnelInterfaceArgs extends com.pulumi.reso
         }
 
         public BackendAddressPoolTunnelInterfaceArgs build() {
-            $.identifier = Objects.requireNonNull($.identifier, "expected parameter 'identifier' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.identifier == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolTunnelInterfaceArgs", "identifier");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolTunnelInterfaceArgs", "port");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolTunnelInterfaceArgs", "protocol");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("BackendAddressPoolTunnelInterfaceArgs", "type");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.paloalto.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,6 +86,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
 
         @CustomType.Setter
         public Builder egressNatIpAddressIds(@Nullable List<String> egressNatIpAddressIds) {
+
             this.egressNatIpAddressIds = egressNatIpAddressIds;
             return this;
         }
@@ -93,6 +95,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
         }
         @CustomType.Setter
         public Builder egressNatIpAddresses(@Nullable List<String> egressNatIpAddresses) {
+
             this.egressNatIpAddresses = egressNatIpAddresses;
             return this;
         }
@@ -101,17 +104,24 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
         }
         @CustomType.Setter
         public Builder ipOfTrustForUserDefinedRoutes(@Nullable String ipOfTrustForUserDefinedRoutes) {
+
             this.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
             return this;
         }
         @CustomType.Setter
         public Builder networkVirtualApplianceId(String networkVirtualApplianceId) {
-            this.networkVirtualApplianceId = Objects.requireNonNull(networkVirtualApplianceId);
+            if (networkVirtualApplianceId == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile", "networkVirtualApplianceId");
+            }
+            this.networkVirtualApplianceId = networkVirtualApplianceId;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressIds(List<String> publicIpAddressIds) {
-            this.publicIpAddressIds = Objects.requireNonNull(publicIpAddressIds);
+            if (publicIpAddressIds == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile", "publicIpAddressIds");
+            }
+            this.publicIpAddressIds = publicIpAddressIds;
             return this;
         }
         public Builder publicIpAddressIds(String... publicIpAddressIds) {
@@ -119,6 +129,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
         }
         @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
+
             this.publicIpAddresses = publicIpAddresses;
             return this;
         }
@@ -127,17 +138,22 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
         }
         @CustomType.Setter
         public Builder trustedSubnetId(@Nullable String trustedSubnetId) {
+
             this.trustedSubnetId = trustedSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder untrustedSubnetId(@Nullable String untrustedSubnetId) {
+
             this.untrustedSubnetId = untrustedSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
-            this.virtualHubId = Objects.requireNonNull(virtualHubId);
+            if (virtualHubId == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile", "virtualHubId");
+            }
+            this.virtualHubId = virtualHubId;
             return this;
         }
         public NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile build() {

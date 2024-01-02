@@ -8,6 +8,7 @@ import com.pulumi.azure.storage.inputs.GetAccountSASResourceTypesArgs;
 import com.pulumi.azure.storage.inputs.GetAccountSASServicesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -384,12 +385,24 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAccountSASArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.expiry = Objects.requireNonNull($.expiry, "expected parameter 'expiry' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.resourceTypes = Objects.requireNonNull($.resourceTypes, "expected parameter 'resourceTypes' to be non-null");
-            $.services = Objects.requireNonNull($.services, "expected parameter 'services' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "connectionString");
+            }
+            if ($.expiry == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "expiry");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "permissions");
+            }
+            if ($.resourceTypes == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "resourceTypes");
+            }
+            if ($.services == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "services");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("GetAccountSASArgs", "start");
+            }
             return $;
         }
     }

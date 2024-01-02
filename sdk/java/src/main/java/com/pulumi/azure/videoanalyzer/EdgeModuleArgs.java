@@ -5,6 +5,7 @@ package com.pulumi.azure.videoanalyzer;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class EdgeModuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EdgeModuleArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.videoAnalyzerName = Objects.requireNonNull($.videoAnalyzerName, "expected parameter 'videoAnalyzerName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EdgeModuleArgs", "resourceGroupName");
+            }
+            if ($.videoAnalyzerName == null) {
+                throw new MissingRequiredPropertyException("EdgeModuleArgs", "videoAnalyzerName");
+            }
             return $;
         }
     }

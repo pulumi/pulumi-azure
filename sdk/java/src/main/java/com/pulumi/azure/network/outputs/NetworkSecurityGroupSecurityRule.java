@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -256,21 +257,27 @@ public final class NetworkSecurityGroupSecurityRule {
 
         @CustomType.Setter
         public Builder access(String access) {
-            this.access = Objects.requireNonNull(access);
+            if (access == null) {
+              throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRule", "access");
+            }
+            this.access = access;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddressPrefix(@Nullable String destinationAddressPrefix) {
+
             this.destinationAddressPrefix = destinationAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddressPrefixes(@Nullable List<String> destinationAddressPrefixes) {
+
             this.destinationAddressPrefixes = destinationAddressPrefixes;
             return this;
         }
@@ -279,6 +286,7 @@ public final class NetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder destinationApplicationSecurityGroupIds(@Nullable List<String> destinationApplicationSecurityGroupIds) {
+
             this.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
             return this;
         }
@@ -287,11 +295,13 @@ public final class NetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder destinationPortRange(@Nullable String destinationPortRange) {
+
             this.destinationPortRange = destinationPortRange;
             return this;
         }
         @CustomType.Setter
         public Builder destinationPortRanges(@Nullable List<String> destinationPortRanges) {
+
             this.destinationPortRanges = destinationPortRanges;
             return this;
         }
@@ -300,31 +310,45 @@ public final class NetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder direction(String direction) {
-            this.direction = Objects.requireNonNull(direction);
+            if (direction == null) {
+              throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRule", "direction");
+            }
+            this.direction = direction;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRule", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("NetworkSecurityGroupSecurityRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddressPrefix(@Nullable String sourceAddressPrefix) {
+
             this.sourceAddressPrefix = sourceAddressPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder sourceAddressPrefixes(@Nullable List<String> sourceAddressPrefixes) {
+
             this.sourceAddressPrefixes = sourceAddressPrefixes;
             return this;
         }
@@ -333,6 +357,7 @@ public final class NetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder sourceApplicationSecurityGroupIds(@Nullable List<String> sourceApplicationSecurityGroupIds) {
+
             this.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
             return this;
         }
@@ -341,11 +366,13 @@ public final class NetworkSecurityGroupSecurityRule {
         }
         @CustomType.Setter
         public Builder sourcePortRange(@Nullable String sourcePortRange) {
+
             this.sourcePortRange = sourcePortRange;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePortRanges(@Nullable List<String> sourcePortRanges) {
+
             this.sourcePortRanges = sourcePortRanges;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,9 @@ public final class ScaleSetNetworkProfileDnsSettingsArgs extends com.pulumi.reso
         }
 
         public ScaleSetNetworkProfileDnsSettingsArgs build() {
-            $.dnsServers = Objects.requireNonNull($.dnsServers, "expected parameter 'dnsServers' to be non-null");
+            if ($.dnsServers == null) {
+                throw new MissingRequiredPropertyException("ScaleSetNetworkProfileDnsSettingsArgs", "dnsServers");
+            }
             return $;
         }
     }

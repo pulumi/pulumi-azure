@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -114,7 +115,9 @@ public final class TriggerScheduleScheduleMonthlyArgs extends com.pulumi.resourc
         }
 
         public TriggerScheduleScheduleMonthlyArgs build() {
-            $.weekday = Objects.requireNonNull($.weekday, "expected parameter 'weekday' to be non-null");
+            if ($.weekday == null) {
+                throw new MissingRequiredPropertyException("TriggerScheduleScheduleMonthlyArgs", "weekday");
+            }
             return $;
         }
     }

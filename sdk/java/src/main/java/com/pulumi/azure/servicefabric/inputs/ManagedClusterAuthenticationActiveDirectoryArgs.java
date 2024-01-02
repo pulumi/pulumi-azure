@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class ManagedClusterAuthenticationActiveDirectoryArgs extends com.p
         }
 
         public ManagedClusterAuthenticationActiveDirectoryArgs build() {
-            $.clientApplicationId = Objects.requireNonNull($.clientApplicationId, "expected parameter 'clientApplicationId' to be non-null");
-            $.clusterApplicationId = Objects.requireNonNull($.clusterApplicationId, "expected parameter 'clusterApplicationId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.clientApplicationId == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectoryArgs", "clientApplicationId");
+            }
+            if ($.clusterApplicationId == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectoryArgs", "clusterApplicationId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterAuthenticationActiveDirectoryArgs", "tenantId");
+            }
             return $;
         }
     }

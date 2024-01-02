@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ElasticPoolPerDatabaseSettingsArgs extends com.pulumi.resourc
         }
 
         public ElasticPoolPerDatabaseSettingsArgs build() {
-            $.maxCapacity = Objects.requireNonNull($.maxCapacity, "expected parameter 'maxCapacity' to be non-null");
-            $.minCapacity = Objects.requireNonNull($.minCapacity, "expected parameter 'minCapacity' to be non-null");
+            if ($.maxCapacity == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolPerDatabaseSettingsArgs", "maxCapacity");
+            }
+            if ($.minCapacity == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolPerDatabaseSettingsArgs", "minCapacity");
+            }
             return $;
         }
     }

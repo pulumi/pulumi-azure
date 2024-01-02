@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.azure.batch.outputs.PoolUserAccountLinuxUserConfiguration;
 import com.pulumi.azure.batch.outputs.PoolUserAccountWindowsUserConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,11 +103,15 @@ public final class PoolUserAccount {
 
         @CustomType.Setter
         public Builder elevationLevel(String elevationLevel) {
-            this.elevationLevel = Objects.requireNonNull(elevationLevel);
+            if (elevationLevel == null) {
+              throw new MissingRequiredPropertyException("PoolUserAccount", "elevationLevel");
+            }
+            this.elevationLevel = elevationLevel;
             return this;
         }
         @CustomType.Setter
         public Builder linuxUserConfigurations(@Nullable List<PoolUserAccountLinuxUserConfiguration> linuxUserConfigurations) {
+
             this.linuxUserConfigurations = linuxUserConfigurations;
             return this;
         }
@@ -115,16 +120,23 @@ public final class PoolUserAccount {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("PoolUserAccount", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("PoolUserAccount", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder windowsUserConfigurations(@Nullable List<PoolUserAccountWindowsUserConfiguration> windowsUserConfigurations) {
+
             this.windowsUserConfigurations = windowsUserConfigurations;
             return this;
         }

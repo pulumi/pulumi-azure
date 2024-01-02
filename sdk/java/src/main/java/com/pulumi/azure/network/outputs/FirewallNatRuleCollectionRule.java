@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,12 +162,16 @@ public final class FirewallNatRuleCollectionRule {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddresses(List<String> destinationAddresses) {
-            this.destinationAddresses = Objects.requireNonNull(destinationAddresses);
+            if (destinationAddresses == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "destinationAddresses");
+            }
+            this.destinationAddresses = destinationAddresses;
             return this;
         }
         public Builder destinationAddresses(String... destinationAddresses) {
@@ -174,7 +179,10 @@ public final class FirewallNatRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder destinationPorts(List<String> destinationPorts) {
-            this.destinationPorts = Objects.requireNonNull(destinationPorts);
+            if (destinationPorts == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "destinationPorts");
+            }
+            this.destinationPorts = destinationPorts;
             return this;
         }
         public Builder destinationPorts(String... destinationPorts) {
@@ -182,12 +190,18 @@ public final class FirewallNatRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -195,6 +209,7 @@ public final class FirewallNatRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -203,6 +218,7 @@ public final class FirewallNatRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
+
             this.sourceIpGroups = sourceIpGroups;
             return this;
         }
@@ -211,12 +227,18 @@ public final class FirewallNatRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder translatedAddress(String translatedAddress) {
-            this.translatedAddress = Objects.requireNonNull(translatedAddress);
+            if (translatedAddress == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "translatedAddress");
+            }
+            this.translatedAddress = translatedAddress;
             return this;
         }
         @CustomType.Setter
         public Builder translatedPort(String translatedPort) {
-            this.translatedPort = Objects.requireNonNull(translatedPort);
+            if (translatedPort == null) {
+              throw new MissingRequiredPropertyException("FirewallNatRuleCollectionRule", "translatedPort");
+            }
+            this.translatedPort = translatedPort;
             return this;
         }
         public FirewallNatRuleCollectionRule build() {

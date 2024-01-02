@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class EndpointGlobalDeliveryRuleCacheExpirationAction {
 
         @CustomType.Setter
         public Builder behavior(String behavior) {
-            this.behavior = Objects.requireNonNull(behavior);
+            if (behavior == null) {
+              throw new MissingRequiredPropertyException("EndpointGlobalDeliveryRuleCacheExpirationAction", "behavior");
+            }
+            this.behavior = behavior;
             return this;
         }
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
+
             this.duration = duration;
             return this;
         }

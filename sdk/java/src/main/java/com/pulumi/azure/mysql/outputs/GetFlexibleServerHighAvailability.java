@@ -4,6 +4,7 @@
 package com.pulumi.azure.mysql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetFlexibleServerHighAvailability {
 
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerHighAvailability", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder standbyAvailabilityZone(String standbyAvailabilityZone) {
-            this.standbyAvailabilityZone = Objects.requireNonNull(standbyAvailabilityZone);
+            if (standbyAvailabilityZone == null) {
+              throw new MissingRequiredPropertyException("GetFlexibleServerHighAvailability", "standbyAvailabilityZone");
+            }
+            this.standbyAvailabilityZone = standbyAvailabilityZone;
             return this;
         }
         public GetFlexibleServerHighAvailability build() {

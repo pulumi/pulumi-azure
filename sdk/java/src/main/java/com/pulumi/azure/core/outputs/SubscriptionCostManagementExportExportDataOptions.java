@@ -4,6 +4,7 @@
 package com.pulumi.azure.core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SubscriptionCostManagementExportExportDataOptions {
 
         @CustomType.Setter
         public Builder timeFrame(String timeFrame) {
-            this.timeFrame = Objects.requireNonNull(timeFrame);
+            if (timeFrame == null) {
+              throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataOptions", "timeFrame");
+            }
+            this.timeFrame = timeFrame;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataOptions", "type");
+            }
+            this.type = type;
             return this;
         }
         public SubscriptionCostManagementExportExportDataOptions build() {

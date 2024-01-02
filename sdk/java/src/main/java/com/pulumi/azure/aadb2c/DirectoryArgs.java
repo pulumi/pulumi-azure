@@ -5,6 +5,7 @@ package com.pulumi.azure.aadb2c;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -299,10 +300,18 @@ public final class DirectoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DirectoryArgs build() {
-            $.dataResidencyLocation = Objects.requireNonNull($.dataResidencyLocation, "expected parameter 'dataResidencyLocation' to be non-null");
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.dataResidencyLocation == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "dataResidencyLocation");
+            }
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "domainName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("DirectoryArgs", "skuName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,40 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalytics", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder intervalInMinutes(@Nullable Integer intervalInMinutes) {
+
             this.intervalInMinutes = intervalInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalytics", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceRegion(String workspaceRegion) {
-            this.workspaceRegion = Objects.requireNonNull(workspaceRegion);
+            if (workspaceRegion == null) {
+              throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalytics", "workspaceRegion");
+            }
+            this.workspaceRegion = workspaceRegion;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceResourceId(String workspaceResourceId) {
-            this.workspaceResourceId = Objects.requireNonNull(workspaceResourceId);
+            if (workspaceResourceId == null) {
+              throw new MissingRequiredPropertyException("NetworkWatcherFlowLogTrafficAnalytics", "workspaceResourceId");
+            }
+            this.workspaceResourceId = workspaceResourceId;
             return this;
         }
         public NetworkWatcherFlowLogTrafficAnalytics build() {

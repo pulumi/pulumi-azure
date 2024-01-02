@@ -5,6 +5,7 @@ package com.pulumi.azure.mysql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -122,11 +123,21 @@ public final class FlexibleServerActiveDirectoryAdministratoryArgs extends com.p
         }
 
         public FlexibleServerActiveDirectoryAdministratoryArgs build() {
-            $.identityId = Objects.requireNonNull($.identityId, "expected parameter 'identityId' to be non-null");
-            $.login = Objects.requireNonNull($.login, "expected parameter 'login' to be non-null");
-            $.objectId = Objects.requireNonNull($.objectId, "expected parameter 'objectId' to be non-null");
-            $.serverId = Objects.requireNonNull($.serverId, "expected parameter 'serverId' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.identityId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratoryArgs", "identityId");
+            }
+            if ($.login == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratoryArgs", "login");
+            }
+            if ($.objectId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratoryArgs", "objectId");
+            }
+            if ($.serverId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratoryArgs", "serverId");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("FlexibleServerActiveDirectoryAdministratoryArgs", "tenantId");
+            }
             return $;
         }
     }

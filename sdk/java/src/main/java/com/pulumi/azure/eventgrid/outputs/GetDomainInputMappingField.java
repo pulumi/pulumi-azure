@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventgrid.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,32 +113,50 @@ public final class GetDomainInputMappingField {
 
         @CustomType.Setter
         public Builder dataVersion(String dataVersion) {
-            this.dataVersion = Objects.requireNonNull(dataVersion);
+            if (dataVersion == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "dataVersion");
+            }
+            this.dataVersion = dataVersion;
             return this;
         }
         @CustomType.Setter
         public Builder eventTime(String eventTime) {
-            this.eventTime = Objects.requireNonNull(eventTime);
+            if (eventTime == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "eventTime");
+            }
+            this.eventTime = eventTime;
             return this;
         }
         @CustomType.Setter
         public Builder eventType(String eventType) {
-            this.eventType = Objects.requireNonNull(eventType);
+            if (eventType == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "eventType");
+            }
+            this.eventType = eventType;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder subject(String subject) {
-            this.subject = Objects.requireNonNull(subject);
+            if (subject == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "subject");
+            }
+            this.subject = subject;
             return this;
         }
         @CustomType.Setter
         public Builder topic(String topic) {
-            this.topic = Objects.requireNonNull(topic);
+            if (topic == null) {
+              throw new MissingRequiredPropertyException("GetDomainInputMappingField", "topic");
+            }
+            this.topic = topic;
             return this;
         }
         public GetDomainInputMappingField build() {

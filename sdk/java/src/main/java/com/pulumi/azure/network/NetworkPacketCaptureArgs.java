@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.NetworkPacketCaptureFilterArgs;
 import com.pulumi.azure.network.inputs.NetworkPacketCaptureStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -394,10 +395,18 @@ public final class NetworkPacketCaptureArgs extends com.pulumi.resources.Resourc
         }
 
         public NetworkPacketCaptureArgs build() {
-            $.networkWatcherName = Objects.requireNonNull($.networkWatcherName, "expected parameter 'networkWatcherName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageLocation = Objects.requireNonNull($.storageLocation, "expected parameter 'storageLocation' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.networkWatcherName == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCaptureArgs", "networkWatcherName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCaptureArgs", "resourceGroupName");
+            }
+            if ($.storageLocation == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCaptureArgs", "storageLocation");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("NetworkPacketCaptureArgs", "targetResourceId");
+            }
             return $;
         }
     }

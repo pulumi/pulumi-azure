@@ -9,6 +9,7 @@ import com.pulumi.azure.datafactory.outputs.DataFlowSourceLinkedService;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceRejectedLinkedService;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceSchemaLinkedService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -133,36 +134,45 @@ public final class DataFlowSource {
 
         @CustomType.Setter
         public Builder dataset(@Nullable DataFlowSourceDataset dataset) {
+
             this.dataset = dataset;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder flowlet(@Nullable DataFlowSourceFlowlet flowlet) {
+
             this.flowlet = flowlet;
             return this;
         }
         @CustomType.Setter
         public Builder linkedService(@Nullable DataFlowSourceLinkedService linkedService) {
+
             this.linkedService = linkedService;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("DataFlowSource", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder rejectedLinkedService(@Nullable DataFlowSourceRejectedLinkedService rejectedLinkedService) {
+
             this.rejectedLinkedService = rejectedLinkedService;
             return this;
         }
         @CustomType.Setter
         public Builder schemaLinkedService(@Nullable DataFlowSourceSchemaLinkedService schemaLinkedService) {
+
             this.schemaLinkedService = schemaLinkedService;
             return this;
         }

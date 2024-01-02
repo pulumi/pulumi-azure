@@ -5,6 +5,7 @@ package com.pulumi.azure.frontdoor.outputs;
 
 import com.pulumi.azure.frontdoor.outputs.FrontdoorBackendPoolBackend;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +103,10 @@ public final class FrontdoorBackendPool {
 
         @CustomType.Setter
         public Builder backends(List<FrontdoorBackendPoolBackend> backends) {
-            this.backends = Objects.requireNonNull(backends);
+            if (backends == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPool", "backends");
+            }
+            this.backends = backends;
             return this;
         }
         public Builder backends(FrontdoorBackendPoolBackend... backends) {
@@ -110,22 +114,32 @@ public final class FrontdoorBackendPool {
         }
         @CustomType.Setter
         public Builder healthProbeName(String healthProbeName) {
-            this.healthProbeName = Objects.requireNonNull(healthProbeName);
+            if (healthProbeName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPool", "healthProbeName");
+            }
+            this.healthProbeName = healthProbeName;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancingName(String loadBalancingName) {
-            this.loadBalancingName = Objects.requireNonNull(loadBalancingName);
+            if (loadBalancingName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPool", "loadBalancingName");
+            }
+            this.loadBalancingName = loadBalancingName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FrontdoorBackendPool", "name");
+            }
+            this.name = name;
             return this;
         }
         public FrontdoorBackendPool build() {

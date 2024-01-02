@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -87,22 +88,30 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
 
         @CustomType.Setter
         public Builder keyVaultPassword(@Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword) {
+
             this.keyVaultPassword = keyVaultPassword;
             return this;
         }
         @CustomType.Setter
         public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder targetName(String targetName) {
-            this.targetName = Objects.requireNonNull(targetName);
+            if (targetName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupCommandKey", "targetName");
+            }
+            this.targetName = targetName;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("IntegrationRuntimeSsisExpressCustomSetupCommandKey", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupCommandKey build() {

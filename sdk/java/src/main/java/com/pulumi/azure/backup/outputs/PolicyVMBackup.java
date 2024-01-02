@@ -4,6 +4,7 @@
 package com.pulumi.azure.backup.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -106,26 +107,35 @@ public final class PolicyVMBackup {
 
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("PolicyVMBackup", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder hourDuration(@Nullable Integer hourDuration) {
+
             this.hourDuration = hourDuration;
             return this;
         }
         @CustomType.Setter
         public Builder hourInterval(@Nullable Integer hourInterval) {
+
             this.hourInterval = hourInterval;
             return this;
         }
         @CustomType.Setter
         public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("PolicyVMBackup", "time");
+            }
+            this.time = time;
             return this;
         }
         @CustomType.Setter
         public Builder weekdays(@Nullable List<String> weekdays) {
+
             this.weekdays = weekdays;
             return this;
         }

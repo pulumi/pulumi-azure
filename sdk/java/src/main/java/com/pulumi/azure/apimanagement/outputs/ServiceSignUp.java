@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.ServiceSignUpTermsOfService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -57,12 +58,18 @@ public final class ServiceSignUp {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("ServiceSignUp", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder termsOfService(ServiceSignUpTermsOfService termsOfService) {
-            this.termsOfService = Objects.requireNonNull(termsOfService);
+            if (termsOfService == null) {
+              throw new MissingRequiredPropertyException("ServiceSignUp", "termsOfService");
+            }
+            this.termsOfService = termsOfService;
             return this;
         }
         public ServiceSignUp build() {

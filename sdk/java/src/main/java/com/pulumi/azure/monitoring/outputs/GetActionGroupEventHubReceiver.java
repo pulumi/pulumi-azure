@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -137,36 +138,55 @@ public final class GetActionGroupEventHubReceiver {
 
         @CustomType.Setter
         public Builder eventHubId(String eventHubId) {
-            this.eventHubId = Objects.requireNonNull(eventHubId);
+            if (eventHubId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "eventHubId");
+            }
+            this.eventHubId = eventHubId;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubName(String eventHubName) {
-            this.eventHubName = Objects.requireNonNull(eventHubName);
+            if (eventHubName == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "eventHubName");
+            }
+            this.eventHubName = eventHubName;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubNamespace(String eventHubNamespace) {
-            this.eventHubNamespace = Objects.requireNonNull(eventHubNamespace);
+            if (eventHubNamespace == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "eventHubNamespace");
+            }
+            this.eventHubNamespace = eventHubNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = Objects.requireNonNull(subscriptionId);
+            if (subscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "subscriptionId");
+            }
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetActionGroupEventHubReceiver", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
+
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }

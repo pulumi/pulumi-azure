@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociati
         }
 
         public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs build() {
-            $.backendAddressPoolId = Objects.requireNonNull($.backendAddressPoolId, "expected parameter 'backendAddressPoolId' to be non-null");
-            $.ipConfigurationName = Objects.requireNonNull($.ipConfigurationName, "expected parameter 'ipConfigurationName' to be non-null");
-            $.networkInterfaceId = Objects.requireNonNull($.networkInterfaceId, "expected parameter 'networkInterfaceId' to be non-null");
+            if ($.backendAddressPoolId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs", "backendAddressPoolId");
+            }
+            if ($.ipConfigurationName == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs", "ipConfigurationName");
+            }
+            if ($.networkInterfaceId == null) {
+                throw new MissingRequiredPropertyException("NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs", "networkInterfaceId");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.authorization.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -125,42 +126,66 @@ public final class GetUserAssignedIdentityResult {
 
         @CustomType.Setter
         public Builder clientId(String clientId) {
-            this.clientId = Objects.requireNonNull(clientId);
+            if (clientId == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "clientId");
+            }
+            this.clientId = clientId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
+            if (principalId == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "principalId");
+            }
+            this.principalId = principalId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("GetUserAssignedIdentityResult", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public GetUserAssignedIdentityResult build() {

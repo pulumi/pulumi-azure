@@ -5,6 +5,7 @@ package com.pulumi.azure.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -335,8 +336,12 @@ public final class MonitorDatadogOrganizationArgs extends com.pulumi.resources.R
         }
 
         public MonitorDatadogOrganizationArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.applicationKey = Objects.requireNonNull($.applicationKey, "expected parameter 'applicationKey' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("MonitorDatadogOrganizationArgs", "apiKey");
+            }
+            if ($.applicationKey == null) {
+                throw new MissingRequiredPropertyException("MonitorDatadogOrganizationArgs", "applicationKey");
+            }
             return $;
         }
     }

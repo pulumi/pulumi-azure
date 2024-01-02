@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -118,32 +119,50 @@ public final class GetAccountBlobContainerSASPermissions {
 
         @CustomType.Setter
         public Builder add(Boolean add) {
-            this.add = Objects.requireNonNull(add);
+            if (add == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "add");
+            }
+            this.add = add;
             return this;
         }
         @CustomType.Setter
         public Builder create(Boolean create) {
-            this.create = Objects.requireNonNull(create);
+            if (create == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "create");
+            }
+            this.create = create;
             return this;
         }
         @CustomType.Setter
         public Builder delete(Boolean delete) {
-            this.delete = Objects.requireNonNull(delete);
+            if (delete == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "delete");
+            }
+            this.delete = delete;
             return this;
         }
         @CustomType.Setter
         public Builder list(Boolean list) {
-            this.list = Objects.requireNonNull(list);
+            if (list == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "list");
+            }
+            this.list = list;
             return this;
         }
         @CustomType.Setter
         public Builder read(Boolean read) {
-            this.read = Objects.requireNonNull(read);
+            if (read == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "read");
+            }
+            this.read = read;
             return this;
         }
         @CustomType.Setter
         public Builder write(Boolean write) {
-            this.write = Objects.requireNonNull(write);
+            if (write == null) {
+              throw new MissingRequiredPropertyException("GetAccountBlobContainerSASPermissions", "write");
+            }
+            this.write = write;
             return this;
         }
         public GetAccountBlobContainerSASPermissions build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -63,17 +64,26 @@ public final class GetAccountGeoLocation {
 
         @CustomType.Setter
         public Builder failoverPriority(Integer failoverPriority) {
-            this.failoverPriority = Objects.requireNonNull(failoverPriority);
+            if (failoverPriority == null) {
+              throw new MissingRequiredPropertyException("GetAccountGeoLocation", "failoverPriority");
+            }
+            this.failoverPriority = failoverPriority;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccountGeoLocation", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetAccountGeoLocation", "location");
+            }
+            this.location = location;
             return this;
         }
         public GetAccountGeoLocation build() {

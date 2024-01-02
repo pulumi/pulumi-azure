@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.mssql.inputs.ManagedDatabaseLongTermRetentionPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -189,7 +190,9 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ManagedDatabaseArgs build() {
-            $.managedInstanceId = Objects.requireNonNull($.managedInstanceId, "expected parameter 'managedInstanceId' to be non-null");
+            if ($.managedInstanceId == null) {
+                throw new MissingRequiredPropertyException("ManagedDatabaseArgs", "managedInstanceId");
+            }
             return $;
         }
     }

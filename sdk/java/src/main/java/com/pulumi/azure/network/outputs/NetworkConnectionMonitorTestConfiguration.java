@@ -8,6 +8,7 @@ import com.pulumi.azure.network.outputs.NetworkConnectionMonitorTestConfiguratio
 import com.pulumi.azure.network.outputs.NetworkConnectionMonitorTestConfigurationSuccessThreshold;
 import com.pulumi.azure.network.outputs.NetworkConnectionMonitorTestConfigurationTcpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -147,41 +148,53 @@ public final class NetworkConnectionMonitorTestConfiguration {
 
         @CustomType.Setter
         public Builder httpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration) {
+
             this.httpConfiguration = httpConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder icmpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration) {
+
             this.icmpConfiguration = icmpConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder preferredIpVersion(@Nullable String preferredIpVersion) {
+
             this.preferredIpVersion = preferredIpVersion;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("NetworkConnectionMonitorTestConfiguration", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         @CustomType.Setter
         public Builder successThreshold(@Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold) {
+
             this.successThreshold = successThreshold;
             return this;
         }
         @CustomType.Setter
         public Builder tcpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration) {
+
             this.tcpConfiguration = tcpConfiguration;
             return this;
         }
         @CustomType.Setter
         public Builder testFrequencyInSeconds(@Nullable Integer testFrequencyInSeconds) {
+
             this.testFrequencyInSeconds = testFrequencyInSeconds;
             return this;
         }

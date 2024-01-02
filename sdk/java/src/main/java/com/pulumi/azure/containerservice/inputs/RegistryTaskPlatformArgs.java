@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class RegistryTaskPlatformArgs extends com.pulumi.resources.Resourc
         }
 
         public RegistryTaskPlatformArgs build() {
-            $.os = Objects.requireNonNull($.os, "expected parameter 'os' to be non-null");
+            if ($.os == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskPlatformArgs", "os");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,35 @@ public final class RegistryTaskBaseImageTrigger {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskBaseImageTrigger", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskBaseImageTrigger", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder updateTriggerEndpoint(@Nullable String updateTriggerEndpoint) {
+
             this.updateTriggerEndpoint = updateTriggerEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder updateTriggerPayloadType(@Nullable String updateTriggerPayloadType) {
+
             this.updateTriggerPayloadType = updateTriggerPayloadType;
             return this;
         }

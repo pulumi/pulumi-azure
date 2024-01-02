@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -160,57 +161,90 @@ public final class GetProductResult {
 
         @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
-            this.apiManagementName = Objects.requireNonNull(apiManagementName);
+            if (apiManagementName == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "apiManagementName");
+            }
+            this.apiManagementName = apiManagementName;
             return this;
         }
         @CustomType.Setter
         public Builder approvalRequired(Boolean approvalRequired) {
-            this.approvalRequired = Objects.requireNonNull(approvalRequired);
+            if (approvalRequired == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "approvalRequired");
+            }
+            this.approvalRequired = approvalRequired;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder productId(String productId) {
-            this.productId = Objects.requireNonNull(productId);
+            if (productId == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "productId");
+            }
+            this.productId = productId;
             return this;
         }
         @CustomType.Setter
         public Builder published(Boolean published) {
-            this.published = Objects.requireNonNull(published);
+            if (published == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "published");
+            }
+            this.published = published;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionRequired(Boolean subscriptionRequired) {
-            this.subscriptionRequired = Objects.requireNonNull(subscriptionRequired);
+            if (subscriptionRequired == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "subscriptionRequired");
+            }
+            this.subscriptionRequired = subscriptionRequired;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionsLimit(Integer subscriptionsLimit) {
-            this.subscriptionsLimit = Objects.requireNonNull(subscriptionsLimit);
+            if (subscriptionsLimit == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "subscriptionsLimit");
+            }
+            this.subscriptionsLimit = subscriptionsLimit;
             return this;
         }
         @CustomType.Setter
         public Builder terms(String terms) {
-            this.terms = Objects.requireNonNull(terms);
+            if (terms == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "terms");
+            }
+            this.terms = terms;
             return this;
         }
         public GetProductResult build() {

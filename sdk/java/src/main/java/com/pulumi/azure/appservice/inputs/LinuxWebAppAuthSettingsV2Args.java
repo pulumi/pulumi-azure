@@ -15,6 +15,7 @@ import com.pulumi.azure.appservice.inputs.LinuxWebAppAuthSettingsV2MicrosoftV2Ar
 import com.pulumi.azure.appservice.inputs.LinuxWebAppAuthSettingsV2TwitterV2Args;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -911,7 +912,9 @@ public final class LinuxWebAppAuthSettingsV2Args extends com.pulumi.resources.Re
         }
 
         public LinuxWebAppAuthSettingsV2Args build() {
-            $.login = Objects.requireNonNull($.login, "expected parameter 'login' to be non-null");
+            if ($.login == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppAuthSettingsV2Args", "login");
+            }
             return $;
         }
     }

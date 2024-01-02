@@ -4,6 +4,7 @@
 package com.pulumi.azure.nginx.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class DeploymentNetworkInterface {
 
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("DeploymentNetworkInterface", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public DeploymentNetworkInterface build() {

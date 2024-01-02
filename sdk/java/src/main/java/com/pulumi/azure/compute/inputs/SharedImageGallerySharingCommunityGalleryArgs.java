@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class SharedImageGallerySharingCommunityGalleryArgs extends com.pul
         }
 
         public SharedImageGallerySharingCommunityGalleryArgs build() {
-            $.eula = Objects.requireNonNull($.eula, "expected parameter 'eula' to be non-null");
-            $.prefix = Objects.requireNonNull($.prefix, "expected parameter 'prefix' to be non-null");
-            $.publisherEmail = Objects.requireNonNull($.publisherEmail, "expected parameter 'publisherEmail' to be non-null");
-            $.publisherUri = Objects.requireNonNull($.publisherUri, "expected parameter 'publisherUri' to be non-null");
+            if ($.eula == null) {
+                throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGalleryArgs", "eula");
+            }
+            if ($.prefix == null) {
+                throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGalleryArgs", "prefix");
+            }
+            if ($.publisherEmail == null) {
+                throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGalleryArgs", "publisherEmail");
+            }
+            if ($.publisherUri == null) {
+                throw new MissingRequiredPropertyException("SharedImageGallerySharingCommunityGalleryArgs", "publisherUri");
+            }
             return $;
         }
     }

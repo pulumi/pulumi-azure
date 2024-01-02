@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement;
 import com.pulumi.azure.apimanagement.inputs.AuthorizationServerTokenBodyParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -821,14 +822,30 @@ public final class AuthorizationServerArgs extends com.pulumi.resources.Resource
         }
 
         public AuthorizationServerArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.authorizationEndpoint = Objects.requireNonNull($.authorizationEndpoint, "expected parameter 'authorizationEndpoint' to be non-null");
-            $.authorizationMethods = Objects.requireNonNull($.authorizationMethods, "expected parameter 'authorizationMethods' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientRegistrationEndpoint = Objects.requireNonNull($.clientRegistrationEndpoint, "expected parameter 'clientRegistrationEndpoint' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.grantTypes = Objects.requireNonNull($.grantTypes, "expected parameter 'grantTypes' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "apiManagementName");
+            }
+            if ($.authorizationEndpoint == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "authorizationEndpoint");
+            }
+            if ($.authorizationMethods == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "authorizationMethods");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "clientId");
+            }
+            if ($.clientRegistrationEndpoint == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "clientRegistrationEndpoint");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "displayName");
+            }
+            if ($.grantTypes == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "grantTypes");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AuthorizationServerArgs", "resourceGroupName");
+            }
             return $;
         }
     }

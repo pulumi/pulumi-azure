@@ -89,6 +89,7 @@ public final class ScaleSetOsProfileWindowsConfig {
 
         @CustomType.Setter
         public Builder additionalUnattendConfigs(@Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs) {
+
             this.additionalUnattendConfigs = additionalUnattendConfigs;
             return this;
         }
@@ -97,16 +98,19 @@ public final class ScaleSetOsProfileWindowsConfig {
         }
         @CustomType.Setter
         public Builder enableAutomaticUpgrades(@Nullable Boolean enableAutomaticUpgrades) {
+
             this.enableAutomaticUpgrades = enableAutomaticUpgrades;
             return this;
         }
         @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
+
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
         @CustomType.Setter
         public Builder winrms(@Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms) {
+
             this.winrms = winrms;
             return this;
         }

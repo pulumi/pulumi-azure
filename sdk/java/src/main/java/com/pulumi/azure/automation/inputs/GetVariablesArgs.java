@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GetVariablesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetVariablesArgs build() {
-            $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("GetVariablesArgs", "automationAccountId");
+            }
             return $;
         }
     }

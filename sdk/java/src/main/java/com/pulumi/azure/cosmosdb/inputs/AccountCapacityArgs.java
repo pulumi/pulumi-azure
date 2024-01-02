@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AccountCapacityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AccountCapacityArgs build() {
-            $.totalThroughputLimit = Objects.requireNonNull($.totalThroughputLimit, "expected parameter 'totalThroughputLimit' to be non-null");
+            if ($.totalThroughputLimit == null) {
+                throw new MissingRequiredPropertyException("AccountCapacityArgs", "totalThroughputLimit");
+            }
             return $;
         }
     }

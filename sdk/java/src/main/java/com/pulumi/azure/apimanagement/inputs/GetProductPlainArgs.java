@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetProductPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetProductPlainArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.productId = Objects.requireNonNull($.productId, "expected parameter 'productId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("GetProductPlainArgs", "apiManagementName");
+            }
+            if ($.productId == null) {
+                throw new MissingRequiredPropertyException("GetProductPlainArgs", "productId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetProductPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

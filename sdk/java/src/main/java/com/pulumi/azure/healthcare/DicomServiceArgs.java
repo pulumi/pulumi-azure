@@ -6,6 +6,7 @@ package com.pulumi.azure.healthcare;
 import com.pulumi.azure.healthcare.inputs.DicomServiceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -264,7 +265,9 @@ public final class DicomServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DicomServiceArgs build() {
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("DicomServiceArgs", "workspaceId");
+            }
             return $;
         }
     }

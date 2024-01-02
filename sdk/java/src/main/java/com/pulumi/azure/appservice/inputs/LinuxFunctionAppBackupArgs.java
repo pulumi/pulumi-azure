@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice.inputs;
 import com.pulumi.azure.appservice.inputs.LinuxFunctionAppBackupScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -189,9 +190,15 @@ public final class LinuxFunctionAppBackupArgs extends com.pulumi.resources.Resou
         }
 
         public LinuxFunctionAppBackupArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.schedule = Objects.requireNonNull($.schedule, "expected parameter 'schedule' to be non-null");
-            $.storageAccountUrl = Objects.requireNonNull($.storageAccountUrl, "expected parameter 'storageAccountUrl' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppBackupArgs", "name");
+            }
+            if ($.schedule == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppBackupArgs", "schedule");
+            }
+            if ($.storageAccountUrl == null) {
+                throw new MissingRequiredPropertyException("LinuxFunctionAppBackupArgs", "storageAccountUrl");
+            }
             return $;
         }
     }

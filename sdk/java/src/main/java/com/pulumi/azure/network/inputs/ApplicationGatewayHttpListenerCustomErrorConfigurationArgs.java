@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfigurationArgs ex
         }
 
         public ApplicationGatewayHttpListenerCustomErrorConfigurationArgs build() {
-            $.customErrorPageUrl = Objects.requireNonNull($.customErrorPageUrl, "expected parameter 'customErrorPageUrl' to be non-null");
-            $.statusCode = Objects.requireNonNull($.statusCode, "expected parameter 'statusCode' to be non-null");
+            if ($.customErrorPageUrl == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayHttpListenerCustomErrorConfigurationArgs", "customErrorPageUrl");
+            }
+            if ($.statusCode == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayHttpListenerCustomErrorConfigurationArgs", "statusCode");
+            }
             return $;
         }
     }

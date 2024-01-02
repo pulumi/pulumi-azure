@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.RegistryTaskSourceTriggerAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -131,22 +132,28 @@ public final class RegistryTaskSourceTrigger {
 
         @CustomType.Setter
         public Builder authentication(@Nullable RegistryTaskSourceTriggerAuthentication authentication) {
+
             this.authentication = authentication;
             return this;
         }
         @CustomType.Setter
         public Builder branch(@Nullable String branch) {
+
             this.branch = branch;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder events(List<String> events) {
-            this.events = Objects.requireNonNull(events);
+            if (events == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskSourceTrigger", "events");
+            }
+            this.events = events;
             return this;
         }
         public Builder events(String... events) {
@@ -154,17 +161,26 @@ public final class RegistryTaskSourceTrigger {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskSourceTrigger", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
-            this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
+            if (repositoryUrl == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskSourceTrigger", "repositoryUrl");
+            }
+            this.repositoryUrl = repositoryUrl;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(String sourceType) {
-            this.sourceType = Objects.requireNonNull(sourceType);
+            if (sourceType == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskSourceTrigger", "sourceType");
+            }
+            this.sourceType = sourceType;
             return this;
         }
         public RegistryTaskSourceTrigger build() {

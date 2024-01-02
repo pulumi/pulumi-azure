@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSecretCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class LinuxVirtualMachineScaleSetSecret {
 
         @CustomType.Setter
         public Builder certificates(List<LinuxVirtualMachineScaleSetSecretCertificate> certificates) {
-            this.certificates = Objects.requireNonNull(certificates);
+            if (certificates == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetSecret", "certificates");
+            }
+            this.certificates = certificates;
             return this;
         }
         public Builder certificates(LinuxVirtualMachineScaleSetSecretCertificate... certificates) {
@@ -66,7 +70,10 @@ public final class LinuxVirtualMachineScaleSetSecret {
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetSecret", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         public LinuxVirtualMachineScaleSetSecret build() {

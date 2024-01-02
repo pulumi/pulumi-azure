@@ -7,6 +7,7 @@ import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskTargetDiskEnc
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -114,7 +115,9 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryptionArgs extends com.p
         }
 
         public ReplicatedVMManagedDiskTargetDiskEncryptionArgs build() {
-            $.diskEncryptionKey = Objects.requireNonNull($.diskEncryptionKey, "expected parameter 'diskEncryptionKey' to be non-null");
+            if ($.diskEncryptionKey == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskTargetDiskEncryptionArgs", "diskEncryptionKey");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BackendServiceFabricClusterServerX509NameArgs extends com.pul
         }
 
         public BackendServiceFabricClusterServerX509NameArgs build() {
-            $.issuerCertificateThumbprint = Objects.requireNonNull($.issuerCertificateThumbprint, "expected parameter 'issuerCertificateThumbprint' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.issuerCertificateThumbprint == null) {
+                throw new MissingRequiredPropertyException("BackendServiceFabricClusterServerX509NameArgs", "issuerCertificateThumbprint");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("BackendServiceFabricClusterServerX509NameArgs", "name");
+            }
             return $;
         }
     }

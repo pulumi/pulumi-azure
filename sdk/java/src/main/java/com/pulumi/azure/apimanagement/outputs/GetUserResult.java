@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -130,47 +131,74 @@ public final class GetUserResult {
 
         @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
-            this.apiManagementName = Objects.requireNonNull(apiManagementName);
+            if (apiManagementName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "apiManagementName");
+            }
+            this.apiManagementName = apiManagementName;
             return this;
         }
         @CustomType.Setter
         public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
+            if (email == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "email");
+            }
+            this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder firstName(String firstName) {
-            this.firstName = Objects.requireNonNull(firstName);
+            if (firstName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "firstName");
+            }
+            this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder lastName(String lastName) {
-            this.lastName = Objects.requireNonNull(lastName);
+            if (lastName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "lastName");
+            }
+            this.lastName = lastName;
             return this;
         }
         @CustomType.Setter
         public Builder note(String note) {
-            this.note = Objects.requireNonNull(note);
+            if (note == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "note");
+            }
+            this.note = note;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
         public Builder userId(String userId) {
-            this.userId = Objects.requireNonNull(userId);
+            if (userId == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "userId");
+            }
+            this.userId = userId;
             return this;
         }
         public GetUserResult build() {

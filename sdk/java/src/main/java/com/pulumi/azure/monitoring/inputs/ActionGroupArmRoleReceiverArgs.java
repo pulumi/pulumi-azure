@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class ActionGroupArmRoleReceiverArgs extends com.pulumi.resources.R
         }
 
         public ActionGroupArmRoleReceiverArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.roleId = Objects.requireNonNull($.roleId, "expected parameter 'roleId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ActionGroupArmRoleReceiverArgs", "name");
+            }
+            if ($.roleId == null) {
+                throw new MissingRequiredPropertyException("ActionGroupArmRoleReceiverArgs", "roleId");
+            }
             return $;
         }
     }

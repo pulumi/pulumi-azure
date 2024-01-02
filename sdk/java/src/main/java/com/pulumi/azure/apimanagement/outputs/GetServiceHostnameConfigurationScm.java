@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetServiceHostnameConfigurationScm {
 
         @CustomType.Setter
         public Builder hostName(String hostName) {
-            this.hostName = Objects.requireNonNull(hostName);
+            if (hostName == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationScm", "hostName");
+            }
+            this.hostName = hostName;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationScm", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder negotiateClientCertificate(Boolean negotiateClientCertificate) {
-            this.negotiateClientCertificate = Objects.requireNonNull(negotiateClientCertificate);
+            if (negotiateClientCertificate == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationScm", "negotiateClientCertificate");
+            }
+            this.negotiateClientCertificate = negotiateClientCertificate;
             return this;
         }
         public GetServiceHostnameConfigurationScm build() {

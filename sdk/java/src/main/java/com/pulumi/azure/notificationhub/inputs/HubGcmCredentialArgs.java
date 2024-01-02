@@ -5,6 +5,7 @@ package com.pulumi.azure.notificationhub.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class HubGcmCredentialArgs extends com.pulumi.resources.ResourceArg
         }
 
         public HubGcmCredentialArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("HubGcmCredentialArgs", "apiKey");
+            }
             return $;
         }
     }

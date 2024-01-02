@@ -9,6 +9,7 @@ import com.pulumi.azure.servicefabric.inputs.ManagedClusterLbRuleArgs;
 import com.pulumi.azure.servicefabric.inputs.ManagedClusterNodeTypeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -706,10 +707,18 @@ public final class ManagedClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ManagedClusterArgs build() {
-            $.clientConnectionPort = Objects.requireNonNull($.clientConnectionPort, "expected parameter 'clientConnectionPort' to be non-null");
-            $.httpGatewayPort = Objects.requireNonNull($.httpGatewayPort, "expected parameter 'httpGatewayPort' to be non-null");
-            $.lbRules = Objects.requireNonNull($.lbRules, "expected parameter 'lbRules' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.clientConnectionPort == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterArgs", "clientConnectionPort");
+            }
+            if ($.httpGatewayPort == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterArgs", "httpGatewayPort");
+            }
+            if ($.lbRules == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterArgs", "lbRules");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

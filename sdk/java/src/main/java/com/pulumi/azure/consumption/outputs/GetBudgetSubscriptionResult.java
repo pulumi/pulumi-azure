@@ -7,6 +7,7 @@ import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionFilter;
 import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionNotification;
 import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionTimePeriod;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -137,12 +138,18 @@ public final class GetBudgetSubscriptionResult {
 
         @CustomType.Setter
         public Builder amount(Double amount) {
-            this.amount = Objects.requireNonNull(amount);
+            if (amount == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "amount");
+            }
+            this.amount = amount;
             return this;
         }
         @CustomType.Setter
         public Builder filters(List<GetBudgetSubscriptionFilter> filters) {
-            this.filters = Objects.requireNonNull(filters);
+            if (filters == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "filters");
+            }
+            this.filters = filters;
             return this;
         }
         public Builder filters(GetBudgetSubscriptionFilter... filters) {
@@ -150,17 +157,26 @@ public final class GetBudgetSubscriptionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notifications(List<GetBudgetSubscriptionNotification> notifications) {
-            this.notifications = Objects.requireNonNull(notifications);
+            if (notifications == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "notifications");
+            }
+            this.notifications = notifications;
             return this;
         }
         public Builder notifications(GetBudgetSubscriptionNotification... notifications) {
@@ -168,17 +184,26 @@ public final class GetBudgetSubscriptionResult {
         }
         @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = Objects.requireNonNull(subscriptionId);
+            if (subscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "subscriptionId");
+            }
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
-            this.timeGrain = Objects.requireNonNull(timeGrain);
+            if (timeGrain == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "timeGrain");
+            }
+            this.timeGrain = timeGrain;
             return this;
         }
         @CustomType.Setter
         public Builder timePeriods(List<GetBudgetSubscriptionTimePeriod> timePeriods) {
-            this.timePeriods = Objects.requireNonNull(timePeriods);
+            if (timePeriods == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionResult", "timePeriods");
+            }
+            this.timePeriods = timePeriods;
             return this;
         }
         public Builder timePeriods(GetBudgetSubscriptionTimePeriod... timePeriods) {

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -132,8 +133,12 @@ public final class VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs exte
         }
 
         public VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs build() {
-            $.localAddressCidrs = Objects.requireNonNull($.localAddressCidrs, "expected parameter 'localAddressCidrs' to be non-null");
-            $.remoteAddressCidrs = Objects.requireNonNull($.remoteAddressCidrs, "expected parameter 'remoteAddressCidrs' to be non-null");
+            if ($.localAddressCidrs == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs", "localAddressCidrs");
+            }
+            if ($.remoteAddressCidrs == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs", "remoteAddressCidrs");
+            }
             return $;
         }
     }

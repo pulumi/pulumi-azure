@@ -132,36 +132,43 @@ public final class PoolStartTaskResourceFile {
 
         @CustomType.Setter
         public Builder autoStorageContainerName(@Nullable String autoStorageContainerName) {
+
             this.autoStorageContainerName = autoStorageContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder blobPrefix(@Nullable String blobPrefix) {
+
             this.blobPrefix = blobPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder fileMode(@Nullable String fileMode) {
+
             this.fileMode = fileMode;
             return this;
         }
         @CustomType.Setter
         public Builder filePath(@Nullable String filePath) {
+
             this.filePath = filePath;
             return this;
         }
         @CustomType.Setter
         public Builder httpUrl(@Nullable String httpUrl) {
+
             this.httpUrl = httpUrl;
             return this;
         }
         @CustomType.Setter
         public Builder storageContainerUrl(@Nullable String storageContainerUrl) {
+
             this.storageContainerUrl = storageContainerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

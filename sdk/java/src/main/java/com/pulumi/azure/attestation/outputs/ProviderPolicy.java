@@ -42,11 +42,13 @@ public final class ProviderPolicy {
 
         @CustomType.Setter
         public Builder data(@Nullable String data) {
+
             this.data = data;
             return this;
         }
         @CustomType.Setter
         public Builder environmentType(@Nullable String environmentType) {
+
             this.environmentType = environmentType;
             return this;
         }

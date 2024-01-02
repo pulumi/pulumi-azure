@@ -8,6 +8,7 @@ import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeDataProtectionSnap
 import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -707,18 +708,42 @@ public final class VolumeGroupSapHanaVolumeArgs extends com.pulumi.resources.Res
         }
 
         public VolumeGroupSapHanaVolumeArgs build() {
-            $.capacityPoolId = Objects.requireNonNull($.capacityPoolId, "expected parameter 'capacityPoolId' to be non-null");
-            $.exportPolicyRules = Objects.requireNonNull($.exportPolicyRules, "expected parameter 'exportPolicyRules' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.protocols = Objects.requireNonNull($.protocols, "expected parameter 'protocols' to be non-null");
-            $.securityStyle = Objects.requireNonNull($.securityStyle, "expected parameter 'securityStyle' to be non-null");
-            $.serviceLevel = Objects.requireNonNull($.serviceLevel, "expected parameter 'serviceLevel' to be non-null");
-            $.snapshotDirectoryVisible = Objects.requireNonNull($.snapshotDirectoryVisible, "expected parameter 'snapshotDirectoryVisible' to be non-null");
-            $.storageQuotaInGb = Objects.requireNonNull($.storageQuotaInGb, "expected parameter 'storageQuotaInGb' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
-            $.throughputInMibps = Objects.requireNonNull($.throughputInMibps, "expected parameter 'throughputInMibps' to be non-null");
-            $.volumePath = Objects.requireNonNull($.volumePath, "expected parameter 'volumePath' to be non-null");
-            $.volumeSpecName = Objects.requireNonNull($.volumeSpecName, "expected parameter 'volumeSpecName' to be non-null");
+            if ($.capacityPoolId == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "capacityPoolId");
+            }
+            if ($.exportPolicyRules == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "exportPolicyRules");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "name");
+            }
+            if ($.protocols == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "protocols");
+            }
+            if ($.securityStyle == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "securityStyle");
+            }
+            if ($.serviceLevel == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "serviceLevel");
+            }
+            if ($.snapshotDirectoryVisible == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "snapshotDirectoryVisible");
+            }
+            if ($.storageQuotaInGb == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "storageQuotaInGb");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "subnetId");
+            }
+            if ($.throughputInMibps == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "throughputInMibps");
+            }
+            if ($.volumePath == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "volumePath");
+            }
+            if ($.volumeSpecName == null) {
+                throw new MissingRequiredPropertyException("VolumeGroupSapHanaVolumeArgs", "volumeSpecName");
+            }
             return $;
         }
     }

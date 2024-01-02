@@ -9,6 +9,7 @@ import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
 import com.pulumi.azure.monitoring.inputs.MetricAlertDynamicCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -711,8 +712,12 @@ public final class MetricAlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MetricAlertArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("MetricAlertArgs", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("MetricAlertArgs", "scopes");
+            }
             return $;
         }
     }

@@ -186,11 +186,13 @@ public final class DeviceDeviceProperty {
 
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
+
             this.capacity = capacity;
             return this;
         }
         @CustomType.Setter
         public Builder configuredRoleTypes(@Nullable List<String> configuredRoleTypes) {
+
             this.configuredRoleTypes = configuredRoleTypes;
             return this;
         }
@@ -199,46 +201,55 @@ public final class DeviceDeviceProperty {
         }
         @CustomType.Setter
         public Builder culture(@Nullable String culture) {
+
             this.culture = culture;
             return this;
         }
         @CustomType.Setter
         public Builder hcsVersion(@Nullable String hcsVersion) {
+
             this.hcsVersion = hcsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder model(@Nullable String model) {
+
             this.model = model;
             return this;
         }
         @CustomType.Setter
         public Builder nodeCount(@Nullable Integer nodeCount) {
+
             this.nodeCount = nodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder serialNumber(@Nullable String serialNumber) {
+
             this.serialNumber = serialNumber;
             return this;
         }
         @CustomType.Setter
         public Builder softwareVersion(@Nullable String softwareVersion) {
+
             this.softwareVersion = softwareVersion;
             return this;
         }
         @CustomType.Setter
         public Builder status(@Nullable String status) {
+
             this.status = status;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }

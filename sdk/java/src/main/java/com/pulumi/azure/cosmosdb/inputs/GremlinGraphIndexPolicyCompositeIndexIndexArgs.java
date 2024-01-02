@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GremlinGraphIndexPolicyCompositeIndexIndexArgs extends com.pu
         }
 
         public GremlinGraphIndexPolicyCompositeIndexIndexArgs build() {
-            $.order = Objects.requireNonNull($.order, "expected parameter 'order' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.order == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphIndexPolicyCompositeIndexIndexArgs", "order");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphIndexPolicyCompositeIndexIndexArgs", "path");
+            }
             return $;
         }
     }

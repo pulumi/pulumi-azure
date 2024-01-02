@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,8 +226,12 @@ public final class ResolverOutboundEndpointArgs extends com.pulumi.resources.Res
         }
 
         public ResolverOutboundEndpointArgs build() {
-            $.privateDnsResolverId = Objects.requireNonNull($.privateDnsResolverId, "expected parameter 'privateDnsResolverId' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.privateDnsResolverId == null) {
+                throw new MissingRequiredPropertyException("ResolverOutboundEndpointArgs", "privateDnsResolverId");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ResolverOutboundEndpointArgs", "subnetId");
+            }
             return $;
         }
     }

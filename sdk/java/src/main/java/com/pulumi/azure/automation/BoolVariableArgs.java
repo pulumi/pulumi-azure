@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class BoolVariableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BoolVariableArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("BoolVariableArgs", "automationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("BoolVariableArgs", "resourceGroupName");
+            }
             return $;
         }
     }

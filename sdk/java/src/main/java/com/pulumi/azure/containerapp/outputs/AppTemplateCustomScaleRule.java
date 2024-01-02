@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.AppTemplateCustomScaleRuleAuthentication;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -88,6 +89,7 @@ public final class AppTemplateCustomScaleRule {
 
         @CustomType.Setter
         public Builder authentications(@Nullable List<AppTemplateCustomScaleRuleAuthentication> authentications) {
+
             this.authentications = authentications;
             return this;
         }
@@ -96,17 +98,26 @@ public final class AppTemplateCustomScaleRule {
         }
         @CustomType.Setter
         public Builder customRuleType(String customRuleType) {
-            this.customRuleType = Objects.requireNonNull(customRuleType);
+            if (customRuleType == null) {
+              throw new MissingRequiredPropertyException("AppTemplateCustomScaleRule", "customRuleType");
+            }
+            this.customRuleType = customRuleType;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("AppTemplateCustomScaleRule", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AppTemplateCustomScaleRule", "name");
+            }
+            this.name = name;
             return this;
         }
         public AppTemplateCustomScaleRule build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.search;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -232,9 +233,15 @@ public final class SharedPrivateLinkServiceArgs extends com.pulumi.resources.Res
         }
 
         public SharedPrivateLinkServiceArgs build() {
-            $.searchServiceId = Objects.requireNonNull($.searchServiceId, "expected parameter 'searchServiceId' to be non-null");
-            $.subresourceName = Objects.requireNonNull($.subresourceName, "expected parameter 'subresourceName' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
+            if ($.searchServiceId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkServiceArgs", "searchServiceId");
+            }
+            if ($.subresourceName == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkServiceArgs", "subresourceName");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("SharedPrivateLinkServiceArgs", "targetResourceId");
+            }
             return $;
         }
     }

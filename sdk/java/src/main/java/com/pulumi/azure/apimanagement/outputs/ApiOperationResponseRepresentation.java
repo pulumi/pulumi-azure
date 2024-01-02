@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.outputs;
 import com.pulumi.azure.apimanagement.outputs.ApiOperationResponseRepresentationExample;
 import com.pulumi.azure.apimanagement.outputs.ApiOperationResponseRepresentationFormParameter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -115,11 +116,15 @@ public final class ApiOperationResponseRepresentation {
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("ApiOperationResponseRepresentation", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder examples(@Nullable List<ApiOperationResponseRepresentationExample> examples) {
+
             this.examples = examples;
             return this;
         }
@@ -128,6 +133,7 @@ public final class ApiOperationResponseRepresentation {
         }
         @CustomType.Setter
         public Builder formParameters(@Nullable List<ApiOperationResponseRepresentationFormParameter> formParameters) {
+
             this.formParameters = formParameters;
             return this;
         }
@@ -136,11 +142,13 @@ public final class ApiOperationResponseRepresentation {
         }
         @CustomType.Setter
         public Builder schemaId(@Nullable String schemaId) {
+
             this.schemaId = schemaId;
             return this;
         }
         @CustomType.Setter
         public Builder typeName(@Nullable String typeName) {
+
             this.typeName = typeName;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -90,8 +91,12 @@ public final class GetSasPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSasPlainArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.expiry = Objects.requireNonNull($.expiry, "expected parameter 'expiry' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("GetSasPlainArgs", "connectionString");
+            }
+            if ($.expiry == null) {
+                throw new MissingRequiredPropertyException("GetSasPlainArgs", "expiry");
+            }
             return $;
         }
     }

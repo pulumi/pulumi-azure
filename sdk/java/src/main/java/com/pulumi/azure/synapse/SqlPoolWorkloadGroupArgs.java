@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -337,9 +338,15 @@ public final class SqlPoolWorkloadGroupArgs extends com.pulumi.resources.Resourc
         }
 
         public SqlPoolWorkloadGroupArgs build() {
-            $.maxResourcePercent = Objects.requireNonNull($.maxResourcePercent, "expected parameter 'maxResourcePercent' to be non-null");
-            $.minResourcePercent = Objects.requireNonNull($.minResourcePercent, "expected parameter 'minResourcePercent' to be non-null");
-            $.sqlPoolId = Objects.requireNonNull($.sqlPoolId, "expected parameter 'sqlPoolId' to be non-null");
+            if ($.maxResourcePercent == null) {
+                throw new MissingRequiredPropertyException("SqlPoolWorkloadGroupArgs", "maxResourcePercent");
+            }
+            if ($.minResourcePercent == null) {
+                throw new MissingRequiredPropertyException("SqlPoolWorkloadGroupArgs", "minResourcePercent");
+            }
+            if ($.sqlPoolId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolWorkloadGroupArgs", "sqlPoolId");
+            }
             return $;
         }
     }

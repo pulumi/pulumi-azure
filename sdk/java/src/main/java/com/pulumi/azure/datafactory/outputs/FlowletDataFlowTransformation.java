@@ -7,6 +7,7 @@ import com.pulumi.azure.datafactory.outputs.FlowletDataFlowTransformationDataset
 import com.pulumi.azure.datafactory.outputs.FlowletDataFlowTransformationFlowlet;
 import com.pulumi.azure.datafactory.outputs.FlowletDataFlowTransformationLinkedService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -103,27 +104,34 @@ public final class FlowletDataFlowTransformation {
 
         @CustomType.Setter
         public Builder dataset(@Nullable FlowletDataFlowTransformationDataset dataset) {
+
             this.dataset = dataset;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder flowlet(@Nullable FlowletDataFlowTransformationFlowlet flowlet) {
+
             this.flowlet = flowlet;
             return this;
         }
         @CustomType.Setter
         public Builder linkedService(@Nullable FlowletDataFlowTransformationLinkedService linkedService) {
+
             this.linkedService = linkedService;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FlowletDataFlowTransformation", "name");
+            }
+            this.name = name;
             return this;
         }
         public FlowletDataFlowTransformation build() {

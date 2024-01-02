@@ -90,16 +90,19 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
 
         @CustomType.Setter
         public Builder privateMemoryKb(@Nullable Integer privateMemoryKb) {
+
             this.privateMemoryKb = privateMemoryKb;
             return this;
         }
         @CustomType.Setter
         public Builder requests(@Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests) {
+
             this.requests = requests;
             return this;
         }
         @CustomType.Setter
         public Builder slowRequests(@Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
+
             this.slowRequests = slowRequests;
             return this;
         }
@@ -108,6 +111,7 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder statusCodes(@Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
+
             this.statusCodes = statusCodes;
             return this;
         }

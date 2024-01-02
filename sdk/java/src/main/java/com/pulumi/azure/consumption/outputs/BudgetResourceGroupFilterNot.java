@@ -59,11 +59,13 @@ public final class BudgetResourceGroupFilterNot {
 
         @CustomType.Setter
         public Builder dimension(@Nullable BudgetResourceGroupFilterNotDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BudgetResourceGroupFilterNotTag tag) {
+
             this.tag = tag;
             return this;
         }

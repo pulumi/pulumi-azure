@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.inputs;
 import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class FrontdoorSecurityPolicySecurityPoliciesArgs extends com.pulum
         }
 
         public FrontdoorSecurityPolicySecurityPoliciesArgs build() {
-            $.firewall = Objects.requireNonNull($.firewall, "expected parameter 'firewall' to be non-null");
+            if ($.firewall == null) {
+                throw new MissingRequiredPropertyException("FrontdoorSecurityPolicySecurityPoliciesArgs", "firewall");
+            }
             return $;
         }
     }

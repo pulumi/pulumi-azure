@@ -101,11 +101,13 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
 
         @CustomType.Setter
         public Builder absoluteCriteria(@Nullable String absoluteCriteria) {
+
             this.absoluteCriteria = absoluteCriteria;
             return this;
         }
         @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
+
             this.daysOfWeeks = daysOfWeeks;
             return this;
         }
@@ -114,6 +116,7 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         }
         @CustomType.Setter
         public Builder monthsOfYears(@Nullable List<String> monthsOfYears) {
+
             this.monthsOfYears = monthsOfYears;
             return this;
         }
@@ -122,6 +125,7 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         }
         @CustomType.Setter
         public Builder scheduledBackupTimes(@Nullable List<String> scheduledBackupTimes) {
+
             this.scheduledBackupTimes = scheduledBackupTimes;
             return this;
         }
@@ -130,6 +134,7 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         }
         @CustomType.Setter
         public Builder weeksOfMonths(@Nullable List<String> weeksOfMonths) {
+
             this.weeksOfMonths = weeksOfMonths;
             return this;
         }

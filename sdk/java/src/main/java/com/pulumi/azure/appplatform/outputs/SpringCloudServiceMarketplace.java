@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -70,17 +71,26 @@ public final class SpringCloudServiceMarketplace {
 
         @CustomType.Setter
         public Builder plan(String plan) {
-            this.plan = Objects.requireNonNull(plan);
+            if (plan == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceMarketplace", "plan");
+            }
+            this.plan = plan;
             return this;
         }
         @CustomType.Setter
         public Builder product(String product) {
-            this.product = Objects.requireNonNull(product);
+            if (product == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceMarketplace", "product");
+            }
+            this.product = product;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("SpringCloudServiceMarketplace", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         public SpringCloudServiceMarketplace build() {

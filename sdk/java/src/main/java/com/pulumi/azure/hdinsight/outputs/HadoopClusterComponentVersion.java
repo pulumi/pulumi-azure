@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class HadoopClusterComponentVersion {
 
         @CustomType.Setter
         public Builder hadoop(String hadoop) {
-            this.hadoop = Objects.requireNonNull(hadoop);
+            if (hadoop == null) {
+              throw new MissingRequiredPropertyException("HadoopClusterComponentVersion", "hadoop");
+            }
+            this.hadoop = hadoop;
             return this;
         }
         public HadoopClusterComponentVersion build() {

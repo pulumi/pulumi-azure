@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery.inputs;
 import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskTargetDiskEncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -307,11 +308,21 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
         }
 
         public ReplicatedVMManagedDiskArgs build() {
-            $.diskId = Objects.requireNonNull($.diskId, "expected parameter 'diskId' to be non-null");
-            $.stagingStorageAccountId = Objects.requireNonNull($.stagingStorageAccountId, "expected parameter 'stagingStorageAccountId' to be non-null");
-            $.targetDiskType = Objects.requireNonNull($.targetDiskType, "expected parameter 'targetDiskType' to be non-null");
-            $.targetReplicaDiskType = Objects.requireNonNull($.targetReplicaDiskType, "expected parameter 'targetReplicaDiskType' to be non-null");
-            $.targetResourceGroupId = Objects.requireNonNull($.targetResourceGroupId, "expected parameter 'targetResourceGroupId' to be non-null");
+            if ($.diskId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskArgs", "diskId");
+            }
+            if ($.stagingStorageAccountId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskArgs", "stagingStorageAccountId");
+            }
+            if ($.targetDiskType == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskArgs", "targetDiskType");
+            }
+            if ($.targetReplicaDiskType == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskArgs", "targetReplicaDiskType");
+            }
+            if ($.targetResourceGroupId == null) {
+                throw new MissingRequiredPropertyException("ReplicatedVMManagedDiskArgs", "targetResourceGroupId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -225,9 +226,15 @@ public final class EnvironmentCertificateArgs extends com.pulumi.resources.Resou
         }
 
         public EnvironmentCertificateArgs build() {
-            $.certificateBlobBase64 = Objects.requireNonNull($.certificateBlobBase64, "expected parameter 'certificateBlobBase64' to be non-null");
-            $.certificatePassword = Objects.requireNonNull($.certificatePassword, "expected parameter 'certificatePassword' to be non-null");
-            $.containerAppEnvironmentId = Objects.requireNonNull($.containerAppEnvironmentId, "expected parameter 'containerAppEnvironmentId' to be non-null");
+            if ($.certificateBlobBase64 == null) {
+                throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "certificateBlobBase64");
+            }
+            if ($.certificatePassword == null) {
+                throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "certificatePassword");
+            }
+            if ($.containerAppEnvironmentId == null) {
+                throw new MissingRequiredPropertyException("EnvironmentCertificateArgs", "containerAppEnvironmentId");
+            }
             return $;
         }
     }

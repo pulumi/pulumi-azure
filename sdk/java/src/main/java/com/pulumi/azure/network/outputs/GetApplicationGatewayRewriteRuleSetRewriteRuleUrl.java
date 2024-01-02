@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 
         @CustomType.Setter
         public Builder components(String components) {
-            this.components = Objects.requireNonNull(components);
+            if (components == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRuleUrl", "components");
+            }
+            this.components = components;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRuleUrl", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder queryString(String queryString) {
-            this.queryString = Objects.requireNonNull(queryString);
+            if (queryString == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRuleUrl", "queryString");
+            }
+            this.queryString = queryString;
             return this;
         }
         @CustomType.Setter
         public Builder reroute(Boolean reroute) {
-            this.reroute = Objects.requireNonNull(reroute);
+            if (reroute == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayRewriteRuleSetRewriteRuleUrl", "reroute");
+            }
+            this.reroute = reroute;
             return this;
         }
         public GetApplicationGatewayRewriteRuleSetRewriteRuleUrl build() {

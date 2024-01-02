@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class NetworkWatcherFlowLogRetentionPolicyArgs extends com.pulumi.r
         }
 
         public NetworkWatcherFlowLogRetentionPolicyArgs build() {
-            $.days = Objects.requireNonNull($.days, "expected parameter 'days' to be non-null");
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.days == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogRetentionPolicyArgs", "days");
+            }
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("NetworkWatcherFlowLogRetentionPolicyArgs", "enabled");
+            }
             return $;
         }
     }

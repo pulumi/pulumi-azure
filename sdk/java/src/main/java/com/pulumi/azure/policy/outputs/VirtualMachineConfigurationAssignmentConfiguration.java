@@ -106,21 +106,25 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
 
         @CustomType.Setter
         public Builder assignmentType(@Nullable String assignmentType) {
+
             this.assignmentType = assignmentType;
             return this;
         }
         @CustomType.Setter
         public Builder contentHash(@Nullable String contentHash) {
+
             this.contentHash = contentHash;
             return this;
         }
         @CustomType.Setter
         public Builder contentUri(@Nullable String contentUri) {
+
             this.contentUri = contentUri;
             return this;
         }
         @CustomType.Setter
         public Builder parameters(@Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters) {
+
             this.parameters = parameters;
             return this;
         }
@@ -129,6 +133,7 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

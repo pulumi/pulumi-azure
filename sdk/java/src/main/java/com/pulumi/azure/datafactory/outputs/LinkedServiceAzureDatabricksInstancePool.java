@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,29 @@ public final class LinkedServiceAzureDatabricksInstancePool {
 
         @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
-            this.clusterVersion = Objects.requireNonNull(clusterVersion);
+            if (clusterVersion == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksInstancePool", "clusterVersion");
+            }
+            this.clusterVersion = clusterVersion;
             return this;
         }
         @CustomType.Setter
         public Builder instancePoolId(String instancePoolId) {
-            this.instancePoolId = Objects.requireNonNull(instancePoolId);
+            if (instancePoolId == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksInstancePool", "instancePoolId");
+            }
+            this.instancePoolId = instancePoolId;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfWorkers(@Nullable Integer maxNumberOfWorkers) {
+
             this.maxNumberOfWorkers = maxNumberOfWorkers;
             return this;
         }
         @CustomType.Setter
         public Builder minNumberOfWorkers(@Nullable Integer minNumberOfWorkers) {
+
             this.minNumberOfWorkers = minNumberOfWorkers;
             return this;
         }

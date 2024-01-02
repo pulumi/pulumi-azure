@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -167,7 +168,9 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
         }
 
         public NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs build() {
-            $.virtualNetworkId = Objects.requireNonNull($.virtualNetworkId, "expected parameter 'virtualNetworkId' to be non-null");
+            if ($.virtualNetworkId == null) {
+                throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs", "virtualNetworkId");
+            }
             return $;
         }
     }

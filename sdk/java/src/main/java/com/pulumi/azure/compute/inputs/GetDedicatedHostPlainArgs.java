@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -117,9 +118,15 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
         }
 
         public GetDedicatedHostPlainArgs build() {
-            $.dedicatedHostGroupName = Objects.requireNonNull($.dedicatedHostGroupName, "expected parameter 'dedicatedHostGroupName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.dedicatedHostGroupName == null) {
+                throw new MissingRequiredPropertyException("GetDedicatedHostPlainArgs", "dedicatedHostGroupName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetDedicatedHostPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetDedicatedHostPlainArgs", "resourceGroupName");
+            }
             return $;
         }
     }

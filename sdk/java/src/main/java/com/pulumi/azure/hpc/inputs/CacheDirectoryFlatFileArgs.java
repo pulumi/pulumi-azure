@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class CacheDirectoryFlatFileArgs extends com.pulumi.resources.Resou
         }
 
         public CacheDirectoryFlatFileArgs build() {
-            $.groupFileUri = Objects.requireNonNull($.groupFileUri, "expected parameter 'groupFileUri' to be non-null");
-            $.passwordFileUri = Objects.requireNonNull($.passwordFileUri, "expected parameter 'passwordFileUri' to be non-null");
+            if ($.groupFileUri == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryFlatFileArgs", "groupFileUri");
+            }
+            if ($.passwordFileUri == null) {
+                throw new MissingRequiredPropertyException("CacheDirectoryFlatFileArgs", "passwordFileUri");
+            }
             return $;
         }
     }

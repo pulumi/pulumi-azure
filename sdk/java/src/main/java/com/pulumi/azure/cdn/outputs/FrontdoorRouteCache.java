@@ -96,11 +96,13 @@ public final class FrontdoorRouteCache {
 
         @CustomType.Setter
         public Builder compressionEnabled(@Nullable Boolean compressionEnabled) {
+
             this.compressionEnabled = compressionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder contentTypesToCompresses(@Nullable List<String> contentTypesToCompresses) {
+
             this.contentTypesToCompresses = contentTypesToCompresses;
             return this;
         }
@@ -109,11 +111,13 @@ public final class FrontdoorRouteCache {
         }
         @CustomType.Setter
         public Builder queryStringCachingBehavior(@Nullable String queryStringCachingBehavior) {
+
             this.queryStringCachingBehavior = queryStringCachingBehavior;
             return this;
         }
         @CustomType.Setter
         public Builder queryStrings(@Nullable List<String> queryStrings) {
+
             this.queryStrings = queryStrings;
             return this;
         }

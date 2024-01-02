@@ -5,6 +5,7 @@ package com.pulumi.azure.compute;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,10 +264,18 @@ public final class DataDiskAttachmentArgs extends com.pulumi.resources.ResourceA
         }
 
         public DataDiskAttachmentArgs build() {
-            $.caching = Objects.requireNonNull($.caching, "expected parameter 'caching' to be non-null");
-            $.lun = Objects.requireNonNull($.lun, "expected parameter 'lun' to be non-null");
-            $.managedDiskId = Objects.requireNonNull($.managedDiskId, "expected parameter 'managedDiskId' to be non-null");
-            $.virtualMachineId = Objects.requireNonNull($.virtualMachineId, "expected parameter 'virtualMachineId' to be non-null");
+            if ($.caching == null) {
+                throw new MissingRequiredPropertyException("DataDiskAttachmentArgs", "caching");
+            }
+            if ($.lun == null) {
+                throw new MissingRequiredPropertyException("DataDiskAttachmentArgs", "lun");
+            }
+            if ($.managedDiskId == null) {
+                throw new MissingRequiredPropertyException("DataDiskAttachmentArgs", "managedDiskId");
+            }
+            if ($.virtualMachineId == null) {
+                throw new MissingRequiredPropertyException("DataDiskAttachmentArgs", "virtualMachineId");
+            }
             return $;
         }
     }

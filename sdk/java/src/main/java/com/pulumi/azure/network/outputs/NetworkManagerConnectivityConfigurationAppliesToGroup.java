@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -91,21 +92,29 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroup {
 
         @CustomType.Setter
         public Builder globalMeshEnabled(@Nullable Boolean globalMeshEnabled) {
+
             this.globalMeshEnabled = globalMeshEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder groupConnectivity(String groupConnectivity) {
-            this.groupConnectivity = Objects.requireNonNull(groupConnectivity);
+            if (groupConnectivity == null) {
+              throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationAppliesToGroup", "groupConnectivity");
+            }
+            this.groupConnectivity = groupConnectivity;
             return this;
         }
         @CustomType.Setter
         public Builder networkGroupId(String networkGroupId) {
-            this.networkGroupId = Objects.requireNonNull(networkGroupId);
+            if (networkGroupId == null) {
+              throw new MissingRequiredPropertyException("NetworkManagerConnectivityConfigurationAppliesToGroup", "networkGroupId");
+            }
+            this.networkGroupId = networkGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder useHubGateway(@Nullable Boolean useHubGateway) {
+
             this.useHubGateway = useHubGateway;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -71,17 +72,26 @@ public final class GetAccountConsistencyPolicy {
 
         @CustomType.Setter
         public Builder consistencyLevel(String consistencyLevel) {
-            this.consistencyLevel = Objects.requireNonNull(consistencyLevel);
+            if (consistencyLevel == null) {
+              throw new MissingRequiredPropertyException("GetAccountConsistencyPolicy", "consistencyLevel");
+            }
+            this.consistencyLevel = consistencyLevel;
             return this;
         }
         @CustomType.Setter
         public Builder maxIntervalInSeconds(Integer maxIntervalInSeconds) {
-            this.maxIntervalInSeconds = Objects.requireNonNull(maxIntervalInSeconds);
+            if (maxIntervalInSeconds == null) {
+              throw new MissingRequiredPropertyException("GetAccountConsistencyPolicy", "maxIntervalInSeconds");
+            }
+            this.maxIntervalInSeconds = maxIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maxStalenessPrefix(Integer maxStalenessPrefix) {
-            this.maxStalenessPrefix = Objects.requireNonNull(maxStalenessPrefix);
+            if (maxStalenessPrefix == null) {
+              throw new MissingRequiredPropertyException("GetAccountConsistencyPolicy", "maxStalenessPrefix");
+            }
+            this.maxStalenessPrefix = maxStalenessPrefix;
             return this;
         }
         public GetAccountConsistencyPolicy build() {

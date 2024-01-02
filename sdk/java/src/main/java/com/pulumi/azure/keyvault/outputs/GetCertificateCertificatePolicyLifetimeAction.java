@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault.outputs;
 import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicyLifetimeActionAction;
 import com.pulumi.azure.keyvault.outputs.GetCertificateCertificatePolicyLifetimeActionTrigger;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
 
         @CustomType.Setter
         public Builder actions(List<GetCertificateCertificatePolicyLifetimeActionAction> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyLifetimeAction", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(GetCertificateCertificatePolicyLifetimeActionAction... actions) {
@@ -66,7 +70,10 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
         }
         @CustomType.Setter
         public Builder triggers(List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers) {
-            this.triggers = Objects.requireNonNull(triggers);
+            if (triggers == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyLifetimeAction", "triggers");
+            }
+            this.triggers = triggers;
             return this;
         }
         public Builder triggers(GetCertificateCertificatePolicyLifetimeActionTrigger... triggers) {

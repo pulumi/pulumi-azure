@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -116,42 +117,66 @@ public final class GetSharedAccessPolicyResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder iothubName(String iothubName) {
-            this.iothubName = Objects.requireNonNull(iothubName);
+            if (iothubName == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "iothubName");
+            }
+            this.iothubName = iothubName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetSharedAccessPolicyResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         public GetSharedAccessPolicyResult build() {

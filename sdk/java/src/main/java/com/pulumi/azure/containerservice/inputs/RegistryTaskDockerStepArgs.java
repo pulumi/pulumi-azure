@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -385,9 +386,15 @@ public final class RegistryTaskDockerStepArgs extends com.pulumi.resources.Resou
         }
 
         public RegistryTaskDockerStepArgs build() {
-            $.contextAccessToken = Objects.requireNonNull($.contextAccessToken, "expected parameter 'contextAccessToken' to be non-null");
-            $.contextPath = Objects.requireNonNull($.contextPath, "expected parameter 'contextPath' to be non-null");
-            $.dockerfilePath = Objects.requireNonNull($.dockerfilePath, "expected parameter 'dockerfilePath' to be non-null");
+            if ($.contextAccessToken == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskDockerStepArgs", "contextAccessToken");
+            }
+            if ($.contextPath == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskDockerStepArgs", "contextPath");
+            }
+            if ($.dockerfilePath == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskDockerStepArgs", "dockerfilePath");
+            }
             return $;
         }
     }

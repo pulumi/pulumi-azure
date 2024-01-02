@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -173,21 +174,27 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
 
         @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
-            this.clusterVersion = Objects.requireNonNull(clusterVersion);
+            if (clusterVersion == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksNewClusterConfig", "clusterVersion");
+            }
+            this.clusterVersion = clusterVersion;
             return this;
         }
         @CustomType.Setter
         public Builder customTags(@Nullable Map<String,String> customTags) {
+
             this.customTags = customTags;
             return this;
         }
         @CustomType.Setter
         public Builder driverNodeType(@Nullable String driverNodeType) {
+
             this.driverNodeType = driverNodeType;
             return this;
         }
         @CustomType.Setter
         public Builder initScripts(@Nullable List<String> initScripts) {
+
             this.initScripts = initScripts;
             return this;
         }
@@ -196,31 +203,39 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
         }
         @CustomType.Setter
         public Builder logDestination(@Nullable String logDestination) {
+
             this.logDestination = logDestination;
             return this;
         }
         @CustomType.Setter
         public Builder maxNumberOfWorkers(@Nullable Integer maxNumberOfWorkers) {
+
             this.maxNumberOfWorkers = maxNumberOfWorkers;
             return this;
         }
         @CustomType.Setter
         public Builder minNumberOfWorkers(@Nullable Integer minNumberOfWorkers) {
+
             this.minNumberOfWorkers = minNumberOfWorkers;
             return this;
         }
         @CustomType.Setter
         public Builder nodeType(String nodeType) {
-            this.nodeType = Objects.requireNonNull(nodeType);
+            if (nodeType == null) {
+              throw new MissingRequiredPropertyException("LinkedServiceAzureDatabricksNewClusterConfig", "nodeType");
+            }
+            this.nodeType = nodeType;
             return this;
         }
         @CustomType.Setter
         public Builder sparkConfig(@Nullable Map<String,String> sparkConfig) {
+
             this.sparkConfig = sparkConfig;
             return this;
         }
         @CustomType.Setter
         public Builder sparkEnvironmentVariables(@Nullable Map<String,String> sparkEnvironmentVariables) {
+
             this.sparkEnvironmentVariables = sparkEnvironmentVariables;
             return this;
         }

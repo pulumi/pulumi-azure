@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
 
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceDiagnosticStorageAccount", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("IotHubDeviceUpdateInstanceDiagnosticStorageAccount", "id");
+            }
+            this.id = id;
             return this;
         }
         public IotHubDeviceUpdateInstanceDiagnosticStorageAccount build() {

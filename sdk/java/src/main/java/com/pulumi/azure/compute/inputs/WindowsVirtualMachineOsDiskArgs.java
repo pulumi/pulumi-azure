@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsDiskDiffDiskSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -431,8 +432,12 @@ public final class WindowsVirtualMachineOsDiskArgs extends com.pulumi.resources.
         }
 
         public WindowsVirtualMachineOsDiskArgs build() {
-            $.caching = Objects.requireNonNull($.caching, "expected parameter 'caching' to be non-null");
-            $.storageAccountType = Objects.requireNonNull($.storageAccountType, "expected parameter 'storageAccountType' to be non-null");
+            if ($.caching == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineOsDiskArgs", "caching");
+            }
+            if ($.storageAccountType == null) {
+                throw new MissingRequiredPropertyException("WindowsVirtualMachineOsDiskArgs", "storageAccountType");
+            }
             return $;
         }
     }

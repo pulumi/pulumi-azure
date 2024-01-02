@@ -14,6 +14,7 @@ import com.pulumi.azure.appservice.inputs.LinuxWebAppStickySettingsArgs;
 import com.pulumi.azure.appservice.inputs.LinuxWebAppStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -1046,9 +1047,15 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinuxWebAppArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.servicePlanId = Objects.requireNonNull($.servicePlanId, "expected parameter 'servicePlanId' to be non-null");
-            $.siteConfig = Objects.requireNonNull($.siteConfig, "expected parameter 'siteConfig' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppArgs", "resourceGroupName");
+            }
+            if ($.servicePlanId == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppArgs", "servicePlanId");
+            }
+            if ($.siteConfig == null) {
+                throw new MissingRequiredPropertyException("LinuxWebAppArgs", "siteConfig");
+            }
             return $;
         }
     }

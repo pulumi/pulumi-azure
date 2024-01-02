@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,31 +115,41 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
 
         @CustomType.Setter
         public Builder domainGuid(String domainGuid) {
-            this.domainGuid = Objects.requireNonNull(domainGuid);
+            if (domainGuid == null) {
+              throw new MissingRequiredPropertyException("AccountAzureFilesAuthenticationActiveDirectory", "domainGuid");
+            }
+            this.domainGuid = domainGuid;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("AccountAzureFilesAuthenticationActiveDirectory", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder domainSid(@Nullable String domainSid) {
+
             this.domainSid = domainSid;
             return this;
         }
         @CustomType.Setter
         public Builder forestName(@Nullable String forestName) {
+
             this.forestName = forestName;
             return this;
         }
         @CustomType.Setter
         public Builder netbiosDomainName(@Nullable String netbiosDomainName) {
+
             this.netbiosDomainName = netbiosDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder storageSid(@Nullable String storageSid) {
+
             this.storageSid = storageSid;
             return this;
         }

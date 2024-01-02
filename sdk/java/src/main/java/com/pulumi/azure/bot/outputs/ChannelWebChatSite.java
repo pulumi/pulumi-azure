@@ -4,6 +4,7 @@
 package com.pulumi.azure.bot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,21 +88,27 @@ public final class ChannelWebChatSite {
 
         @CustomType.Setter
         public Builder endpointParametersEnabled(@Nullable Boolean endpointParametersEnabled) {
+
             this.endpointParametersEnabled = endpointParametersEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ChannelWebChatSite", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageEnabled(@Nullable Boolean storageEnabled) {
+
             this.storageEnabled = storageEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder userUploadEnabled(@Nullable Boolean userUploadEnabled) {
+
             this.userUploadEnabled = userUploadEnabled;
             return this;
         }

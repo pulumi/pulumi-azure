@@ -66,6 +66,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
 
         @CustomType.Setter
         public Builder azureDnsServers(@Nullable List<String> azureDnsServers) {
+
             this.azureDnsServers = azureDnsServers;
             return this;
         }
@@ -74,6 +75,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
         }
         @CustomType.Setter
         public Builder dnsServers(@Nullable List<String> dnsServers) {
+
             this.dnsServers = dnsServers;
             return this;
         }
@@ -82,6 +84,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
         }
         @CustomType.Setter
         public Builder useAzureDns(@Nullable Boolean useAzureDns) {
+
             this.useAzureDns = useAzureDns;
             return this;
         }

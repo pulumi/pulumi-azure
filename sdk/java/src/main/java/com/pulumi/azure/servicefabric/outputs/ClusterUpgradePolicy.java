@@ -159,46 +159,55 @@ public final class ClusterUpgradePolicy {
 
         @CustomType.Setter
         public Builder deltaHealthPolicy(@Nullable ClusterUpgradePolicyDeltaHealthPolicy deltaHealthPolicy) {
+
             this.deltaHealthPolicy = deltaHealthPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder forceRestartEnabled(@Nullable Boolean forceRestartEnabled) {
+
             this.forceRestartEnabled = forceRestartEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckRetryTimeout(@Nullable String healthCheckRetryTimeout) {
+
             this.healthCheckRetryTimeout = healthCheckRetryTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckStableDuration(@Nullable String healthCheckStableDuration) {
+
             this.healthCheckStableDuration = healthCheckStableDuration;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckWaitDuration(@Nullable String healthCheckWaitDuration) {
+
             this.healthCheckWaitDuration = healthCheckWaitDuration;
             return this;
         }
         @CustomType.Setter
         public Builder healthPolicy(@Nullable ClusterUpgradePolicyHealthPolicy healthPolicy) {
+
             this.healthPolicy = healthPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeDomainTimeout(@Nullable String upgradeDomainTimeout) {
+
             this.upgradeDomainTimeout = upgradeDomainTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeReplicaSetCheckTimeout(@Nullable String upgradeReplicaSetCheckTimeout) {
+
             this.upgradeReplicaSetCheckTimeout = upgradeReplicaSetCheckTimeout;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeTimeout(@Nullable String upgradeTimeout) {
+
             this.upgradeTimeout = upgradeTimeout;
             return this;
         }

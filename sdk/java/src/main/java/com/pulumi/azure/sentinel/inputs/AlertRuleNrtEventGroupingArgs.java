@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AlertRuleNrtEventGroupingArgs extends com.pulumi.resources.Re
         }
 
         public AlertRuleNrtEventGroupingArgs build() {
-            $.aggregationMethod = Objects.requireNonNull($.aggregationMethod, "expected parameter 'aggregationMethod' to be non-null");
+            if ($.aggregationMethod == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtEventGroupingArgs", "aggregationMethod");
+            }
             return $;
         }
     }

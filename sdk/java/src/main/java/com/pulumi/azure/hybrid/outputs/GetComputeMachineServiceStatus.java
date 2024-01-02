@@ -6,6 +6,7 @@ package com.pulumi.azure.hybrid.outputs;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineServiceStatusExtensionService;
 import com.pulumi.azure.hybrid.outputs.GetComputeMachineServiceStatusGuestConfigurationService;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -58,7 +59,10 @@ public final class GetComputeMachineServiceStatus {
 
         @CustomType.Setter
         public Builder extensionServices(List<GetComputeMachineServiceStatusExtensionService> extensionServices) {
-            this.extensionServices = Objects.requireNonNull(extensionServices);
+            if (extensionServices == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineServiceStatus", "extensionServices");
+            }
+            this.extensionServices = extensionServices;
             return this;
         }
         public Builder extensionServices(GetComputeMachineServiceStatusExtensionService... extensionServices) {
@@ -66,7 +70,10 @@ public final class GetComputeMachineServiceStatus {
         }
         @CustomType.Setter
         public Builder guestConfigurationServices(List<GetComputeMachineServiceStatusGuestConfigurationService> guestConfigurationServices) {
-            this.guestConfigurationServices = Objects.requireNonNull(guestConfigurationServices);
+            if (guestConfigurationServices == null) {
+              throw new MissingRequiredPropertyException("GetComputeMachineServiceStatus", "guestConfigurationServices");
+            }
+            this.guestConfigurationServices = guestConfigurationServices;
             return this;
         }
         public Builder guestConfigurationServices(GetComputeMachineServiceStatusGuestConfigurationService... guestConfigurationServices) {

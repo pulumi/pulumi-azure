@@ -11,6 +11,7 @@ import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreReplica;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryReadKey;
 import com.pulumi.azure.appconfiguration.outputs.GetConfigurationStoreSecondaryWriteKey;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -281,7 +282,10 @@ public final class GetConfigurationStoreResult {
 
         @CustomType.Setter
         public Builder encryptions(List<GetConfigurationStoreEncryption> encryptions) {
-            this.encryptions = Objects.requireNonNull(encryptions);
+            if (encryptions == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "encryptions");
+            }
+            this.encryptions = encryptions;
             return this;
         }
         public Builder encryptions(GetConfigurationStoreEncryption... encryptions) {
@@ -289,17 +293,26 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder endpoint(String endpoint) {
-            this.endpoint = Objects.requireNonNull(endpoint);
+            if (endpoint == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "endpoint");
+            }
+            this.endpoint = endpoint;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetConfigurationStoreIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetConfigurationStoreIdentity... identities) {
@@ -307,22 +320,34 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
-            this.localAuthEnabled = Objects.requireNonNull(localAuthEnabled);
+            if (localAuthEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "localAuthEnabled");
+            }
+            this.localAuthEnabled = localAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder primaryReadKeys(List<GetConfigurationStorePrimaryReadKey> primaryReadKeys) {
-            this.primaryReadKeys = Objects.requireNonNull(primaryReadKeys);
+            if (primaryReadKeys == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "primaryReadKeys");
+            }
+            this.primaryReadKeys = primaryReadKeys;
             return this;
         }
         public Builder primaryReadKeys(GetConfigurationStorePrimaryReadKey... primaryReadKeys) {
@@ -330,7 +355,10 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder primaryWriteKeys(List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys) {
-            this.primaryWriteKeys = Objects.requireNonNull(primaryWriteKeys);
+            if (primaryWriteKeys == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "primaryWriteKeys");
+            }
+            this.primaryWriteKeys = primaryWriteKeys;
             return this;
         }
         public Builder primaryWriteKeys(GetConfigurationStorePrimaryWriteKey... primaryWriteKeys) {
@@ -338,22 +366,34 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder publicNetworkAccess(String publicNetworkAccess) {
-            this.publicNetworkAccess = Objects.requireNonNull(publicNetworkAccess);
+            if (publicNetworkAccess == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "publicNetworkAccess");
+            }
+            this.publicNetworkAccess = publicNetworkAccess;
             return this;
         }
         @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            if (publicNetworkAccessEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "publicNetworkAccessEnabled");
+            }
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
-            this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
+            if (purgeProtectionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "purgeProtectionEnabled");
+            }
+            this.purgeProtectionEnabled = purgeProtectionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder replicas(List<GetConfigurationStoreReplica> replicas) {
-            this.replicas = Objects.requireNonNull(replicas);
+            if (replicas == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "replicas");
+            }
+            this.replicas = replicas;
             return this;
         }
         public Builder replicas(GetConfigurationStoreReplica... replicas) {
@@ -361,12 +401,18 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryReadKeys(List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys) {
-            this.secondaryReadKeys = Objects.requireNonNull(secondaryReadKeys);
+            if (secondaryReadKeys == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "secondaryReadKeys");
+            }
+            this.secondaryReadKeys = secondaryReadKeys;
             return this;
         }
         public Builder secondaryReadKeys(GetConfigurationStoreSecondaryReadKey... secondaryReadKeys) {
@@ -374,7 +420,10 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder secondaryWriteKeys(List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys) {
-            this.secondaryWriteKeys = Objects.requireNonNull(secondaryWriteKeys);
+            if (secondaryWriteKeys == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "secondaryWriteKeys");
+            }
+            this.secondaryWriteKeys = secondaryWriteKeys;
             return this;
         }
         public Builder secondaryWriteKeys(GetConfigurationStoreSecondaryWriteKey... secondaryWriteKeys) {
@@ -382,17 +431,26 @@ public final class GetConfigurationStoreResult {
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder softDeleteRetentionDays(Integer softDeleteRetentionDays) {
-            this.softDeleteRetentionDays = Objects.requireNonNull(softDeleteRetentionDays);
+            if (softDeleteRetentionDays == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "softDeleteRetentionDays");
+            }
+            this.softDeleteRetentionDays = softDeleteRetentionDays;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationStoreResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetConfigurationStoreResult build() {

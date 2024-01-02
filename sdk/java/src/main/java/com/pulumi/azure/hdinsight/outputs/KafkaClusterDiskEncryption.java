@@ -87,21 +87,25 @@ public final class KafkaClusterDiskEncryption {
 
         @CustomType.Setter
         public Builder encryptionAlgorithm(@Nullable String encryptionAlgorithm) {
+
             this.encryptionAlgorithm = encryptionAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder encryptionAtHostEnabled(@Nullable Boolean encryptionAtHostEnabled) {
+
             this.encryptionAtHostEnabled = encryptionAtHostEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(@Nullable String keyVaultKeyId) {
+
             this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultManagedIdentityId(@Nullable String keyVaultManagedIdentityId) {
+
             this.keyVaultManagedIdentityId = keyVaultManagedIdentityId;
             return this;
         }

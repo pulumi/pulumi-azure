@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,8 +199,12 @@ public final class NetworkManagerAdminRuleCollectionArgs extends com.pulumi.reso
         }
 
         public NetworkManagerAdminRuleCollectionArgs build() {
-            $.networkGroupIds = Objects.requireNonNull($.networkGroupIds, "expected parameter 'networkGroupIds' to be non-null");
-            $.securityAdminConfigurationId = Objects.requireNonNull($.securityAdminConfigurationId, "expected parameter 'securityAdminConfigurationId' to be non-null");
+            if ($.networkGroupIds == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleCollectionArgs", "networkGroupIds");
+            }
+            if ($.securityAdminConfigurationId == null) {
+                throw new MissingRequiredPropertyException("NetworkManagerAdminRuleCollectionArgs", "securityAdminConfigurationId");
+            }
             return $;
         }
     }

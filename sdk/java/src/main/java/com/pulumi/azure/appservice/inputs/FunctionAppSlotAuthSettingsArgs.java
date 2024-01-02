@@ -10,6 +10,7 @@ import com.pulumi.azure.appservice.inputs.FunctionAppSlotAuthSettingsMicrosoftAr
 import com.pulumi.azure.appservice.inputs.FunctionAppSlotAuthSettingsTwitterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -584,7 +585,9 @@ public final class FunctionAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         public FunctionAppSlotAuthSettingsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotAuthSettingsArgs", "enabled");
+            }
             return $;
         }
     }

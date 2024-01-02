@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterAgentPoolProfileUpgradeSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -283,52 +284,82 @@ public final class GetKubernetesClusterAgentPoolProfile {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder enableAutoScaling(Boolean enableAutoScaling) {
-            this.enableAutoScaling = Objects.requireNonNull(enableAutoScaling);
+            if (enableAutoScaling == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "enableAutoScaling");
+            }
+            this.enableAutoScaling = enableAutoScaling;
             return this;
         }
         @CustomType.Setter
         public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
-            this.enableNodePublicIp = Objects.requireNonNull(enableNodePublicIp);
+            if (enableNodePublicIp == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "enableNodePublicIp");
+            }
+            this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder maxCount(Integer maxCount) {
-            this.maxCount = Objects.requireNonNull(maxCount);
+            if (maxCount == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "maxCount");
+            }
+            this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxPods(Integer maxPods) {
-            this.maxPods = Objects.requireNonNull(maxPods);
+            if (maxPods == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "maxPods");
+            }
+            this.maxPods = maxPods;
             return this;
         }
         @CustomType.Setter
         public Builder minCount(Integer minCount) {
-            this.minCount = Objects.requireNonNull(minCount);
+            if (minCount == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "minCount");
+            }
+            this.minCount = minCount;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeLabels(Map<String,String> nodeLabels) {
-            this.nodeLabels = Objects.requireNonNull(nodeLabels);
+            if (nodeLabels == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "nodeLabels");
+            }
+            this.nodeLabels = nodeLabels;
             return this;
         }
         @CustomType.Setter
         public Builder nodePublicIpPrefixId(String nodePublicIpPrefixId) {
-            this.nodePublicIpPrefixId = Objects.requireNonNull(nodePublicIpPrefixId);
+            if (nodePublicIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "nodePublicIpPrefixId");
+            }
+            this.nodePublicIpPrefixId = nodePublicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder nodeTaints(List<String> nodeTaints) {
-            this.nodeTaints = Objects.requireNonNull(nodeTaints);
+            if (nodeTaints == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "nodeTaints");
+            }
+            this.nodeTaints = nodeTaints;
             return this;
         }
         public Builder nodeTaints(String... nodeTaints) {
@@ -336,32 +367,50 @@ public final class GetKubernetesClusterAgentPoolProfile {
         }
         @CustomType.Setter
         public Builder orchestratorVersion(String orchestratorVersion) {
-            this.orchestratorVersion = Objects.requireNonNull(orchestratorVersion);
+            if (orchestratorVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "orchestratorVersion");
+            }
+            this.orchestratorVersion = orchestratorVersion;
             return this;
         }
         @CustomType.Setter
         public Builder osDiskSizeGb(Integer osDiskSizeGb) {
-            this.osDiskSizeGb = Objects.requireNonNull(osDiskSizeGb);
+            if (osDiskSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "osDiskSizeGb");
+            }
+            this.osDiskSizeGb = osDiskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeSettings(List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings) {
-            this.upgradeSettings = Objects.requireNonNull(upgradeSettings);
+            if (upgradeSettings == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "upgradeSettings");
+            }
+            this.upgradeSettings = upgradeSettings;
             return this;
         }
         public Builder upgradeSettings(GetKubernetesClusterAgentPoolProfileUpgradeSetting... upgradeSettings) {
@@ -369,17 +418,26 @@ public final class GetKubernetesClusterAgentPoolProfile {
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         @CustomType.Setter
         public Builder vnetSubnetId(String vnetSubnetId) {
-            this.vnetSubnetId = Objects.requireNonNull(vnetSubnetId);
+            if (vnetSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "vnetSubnetId");
+            }
+            this.vnetSubnetId = vnetSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

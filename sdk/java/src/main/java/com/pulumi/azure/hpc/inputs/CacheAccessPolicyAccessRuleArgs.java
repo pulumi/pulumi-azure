@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -345,8 +346,12 @@ public final class CacheAccessPolicyAccessRuleArgs extends com.pulumi.resources.
         }
 
         public CacheAccessPolicyAccessRuleArgs build() {
-            $.access = Objects.requireNonNull($.access, "expected parameter 'access' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.access == null) {
+                throw new MissingRequiredPropertyException("CacheAccessPolicyAccessRuleArgs", "access");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("CacheAccessPolicyAccessRuleArgs", "scope");
+            }
             return $;
         }
     }

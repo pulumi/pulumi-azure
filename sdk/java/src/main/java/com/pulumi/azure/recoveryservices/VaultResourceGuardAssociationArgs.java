@@ -5,6 +5,7 @@ package com.pulumi.azure.recoveryservices;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -174,8 +175,12 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
         }
 
         public VaultResourceGuardAssociationArgs build() {
-            $.resourceGuardId = Objects.requireNonNull($.resourceGuardId, "expected parameter 'resourceGuardId' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.resourceGuardId == null) {
+                throw new MissingRequiredPropertyException("VaultResourceGuardAssociationArgs", "resourceGuardId");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("VaultResourceGuardAssociationArgs", "vaultId");
+            }
             return $;
         }
     }

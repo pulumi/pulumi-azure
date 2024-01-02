@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class CertificateIssuerAdmin {
 
         @CustomType.Setter
         public Builder emailAddress(String emailAddress) {
-            this.emailAddress = Objects.requireNonNull(emailAddress);
+            if (emailAddress == null) {
+              throw new MissingRequiredPropertyException("CertificateIssuerAdmin", "emailAddress");
+            }
+            this.emailAddress = emailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder firstName(@Nullable String firstName) {
+
             this.firstName = firstName;
             return this;
         }
         @CustomType.Setter
         public Builder lastName(@Nullable String lastName) {
+
             this.lastName = lastName;
             return this;
         }
         @CustomType.Setter
         public Builder phone(@Nullable String phone) {
+
             this.phone = phone;
             return this;
         }

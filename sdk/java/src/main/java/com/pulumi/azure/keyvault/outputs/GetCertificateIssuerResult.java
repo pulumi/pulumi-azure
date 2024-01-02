@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.azure.keyvault.outputs.GetCertificateIssuerAdmin;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -112,12 +113,18 @@ public final class GetCertificateIssuerResult {
 
         @CustomType.Setter
         public Builder accountId(String accountId) {
-            this.accountId = Objects.requireNonNull(accountId);
+            if (accountId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "accountId");
+            }
+            this.accountId = accountId;
             return this;
         }
         @CustomType.Setter
         public Builder admins(List<GetCertificateIssuerAdmin> admins) {
-            this.admins = Objects.requireNonNull(admins);
+            if (admins == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "admins");
+            }
+            this.admins = admins;
             return this;
         }
         public Builder admins(GetCertificateIssuerAdmin... admins) {
@@ -125,27 +132,42 @@ public final class GetCertificateIssuerResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder orgId(String orgId) {
-            this.orgId = Objects.requireNonNull(orgId);
+            if (orgId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "orgId");
+            }
+            this.orgId = orgId;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(String providerName) {
-            this.providerName = Objects.requireNonNull(providerName);
+            if (providerName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateIssuerResult", "providerName");
+            }
+            this.providerName = providerName;
             return this;
         }
         public GetCertificateIssuerResult build() {

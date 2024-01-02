@@ -5,6 +5,7 @@ package com.pulumi.azure.automation.outputs;
 
 import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -211,6 +212,7 @@ public final class SoftwareUpdateConfigurationSchedule {
 
         @CustomType.Setter
         public Builder advancedMonthDays(@Nullable List<Integer> advancedMonthDays) {
+
             this.advancedMonthDays = advancedMonthDays;
             return this;
         }
@@ -219,6 +221,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         }
         @CustomType.Setter
         public Builder advancedWeekDays(@Nullable List<String> advancedWeekDays) {
+
             this.advancedWeekDays = advancedWeekDays;
             return this;
         }
@@ -227,46 +230,57 @@ public final class SoftwareUpdateConfigurationSchedule {
         }
         @CustomType.Setter
         public Builder creationTime(@Nullable String creationTime) {
+
             this.creationTime = creationTime;
             return this;
         }
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder expiryTime(@Nullable String expiryTime) {
+
             this.expiryTime = expiryTime;
             return this;
         }
         @CustomType.Setter
         public Builder expiryTimeOffsetMinutes(@Nullable Double expiryTimeOffsetMinutes) {
+
             this.expiryTimeOffsetMinutes = expiryTimeOffsetMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("SoftwareUpdateConfigurationSchedule", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
+
             this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder isEnabled(@Nullable Boolean isEnabled) {
+
             this.isEnabled = isEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder lastModifiedTime(@Nullable String lastModifiedTime) {
+
             this.lastModifiedTime = lastModifiedTime;
             return this;
         }
         @CustomType.Setter
         public Builder monthlyOccurrences(@Nullable List<SoftwareUpdateConfigurationScheduleMonthlyOccurrence> monthlyOccurrences) {
+
             this.monthlyOccurrences = monthlyOccurrences;
             return this;
         }
@@ -275,26 +289,31 @@ public final class SoftwareUpdateConfigurationSchedule {
         }
         @CustomType.Setter
         public Builder nextRun(@Nullable String nextRun) {
+
             this.nextRun = nextRun;
             return this;
         }
         @CustomType.Setter
         public Builder nextRunOffsetMinutes(@Nullable Double nextRunOffsetMinutes) {
+
             this.nextRunOffsetMinutes = nextRunOffsetMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
+
             this.startTime = startTime;
             return this;
         }
         @CustomType.Setter
         public Builder startTimeOffsetMinutes(@Nullable Double startTimeOffsetMinutes) {
+
             this.startTimeOffsetMinutes = startTimeOffsetMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

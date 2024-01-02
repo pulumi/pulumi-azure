@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -94,22 +95,32 @@ public final class FirewallManagementIpConfiguration {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallManagementIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
-            this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
+            if (publicIpAddressId == null) {
+              throw new MissingRequiredPropertyException("FirewallManagementIpConfiguration", "publicIpAddressId");
+            }
+            this.publicIpAddressId = publicIpAddressId;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("FirewallManagementIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public FirewallManagementIpConfiguration build() {

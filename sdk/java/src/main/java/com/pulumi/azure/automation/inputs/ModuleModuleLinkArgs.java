@@ -6,6 +6,7 @@ package com.pulumi.azure.automation.inputs;
 import com.pulumi.azure.automation.inputs.ModuleModuleLinkHashArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -114,7 +115,9 @@ public final class ModuleModuleLinkArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ModuleModuleLinkArgs build() {
-            $.uri = Objects.requireNonNull($.uri, "expected parameter 'uri' to be non-null");
+            if ($.uri == null) {
+                throw new MissingRequiredPropertyException("ModuleModuleLinkArgs", "uri");
+            }
             return $;
         }
     }

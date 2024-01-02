@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -421,10 +422,18 @@ public final class RegistryWebookArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public RegistryWebookArgs build() {
-            $.actions = Objects.requireNonNull($.actions, "expected parameter 'actions' to be non-null");
-            $.registryName = Objects.requireNonNull($.registryName, "expected parameter 'registryName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serviceUri = Objects.requireNonNull($.serviceUri, "expected parameter 'serviceUri' to be non-null");
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("RegistryWebookArgs", "actions");
+            }
+            if ($.registryName == null) {
+                throw new MissingRequiredPropertyException("RegistryWebookArgs", "registryName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RegistryWebookArgs", "resourceGroupName");
+            }
+            if ($.serviceUri == null) {
+                throw new MissingRequiredPropertyException("RegistryWebookArgs", "serviceUri");
+            }
             return $;
         }
     }

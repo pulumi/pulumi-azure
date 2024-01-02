@@ -6,6 +6,7 @@ package com.pulumi.azure.dataprotection.inputs;
 import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -187,10 +188,18 @@ public final class BackupPolicyPostgresqlRetentionRuleArgs extends com.pulumi.re
         }
 
         public BackupPolicyPostgresqlRetentionRuleArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.duration = Objects.requireNonNull($.duration, "expected parameter 'duration' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.priority = Objects.requireNonNull($.priority, "expected parameter 'priority' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRuleArgs", "criteria");
+            }
+            if ($.duration == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRuleArgs", "duration");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRuleArgs", "name");
+            }
+            if ($.priority == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyPostgresqlRetentionRuleArgs", "priority");
+            }
             return $;
         }
     }

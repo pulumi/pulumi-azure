@@ -48,6 +48,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
 
         @CustomType.Setter
         public Builder recurrence(@Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
+
             this.recurrence = recurrence;
             return this;
         }

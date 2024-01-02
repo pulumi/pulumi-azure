@@ -11,6 +11,7 @@ import com.pulumi.azure.containerapp.outputs.AppTemplateInitContainer;
 import com.pulumi.azure.containerapp.outputs.AppTemplateTcpScaleRule;
 import com.pulumi.azure.containerapp.outputs.AppTemplateVolume;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -179,6 +180,7 @@ public final class AppTemplate {
 
         @CustomType.Setter
         public Builder azureQueueScaleRules(@Nullable List<AppTemplateAzureQueueScaleRule> azureQueueScaleRules) {
+
             this.azureQueueScaleRules = azureQueueScaleRules;
             return this;
         }
@@ -187,7 +189,10 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder containers(List<AppTemplateContainer> containers) {
-            this.containers = Objects.requireNonNull(containers);
+            if (containers == null) {
+              throw new MissingRequiredPropertyException("AppTemplate", "containers");
+            }
+            this.containers = containers;
             return this;
         }
         public Builder containers(AppTemplateContainer... containers) {
@@ -195,6 +200,7 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder customScaleRules(@Nullable List<AppTemplateCustomScaleRule> customScaleRules) {
+
             this.customScaleRules = customScaleRules;
             return this;
         }
@@ -203,6 +209,7 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder httpScaleRules(@Nullable List<AppTemplateHttpScaleRule> httpScaleRules) {
+
             this.httpScaleRules = httpScaleRules;
             return this;
         }
@@ -211,6 +218,7 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder initContainers(@Nullable List<AppTemplateInitContainer> initContainers) {
+
             this.initContainers = initContainers;
             return this;
         }
@@ -219,21 +227,25 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder maxReplicas(@Nullable Integer maxReplicas) {
+
             this.maxReplicas = maxReplicas;
             return this;
         }
         @CustomType.Setter
         public Builder minReplicas(@Nullable Integer minReplicas) {
+
             this.minReplicas = minReplicas;
             return this;
         }
         @CustomType.Setter
         public Builder revisionSuffix(@Nullable String revisionSuffix) {
+
             this.revisionSuffix = revisionSuffix;
             return this;
         }
         @CustomType.Setter
         public Builder tcpScaleRules(@Nullable List<AppTemplateTcpScaleRule> tcpScaleRules) {
+
             this.tcpScaleRules = tcpScaleRules;
             return this;
         }
@@ -242,6 +254,7 @@ public final class AppTemplate {
         }
         @CustomType.Setter
         public Builder volumes(@Nullable List<AppTemplateVolume> volumes) {
+
             this.volumes = volumes;
             return this;
         }

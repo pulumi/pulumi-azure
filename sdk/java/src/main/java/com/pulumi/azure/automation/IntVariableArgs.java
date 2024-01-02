@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,8 +264,12 @@ public final class IntVariableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IntVariableArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("IntVariableArgs", "automationAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IntVariableArgs", "resourceGroupName");
+            }
             return $;
         }
     }

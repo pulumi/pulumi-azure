@@ -74,6 +74,7 @@ public final class ServiceNotifications {
 
         @CustomType.Setter
         public Builder additionalRecipients(@Nullable List<String> additionalRecipients) {
+
             this.additionalRecipients = additionalRecipients;
             return this;
         }
@@ -82,11 +83,13 @@ public final class ServiceNotifications {
         }
         @CustomType.Setter
         public Builder notifyDcAdmins(@Nullable Boolean notifyDcAdmins) {
+
             this.notifyDcAdmins = notifyDcAdmins;
             return this;
         }
         @CustomType.Setter
         public Builder notifyGlobalAdmins(@Nullable Boolean notifyGlobalAdmins) {
+
             this.notifyGlobalAdmins = notifyGlobalAdmins;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
 
         @CustomType.Setter
         public Builder tag(String tag) {
-            this.tag = Objects.requireNonNull(tag);
+            if (tag == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag", "tag");
+            }
+            this.tag = tag;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {

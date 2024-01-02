@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,11 +103,15 @@ public final class FrontdoorRuleConditionsRequestHeaderCondition {
 
         @CustomType.Setter
         public Builder headerName(String headerName) {
-            this.headerName = Objects.requireNonNull(headerName);
+            if (headerName == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleConditionsRequestHeaderCondition", "headerName");
+            }
+            this.headerName = headerName;
             return this;
         }
         @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
+
             this.matchValues = matchValues;
             return this;
         }
@@ -115,16 +120,21 @@ public final class FrontdoorRuleConditionsRequestHeaderCondition {
         }
         @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
+
             this.negateCondition = negateCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("FrontdoorRuleConditionsRequestHeaderCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
+
             this.transforms = transforms;
             return this;
         }

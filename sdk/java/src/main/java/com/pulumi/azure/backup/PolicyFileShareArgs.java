@@ -10,6 +10,7 @@ import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionWeeklyArgs;
 import com.pulumi.azure.backup.inputs.PolicyFileShareRetentionYearlyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -385,10 +386,18 @@ public final class PolicyFileShareArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public PolicyFileShareArgs build() {
-            $.backup = Objects.requireNonNull($.backup, "expected parameter 'backup' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.retentionDaily = Objects.requireNonNull($.retentionDaily, "expected parameter 'retentionDaily' to be non-null");
+            if ($.backup == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareArgs", "backup");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareArgs", "resourceGroupName");
+            }
+            if ($.retentionDaily == null) {
+                throw new MissingRequiredPropertyException("PolicyFileShareArgs", "retentionDaily");
+            }
             return $;
         }
     }

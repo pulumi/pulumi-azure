@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GroupContainerVolumeGitRepo;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -171,46 +172,59 @@ public final class GroupContainerVolume {
 
         @CustomType.Setter
         public Builder emptyDir(@Nullable Boolean emptyDir) {
+
             this.emptyDir = emptyDir;
             return this;
         }
         @CustomType.Setter
         public Builder gitRepo(@Nullable GroupContainerVolumeGitRepo gitRepo) {
+
             this.gitRepo = gitRepo;
             return this;
         }
         @CustomType.Setter
         public Builder mountPath(String mountPath) {
-            this.mountPath = Objects.requireNonNull(mountPath);
+            if (mountPath == null) {
+              throw new MissingRequiredPropertyException("GroupContainerVolume", "mountPath");
+            }
+            this.mountPath = mountPath;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GroupContainerVolume", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder readOnly(@Nullable Boolean readOnly) {
+
             this.readOnly = readOnly;
             return this;
         }
         @CustomType.Setter
         public Builder secret(@Nullable Map<String,String> secret) {
+
             this.secret = secret;
             return this;
         }
         @CustomType.Setter
         public Builder shareName(@Nullable String shareName) {
+
             this.shareName = shareName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountKey(@Nullable String storageAccountKey) {
+
             this.storageAccountKey = storageAccountKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountName(@Nullable String storageAccountName) {
+
             this.storageAccountName = storageAccountName;
             return this;
         }

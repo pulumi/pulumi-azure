@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.outputs;
 
 import com.pulumi.azure.mobile.outputs.NetworkSimPolicySliceDataNetwork;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,7 +73,10 @@ public final class NetworkSimPolicySlice {
 
         @CustomType.Setter
         public Builder dataNetworks(List<NetworkSimPolicySliceDataNetwork> dataNetworks) {
-            this.dataNetworks = Objects.requireNonNull(dataNetworks);
+            if (dataNetworks == null) {
+              throw new MissingRequiredPropertyException("NetworkSimPolicySlice", "dataNetworks");
+            }
+            this.dataNetworks = dataNetworks;
             return this;
         }
         public Builder dataNetworks(NetworkSimPolicySliceDataNetwork... dataNetworks) {
@@ -80,12 +84,18 @@ public final class NetworkSimPolicySlice {
         }
         @CustomType.Setter
         public Builder defaultDataNetworkId(String defaultDataNetworkId) {
-            this.defaultDataNetworkId = Objects.requireNonNull(defaultDataNetworkId);
+            if (defaultDataNetworkId == null) {
+              throw new MissingRequiredPropertyException("NetworkSimPolicySlice", "defaultDataNetworkId");
+            }
+            this.defaultDataNetworkId = defaultDataNetworkId;
             return this;
         }
         @CustomType.Setter
         public Builder sliceId(String sliceId) {
-            this.sliceId = Objects.requireNonNull(sliceId);
+            if (sliceId == null) {
+              throw new MissingRequiredPropertyException("NetworkSimPolicySlice", "sliceId");
+            }
+            this.sliceId = sliceId;
             return this;
         }
         public NetworkSimPolicySlice build() {

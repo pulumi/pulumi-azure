@@ -7,6 +7,7 @@ import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigCors;
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigIpRestriction;
 import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -325,19 +326,45 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         }
 
         public GetStandardSiteConfig build() {
-            $.appScaleLimit = Objects.requireNonNull($.appScaleLimit, "expected parameter 'appScaleLimit' to be non-null");
-            $.autoSwapSlotName = Objects.requireNonNull($.autoSwapSlotName, "expected parameter 'autoSwapSlotName' to be non-null");
-            $.cors = Objects.requireNonNull($.cors, "expected parameter 'cors' to be non-null");
-            $.elasticInstanceMinimum = Objects.requireNonNull($.elasticInstanceMinimum, "expected parameter 'elasticInstanceMinimum' to be non-null");
-            $.ftpsState = Objects.requireNonNull($.ftpsState, "expected parameter 'ftpsState' to be non-null");
-            $.ipRestrictions = Objects.requireNonNull($.ipRestrictions, "expected parameter 'ipRestrictions' to be non-null");
-            $.linuxFxVersion = Objects.requireNonNull($.linuxFxVersion, "expected parameter 'linuxFxVersion' to be non-null");
-            $.minTlsVersion = Objects.requireNonNull($.minTlsVersion, "expected parameter 'minTlsVersion' to be non-null");
-            $.preWarmedInstanceCount = Objects.requireNonNull($.preWarmedInstanceCount, "expected parameter 'preWarmedInstanceCount' to be non-null");
-            $.scmIpRestrictions = Objects.requireNonNull($.scmIpRestrictions, "expected parameter 'scmIpRestrictions' to be non-null");
-            $.scmMinTlsVersion = Objects.requireNonNull($.scmMinTlsVersion, "expected parameter 'scmMinTlsVersion' to be non-null");
-            $.scmType = Objects.requireNonNull($.scmType, "expected parameter 'scmType' to be non-null");
-            $.vnetRouteAllEnabled = Objects.requireNonNull($.vnetRouteAllEnabled, "expected parameter 'vnetRouteAllEnabled' to be non-null");
+            if ($.appScaleLimit == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "appScaleLimit");
+            }
+            if ($.autoSwapSlotName == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "autoSwapSlotName");
+            }
+            if ($.cors == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "cors");
+            }
+            if ($.elasticInstanceMinimum == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "elasticInstanceMinimum");
+            }
+            if ($.ftpsState == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ftpsState");
+            }
+            if ($.ipRestrictions == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ipRestrictions");
+            }
+            if ($.linuxFxVersion == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "linuxFxVersion");
+            }
+            if ($.minTlsVersion == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "minTlsVersion");
+            }
+            if ($.preWarmedInstanceCount == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "preWarmedInstanceCount");
+            }
+            if ($.scmIpRestrictions == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmIpRestrictions");
+            }
+            if ($.scmMinTlsVersion == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmMinTlsVersion");
+            }
+            if ($.scmType == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmType");
+            }
+            if ($.vnetRouteAllEnabled == null) {
+                throw new MissingRequiredPropertyException("GetStandardSiteConfig", "vnetRouteAllEnabled");
+            }
             return $;
         }
     }

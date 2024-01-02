@@ -74,6 +74,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
 
         @CustomType.Setter
         public Builder ruleGroups(@Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups) {
+
             this.ruleGroups = ruleGroups;
             return this;
         }
@@ -82,11 +83,13 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
         }
         @CustomType.Setter
         public Builder type(@Nullable String type) {
+
             this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

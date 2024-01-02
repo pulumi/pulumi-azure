@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -167,17 +168,26 @@ public final class GetCertificateResult {
 
         @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
-            this.expirationDate = Objects.requireNonNull(expirationDate);
+            if (expirationDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "expirationDate");
+            }
+            this.expirationDate = expirationDate;
             return this;
         }
         @CustomType.Setter
         public Builder friendlyName(String friendlyName) {
-            this.friendlyName = Objects.requireNonNull(friendlyName);
+            if (friendlyName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "friendlyName");
+            }
+            this.friendlyName = friendlyName;
             return this;
         }
         @CustomType.Setter
         public Builder hostNames(List<String> hostNames) {
-            this.hostNames = Objects.requireNonNull(hostNames);
+            if (hostNames == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "hostNames");
+            }
+            this.hostNames = hostNames;
             return this;
         }
         public Builder hostNames(String... hostNames) {
@@ -185,47 +195,72 @@ public final class GetCertificateResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder issueDate(String issueDate) {
-            this.issueDate = Objects.requireNonNull(issueDate);
+            if (issueDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "issueDate");
+            }
+            this.issueDate = issueDate;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(String issuer) {
-            this.issuer = Objects.requireNonNull(issuer);
+            if (issuer == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "issuer");
+            }
+            this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder subjectName(String subjectName) {
-            this.subjectName = Objects.requireNonNull(subjectName);
+            if (subjectName == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "subjectName");
+            }
+            this.subjectName = subjectName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
-            this.thumbprint = Objects.requireNonNull(thumbprint);
+            if (thumbprint == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "thumbprint");
+            }
+            this.thumbprint = thumbprint;
             return this;
         }
         public GetCertificateResult build() {

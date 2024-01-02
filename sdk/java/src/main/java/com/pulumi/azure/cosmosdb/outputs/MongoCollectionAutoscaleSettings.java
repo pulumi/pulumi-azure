@@ -44,6 +44,7 @@ public final class MongoCollectionAutoscaleSettings {
 
         @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
+
             this.maxThroughput = maxThroughput;
             return this;
         }

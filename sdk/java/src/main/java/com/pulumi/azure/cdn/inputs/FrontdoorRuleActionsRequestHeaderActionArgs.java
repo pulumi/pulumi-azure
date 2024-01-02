@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -166,8 +167,12 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
         }
 
         public FrontdoorRuleActionsRequestHeaderActionArgs build() {
-            $.headerAction = Objects.requireNonNull($.headerAction, "expected parameter 'headerAction' to be non-null");
-            $.headerName = Objects.requireNonNull($.headerName, "expected parameter 'headerName' to be non-null");
+            if ($.headerAction == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleActionsRequestHeaderActionArgs", "headerAction");
+            }
+            if ($.headerName == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRuleActionsRequestHeaderActionArgs", "headerName");
+            }
             return $;
         }
     }

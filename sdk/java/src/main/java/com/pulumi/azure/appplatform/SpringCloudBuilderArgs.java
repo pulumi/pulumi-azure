@@ -7,6 +7,7 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderStackArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -200,9 +201,15 @@ public final class SpringCloudBuilderArgs extends com.pulumi.resources.ResourceA
         }
 
         public SpringCloudBuilderArgs build() {
-            $.buildPackGroups = Objects.requireNonNull($.buildPackGroups, "expected parameter 'buildPackGroups' to be non-null");
-            $.springCloudServiceId = Objects.requireNonNull($.springCloudServiceId, "expected parameter 'springCloudServiceId' to be non-null");
-            $.stack = Objects.requireNonNull($.stack, "expected parameter 'stack' to be non-null");
+            if ($.buildPackGroups == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuilderArgs", "buildPackGroups");
+            }
+            if ($.springCloudServiceId == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuilderArgs", "springCloudServiceId");
+            }
+            if ($.stack == null) {
+                throw new MissingRequiredPropertyException("SpringCloudBuilderArgs", "stack");
+            }
             return $;
         }
     }

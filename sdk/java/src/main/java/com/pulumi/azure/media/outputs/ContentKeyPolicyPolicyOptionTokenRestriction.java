@@ -177,6 +177,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
 
         @CustomType.Setter
         public Builder alternateKeys(@Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey> alternateKeys) {
+
             this.alternateKeys = alternateKeys;
             return this;
         }
@@ -185,41 +186,49 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         }
         @CustomType.Setter
         public Builder audience(@Nullable String audience) {
+
             this.audience = audience;
             return this;
         }
         @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
+
             this.issuer = issuer;
             return this;
         }
         @CustomType.Setter
         public Builder openIdConnectDiscoveryDocument(@Nullable String openIdConnectDiscoveryDocument) {
+
             this.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
             return this;
         }
         @CustomType.Setter
         public Builder primaryRsaTokenKeyExponent(@Nullable String primaryRsaTokenKeyExponent) {
+
             this.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
             return this;
         }
         @CustomType.Setter
         public Builder primaryRsaTokenKeyModulus(@Nullable String primaryRsaTokenKeyModulus) {
+
             this.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
             return this;
         }
         @CustomType.Setter
         public Builder primarySymmetricTokenKey(@Nullable String primarySymmetricTokenKey) {
+
             this.primarySymmetricTokenKey = primarySymmetricTokenKey;
             return this;
         }
         @CustomType.Setter
         public Builder primaryX509TokenKeyRaw(@Nullable String primaryX509TokenKeyRaw) {
+
             this.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
             return this;
         }
         @CustomType.Setter
         public Builder requiredClaims(@Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims) {
+
             this.requiredClaims = requiredClaims;
             return this;
         }
@@ -228,6 +237,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         }
         @CustomType.Setter
         public Builder tokenType(@Nullable String tokenType) {
+
             this.tokenType = tokenType;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.ManagedDiskEncryptionSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -1434,9 +1435,15 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ManagedDiskArgs build() {
-            $.createOption = Objects.requireNonNull($.createOption, "expected parameter 'createOption' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountType = Objects.requireNonNull($.storageAccountType, "expected parameter 'storageAccountType' to be non-null");
+            if ($.createOption == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskArgs", "createOption");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskArgs", "resourceGroupName");
+            }
+            if ($.storageAccountType == null) {
+                throw new MissingRequiredPropertyException("ManagedDiskArgs", "storageAccountType");
+            }
             return $;
         }
     }

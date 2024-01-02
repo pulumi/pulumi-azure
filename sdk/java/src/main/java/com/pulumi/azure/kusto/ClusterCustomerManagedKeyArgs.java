@@ -5,6 +5,7 @@ package com.pulumi.azure.kusto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class ClusterCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public ClusterCustomerManagedKeyArgs build() {
-            $.clusterId = Objects.requireNonNull($.clusterId, "expected parameter 'clusterId' to be non-null");
-            $.keyName = Objects.requireNonNull($.keyName, "expected parameter 'keyName' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "clusterId");
+            }
+            if ($.keyName == null) {
+                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "keyName");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("ClusterCustomerManagedKeyArgs", "keyVaultId");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azure.appservice;
 import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -319,8 +320,12 @@ public final class FunctionAppFunctionArgs extends com.pulumi.resources.Resource
         }
 
         public FunctionAppFunctionArgs build() {
-            $.configJson = Objects.requireNonNull($.configJson, "expected parameter 'configJson' to be non-null");
-            $.functionAppId = Objects.requireNonNull($.functionAppId, "expected parameter 'functionAppId' to be non-null");
+            if ($.configJson == null) {
+                throw new MissingRequiredPropertyException("FunctionAppFunctionArgs", "configJson");
+            }
+            if ($.functionAppId == null) {
+                throw new MissingRequiredPropertyException("FunctionAppFunctionArgs", "functionAppId");
+            }
             return $;
         }
     }

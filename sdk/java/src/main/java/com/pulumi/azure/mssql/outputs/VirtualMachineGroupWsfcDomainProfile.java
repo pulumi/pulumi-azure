@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -142,41 +143,53 @@ public final class VirtualMachineGroupWsfcDomainProfile {
 
         @CustomType.Setter
         public Builder clusterBootstrapAccountName(@Nullable String clusterBootstrapAccountName) {
+
             this.clusterBootstrapAccountName = clusterBootstrapAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder clusterOperatorAccountName(@Nullable String clusterOperatorAccountName) {
+
             this.clusterOperatorAccountName = clusterOperatorAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder clusterSubnetType(String clusterSubnetType) {
-            this.clusterSubnetType = Objects.requireNonNull(clusterSubnetType);
+            if (clusterSubnetType == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineGroupWsfcDomainProfile", "clusterSubnetType");
+            }
+            this.clusterSubnetType = clusterSubnetType;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("VirtualMachineGroupWsfcDomainProfile", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder organizationalUnitPath(@Nullable String organizationalUnitPath) {
+
             this.organizationalUnitPath = organizationalUnitPath;
             return this;
         }
         @CustomType.Setter
         public Builder sqlServiceAccountName(@Nullable String sqlServiceAccountName) {
+
             this.sqlServiceAccountName = sqlServiceAccountName;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountPrimaryKey(@Nullable String storageAccountPrimaryKey) {
+
             this.storageAccountPrimaryKey = storageAccountPrimaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountUrl(@Nullable String storageAccountUrl) {
+
             this.storageAccountUrl = storageAccountUrl;
             return this;
         }

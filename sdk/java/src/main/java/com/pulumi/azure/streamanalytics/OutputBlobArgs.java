@@ -6,6 +6,7 @@ package com.pulumi.azure.streamanalytics;
 import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -522,14 +523,30 @@ public final class OutputBlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OutputBlobArgs build() {
-            $.dateFormat = Objects.requireNonNull($.dateFormat, "expected parameter 'dateFormat' to be non-null");
-            $.pathPattern = Objects.requireNonNull($.pathPattern, "expected parameter 'pathPattern' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serialization = Objects.requireNonNull($.serialization, "expected parameter 'serialization' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
-            $.storageContainerName = Objects.requireNonNull($.storageContainerName, "expected parameter 'storageContainerName' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
-            $.timeFormat = Objects.requireNonNull($.timeFormat, "expected parameter 'timeFormat' to be non-null");
+            if ($.dateFormat == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "dateFormat");
+            }
+            if ($.pathPattern == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "pathPattern");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "resourceGroupName");
+            }
+            if ($.serialization == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "serialization");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "storageAccountName");
+            }
+            if ($.storageContainerName == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "storageContainerName");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "streamAnalyticsJobName");
+            }
+            if ($.timeFormat == null) {
+                throw new MissingRequiredPropertyException("OutputBlobArgs", "timeFormat");
+            }
             return $;
         }
     }

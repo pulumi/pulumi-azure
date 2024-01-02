@@ -86,21 +86,25 @@ public final class ServiceLiveTrace {
 
         @CustomType.Setter
         public Builder connectivityLogsEnabled(@Nullable Boolean connectivityLogsEnabled) {
+
             this.connectivityLogsEnabled = connectivityLogsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpRequestLogsEnabled(@Nullable Boolean httpRequestLogsEnabled) {
+
             this.httpRequestLogsEnabled = httpRequestLogsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder messagingLogsEnabled(@Nullable Boolean messagingLogsEnabled) {
+
             this.messagingLogsEnabled = messagingLogsEnabled;
             return this;
         }

@@ -90,11 +90,13 @@ public final class PoolMount {
 
         @CustomType.Setter
         public Builder azureBlobFileSystem(@Nullable PoolMountAzureBlobFileSystem azureBlobFileSystem) {
+
             this.azureBlobFileSystem = azureBlobFileSystem;
             return this;
         }
         @CustomType.Setter
         public Builder azureFileShares(@Nullable List<PoolMountAzureFileShare> azureFileShares) {
+
             this.azureFileShares = azureFileShares;
             return this;
         }
@@ -103,6 +105,7 @@ public final class PoolMount {
         }
         @CustomType.Setter
         public Builder cifsMounts(@Nullable List<PoolMountCifsMount> cifsMounts) {
+
             this.cifsMounts = cifsMounts;
             return this;
         }
@@ -111,6 +114,7 @@ public final class PoolMount {
         }
         @CustomType.Setter
         public Builder nfsMounts(@Nullable List<PoolMountNfsMount> nfsMounts) {
+
             this.nfsMounts = nfsMounts;
             return this;
         }

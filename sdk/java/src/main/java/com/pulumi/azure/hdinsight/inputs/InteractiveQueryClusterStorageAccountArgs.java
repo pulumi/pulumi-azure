@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -204,9 +205,15 @@ public final class InteractiveQueryClusterStorageAccountArgs extends com.pulumi.
         }
 
         public InteractiveQueryClusterStorageAccountArgs build() {
-            $.isDefault = Objects.requireNonNull($.isDefault, "expected parameter 'isDefault' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
-            $.storageContainerId = Objects.requireNonNull($.storageContainerId, "expected parameter 'storageContainerId' to be non-null");
+            if ($.isDefault == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterStorageAccountArgs", "isDefault");
+            }
+            if ($.storageAccountKey == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterStorageAccountArgs", "storageAccountKey");
+            }
+            if ($.storageContainerId == null) {
+                throw new MissingRequiredPropertyException("InteractiveQueryClusterStorageAccountArgs", "storageContainerId");
+            }
             return $;
         }
     }

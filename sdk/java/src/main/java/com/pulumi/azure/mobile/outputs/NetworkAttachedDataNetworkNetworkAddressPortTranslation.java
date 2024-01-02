@@ -129,36 +129,43 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslation {
 
         @CustomType.Setter
         public Builder icmpPinholeTimeoutInSeconds(@Nullable Integer icmpPinholeTimeoutInSeconds) {
+
             this.icmpPinholeTimeoutInSeconds = icmpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder pinholeMaximumNumber(@Nullable Integer pinholeMaximumNumber) {
+
             this.pinholeMaximumNumber = pinholeMaximumNumber;
             return this;
         }
         @CustomType.Setter
         public Builder portRange(@Nullable NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange portRange) {
+
             this.portRange = portRange;
             return this;
         }
         @CustomType.Setter
         public Builder tcpPinholeTimeoutInSeconds(@Nullable Integer tcpPinholeTimeoutInSeconds) {
+
             this.tcpPinholeTimeoutInSeconds = tcpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder tcpPortReuseMinimumHoldTimeInSeconds(@Nullable Integer tcpPortReuseMinimumHoldTimeInSeconds) {
+
             this.tcpPortReuseMinimumHoldTimeInSeconds = tcpPortReuseMinimumHoldTimeInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder udpPinholeTimeoutInSeconds(@Nullable Integer udpPinholeTimeoutInSeconds) {
+
             this.udpPinholeTimeoutInSeconds = udpPinholeTimeoutInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder udpPortReuseMinimumHoldTimeInSeconds(@Nullable Integer udpPortReuseMinimumHoldTimeInSeconds) {
+
             this.udpPortReuseMinimumHoldTimeInSeconds = udpPortReuseMinimumHoldTimeInSeconds;
             return this;
         }

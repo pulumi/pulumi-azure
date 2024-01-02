@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class ResolverInboundEndpointIpConfiguration {
 
         @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
+
             this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAllocationMethod(@Nullable String privateIpAllocationMethod) {
+
             this.privateIpAllocationMethod = privateIpAllocationMethod;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("ResolverInboundEndpointIpConfiguration", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public ResolverInboundEndpointIpConfiguration build() {

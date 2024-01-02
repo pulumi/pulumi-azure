@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class ApiOauth2AuthorizationArgs extends com.pulumi.resources.Resou
         }
 
         public ApiOauth2AuthorizationArgs build() {
-            $.authorizationServerName = Objects.requireNonNull($.authorizationServerName, "expected parameter 'authorizationServerName' to be non-null");
+            if ($.authorizationServerName == null) {
+                throw new MissingRequiredPropertyException("ApiOauth2AuthorizationArgs", "authorizationServerName");
+            }
             return $;
         }
     }

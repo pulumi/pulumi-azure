@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetFunctionAppSiteConfigScmIpRestrictionHeaders;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -120,37 +121,58 @@ public final class GetFunctionAppSiteConfigScmIpRestriction {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder headers(GetFunctionAppSiteConfigScmIpRestrictionHeaders headers) {
-            this.headers = Objects.requireNonNull(headers);
+            if (headers == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "headers");
+            }
+            this.headers = headers;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder priority(Integer priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder serviceTag(String serviceTag) {
-            this.serviceTag = Objects.requireNonNull(serviceTag);
+            if (serviceTag == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "serviceTag");
+            }
+            this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
-            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetFunctionAppSiteConfigScmIpRestriction", "virtualNetworkSubnetId");
+            }
+            this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }
         public GetFunctionAppSiteConfigScmIpRestriction build() {

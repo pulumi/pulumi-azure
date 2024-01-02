@@ -9,6 +9,7 @@ import com.pulumi.azure.cognitive.inputs.AccountNetworkAclsArgs;
 import com.pulumi.azure.cognitive.inputs.AccountStorageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -957,9 +958,15 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.kind = Objects.requireNonNull($.kind, "expected parameter 'kind' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.kind == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "kind");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "skuName");
+            }
             return $;
         }
     }

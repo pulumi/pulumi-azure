@@ -6,6 +6,7 @@ package com.pulumi.azure.orbital;
 import com.pulumi.azure.orbital.inputs.SpacecraftLinkArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -358,11 +359,21 @@ public final class SpacecraftArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SpacecraftArgs build() {
-            $.links = Objects.requireNonNull($.links, "expected parameter 'links' to be non-null");
-            $.noradId = Objects.requireNonNull($.noradId, "expected parameter 'noradId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.titleLine = Objects.requireNonNull($.titleLine, "expected parameter 'titleLine' to be non-null");
-            $.twoLineElements = Objects.requireNonNull($.twoLineElements, "expected parameter 'twoLineElements' to be non-null");
+            if ($.links == null) {
+                throw new MissingRequiredPropertyException("SpacecraftArgs", "links");
+            }
+            if ($.noradId == null) {
+                throw new MissingRequiredPropertyException("SpacecraftArgs", "noradId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SpacecraftArgs", "resourceGroupName");
+            }
+            if ($.titleLine == null) {
+                throw new MissingRequiredPropertyException("SpacecraftArgs", "titleLine");
+            }
+            if ($.twoLineElements == null) {
+                throw new MissingRequiredPropertyException("SpacecraftArgs", "twoLineElements");
+            }
             return $;
         }
     }

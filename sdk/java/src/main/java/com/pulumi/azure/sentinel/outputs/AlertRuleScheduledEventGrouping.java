@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class AlertRuleScheduledEventGrouping {
 
         @CustomType.Setter
         public Builder aggregationMethod(String aggregationMethod) {
-            this.aggregationMethod = Objects.requireNonNull(aggregationMethod);
+            if (aggregationMethod == null) {
+              throw new MissingRequiredPropertyException("AlertRuleScheduledEventGrouping", "aggregationMethod");
+            }
+            this.aggregationMethod = aggregationMethod;
             return this;
         }
         public AlertRuleScheduledEventGrouping build() {

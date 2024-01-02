@@ -4,6 +4,7 @@
 package com.pulumi.azure.databasemigration.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -117,42 +118,66 @@ public final class GetProjectResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder serviceName(String serviceName) {
-            this.serviceName = Objects.requireNonNull(serviceName);
+            if (serviceName == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "serviceName");
+            }
+            this.serviceName = serviceName;
             return this;
         }
         @CustomType.Setter
         public Builder sourcePlatform(String sourcePlatform) {
-            this.sourcePlatform = Objects.requireNonNull(sourcePlatform);
+            if (sourcePlatform == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "sourcePlatform");
+            }
+            this.sourcePlatform = sourcePlatform;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder targetPlatform(String targetPlatform) {
-            this.targetPlatform = Objects.requireNonNull(targetPlatform);
+            if (targetPlatform == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "targetPlatform");
+            }
+            this.targetPlatform = targetPlatform;
             return this;
         }
         public GetProjectResult build() {

@@ -72,16 +72,19 @@ public final class ConfigurationStorePrimaryWriteKey {
 
         @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
+
             this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder secret(@Nullable String secret) {
+
             this.secret = secret;
             return this;
         }

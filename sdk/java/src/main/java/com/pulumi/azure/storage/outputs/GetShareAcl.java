@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.GetShareAclAccessPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetShareAcl {
 
         @CustomType.Setter
         public Builder accessPolicies(List<GetShareAclAccessPolicy> accessPolicies) {
-            this.accessPolicies = Objects.requireNonNull(accessPolicies);
+            if (accessPolicies == null) {
+              throw new MissingRequiredPropertyException("GetShareAcl", "accessPolicies");
+            }
+            this.accessPolicies = accessPolicies;
             return this;
         }
         public Builder accessPolicies(GetShareAclAccessPolicy... accessPolicies) {
@@ -66,7 +70,10 @@ public final class GetShareAcl {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetShareAcl", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetShareAcl build() {

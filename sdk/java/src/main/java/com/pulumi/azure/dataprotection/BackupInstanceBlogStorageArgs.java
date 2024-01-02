@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class BackupInstanceBlogStorageArgs extends com.pulumi.resources.Re
         }
 
         public BackupInstanceBlogStorageArgs build() {
-            $.backupPolicyId = Objects.requireNonNull($.backupPolicyId, "expected parameter 'backupPolicyId' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.backupPolicyId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceBlogStorageArgs", "backupPolicyId");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceBlogStorageArgs", "storageAccountId");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("BackupInstanceBlogStorageArgs", "vaultId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class AlertRuleNrtSentinelEntityMappingArgs extends com.pulumi.reso
         }
 
         public AlertRuleNrtSentinelEntityMappingArgs build() {
-            $.columnName = Objects.requireNonNull($.columnName, "expected parameter 'columnName' to be non-null");
+            if ($.columnName == null) {
+                throw new MissingRequiredPropertyException("AlertRuleNrtSentinelEntityMappingArgs", "columnName");
+            }
             return $;
         }
     }

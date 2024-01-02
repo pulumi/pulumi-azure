@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -89,32 +90,50 @@ public final class GetRegistryTokenResult {
 
         @CustomType.Setter
         public Builder containerRegistryName(String containerRegistryName) {
-            this.containerRegistryName = Objects.requireNonNull(containerRegistryName);
+            if (containerRegistryName == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "containerRegistryName");
+            }
+            this.containerRegistryName = containerRegistryName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder scopeMapId(String scopeMapId) {
-            this.scopeMapId = Objects.requireNonNull(scopeMapId);
+            if (scopeMapId == null) {
+              throw new MissingRequiredPropertyException("GetRegistryTokenResult", "scopeMapId");
+            }
+            this.scopeMapId = scopeMapId;
             return this;
         }
         public GetRegistryTokenResult build() {

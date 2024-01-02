@@ -59,11 +59,13 @@ public final class BudgetSubscriptionFilterNot {
 
         @CustomType.Setter
         public Builder dimension(@Nullable BudgetSubscriptionFilterNotDimension dimension) {
+
             this.dimension = dimension;
             return this;
         }
         @CustomType.Setter
         public Builder tag(@Nullable BudgetSubscriptionFilterNotTag tag) {
+
             this.tag = tag;
             return this;
         }

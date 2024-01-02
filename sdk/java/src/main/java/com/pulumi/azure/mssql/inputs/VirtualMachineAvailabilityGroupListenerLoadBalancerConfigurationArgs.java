@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -242,11 +243,21 @@ public final class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurat
         }
 
         public VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs build() {
-            $.loadBalancerId = Objects.requireNonNull($.loadBalancerId, "expected parameter 'loadBalancerId' to be non-null");
-            $.privateIpAddress = Objects.requireNonNull($.privateIpAddress, "expected parameter 'privateIpAddress' to be non-null");
-            $.probePort = Objects.requireNonNull($.probePort, "expected parameter 'probePort' to be non-null");
-            $.sqlVirtualMachineIds = Objects.requireNonNull($.sqlVirtualMachineIds, "expected parameter 'sqlVirtualMachineIds' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.loadBalancerId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs", "loadBalancerId");
+            }
+            if ($.privateIpAddress == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs", "privateIpAddress");
+            }
+            if ($.probePort == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs", "probePort");
+            }
+            if ($.sqlVirtualMachineIds == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs", "sqlVirtualMachineIds");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

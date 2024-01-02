@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -337,9 +338,15 @@ public final class DscConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         public DscConfigurationArgs build() {
-            $.automationAccountName = Objects.requireNonNull($.automationAccountName, "expected parameter 'automationAccountName' to be non-null");
-            $.contentEmbedded = Objects.requireNonNull($.contentEmbedded, "expected parameter 'contentEmbedded' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.automationAccountName == null) {
+                throw new MissingRequiredPropertyException("DscConfigurationArgs", "automationAccountName");
+            }
+            if ($.contentEmbedded == null) {
+                throw new MissingRequiredPropertyException("DscConfigurationArgs", "contentEmbedded");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("DscConfigurationArgs", "resourceGroupName");
+            }
             return $;
         }
     }

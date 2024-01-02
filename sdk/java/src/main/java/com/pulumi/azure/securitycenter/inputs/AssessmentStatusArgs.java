@@ -5,6 +5,7 @@ package com.pulumi.azure.securitycenter.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class AssessmentStatusArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AssessmentStatusArgs build() {
-            $.code = Objects.requireNonNull($.code, "expected parameter 'code' to be non-null");
+            if ($.code == null) {
+                throw new MissingRequiredPropertyException("AssessmentStatusArgs", "code");
+            }
             return $;
         }
     }

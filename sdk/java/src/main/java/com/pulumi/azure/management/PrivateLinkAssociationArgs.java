@@ -5,6 +5,7 @@ package com.pulumi.azure.management;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -316,9 +317,15 @@ public final class PrivateLinkAssociationArgs extends com.pulumi.resources.Resou
         }
 
         public PrivateLinkAssociationArgs build() {
-            $.managementGroupId = Objects.requireNonNull($.managementGroupId, "expected parameter 'managementGroupId' to be non-null");
-            $.publicNetworkAccessEnabled = Objects.requireNonNull($.publicNetworkAccessEnabled, "expected parameter 'publicNetworkAccessEnabled' to be non-null");
-            $.resourceManagementPrivateLinkId = Objects.requireNonNull($.resourceManagementPrivateLinkId, "expected parameter 'resourceManagementPrivateLinkId' to be non-null");
+            if ($.managementGroupId == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAssociationArgs", "managementGroupId");
+            }
+            if ($.publicNetworkAccessEnabled == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAssociationArgs", "publicNetworkAccessEnabled");
+            }
+            if ($.resourceManagementPrivateLinkId == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkAssociationArgs", "resourceManagementPrivateLinkId");
+            }
             return $;
         }
     }

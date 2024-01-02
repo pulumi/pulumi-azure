@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class MoverProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public MoverProjectArgs build() {
-            $.storageMoverId = Objects.requireNonNull($.storageMoverId, "expected parameter 'storageMoverId' to be non-null");
+            if ($.storageMoverId == null) {
+                throw new MissingRequiredPropertyException("MoverProjectArgs", "storageMoverId");
+            }
             return $;
         }
     }

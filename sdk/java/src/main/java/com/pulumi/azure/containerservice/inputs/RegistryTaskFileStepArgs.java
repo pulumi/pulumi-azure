@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,7 +263,9 @@ public final class RegistryTaskFileStepArgs extends com.pulumi.resources.Resourc
         }
 
         public RegistryTaskFileStepArgs build() {
-            $.taskFilePath = Objects.requireNonNull($.taskFilePath, "expected parameter 'taskFilePath' to be non-null");
+            if ($.taskFilePath == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskFileStepArgs", "taskFilePath");
+            }
             return $;
         }
     }

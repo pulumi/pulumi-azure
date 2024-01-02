@@ -4,6 +4,7 @@
 package com.pulumi.azure.machinelearning.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,16 +74,21 @@ public final class ComputeInstanceSsh {
 
         @CustomType.Setter
         public Builder port(@Nullable Integer port) {
+
             this.port = port;
             return this;
         }
         @CustomType.Setter
         public Builder publicKey(String publicKey) {
-            this.publicKey = Objects.requireNonNull(publicKey);
+            if (publicKey == null) {
+              throw new MissingRequiredPropertyException("ComputeInstanceSsh", "publicKey");
+            }
+            this.publicKey = publicKey;
             return this;
         }
         @CustomType.Setter
         public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn;
 import com.pulumi.azure.cdn.inputs.FrontdoorRouteCacheArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -636,11 +637,21 @@ public final class FrontdoorRouteArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FrontdoorRouteArgs build() {
-            $.cdnFrontdoorEndpointId = Objects.requireNonNull($.cdnFrontdoorEndpointId, "expected parameter 'cdnFrontdoorEndpointId' to be non-null");
-            $.cdnFrontdoorOriginGroupId = Objects.requireNonNull($.cdnFrontdoorOriginGroupId, "expected parameter 'cdnFrontdoorOriginGroupId' to be non-null");
-            $.cdnFrontdoorOriginIds = Objects.requireNonNull($.cdnFrontdoorOriginIds, "expected parameter 'cdnFrontdoorOriginIds' to be non-null");
-            $.patternsToMatches = Objects.requireNonNull($.patternsToMatches, "expected parameter 'patternsToMatches' to be non-null");
-            $.supportedProtocols = Objects.requireNonNull($.supportedProtocols, "expected parameter 'supportedProtocols' to be non-null");
+            if ($.cdnFrontdoorEndpointId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteArgs", "cdnFrontdoorEndpointId");
+            }
+            if ($.cdnFrontdoorOriginGroupId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteArgs", "cdnFrontdoorOriginGroupId");
+            }
+            if ($.cdnFrontdoorOriginIds == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteArgs", "cdnFrontdoorOriginIds");
+            }
+            if ($.patternsToMatches == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteArgs", "patternsToMatches");
+            }
+            if ($.supportedProtocols == null) {
+                throw new MissingRequiredPropertyException("FrontdoorRouteArgs", "supportedProtocols");
+            }
             return $;
         }
     }

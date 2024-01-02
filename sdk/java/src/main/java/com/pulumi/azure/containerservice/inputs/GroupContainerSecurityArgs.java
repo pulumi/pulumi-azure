@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class GroupContainerSecurityArgs extends com.pulumi.resources.Resou
         }
 
         public GroupContainerSecurityArgs build() {
-            $.privilegeEnabled = Objects.requireNonNull($.privilegeEnabled, "expected parameter 'privilegeEnabled' to be non-null");
+            if ($.privilegeEnabled == null) {
+                throw new MissingRequiredPropertyException("GroupContainerSecurityArgs", "privilegeEnabled");
+            }
             return $;
         }
     }

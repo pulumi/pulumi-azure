@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class AppDaprArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AppDaprArgs build() {
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("AppDaprArgs", "appId");
+            }
             return $;
         }
     }

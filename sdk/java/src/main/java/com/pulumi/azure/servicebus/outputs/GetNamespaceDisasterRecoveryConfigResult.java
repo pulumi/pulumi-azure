@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicebus.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -128,57 +129,82 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
 
         @CustomType.Setter
         public Builder aliasAuthorizationRuleId(@Nullable String aliasAuthorizationRuleId) {
+
             this.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
             return this;
         }
         @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
-            this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
+            if (defaultPrimaryKey == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "defaultPrimaryKey");
+            }
+            this.defaultPrimaryKey = defaultPrimaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
-            this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
+            if (defaultSecondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "defaultSecondaryKey");
+            }
+            this.defaultSecondaryKey = defaultSecondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceId(@Nullable String namespaceId) {
+
             this.namespaceId = namespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
+
             this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder partnerNamespaceId(String partnerNamespaceId) {
-            this.partnerNamespaceId = Objects.requireNonNull(partnerNamespaceId);
+            if (partnerNamespaceId == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "partnerNamespaceId");
+            }
+            this.partnerNamespaceId = partnerNamespaceId;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
-            this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
+            if (primaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "primaryConnectionStringAlias");
+            }
+            this.primaryConnectionStringAlias = primaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
-            this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
+            if (secondaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "secondaryConnectionStringAlias");
+            }
+            this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
             return this;
         }
         public GetNamespaceDisasterRecoveryConfigResult build() {

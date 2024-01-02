@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns.outputs;
 
 import com.pulumi.azure.privatedns.outputs.GetResolverForwardingRuleTargetDnsServer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -114,37 +115,58 @@ public final class GetResolverForwardingRuleResult {
 
         @CustomType.Setter
         public Builder dnsForwardingRulesetId(String dnsForwardingRulesetId) {
-            this.dnsForwardingRulesetId = Objects.requireNonNull(dnsForwardingRulesetId);
+            if (dnsForwardingRulesetId == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "dnsForwardingRulesetId");
+            }
+            this.dnsForwardingRulesetId = dnsForwardingRulesetId;
             return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
-            this.domainName = Objects.requireNonNull(domainName);
+            if (domainName == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "domainName");
+            }
+            this.domainName = domainName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
-            this.metadata = Objects.requireNonNull(metadata);
+            if (metadata == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "metadata");
+            }
+            this.metadata = metadata;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder targetDnsServers(List<GetResolverForwardingRuleTargetDnsServer> targetDnsServers) {
-            this.targetDnsServers = Objects.requireNonNull(targetDnsServers);
+            if (targetDnsServers == null) {
+              throw new MissingRequiredPropertyException("GetResolverForwardingRuleResult", "targetDnsServers");
+            }
+            this.targetDnsServers = targetDnsServers;
             return this;
         }
         public Builder targetDnsServers(GetResolverForwardingRuleTargetDnsServer... targetDnsServers) {

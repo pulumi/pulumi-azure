@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetGroupArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("GetGroupArgs", "apiManagementName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetGroupArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetGroupArgs", "resourceGroupName");
+            }
             return $;
         }
     }

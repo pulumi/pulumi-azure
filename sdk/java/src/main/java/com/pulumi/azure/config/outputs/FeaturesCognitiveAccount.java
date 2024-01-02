@@ -36,6 +36,7 @@ public final class FeaturesCognitiveAccount {
 
         @CustomType.Setter
         public Builder purgeSoftDeleteOnDestroy(@Nullable Boolean purgeSoftDeleteOnDestroy) {
+
             this.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
             return this;
         }

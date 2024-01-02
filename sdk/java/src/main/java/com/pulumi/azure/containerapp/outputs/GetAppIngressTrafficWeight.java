@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -86,22 +87,34 @@ public final class GetAppIngressTrafficWeight {
 
         @CustomType.Setter
         public Builder label(String label) {
-            this.label = Objects.requireNonNull(label);
+            if (label == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressTrafficWeight", "label");
+            }
+            this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder latestRevision(Boolean latestRevision) {
-            this.latestRevision = Objects.requireNonNull(latestRevision);
+            if (latestRevision == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressTrafficWeight", "latestRevision");
+            }
+            this.latestRevision = latestRevision;
             return this;
         }
         @CustomType.Setter
         public Builder percentage(Integer percentage) {
-            this.percentage = Objects.requireNonNull(percentage);
+            if (percentage == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressTrafficWeight", "percentage");
+            }
+            this.percentage = percentage;
             return this;
         }
         @CustomType.Setter
         public Builder revisionSuffix(String revisionSuffix) {
-            this.revisionSuffix = Objects.requireNonNull(revisionSuffix);
+            if (revisionSuffix == null) {
+              throw new MissingRequiredPropertyException("GetAppIngressTrafficWeight", "revisionSuffix");
+            }
+            this.revisionSuffix = revisionSuffix;
             return this;
         }
         public GetAppIngressTrafficWeight build() {

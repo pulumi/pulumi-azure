@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -73,7 +74,10 @@ public final class ScheduledQueryRulesAlertAction {
 
         @CustomType.Setter
         public Builder actionGroups(List<String> actionGroups) {
-            this.actionGroups = Objects.requireNonNull(actionGroups);
+            if (actionGroups == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertAction", "actionGroups");
+            }
+            this.actionGroups = actionGroups;
             return this;
         }
         public Builder actionGroups(String... actionGroups) {
@@ -81,11 +85,13 @@ public final class ScheduledQueryRulesAlertAction {
         }
         @CustomType.Setter
         public Builder customWebhookPayload(@Nullable String customWebhookPayload) {
+
             this.customWebhookPayload = customWebhookPayload;
             return this;
         }
         @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
+
             this.emailSubject = emailSubject;
             return this;
         }

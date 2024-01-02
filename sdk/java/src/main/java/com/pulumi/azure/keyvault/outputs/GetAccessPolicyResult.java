@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -91,7 +92,10 @@ public final class GetAccessPolicyResult {
 
         @CustomType.Setter
         public Builder certificatePermissions(List<String> certificatePermissions) {
-            this.certificatePermissions = Objects.requireNonNull(certificatePermissions);
+            if (certificatePermissions == null) {
+              throw new MissingRequiredPropertyException("GetAccessPolicyResult", "certificatePermissions");
+            }
+            this.certificatePermissions = certificatePermissions;
             return this;
         }
         public Builder certificatePermissions(String... certificatePermissions) {
@@ -99,12 +103,18 @@ public final class GetAccessPolicyResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAccessPolicyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyPermissions(List<String> keyPermissions) {
-            this.keyPermissions = Objects.requireNonNull(keyPermissions);
+            if (keyPermissions == null) {
+              throw new MissingRequiredPropertyException("GetAccessPolicyResult", "keyPermissions");
+            }
+            this.keyPermissions = keyPermissions;
             return this;
         }
         public Builder keyPermissions(String... keyPermissions) {
@@ -112,12 +122,18 @@ public final class GetAccessPolicyResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAccessPolicyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretPermissions(List<String> secretPermissions) {
-            this.secretPermissions = Objects.requireNonNull(secretPermissions);
+            if (secretPermissions == null) {
+              throw new MissingRequiredPropertyException("GetAccessPolicyResult", "secretPermissions");
+            }
+            this.secretPermissions = secretPermissions;
             return this;
         }
         public Builder secretPermissions(String... secretPermissions) {

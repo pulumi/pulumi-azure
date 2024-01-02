@@ -44,6 +44,7 @@ public final class ResourceDeploymentScriptPowerShellContainer {
 
         @CustomType.Setter
         public Builder containerGroupName(@Nullable String containerGroupName) {
+
             this.containerGroupName = containerGroupName;
             return this;
         }

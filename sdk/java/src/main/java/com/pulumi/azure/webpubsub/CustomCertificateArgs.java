@@ -5,6 +5,7 @@ package com.pulumi.azure.webpubsub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -166,8 +167,12 @@ public final class CustomCertificateArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CustomCertificateArgs build() {
-            $.customCertificateId = Objects.requireNonNull($.customCertificateId, "expected parameter 'customCertificateId' to be non-null");
-            $.webPubsubId = Objects.requireNonNull($.webPubsubId, "expected parameter 'webPubsubId' to be non-null");
+            if ($.customCertificateId == null) {
+                throw new MissingRequiredPropertyException("CustomCertificateArgs", "customCertificateId");
+            }
+            if ($.webPubsubId == null) {
+                throw new MissingRequiredPropertyException("CustomCertificateArgs", "webPubsubId");
+            }
             return $;
         }
     }

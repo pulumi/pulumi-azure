@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class AlertRuleNrtSentinelEntityMapping {
 
         @CustomType.Setter
         public Builder columnName(String columnName) {
-            this.columnName = Objects.requireNonNull(columnName);
+            if (columnName == null) {
+              throw new MissingRequiredPropertyException("AlertRuleNrtSentinelEntityMapping", "columnName");
+            }
+            this.columnName = columnName;
             return this;
         }
         public AlertRuleNrtSentinelEntityMapping build() {

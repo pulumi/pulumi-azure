@@ -7,6 +7,7 @@ import com.pulumi.azure.cosmosdb.inputs.GremlinGraphIndexPolicyCompositeIndexArg
 import com.pulumi.azure.cosmosdb.inputs.GremlinGraphIndexPolicySpatialIndexArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -305,7 +306,9 @@ public final class GremlinGraphIndexPolicyArgs extends com.pulumi.resources.Reso
         }
 
         public GremlinGraphIndexPolicyArgs build() {
-            $.indexingMode = Objects.requireNonNull($.indexingMode, "expected parameter 'indexingMode' to be non-null");
+            if ($.indexingMode == null) {
+                throw new MissingRequiredPropertyException("GremlinGraphIndexPolicyArgs", "indexingMode");
+            }
             return $;
         }
     }

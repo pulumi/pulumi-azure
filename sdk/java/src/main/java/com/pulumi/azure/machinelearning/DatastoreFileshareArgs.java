@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -336,8 +337,12 @@ public final class DatastoreFileshareArgs extends com.pulumi.resources.ResourceA
         }
 
         public DatastoreFileshareArgs build() {
-            $.storageFileshareId = Objects.requireNonNull($.storageFileshareId, "expected parameter 'storageFileshareId' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.storageFileshareId == null) {
+                throw new MissingRequiredPropertyException("DatastoreFileshareArgs", "storageFileshareId");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("DatastoreFileshareArgs", "workspaceId");
+            }
             return $;
         }
     }

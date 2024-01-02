@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class GatewayCertificateAuthorityArgs extends com.pulumi.resources.
         }
 
         public GatewayCertificateAuthorityArgs build() {
-            $.apiManagementId = Objects.requireNonNull($.apiManagementId, "expected parameter 'apiManagementId' to be non-null");
-            $.certificateName = Objects.requireNonNull($.certificateName, "expected parameter 'certificateName' to be non-null");
-            $.gatewayName = Objects.requireNonNull($.gatewayName, "expected parameter 'gatewayName' to be non-null");
+            if ($.apiManagementId == null) {
+                throw new MissingRequiredPropertyException("GatewayCertificateAuthorityArgs", "apiManagementId");
+            }
+            if ($.certificateName == null) {
+                throw new MissingRequiredPropertyException("GatewayCertificateAuthorityArgs", "certificateName");
+            }
+            if ($.gatewayName == null) {
+                throw new MissingRequiredPropertyException("GatewayCertificateAuthorityArgs", "gatewayName");
+            }
             return $;
         }
     }

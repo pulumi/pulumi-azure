@@ -6,6 +6,7 @@ package com.pulumi.azure.arc;
 import com.pulumi.azure.arc.inputs.ResourceBridgeApplianceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -337,10 +338,18 @@ public final class ResourceBridgeApplianceArgs extends com.pulumi.resources.Reso
         }
 
         public ResourceBridgeApplianceArgs build() {
-            $.distro = Objects.requireNonNull($.distro, "expected parameter 'distro' to be non-null");
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.infrastructureProvider = Objects.requireNonNull($.infrastructureProvider, "expected parameter 'infrastructureProvider' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.distro == null) {
+                throw new MissingRequiredPropertyException("ResourceBridgeApplianceArgs", "distro");
+            }
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("ResourceBridgeApplianceArgs", "identity");
+            }
+            if ($.infrastructureProvider == null) {
+                throw new MissingRequiredPropertyException("ResourceBridgeApplianceArgs", "infrastructureProvider");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ResourceBridgeApplianceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

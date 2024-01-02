@@ -4,6 +4,7 @@
 package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -49,7 +50,10 @@ public final class GetDicomServiceAuthentication {
 
         @CustomType.Setter
         public Builder audiences(List<String> audiences) {
-            this.audiences = Objects.requireNonNull(audiences);
+            if (audiences == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceAuthentication", "audiences");
+            }
+            this.audiences = audiences;
             return this;
         }
         public Builder audiences(String... audiences) {
@@ -57,7 +61,10 @@ public final class GetDicomServiceAuthentication {
         }
         @CustomType.Setter
         public Builder authority(String authority) {
-            this.authority = Objects.requireNonNull(authority);
+            if (authority == null) {
+              throw new MissingRequiredPropertyException("GetDicomServiceAuthentication", "authority");
+            }
+            this.authority = authority;
             return this;
         }
         public GetDicomServiceAuthentication build() {

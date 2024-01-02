@@ -5,6 +5,7 @@ package com.pulumi.azure.streamanalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -336,11 +337,21 @@ public final class OutputFunctionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public OutputFunctionArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.functionApp = Objects.requireNonNull($.functionApp, "expected parameter 'functionApp' to be non-null");
-            $.functionName = Objects.requireNonNull($.functionName, "expected parameter 'functionName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.streamAnalyticsJobName = Objects.requireNonNull($.streamAnalyticsJobName, "expected parameter 'streamAnalyticsJobName' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("OutputFunctionArgs", "apiKey");
+            }
+            if ($.functionApp == null) {
+                throw new MissingRequiredPropertyException("OutputFunctionArgs", "functionApp");
+            }
+            if ($.functionName == null) {
+                throw new MissingRequiredPropertyException("OutputFunctionArgs", "functionName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("OutputFunctionArgs", "resourceGroupName");
+            }
+            if ($.streamAnalyticsJobName == null) {
+                throw new MissingRequiredPropertyException("OutputFunctionArgs", "streamAnalyticsJobName");
+            }
             return $;
         }
     }

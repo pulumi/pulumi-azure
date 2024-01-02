@@ -6,6 +6,7 @@ package com.pulumi.azure.storage;
 import com.pulumi.azure.storage.inputs.DataLakeGen2PathAceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -310,10 +311,18 @@ public final class DataLakeGen2PathArgs extends com.pulumi.resources.ResourceArg
         }
 
         public DataLakeGen2PathArgs build() {
-            $.filesystemName = Objects.requireNonNull($.filesystemName, "expected parameter 'filesystemName' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.resource = Objects.requireNonNull($.resource, "expected parameter 'resource' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.filesystemName == null) {
+                throw new MissingRequiredPropertyException("DataLakeGen2PathArgs", "filesystemName");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("DataLakeGen2PathArgs", "path");
+            }
+            if ($.resource == null) {
+                throw new MissingRequiredPropertyException("DataLakeGen2PathArgs", "resource");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("DataLakeGen2PathArgs", "storageAccountId");
+            }
             return $;
         }
     }

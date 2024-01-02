@@ -5,6 +5,7 @@ package com.pulumi.azure.hpc.outputs;
 
 import com.pulumi.azure.hpc.outputs.CacheDefaultAccessPolicyAccessRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class CacheDefaultAccessPolicy {
 
         @CustomType.Setter
         public Builder accessRules(List<CacheDefaultAccessPolicyAccessRule> accessRules) {
-            this.accessRules = Objects.requireNonNull(accessRules);
+            if (accessRules == null) {
+              throw new MissingRequiredPropertyException("CacheDefaultAccessPolicy", "accessRules");
+            }
+            this.accessRules = accessRules;
             return this;
         }
         public Builder accessRules(CacheDefaultAccessPolicyAccessRule... accessRules) {

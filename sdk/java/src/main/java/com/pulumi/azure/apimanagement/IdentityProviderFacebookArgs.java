@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class IdentityProviderFacebookArgs extends com.pulumi.resources.Res
         }
 
         public IdentityProviderFacebookArgs build() {
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.appId = Objects.requireNonNull($.appId, "expected parameter 'appId' to be non-null");
-            $.appSecret = Objects.requireNonNull($.appSecret, "expected parameter 'appSecret' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderFacebookArgs", "apiManagementName");
+            }
+            if ($.appId == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderFacebookArgs", "appId");
+            }
+            if ($.appSecret == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderFacebookArgs", "appSecret");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderFacebookArgs", "resourceGroupName");
+            }
             return $;
         }
     }

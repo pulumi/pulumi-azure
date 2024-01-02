@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,10 +236,18 @@ public final class DataConnectorAwsS3Args extends com.pulumi.resources.ResourceA
         }
 
         public DataConnectorAwsS3Args build() {
-            $.awsRoleArn = Objects.requireNonNull($.awsRoleArn, "expected parameter 'awsRoleArn' to be non-null");
-            $.destinationTable = Objects.requireNonNull($.destinationTable, "expected parameter 'destinationTable' to be non-null");
-            $.logAnalyticsWorkspaceId = Objects.requireNonNull($.logAnalyticsWorkspaceId, "expected parameter 'logAnalyticsWorkspaceId' to be non-null");
-            $.sqsUrls = Objects.requireNonNull($.sqsUrls, "expected parameter 'sqsUrls' to be non-null");
+            if ($.awsRoleArn == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsS3Args", "awsRoleArn");
+            }
+            if ($.destinationTable == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsS3Args", "destinationTable");
+            }
+            if ($.logAnalyticsWorkspaceId == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsS3Args", "logAnalyticsWorkspaceId");
+            }
+            if ($.sqsUrls == null) {
+                throw new MissingRequiredPropertyException("DataConnectorAwsS3Args", "sqsUrls");
+            }
             return $;
         }
     }

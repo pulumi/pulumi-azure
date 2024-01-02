@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class GalleryApplicationVersionSource {
 
         @CustomType.Setter
         public Builder defaultConfigurationLink(@Nullable String defaultConfigurationLink) {
+
             this.defaultConfigurationLink = defaultConfigurationLink;
             return this;
         }
         @CustomType.Setter
         public Builder mediaLink(String mediaLink) {
-            this.mediaLink = Objects.requireNonNull(mediaLink);
+            if (mediaLink == null) {
+              throw new MissingRequiredPropertyException("GalleryApplicationVersionSource", "mediaLink");
+            }
+            this.mediaLink = mediaLink;
             return this;
         }
         public GalleryApplicationVersionSource build() {

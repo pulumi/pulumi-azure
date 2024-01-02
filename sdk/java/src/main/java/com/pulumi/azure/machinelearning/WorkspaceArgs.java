@@ -7,6 +7,7 @@ import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -786,11 +787,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkspaceArgs build() {
-            $.applicationInsightsId = Objects.requireNonNull($.applicationInsightsId, "expected parameter 'applicationInsightsId' to be non-null");
-            $.identity = Objects.requireNonNull($.identity, "expected parameter 'identity' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.applicationInsightsId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "applicationInsightsId");
+            }
+            if ($.identity == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "identity");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "keyVaultId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "resourceGroupName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("WorkspaceArgs", "storageAccountId");
+            }
             return $;
         }
     }

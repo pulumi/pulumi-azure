@@ -4,6 +4,7 @@
 package com.pulumi.azure.appinsights.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -168,57 +169,90 @@ public final class GetInsightsResult {
 
         @CustomType.Setter
         public Builder appId(String appId) {
-            this.appId = Objects.requireNonNull(appId);
+            if (appId == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "appId");
+            }
+            this.appId = appId;
             return this;
         }
         @CustomType.Setter
         public Builder applicationType(String applicationType) {
-            this.applicationType = Objects.requireNonNull(applicationType);
+            if (applicationType == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "applicationType");
+            }
+            this.applicationType = applicationType;
             return this;
         }
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder instrumentationKey(String instrumentationKey) {
-            this.instrumentationKey = Objects.requireNonNull(instrumentationKey);
+            if (instrumentationKey == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "instrumentationKey");
+            }
+            this.instrumentationKey = instrumentationKey;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
-            this.retentionInDays = Objects.requireNonNull(retentionInDays);
+            if (retentionInDays == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "retentionInDays");
+            }
+            this.retentionInDays = retentionInDays;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetInsightsResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetInsightsResult build() {

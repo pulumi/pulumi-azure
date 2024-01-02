@@ -215,66 +215,79 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
 
         @CustomType.Setter
         public Builder agcAndColorStripeRestriction(@Nullable Integer agcAndColorStripeRestriction) {
+
             this.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder allowPassingVideoContentToUnknownOutput(@Nullable String allowPassingVideoContentToUnknownOutput) {
+
             this.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
             return this;
         }
         @CustomType.Setter
         public Builder analogVideoOpl(@Nullable Integer analogVideoOpl) {
+
             this.analogVideoOpl = analogVideoOpl;
             return this;
         }
         @CustomType.Setter
         public Builder compressedDigitalAudioOpl(@Nullable Integer compressedDigitalAudioOpl) {
+
             this.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
             return this;
         }
         @CustomType.Setter
         public Builder compressedDigitalVideoOpl(@Nullable Integer compressedDigitalVideoOpl) {
+
             this.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
             return this;
         }
         @CustomType.Setter
         public Builder digitalVideoOnlyContentRestriction(@Nullable Boolean digitalVideoOnlyContentRestriction) {
+
             this.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder explicitAnalogTelevisionOutputRestriction(@Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction explicitAnalogTelevisionOutputRestriction) {
+
             this.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder firstPlayExpiration(@Nullable String firstPlayExpiration) {
+
             this.firstPlayExpiration = firstPlayExpiration;
             return this;
         }
         @CustomType.Setter
         public Builder imageConstraintForAnalogComponentVideoRestriction(@Nullable Boolean imageConstraintForAnalogComponentVideoRestriction) {
+
             this.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder imageConstraintForAnalogComputerMonitorRestriction(@Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction) {
+
             this.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder scmsRestriction(@Nullable Integer scmsRestriction) {
+
             this.scmsRestriction = scmsRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder uncompressedDigitalAudioOpl(@Nullable Integer uncompressedDigitalAudioOpl) {
+
             this.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
             return this;
         }
         @CustomType.Setter
         public Builder uncompressedDigitalVideoOpl(@Nullable Integer uncompressedDigitalVideoOpl) {
+
             this.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
             return this;
         }

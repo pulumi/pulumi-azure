@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ProfileContainerNetworkInterfaceIpConfigurationArgs extends c
         }
 
         public ProfileContainerNetworkInterfaceIpConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ProfileContainerNetworkInterfaceIpConfigurationArgs", "name");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ProfileContainerNetworkInterfaceIpConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

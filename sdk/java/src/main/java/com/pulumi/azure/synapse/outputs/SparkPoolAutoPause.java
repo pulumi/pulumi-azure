@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class SparkPoolAutoPause {
 
         @CustomType.Setter
         public Builder delayInMinutes(Integer delayInMinutes) {
-            this.delayInMinutes = Objects.requireNonNull(delayInMinutes);
+            if (delayInMinutes == null) {
+              throw new MissingRequiredPropertyException("SparkPoolAutoPause", "delayInMinutes");
+            }
+            this.delayInMinutes = delayInMinutes;
             return this;
         }
         public SparkPoolAutoPause build() {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -63,7 +64,9 @@ public final class GetTrafficManagerPlainArgs extends com.pulumi.resources.Invok
         }
 
         public GetTrafficManagerPlainArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetTrafficManagerPlainArgs", "name");
+            }
             return $;
         }
     }

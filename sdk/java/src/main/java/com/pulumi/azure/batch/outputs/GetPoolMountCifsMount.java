@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -98,27 +99,42 @@ public final class GetPoolMountCifsMount {
 
         @CustomType.Setter
         public Builder mountOptions(String mountOptions) {
-            this.mountOptions = Objects.requireNonNull(mountOptions);
+            if (mountOptions == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountCifsMount", "mountOptions");
+            }
+            this.mountOptions = mountOptions;
             return this;
         }
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountCifsMount", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder relativeMountPath(String relativeMountPath) {
-            this.relativeMountPath = Objects.requireNonNull(relativeMountPath);
+            if (relativeMountPath == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountCifsMount", "relativeMountPath");
+            }
+            this.relativeMountPath = relativeMountPath;
             return this;
         }
         @CustomType.Setter
         public Builder source(String source) {
-            this.source = Objects.requireNonNull(source);
+            if (source == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountCifsMount", "source");
+            }
+            this.source = source;
             return this;
         }
         @CustomType.Setter
         public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+            if (userName == null) {
+              throw new MissingRequiredPropertyException("GetPoolMountCifsMount", "userName");
+            }
+            this.userName = userName;
             return this;
         }
         public GetPoolMountCifsMount build() {

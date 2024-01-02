@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -262,8 +263,12 @@ public final class SecurityPartnerProviderArgs extends com.pulumi.resources.Reso
         }
 
         public SecurityPartnerProviderArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.securityProviderName = Objects.requireNonNull($.securityProviderName, "expected parameter 'securityProviderName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("SecurityPartnerProviderArgs", "resourceGroupName");
+            }
+            if ($.securityProviderName == null) {
+                throw new MissingRequiredPropertyException("SecurityPartnerProviderArgs", "securityProviderName");
+            }
             return $;
         }
     }

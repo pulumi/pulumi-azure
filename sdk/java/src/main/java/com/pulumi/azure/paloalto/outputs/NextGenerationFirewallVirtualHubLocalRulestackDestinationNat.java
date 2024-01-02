@@ -6,6 +6,7 @@ package com.pulumi.azure.paloalto.outputs;
 import com.pulumi.azure.paloalto.outputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig;
 import com.pulumi.azure.paloalto.outputs.NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -56,22 +57,30 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNat 
 
         @CustomType.Setter
         public Builder backendConfig(@Nullable NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfig backendConfig) {
+
             this.backendConfig = backendConfig;
             return this;
         }
         @CustomType.Setter
         public Builder frontendConfig(@Nullable NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig frontendConfig) {
+
             this.frontendConfig = frontendConfig;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubLocalRulestackDestinationNat", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualHubLocalRulestackDestinationNat", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public NextGenerationFirewallVirtualHubLocalRulestackDestinationNat build() {

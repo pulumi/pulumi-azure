@@ -4,6 +4,7 @@
 package com.pulumi.azure.databoxedge.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +100,10 @@ public final class OrderShipmentAddress {
 
         @CustomType.Setter
         public Builder addresses(List<String> addresses) {
-            this.addresses = Objects.requireNonNull(addresses);
+            if (addresses == null) {
+              throw new MissingRequiredPropertyException("OrderShipmentAddress", "addresses");
+            }
+            this.addresses = addresses;
             return this;
         }
         public Builder addresses(String... addresses) {
@@ -107,22 +111,34 @@ public final class OrderShipmentAddress {
         }
         @CustomType.Setter
         public Builder city(String city) {
-            this.city = Objects.requireNonNull(city);
+            if (city == null) {
+              throw new MissingRequiredPropertyException("OrderShipmentAddress", "city");
+            }
+            this.city = city;
             return this;
         }
         @CustomType.Setter
         public Builder country(String country) {
-            this.country = Objects.requireNonNull(country);
+            if (country == null) {
+              throw new MissingRequiredPropertyException("OrderShipmentAddress", "country");
+            }
+            this.country = country;
             return this;
         }
         @CustomType.Setter
         public Builder postalCode(String postalCode) {
-            this.postalCode = Objects.requireNonNull(postalCode);
+            if (postalCode == null) {
+              throw new MissingRequiredPropertyException("OrderShipmentAddress", "postalCode");
+            }
+            this.postalCode = postalCode;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("OrderShipmentAddress", "state");
+            }
+            this.state = state;
             return this;
         }
         public OrderShipmentAddress build() {

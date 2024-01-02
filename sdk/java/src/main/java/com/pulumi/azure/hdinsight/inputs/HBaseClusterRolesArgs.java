@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesWorkerNodeArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesZookeeperNodeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -150,9 +151,15 @@ public final class HBaseClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         public HBaseClusterRolesArgs build() {
-            $.headNode = Objects.requireNonNull($.headNode, "expected parameter 'headNode' to be non-null");
-            $.workerNode = Objects.requireNonNull($.workerNode, "expected parameter 'workerNode' to be non-null");
-            $.zookeeperNode = Objects.requireNonNull($.zookeeperNode, "expected parameter 'zookeeperNode' to be non-null");
+            if ($.headNode == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesArgs", "headNode");
+            }
+            if ($.workerNode == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesArgs", "workerNode");
+            }
+            if ($.zookeeperNode == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesArgs", "zookeeperNode");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -228,9 +229,15 @@ public final class DataCollectionRuleDataSourcesSyslogArgs extends com.pulumi.re
         }
 
         public DataCollectionRuleDataSourcesSyslogArgs build() {
-            $.facilityNames = Objects.requireNonNull($.facilityNames, "expected parameter 'facilityNames' to be non-null");
-            $.logLevels = Objects.requireNonNull($.logLevels, "expected parameter 'logLevels' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
+            if ($.facilityNames == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslogArgs", "facilityNames");
+            }
+            if ($.logLevels == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslogArgs", "logLevels");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesSyslogArgs", "name");
+            }
             return $;
         }
     }

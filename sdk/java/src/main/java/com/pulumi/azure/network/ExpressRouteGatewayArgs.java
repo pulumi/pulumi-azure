@@ -5,6 +5,7 @@ package com.pulumi.azure.network;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -301,9 +302,15 @@ public final class ExpressRouteGatewayArgs extends com.pulumi.resources.Resource
         }
 
         public ExpressRouteGatewayArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scaleUnits = Objects.requireNonNull($.scaleUnits, "expected parameter 'scaleUnits' to be non-null");
-            $.virtualHubId = Objects.requireNonNull($.virtualHubId, "expected parameter 'virtualHubId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteGatewayArgs", "resourceGroupName");
+            }
+            if ($.scaleUnits == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteGatewayArgs", "scaleUnits");
+            }
+            if ($.virtualHubId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteGatewayArgs", "virtualHubId");
+            }
             return $;
         }
     }

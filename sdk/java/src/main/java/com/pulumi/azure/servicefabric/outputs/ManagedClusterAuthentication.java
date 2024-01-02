@@ -60,11 +60,13 @@ public final class ManagedClusterAuthentication {
 
         @CustomType.Setter
         public Builder activeDirectory(@Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory) {
+
             this.activeDirectory = activeDirectory;
             return this;
         }
         @CustomType.Setter
         public Builder certificates(@Nullable List<ManagedClusterAuthenticationCertificate> certificates) {
+
             this.certificates = certificates;
             return this;
         }

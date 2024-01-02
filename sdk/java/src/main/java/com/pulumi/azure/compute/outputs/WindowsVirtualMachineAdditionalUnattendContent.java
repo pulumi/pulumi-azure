@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class WindowsVirtualMachineAdditionalUnattendContent {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineAdditionalUnattendContent", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder setting(String setting) {
-            this.setting = Objects.requireNonNull(setting);
+            if (setting == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineAdditionalUnattendContent", "setting");
+            }
+            this.setting = setting;
             return this;
         }
         public WindowsVirtualMachineAdditionalUnattendContent build() {

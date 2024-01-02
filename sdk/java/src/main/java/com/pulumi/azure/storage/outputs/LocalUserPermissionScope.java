@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.azure.storage.outputs.LocalUserPermissionScopePermissions;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -71,17 +72,26 @@ public final class LocalUserPermissionScope {
 
         @CustomType.Setter
         public Builder permissions(LocalUserPermissionScopePermissions permissions) {
-            this.permissions = Objects.requireNonNull(permissions);
+            if (permissions == null) {
+              throw new MissingRequiredPropertyException("LocalUserPermissionScope", "permissions");
+            }
+            this.permissions = permissions;
             return this;
         }
         @CustomType.Setter
         public Builder resourceName(String resourceName) {
-            this.resourceName = Objects.requireNonNull(resourceName);
+            if (resourceName == null) {
+              throw new MissingRequiredPropertyException("LocalUserPermissionScope", "resourceName");
+            }
+            this.resourceName = resourceName;
             return this;
         }
         @CustomType.Setter
         public Builder service(String service) {
-            this.service = Objects.requireNonNull(service);
+            if (service == null) {
+              throw new MissingRequiredPropertyException("LocalUserPermissionScope", "service");
+            }
+            this.service = service;
             return this;
         }
         public LocalUserPermissionScope build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,10 +225,18 @@ public final class SqlTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SqlTriggerArgs build() {
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
-            $.containerId = Objects.requireNonNull($.containerId, "expected parameter 'containerId' to be non-null");
-            $.operation = Objects.requireNonNull($.operation, "expected parameter 'operation' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.body == null) {
+                throw new MissingRequiredPropertyException("SqlTriggerArgs", "body");
+            }
+            if ($.containerId == null) {
+                throw new MissingRequiredPropertyException("SqlTriggerArgs", "containerId");
+            }
+            if ($.operation == null) {
+                throw new MissingRequiredPropertyException("SqlTriggerArgs", "operation");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SqlTriggerArgs", "type");
+            }
             return $;
         }
     }

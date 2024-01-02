@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -403,9 +404,15 @@ public final class ServerSecurityAlertPolicyArgs extends com.pulumi.resources.Re
         }
 
         public ServerSecurityAlertPolicyArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverName = Objects.requireNonNull($.serverName, "expected parameter 'serverName' to be non-null");
-            $.state = Objects.requireNonNull($.state, "expected parameter 'state' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServerSecurityAlertPolicyArgs", "resourceGroupName");
+            }
+            if ($.serverName == null) {
+                throw new MissingRequiredPropertyException("ServerSecurityAlertPolicyArgs", "serverName");
+            }
+            if ($.state == null) {
+                throw new MissingRequiredPropertyException("ServerSecurityAlertPolicyArgs", "state");
+            }
             return $;
         }
     }

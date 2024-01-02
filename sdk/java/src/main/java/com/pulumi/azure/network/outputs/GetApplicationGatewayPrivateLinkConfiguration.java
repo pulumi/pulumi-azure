@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetApplicationGatewayPrivateLinkConfigurationIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -72,12 +73,18 @@ public final class GetApplicationGatewayPrivateLinkConfiguration {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayPrivateLinkConfiguration", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayPrivateLinkConfiguration", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetApplicationGatewayPrivateLinkConfigurationIpConfiguration... ipConfigurations) {
@@ -85,7 +92,10 @@ public final class GetApplicationGatewayPrivateLinkConfiguration {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayPrivateLinkConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetApplicationGatewayPrivateLinkConfiguration build() {

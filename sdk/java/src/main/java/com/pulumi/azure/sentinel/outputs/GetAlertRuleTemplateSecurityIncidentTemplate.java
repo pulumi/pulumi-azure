@@ -4,6 +4,7 @@
 package com.pulumi.azure.sentinel.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetAlertRuleTemplateSecurityIncidentTemplate {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateSecurityIncidentTemplate", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder productFilter(String productFilter) {
-            this.productFilter = Objects.requireNonNull(productFilter);
+            if (productFilter == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleTemplateSecurityIncidentTemplate", "productFilter");
+            }
+            this.productFilter = productFilter;
             return this;
         }
         public GetAlertRuleTemplateSecurityIncidentTemplate build() {

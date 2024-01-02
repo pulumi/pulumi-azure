@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
 
         @CustomType.Setter
         public Builder count(Integer count) {
-            this.count = Objects.requireNonNull(count);
+            if (count == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "count");
+            }
+            this.count = count;
             return this;
         }
         @CustomType.Setter
         public Builder interval(String interval) {
-            this.interval = Objects.requireNonNull(interval);
+            if (interval == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "interval");
+            }
+            this.interval = interval;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
-            this.timeTaken = Objects.requireNonNull(timeTaken);
+            if (timeTaken == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest", "timeTaken");
+            }
+            this.timeTaken = timeTaken;
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {

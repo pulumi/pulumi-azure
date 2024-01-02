@@ -158,21 +158,25 @@ public final class DataCollectionRuleDestinations {
 
         @CustomType.Setter
         public Builder azureMonitorMetrics(@Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics) {
+
             this.azureMonitorMetrics = azureMonitorMetrics;
             return this;
         }
         @CustomType.Setter
         public Builder eventHub(@Nullable DataCollectionRuleDestinationsEventHub eventHub) {
+
             this.eventHub = eventHub;
             return this;
         }
         @CustomType.Setter
         public Builder eventHubDirect(@Nullable DataCollectionRuleDestinationsEventHubDirect eventHubDirect) {
+
             this.eventHubDirect = eventHubDirect;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalytics(@Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics) {
+
             this.logAnalytics = logAnalytics;
             return this;
         }
@@ -181,6 +185,7 @@ public final class DataCollectionRuleDestinations {
         }
         @CustomType.Setter
         public Builder monitorAccounts(@Nullable List<DataCollectionRuleDestinationsMonitorAccount> monitorAccounts) {
+
             this.monitorAccounts = monitorAccounts;
             return this;
         }
@@ -189,6 +194,7 @@ public final class DataCollectionRuleDestinations {
         }
         @CustomType.Setter
         public Builder storageBlobDirects(@Nullable List<DataCollectionRuleDestinationsStorageBlobDirect> storageBlobDirects) {
+
             this.storageBlobDirects = storageBlobDirects;
             return this;
         }
@@ -197,6 +203,7 @@ public final class DataCollectionRuleDestinations {
         }
         @CustomType.Setter
         public Builder storageBlobs(@Nullable List<DataCollectionRuleDestinationsStorageBlob> storageBlobs) {
+
             this.storageBlobs = storageBlobs;
             return this;
         }
@@ -205,6 +212,7 @@ public final class DataCollectionRuleDestinations {
         }
         @CustomType.Setter
         public Builder storageTableDirects(@Nullable List<DataCollectionRuleDestinationsStorageTableDirect> storageTableDirects) {
+
             this.storageTableDirects = storageTableDirects;
             return this;
         }

@@ -58,11 +58,13 @@ public final class BackendCredentialsAuthorization {
 
         @CustomType.Setter
         public Builder parameter(@Nullable String parameter) {
+
             this.parameter = parameter;
             return this;
         }
         @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
+
             this.scheme = scheme;
             return this;
         }

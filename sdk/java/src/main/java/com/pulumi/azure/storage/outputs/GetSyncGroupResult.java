@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -54,17 +55,26 @@ public final class GetSyncGroupResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSyncGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetSyncGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder storageSyncId(String storageSyncId) {
-            this.storageSyncId = Objects.requireNonNull(storageSyncId);
+            if (storageSyncId == null) {
+              throw new MissingRequiredPropertyException("GetSyncGroupResult", "storageSyncId");
+            }
+            this.storageSyncId = storageSyncId;
             return this;
         }
         public GetSyncGroupResult build() {

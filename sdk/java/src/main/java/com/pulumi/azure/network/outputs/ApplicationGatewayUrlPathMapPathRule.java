@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -199,42 +200,54 @@ public final class ApplicationGatewayUrlPathMapPathRule {
 
         @CustomType.Setter
         public Builder backendAddressPoolId(@Nullable String backendAddressPoolId) {
+
             this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder backendAddressPoolName(@Nullable String backendAddressPoolName) {
+
             this.backendAddressPoolName = backendAddressPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsId(@Nullable String backendHttpSettingsId) {
+
             this.backendHttpSettingsId = backendHttpSettingsId;
             return this;
         }
         @CustomType.Setter
         public Builder backendHttpSettingsName(@Nullable String backendHttpSettingsName) {
+
             this.backendHttpSettingsName = backendHttpSettingsName;
             return this;
         }
         @CustomType.Setter
         public Builder firewallPolicyId(@Nullable String firewallPolicyId) {
+
             this.firewallPolicyId = firewallPolicyId;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayUrlPathMapPathRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder paths(List<String> paths) {
-            this.paths = Objects.requireNonNull(paths);
+            if (paths == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewayUrlPathMapPathRule", "paths");
+            }
+            this.paths = paths;
             return this;
         }
         public Builder paths(String... paths) {
@@ -242,21 +255,25 @@ public final class ApplicationGatewayUrlPathMapPathRule {
         }
         @CustomType.Setter
         public Builder redirectConfigurationId(@Nullable String redirectConfigurationId) {
+
             this.redirectConfigurationId = redirectConfigurationId;
             return this;
         }
         @CustomType.Setter
         public Builder redirectConfigurationName(@Nullable String redirectConfigurationName) {
+
             this.redirectConfigurationName = redirectConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetId(@Nullable String rewriteRuleSetId) {
+
             this.rewriteRuleSetId = rewriteRuleSetId;
             return this;
         }
         @CustomType.Setter
         public Builder rewriteRuleSetName(@Nullable String rewriteRuleSetName) {
+
             this.rewriteRuleSetName = rewriteRuleSetName;
             return this;
         }

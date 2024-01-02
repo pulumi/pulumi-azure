@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class AccountNetworkProfileNodeManagementAccessIpRule {
 
         @CustomType.Setter
         public Builder action(@Nullable String action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder ipRange(String ipRange) {
-            this.ipRange = Objects.requireNonNull(ipRange);
+            if (ipRange == null) {
+              throw new MissingRequiredPropertyException("AccountNetworkProfileNodeManagementAccessIpRule", "ipRange");
+            }
+            this.ipRange = ipRange;
             return this;
         }
         public AccountNetworkProfileNodeManagementAccessIpRule build() {

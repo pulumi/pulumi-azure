@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.azure.appservice.outputs.GetWindowsWebAppBackupSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,17 +88,26 @@ public final class GetWindowsWebAppBackup {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppBackup", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppBackup", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(List<GetWindowsWebAppBackupSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppBackup", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(GetWindowsWebAppBackupSchedule... schedules) {
@@ -105,7 +115,10 @@ public final class GetWindowsWebAppBackup {
         }
         @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
-            this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
+            if (storageAccountUrl == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppBackup", "storageAccountUrl");
+            }
+            this.storageAccountUrl = storageAccountUrl;
             return this;
         }
         public GetWindowsWebAppBackup build() {

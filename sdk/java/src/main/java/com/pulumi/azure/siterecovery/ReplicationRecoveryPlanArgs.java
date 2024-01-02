@@ -10,6 +10,7 @@ import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanRecoveryGroup
 import com.pulumi.azure.siterecovery.inputs.ReplicationRecoveryPlanShutdownRecoveryGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -454,9 +455,15 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         public ReplicationRecoveryPlanArgs build() {
-            $.recoveryVaultId = Objects.requireNonNull($.recoveryVaultId, "expected parameter 'recoveryVaultId' to be non-null");
-            $.sourceRecoveryFabricId = Objects.requireNonNull($.sourceRecoveryFabricId, "expected parameter 'sourceRecoveryFabricId' to be non-null");
-            $.targetRecoveryFabricId = Objects.requireNonNull($.targetRecoveryFabricId, "expected parameter 'targetRecoveryFabricId' to be non-null");
+            if ($.recoveryVaultId == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "recoveryVaultId");
+            }
+            if ($.sourceRecoveryFabricId == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "sourceRecoveryFabricId");
+            }
+            if ($.targetRecoveryFabricId == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanArgs", "targetRecoveryFabricId");
+            }
             return $;
         }
     }

@@ -479,56 +479,67 @@ public final class WindowsWebAppSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
+
             this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder apiDefinitionUrl(@Nullable String apiDefinitionUrl) {
+
             this.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
         @CustomType.Setter
         public Builder apiManagementApiId(@Nullable String apiManagementApiId) {
+
             this.apiManagementApiId = apiManagementApiId;
             return this;
         }
         @CustomType.Setter
         public Builder appCommandLine(@Nullable String appCommandLine) {
+
             this.appCommandLine = appCommandLine;
             return this;
         }
         @CustomType.Setter
         public Builder applicationStack(@Nullable WindowsWebAppSiteConfigApplicationStack applicationStack) {
+
             this.applicationStack = applicationStack;
             return this;
         }
         @CustomType.Setter
         public Builder autoHealEnabled(@Nullable Boolean autoHealEnabled) {
+
             this.autoHealEnabled = autoHealEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder autoHealSetting(@Nullable WindowsWebAppSiteConfigAutoHealSetting autoHealSetting) {
+
             this.autoHealSetting = autoHealSetting;
             return this;
         }
         @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(@Nullable String containerRegistryManagedIdentityClientId) {
+
             this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(@Nullable Boolean containerRegistryUseManagedIdentity) {
+
             this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder cors(@Nullable WindowsWebAppSiteConfigCors cors) {
+
             this.cors = cors;
             return this;
         }
         @CustomType.Setter
         public Builder defaultDocuments(@Nullable List<String> defaultDocuments) {
+
             this.defaultDocuments = defaultDocuments;
             return this;
         }
@@ -537,31 +548,37 @@ public final class WindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(@Nullable Boolean detailedErrorLoggingEnabled) {
+
             this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
+
             this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(@Nullable Integer healthCheckEvictionTimeInMin) {
+
             this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
+
             this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
+
             this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<WindowsWebAppSiteConfigIpRestriction> ipRestrictions) {
+
             this.ipRestrictions = ipRestrictions;
             return this;
         }
@@ -570,41 +587,49 @@ public final class WindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
+
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder loadBalancingMode(@Nullable String loadBalancingMode) {
+
             this.loadBalancingMode = loadBalancingMode;
             return this;
         }
         @CustomType.Setter
         public Builder localMysqlEnabled(@Nullable Boolean localMysqlEnabled) {
+
             this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder managedPipelineMode(@Nullable String managedPipelineMode) {
+
             this.managedPipelineMode = managedPipelineMode;
             return this;
         }
         @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
+
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingEnabled(@Nullable Boolean remoteDebuggingEnabled) {
+
             this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder remoteDebuggingVersion(@Nullable String remoteDebuggingVersion) {
+
             this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<WindowsWebAppSiteConfigScmIpRestriction> scmIpRestrictions) {
+
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
@@ -613,26 +638,31 @@ public final class WindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder scmMinimumTlsVersion(@Nullable String scmMinimumTlsVersion) {
+
             this.scmMinimumTlsVersion = scmMinimumTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
+
             this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorker(@Nullable Boolean use32BitWorker) {
+
             this.use32BitWorker = use32BitWorker;
             return this;
         }
         @CustomType.Setter
         public Builder virtualApplications(@Nullable List<WindowsWebAppSiteConfigVirtualApplication> virtualApplications) {
+
             this.virtualApplications = virtualApplications;
             return this;
         }
@@ -641,21 +671,25 @@ public final class WindowsWebAppSiteConfig {
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
+
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
+
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder windowsFxVersion(@Nullable String windowsFxVersion) {
+
             this.windowsFxVersion = windowsFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder workerCount(@Nullable Integer workerCount) {
+
             this.workerCount = workerCount;
             return this;
         }

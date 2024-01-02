@@ -6,6 +6,7 @@ package com.pulumi.azure.datashare;
 import com.pulumi.azure.datashare.inputs.DatasetBlobStorageStorageAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -262,9 +263,15 @@ public final class DatasetBlobStorageArgs extends com.pulumi.resources.ResourceA
         }
 
         public DatasetBlobStorageArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.dataShareId = Objects.requireNonNull($.dataShareId, "expected parameter 'dataShareId' to be non-null");
-            $.storageAccount = Objects.requireNonNull($.storageAccount, "expected parameter 'storageAccount' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("DatasetBlobStorageArgs", "containerName");
+            }
+            if ($.dataShareId == null) {
+                throw new MissingRequiredPropertyException("DatasetBlobStorageArgs", "dataShareId");
+            }
+            if ($.storageAccount == null) {
+                throw new MissingRequiredPropertyException("DatasetBlobStorageArgs", "storageAccount");
+            }
             return $;
         }
     }

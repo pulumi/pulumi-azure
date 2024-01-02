@@ -5,6 +5,7 @@ package com.pulumi.azure.mobile.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class NetworkSimStaticIpConfigurationArgs extends com.pulumi.resour
         }
 
         public NetworkSimStaticIpConfigurationArgs build() {
-            $.attachedDataNetworkId = Objects.requireNonNull($.attachedDataNetworkId, "expected parameter 'attachedDataNetworkId' to be non-null");
-            $.sliceId = Objects.requireNonNull($.sliceId, "expected parameter 'sliceId' to be non-null");
+            if ($.attachedDataNetworkId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimStaticIpConfigurationArgs", "attachedDataNetworkId");
+            }
+            if ($.sliceId == null) {
+                throw new MissingRequiredPropertyException("NetworkSimStaticIpConfigurationArgs", "sliceId");
+            }
             return $;
         }
     }

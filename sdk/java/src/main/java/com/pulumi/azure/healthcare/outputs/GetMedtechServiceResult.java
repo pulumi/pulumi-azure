@@ -5,6 +5,7 @@ package com.pulumi.azure.healthcare.outputs;
 
 import com.pulumi.azure.healthcare.outputs.GetMedtechServiceIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -126,32 +127,50 @@ public final class GetMedtechServiceResult {
 
         @CustomType.Setter
         public Builder deviceMappingJson(String deviceMappingJson) {
-            this.deviceMappingJson = Objects.requireNonNull(deviceMappingJson);
+            if (deviceMappingJson == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "deviceMappingJson");
+            }
+            this.deviceMappingJson = deviceMappingJson;
             return this;
         }
         @CustomType.Setter
         public Builder eventhubConsumerGroupName(String eventhubConsumerGroupName) {
-            this.eventhubConsumerGroupName = Objects.requireNonNull(eventhubConsumerGroupName);
+            if (eventhubConsumerGroupName == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "eventhubConsumerGroupName");
+            }
+            this.eventhubConsumerGroupName = eventhubConsumerGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder eventhubName(String eventhubName) {
-            this.eventhubName = Objects.requireNonNull(eventhubName);
+            if (eventhubName == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "eventhubName");
+            }
+            this.eventhubName = eventhubName;
             return this;
         }
         @CustomType.Setter
         public Builder eventhubNamespaceName(String eventhubNamespaceName) {
-            this.eventhubNamespaceName = Objects.requireNonNull(eventhubNamespaceName);
+            if (eventhubNamespaceName == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "eventhubNamespaceName");
+            }
+            this.eventhubNamespaceName = eventhubNamespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetMedtechServiceIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetMedtechServiceIdentity... identities) {
@@ -159,12 +178,18 @@ public final class GetMedtechServiceResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
-            this.workspaceId = Objects.requireNonNull(workspaceId);
+            if (workspaceId == null) {
+              throw new MissingRequiredPropertyException("GetMedtechServiceResult", "workspaceId");
+            }
+            this.workspaceId = workspaceId;
             return this;
         }
         public GetMedtechServiceResult build() {

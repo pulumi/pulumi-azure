@@ -5,6 +5,7 @@ package com.pulumi.azure.managedlustre.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -158,8 +159,12 @@ public final class FileSystemHsmSettingArgs extends com.pulumi.resources.Resourc
         }
 
         public FileSystemHsmSettingArgs build() {
-            $.containerId = Objects.requireNonNull($.containerId, "expected parameter 'containerId' to be non-null");
-            $.loggingContainerId = Objects.requireNonNull($.loggingContainerId, "expected parameter 'loggingContainerId' to be non-null");
+            if ($.containerId == null) {
+                throw new MissingRequiredPropertyException("FileSystemHsmSettingArgs", "containerId");
+            }
+            if ($.loggingContainerId == null) {
+                throw new MissingRequiredPropertyException("FileSystemHsmSettingArgs", "loggingContainerId");
+            }
             return $;
         }
     }

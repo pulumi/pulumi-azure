@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -82,31 +83,45 @@ public final class GetEncryptedValueResult {
 
         @CustomType.Setter
         public Builder algorithm(String algorithm) {
-            this.algorithm = Objects.requireNonNull(algorithm);
+            if (algorithm == null) {
+              throw new MissingRequiredPropertyException("GetEncryptedValueResult", "algorithm");
+            }
+            this.algorithm = algorithm;
             return this;
         }
         @CustomType.Setter
         public Builder decodedPlainTextValue(String decodedPlainTextValue) {
-            this.decodedPlainTextValue = Objects.requireNonNull(decodedPlainTextValue);
+            if (decodedPlainTextValue == null) {
+              throw new MissingRequiredPropertyException("GetEncryptedValueResult", "decodedPlainTextValue");
+            }
+            this.decodedPlainTextValue = decodedPlainTextValue;
             return this;
         }
         @CustomType.Setter
         public Builder encryptedData(@Nullable String encryptedData) {
+
             this.encryptedData = encryptedData;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetEncryptedValueResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
-            this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("GetEncryptedValueResult", "keyVaultKeyId");
+            }
+            this.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
         @CustomType.Setter
         public Builder plainTextValue(@Nullable String plainTextValue) {
+
             this.plainTextValue = plainTextValue;
             return this;
         }

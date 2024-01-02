@@ -5,6 +5,7 @@ package com.pulumi.azure.orbital.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class ContactProfileLinkChannelEndPointArgs extends com.pulumi.reso
         }
 
         public ContactProfileLinkChannelEndPointArgs build() {
-            $.endPointName = Objects.requireNonNull($.endPointName, "expected parameter 'endPointName' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.endPointName == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPointArgs", "endPointName");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPointArgs", "port");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("ContactProfileLinkChannelEndPointArgs", "protocol");
+            }
             return $;
         }
     }

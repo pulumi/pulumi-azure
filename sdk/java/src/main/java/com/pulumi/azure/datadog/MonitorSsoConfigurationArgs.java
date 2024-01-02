@@ -5,6 +5,7 @@ package com.pulumi.azure.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         public MonitorSsoConfigurationArgs build() {
-            $.datadogMonitorId = Objects.requireNonNull($.datadogMonitorId, "expected parameter 'datadogMonitorId' to be non-null");
-            $.enterpriseApplicationId = Objects.requireNonNull($.enterpriseApplicationId, "expected parameter 'enterpriseApplicationId' to be non-null");
-            $.singleSignOnEnabled = Objects.requireNonNull($.singleSignOnEnabled, "expected parameter 'singleSignOnEnabled' to be non-null");
+            if ($.datadogMonitorId == null) {
+                throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "datadogMonitorId");
+            }
+            if ($.enterpriseApplicationId == null) {
+                throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "enterpriseApplicationId");
+            }
+            if ($.singleSignOnEnabled == null) {
+                throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "singleSignOnEnabled");
+            }
             return $;
         }
     }

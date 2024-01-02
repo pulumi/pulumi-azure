@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -298,12 +299,24 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public DatabaseImportArgs build() {
-            $.administratorLogin = Objects.requireNonNull($.administratorLogin, "expected parameter 'administratorLogin' to be non-null");
-            $.administratorLoginPassword = Objects.requireNonNull($.administratorLoginPassword, "expected parameter 'administratorLoginPassword' to be non-null");
-            $.authenticationType = Objects.requireNonNull($.authenticationType, "expected parameter 'authenticationType' to be non-null");
-            $.storageKey = Objects.requireNonNull($.storageKey, "expected parameter 'storageKey' to be non-null");
-            $.storageKeyType = Objects.requireNonNull($.storageKeyType, "expected parameter 'storageKeyType' to be non-null");
-            $.storageUri = Objects.requireNonNull($.storageUri, "expected parameter 'storageUri' to be non-null");
+            if ($.administratorLogin == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "administratorLogin");
+            }
+            if ($.administratorLoginPassword == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "administratorLoginPassword");
+            }
+            if ($.authenticationType == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "authenticationType");
+            }
+            if ($.storageKey == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "storageKey");
+            }
+            if ($.storageKeyType == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "storageKeyType");
+            }
+            if ($.storageUri == null) {
+                throw new MissingRequiredPropertyException("DatabaseImportArgs", "storageUri");
+            }
             return $;
         }
     }

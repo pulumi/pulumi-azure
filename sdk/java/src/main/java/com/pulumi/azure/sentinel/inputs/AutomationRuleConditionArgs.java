@@ -5,6 +5,7 @@ package com.pulumi.azure.sentinel.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -159,9 +160,15 @@ public final class AutomationRuleConditionArgs extends com.pulumi.resources.Reso
         }
 
         public AutomationRuleConditionArgs build() {
-            $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
-            $.property = Objects.requireNonNull($.property, "expected parameter 'property' to be non-null");
-            $.values = Objects.requireNonNull($.values, "expected parameter 'values' to be non-null");
+            if ($.operator == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleConditionArgs", "operator");
+            }
+            if ($.property == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleConditionArgs", "property");
+            }
+            if ($.values == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleConditionArgs", "values");
+            }
             return $;
         }
     }

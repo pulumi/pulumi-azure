@@ -5,6 +5,7 @@ package com.pulumi.azure.loganalytics;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -319,10 +320,18 @@ public final class StorageInsightsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public StorageInsightsArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
-            $.storageAccountKey = Objects.requireNonNull($.storageAccountKey, "expected parameter 'storageAccountKey' to be non-null");
-            $.workspaceId = Objects.requireNonNull($.workspaceId, "expected parameter 'workspaceId' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StorageInsightsArgs", "resourceGroupName");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("StorageInsightsArgs", "storageAccountId");
+            }
+            if ($.storageAccountKey == null) {
+                throw new MissingRequiredPropertyException("StorageInsightsArgs", "storageAccountKey");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("StorageInsightsArgs", "workspaceId");
+            }
             return $;
         }
     }

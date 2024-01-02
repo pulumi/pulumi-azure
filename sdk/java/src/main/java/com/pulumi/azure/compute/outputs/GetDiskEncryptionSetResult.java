@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetDiskEncryptionSetIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -128,17 +129,26 @@ public final class GetDiskEncryptionSetResult {
 
         @CustomType.Setter
         public Builder autoKeyRotationEnabled(Boolean autoKeyRotationEnabled) {
-            this.autoKeyRotationEnabled = Objects.requireNonNull(autoKeyRotationEnabled);
+            if (autoKeyRotationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "autoKeyRotationEnabled");
+            }
+            this.autoKeyRotationEnabled = autoKeyRotationEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetDiskEncryptionSetIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetDiskEncryptionSetIdentity... identities) {
@@ -146,27 +156,42 @@ public final class GetDiskEncryptionSetResult {
         }
         @CustomType.Setter
         public Builder keyVaultKeyUrl(String keyVaultKeyUrl) {
-            this.keyVaultKeyUrl = Objects.requireNonNull(keyVaultKeyUrl);
+            if (keyVaultKeyUrl == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "keyVaultKeyUrl");
+            }
+            this.keyVaultKeyUrl = keyVaultKeyUrl;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetDiskEncryptionSetResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public GetDiskEncryptionSetResult build() {

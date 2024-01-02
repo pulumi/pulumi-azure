@@ -58,11 +58,13 @@ public final class KeyRotationPolicyAutomatic {
 
         @CustomType.Setter
         public Builder timeAfterCreation(@Nullable String timeAfterCreation) {
+
             this.timeAfterCreation = timeAfterCreation;
             return this;
         }
         @CustomType.Setter
         public Builder timeBeforeExpiry(@Nullable String timeBeforeExpiry) {
+
             this.timeBeforeExpiry = timeBeforeExpiry;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetPoolNodePlacement {
 
         @CustomType.Setter
         public Builder policy(String policy) {
-            this.policy = Objects.requireNonNull(policy);
+            if (policy == null) {
+              throw new MissingRequiredPropertyException("GetPoolNodePlacement", "policy");
+            }
+            this.policy = policy;
             return this;
         }
         public GetPoolNodePlacement build() {

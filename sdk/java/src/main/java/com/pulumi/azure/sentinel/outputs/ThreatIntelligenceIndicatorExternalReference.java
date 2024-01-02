@@ -101,26 +101,31 @@ public final class ThreatIntelligenceIndicatorExternalReference {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder hashes(@Nullable Map<String,String> hashes) {
+
             this.hashes = hashes;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder sourceName(@Nullable String sourceName) {
+
             this.sourceName = sourceName;
             return this;
         }
         @CustomType.Setter
         public Builder url(@Nullable String url) {
+
             this.url = url;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class RegistryTaskRegistryCredentialSource {
 
         @CustomType.Setter
         public Builder loginMode(String loginMode) {
-            this.loginMode = Objects.requireNonNull(loginMode);
+            if (loginMode == null) {
+              throw new MissingRequiredPropertyException("RegistryTaskRegistryCredentialSource", "loginMode");
+            }
+            this.loginMode = loginMode;
             return this;
         }
         public RegistryTaskRegistryCredentialSource build() {

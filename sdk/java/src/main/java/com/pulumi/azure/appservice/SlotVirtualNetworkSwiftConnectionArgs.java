@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class SlotVirtualNetworkSwiftConnectionArgs extends com.pulumi.reso
         }
 
         public SlotVirtualNetworkSwiftConnectionArgs build() {
-            $.appServiceId = Objects.requireNonNull($.appServiceId, "expected parameter 'appServiceId' to be non-null");
-            $.slotName = Objects.requireNonNull($.slotName, "expected parameter 'slotName' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.appServiceId == null) {
+                throw new MissingRequiredPropertyException("SlotVirtualNetworkSwiftConnectionArgs", "appServiceId");
+            }
+            if ($.slotName == null) {
+                throw new MissingRequiredPropertyException("SlotVirtualNetworkSwiftConnectionArgs", "slotName");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("SlotVirtualNetworkSwiftConnectionArgs", "subnetId");
+            }
             return $;
         }
     }

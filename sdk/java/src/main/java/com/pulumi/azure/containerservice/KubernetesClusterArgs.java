@@ -31,6 +31,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileA
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterWorkloadAutoscalerProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -2666,8 +2667,12 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public KubernetesClusterArgs build() {
-            $.defaultNodePool = Objects.requireNonNull($.defaultNodePool, "expected parameter 'defaultNodePool' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.defaultNodePool == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterArgs", "defaultNodePool");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterArgs", "resourceGroupName");
+            }
             return $;
         }
     }

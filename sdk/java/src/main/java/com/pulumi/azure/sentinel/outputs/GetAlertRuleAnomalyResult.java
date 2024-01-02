@@ -9,6 +9,7 @@ import com.pulumi.azure.sentinel.outputs.GetAlertRuleAnomalyRequiredDataConnecto
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleAnomalySingleSelectObservation;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleAnomalyThresholdObservation;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -264,52 +265,82 @@ public final class GetAlertRuleAnomalyResult {
 
         @CustomType.Setter
         public Builder anomalySettingsVersion(Integer anomalySettingsVersion) {
-            this.anomalySettingsVersion = Objects.requireNonNull(anomalySettingsVersion);
+            if (anomalySettingsVersion == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "anomalySettingsVersion");
+            }
+            this.anomalySettingsVersion = anomalySettingsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder anomalyVersion(String anomalyVersion) {
-            this.anomalyVersion = Objects.requireNonNull(anomalyVersion);
+            if (anomalyVersion == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "anomalyVersion");
+            }
+            this.anomalyVersion = anomalyVersion;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder frequency(String frequency) {
-            this.frequency = Objects.requireNonNull(frequency);
+            if (frequency == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "frequency");
+            }
+            this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
-            this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            if (logAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "logAnalyticsWorkspaceId");
+            }
+            this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder multiSelectObservations(List<GetAlertRuleAnomalyMultiSelectObservation> multiSelectObservations) {
-            this.multiSelectObservations = Objects.requireNonNull(multiSelectObservations);
+            if (multiSelectObservations == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "multiSelectObservations");
+            }
+            this.multiSelectObservations = multiSelectObservations;
             return this;
         }
         public Builder multiSelectObservations(GetAlertRuleAnomalyMultiSelectObservation... multiSelectObservations) {
@@ -317,12 +348,18 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder prioritizedExcludeObservations(List<GetAlertRuleAnomalyPrioritizedExcludeObservation> prioritizedExcludeObservations) {
-            this.prioritizedExcludeObservations = Objects.requireNonNull(prioritizedExcludeObservations);
+            if (prioritizedExcludeObservations == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "prioritizedExcludeObservations");
+            }
+            this.prioritizedExcludeObservations = prioritizedExcludeObservations;
             return this;
         }
         public Builder prioritizedExcludeObservations(GetAlertRuleAnomalyPrioritizedExcludeObservation... prioritizedExcludeObservations) {
@@ -330,7 +367,10 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder requiredDataConnectors(List<GetAlertRuleAnomalyRequiredDataConnector> requiredDataConnectors) {
-            this.requiredDataConnectors = Objects.requireNonNull(requiredDataConnectors);
+            if (requiredDataConnectors == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "requiredDataConnectors");
+            }
+            this.requiredDataConnectors = requiredDataConnectors;
             return this;
         }
         public Builder requiredDataConnectors(GetAlertRuleAnomalyRequiredDataConnector... requiredDataConnectors) {
@@ -338,12 +378,18 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder settingsDefinitionId(String settingsDefinitionId) {
-            this.settingsDefinitionId = Objects.requireNonNull(settingsDefinitionId);
+            if (settingsDefinitionId == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "settingsDefinitionId");
+            }
+            this.settingsDefinitionId = settingsDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder singleSelectObservations(List<GetAlertRuleAnomalySingleSelectObservation> singleSelectObservations) {
-            this.singleSelectObservations = Objects.requireNonNull(singleSelectObservations);
+            if (singleSelectObservations == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "singleSelectObservations");
+            }
+            this.singleSelectObservations = singleSelectObservations;
             return this;
         }
         public Builder singleSelectObservations(GetAlertRuleAnomalySingleSelectObservation... singleSelectObservations) {
@@ -351,7 +397,10 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder tactics(List<String> tactics) {
-            this.tactics = Objects.requireNonNull(tactics);
+            if (tactics == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "tactics");
+            }
+            this.tactics = tactics;
             return this;
         }
         public Builder tactics(String... tactics) {
@@ -359,7 +408,10 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder techniques(List<String> techniques) {
-            this.techniques = Objects.requireNonNull(techniques);
+            if (techniques == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "techniques");
+            }
+            this.techniques = techniques;
             return this;
         }
         public Builder techniques(String... techniques) {
@@ -367,7 +419,10 @@ public final class GetAlertRuleAnomalyResult {
         }
         @CustomType.Setter
         public Builder thresholdObservations(List<GetAlertRuleAnomalyThresholdObservation> thresholdObservations) {
-            this.thresholdObservations = Objects.requireNonNull(thresholdObservations);
+            if (thresholdObservations == null) {
+              throw new MissingRequiredPropertyException("GetAlertRuleAnomalyResult", "thresholdObservations");
+            }
+            this.thresholdObservations = thresholdObservations;
             return this;
         }
         public Builder thresholdObservations(GetAlertRuleAnomalyThresholdObservation... thresholdObservations) {

@@ -5,6 +5,7 @@ package com.pulumi.azure.lb;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -336,8 +337,12 @@ public final class ProbeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ProbeArgs build() {
-            $.loadbalancerId = Objects.requireNonNull($.loadbalancerId, "expected parameter 'loadbalancerId' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
+            if ($.loadbalancerId == null) {
+                throw new MissingRequiredPropertyException("ProbeArgs", "loadbalancerId");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("ProbeArgs", "port");
+            }
             return $;
         }
     }

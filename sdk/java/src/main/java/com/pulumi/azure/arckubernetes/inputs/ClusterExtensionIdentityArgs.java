@@ -5,6 +5,7 @@ package com.pulumi.azure.arckubernetes.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,7 +151,9 @@ public final class ClusterExtensionIdentityArgs extends com.pulumi.resources.Res
         }
 
         public ClusterExtensionIdentityArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ClusterExtensionIdentityArgs", "type");
+            }
             return $;
         }
     }

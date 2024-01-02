@@ -6,6 +6,7 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.network.inputs.ExpressRouteConnectionRoutingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -338,8 +339,12 @@ public final class ExpressRouteConnectionArgs extends com.pulumi.resources.Resou
         }
 
         public ExpressRouteConnectionArgs build() {
-            $.expressRouteCircuitPeeringId = Objects.requireNonNull($.expressRouteCircuitPeeringId, "expected parameter 'expressRouteCircuitPeeringId' to be non-null");
-            $.expressRouteGatewayId = Objects.requireNonNull($.expressRouteGatewayId, "expected parameter 'expressRouteGatewayId' to be non-null");
+            if ($.expressRouteCircuitPeeringId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteConnectionArgs", "expressRouteCircuitPeeringId");
+            }
+            if ($.expressRouteGatewayId == null) {
+                throw new MissingRequiredPropertyException("ExpressRouteConnectionArgs", "expressRouteGatewayId");
+            }
             return $;
         }
     }

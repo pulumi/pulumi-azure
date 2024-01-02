@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.azure.keyvault.outputs.GetSecretsSecret;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -78,17 +79,26 @@ public final class GetSecretsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder names(List<String> names) {
-            this.names = Objects.requireNonNull(names);
+            if (names == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "names");
+            }
+            this.names = names;
             return this;
         }
         public Builder names(String... names) {
@@ -96,7 +106,10 @@ public final class GetSecretsResult {
         }
         @CustomType.Setter
         public Builder secrets(List<GetSecretsSecret> secrets) {
-            this.secrets = Objects.requireNonNull(secrets);
+            if (secrets == null) {
+              throw new MissingRequiredPropertyException("GetSecretsResult", "secrets");
+            }
+            this.secrets = secrets;
             return this;
         }
         public Builder secrets(GetSecretsSecret... secrets) {

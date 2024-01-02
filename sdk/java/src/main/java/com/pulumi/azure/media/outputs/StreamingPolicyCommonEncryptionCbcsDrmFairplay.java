@@ -59,11 +59,13 @@ public final class StreamingPolicyCommonEncryptionCbcsDrmFairplay {
 
         @CustomType.Setter
         public Builder allowPersistentLicense(@Nullable Boolean allowPersistentLicense) {
+
             this.allowPersistentLicense = allowPersistentLicense;
             return this;
         }
         @CustomType.Setter
         public Builder customLicenseAcquisitionUrlTemplate(@Nullable String customLicenseAcquisitionUrlTemplate) {
+
             this.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.lighthouse.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover
         }
 
         public DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs", "principalId");
+            }
             return $;
         }
     }

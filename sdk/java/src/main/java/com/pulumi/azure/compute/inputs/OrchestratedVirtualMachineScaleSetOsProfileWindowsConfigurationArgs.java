@@ -7,6 +7,7 @@ import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfi
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -466,8 +467,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs build() {
-            $.adminPassword = Objects.requireNonNull($.adminPassword, "expected parameter 'adminPassword' to be non-null");
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
+            if ($.adminPassword == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs", "adminPassword");
+            }
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs", "adminUsername");
+            }
             return $;
         }
     }

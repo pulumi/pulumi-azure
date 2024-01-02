@@ -75,11 +75,13 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
 
         @CustomType.Setter
         public Builder requests(@Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests) {
+
             this.requests = requests;
             return this;
         }
         @CustomType.Setter
         public Builder slowRequests(@Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
+
             this.slowRequests = slowRequests;
             return this;
         }
@@ -88,6 +90,7 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
         }
         @CustomType.Setter
         public Builder statusCodes(@Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
+
             this.statusCodes = statusCodes;
             return this;
         }

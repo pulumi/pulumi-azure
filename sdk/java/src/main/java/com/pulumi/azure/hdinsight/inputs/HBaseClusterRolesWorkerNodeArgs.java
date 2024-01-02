@@ -7,6 +7,7 @@ import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesWorkerNodeAutoscaleArg
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesWorkerNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -414,9 +415,15 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         public HBaseClusterRolesWorkerNodeArgs build() {
-            $.targetInstanceCount = Objects.requireNonNull($.targetInstanceCount, "expected parameter 'targetInstanceCount' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
-            $.vmSize = Objects.requireNonNull($.vmSize, "expected parameter 'vmSize' to be non-null");
+            if ($.targetInstanceCount == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeArgs", "targetInstanceCount");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeArgs", "username");
+            }
+            if ($.vmSize == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeArgs", "vmSize");
+            }
             return $;
         }
     }

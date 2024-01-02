@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.ManagedHardwareSecurityModuleNetworkAclsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -545,10 +546,18 @@ public final class ManagedHardwareSecurityModuleArgs extends com.pulumi.resource
         }
 
         public ManagedHardwareSecurityModuleArgs build() {
-            $.adminObjectIds = Objects.requireNonNull($.adminObjectIds, "expected parameter 'adminObjectIds' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.adminObjectIds == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleArgs", "adminObjectIds");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleArgs", "skuName");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ManagedHardwareSecurityModuleArgs", "tenantId");
+            }
             return $;
         }
     }

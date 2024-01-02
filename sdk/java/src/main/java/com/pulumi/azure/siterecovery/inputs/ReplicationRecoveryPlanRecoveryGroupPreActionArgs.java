@@ -5,6 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -388,10 +389,18 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         }
 
         public ReplicationRecoveryPlanRecoveryGroupPreActionArgs build() {
-            $.failOverDirections = Objects.requireNonNull($.failOverDirections, "expected parameter 'failOverDirections' to be non-null");
-            $.failOverTypes = Objects.requireNonNull($.failOverTypes, "expected parameter 'failOverTypes' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.failOverDirections == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanRecoveryGroupPreActionArgs", "failOverDirections");
+            }
+            if ($.failOverTypes == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanRecoveryGroupPreActionArgs", "failOverTypes");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanRecoveryGroupPreActionArgs", "name");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ReplicationRecoveryPlanRecoveryGroupPreActionArgs", "type");
+            }
             return $;
         }
     }

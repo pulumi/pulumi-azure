@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class ManagedClusterAuthenticationCertificateArgs extends com.pulum
         }
 
         public ManagedClusterAuthenticationCertificateArgs build() {
-            $.thumbprint = Objects.requireNonNull($.thumbprint, "expected parameter 'thumbprint' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.thumbprint == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterAuthenticationCertificateArgs", "thumbprint");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("ManagedClusterAuthenticationCertificateArgs", "type");
+            }
             return $;
         }
     }

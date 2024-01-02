@@ -6,6 +6,7 @@ package com.pulumi.azure.devtest.outputs;
 import com.pulumi.azure.devtest.outputs.GetVirtualNetworkAllowedSubnet;
 import com.pulumi.azure.devtest.outputs.GetVirtualNetworkSubnetOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +106,10 @@ public final class GetVirtualNetworkResult {
 
         @CustomType.Setter
         public Builder allowedSubnets(List<GetVirtualNetworkAllowedSubnet> allowedSubnets) {
-            this.allowedSubnets = Objects.requireNonNull(allowedSubnets);
+            if (allowedSubnets == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "allowedSubnets");
+            }
+            this.allowedSubnets = allowedSubnets;
             return this;
         }
         public Builder allowedSubnets(GetVirtualNetworkAllowedSubnet... allowedSubnets) {
@@ -113,27 +117,42 @@ public final class GetVirtualNetworkResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder labName(String labName) {
-            this.labName = Objects.requireNonNull(labName);
+            if (labName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "labName");
+            }
+            this.labName = labName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder subnetOverrides(List<GetVirtualNetworkSubnetOverride> subnetOverrides) {
-            this.subnetOverrides = Objects.requireNonNull(subnetOverrides);
+            if (subnetOverrides == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "subnetOverrides");
+            }
+            this.subnetOverrides = subnetOverrides;
             return this;
         }
         public Builder subnetOverrides(GetVirtualNetworkSubnetOverride... subnetOverrides) {
@@ -141,7 +160,10 @@ public final class GetVirtualNetworkResult {
         }
         @CustomType.Setter
         public Builder uniqueIdentifier(String uniqueIdentifier) {
-            this.uniqueIdentifier = Objects.requireNonNull(uniqueIdentifier);
+            if (uniqueIdentifier == null) {
+              throw new MissingRequiredPropertyException("GetVirtualNetworkResult", "uniqueIdentifier");
+            }
+            this.uniqueIdentifier = uniqueIdentifier;
             return this;
         }
         public GetVirtualNetworkResult build() {

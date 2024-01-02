@@ -58,11 +58,13 @@ public final class ManagedInstanceFailoverGroupPartnerRegion {
 
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder role(@Nullable String role) {
+
             this.role = role;
             return this;
         }

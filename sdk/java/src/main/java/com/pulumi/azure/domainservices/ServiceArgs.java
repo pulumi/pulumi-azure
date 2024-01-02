@@ -9,6 +9,7 @@ import com.pulumi.azure.domainservices.inputs.ServiceSecureLdapArgs;
 import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -489,10 +490,18 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceArgs build() {
-            $.domainName = Objects.requireNonNull($.domainName, "expected parameter 'domainName' to be non-null");
-            $.initialReplicaSet = Objects.requireNonNull($.initialReplicaSet, "expected parameter 'initialReplicaSet' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
+            if ($.domainName == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "domainName");
+            }
+            if ($.initialReplicaSet == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "initialReplicaSet");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "sku");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -81,7 +82,10 @@ public final class GetRegistryScopeMapResult {
 
         @CustomType.Setter
         public Builder actions(List<String> actions) {
-            this.actions = Objects.requireNonNull(actions);
+            if (actions == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "actions");
+            }
+            this.actions = actions;
             return this;
         }
         public Builder actions(String... actions) {
@@ -89,27 +93,42 @@ public final class GetRegistryScopeMapResult {
         }
         @CustomType.Setter
         public Builder containerRegistryName(String containerRegistryName) {
-            this.containerRegistryName = Objects.requireNonNull(containerRegistryName);
+            if (containerRegistryName == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "containerRegistryName");
+            }
+            this.containerRegistryName = containerRegistryName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetRegistryScopeMapResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetRegistryScopeMapResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault.inputs;
 import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -247,9 +248,15 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         public CertificateCertificatePolicyX509CertificatePropertiesArgs build() {
-            $.keyUsages = Objects.requireNonNull($.keyUsages, "expected parameter 'keyUsages' to be non-null");
-            $.subject = Objects.requireNonNull($.subject, "expected parameter 'subject' to be non-null");
-            $.validityInMonths = Objects.requireNonNull($.validityInMonths, "expected parameter 'validityInMonths' to be non-null");
+            if ($.keyUsages == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyX509CertificatePropertiesArgs", "keyUsages");
+            }
+            if ($.subject == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyX509CertificatePropertiesArgs", "subject");
+            }
+            if ($.validityInMonths == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyX509CertificatePropertiesArgs", "validityInMonths");
+            }
             return $;
         }
     }

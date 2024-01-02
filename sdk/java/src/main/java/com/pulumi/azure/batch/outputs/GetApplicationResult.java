@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -111,37 +112,58 @@ public final class GetApplicationResult {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder allowUpdates(Boolean allowUpdates) {
-            this.allowUpdates = Objects.requireNonNull(allowUpdates);
+            if (allowUpdates == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "allowUpdates");
+            }
+            this.allowUpdates = allowUpdates;
             return this;
         }
         @CustomType.Setter
         public Builder defaultVersion(String defaultVersion) {
-            this.defaultVersion = Objects.requireNonNull(defaultVersion);
+            if (defaultVersion == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "defaultVersion");
+            }
+            this.defaultVersion = defaultVersion;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         public GetApplicationResult build() {

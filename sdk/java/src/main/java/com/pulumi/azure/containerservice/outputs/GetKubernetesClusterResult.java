@@ -22,6 +22,7 @@ import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterServicePrin
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterStorageProfile;
 import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterWindowsProfile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -635,7 +636,10 @@ public final class GetKubernetesClusterResult {
 
         @CustomType.Setter
         public Builder aciConnectorLinuxes(List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes) {
-            this.aciConnectorLinuxes = Objects.requireNonNull(aciConnectorLinuxes);
+            if (aciConnectorLinuxes == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "aciConnectorLinuxes");
+            }
+            this.aciConnectorLinuxes = aciConnectorLinuxes;
             return this;
         }
         public Builder aciConnectorLinuxes(GetKubernetesClusterAciConnectorLinux... aciConnectorLinuxes) {
@@ -643,7 +647,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder agentPoolProfiles(List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles) {
-            this.agentPoolProfiles = Objects.requireNonNull(agentPoolProfiles);
+            if (agentPoolProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "agentPoolProfiles");
+            }
+            this.agentPoolProfiles = agentPoolProfiles;
             return this;
         }
         public Builder agentPoolProfiles(GetKubernetesClusterAgentPoolProfile... agentPoolProfiles) {
@@ -651,7 +658,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder apiServerAuthorizedIpRanges(List<String> apiServerAuthorizedIpRanges) {
-            this.apiServerAuthorizedIpRanges = Objects.requireNonNull(apiServerAuthorizedIpRanges);
+            if (apiServerAuthorizedIpRanges == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "apiServerAuthorizedIpRanges");
+            }
+            this.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
             return this;
         }
         public Builder apiServerAuthorizedIpRanges(String... apiServerAuthorizedIpRanges) {
@@ -659,7 +669,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder azureActiveDirectoryRoleBasedAccessControls(List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls) {
-            this.azureActiveDirectoryRoleBasedAccessControls = Objects.requireNonNull(azureActiveDirectoryRoleBasedAccessControls);
+            if (azureActiveDirectoryRoleBasedAccessControls == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "azureActiveDirectoryRoleBasedAccessControls");
+            }
+            this.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
             return this;
         }
         public Builder azureActiveDirectoryRoleBasedAccessControls(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl... azureActiveDirectoryRoleBasedAccessControls) {
@@ -667,17 +680,26 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder azurePolicyEnabled(Boolean azurePolicyEnabled) {
-            this.azurePolicyEnabled = Objects.requireNonNull(azurePolicyEnabled);
+            if (azurePolicyEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "azurePolicyEnabled");
+            }
+            this.azurePolicyEnabled = azurePolicyEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder currentKubernetesVersion(String currentKubernetesVersion) {
-            this.currentKubernetesVersion = Objects.requireNonNull(currentKubernetesVersion);
+            if (currentKubernetesVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "currentKubernetesVersion");
+            }
+            this.currentKubernetesVersion = currentKubernetesVersion;
             return this;
         }
         @CustomType.Setter
         public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
-            this.customCaTrustCertificatesBase64s = Objects.requireNonNull(customCaTrustCertificatesBase64s);
+            if (customCaTrustCertificatesBase64s == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "customCaTrustCertificatesBase64s");
+            }
+            this.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
             return this;
         }
         public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
@@ -685,37 +707,58 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
-            this.diskEncryptionSetId = Objects.requireNonNull(diskEncryptionSetId);
+            if (diskEncryptionSetId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "diskEncryptionSetId");
+            }
+            this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
         @CustomType.Setter
         public Builder dnsPrefix(String dnsPrefix) {
-            this.dnsPrefix = Objects.requireNonNull(dnsPrefix);
+            if (dnsPrefix == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "dnsPrefix");
+            }
+            this.dnsPrefix = dnsPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder httpApplicationRoutingEnabled(Boolean httpApplicationRoutingEnabled) {
-            this.httpApplicationRoutingEnabled = Objects.requireNonNull(httpApplicationRoutingEnabled);
+            if (httpApplicationRoutingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "httpApplicationRoutingEnabled");
+            }
+            this.httpApplicationRoutingEnabled = httpApplicationRoutingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpApplicationRoutingZoneName(String httpApplicationRoutingZoneName) {
-            this.httpApplicationRoutingZoneName = Objects.requireNonNull(httpApplicationRoutingZoneName);
+            if (httpApplicationRoutingZoneName == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "httpApplicationRoutingZoneName");
+            }
+            this.httpApplicationRoutingZoneName = httpApplicationRoutingZoneName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetKubernetesClusterIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetKubernetesClusterIdentity... identities) {
@@ -723,7 +766,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder ingressApplicationGateways(List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways) {
-            this.ingressApplicationGateways = Objects.requireNonNull(ingressApplicationGateways);
+            if (ingressApplicationGateways == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "ingressApplicationGateways");
+            }
+            this.ingressApplicationGateways = ingressApplicationGateways;
             return this;
         }
         public Builder ingressApplicationGateways(GetKubernetesClusterIngressApplicationGateway... ingressApplicationGateways) {
@@ -731,7 +777,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder keyManagementServices(List<GetKubernetesClusterKeyManagementService> keyManagementServices) {
-            this.keyManagementServices = Objects.requireNonNull(keyManagementServices);
+            if (keyManagementServices == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "keyManagementServices");
+            }
+            this.keyManagementServices = keyManagementServices;
             return this;
         }
         public Builder keyManagementServices(GetKubernetesClusterKeyManagementService... keyManagementServices) {
@@ -739,7 +788,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder keyVaultSecretsProviders(List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders) {
-            this.keyVaultSecretsProviders = Objects.requireNonNull(keyVaultSecretsProviders);
+            if (keyVaultSecretsProviders == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "keyVaultSecretsProviders");
+            }
+            this.keyVaultSecretsProviders = keyVaultSecretsProviders;
             return this;
         }
         public Builder keyVaultSecretsProviders(GetKubernetesClusterKeyVaultSecretsProvider... keyVaultSecretsProviders) {
@@ -747,12 +799,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder kubeAdminConfigRaw(String kubeAdminConfigRaw) {
-            this.kubeAdminConfigRaw = Objects.requireNonNull(kubeAdminConfigRaw);
+            if (kubeAdminConfigRaw == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubeAdminConfigRaw");
+            }
+            this.kubeAdminConfigRaw = kubeAdminConfigRaw;
             return this;
         }
         @CustomType.Setter
         public Builder kubeAdminConfigs(List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs) {
-            this.kubeAdminConfigs = Objects.requireNonNull(kubeAdminConfigs);
+            if (kubeAdminConfigs == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubeAdminConfigs");
+            }
+            this.kubeAdminConfigs = kubeAdminConfigs;
             return this;
         }
         public Builder kubeAdminConfigs(GetKubernetesClusterKubeAdminConfig... kubeAdminConfigs) {
@@ -760,12 +818,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder kubeConfigRaw(String kubeConfigRaw) {
-            this.kubeConfigRaw = Objects.requireNonNull(kubeConfigRaw);
+            if (kubeConfigRaw == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubeConfigRaw");
+            }
+            this.kubeConfigRaw = kubeConfigRaw;
             return this;
         }
         @CustomType.Setter
         public Builder kubeConfigs(List<GetKubernetesClusterKubeConfig> kubeConfigs) {
-            this.kubeConfigs = Objects.requireNonNull(kubeConfigs);
+            if (kubeConfigs == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubeConfigs");
+            }
+            this.kubeConfigs = kubeConfigs;
             return this;
         }
         public Builder kubeConfigs(GetKubernetesClusterKubeConfig... kubeConfigs) {
@@ -773,7 +837,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder kubeletIdentities(List<GetKubernetesClusterKubeletIdentity> kubeletIdentities) {
-            this.kubeletIdentities = Objects.requireNonNull(kubeletIdentities);
+            if (kubeletIdentities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubeletIdentities");
+            }
+            this.kubeletIdentities = kubeletIdentities;
             return this;
         }
         public Builder kubeletIdentities(GetKubernetesClusterKubeletIdentity... kubeletIdentities) {
@@ -781,12 +848,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder kubernetesVersion(String kubernetesVersion) {
-            this.kubernetesVersion = Objects.requireNonNull(kubernetesVersion);
+            if (kubernetesVersion == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "kubernetesVersion");
+            }
+            this.kubernetesVersion = kubernetesVersion;
             return this;
         }
         @CustomType.Setter
         public Builder linuxProfiles(List<GetKubernetesClusterLinuxProfile> linuxProfiles) {
-            this.linuxProfiles = Objects.requireNonNull(linuxProfiles);
+            if (linuxProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "linuxProfiles");
+            }
+            this.linuxProfiles = linuxProfiles;
             return this;
         }
         public Builder linuxProfiles(GetKubernetesClusterLinuxProfile... linuxProfiles) {
@@ -794,12 +867,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder microsoftDefenders(List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders) {
-            this.microsoftDefenders = Objects.requireNonNull(microsoftDefenders);
+            if (microsoftDefenders == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "microsoftDefenders");
+            }
+            this.microsoftDefenders = microsoftDefenders;
             return this;
         }
         public Builder microsoftDefenders(GetKubernetesClusterMicrosoftDefender... microsoftDefenders) {
@@ -807,12 +886,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkProfiles(List<GetKubernetesClusterNetworkProfile> networkProfiles) {
-            this.networkProfiles = Objects.requireNonNull(networkProfiles);
+            if (networkProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "networkProfiles");
+            }
+            this.networkProfiles = networkProfiles;
             return this;
         }
         public Builder networkProfiles(GetKubernetesClusterNetworkProfile... networkProfiles) {
@@ -820,27 +905,42 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder nodeResourceGroup(String nodeResourceGroup) {
-            this.nodeResourceGroup = Objects.requireNonNull(nodeResourceGroup);
+            if (nodeResourceGroup == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "nodeResourceGroup");
+            }
+            this.nodeResourceGroup = nodeResourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder nodeResourceGroupId(String nodeResourceGroupId) {
-            this.nodeResourceGroupId = Objects.requireNonNull(nodeResourceGroupId);
+            if (nodeResourceGroupId == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "nodeResourceGroupId");
+            }
+            this.nodeResourceGroupId = nodeResourceGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder oidcIssuerEnabled(Boolean oidcIssuerEnabled) {
-            this.oidcIssuerEnabled = Objects.requireNonNull(oidcIssuerEnabled);
+            if (oidcIssuerEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "oidcIssuerEnabled");
+            }
+            this.oidcIssuerEnabled = oidcIssuerEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder oidcIssuerUrl(String oidcIssuerUrl) {
-            this.oidcIssuerUrl = Objects.requireNonNull(oidcIssuerUrl);
+            if (oidcIssuerUrl == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "oidcIssuerUrl");
+            }
+            this.oidcIssuerUrl = oidcIssuerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder omsAgents(List<GetKubernetesClusterOmsAgent> omsAgents) {
-            this.omsAgents = Objects.requireNonNull(omsAgents);
+            if (omsAgents == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "omsAgents");
+            }
+            this.omsAgents = omsAgents;
             return this;
         }
         public Builder omsAgents(GetKubernetesClusterOmsAgent... omsAgents) {
@@ -848,32 +948,50 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder openServiceMeshEnabled(Boolean openServiceMeshEnabled) {
-            this.openServiceMeshEnabled = Objects.requireNonNull(openServiceMeshEnabled);
+            if (openServiceMeshEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "openServiceMeshEnabled");
+            }
+            this.openServiceMeshEnabled = openServiceMeshEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder privateClusterEnabled(Boolean privateClusterEnabled) {
-            this.privateClusterEnabled = Objects.requireNonNull(privateClusterEnabled);
+            if (privateClusterEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "privateClusterEnabled");
+            }
+            this.privateClusterEnabled = privateClusterEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder privateFqdn(String privateFqdn) {
-            this.privateFqdn = Objects.requireNonNull(privateFqdn);
+            if (privateFqdn == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "privateFqdn");
+            }
+            this.privateFqdn = privateFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder roleBasedAccessControlEnabled(Boolean roleBasedAccessControlEnabled) {
-            this.roleBasedAccessControlEnabled = Objects.requireNonNull(roleBasedAccessControlEnabled);
+            if (roleBasedAccessControlEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "roleBasedAccessControlEnabled");
+            }
+            this.roleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder serviceMeshProfiles(List<GetKubernetesClusterServiceMeshProfile> serviceMeshProfiles) {
-            this.serviceMeshProfiles = Objects.requireNonNull(serviceMeshProfiles);
+            if (serviceMeshProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "serviceMeshProfiles");
+            }
+            this.serviceMeshProfiles = serviceMeshProfiles;
             return this;
         }
         public Builder serviceMeshProfiles(GetKubernetesClusterServiceMeshProfile... serviceMeshProfiles) {
@@ -881,7 +999,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder servicePrincipals(List<GetKubernetesClusterServicePrincipal> servicePrincipals) {
-            this.servicePrincipals = Objects.requireNonNull(servicePrincipals);
+            if (servicePrincipals == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "servicePrincipals");
+            }
+            this.servicePrincipals = servicePrincipals;
             return this;
         }
         public Builder servicePrincipals(GetKubernetesClusterServicePrincipal... servicePrincipals) {
@@ -889,7 +1010,10 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder storageProfiles(List<GetKubernetesClusterStorageProfile> storageProfiles) {
-            this.storageProfiles = Objects.requireNonNull(storageProfiles);
+            if (storageProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "storageProfiles");
+            }
+            this.storageProfiles = storageProfiles;
             return this;
         }
         public Builder storageProfiles(GetKubernetesClusterStorageProfile... storageProfiles) {
@@ -897,12 +1021,18 @@ public final class GetKubernetesClusterResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder windowsProfiles(List<GetKubernetesClusterWindowsProfile> windowsProfiles) {
-            this.windowsProfiles = Objects.requireNonNull(windowsProfiles);
+            if (windowsProfiles == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterResult", "windowsProfiles");
+            }
+            this.windowsProfiles = windowsProfiles;
             return this;
         }
         public Builder windowsProfiles(GetKubernetesClusterWindowsProfile... windowsProfiles) {

@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -90,21 +91,29 @@ public final class EndpointIpConfiguration {
 
         @CustomType.Setter
         public Builder memberName(@Nullable String memberName) {
+
             this.memberName = memberName;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("EndpointIpConfiguration", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("EndpointIpConfiguration", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder subresourceName(@Nullable String subresourceName) {
+
             this.subresourceName = subresourceName;
             return this;
         }

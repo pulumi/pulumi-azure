@@ -7,6 +7,7 @@ import com.pulumi.azure.frontdoor.inputs.FirewallPolicyCustomRuleArgs;
 import com.pulumi.azure.frontdoor.inputs.FirewallPolicyManagedRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -435,7 +436,9 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public FirewallPolicyArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FirewallPolicyArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.VpnSiteLinkBgp;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -138,36 +139,45 @@ public final class VpnSiteLink {
 
         @CustomType.Setter
         public Builder bgp(@Nullable VpnSiteLinkBgp bgp) {
+
             this.bgp = bgp;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
+
             this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
+
             this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VpnSiteLink", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder providerName(@Nullable String providerName) {
+
             this.providerName = providerName;
             return this;
         }
         @CustomType.Setter
         public Builder speedInMbps(@Nullable Integer speedInMbps) {
+
             this.speedInMbps = speedInMbps;
             return this;
         }

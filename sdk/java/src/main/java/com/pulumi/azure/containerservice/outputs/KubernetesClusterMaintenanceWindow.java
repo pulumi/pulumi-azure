@@ -59,6 +59,7 @@ public final class KubernetesClusterMaintenanceWindow {
 
         @CustomType.Setter
         public Builder alloweds(@Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds) {
+
             this.alloweds = alloweds;
             return this;
         }
@@ -67,6 +68,7 @@ public final class KubernetesClusterMaintenanceWindow {
         }
         @CustomType.Setter
         public Builder notAlloweds(@Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds) {
+
             this.notAlloweds = notAlloweds;
             return this;
         }

@@ -119,31 +119,37 @@ public final class AssetFilterPresentationTimeRange {
 
         @CustomType.Setter
         public Builder endInUnits(@Nullable Integer endInUnits) {
+
             this.endInUnits = endInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder forceEnd(@Nullable Boolean forceEnd) {
+
             this.forceEnd = forceEnd;
             return this;
         }
         @CustomType.Setter
         public Builder liveBackoffInUnits(@Nullable Integer liveBackoffInUnits) {
+
             this.liveBackoffInUnits = liveBackoffInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder presentationWindowInUnits(@Nullable Integer presentationWindowInUnits) {
+
             this.presentationWindowInUnits = presentationWindowInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder startInUnits(@Nullable Integer startInUnits) {
+
             this.startInUnits = startInUnits;
             return this;
         }
         @CustomType.Setter
         public Builder unitTimescaleInMiliseconds(@Nullable Integer unitTimescaleInMiliseconds) {
+
             this.unitTimescaleInMiliseconds = unitTimescaleInMiliseconds;
             return this;
         }

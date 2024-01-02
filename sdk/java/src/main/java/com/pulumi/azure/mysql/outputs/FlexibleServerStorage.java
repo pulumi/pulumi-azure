@@ -87,21 +87,25 @@ public final class FlexibleServerStorage {
 
         @CustomType.Setter
         public Builder autoGrowEnabled(@Nullable Boolean autoGrowEnabled) {
+
             this.autoGrowEnabled = autoGrowEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder ioScalingEnabled(@Nullable Boolean ioScalingEnabled) {
+
             this.ioScalingEnabled = ioScalingEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
+
             this.iops = iops;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
+
             this.sizeGb = sizeGb;
             return this;
         }

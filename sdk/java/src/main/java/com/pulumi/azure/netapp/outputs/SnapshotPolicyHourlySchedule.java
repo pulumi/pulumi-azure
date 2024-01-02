@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SnapshotPolicyHourlySchedule {
 
         @CustomType.Setter
         public Builder minute(Integer minute) {
-            this.minute = Objects.requireNonNull(minute);
+            if (minute == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyHourlySchedule", "minute");
+            }
+            this.minute = minute;
             return this;
         }
         @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
-            this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
+            if (snapshotsToKeep == null) {
+              throw new MissingRequiredPropertyException("SnapshotPolicyHourlySchedule", "snapshotsToKeep");
+            }
+            this.snapshotsToKeep = snapshotsToKeep;
             return this;
         }
         public SnapshotPolicyHourlySchedule build() {

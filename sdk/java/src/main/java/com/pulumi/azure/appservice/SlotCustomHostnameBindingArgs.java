@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -203,8 +204,12 @@ public final class SlotCustomHostnameBindingArgs extends com.pulumi.resources.Re
         }
 
         public SlotCustomHostnameBindingArgs build() {
-            $.appServiceSlotId = Objects.requireNonNull($.appServiceSlotId, "expected parameter 'appServiceSlotId' to be non-null");
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
+            if ($.appServiceSlotId == null) {
+                throw new MissingRequiredPropertyException("SlotCustomHostnameBindingArgs", "appServiceSlotId");
+            }
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("SlotCustomHostnameBindingArgs", "hostname");
+            }
             return $;
         }
     }

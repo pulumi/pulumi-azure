@@ -4,6 +4,7 @@
 package com.pulumi.azure.synapse.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -118,32 +119,46 @@ public final class WorkspaceGithubRepo {
 
         @CustomType.Setter
         public Builder accountName(String accountName) {
-            this.accountName = Objects.requireNonNull(accountName);
+            if (accountName == null) {
+              throw new MissingRequiredPropertyException("WorkspaceGithubRepo", "accountName");
+            }
+            this.accountName = accountName;
             return this;
         }
         @CustomType.Setter
         public Builder branchName(String branchName) {
-            this.branchName = Objects.requireNonNull(branchName);
+            if (branchName == null) {
+              throw new MissingRequiredPropertyException("WorkspaceGithubRepo", "branchName");
+            }
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder gitUrl(@Nullable String gitUrl) {
+
             this.gitUrl = gitUrl;
             return this;
         }
         @CustomType.Setter
         public Builder lastCommitId(@Nullable String lastCommitId) {
+
             this.lastCommitId = lastCommitId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("WorkspaceGithubRepo", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
-            this.rootFolder = Objects.requireNonNull(rootFolder);
+            if (rootFolder == null) {
+              throw new MissingRequiredPropertyException("WorkspaceGithubRepo", "rootFolder");
+            }
+            this.rootFolder = rootFolder;
             return this;
         }
         public WorkspaceGithubRepo build() {

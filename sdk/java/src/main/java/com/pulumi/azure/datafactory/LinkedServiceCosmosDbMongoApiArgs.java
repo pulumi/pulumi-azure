@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -430,7 +431,9 @@ public final class LinkedServiceCosmosDbMongoApiArgs extends com.pulumi.resource
         }
 
         public LinkedServiceCosmosDbMongoApiArgs build() {
-            $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
+            if ($.dataFactoryId == null) {
+                throw new MissingRequiredPropertyException("LinkedServiceCosmosDbMongoApiArgs", "dataFactoryId");
+            }
             return $;
         }
     }

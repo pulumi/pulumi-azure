@@ -5,6 +5,7 @@ package com.pulumi.azure.backup.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class PolicyVMInstantRestoreResourceGroupArgs extends com.pulumi.re
         }
 
         public PolicyVMInstantRestoreResourceGroupArgs build() {
-            $.prefix = Objects.requireNonNull($.prefix, "expected parameter 'prefix' to be non-null");
+            if ($.prefix == null) {
+                throw new MissingRequiredPropertyException("PolicyVMInstantRestoreResourceGroupArgs", "prefix");
+            }
             return $;
         }
     }

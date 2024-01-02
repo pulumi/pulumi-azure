@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -87,11 +88,15 @@ public final class ActionRuleSuppressionSuppressionSchedule {
 
         @CustomType.Setter
         public Builder endDateUtc(String endDateUtc) {
-            this.endDateUtc = Objects.requireNonNull(endDateUtc);
+            if (endDateUtc == null) {
+              throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppressionSchedule", "endDateUtc");
+            }
+            this.endDateUtc = endDateUtc;
             return this;
         }
         @CustomType.Setter
         public Builder recurrenceMonthlies(@Nullable List<Integer> recurrenceMonthlies) {
+
             this.recurrenceMonthlies = recurrenceMonthlies;
             return this;
         }
@@ -100,6 +105,7 @@ public final class ActionRuleSuppressionSuppressionSchedule {
         }
         @CustomType.Setter
         public Builder recurrenceWeeklies(@Nullable List<String> recurrenceWeeklies) {
+
             this.recurrenceWeeklies = recurrenceWeeklies;
             return this;
         }
@@ -108,7 +114,10 @@ public final class ActionRuleSuppressionSuppressionSchedule {
         }
         @CustomType.Setter
         public Builder startDateUtc(String startDateUtc) {
-            this.startDateUtc = Objects.requireNonNull(startDateUtc);
+            if (startDateUtc == null) {
+              throw new MissingRequiredPropertyException("ActionRuleSuppressionSuppressionSchedule", "startDateUtc");
+            }
+            this.startDateUtc = startDateUtc;
             return this;
         }
         public ActionRuleSuppressionSuppressionSchedule build() {

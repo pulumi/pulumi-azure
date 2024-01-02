@@ -58,11 +58,13 @@ public final class ComputeInstanceAssignToUser {
 
         @CustomType.Setter
         public Builder objectId(@Nullable String objectId) {
+
             this.objectId = objectId;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

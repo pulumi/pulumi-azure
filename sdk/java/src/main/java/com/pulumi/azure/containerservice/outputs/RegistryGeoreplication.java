@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -92,21 +93,27 @@ public final class RegistryGeoreplication {
 
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("RegistryGeoreplication", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder regionalEndpointEnabled(@Nullable Boolean regionalEndpointEnabled) {
+
             this.regionalEndpointEnabled = regionalEndpointEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zoneRedundancyEnabled(@Nullable Boolean zoneRedundancyEnabled) {
+
             this.zoneRedundancyEnabled = zoneRedundancyEnabled;
             return this;
         }

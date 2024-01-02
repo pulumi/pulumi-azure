@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.ApiImportWsdlSelectorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -151,8 +152,12 @@ public final class ApiImportArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApiImportArgs build() {
-            $.contentFormat = Objects.requireNonNull($.contentFormat, "expected parameter 'contentFormat' to be non-null");
-            $.contentValue = Objects.requireNonNull($.contentValue, "expected parameter 'contentValue' to be non-null");
+            if ($.contentFormat == null) {
+                throw new MissingRequiredPropertyException("ApiImportArgs", "contentFormat");
+            }
+            if ($.contentValue == null) {
+                throw new MissingRequiredPropertyException("ApiImportArgs", "contentValue");
+            }
             return $;
         }
     }

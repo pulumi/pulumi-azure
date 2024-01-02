@@ -6,6 +6,7 @@ package com.pulumi.azure.waf.inputs;
 import com.pulumi.azure.waf.inputs.PolicyManagedRulesExclusionExcludedRuleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -188,9 +189,15 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
         }
 
         public PolicyManagedRulesExclusionArgs build() {
-            $.matchVariable = Objects.requireNonNull($.matchVariable, "expected parameter 'matchVariable' to be non-null");
-            $.selector = Objects.requireNonNull($.selector, "expected parameter 'selector' to be non-null");
-            $.selectorMatchOperator = Objects.requireNonNull($.selectorMatchOperator, "expected parameter 'selectorMatchOperator' to be non-null");
+            if ($.matchVariable == null) {
+                throw new MissingRequiredPropertyException("PolicyManagedRulesExclusionArgs", "matchVariable");
+            }
+            if ($.selector == null) {
+                throw new MissingRequiredPropertyException("PolicyManagedRulesExclusionArgs", "selector");
+            }
+            if ($.selectorMatchOperator == null) {
+                throw new MissingRequiredPropertyException("PolicyManagedRulesExclusionArgs", "selectorMatchOperator");
+            }
             return $;
         }
     }

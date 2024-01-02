@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ActivityLogAlertActionArgs;
 import com.pulumi.azure.monitoring.inputs.ActivityLogAlertCriteriaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -360,9 +361,15 @@ public final class ActivityLogAlertArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ActivityLogAlertArgs build() {
-            $.criteria = Objects.requireNonNull($.criteria, "expected parameter 'criteria' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("ActivityLogAlertArgs", "criteria");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ActivityLogAlertArgs", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("ActivityLogAlertArgs", "scopes");
+            }
             return $;
         }
     }

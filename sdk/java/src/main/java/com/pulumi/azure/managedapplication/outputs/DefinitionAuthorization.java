@@ -4,6 +4,7 @@
 package com.pulumi.azure.managedapplication.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class DefinitionAuthorization {
 
         @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
-            this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
+            if (roleDefinitionId == null) {
+              throw new MissingRequiredPropertyException("DefinitionAuthorization", "roleDefinitionId");
+            }
+            this.roleDefinitionId = roleDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipalId(String servicePrincipalId) {
-            this.servicePrincipalId = Objects.requireNonNull(servicePrincipalId);
+            if (servicePrincipalId == null) {
+              throw new MissingRequiredPropertyException("DefinitionAuthorization", "servicePrincipalId");
+            }
+            this.servicePrincipalId = servicePrincipalId;
             return this;
         }
         public DefinitionAuthorization build() {

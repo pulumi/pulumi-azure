@@ -5,6 +5,7 @@ package com.pulumi.azure.appinsights.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -198,7 +199,9 @@ public final class WorkbookIdentityArgs extends com.pulumi.resources.ResourceArg
         }
 
         public WorkbookIdentityArgs build() {
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WorkbookIdentityArgs", "type");
+            }
             return $;
         }
     }

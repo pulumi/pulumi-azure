@@ -4,6 +4,7 @@
 package com.pulumi.azure.lb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -210,72 +211,114 @@ public final class GetLBRuleResult {
 
         @CustomType.Setter
         public Builder backendAddressPoolId(String backendAddressPoolId) {
-            this.backendAddressPoolId = Objects.requireNonNull(backendAddressPoolId);
+            if (backendAddressPoolId == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "backendAddressPoolId");
+            }
+            this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
-            this.backendPort = Objects.requireNonNull(backendPort);
+            if (backendPort == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "backendPort");
+            }
+            this.backendPort = backendPort;
             return this;
         }
         @CustomType.Setter
         public Builder disableOutboundSnat(Boolean disableOutboundSnat) {
-            this.disableOutboundSnat = Objects.requireNonNull(disableOutboundSnat);
+            if (disableOutboundSnat == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "disableOutboundSnat");
+            }
+            this.disableOutboundSnat = disableOutboundSnat;
             return this;
         }
         @CustomType.Setter
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
-            this.enableFloatingIp = Objects.requireNonNull(enableFloatingIp);
+            if (enableFloatingIp == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "enableFloatingIp");
+            }
+            this.enableFloatingIp = enableFloatingIp;
             return this;
         }
         @CustomType.Setter
         public Builder enableTcpReset(Boolean enableTcpReset) {
-            this.enableTcpReset = Objects.requireNonNull(enableTcpReset);
+            if (enableTcpReset == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "enableTcpReset");
+            }
+            this.enableTcpReset = enableTcpReset;
             return this;
         }
         @CustomType.Setter
         public Builder frontendIpConfigurationName(String frontendIpConfigurationName) {
-            this.frontendIpConfigurationName = Objects.requireNonNull(frontendIpConfigurationName);
+            if (frontendIpConfigurationName == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "frontendIpConfigurationName");
+            }
+            this.frontendIpConfigurationName = frontendIpConfigurationName;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPort(Integer frontendPort) {
-            this.frontendPort = Objects.requireNonNull(frontendPort);
+            if (frontendPort == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "frontendPort");
+            }
+            this.frontendPort = frontendPort;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder loadDistribution(String loadDistribution) {
-            this.loadDistribution = Objects.requireNonNull(loadDistribution);
+            if (loadDistribution == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "loadDistribution");
+            }
+            this.loadDistribution = loadDistribution;
             return this;
         }
         @CustomType.Setter
         public Builder loadbalancerId(String loadbalancerId) {
-            this.loadbalancerId = Objects.requireNonNull(loadbalancerId);
+            if (loadbalancerId == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "loadbalancerId");
+            }
+            this.loadbalancerId = loadbalancerId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder probeId(String probeId) {
-            this.probeId = Objects.requireNonNull(probeId);
+            if (probeId == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "probeId");
+            }
+            this.probeId = probeId;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("GetLBRuleResult", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public GetLBRuleResult build() {

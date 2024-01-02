@@ -9,6 +9,7 @@ import com.pulumi.azure.containerapp.outputs.AppTemplateContainerReadinessProbe;
 import com.pulumi.azure.containerapp.outputs.AppTemplateContainerStartupProbe;
 import com.pulumi.azure.containerapp.outputs.AppTemplateContainerVolumeMount;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -217,6 +218,7 @@ public final class AppTemplateContainer {
 
         @CustomType.Setter
         public Builder args(@Nullable List<String> args) {
+
             this.args = args;
             return this;
         }
@@ -225,6 +227,7 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
+
             this.commands = commands;
             return this;
         }
@@ -233,11 +236,15 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder cpu(Double cpu) {
-            this.cpu = Objects.requireNonNull(cpu);
+            if (cpu == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainer", "cpu");
+            }
+            this.cpu = cpu;
             return this;
         }
         @CustomType.Setter
         public Builder envs(@Nullable List<AppTemplateContainerEnv> envs) {
+
             this.envs = envs;
             return this;
         }
@@ -246,16 +253,21 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder ephemeralStorage(@Nullable String ephemeralStorage) {
+
             this.ephemeralStorage = ephemeralStorage;
             return this;
         }
         @CustomType.Setter
         public Builder image(String image) {
-            this.image = Objects.requireNonNull(image);
+            if (image == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainer", "image");
+            }
+            this.image = image;
             return this;
         }
         @CustomType.Setter
         public Builder livenessProbes(@Nullable List<AppTemplateContainerLivenessProbe> livenessProbes) {
+
             this.livenessProbes = livenessProbes;
             return this;
         }
@@ -264,16 +276,23 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder memory(String memory) {
-            this.memory = Objects.requireNonNull(memory);
+            if (memory == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainer", "memory");
+            }
+            this.memory = memory;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("AppTemplateContainer", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder readinessProbes(@Nullable List<AppTemplateContainerReadinessProbe> readinessProbes) {
+
             this.readinessProbes = readinessProbes;
             return this;
         }
@@ -282,6 +301,7 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder startupProbes(@Nullable List<AppTemplateContainerStartupProbe> startupProbes) {
+
             this.startupProbes = startupProbes;
             return this;
         }
@@ -290,6 +310,7 @@ public final class AppTemplateContainer {
         }
         @CustomType.Setter
         public Builder volumeMounts(@Nullable List<AppTemplateContainerVolumeMount> volumeMounts) {
+
             this.volumeMounts = volumeMounts;
             return this;
         }

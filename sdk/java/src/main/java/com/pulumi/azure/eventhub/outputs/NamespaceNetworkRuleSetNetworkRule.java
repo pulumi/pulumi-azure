@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -59,12 +60,16 @@ public final class NamespaceNetworkRuleSetNetworkRule {
 
         @CustomType.Setter
         public Builder ignoreMissingVnetServiceEndpoint(@Nullable Boolean ignoreMissingVnetServiceEndpoint) {
+
             this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             return this;
         }
         @CustomType.Setter
         public Builder subnetId(String subnetId) {
-            this.subnetId = Objects.requireNonNull(subnetId);
+            if (subnetId == null) {
+              throw new MissingRequiredPropertyException("NamespaceNetworkRuleSetNetworkRule", "subnetId");
+            }
+            this.subnetId = subnetId;
             return this;
         }
         public NamespaceNetworkRuleSetNetworkRule build() {

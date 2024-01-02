@@ -4,6 +4,7 @@
 package com.pulumi.azure.desktopvirtualization.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class ScalingPlanHostPool {
 
         @CustomType.Setter
         public Builder hostpoolId(String hostpoolId) {
-            this.hostpoolId = Objects.requireNonNull(hostpoolId);
+            if (hostpoolId == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanHostPool", "hostpoolId");
+            }
+            this.hostpoolId = hostpoolId;
             return this;
         }
         @CustomType.Setter
         public Builder scalingPlanEnabled(Boolean scalingPlanEnabled) {
-            this.scalingPlanEnabled = Objects.requireNonNull(scalingPlanEnabled);
+            if (scalingPlanEnabled == null) {
+              throw new MissingRequiredPropertyException("ScalingPlanHostPool", "scalingPlanEnabled");
+            }
+            this.scalingPlanEnabled = scalingPlanEnabled;
             return this;
         }
         public ScalingPlanHostPool build() {

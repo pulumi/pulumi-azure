@@ -5,6 +5,7 @@ package com.pulumi.azure.managedapplication.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class DefinitionAuthorizationArgs extends com.pulumi.resources.Reso
         }
 
         public DefinitionAuthorizationArgs build() {
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
-            $.servicePrincipalId = Objects.requireNonNull($.servicePrincipalId, "expected parameter 'servicePrincipalId' to be non-null");
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("DefinitionAuthorizationArgs", "roleDefinitionId");
+            }
+            if ($.servicePrincipalId == null) {
+                throw new MissingRequiredPropertyException("DefinitionAuthorizationArgs", "servicePrincipalId");
+            }
             return $;
         }
     }

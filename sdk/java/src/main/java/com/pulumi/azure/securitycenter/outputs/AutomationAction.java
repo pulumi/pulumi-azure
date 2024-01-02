@@ -4,6 +4,7 @@
 package com.pulumi.azure.securitycenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,30 @@ public final class AutomationAction {
 
         @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
+
             this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder resourceId(String resourceId) {
-            this.resourceId = Objects.requireNonNull(resourceId);
+            if (resourceId == null) {
+              throw new MissingRequiredPropertyException("AutomationAction", "resourceId");
+            }
+            this.resourceId = resourceId;
             return this;
         }
         @CustomType.Setter
         public Builder triggerUrl(@Nullable String triggerUrl) {
+
             this.triggerUrl = triggerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("AutomationAction", "type");
+            }
+            this.type = type;
             return this;
         }
         public AutomationAction build() {

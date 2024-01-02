@@ -59,11 +59,13 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSetting {
 
         @CustomType.Setter
         public Builder action(@Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action) {
+
             this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder trigger(@Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger) {
+
             this.trigger = trigger;
             return this;
         }

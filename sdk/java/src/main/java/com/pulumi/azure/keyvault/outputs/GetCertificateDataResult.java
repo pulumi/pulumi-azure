@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -160,57 +161,90 @@ public final class GetCertificateDataResult {
 
         @CustomType.Setter
         public Builder certificatesCount(Integer certificatesCount) {
-            this.certificatesCount = Objects.requireNonNull(certificatesCount);
+            if (certificatesCount == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "certificatesCount");
+            }
+            this.certificatesCount = certificatesCount;
             return this;
         }
         @CustomType.Setter
         public Builder expires(String expires) {
-            this.expires = Objects.requireNonNull(expires);
+            if (expires == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "expires");
+            }
+            this.expires = expires;
             return this;
         }
         @CustomType.Setter
         public Builder hex(String hex) {
-            this.hex = Objects.requireNonNull(hex);
+            if (hex == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "hex");
+            }
+            this.hex = hex;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
-            this.keyVaultId = Objects.requireNonNull(keyVaultId);
+            if (keyVaultId == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "keyVaultId");
+            }
+            this.keyVaultId = keyVaultId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder notBefore(String notBefore) {
-            this.notBefore = Objects.requireNonNull(notBefore);
+            if (notBefore == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "notBefore");
+            }
+            this.notBefore = notBefore;
             return this;
         }
         @CustomType.Setter
         public Builder pem(String pem) {
-            this.pem = Objects.requireNonNull(pem);
+            if (pem == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "pem");
+            }
+            this.pem = pem;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetCertificateDataResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetCertificateDataResult build() {

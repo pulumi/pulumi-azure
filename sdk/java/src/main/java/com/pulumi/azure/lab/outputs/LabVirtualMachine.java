@@ -8,6 +8,7 @@ import com.pulumi.azure.lab.outputs.LabVirtualMachineImageReference;
 import com.pulumi.azure.lab.outputs.LabVirtualMachineNonAdminUser;
 import com.pulumi.azure.lab.outputs.LabVirtualMachineSku;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -147,41 +148,55 @@ public final class LabVirtualMachine {
 
         @CustomType.Setter
         public Builder additionalCapabilityGpuDriversInstalled(@Nullable Boolean additionalCapabilityGpuDriversInstalled) {
+
             this.additionalCapabilityGpuDriversInstalled = additionalCapabilityGpuDriversInstalled;
             return this;
         }
         @CustomType.Setter
         public Builder adminUser(LabVirtualMachineAdminUser adminUser) {
-            this.adminUser = Objects.requireNonNull(adminUser);
+            if (adminUser == null) {
+              throw new MissingRequiredPropertyException("LabVirtualMachine", "adminUser");
+            }
+            this.adminUser = adminUser;
             return this;
         }
         @CustomType.Setter
         public Builder createOption(@Nullable String createOption) {
+
             this.createOption = createOption;
             return this;
         }
         @CustomType.Setter
         public Builder imageReference(LabVirtualMachineImageReference imageReference) {
-            this.imageReference = Objects.requireNonNull(imageReference);
+            if (imageReference == null) {
+              throw new MissingRequiredPropertyException("LabVirtualMachine", "imageReference");
+            }
+            this.imageReference = imageReference;
             return this;
         }
         @CustomType.Setter
         public Builder nonAdminUser(@Nullable LabVirtualMachineNonAdminUser nonAdminUser) {
+
             this.nonAdminUser = nonAdminUser;
             return this;
         }
         @CustomType.Setter
         public Builder sharedPasswordEnabled(@Nullable Boolean sharedPasswordEnabled) {
+
             this.sharedPasswordEnabled = sharedPasswordEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder sku(LabVirtualMachineSku sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("LabVirtualMachine", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder usageQuota(@Nullable String usageQuota) {
+
             this.usageQuota = usageQuota;
             return this;
         }

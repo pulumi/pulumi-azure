@@ -5,6 +5,7 @@ package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class IntegrationRuntimeSsisProxyArgs extends com.pulumi.resources.
         }
 
         public IntegrationRuntimeSsisProxyArgs build() {
-            $.selfHostedIntegrationRuntimeName = Objects.requireNonNull($.selfHostedIntegrationRuntimeName, "expected parameter 'selfHostedIntegrationRuntimeName' to be non-null");
-            $.stagingStorageLinkedServiceName = Objects.requireNonNull($.stagingStorageLinkedServiceName, "expected parameter 'stagingStorageLinkedServiceName' to be non-null");
+            if ($.selfHostedIntegrationRuntimeName == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisProxyArgs", "selfHostedIntegrationRuntimeName");
+            }
+            if ($.stagingStorageLinkedServiceName == null) {
+                throw new MissingRequiredPropertyException("IntegrationRuntimeSsisProxyArgs", "stagingStorageLinkedServiceName");
+            }
             return $;
         }
     }

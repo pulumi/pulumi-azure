@@ -5,6 +5,7 @@ package com.pulumi.azure.cdn.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -203,8 +204,12 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         public FrontdoorOriginPrivateLinkArgs build() {
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
-            $.privateLinkTargetId = Objects.requireNonNull($.privateLinkTargetId, "expected parameter 'privateLinkTargetId' to be non-null");
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginPrivateLinkArgs", "location");
+            }
+            if ($.privateLinkTargetId == null) {
+                throw new MissingRequiredPropertyException("FrontdoorOriginPrivateLinkArgs", "privateLinkTargetId");
+            }
             return $;
         }
     }

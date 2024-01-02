@@ -4,6 +4,7 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -93,16 +94,21 @@ public final class ObjectReplicationRule {
 
         @CustomType.Setter
         public Builder copyBlobsCreatedAfter(@Nullable String copyBlobsCreatedAfter) {
+
             this.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
             return this;
         }
         @CustomType.Setter
         public Builder destinationContainerName(String destinationContainerName) {
-            this.destinationContainerName = Objects.requireNonNull(destinationContainerName);
+            if (destinationContainerName == null) {
+              throw new MissingRequiredPropertyException("ObjectReplicationRule", "destinationContainerName");
+            }
+            this.destinationContainerName = destinationContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder filterOutBlobsWithPrefixes(@Nullable List<String> filterOutBlobsWithPrefixes) {
+
             this.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
             return this;
         }
@@ -111,12 +117,16 @@ public final class ObjectReplicationRule {
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sourceContainerName(String sourceContainerName) {
-            this.sourceContainerName = Objects.requireNonNull(sourceContainerName);
+            if (sourceContainerName == null) {
+              throw new MissingRequiredPropertyException("ObjectReplicationRule", "sourceContainerName");
+            }
+            this.sourceContainerName = sourceContainerName;
             return this;
         }
         public ObjectReplicationRule build() {

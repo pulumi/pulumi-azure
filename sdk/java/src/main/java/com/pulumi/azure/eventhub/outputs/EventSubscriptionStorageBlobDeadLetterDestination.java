@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class EventSubscriptionStorageBlobDeadLetterDestination {
 
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionStorageBlobDeadLetterDestination", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder storageBlobContainerName(String storageBlobContainerName) {
-            this.storageBlobContainerName = Objects.requireNonNull(storageBlobContainerName);
+            if (storageBlobContainerName == null) {
+              throw new MissingRequiredPropertyException("EventSubscriptionStorageBlobDeadLetterDestination", "storageBlobContainerName");
+            }
+            this.storageBlobContainerName = storageBlobContainerName;
             return this;
         }
         public EventSubscriptionStorageBlobDeadLetterDestination build() {

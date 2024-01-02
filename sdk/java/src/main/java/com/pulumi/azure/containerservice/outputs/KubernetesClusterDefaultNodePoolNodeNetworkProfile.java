@@ -48,6 +48,7 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
 
         @CustomType.Setter
         public Builder nodePublicIpTags(@Nullable Map<String,String> nodePublicIpTags) {
+
             this.nodePublicIpTags = nodePublicIpTags;
             return this;
         }

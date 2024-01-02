@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class NamespaceSchemaGroupArgs extends com.pulumi.resources.Resourc
         }
 
         public NamespaceSchemaGroupArgs build() {
-            $.namespaceId = Objects.requireNonNull($.namespaceId, "expected parameter 'namespaceId' to be non-null");
-            $.schemaCompatibility = Objects.requireNonNull($.schemaCompatibility, "expected parameter 'schemaCompatibility' to be non-null");
-            $.schemaType = Objects.requireNonNull($.schemaType, "expected parameter 'schemaType' to be non-null");
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("NamespaceSchemaGroupArgs", "namespaceId");
+            }
+            if ($.schemaCompatibility == null) {
+                throw new MissingRequiredPropertyException("NamespaceSchemaGroupArgs", "schemaCompatibility");
+            }
+            if ($.schemaType == null) {
+                throw new MissingRequiredPropertyException("NamespaceSchemaGroupArgs", "schemaType");
+            }
             return $;
         }
     }

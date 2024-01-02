@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -337,8 +338,12 @@ public final class RegistryAgentPoolArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RegistryAgentPoolArgs build() {
-            $.containerRegistryName = Objects.requireNonNull($.containerRegistryName, "expected parameter 'containerRegistryName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.containerRegistryName == null) {
+                throw new MissingRequiredPropertyException("RegistryAgentPoolArgs", "containerRegistryName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RegistryAgentPoolArgs", "resourceGroupName");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.management;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -383,9 +384,15 @@ public final class GroupPolicyExemptionArgs extends com.pulumi.resources.Resourc
         }
 
         public GroupPolicyExemptionArgs build() {
-            $.exemptionCategory = Objects.requireNonNull($.exemptionCategory, "expected parameter 'exemptionCategory' to be non-null");
-            $.managementGroupId = Objects.requireNonNull($.managementGroupId, "expected parameter 'managementGroupId' to be non-null");
-            $.policyAssignmentId = Objects.requireNonNull($.policyAssignmentId, "expected parameter 'policyAssignmentId' to be non-null");
+            if ($.exemptionCategory == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyExemptionArgs", "exemptionCategory");
+            }
+            if ($.managementGroupId == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyExemptionArgs", "managementGroupId");
+            }
+            if ($.policyAssignmentId == null) {
+                throw new MissingRequiredPropertyException("GroupPolicyExemptionArgs", "policyAssignmentId");
+            }
             return $;
         }
     }

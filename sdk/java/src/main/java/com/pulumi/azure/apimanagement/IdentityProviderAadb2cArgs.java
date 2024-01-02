@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -446,15 +447,33 @@ public final class IdentityProviderAadb2cArgs extends com.pulumi.resources.Resou
         }
 
         public IdentityProviderAadb2cArgs build() {
-            $.allowedTenant = Objects.requireNonNull($.allowedTenant, "expected parameter 'allowedTenant' to be non-null");
-            $.apiManagementName = Objects.requireNonNull($.apiManagementName, "expected parameter 'apiManagementName' to be non-null");
-            $.authority = Objects.requireNonNull($.authority, "expected parameter 'authority' to be non-null");
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecret = Objects.requireNonNull($.clientSecret, "expected parameter 'clientSecret' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.signinPolicy = Objects.requireNonNull($.signinPolicy, "expected parameter 'signinPolicy' to be non-null");
-            $.signinTenant = Objects.requireNonNull($.signinTenant, "expected parameter 'signinTenant' to be non-null");
-            $.signupPolicy = Objects.requireNonNull($.signupPolicy, "expected parameter 'signupPolicy' to be non-null");
+            if ($.allowedTenant == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "allowedTenant");
+            }
+            if ($.apiManagementName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "apiManagementName");
+            }
+            if ($.authority == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "authority");
+            }
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "clientId");
+            }
+            if ($.clientSecret == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "clientSecret");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "resourceGroupName");
+            }
+            if ($.signinPolicy == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "signinPolicy");
+            }
+            if ($.signinTenant == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "signinTenant");
+            }
+            if ($.signupPolicy == null) {
+                throw new MissingRequiredPropertyException("IdentityProviderAadb2cArgs", "signupPolicy");
+            }
             return $;
         }
     }

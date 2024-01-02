@@ -59,11 +59,13 @@ public final class ActiveRoleAssignmentSchedule {
 
         @CustomType.Setter
         public Builder expiration(@Nullable ActiveRoleAssignmentScheduleExpiration expiration) {
+
             this.expiration = expiration;
             return this;
         }
         @CustomType.Setter
         public Builder startDateTime(@Nullable String startDateTime) {
+
             this.startDateTime = startDateTime;
             return this;
         }

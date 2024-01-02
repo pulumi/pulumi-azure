@@ -5,6 +5,7 @@ package com.pulumi.azure.bot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,11 +262,21 @@ public final class ChannelSmsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ChannelSmsArgs build() {
-            $.botName = Objects.requireNonNull($.botName, "expected parameter 'botName' to be non-null");
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.smsChannelAccountSecurityId = Objects.requireNonNull($.smsChannelAccountSecurityId, "expected parameter 'smsChannelAccountSecurityId' to be non-null");
-            $.smsChannelAuthToken = Objects.requireNonNull($.smsChannelAuthToken, "expected parameter 'smsChannelAuthToken' to be non-null");
+            if ($.botName == null) {
+                throw new MissingRequiredPropertyException("ChannelSmsArgs", "botName");
+            }
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("ChannelSmsArgs", "phoneNumber");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ChannelSmsArgs", "resourceGroupName");
+            }
+            if ($.smsChannelAccountSecurityId == null) {
+                throw new MissingRequiredPropertyException("ChannelSmsArgs", "smsChannelAccountSecurityId");
+            }
+            if ($.smsChannelAuthToken == null) {
+                throw new MissingRequiredPropertyException("ChannelSmsArgs", "smsChannelAuthToken");
+            }
             return $;
         }
     }

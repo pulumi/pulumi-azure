@@ -5,6 +5,7 @@ package com.pulumi.azure.servicefabric.outputs;
 
 import com.pulumi.azure.servicefabric.outputs.ManagedClusterNodeTypeVmSecret;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -287,86 +288,121 @@ public final class ManagedClusterNodeType {
 
         @CustomType.Setter
         public Builder applicationPortRange(String applicationPortRange) {
-            this.applicationPortRange = Objects.requireNonNull(applicationPortRange);
+            if (applicationPortRange == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "applicationPortRange");
+            }
+            this.applicationPortRange = applicationPortRange;
             return this;
         }
         @CustomType.Setter
         public Builder capacities(@Nullable Map<String,String> capacities) {
+
             this.capacities = capacities;
             return this;
         }
         @CustomType.Setter
         public Builder dataDiskSizeGb(Integer dataDiskSizeGb) {
-            this.dataDiskSizeGb = Objects.requireNonNull(dataDiskSizeGb);
+            if (dataDiskSizeGb == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "dataDiskSizeGb");
+            }
+            this.dataDiskSizeGb = dataDiskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder dataDiskType(@Nullable String dataDiskType) {
+
             this.dataDiskType = dataDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder ephemeralPortRange(String ephemeralPortRange) {
-            this.ephemeralPortRange = Objects.requireNonNull(ephemeralPortRange);
+            if (ephemeralPortRange == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "ephemeralPortRange");
+            }
+            this.ephemeralPortRange = ephemeralPortRange;
             return this;
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder multiplePlacementGroupsEnabled(@Nullable Boolean multiplePlacementGroupsEnabled) {
+
             this.multiplePlacementGroupsEnabled = multiplePlacementGroupsEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder placementProperties(@Nullable Map<String,String> placementProperties) {
+
             this.placementProperties = placementProperties;
             return this;
         }
         @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
+
             this.primary = primary;
             return this;
         }
         @CustomType.Setter
         public Builder stateless(@Nullable Boolean stateless) {
+
             this.stateless = stateless;
             return this;
         }
         @CustomType.Setter
         public Builder vmImageOffer(String vmImageOffer) {
-            this.vmImageOffer = Objects.requireNonNull(vmImageOffer);
+            if (vmImageOffer == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmImageOffer");
+            }
+            this.vmImageOffer = vmImageOffer;
             return this;
         }
         @CustomType.Setter
         public Builder vmImagePublisher(String vmImagePublisher) {
-            this.vmImagePublisher = Objects.requireNonNull(vmImagePublisher);
+            if (vmImagePublisher == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmImagePublisher");
+            }
+            this.vmImagePublisher = vmImagePublisher;
             return this;
         }
         @CustomType.Setter
         public Builder vmImageSku(String vmImageSku) {
-            this.vmImageSku = Objects.requireNonNull(vmImageSku);
+            if (vmImageSku == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmImageSku");
+            }
+            this.vmImageSku = vmImageSku;
             return this;
         }
         @CustomType.Setter
         public Builder vmImageVersion(String vmImageVersion) {
-            this.vmImageVersion = Objects.requireNonNull(vmImageVersion);
+            if (vmImageVersion == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmImageVersion");
+            }
+            this.vmImageVersion = vmImageVersion;
             return this;
         }
         @CustomType.Setter
         public Builder vmInstanceCount(Integer vmInstanceCount) {
-            this.vmInstanceCount = Objects.requireNonNull(vmInstanceCount);
+            if (vmInstanceCount == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmInstanceCount");
+            }
+            this.vmInstanceCount = vmInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder vmSecrets(@Nullable List<ManagedClusterNodeTypeVmSecret> vmSecrets) {
+
             this.vmSecrets = vmSecrets;
             return this;
         }
@@ -375,7 +411,10 @@ public final class ManagedClusterNodeType {
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("ManagedClusterNodeType", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         public ManagedClusterNodeType build() {

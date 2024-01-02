@@ -5,6 +5,7 @@ package com.pulumi.azure.desktopvirtualization.outputs;
 
 import com.pulumi.azure.desktopvirtualization.outputs.GetHostPoolScheduledAgentUpdateSchedule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -87,12 +88,18 @@ public final class GetHostPoolScheduledAgentUpdate {
 
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolScheduledAgentUpdate", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(List<GetHostPoolScheduledAgentUpdateSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolScheduledAgentUpdate", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(GetHostPoolScheduledAgentUpdateSchedule... schedules) {
@@ -100,12 +107,18 @@ public final class GetHostPoolScheduledAgentUpdate {
         }
         @CustomType.Setter
         public Builder timezone(String timezone) {
-            this.timezone = Objects.requireNonNull(timezone);
+            if (timezone == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolScheduledAgentUpdate", "timezone");
+            }
+            this.timezone = timezone;
             return this;
         }
         @CustomType.Setter
         public Builder useSessionHostTimezone(Boolean useSessionHostTimezone) {
-            this.useSessionHostTimezone = Objects.requireNonNull(useSessionHostTimezone);
+            if (useSessionHostTimezone == null) {
+              throw new MissingRequiredPropertyException("GetHostPoolScheduledAgentUpdate", "useSessionHostTimezone");
+            }
+            this.useSessionHostTimezone = useSessionHostTimezone;
             return this;
         }
         public GetHostPoolScheduledAgentUpdate build() {

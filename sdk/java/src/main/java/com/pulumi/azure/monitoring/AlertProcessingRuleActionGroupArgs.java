@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupConditio
 import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleActionGroupScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -397,9 +398,15 @@ public final class AlertProcessingRuleActionGroupArgs extends com.pulumi.resourc
         }
 
         public AlertProcessingRuleActionGroupArgs build() {
-            $.addActionGroupIds = Objects.requireNonNull($.addActionGroupIds, "expected parameter 'addActionGroupIds' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.addActionGroupIds == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupArgs", "addActionGroupIds");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupArgs", "resourceGroupName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("AlertProcessingRuleActionGroupArgs", "scopes");
+            }
             return $;
         }
     }

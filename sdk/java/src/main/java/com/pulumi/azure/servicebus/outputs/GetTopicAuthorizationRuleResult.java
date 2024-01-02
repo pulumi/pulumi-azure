@@ -4,6 +4,7 @@
 package com.pulumi.azure.servicebus.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -183,81 +184,119 @@ public final class GetTopicAuthorizationRuleResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder listen(Boolean listen) {
-            this.listen = Objects.requireNonNull(listen);
+            if (listen == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "listen");
+            }
+            this.listen = listen;
             return this;
         }
         @CustomType.Setter
         public Builder manage(Boolean manage) {
-            this.manage = Objects.requireNonNull(manage);
+            if (manage == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "manage");
+            }
+            this.manage = manage;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
+
             this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
-            this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
+            if (primaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "primaryConnectionString");
+            }
+            this.primaryConnectionString = primaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
-            this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
+            if (primaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "primaryConnectionStringAlias");
+            }
+            this.primaryConnectionStringAlias = primaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder queueName(@Nullable String queueName) {
+
             this.queueName = queueName;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
+
             this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
-            this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
+            if (secondaryConnectionString == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "secondaryConnectionString");
+            }
+            this.secondaryConnectionString = secondaryConnectionString;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
-            this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
+            if (secondaryConnectionStringAlias == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "secondaryConnectionStringAlias");
+            }
+            this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
-            this.secondaryKey = Objects.requireNonNull(secondaryKey);
+            if (secondaryKey == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "secondaryKey");
+            }
+            this.secondaryKey = secondaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder send(Boolean send) {
-            this.send = Objects.requireNonNull(send);
+            if (send == null) {
+              throw new MissingRequiredPropertyException("GetTopicAuthorizationRuleResult", "send");
+            }
+            this.send = send;
             return this;
         }
         @CustomType.Setter
         public Builder topicId(@Nullable String topicId) {
+
             this.topicId = topicId;
             return this;
         }
         @CustomType.Setter
         public Builder topicName(@Nullable String topicName) {
+
             this.topicName = topicName;
             return this;
         }

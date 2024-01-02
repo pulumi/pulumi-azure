@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb.outputs;
 import com.pulumi.azure.cosmosdb.outputs.GremlinGraphIndexPolicyCompositeIndex;
 import com.pulumi.azure.cosmosdb.outputs.GremlinGraphIndexPolicySpatialIndex;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -118,11 +119,13 @@ public final class GremlinGraphIndexPolicy {
 
         @CustomType.Setter
         public Builder automatic(@Nullable Boolean automatic) {
+
             this.automatic = automatic;
             return this;
         }
         @CustomType.Setter
         public Builder compositeIndices(@Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices) {
+
             this.compositeIndices = compositeIndices;
             return this;
         }
@@ -131,6 +134,7 @@ public final class GremlinGraphIndexPolicy {
         }
         @CustomType.Setter
         public Builder excludedPaths(@Nullable List<String> excludedPaths) {
+
             this.excludedPaths = excludedPaths;
             return this;
         }
@@ -139,6 +143,7 @@ public final class GremlinGraphIndexPolicy {
         }
         @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
+
             this.includedPaths = includedPaths;
             return this;
         }
@@ -147,11 +152,15 @@ public final class GremlinGraphIndexPolicy {
         }
         @CustomType.Setter
         public Builder indexingMode(String indexingMode) {
-            this.indexingMode = Objects.requireNonNull(indexingMode);
+            if (indexingMode == null) {
+              throw new MissingRequiredPropertyException("GremlinGraphIndexPolicy", "indexingMode");
+            }
+            this.indexingMode = indexingMode;
             return this;
         }
         @CustomType.Setter
         public Builder spatialIndices(@Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices) {
+
             this.spatialIndices = spatialIndices;
             return this;
         }

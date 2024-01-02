@@ -5,6 +5,7 @@ package com.pulumi.azure.eventhub;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class EventhubNamespaceDisasterRecoveryConfigArgs extends com.pulum
         }
 
         public EventhubNamespaceDisasterRecoveryConfigArgs build() {
-            $.namespaceName = Objects.requireNonNull($.namespaceName, "expected parameter 'namespaceName' to be non-null");
-            $.partnerNamespaceId = Objects.requireNonNull($.partnerNamespaceId, "expected parameter 'partnerNamespaceId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.namespaceName == null) {
+                throw new MissingRequiredPropertyException("EventhubNamespaceDisasterRecoveryConfigArgs", "namespaceName");
+            }
+            if ($.partnerNamespaceId == null) {
+                throw new MissingRequiredPropertyException("EventhubNamespaceDisasterRecoveryConfigArgs", "partnerNamespaceId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EventhubNamespaceDisasterRecoveryConfigArgs", "resourceGroupName");
+            }
             return $;
         }
     }

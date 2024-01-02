@@ -6,6 +6,7 @@ package com.pulumi.azure.siterecovery;
 import com.pulumi.azure.siterecovery.inputs.ProtectionContainerMappingAutomaticUpdateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -336,12 +337,24 @@ public final class ProtectionContainerMappingArgs extends com.pulumi.resources.R
         }
 
         public ProtectionContainerMappingArgs build() {
-            $.recoveryFabricName = Objects.requireNonNull($.recoveryFabricName, "expected parameter 'recoveryFabricName' to be non-null");
-            $.recoveryReplicationPolicyId = Objects.requireNonNull($.recoveryReplicationPolicyId, "expected parameter 'recoveryReplicationPolicyId' to be non-null");
-            $.recoverySourceProtectionContainerName = Objects.requireNonNull($.recoverySourceProtectionContainerName, "expected parameter 'recoverySourceProtectionContainerName' to be non-null");
-            $.recoveryTargetProtectionContainerId = Objects.requireNonNull($.recoveryTargetProtectionContainerId, "expected parameter 'recoveryTargetProtectionContainerId' to be non-null");
-            $.recoveryVaultName = Objects.requireNonNull($.recoveryVaultName, "expected parameter 'recoveryVaultName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.recoveryFabricName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "recoveryFabricName");
+            }
+            if ($.recoveryReplicationPolicyId == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "recoveryReplicationPolicyId");
+            }
+            if ($.recoverySourceProtectionContainerName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "recoverySourceProtectionContainerName");
+            }
+            if ($.recoveryTargetProtectionContainerId == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "recoveryTargetProtectionContainerId");
+            }
+            if ($.recoveryVaultName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "recoveryVaultName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingArgs", "resourceGroupName");
+            }
             return $;
         }
     }

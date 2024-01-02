@@ -4,6 +4,7 @@
 package com.pulumi.azure.appconfiguration.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -162,57 +163,88 @@ public final class GetConfigurationKeyResult {
 
         @CustomType.Setter
         public Builder configurationStoreId(String configurationStoreId) {
-            this.configurationStoreId = Objects.requireNonNull(configurationStoreId);
+            if (configurationStoreId == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "configurationStoreId");
+            }
+            this.configurationStoreId = configurationStoreId;
             return this;
         }
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder etag(String etag) {
-            this.etag = Objects.requireNonNull(etag);
+            if (etag == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "etag");
+            }
+            this.etag = etag;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder key(String key) {
-            this.key = Objects.requireNonNull(key);
+            if (key == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "key");
+            }
+            this.key = key;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder locked(Boolean locked) {
-            this.locked = Objects.requireNonNull(locked);
+            if (locked == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "locked");
+            }
+            this.locked = locked;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "value");
+            }
+            this.value = value;
             return this;
         }
         @CustomType.Setter
         public Builder vaultKeyReference(String vaultKeyReference) {
-            this.vaultKeyReference = Objects.requireNonNull(vaultKeyReference);
+            if (vaultKeyReference == null) {
+              throw new MissingRequiredPropertyException("GetConfigurationKeyResult", "vaultKeyReference");
+            }
+            this.vaultKeyReference = vaultKeyReference;
             return this;
         }
         public GetConfigurationKeyResult build() {

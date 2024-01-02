@@ -7,6 +7,7 @@ import com.pulumi.azure.appinsights.inputs.StandardWebTestRequestArgs;
 import com.pulumi.azure.appinsights.inputs.StandardWebTestValidationRulesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -546,10 +547,18 @@ public final class StandardWebTestArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public StandardWebTestArgs build() {
-            $.applicationInsightsId = Objects.requireNonNull($.applicationInsightsId, "expected parameter 'applicationInsightsId' to be non-null");
-            $.geoLocations = Objects.requireNonNull($.geoLocations, "expected parameter 'geoLocations' to be non-null");
-            $.request = Objects.requireNonNull($.request, "expected parameter 'request' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.applicationInsightsId == null) {
+                throw new MissingRequiredPropertyException("StandardWebTestArgs", "applicationInsightsId");
+            }
+            if ($.geoLocations == null) {
+                throw new MissingRequiredPropertyException("StandardWebTestArgs", "geoLocations");
+            }
+            if ($.request == null) {
+                throw new MissingRequiredPropertyException("StandardWebTestArgs", "request");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("StandardWebTestArgs", "resourceGroupName");
+            }
             return $;
         }
     }

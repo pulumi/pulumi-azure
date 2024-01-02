@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -372,10 +373,18 @@ public final class MoverJobDefinitionArgs extends com.pulumi.resources.ResourceA
         }
 
         public MoverJobDefinitionArgs build() {
-            $.copyMode = Objects.requireNonNull($.copyMode, "expected parameter 'copyMode' to be non-null");
-            $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
-            $.storageMoverProjectId = Objects.requireNonNull($.storageMoverProjectId, "expected parameter 'storageMoverProjectId' to be non-null");
-            $.targetName = Objects.requireNonNull($.targetName, "expected parameter 'targetName' to be non-null");
+            if ($.copyMode == null) {
+                throw new MissingRequiredPropertyException("MoverJobDefinitionArgs", "copyMode");
+            }
+            if ($.sourceName == null) {
+                throw new MissingRequiredPropertyException("MoverJobDefinitionArgs", "sourceName");
+            }
+            if ($.storageMoverProjectId == null) {
+                throw new MissingRequiredPropertyException("MoverJobDefinitionArgs", "storageMoverProjectId");
+            }
+            if ($.targetName == null) {
+                throw new MissingRequiredPropertyException("MoverJobDefinitionArgs", "targetName");
+            }
             return $;
         }
     }

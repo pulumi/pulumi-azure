@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -161,8 +162,12 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args extends com.p
         }
 
         public WindowsFunctionAppSlotAuthSettingsV2AppleV2Args build() {
-            $.clientId = Objects.requireNonNull($.clientId, "expected parameter 'clientId' to be non-null");
-            $.clientSecretSettingName = Objects.requireNonNull($.clientSecretSettingName, "expected parameter 'clientSecretSettingName' to be non-null");
+            if ($.clientId == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsV2AppleV2Args", "clientId");
+            }
+            if ($.clientSecretSettingName == null) {
+                throw new MissingRequiredPropertyException("WindowsFunctionAppSlotAuthSettingsV2AppleV2Args", "clientSecretSettingName");
+            }
             return $;
         }
     }

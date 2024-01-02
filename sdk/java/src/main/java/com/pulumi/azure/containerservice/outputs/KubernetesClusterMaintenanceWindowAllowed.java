@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -58,12 +59,18 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
 
         @CustomType.Setter
         public Builder day(String day) {
-            this.day = Objects.requireNonNull(day);
+            if (day == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAllowed", "day");
+            }
+            this.day = day;
             return this;
         }
         @CustomType.Setter
         public Builder hours(List<Integer> hours) {
-            this.hours = Objects.requireNonNull(hours);
+            if (hours == null) {
+              throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAllowed", "hours");
+            }
+            this.hours = hours;
             return this;
         }
         public Builder hours(Integer... hours) {

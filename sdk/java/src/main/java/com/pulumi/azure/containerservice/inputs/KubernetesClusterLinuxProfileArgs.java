@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterLinuxProfileSshKeyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -112,8 +113,12 @@ public final class KubernetesClusterLinuxProfileArgs extends com.pulumi.resource
         }
 
         public KubernetesClusterLinuxProfileArgs build() {
-            $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.sshKey = Objects.requireNonNull($.sshKey, "expected parameter 'sshKey' to be non-null");
+            if ($.adminUsername == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterLinuxProfileArgs", "adminUsername");
+            }
+            if ($.sshKey == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterLinuxProfileArgs", "sshKey");
+            }
             return $;
         }
     }

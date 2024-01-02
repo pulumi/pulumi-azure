@@ -10,6 +10,7 @@ import com.pulumi.azure.network.inputs.VirtualNetworkGatewayPolicyGroupArgs;
 import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -957,10 +958,18 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         }
 
         public VirtualNetworkGatewayArgs build() {
-            $.ipConfigurations = Objects.requireNonNull($.ipConfigurations, "expected parameter 'ipConfigurations' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.sku = Objects.requireNonNull($.sku, "expected parameter 'sku' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.ipConfigurations == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayArgs", "ipConfigurations");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayArgs", "resourceGroupName");
+            }
+            if ($.sku == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayArgs", "sku");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("VirtualNetworkGatewayArgs", "type");
+            }
             return $;
         }
     }

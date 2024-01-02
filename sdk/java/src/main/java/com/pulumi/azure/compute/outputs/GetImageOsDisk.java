@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -113,32 +114,50 @@ public final class GetImageOsDisk {
 
         @CustomType.Setter
         public Builder blobUri(String blobUri) {
-            this.blobUri = Objects.requireNonNull(blobUri);
+            if (blobUri == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "blobUri");
+            }
+            this.blobUri = blobUri;
             return this;
         }
         @CustomType.Setter
         public Builder caching(String caching) {
-            this.caching = Objects.requireNonNull(caching);
+            if (caching == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "caching");
+            }
+            this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskId(String managedDiskId) {
-            this.managedDiskId = Objects.requireNonNull(managedDiskId);
+            if (managedDiskId == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "managedDiskId");
+            }
+            this.managedDiskId = managedDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder osState(String osState) {
-            this.osState = Objects.requireNonNull(osState);
+            if (osState == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "osState");
+            }
+            this.osState = osState;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
-            this.sizeGb = Objects.requireNonNull(sizeGb);
+            if (sizeGb == null) {
+              throw new MissingRequiredPropertyException("GetImageOsDisk", "sizeGb");
+            }
+            this.sizeGb = sizeGb;
             return this;
         }
         public GetImageOsDisk build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class RegistryTaskScheduleRunNowArgs extends com.pulumi.resources.R
         }
 
         public RegistryTaskScheduleRunNowArgs build() {
-            $.containerRegistryTaskId = Objects.requireNonNull($.containerRegistryTaskId, "expected parameter 'containerRegistryTaskId' to be non-null");
+            if ($.containerRegistryTaskId == null) {
+                throw new MissingRequiredPropertyException("RegistryTaskScheduleRunNowArgs", "containerRegistryTaskId");
+            }
             return $;
         }
     }

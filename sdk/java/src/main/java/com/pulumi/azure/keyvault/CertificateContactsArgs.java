@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.keyvault.inputs.CertificateContactsContactArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -123,8 +124,12 @@ public final class CertificateContactsArgs extends com.pulumi.resources.Resource
         }
 
         public CertificateContactsArgs build() {
-            $.contacts = Objects.requireNonNull($.contacts, "expected parameter 'contacts' to be non-null");
-            $.keyVaultId = Objects.requireNonNull($.keyVaultId, "expected parameter 'keyVaultId' to be non-null");
+            if ($.contacts == null) {
+                throw new MissingRequiredPropertyException("CertificateContactsArgs", "contacts");
+            }
+            if ($.keyVaultId == null) {
+                throw new MissingRequiredPropertyException("CertificateContactsArgs", "keyVaultId");
+            }
             return $;
         }
     }

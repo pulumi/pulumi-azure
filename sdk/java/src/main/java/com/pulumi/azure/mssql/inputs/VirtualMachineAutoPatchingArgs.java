@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -149,9 +150,15 @@ public final class VirtualMachineAutoPatchingArgs extends com.pulumi.resources.R
         }
 
         public VirtualMachineAutoPatchingArgs build() {
-            $.dayOfWeek = Objects.requireNonNull($.dayOfWeek, "expected parameter 'dayOfWeek' to be non-null");
-            $.maintenanceWindowDurationInMinutes = Objects.requireNonNull($.maintenanceWindowDurationInMinutes, "expected parameter 'maintenanceWindowDurationInMinutes' to be non-null");
-            $.maintenanceWindowStartingHour = Objects.requireNonNull($.maintenanceWindowStartingHour, "expected parameter 'maintenanceWindowStartingHour' to be non-null");
+            if ($.dayOfWeek == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoPatchingArgs", "dayOfWeek");
+            }
+            if ($.maintenanceWindowDurationInMinutes == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoPatchingArgs", "maintenanceWindowDurationInMinutes");
+            }
+            if ($.maintenanceWindowStartingHour == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoPatchingArgs", "maintenanceWindowStartingHour");
+            }
             return $;
         }
     }

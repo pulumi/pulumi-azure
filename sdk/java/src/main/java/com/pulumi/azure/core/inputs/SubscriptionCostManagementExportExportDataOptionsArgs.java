@@ -5,6 +5,7 @@ package com.pulumi.azure.core.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class SubscriptionCostManagementExportExportDataOptionsArgs extends
         }
 
         public SubscriptionCostManagementExportExportDataOptionsArgs build() {
-            $.timeFrame = Objects.requireNonNull($.timeFrame, "expected parameter 'timeFrame' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.timeFrame == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataOptionsArgs", "timeFrame");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("SubscriptionCostManagementExportExportDataOptionsArgs", "type");
+            }
             return $;
         }
     }

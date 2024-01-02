@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -72,7 +73,10 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 
         @CustomType.Setter
         public Builder days(List<String> days) {
-            this.days = Objects.requireNonNull(days);
+            if (days == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule", "days");
+            }
+            this.days = days;
             return this;
         }
         public Builder days(String... days) {
@@ -80,12 +84,18 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         }
         @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
-            this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
+            if (targetInstanceCount == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule", "targetInstanceCount");
+            }
+            this.targetInstanceCount = targetInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder time(String time) {
-            this.time = Objects.requireNonNull(time);
+            if (time == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule", "time");
+            }
+            this.time = time;
             return this;
         }
         public HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {

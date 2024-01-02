@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.outputs;
 
 import com.pulumi.azure.containerservice.outputs.GetClusterNodePoolUpgradeSetting;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -388,72 +389,114 @@ public final class GetClusterNodePoolResult {
 
         @CustomType.Setter
         public Builder enableAutoScaling(Boolean enableAutoScaling) {
-            this.enableAutoScaling = Objects.requireNonNull(enableAutoScaling);
+            if (enableAutoScaling == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "enableAutoScaling");
+            }
+            this.enableAutoScaling = enableAutoScaling;
             return this;
         }
         @CustomType.Setter
         public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
-            this.enableNodePublicIp = Objects.requireNonNull(enableNodePublicIp);
+            if (enableNodePublicIp == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "enableNodePublicIp");
+            }
+            this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
         @CustomType.Setter
         public Builder evictionPolicy(String evictionPolicy) {
-            this.evictionPolicy = Objects.requireNonNull(evictionPolicy);
+            if (evictionPolicy == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "evictionPolicy");
+            }
+            this.evictionPolicy = evictionPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder kubernetesClusterName(String kubernetesClusterName) {
-            this.kubernetesClusterName = Objects.requireNonNull(kubernetesClusterName);
+            if (kubernetesClusterName == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "kubernetesClusterName");
+            }
+            this.kubernetesClusterName = kubernetesClusterName;
             return this;
         }
         @CustomType.Setter
         public Builder maxCount(Integer maxCount) {
-            this.maxCount = Objects.requireNonNull(maxCount);
+            if (maxCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "maxCount");
+            }
+            this.maxCount = maxCount;
             return this;
         }
         @CustomType.Setter
         public Builder maxPods(Integer maxPods) {
-            this.maxPods = Objects.requireNonNull(maxPods);
+            if (maxPods == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "maxPods");
+            }
+            this.maxPods = maxPods;
             return this;
         }
         @CustomType.Setter
         public Builder minCount(Integer minCount) {
-            this.minCount = Objects.requireNonNull(minCount);
+            if (minCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "minCount");
+            }
+            this.minCount = minCount;
             return this;
         }
         @CustomType.Setter
         public Builder mode(String mode) {
-            this.mode = Objects.requireNonNull(mode);
+            if (mode == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "mode");
+            }
+            this.mode = mode;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nodeCount(Integer nodeCount) {
-            this.nodeCount = Objects.requireNonNull(nodeCount);
+            if (nodeCount == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeCount");
+            }
+            this.nodeCount = nodeCount;
             return this;
         }
         @CustomType.Setter
         public Builder nodeLabels(Map<String,String> nodeLabels) {
-            this.nodeLabels = Objects.requireNonNull(nodeLabels);
+            if (nodeLabels == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeLabels");
+            }
+            this.nodeLabels = nodeLabels;
             return this;
         }
         @CustomType.Setter
         public Builder nodePublicIpPrefixId(String nodePublicIpPrefixId) {
-            this.nodePublicIpPrefixId = Objects.requireNonNull(nodePublicIpPrefixId);
+            if (nodePublicIpPrefixId == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodePublicIpPrefixId");
+            }
+            this.nodePublicIpPrefixId = nodePublicIpPrefixId;
             return this;
         }
         @CustomType.Setter
         public Builder nodeTaints(List<String> nodeTaints) {
-            this.nodeTaints = Objects.requireNonNull(nodeTaints);
+            if (nodeTaints == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeTaints");
+            }
+            this.nodeTaints = nodeTaints;
             return this;
         }
         public Builder nodeTaints(String... nodeTaints) {
@@ -461,52 +504,82 @@ public final class GetClusterNodePoolResult {
         }
         @CustomType.Setter
         public Builder orchestratorVersion(String orchestratorVersion) {
-            this.orchestratorVersion = Objects.requireNonNull(orchestratorVersion);
+            if (orchestratorVersion == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "orchestratorVersion");
+            }
+            this.orchestratorVersion = orchestratorVersion;
             return this;
         }
         @CustomType.Setter
         public Builder osDiskSizeGb(Integer osDiskSizeGb) {
-            this.osDiskSizeGb = Objects.requireNonNull(osDiskSizeGb);
+            if (osDiskSizeGb == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "osDiskSizeGb");
+            }
+            this.osDiskSizeGb = osDiskSizeGb;
             return this;
         }
         @CustomType.Setter
         public Builder osDiskType(String osDiskType) {
-            this.osDiskType = Objects.requireNonNull(osDiskType);
+            if (osDiskType == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "osDiskType");
+            }
+            this.osDiskType = osDiskType;
             return this;
         }
         @CustomType.Setter
         public Builder osType(String osType) {
-            this.osType = Objects.requireNonNull(osType);
+            if (osType == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "osType");
+            }
+            this.osType = osType;
             return this;
         }
         @CustomType.Setter
         public Builder priority(String priority) {
-            this.priority = Objects.requireNonNull(priority);
+            if (priority == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "priority");
+            }
+            this.priority = priority;
             return this;
         }
         @CustomType.Setter
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
-            this.proximityPlacementGroupId = Objects.requireNonNull(proximityPlacementGroupId);
+            if (proximityPlacementGroupId == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "proximityPlacementGroupId");
+            }
+            this.proximityPlacementGroupId = proximityPlacementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder spotMaxPrice(Double spotMaxPrice) {
-            this.spotMaxPrice = Objects.requireNonNull(spotMaxPrice);
+            if (spotMaxPrice == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "spotMaxPrice");
+            }
+            this.spotMaxPrice = spotMaxPrice;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder upgradeSettings(List<GetClusterNodePoolUpgradeSetting> upgradeSettings) {
-            this.upgradeSettings = Objects.requireNonNull(upgradeSettings);
+            if (upgradeSettings == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "upgradeSettings");
+            }
+            this.upgradeSettings = upgradeSettings;
             return this;
         }
         public Builder upgradeSettings(GetClusterNodePoolUpgradeSetting... upgradeSettings) {
@@ -514,17 +587,26 @@ public final class GetClusterNodePoolResult {
         }
         @CustomType.Setter
         public Builder vmSize(String vmSize) {
-            this.vmSize = Objects.requireNonNull(vmSize);
+            if (vmSize == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "vmSize");
+            }
+            this.vmSize = vmSize;
             return this;
         }
         @CustomType.Setter
         public Builder vnetSubnetId(String vnetSubnetId) {
-            this.vnetSubnetId = Objects.requireNonNull(vnetSubnetId);
+            if (vnetSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "vnetSubnetId");
+            }
+            this.vnetSubnetId = vnetSubnetId;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

@@ -6,6 +6,7 @@ package com.pulumi.azure.containerservice.inputs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAciConnectorLinuxConnectorIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -285,7 +286,9 @@ public final class KubernetesClusterAciConnectorLinuxArgs extends com.pulumi.res
         }
 
         public KubernetesClusterAciConnectorLinuxArgs build() {
-            $.subnetName = Objects.requireNonNull($.subnetName, "expected parameter 'subnetName' to be non-null");
+            if ($.subnetName == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterAciConnectorLinuxArgs", "subnetName");
+            }
             return $;
         }
     }

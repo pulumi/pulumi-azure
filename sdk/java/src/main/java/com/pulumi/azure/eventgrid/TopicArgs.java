@@ -9,6 +9,7 @@ import com.pulumi.azure.eventgrid.inputs.TopicInputMappingDefaultValuesArgs;
 import com.pulumi.azure.eventgrid.inputs.TopicInputMappingFieldsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -463,7 +464,9 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TopicArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("TopicArgs", "resourceGroupName");
+            }
             return $;
         }
     }

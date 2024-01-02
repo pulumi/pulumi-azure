@@ -11,6 +11,7 @@ import com.pulumi.azure.automation.outputs.GetVariablesNull;
 import com.pulumi.azure.automation.outputs.GetVariablesObject;
 import com.pulumi.azure.automation.outputs.GetVariablesString;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -146,12 +147,18 @@ public final class GetVariablesResult {
 
         @CustomType.Setter
         public Builder automationAccountId(String automationAccountId) {
-            this.automationAccountId = Objects.requireNonNull(automationAccountId);
+            if (automationAccountId == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "automationAccountId");
+            }
+            this.automationAccountId = automationAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder bools(List<GetVariablesBool> bools) {
-            this.bools = Objects.requireNonNull(bools);
+            if (bools == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "bools");
+            }
+            this.bools = bools;
             return this;
         }
         public Builder bools(GetVariablesBool... bools) {
@@ -159,7 +166,10 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder datetimes(List<GetVariablesDatetime> datetimes) {
-            this.datetimes = Objects.requireNonNull(datetimes);
+            if (datetimes == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "datetimes");
+            }
+            this.datetimes = datetimes;
             return this;
         }
         public Builder datetimes(GetVariablesDatetime... datetimes) {
@@ -167,7 +177,10 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder encrypteds(List<GetVariablesEncrypted> encrypteds) {
-            this.encrypteds = Objects.requireNonNull(encrypteds);
+            if (encrypteds == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "encrypteds");
+            }
+            this.encrypteds = encrypteds;
             return this;
         }
         public Builder encrypteds(GetVariablesEncrypted... encrypteds) {
@@ -175,12 +188,18 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder ints(List<GetVariablesInt> ints) {
-            this.ints = Objects.requireNonNull(ints);
+            if (ints == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "ints");
+            }
+            this.ints = ints;
             return this;
         }
         public Builder ints(GetVariablesInt... ints) {
@@ -188,7 +207,10 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder nulls(List<GetVariablesNull> nulls) {
-            this.nulls = Objects.requireNonNull(nulls);
+            if (nulls == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "nulls");
+            }
+            this.nulls = nulls;
             return this;
         }
         public Builder nulls(GetVariablesNull... nulls) {
@@ -196,7 +218,10 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder objects(List<GetVariablesObject> objects) {
-            this.objects = Objects.requireNonNull(objects);
+            if (objects == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "objects");
+            }
+            this.objects = objects;
             return this;
         }
         public Builder objects(GetVariablesObject... objects) {
@@ -204,7 +229,10 @@ public final class GetVariablesResult {
         }
         @CustomType.Setter
         public Builder strings(List<GetVariablesString> strings) {
-            this.strings = Objects.requireNonNull(strings);
+            if (strings == null) {
+              throw new MissingRequiredPropertyException("GetVariablesResult", "strings");
+            }
+            this.strings = strings;
             return this;
         }
         public Builder strings(GetVariablesString... strings) {

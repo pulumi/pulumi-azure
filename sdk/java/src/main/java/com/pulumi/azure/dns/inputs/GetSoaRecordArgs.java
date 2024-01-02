@@ -5,6 +5,7 @@ package com.pulumi.azure.dns.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class GetSoaRecordArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetSoaRecordArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.zoneName = Objects.requireNonNull($.zoneName, "expected parameter 'zoneName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetSoaRecordArgs", "resourceGroupName");
+            }
+            if ($.zoneName == null) {
+                throw new MissingRequiredPropertyException("GetSoaRecordArgs", "zoneName");
+            }
             return $;
         }
     }

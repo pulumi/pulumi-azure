@@ -7,6 +7,7 @@ import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionFilterDimension
 import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionFilterNot;
 import com.pulumi.azure.consumption.outputs.GetBudgetSubscriptionFilterTag;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -73,7 +74,10 @@ public final class GetBudgetSubscriptionFilter {
 
         @CustomType.Setter
         public Builder dimensions(List<GetBudgetSubscriptionFilterDimension> dimensions) {
-            this.dimensions = Objects.requireNonNull(dimensions);
+            if (dimensions == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionFilter", "dimensions");
+            }
+            this.dimensions = dimensions;
             return this;
         }
         public Builder dimensions(GetBudgetSubscriptionFilterDimension... dimensions) {
@@ -81,7 +85,10 @@ public final class GetBudgetSubscriptionFilter {
         }
         @CustomType.Setter
         public Builder nots(List<GetBudgetSubscriptionFilterNot> nots) {
-            this.nots = Objects.requireNonNull(nots);
+            if (nots == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionFilter", "nots");
+            }
+            this.nots = nots;
             return this;
         }
         public Builder nots(GetBudgetSubscriptionFilterNot... nots) {
@@ -89,7 +96,10 @@ public final class GetBudgetSubscriptionFilter {
         }
         @CustomType.Setter
         public Builder tags(List<GetBudgetSubscriptionFilterTag> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetBudgetSubscriptionFilter", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         public Builder tags(GetBudgetSubscriptionFilterTag... tags) {

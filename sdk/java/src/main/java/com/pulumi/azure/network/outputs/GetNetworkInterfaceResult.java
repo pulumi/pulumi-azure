@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.GetNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -248,7 +249,10 @@ public final class GetNetworkInterfaceResult {
 
         @CustomType.Setter
         public Builder appliedDnsServers(List<String> appliedDnsServers) {
-            this.appliedDnsServers = Objects.requireNonNull(appliedDnsServers);
+            if (appliedDnsServers == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "appliedDnsServers");
+            }
+            this.appliedDnsServers = appliedDnsServers;
             return this;
         }
         public Builder appliedDnsServers(String... appliedDnsServers) {
@@ -256,7 +260,10 @@ public final class GetNetworkInterfaceResult {
         }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
-            this.dnsServers = Objects.requireNonNull(dnsServers);
+            if (dnsServers == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "dnsServers");
+            }
+            this.dnsServers = dnsServers;
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
@@ -264,27 +271,42 @@ public final class GetNetworkInterfaceResult {
         }
         @CustomType.Setter
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            this.enableAcceleratedNetworking = Objects.requireNonNull(enableAcceleratedNetworking);
+            if (enableAcceleratedNetworking == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "enableAcceleratedNetworking");
+            }
+            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
         @CustomType.Setter
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            this.enableIpForwarding = Objects.requireNonNull(enableIpForwarding);
+            if (enableIpForwarding == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "enableIpForwarding");
+            }
+            this.enableIpForwarding = enableIpForwarding;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder internalDnsNameLabel(String internalDnsNameLabel) {
-            this.internalDnsNameLabel = Objects.requireNonNull(internalDnsNameLabel);
+            if (internalDnsNameLabel == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "internalDnsNameLabel");
+            }
+            this.internalDnsNameLabel = internalDnsNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder ipConfigurations(List<GetNetworkInterfaceIpConfiguration> ipConfigurations) {
-            this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
+            if (ipConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "ipConfigurations");
+            }
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
         public Builder ipConfigurations(GetNetworkInterfaceIpConfiguration... ipConfigurations) {
@@ -292,32 +314,50 @@ public final class GetNetworkInterfaceResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder macAddress(String macAddress) {
-            this.macAddress = Objects.requireNonNull(macAddress);
+            if (macAddress == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "macAddress");
+            }
+            this.macAddress = macAddress;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
-            this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
+            if (networkSecurityGroupId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "networkSecurityGroupId");
+            }
+            this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
-            this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
+            if (privateIpAddress == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "privateIpAddress");
+            }
+            this.privateIpAddress = privateIpAddress;
             return this;
         }
         @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
-            this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
+            if (privateIpAddresses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "privateIpAddresses");
+            }
+            this.privateIpAddresses = privateIpAddresses;
             return this;
         }
         public Builder privateIpAddresses(String... privateIpAddresses) {
@@ -325,17 +365,26 @@ public final class GetNetworkInterfaceResult {
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder virtualMachineId(String virtualMachineId) {
-            this.virtualMachineId = Objects.requireNonNull(virtualMachineId);
+            if (virtualMachineId == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "virtualMachineId");
+            }
+            this.virtualMachineId = virtualMachineId;
             return this;
         }
         public GetNetworkInterfaceResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql.inputs;
 import com.pulumi.azure.mssql.inputs.VirtualMachineAutoBackupManualScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -301,9 +302,15 @@ public final class VirtualMachineAutoBackupArgs extends com.pulumi.resources.Res
         }
 
         public VirtualMachineAutoBackupArgs build() {
-            $.retentionPeriodInDays = Objects.requireNonNull($.retentionPeriodInDays, "expected parameter 'retentionPeriodInDays' to be non-null");
-            $.storageAccountAccessKey = Objects.requireNonNull($.storageAccountAccessKey, "expected parameter 'storageAccountAccessKey' to be non-null");
-            $.storageBlobEndpoint = Objects.requireNonNull($.storageBlobEndpoint, "expected parameter 'storageBlobEndpoint' to be non-null");
+            if ($.retentionPeriodInDays == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupArgs", "retentionPeriodInDays");
+            }
+            if ($.storageAccountAccessKey == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupArgs", "storageAccountAccessKey");
+            }
+            if ($.storageBlobEndpoint == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAutoBackupArgs", "storageBlobEndpoint");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.azure.mssql.outputs.GetServerIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -155,22 +156,34 @@ public final class GetServerResult {
 
         @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
-            this.administratorLogin = Objects.requireNonNull(administratorLogin);
+            if (administratorLogin == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "administratorLogin");
+            }
+            this.administratorLogin = administratorLogin;
             return this;
         }
         @CustomType.Setter
         public Builder fullyQualifiedDomainName(String fullyQualifiedDomainName) {
-            this.fullyQualifiedDomainName = Objects.requireNonNull(fullyQualifiedDomainName);
+            if (fullyQualifiedDomainName == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "fullyQualifiedDomainName");
+            }
+            this.fullyQualifiedDomainName = fullyQualifiedDomainName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder identities(List<GetServerIdentity> identities) {
-            this.identities = Objects.requireNonNull(identities);
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "identities");
+            }
+            this.identities = identities;
             return this;
         }
         public Builder identities(GetServerIdentity... identities) {
@@ -178,22 +191,34 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder restorableDroppedDatabaseIds(List<String> restorableDroppedDatabaseIds) {
-            this.restorableDroppedDatabaseIds = Objects.requireNonNull(restorableDroppedDatabaseIds);
+            if (restorableDroppedDatabaseIds == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "restorableDroppedDatabaseIds");
+            }
+            this.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
             return this;
         }
         public Builder restorableDroppedDatabaseIds(String... restorableDroppedDatabaseIds) {
@@ -201,12 +226,18 @@ public final class GetServerResult {
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "version");
+            }
+            this.version = version;
             return this;
         }
         public GetServerResult build() {

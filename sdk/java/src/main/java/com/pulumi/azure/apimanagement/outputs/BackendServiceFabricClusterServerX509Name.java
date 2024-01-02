@@ -4,6 +4,7 @@
 package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class BackendServiceFabricClusterServerX509Name {
 
         @CustomType.Setter
         public Builder issuerCertificateThumbprint(String issuerCertificateThumbprint) {
-            this.issuerCertificateThumbprint = Objects.requireNonNull(issuerCertificateThumbprint);
+            if (issuerCertificateThumbprint == null) {
+              throw new MissingRequiredPropertyException("BackendServiceFabricClusterServerX509Name", "issuerCertificateThumbprint");
+            }
+            this.issuerCertificateThumbprint = issuerCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("BackendServiceFabricClusterServerX509Name", "name");
+            }
+            this.name = name;
             return this;
         }
         public BackendServiceFabricClusterServerX509Name build() {

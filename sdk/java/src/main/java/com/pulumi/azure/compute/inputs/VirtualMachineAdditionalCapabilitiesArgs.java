@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -82,7 +83,9 @@ public final class VirtualMachineAdditionalCapabilitiesArgs extends com.pulumi.r
         }
 
         public VirtualMachineAdditionalCapabilitiesArgs build() {
-            $.ultraSsdEnabled = Objects.requireNonNull($.ultraSsdEnabled, "expected parameter 'ultraSsdEnabled' to be non-null");
+            if ($.ultraSsdEnabled == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAdditionalCapabilitiesArgs", "ultraSsdEnabled");
+            }
             return $;
         }
     }

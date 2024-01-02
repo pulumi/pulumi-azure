@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -57,12 +58,18 @@ public final class VirtualNetworkDdosProtectionPlan {
 
         @CustomType.Setter
         public Builder enable(Boolean enable) {
-            this.enable = Objects.requireNonNull(enable);
+            if (enable == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkDdosProtectionPlan", "enable");
+            }
+            this.enable = enable;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("VirtualNetworkDdosProtectionPlan", "id");
+            }
+            this.id = id;
             return this;
         }
         public VirtualNetworkDdosProtectionPlan build() {

@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -123,8 +124,12 @@ public final class KubernetesClusterMaintenanceWindowAllowedArgs extends com.pul
         }
 
         public KubernetesClusterMaintenanceWindowAllowedArgs build() {
-            $.day = Objects.requireNonNull($.day, "expected parameter 'day' to be non-null");
-            $.hours = Objects.requireNonNull($.hours, "expected parameter 'hours' to be non-null");
+            if ($.day == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAllowedArgs", "day");
+            }
+            if ($.hours == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterMaintenanceWindowAllowedArgs", "hours");
+            }
             return $;
         }
     }

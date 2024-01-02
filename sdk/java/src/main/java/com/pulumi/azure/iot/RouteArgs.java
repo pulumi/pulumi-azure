@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,11 +300,21 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RouteArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.endpointNames = Objects.requireNonNull($.endpointNames, "expected parameter 'endpointNames' to be non-null");
-            $.iothubName = Objects.requireNonNull($.iothubName, "expected parameter 'iothubName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "enabled");
+            }
+            if ($.endpointNames == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "endpointNames");
+            }
+            if ($.iothubName == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "iothubName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "resourceGroupName");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("RouteArgs", "source");
+            }
             return $;
         }
     }

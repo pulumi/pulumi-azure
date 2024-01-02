@@ -5,6 +5,7 @@ package com.pulumi.azure.synapse;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -263,7 +264,9 @@ public final class SqlPoolExtendedAuditingPolicyArgs extends com.pulumi.resource
         }
 
         public SqlPoolExtendedAuditingPolicyArgs build() {
-            $.sqlPoolId = Objects.requireNonNull($.sqlPoolId, "expected parameter 'sqlPoolId' to be non-null");
+            if ($.sqlPoolId == null) {
+                throw new MissingRequiredPropertyException("SqlPoolExtendedAuditingPolicyArgs", "sqlPoolId");
+            }
             return $;
         }
     }

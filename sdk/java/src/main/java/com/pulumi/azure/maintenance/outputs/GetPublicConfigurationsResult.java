@@ -5,6 +5,7 @@ package com.pulumi.azure.maintenance.outputs;
 
 import com.pulumi.azure.maintenance.outputs.GetPublicConfigurationsConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -94,7 +95,10 @@ public final class GetPublicConfigurationsResult {
 
         @CustomType.Setter
         public Builder configs(List<GetPublicConfigurationsConfig> configs) {
-            this.configs = Objects.requireNonNull(configs);
+            if (configs == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsResult", "configs");
+            }
+            this.configs = configs;
             return this;
         }
         public Builder configs(GetPublicConfigurationsConfig... configs) {
@@ -102,21 +106,27 @@ public final class GetPublicConfigurationsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicConfigurationsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder location(@Nullable String location) {
+
             this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder recurEvery(@Nullable String recurEvery) {
+
             this.recurEvery = recurEvery;
             return this;
         }
         @CustomType.Setter
         public Builder scope(@Nullable String scope) {
+
             this.scope = scope;
             return this;
         }

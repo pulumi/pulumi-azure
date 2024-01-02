@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetDataCollectionRuleDestinationMonitorAccount {
 
         @CustomType.Setter
         public Builder monitorAccountId(String monitorAccountId) {
-            this.monitorAccountId = Objects.requireNonNull(monitorAccountId);
+            if (monitorAccountId == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestinationMonitorAccount", "monitorAccountId");
+            }
+            this.monitorAccountId = monitorAccountId;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionRuleDestinationMonitorAccount", "name");
+            }
+            this.name = name;
             return this;
         }
         public GetDataCollectionRuleDestinationMonitorAccount build() {

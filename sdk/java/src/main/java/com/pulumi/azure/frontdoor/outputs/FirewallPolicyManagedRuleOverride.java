@@ -6,6 +6,7 @@ package com.pulumi.azure.frontdoor.outputs;
 import com.pulumi.azure.frontdoor.outputs.FirewallPolicyManagedRuleOverrideExclusion;
 import com.pulumi.azure.frontdoor.outputs.FirewallPolicyManagedRuleOverrideRule;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,7 @@ public final class FirewallPolicyManagedRuleOverride {
 
         @CustomType.Setter
         public Builder exclusions(@Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -82,11 +84,15 @@ public final class FirewallPolicyManagedRuleOverride {
         }
         @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
-            this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
+            if (ruleGroupName == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyManagedRuleOverride", "ruleGroupName");
+            }
+            this.ruleGroupName = ruleGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<FirewallPolicyManagedRuleOverrideRule> rules) {
+
             this.rules = rules;
             return this;
         }

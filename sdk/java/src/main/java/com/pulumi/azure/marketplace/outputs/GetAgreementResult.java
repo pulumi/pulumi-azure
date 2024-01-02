@@ -4,6 +4,7 @@
 package com.pulumi.azure.marketplace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -72,32 +73,50 @@ public final class GetAgreementResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder licenseTextLink(String licenseTextLink) {
-            this.licenseTextLink = Objects.requireNonNull(licenseTextLink);
+            if (licenseTextLink == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "licenseTextLink");
+            }
+            this.licenseTextLink = licenseTextLink;
             return this;
         }
         @CustomType.Setter
         public Builder offer(String offer) {
-            this.offer = Objects.requireNonNull(offer);
+            if (offer == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "offer");
+            }
+            this.offer = offer;
             return this;
         }
         @CustomType.Setter
         public Builder plan(String plan) {
-            this.plan = Objects.requireNonNull(plan);
+            if (plan == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "plan");
+            }
+            this.plan = plan;
             return this;
         }
         @CustomType.Setter
         public Builder privacyPolicyLink(String privacyPolicyLink) {
-            this.privacyPolicyLink = Objects.requireNonNull(privacyPolicyLink);
+            if (privacyPolicyLink == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "privacyPolicyLink");
+            }
+            this.privacyPolicyLink = privacyPolicyLink;
             return this;
         }
         @CustomType.Setter
         public Builder publisher(String publisher) {
-            this.publisher = Objects.requireNonNull(publisher);
+            if (publisher == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "publisher");
+            }
+            this.publisher = publisher;
             return this;
         }
         public GetAgreementResult build() {

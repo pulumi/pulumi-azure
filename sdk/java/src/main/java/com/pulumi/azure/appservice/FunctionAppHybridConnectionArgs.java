@@ -5,6 +5,7 @@ package com.pulumi.azure.appservice;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class FunctionAppHybridConnectionArgs extends com.pulumi.resources.
         }
 
         public FunctionAppHybridConnectionArgs build() {
-            $.functionAppId = Objects.requireNonNull($.functionAppId, "expected parameter 'functionAppId' to be non-null");
-            $.hostname = Objects.requireNonNull($.hostname, "expected parameter 'hostname' to be non-null");
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.relayId = Objects.requireNonNull($.relayId, "expected parameter 'relayId' to be non-null");
+            if ($.functionAppId == null) {
+                throw new MissingRequiredPropertyException("FunctionAppHybridConnectionArgs", "functionAppId");
+            }
+            if ($.hostname == null) {
+                throw new MissingRequiredPropertyException("FunctionAppHybridConnectionArgs", "hostname");
+            }
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("FunctionAppHybridConnectionArgs", "port");
+            }
+            if ($.relayId == null) {
+                throw new MissingRequiredPropertyException("FunctionAppHybridConnectionArgs", "relayId");
+            }
             return $;
         }
     }

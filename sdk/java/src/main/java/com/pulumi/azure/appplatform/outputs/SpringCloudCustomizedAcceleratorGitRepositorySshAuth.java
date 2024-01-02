@@ -4,6 +4,7 @@
 package com.pulumi.azure.appplatform.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -72,17 +73,22 @@ public final class SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
 
         @CustomType.Setter
         public Builder hostKey(@Nullable String hostKey) {
+
             this.hostKey = hostKey;
             return this;
         }
         @CustomType.Setter
         public Builder hostKeyAlgorithm(@Nullable String hostKeyAlgorithm) {
+
             this.hostKeyAlgorithm = hostKeyAlgorithm;
             return this;
         }
         @CustomType.Setter
         public Builder privateKey(String privateKey) {
-            this.privateKey = Objects.requireNonNull(privateKey);
+            if (privateKey == null) {
+              throw new MissingRequiredPropertyException("SpringCloudCustomizedAcceleratorGitRepositorySshAuth", "privateKey");
+            }
+            this.privateKey = privateKey;
             return this;
         }
         public SpringCloudCustomizedAcceleratorGitRepositorySshAuth build() {

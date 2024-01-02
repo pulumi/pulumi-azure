@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -186,10 +187,18 @@ public final class AutoscaleSettingProfileRuleScaleActionArgs extends com.pulumi
         }
 
         public AutoscaleSettingProfileRuleScaleActionArgs build() {
-            $.cooldown = Objects.requireNonNull($.cooldown, "expected parameter 'cooldown' to be non-null");
-            $.direction = Objects.requireNonNull($.direction, "expected parameter 'direction' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
-            $.value = Objects.requireNonNull($.value, "expected parameter 'value' to be non-null");
+            if ($.cooldown == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleActionArgs", "cooldown");
+            }
+            if ($.direction == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleActionArgs", "direction");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleActionArgs", "type");
+            }
+            if ($.value == null) {
+                throw new MissingRequiredPropertyException("AutoscaleSettingProfileRuleScaleActionArgs", "value");
+            }
             return $;
         }
     }

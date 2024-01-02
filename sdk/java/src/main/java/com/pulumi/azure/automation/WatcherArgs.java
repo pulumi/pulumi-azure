@@ -5,6 +5,7 @@ package com.pulumi.azure.automation;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -411,10 +412,18 @@ public final class WatcherArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WatcherArgs build() {
-            $.automationAccountId = Objects.requireNonNull($.automationAccountId, "expected parameter 'automationAccountId' to be non-null");
-            $.executionFrequencyInSeconds = Objects.requireNonNull($.executionFrequencyInSeconds, "expected parameter 'executionFrequencyInSeconds' to be non-null");
-            $.scriptName = Objects.requireNonNull($.scriptName, "expected parameter 'scriptName' to be non-null");
-            $.scriptRunOn = Objects.requireNonNull($.scriptRunOn, "expected parameter 'scriptRunOn' to be non-null");
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("WatcherArgs", "automationAccountId");
+            }
+            if ($.executionFrequencyInSeconds == null) {
+                throw new MissingRequiredPropertyException("WatcherArgs", "executionFrequencyInSeconds");
+            }
+            if ($.scriptName == null) {
+                throw new MissingRequiredPropertyException("WatcherArgs", "scriptName");
+            }
+            if ($.scriptRunOn == null) {
+                throw new MissingRequiredPropertyException("WatcherArgs", "scriptRunOn");
+            }
             return $;
         }
     }

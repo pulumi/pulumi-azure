@@ -4,6 +4,7 @@
 package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -62,11 +63,15 @@ public final class AlertPrometheusRuleGroupRuleAction {
 
         @CustomType.Setter
         public Builder actionGroupId(String actionGroupId) {
-            this.actionGroupId = Objects.requireNonNull(actionGroupId);
+            if (actionGroupId == null) {
+              throw new MissingRequiredPropertyException("AlertPrometheusRuleGroupRuleAction", "actionGroupId");
+            }
+            this.actionGroupId = actionGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder actionProperties(@Nullable Map<String,String> actionProperties) {
+
             this.actionProperties = actionProperties;
             return this;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -102,27 +103,36 @@ public final class IotHubDpsLinkedHub {
 
         @CustomType.Setter
         public Builder allocationWeight(@Nullable Integer allocationWeight) {
+
             this.allocationWeight = allocationWeight;
             return this;
         }
         @CustomType.Setter
         public Builder applyAllocationPolicy(@Nullable Boolean applyAllocationPolicy) {
+
             this.applyAllocationPolicy = applyAllocationPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder connectionString(String connectionString) {
-            this.connectionString = Objects.requireNonNull(connectionString);
+            if (connectionString == null) {
+              throw new MissingRequiredPropertyException("IotHubDpsLinkedHub", "connectionString");
+            }
+            this.connectionString = connectionString;
             return this;
         }
         @CustomType.Setter
         public Builder hostname(@Nullable String hostname) {
+
             this.hostname = hostname;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("IotHubDpsLinkedHub", "location");
+            }
+            this.location = location;
             return this;
         }
         public IotHubDpsLinkedHub build() {

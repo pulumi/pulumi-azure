@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.BackendServiceFabricClusterServerX509Name;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -121,17 +122,22 @@ public final class BackendServiceFabricCluster {
 
         @CustomType.Setter
         public Builder clientCertificateId(@Nullable String clientCertificateId) {
+
             this.clientCertificateId = clientCertificateId;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificateThumbprint(@Nullable String clientCertificateThumbprint) {
+
             this.clientCertificateThumbprint = clientCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder managementEndpoints(List<String> managementEndpoints) {
-            this.managementEndpoints = Objects.requireNonNull(managementEndpoints);
+            if (managementEndpoints == null) {
+              throw new MissingRequiredPropertyException("BackendServiceFabricCluster", "managementEndpoints");
+            }
+            this.managementEndpoints = managementEndpoints;
             return this;
         }
         public Builder managementEndpoints(String... managementEndpoints) {
@@ -139,11 +145,15 @@ public final class BackendServiceFabricCluster {
         }
         @CustomType.Setter
         public Builder maxPartitionResolutionRetries(Integer maxPartitionResolutionRetries) {
-            this.maxPartitionResolutionRetries = Objects.requireNonNull(maxPartitionResolutionRetries);
+            if (maxPartitionResolutionRetries == null) {
+              throw new MissingRequiredPropertyException("BackendServiceFabricCluster", "maxPartitionResolutionRetries");
+            }
+            this.maxPartitionResolutionRetries = maxPartitionResolutionRetries;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateThumbprints(@Nullable List<String> serverCertificateThumbprints) {
+
             this.serverCertificateThumbprints = serverCertificateThumbprints;
             return this;
         }
@@ -152,6 +162,7 @@ public final class BackendServiceFabricCluster {
         }
         @CustomType.Setter
         public Builder serverX509Names(@Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names) {
+
             this.serverX509Names = serverX509Names;
             return this;
         }

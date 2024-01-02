@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertActionArgs;
 import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertTriggerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -688,13 +689,27 @@ public final class ScheduledQueryRulesAlertArgs extends com.pulumi.resources.Res
         }
 
         public ScheduledQueryRulesAlertArgs build() {
-            $.action = Objects.requireNonNull($.action, "expected parameter 'action' to be non-null");
-            $.dataSourceId = Objects.requireNonNull($.dataSourceId, "expected parameter 'dataSourceId' to be non-null");
-            $.frequency = Objects.requireNonNull($.frequency, "expected parameter 'frequency' to be non-null");
-            $.query = Objects.requireNonNull($.query, "expected parameter 'query' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.timeWindow = Objects.requireNonNull($.timeWindow, "expected parameter 'timeWindow' to be non-null");
-            $.trigger = Objects.requireNonNull($.trigger, "expected parameter 'trigger' to be non-null");
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "action");
+            }
+            if ($.dataSourceId == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "dataSourceId");
+            }
+            if ($.frequency == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "frequency");
+            }
+            if ($.query == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "query");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "resourceGroupName");
+            }
+            if ($.timeWindow == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "timeWindow");
+            }
+            if ($.trigger == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryRulesAlertArgs", "trigger");
+            }
             return $;
         }
     }

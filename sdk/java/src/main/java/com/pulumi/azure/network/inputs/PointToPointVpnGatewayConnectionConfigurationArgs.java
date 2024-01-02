@@ -7,6 +7,7 @@ import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigura
 import com.pulumi.azure.network.inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -190,8 +191,12 @@ public final class PointToPointVpnGatewayConnectionConfigurationArgs extends com
         }
 
         public PointToPointVpnGatewayConnectionConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.vpnClientAddressPool = Objects.requireNonNull($.vpnClientAddressPool, "expected parameter 'vpnClientAddressPool' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayConnectionConfigurationArgs", "name");
+            }
+            if ($.vpnClientAddressPool == null) {
+                throw new MissingRequiredPropertyException("PointToPointVpnGatewayConnectionConfigurationArgs", "vpnClientAddressPool");
+            }
             return $;
         }
     }

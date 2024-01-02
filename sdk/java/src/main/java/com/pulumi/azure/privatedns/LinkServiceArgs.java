@@ -6,6 +6,7 @@ package com.pulumi.azure.privatedns;
 import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -473,9 +474,15 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkServiceArgs build() {
-            $.loadBalancerFrontendIpConfigurationIds = Objects.requireNonNull($.loadBalancerFrontendIpConfigurationIds, "expected parameter 'loadBalancerFrontendIpConfigurationIds' to be non-null");
-            $.natIpConfigurations = Objects.requireNonNull($.natIpConfigurations, "expected parameter 'natIpConfigurations' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.loadBalancerFrontendIpConfigurationIds == null) {
+                throw new MissingRequiredPropertyException("LinkServiceArgs", "loadBalancerFrontendIpConfigurationIds");
+            }
+            if ($.natIpConfigurations == null) {
+                throw new MissingRequiredPropertyException("LinkServiceArgs", "natIpConfigurations");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinkServiceArgs", "resourceGroupName");
+            }
             return $;
         }
     }

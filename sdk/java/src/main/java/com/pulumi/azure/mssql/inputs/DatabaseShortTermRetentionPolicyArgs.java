@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class DatabaseShortTermRetentionPolicyArgs extends com.pulumi.resou
         }
 
         public DatabaseShortTermRetentionPolicyArgs build() {
-            $.retentionDays = Objects.requireNonNull($.retentionDays, "expected parameter 'retentionDays' to be non-null");
+            if ($.retentionDays == null) {
+                throw new MissingRequiredPropertyException("DatabaseShortTermRetentionPolicyArgs", "retentionDays");
+            }
             return $;
         }
     }

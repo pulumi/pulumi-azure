@@ -9,6 +9,7 @@ import com.pulumi.azure.appservice.inputs.FunctionAppSlotIdentityArgs;
 import com.pulumi.azure.appservice.inputs.FunctionAppSlotSiteConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -792,11 +793,21 @@ public final class FunctionAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public FunctionAppSlotArgs build() {
-            $.appServicePlanId = Objects.requireNonNull($.appServicePlanId, "expected parameter 'appServicePlanId' to be non-null");
-            $.functionAppName = Objects.requireNonNull($.functionAppName, "expected parameter 'functionAppName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.storageAccountAccessKey = Objects.requireNonNull($.storageAccountAccessKey, "expected parameter 'storageAccountAccessKey' to be non-null");
-            $.storageAccountName = Objects.requireNonNull($.storageAccountName, "expected parameter 'storageAccountName' to be non-null");
+            if ($.appServicePlanId == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotArgs", "appServicePlanId");
+            }
+            if ($.functionAppName == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotArgs", "functionAppName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotArgs", "resourceGroupName");
+            }
+            if ($.storageAccountAccessKey == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotArgs", "storageAccountAccessKey");
+            }
+            if ($.storageAccountName == null) {
+                throw new MissingRequiredPropertyException("FunctionAppSlotArgs", "storageAccountName");
+            }
             return $;
         }
     }

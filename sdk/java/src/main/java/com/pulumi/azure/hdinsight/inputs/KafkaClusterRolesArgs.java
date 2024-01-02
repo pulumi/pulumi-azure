@@ -9,6 +9,7 @@ import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesWorkerNodeArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesZookeeperNodeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -198,9 +199,15 @@ public final class KafkaClusterRolesArgs extends com.pulumi.resources.ResourceAr
         }
 
         public KafkaClusterRolesArgs build() {
-            $.headNode = Objects.requireNonNull($.headNode, "expected parameter 'headNode' to be non-null");
-            $.workerNode = Objects.requireNonNull($.workerNode, "expected parameter 'workerNode' to be non-null");
-            $.zookeeperNode = Objects.requireNonNull($.zookeeperNode, "expected parameter 'zookeeperNode' to be non-null");
+            if ($.headNode == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterRolesArgs", "headNode");
+            }
+            if ($.workerNode == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterRolesArgs", "workerNode");
+            }
+            if ($.zookeeperNode == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterRolesArgs", "zookeeperNode");
+            }
             return $;
         }
     }

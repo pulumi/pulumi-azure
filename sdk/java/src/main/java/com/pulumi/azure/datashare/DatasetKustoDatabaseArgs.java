@@ -5,6 +5,7 @@ package com.pulumi.azure.datashare;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class DatasetKustoDatabaseArgs extends com.pulumi.resources.Resourc
         }
 
         public DatasetKustoDatabaseArgs build() {
-            $.kustoDatabaseId = Objects.requireNonNull($.kustoDatabaseId, "expected parameter 'kustoDatabaseId' to be non-null");
-            $.shareId = Objects.requireNonNull($.shareId, "expected parameter 'shareId' to be non-null");
+            if ($.kustoDatabaseId == null) {
+                throw new MissingRequiredPropertyException("DatasetKustoDatabaseArgs", "kustoDatabaseId");
+            }
+            if ($.shareId == null) {
+                throw new MissingRequiredPropertyException("DatasetKustoDatabaseArgs", "shareId");
+            }
             return $;
         }
     }

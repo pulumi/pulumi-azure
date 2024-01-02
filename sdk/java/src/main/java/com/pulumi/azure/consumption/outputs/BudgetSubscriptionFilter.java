@@ -83,6 +83,7 @@ public final class BudgetSubscriptionFilter {
 
         @CustomType.Setter
         public Builder dimensions(@Nullable List<BudgetSubscriptionFilterDimension> dimensions) {
+
             this.dimensions = dimensions;
             return this;
         }
@@ -91,11 +92,13 @@ public final class BudgetSubscriptionFilter {
         }
         @CustomType.Setter
         public Builder not(@Nullable BudgetSubscriptionFilterNot not) {
+
             this.not = not;
             return this;
         }
         @CustomType.Setter
         public Builder tags(@Nullable List<BudgetSubscriptionFilterTag> tags) {
+
             this.tags = tags;
             return this;
         }

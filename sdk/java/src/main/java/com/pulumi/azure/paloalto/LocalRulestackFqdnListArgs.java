@@ -5,6 +5,7 @@ package com.pulumi.azure.paloalto;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -235,8 +236,12 @@ public final class LocalRulestackFqdnListArgs extends com.pulumi.resources.Resou
         }
 
         public LocalRulestackFqdnListArgs build() {
-            $.fullyQualifiedDomainNames = Objects.requireNonNull($.fullyQualifiedDomainNames, "expected parameter 'fullyQualifiedDomainNames' to be non-null");
-            $.rulestackId = Objects.requireNonNull($.rulestackId, "expected parameter 'rulestackId' to be non-null");
+            if ($.fullyQualifiedDomainNames == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackFqdnListArgs", "fullyQualifiedDomainNames");
+            }
+            if ($.rulestackId == null) {
+                throw new MissingRequiredPropertyException("LocalRulestackFqdnListArgs", "rulestackId");
+            }
             return $;
         }
     }

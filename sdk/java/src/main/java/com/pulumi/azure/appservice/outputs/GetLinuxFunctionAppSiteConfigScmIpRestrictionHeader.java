@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +86,10 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader {
 
         @CustomType.Setter
         public Builder xAzureFdids(List<String> xAzureFdids) {
-            this.xAzureFdids = Objects.requireNonNull(xAzureFdids);
+            if (xAzureFdids == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader", "xAzureFdids");
+            }
+            this.xAzureFdids = xAzureFdids;
             return this;
         }
         public Builder xAzureFdids(String... xAzureFdids) {
@@ -93,7 +97,10 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader {
         }
         @CustomType.Setter
         public Builder xFdHealthProbes(List<String> xFdHealthProbes) {
-            this.xFdHealthProbes = Objects.requireNonNull(xFdHealthProbes);
+            if (xFdHealthProbes == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader", "xFdHealthProbes");
+            }
+            this.xFdHealthProbes = xFdHealthProbes;
             return this;
         }
         public Builder xFdHealthProbes(String... xFdHealthProbes) {
@@ -101,7 +108,10 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader {
         }
         @CustomType.Setter
         public Builder xForwardedFors(List<String> xForwardedFors) {
-            this.xForwardedFors = Objects.requireNonNull(xForwardedFors);
+            if (xForwardedFors == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader", "xForwardedFors");
+            }
+            this.xForwardedFors = xForwardedFors;
             return this;
         }
         public Builder xForwardedFors(String... xForwardedFors) {
@@ -109,7 +119,10 @@ public final class GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader {
         }
         @CustomType.Setter
         public Builder xForwardedHosts(List<String> xForwardedHosts) {
-            this.xForwardedHosts = Objects.requireNonNull(xForwardedHosts);
+            if (xForwardedHosts == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfigScmIpRestrictionHeader", "xForwardedHosts");
+            }
+            this.xForwardedHosts = xForwardedHosts;
             return this;
         }
         public Builder xForwardedHosts(String... xForwardedHosts) {

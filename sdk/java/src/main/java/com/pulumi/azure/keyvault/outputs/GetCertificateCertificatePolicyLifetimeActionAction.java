@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class GetCertificateCertificatePolicyLifetimeActionAction {
 
         @CustomType.Setter
         public Builder actionType(String actionType) {
-            this.actionType = Objects.requireNonNull(actionType);
+            if (actionType == null) {
+              throw new MissingRequiredPropertyException("GetCertificateCertificatePolicyLifetimeActionAction", "actionType");
+            }
+            this.actionType = actionType;
             return this;
         }
         public GetCertificateCertificatePolicyLifetimeActionAction build() {

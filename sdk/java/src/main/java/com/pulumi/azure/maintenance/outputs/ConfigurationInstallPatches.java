@@ -75,6 +75,7 @@ public final class ConfigurationInstallPatches {
 
         @CustomType.Setter
         public Builder linuxes(@Nullable List<ConfigurationInstallPatchesLinux> linuxes) {
+
             this.linuxes = linuxes;
             return this;
         }
@@ -83,11 +84,13 @@ public final class ConfigurationInstallPatches {
         }
         @CustomType.Setter
         public Builder reboot(@Nullable String reboot) {
+
             this.reboot = reboot;
             return this;
         }
         @CustomType.Setter
         public Builder windows(@Nullable List<ConfigurationInstallPatchesWindow> windows) {
+
             this.windows = windows;
             return this;
         }

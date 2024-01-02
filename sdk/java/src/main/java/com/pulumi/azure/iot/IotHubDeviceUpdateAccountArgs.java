@@ -6,6 +6,7 @@ package com.pulumi.azure.iot;
 import com.pulumi.azure.iot.inputs.IotHubDeviceUpdateAccountIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -301,7 +302,9 @@ public final class IotHubDeviceUpdateAccountArgs extends com.pulumi.resources.Re
         }
 
         public IotHubDeviceUpdateAccountArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("IotHubDeviceUpdateAccountArgs", "resourceGroupName");
+            }
             return $;
         }
     }

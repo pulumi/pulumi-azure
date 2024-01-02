@@ -72,16 +72,19 @@ public final class FlexibleServerMaintenanceWindow {
 
         @CustomType.Setter
         public Builder dayOfWeek(@Nullable Integer dayOfWeek) {
+
             this.dayOfWeek = dayOfWeek;
             return this;
         }
         @CustomType.Setter
         public Builder startHour(@Nullable Integer startHour) {
+
             this.startHour = startHour;
             return this;
         }
         @CustomType.Setter
         public Builder startMinute(@Nullable Integer startMinute) {
+
             this.startMinute = startMinute;
             return this;
         }

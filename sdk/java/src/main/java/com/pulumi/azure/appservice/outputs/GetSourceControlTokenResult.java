@@ -4,6 +4,7 @@
 package com.pulumi.azure.appservice.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -68,22 +69,34 @@ public final class GetSourceControlTokenResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetSourceControlTokenResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("GetSourceControlTokenResult", "token");
+            }
+            this.token = token;
             return this;
         }
         @CustomType.Setter
         public Builder tokenSecret(String tokenSecret) {
-            this.tokenSecret = Objects.requireNonNull(tokenSecret);
+            if (tokenSecret == null) {
+              throw new MissingRequiredPropertyException("GetSourceControlTokenResult", "tokenSecret");
+            }
+            this.tokenSecret = tokenSecret;
             return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSourceControlTokenResult", "type");
+            }
+            this.type = type;
             return this;
         }
         public GetSourceControlTokenResult build() {

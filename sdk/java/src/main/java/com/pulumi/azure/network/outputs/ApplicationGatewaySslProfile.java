@@ -5,6 +5,7 @@ package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.ApplicationGatewaySslProfileSslPolicy;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -117,21 +118,27 @@ public final class ApplicationGatewaySslProfile {
 
         @CustomType.Setter
         public Builder id(@Nullable String id) {
+
             this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ApplicationGatewaySslProfile", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder sslPolicy(@Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy) {
+
             this.sslPolicy = sslPolicy;
             return this;
         }
         @CustomType.Setter
         public Builder trustedClientCertificateNames(@Nullable List<String> trustedClientCertificateNames) {
+
             this.trustedClientCertificateNames = trustedClientCertificateNames;
             return this;
         }
@@ -140,11 +147,13 @@ public final class ApplicationGatewaySslProfile {
         }
         @CustomType.Setter
         public Builder verifyClientCertIssuerDn(@Nullable Boolean verifyClientCertIssuerDn) {
+
             this.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
             return this;
         }
         @CustomType.Setter
         public Builder verifyClientCertificateRevocation(@Nullable String verifyClientCertificateRevocation) {
+
             this.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
             return this;
         }

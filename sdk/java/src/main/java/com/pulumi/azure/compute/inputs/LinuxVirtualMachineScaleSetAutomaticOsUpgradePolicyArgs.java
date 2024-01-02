@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs exten
         }
 
         public LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs build() {
-            $.disableAutomaticRollback = Objects.requireNonNull($.disableAutomaticRollback, "expected parameter 'disableAutomaticRollback' to be non-null");
-            $.enableAutomaticOsUpgrade = Objects.requireNonNull($.enableAutomaticOsUpgrade, "expected parameter 'enableAutomaticOsUpgrade' to be non-null");
+            if ($.disableAutomaticRollback == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "disableAutomaticRollback");
+            }
+            if ($.enableAutomaticOsUpgrade == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "enableAutomaticOsUpgrade");
+            }
             return $;
         }
     }

@@ -144,41 +144,49 @@ public final class TransformOutputBuiltinPresetPresetConfiguration {
 
         @CustomType.Setter
         public Builder complexity(@Nullable String complexity) {
+
             this.complexity = complexity;
             return this;
         }
         @CustomType.Setter
         public Builder interleaveOutput(@Nullable String interleaveOutput) {
+
             this.interleaveOutput = interleaveOutput;
             return this;
         }
         @CustomType.Setter
         public Builder keyFrameIntervalInSeconds(@Nullable Double keyFrameIntervalInSeconds) {
+
             this.keyFrameIntervalInSeconds = keyFrameIntervalInSeconds;
             return this;
         }
         @CustomType.Setter
         public Builder maxBitrateBps(@Nullable Integer maxBitrateBps) {
+
             this.maxBitrateBps = maxBitrateBps;
             return this;
         }
         @CustomType.Setter
         public Builder maxHeight(@Nullable Integer maxHeight) {
+
             this.maxHeight = maxHeight;
             return this;
         }
         @CustomType.Setter
         public Builder maxLayers(@Nullable Integer maxLayers) {
+
             this.maxLayers = maxLayers;
             return this;
         }
         @CustomType.Setter
         public Builder minBitrateBps(@Nullable Integer minBitrateBps) {
+
             this.minBitrateBps = minBitrateBps;
             return this;
         }
         @CustomType.Setter
         public Builder minHeight(@Nullable Integer minHeight) {
+
             this.minHeight = minHeight;
             return this;
         }

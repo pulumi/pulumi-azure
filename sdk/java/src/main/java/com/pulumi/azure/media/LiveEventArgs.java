@@ -9,6 +9,7 @@ import com.pulumi.azure.media.inputs.LiveEventInputArgs;
 import com.pulumi.azure.media.inputs.LiveEventPreviewArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -621,9 +622,15 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LiveEventArgs build() {
-            $.input = Objects.requireNonNull($.input, "expected parameter 'input' to be non-null");
-            $.mediaServicesAccountName = Objects.requireNonNull($.mediaServicesAccountName, "expected parameter 'mediaServicesAccountName' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            if ($.input == null) {
+                throw new MissingRequiredPropertyException("LiveEventArgs", "input");
+            }
+            if ($.mediaServicesAccountName == null) {
+                throw new MissingRequiredPropertyException("LiveEventArgs", "mediaServicesAccountName");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LiveEventArgs", "resourceGroupName");
+            }
             return $;
         }
     }

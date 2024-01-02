@@ -6,6 +6,7 @@ package com.pulumi.azure.cdn.outputs;
 import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyManagedRuleExclusion;
 import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyManagedRuleOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,11 +103,15 @@ public final class FrontdoorFirewallPolicyManagedRule {
 
         @CustomType.Setter
         public Builder action(String action) {
-            this.action = Objects.requireNonNull(action);
+            if (action == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRule", "action");
+            }
+            this.action = action;
             return this;
         }
         @CustomType.Setter
         public Builder exclusions(@Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions) {
+
             this.exclusions = exclusions;
             return this;
         }
@@ -115,6 +120,7 @@ public final class FrontdoorFirewallPolicyManagedRule {
         }
         @CustomType.Setter
         public Builder overrides(@Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides) {
+
             this.overrides = overrides;
             return this;
         }
@@ -123,12 +129,18 @@ public final class FrontdoorFirewallPolicyManagedRule {
         }
         @CustomType.Setter
         public Builder type(String type) {
-            this.type = Objects.requireNonNull(type);
+            if (type == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRule", "type");
+            }
+            this.type = type;
             return this;
         }
         @CustomType.Setter
         public Builder version(String version) {
-            this.version = Objects.requireNonNull(version);
+            if (version == null) {
+              throw new MissingRequiredPropertyException("FrontdoorFirewallPolicyManagedRule", "version");
+            }
+            this.version = version;
             return this;
         }
         public FrontdoorFirewallPolicyManagedRule build() {

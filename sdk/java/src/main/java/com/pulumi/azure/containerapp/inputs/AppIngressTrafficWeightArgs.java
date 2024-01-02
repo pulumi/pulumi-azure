@@ -5,6 +5,7 @@ package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -197,7 +198,9 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         public AppIngressTrafficWeightArgs build() {
-            $.percentage = Objects.requireNonNull($.percentage, "expected parameter 'percentage' to be non-null");
+            if ($.percentage == null) {
+                throw new MissingRequiredPropertyException("AppIngressTrafficWeightArgs", "percentage");
+            }
             return $;
         }
     }

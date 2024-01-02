@@ -4,6 +4,7 @@
 package com.pulumi.azure.media.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -46,7 +47,10 @@ public final class StreamingPolicyCommonEncryptionCencClearKeyEncryption {
 
         @CustomType.Setter
         public Builder customKeysAcquisitionUrlTemplate(String customKeysAcquisitionUrlTemplate) {
-            this.customKeysAcquisitionUrlTemplate = Objects.requireNonNull(customKeysAcquisitionUrlTemplate);
+            if (customKeysAcquisitionUrlTemplate == null) {
+              throw new MissingRequiredPropertyException("StreamingPolicyCommonEncryptionCencClearKeyEncryption", "customKeysAcquisitionUrlTemplate");
+            }
+            this.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
             return this;
         }
         public StreamingPolicyCommonEncryptionCencClearKeyEncryption build() {

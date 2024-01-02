@@ -86,21 +86,25 @@ public final class IoTHubSharedAccessPolicy {
 
         @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
+
             this.keyName = keyName;
             return this;
         }
         @CustomType.Setter
         public Builder permissions(@Nullable String permissions) {
+
             this.permissions = permissions;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(@Nullable String primaryKey) {
+
             this.primaryKey = primaryKey;
             return this;
         }
         @CustomType.Setter
         public Builder secondaryKey(@Nullable String secondaryKey) {
+
             this.secondaryKey = secondaryKey;
             return this;
         }

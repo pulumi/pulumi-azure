@@ -5,6 +5,7 @@ package com.pulumi.azure.privatedns.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -233,9 +234,15 @@ public final class LinkServiceNatIpConfigurationArgs extends com.pulumi.resource
         }
 
         public LinkServiceNatIpConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LinkServiceNatIpConfigurationArgs", "name");
+            }
+            if ($.primary == null) {
+                throw new MissingRequiredPropertyException("LinkServiceNatIpConfigurationArgs", "primary");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("LinkServiceNatIpConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

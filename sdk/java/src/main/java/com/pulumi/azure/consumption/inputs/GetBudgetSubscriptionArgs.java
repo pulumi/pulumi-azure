@@ -5,6 +5,7 @@ package com.pulumi.azure.consumption.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class GetBudgetSubscriptionArgs extends com.pulumi.resources.Invoke
         }
 
         public GetBudgetSubscriptionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetBudgetSubscriptionArgs", "name");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("GetBudgetSubscriptionArgs", "subscriptionId");
+            }
             return $;
         }
     }

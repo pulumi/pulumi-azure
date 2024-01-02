@@ -60,11 +60,13 @@ public final class AutoscaleSettingNotification {
 
         @CustomType.Setter
         public Builder email(@Nullable AutoscaleSettingNotificationEmail email) {
+
             this.email = email;
             return this;
         }
         @CustomType.Setter
         public Builder webhooks(@Nullable List<AutoscaleSettingNotificationWebhook> webhooks) {
+
             this.webhooks = webhooks;
             return this;
         }

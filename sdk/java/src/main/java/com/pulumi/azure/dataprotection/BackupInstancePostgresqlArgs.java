@@ -5,6 +5,7 @@ package com.pulumi.azure.dataprotection;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -261,9 +262,15 @@ public final class BackupInstancePostgresqlArgs extends com.pulumi.resources.Res
         }
 
         public BackupInstancePostgresqlArgs build() {
-            $.backupPolicyId = Objects.requireNonNull($.backupPolicyId, "expected parameter 'backupPolicyId' to be non-null");
-            $.databaseId = Objects.requireNonNull($.databaseId, "expected parameter 'databaseId' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.backupPolicyId == null) {
+                throw new MissingRequiredPropertyException("BackupInstancePostgresqlArgs", "backupPolicyId");
+            }
+            if ($.databaseId == null) {
+                throw new MissingRequiredPropertyException("BackupInstancePostgresqlArgs", "databaseId");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("BackupInstancePostgresqlArgs", "vaultId");
+            }
             return $;
         }
     }

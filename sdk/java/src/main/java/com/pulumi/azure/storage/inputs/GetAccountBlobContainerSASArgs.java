@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.GetAccountBlobContainerSASPermissionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -493,11 +494,21 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         }
 
         public GetAccountBlobContainerSASArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.expiry = Objects.requireNonNull($.expiry, "expected parameter 'expiry' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.start = Objects.requireNonNull($.start, "expected parameter 'start' to be non-null");
+            if ($.connectionString == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "connectionString");
+            }
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "containerName");
+            }
+            if ($.expiry == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "expiry");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "permissions");
+            }
+            if ($.start == null) {
+                throw new MissingRequiredPropertyException("GetAccountBlobContainerSASArgs", "start");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class LinuxVirtualMachinePlanArgs extends com.pulumi.resources.Reso
         }
 
         public LinuxVirtualMachinePlanArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.product = Objects.requireNonNull($.product, "expected parameter 'product' to be non-null");
-            $.publisher = Objects.requireNonNull($.publisher, "expected parameter 'publisher' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachinePlanArgs", "name");
+            }
+            if ($.product == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachinePlanArgs", "product");
+            }
+            if ($.publisher == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachinePlanArgs", "publisher");
+            }
             return $;
         }
     }

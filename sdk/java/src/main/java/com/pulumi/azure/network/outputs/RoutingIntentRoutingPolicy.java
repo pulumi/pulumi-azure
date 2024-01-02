@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +72,10 @@ public final class RoutingIntentRoutingPolicy {
 
         @CustomType.Setter
         public Builder destinations(List<String> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+            if (destinations == null) {
+              throw new MissingRequiredPropertyException("RoutingIntentRoutingPolicy", "destinations");
+            }
+            this.destinations = destinations;
             return this;
         }
         public Builder destinations(String... destinations) {
@@ -79,12 +83,18 @@ public final class RoutingIntentRoutingPolicy {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("RoutingIntentRoutingPolicy", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder nextHop(String nextHop) {
-            this.nextHop = Objects.requireNonNull(nextHop);
+            if (nextHop == null) {
+              throw new MissingRequiredPropertyException("RoutingIntentRoutingPolicy", "nextHop");
+            }
+            this.nextHop = nextHop;
             return this;
         }
         public RoutingIntentRoutingPolicy build() {

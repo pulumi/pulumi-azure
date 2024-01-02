@@ -58,6 +58,7 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
 
         @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
+
             this.fqdns = fqdns;
             return this;
         }
@@ -66,6 +67,7 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
         }
         @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
+
             this.ipAddresses = ipAddresses;
             return this;
         }

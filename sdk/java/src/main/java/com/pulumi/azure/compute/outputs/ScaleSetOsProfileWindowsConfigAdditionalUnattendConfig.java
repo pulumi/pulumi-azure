@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -84,22 +85,34 @@ public final class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 
         @CustomType.Setter
         public Builder component(String component) {
-            this.component = Objects.requireNonNull(component);
+            if (component == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig", "component");
+            }
+            this.component = component;
             return this;
         }
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder pass(String pass) {
-            this.pass = Objects.requireNonNull(pass);
+            if (pass == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig", "pass");
+            }
+            this.pass = pass;
             return this;
         }
         @CustomType.Setter
         public Builder settingName(String settingName) {
-            this.settingName = Objects.requireNonNull(settingName);
+            if (settingName == null) {
+              throw new MissingRequiredPropertyException("ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig", "settingName");
+            }
+            this.settingName = settingName;
             return this;
         }
         public ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig build() {

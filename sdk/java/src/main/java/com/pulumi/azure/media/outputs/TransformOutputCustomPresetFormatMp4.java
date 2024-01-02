@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetFormatMp4OutputFile;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -59,11 +60,15 @@ public final class TransformOutputCustomPresetFormatMp4 {
 
         @CustomType.Setter
         public Builder filenamePattern(String filenamePattern) {
-            this.filenamePattern = Objects.requireNonNull(filenamePattern);
+            if (filenamePattern == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetFormatMp4", "filenamePattern");
+            }
+            this.filenamePattern = filenamePattern;
             return this;
         }
         @CustomType.Setter
         public Builder outputFiles(@Nullable List<TransformOutputCustomPresetFormatMp4OutputFile> outputFiles) {
+
             this.outputFiles = outputFiles;
             return this;
         }

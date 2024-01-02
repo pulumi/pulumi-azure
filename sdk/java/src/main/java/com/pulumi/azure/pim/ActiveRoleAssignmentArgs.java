@@ -7,6 +7,7 @@ import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
 import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentTicketArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -263,9 +264,15 @@ public final class ActiveRoleAssignmentArgs extends com.pulumi.resources.Resourc
         }
 
         public ActiveRoleAssignmentArgs build() {
-            $.principalId = Objects.requireNonNull($.principalId, "expected parameter 'principalId' to be non-null");
-            $.roleDefinitionId = Objects.requireNonNull($.roleDefinitionId, "expected parameter 'roleDefinitionId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.principalId == null) {
+                throw new MissingRequiredPropertyException("ActiveRoleAssignmentArgs", "principalId");
+            }
+            if ($.roleDefinitionId == null) {
+                throw new MissingRequiredPropertyException("ActiveRoleAssignmentArgs", "roleDefinitionId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("ActiveRoleAssignmentArgs", "scope");
+            }
             return $;
         }
     }

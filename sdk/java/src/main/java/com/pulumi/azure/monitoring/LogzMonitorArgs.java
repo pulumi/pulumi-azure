@@ -7,6 +7,7 @@ import com.pulumi.azure.monitoring.inputs.LogzMonitorPlanArgs;
 import com.pulumi.azure.monitoring.inputs.LogzMonitorUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -384,9 +385,15 @@ public final class LogzMonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LogzMonitorArgs build() {
-            $.plan = Objects.requireNonNull($.plan, "expected parameter 'plan' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.user = Objects.requireNonNull($.user, "expected parameter 'user' to be non-null");
+            if ($.plan == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorArgs", "plan");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorArgs", "resourceGroupName");
+            }
+            if ($.user == null) {
+                throw new MissingRequiredPropertyException("LogzMonitorArgs", "user");
+            }
             return $;
         }
     }

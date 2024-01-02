@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class HadoopClusterComponentVersionArgs extends com.pulumi.resource
         }
 
         public HadoopClusterComponentVersionArgs build() {
-            $.hadoop = Objects.requireNonNull($.hadoop, "expected parameter 'hadoop' to be non-null");
+            if ($.hadoop == null) {
+                throw new MissingRequiredPropertyException("HadoopClusterComponentVersionArgs", "hadoop");
+            }
             return $;
         }
     }

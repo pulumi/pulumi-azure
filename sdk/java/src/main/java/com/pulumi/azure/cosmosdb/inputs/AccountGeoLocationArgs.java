@@ -5,6 +5,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -189,8 +190,12 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         }
 
         public AccountGeoLocationArgs build() {
-            $.failoverPriority = Objects.requireNonNull($.failoverPriority, "expected parameter 'failoverPriority' to be non-null");
-            $.location = Objects.requireNonNull($.location, "expected parameter 'location' to be non-null");
+            if ($.failoverPriority == null) {
+                throw new MissingRequiredPropertyException("AccountGeoLocationArgs", "failoverPriority");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("AccountGeoLocationArgs", "location");
+            }
             return $;
         }
     }

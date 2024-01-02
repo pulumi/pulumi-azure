@@ -4,6 +4,7 @@
 package com.pulumi.azure.recoveryservices.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -95,21 +96,29 @@ public final class VaultEncryption {
 
         @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
-            this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
+            if (infrastructureEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("VaultEncryption", "infrastructureEncryptionEnabled");
+            }
+            this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder keyId(String keyId) {
-            this.keyId = Objects.requireNonNull(keyId);
+            if (keyId == null) {
+              throw new MissingRequiredPropertyException("VaultEncryption", "keyId");
+            }
+            this.keyId = keyId;
             return this;
         }
         @CustomType.Setter
         public Builder useSystemAssignedIdentity(@Nullable Boolean useSystemAssignedIdentity) {
+
             this.useSystemAssignedIdentity = useSystemAssignedIdentity;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }

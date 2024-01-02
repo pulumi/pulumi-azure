@@ -4,6 +4,7 @@
 package com.pulumi.azure.devtest.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class WindowsVirtualMachineInboundNatRule {
 
         @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
-            this.backendPort = Objects.requireNonNull(backendPort);
+            if (backendPort == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineInboundNatRule", "backendPort");
+            }
+            this.backendPort = backendPort;
             return this;
         }
         @CustomType.Setter
         public Builder frontendPort(@Nullable Integer frontendPort) {
+
             this.frontendPort = frontendPort;
             return this;
         }
         @CustomType.Setter
         public Builder protocol(String protocol) {
-            this.protocol = Objects.requireNonNull(protocol);
+            if (protocol == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineInboundNatRule", "protocol");
+            }
+            this.protocol = protocol;
             return this;
         }
         public WindowsVirtualMachineInboundNatRule build() {

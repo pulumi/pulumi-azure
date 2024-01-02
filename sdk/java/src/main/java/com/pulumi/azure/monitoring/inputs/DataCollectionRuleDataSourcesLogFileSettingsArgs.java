@@ -6,6 +6,7 @@ package com.pulumi.azure.monitoring.inputs;
 import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesLogFileSettingsTextArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 
 
@@ -74,7 +75,9 @@ public final class DataCollectionRuleDataSourcesLogFileSettingsArgs extends com.
         }
 
         public DataCollectionRuleDataSourcesLogFileSettingsArgs build() {
-            $.text = Objects.requireNonNull($.text, "expected parameter 'text' to be non-null");
+            if ($.text == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDataSourcesLogFileSettingsArgs", "text");
+            }
             return $;
         }
     }

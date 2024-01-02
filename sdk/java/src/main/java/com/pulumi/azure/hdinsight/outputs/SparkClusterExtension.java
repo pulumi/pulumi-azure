@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class SparkClusterExtension {
 
         @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
-            this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
+            if (logAnalyticsWorkspaceId == null) {
+              throw new MissingRequiredPropertyException("SparkClusterExtension", "logAnalyticsWorkspaceId");
+            }
+            this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             return this;
         }
         @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
-            this.primaryKey = Objects.requireNonNull(primaryKey);
+            if (primaryKey == null) {
+              throw new MissingRequiredPropertyException("SparkClusterExtension", "primaryKey");
+            }
+            this.primaryKey = primaryKey;
             return this;
         }
         public SparkClusterExtension build() {

@@ -94,6 +94,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
 
         @CustomType.Setter
         public Builder commandKeys(@Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys) {
+
             this.commandKeys = commandKeys;
             return this;
         }
@@ -102,6 +103,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
         }
         @CustomType.Setter
         public Builder components(@Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components) {
+
             this.components = components;
             return this;
         }
@@ -110,11 +112,13 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
         }
         @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
+
             this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder powershellVersion(@Nullable String powershellVersion) {
+
             this.powershellVersion = powershellVersion;
             return this;
         }

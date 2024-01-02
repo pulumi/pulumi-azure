@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.outputs;
 
 import com.pulumi.azure.monitoring.outputs.ActionGroupWebhookReceiverAadAuth;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -92,21 +93,29 @@ public final class ActionGroupWebhookReceiver {
 
         @CustomType.Setter
         public Builder aadAuth(@Nullable ActionGroupWebhookReceiverAadAuth aadAuth) {
+
             this.aadAuth = aadAuth;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("ActionGroupWebhookReceiver", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
-            this.serviceUri = Objects.requireNonNull(serviceUri);
+            if (serviceUri == null) {
+              throw new MissingRequiredPropertyException("ActionGroupWebhookReceiver", "serviceUri");
+            }
+            this.serviceUri = serviceUri;
             return this;
         }
         @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
+
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
         }

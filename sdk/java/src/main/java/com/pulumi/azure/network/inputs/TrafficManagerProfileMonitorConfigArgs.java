@@ -6,6 +6,7 @@ package com.pulumi.azure.network.inputs;
 import com.pulumi.azure.network.inputs.TrafficManagerProfileMonitorConfigCustomHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -358,8 +359,12 @@ public final class TrafficManagerProfileMonitorConfigArgs extends com.pulumi.res
         }
 
         public TrafficManagerProfileMonitorConfigArgs build() {
-            $.port = Objects.requireNonNull($.port, "expected parameter 'port' to be non-null");
-            $.protocol = Objects.requireNonNull($.protocol, "expected parameter 'protocol' to be non-null");
+            if ($.port == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerProfileMonitorConfigArgs", "port");
+            }
+            if ($.protocol == null) {
+                throw new MissingRequiredPropertyException("TrafficManagerProfileMonitorConfigArgs", "protocol");
+            }
             return $;
         }
     }

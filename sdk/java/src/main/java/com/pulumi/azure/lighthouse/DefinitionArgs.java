@@ -8,6 +8,7 @@ import com.pulumi.azure.lighthouse.inputs.DefinitionEligibleAuthorizationArgs;
 import com.pulumi.azure.lighthouse.inputs.DefinitionPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -359,9 +360,15 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public DefinitionArgs build() {
-            $.authorizations = Objects.requireNonNull($.authorizations, "expected parameter 'authorizations' to be non-null");
-            $.managingTenantId = Objects.requireNonNull($.managingTenantId, "expected parameter 'managingTenantId' to be non-null");
-            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
+            if ($.authorizations == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "authorizations");
+            }
+            if ($.managingTenantId == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "managingTenantId");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("DefinitionArgs", "scope");
+            }
             return $;
         }
     }

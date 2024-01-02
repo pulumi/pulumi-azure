@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -253,87 +254,138 @@ public final class GetPublicIPResult {
 
         @CustomType.Setter
         public Builder allocationMethod(String allocationMethod) {
-            this.allocationMethod = Objects.requireNonNull(allocationMethod);
+            if (allocationMethod == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "allocationMethod");
+            }
+            this.allocationMethod = allocationMethod;
             return this;
         }
         @CustomType.Setter
         public Builder ddosProtectionMode(String ddosProtectionMode) {
-            this.ddosProtectionMode = Objects.requireNonNull(ddosProtectionMode);
+            if (ddosProtectionMode == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "ddosProtectionMode");
+            }
+            this.ddosProtectionMode = ddosProtectionMode;
             return this;
         }
         @CustomType.Setter
         public Builder ddosProtectionPlanId(String ddosProtectionPlanId) {
-            this.ddosProtectionPlanId = Objects.requireNonNull(ddosProtectionPlanId);
+            if (ddosProtectionPlanId == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "ddosProtectionPlanId");
+            }
+            this.ddosProtectionPlanId = ddosProtectionPlanId;
             return this;
         }
         @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
-            this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
+            if (domainNameLabel == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "domainNameLabel");
+            }
+            this.domainNameLabel = domainNameLabel;
             return this;
         }
         @CustomType.Setter
         public Builder fqdn(String fqdn) {
-            this.fqdn = Objects.requireNonNull(fqdn);
+            if (fqdn == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "fqdn");
+            }
+            this.fqdn = fqdn;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
-            this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
+            if (idleTimeoutInMinutes == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "idleTimeoutInMinutes");
+            }
+            this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
-            this.ipAddress = Objects.requireNonNull(ipAddress);
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "ipAddress");
+            }
+            this.ipAddress = ipAddress;
             return this;
         }
         @CustomType.Setter
         public Builder ipTags(Map<String,String> ipTags) {
-            this.ipTags = Objects.requireNonNull(ipTags);
+            if (ipTags == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "ipTags");
+            }
+            this.ipTags = ipTags;
             return this;
         }
         @CustomType.Setter
         public Builder ipVersion(String ipVersion) {
-            this.ipVersion = Objects.requireNonNull(ipVersion);
+            if (ipVersion == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "ipVersion");
+            }
+            this.ipVersion = ipVersion;
             return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
-            this.location = Objects.requireNonNull(location);
+            if (location == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "location");
+            }
+            this.location = location;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
-            this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "resourceGroupName");
+            }
+            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder reverseFqdn(String reverseFqdn) {
-            this.reverseFqdn = Objects.requireNonNull(reverseFqdn);
+            if (reverseFqdn == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "reverseFqdn");
+            }
+            this.reverseFqdn = reverseFqdn;
             return this;
         }
         @CustomType.Setter
         public Builder sku(String sku) {
-            this.sku = Objects.requireNonNull(sku);
+            if (sku == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "sku");
+            }
+            this.sku = sku;
             return this;
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
-            this.tags = Objects.requireNonNull(tags);
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "tags");
+            }
+            this.tags = tags;
             return this;
         }
         @CustomType.Setter
         public Builder zones(List<String> zones) {
-            this.zones = Objects.requireNonNull(zones);
+            if (zones == null) {
+              throw new MissingRequiredPropertyException("GetPublicIPResult", "zones");
+            }
+            this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {

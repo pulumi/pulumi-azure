@@ -116,31 +116,37 @@ public final class FirewallPolicyExplicitProxy {
 
         @CustomType.Setter
         public Builder enablePacFile(@Nullable Boolean enablePacFile) {
+
             this.enablePacFile = enablePacFile;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder httpPort(@Nullable Integer httpPort) {
+
             this.httpPort = httpPort;
             return this;
         }
         @CustomType.Setter
         public Builder httpsPort(@Nullable Integer httpsPort) {
+
             this.httpsPort = httpsPort;
             return this;
         }
         @CustomType.Setter
         public Builder pacFile(@Nullable String pacFile) {
+
             this.pacFile = pacFile;
             return this;
         }
         @CustomType.Setter
         public Builder pacFilePort(@Nullable Integer pacFilePort) {
+
             this.pacFilePort = pacFilePort;
             return this;
         }

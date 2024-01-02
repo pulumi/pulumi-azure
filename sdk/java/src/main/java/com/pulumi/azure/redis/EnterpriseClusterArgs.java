@@ -5,6 +5,7 @@ package com.pulumi.azure.redis;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -310,8 +311,12 @@ public final class EnterpriseClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public EnterpriseClusterArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("EnterpriseClusterArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("EnterpriseClusterArgs", "skuName");
+            }
             return $;
         }
     }

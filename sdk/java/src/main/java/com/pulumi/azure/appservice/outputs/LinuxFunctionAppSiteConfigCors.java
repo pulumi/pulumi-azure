@@ -60,6 +60,7 @@ public final class LinuxFunctionAppSiteConfigCors {
 
         @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+
             this.allowedOrigins = allowedOrigins;
             return this;
         }
@@ -68,6 +69,7 @@ public final class LinuxFunctionAppSiteConfigCors {
         }
         @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
+
             this.supportCredentials = supportCredentials;
             return this;
         }

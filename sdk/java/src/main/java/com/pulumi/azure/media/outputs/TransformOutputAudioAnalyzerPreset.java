@@ -73,16 +73,19 @@ public final class TransformOutputAudioAnalyzerPreset {
 
         @CustomType.Setter
         public Builder audioAnalysisMode(@Nullable String audioAnalysisMode) {
+
             this.audioAnalysisMode = audioAnalysisMode;
             return this;
         }
         @CustomType.Setter
         public Builder audioLanguage(@Nullable String audioLanguage) {
+
             this.audioLanguage = audioLanguage;
             return this;
         }
         @CustomType.Setter
         public Builder experimentalOptions(@Nullable Map<String,String> experimentalOptions) {
+
             this.experimentalOptions = experimentalOptions;
             return this;
         }

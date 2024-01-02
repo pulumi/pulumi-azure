@@ -73,16 +73,19 @@ public final class ThreatIntelligenceIndicatorGranularMarking {
 
         @CustomType.Setter
         public Builder language(@Nullable String language) {
+
             this.language = language;
             return this;
         }
         @CustomType.Setter
         public Builder markingRef(@Nullable String markingRef) {
+
             this.markingRef = markingRef;
             return this;
         }
         @CustomType.Setter
         public Builder selectors(@Nullable List<String> selectors) {
+
             this.selectors = selectors;
             return this;
         }

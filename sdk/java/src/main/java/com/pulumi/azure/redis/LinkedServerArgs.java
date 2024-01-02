@@ -5,6 +5,7 @@ package com.pulumi.azure.redis;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -222,11 +223,21 @@ public final class LinkedServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkedServerArgs build() {
-            $.linkedRedisCacheId = Objects.requireNonNull($.linkedRedisCacheId, "expected parameter 'linkedRedisCacheId' to be non-null");
-            $.linkedRedisCacheLocation = Objects.requireNonNull($.linkedRedisCacheLocation, "expected parameter 'linkedRedisCacheLocation' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.serverRole = Objects.requireNonNull($.serverRole, "expected parameter 'serverRole' to be non-null");
-            $.targetRedisCacheName = Objects.requireNonNull($.targetRedisCacheName, "expected parameter 'targetRedisCacheName' to be non-null");
+            if ($.linkedRedisCacheId == null) {
+                throw new MissingRequiredPropertyException("LinkedServerArgs", "linkedRedisCacheId");
+            }
+            if ($.linkedRedisCacheLocation == null) {
+                throw new MissingRequiredPropertyException("LinkedServerArgs", "linkedRedisCacheLocation");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("LinkedServerArgs", "resourceGroupName");
+            }
+            if ($.serverRole == null) {
+                throw new MissingRequiredPropertyException("LinkedServerArgs", "serverRole");
+            }
+            if ($.targetRedisCacheName == null) {
+                throw new MissingRequiredPropertyException("LinkedServerArgs", "targetRedisCacheName");
+            }
             return $;
         }
     }

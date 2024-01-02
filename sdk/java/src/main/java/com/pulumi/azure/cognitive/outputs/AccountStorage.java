@@ -4,6 +4,7 @@
 package com.pulumi.azure.cognitive.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,12 +59,16 @@ public final class AccountStorage {
 
         @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
+
             this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
-            this.storageAccountId = Objects.requireNonNull(storageAccountId);
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("AccountStorage", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
             return this;
         }
         public AccountStorage build() {

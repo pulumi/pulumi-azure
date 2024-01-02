@@ -5,6 +5,7 @@ package com.pulumi.azure.waf.outputs;
 
 import com.pulumi.azure.waf.outputs.PolicyCustomRuleMatchConditionMatchVariable;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -103,6 +104,7 @@ public final class PolicyCustomRuleMatchCondition {
 
         @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
+
             this.matchValues = matchValues;
             return this;
         }
@@ -111,7 +113,10 @@ public final class PolicyCustomRuleMatchCondition {
         }
         @CustomType.Setter
         public Builder matchVariables(List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables) {
-            this.matchVariables = Objects.requireNonNull(matchVariables);
+            if (matchVariables == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRuleMatchCondition", "matchVariables");
+            }
+            this.matchVariables = matchVariables;
             return this;
         }
         public Builder matchVariables(PolicyCustomRuleMatchConditionMatchVariable... matchVariables) {
@@ -119,16 +124,21 @@ public final class PolicyCustomRuleMatchCondition {
         }
         @CustomType.Setter
         public Builder negationCondition(@Nullable Boolean negationCondition) {
+
             this.negationCondition = negationCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(String operator) {
-            this.operator = Objects.requireNonNull(operator);
+            if (operator == null) {
+              throw new MissingRequiredPropertyException("PolicyCustomRuleMatchCondition", "operator");
+            }
+            this.operator = operator;
             return this;
         }
         @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
+
             this.transforms = transforms;
             return this;
         }

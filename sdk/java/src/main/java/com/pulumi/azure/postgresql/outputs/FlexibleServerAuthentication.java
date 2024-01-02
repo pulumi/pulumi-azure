@@ -81,16 +81,19 @@ public final class FlexibleServerAuthentication {
 
         @CustomType.Setter
         public Builder activeDirectoryAuthEnabled(@Nullable Boolean activeDirectoryAuthEnabled) {
+
             this.activeDirectoryAuthEnabled = activeDirectoryAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder passwordAuthEnabled(@Nullable Boolean passwordAuthEnabled) {
+
             this.passwordAuthEnabled = passwordAuthEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
+
             this.tenantId = tenantId;
             return this;
         }

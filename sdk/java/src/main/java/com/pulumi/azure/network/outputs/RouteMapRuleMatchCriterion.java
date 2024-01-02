@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,6 +87,7 @@ public final class RouteMapRuleMatchCriterion {
 
         @CustomType.Setter
         public Builder asPaths(@Nullable List<String> asPaths) {
+
             this.asPaths = asPaths;
             return this;
         }
@@ -94,6 +96,7 @@ public final class RouteMapRuleMatchCriterion {
         }
         @CustomType.Setter
         public Builder communities(@Nullable List<String> communities) {
+
             this.communities = communities;
             return this;
         }
@@ -102,11 +105,15 @@ public final class RouteMapRuleMatchCriterion {
         }
         @CustomType.Setter
         public Builder matchCondition(String matchCondition) {
-            this.matchCondition = Objects.requireNonNull(matchCondition);
+            if (matchCondition == null) {
+              throw new MissingRequiredPropertyException("RouteMapRuleMatchCriterion", "matchCondition");
+            }
+            this.matchCondition = matchCondition;
             return this;
         }
         @CustomType.Setter
         public Builder routePrefixes(@Nullable List<String> routePrefixes) {
+
             this.routePrefixes = routePrefixes;
             return this;
         }

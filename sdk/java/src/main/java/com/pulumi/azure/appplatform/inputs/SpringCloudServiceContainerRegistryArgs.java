@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -185,10 +186,18 @@ public final class SpringCloudServiceContainerRegistryArgs extends com.pulumi.re
         }
 
         public SpringCloudServiceContainerRegistryArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.server = Objects.requireNonNull($.server, "expected parameter 'server' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceContainerRegistryArgs", "name");
+            }
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceContainerRegistryArgs", "password");
+            }
+            if ($.server == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceContainerRegistryArgs", "server");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("SpringCloudServiceContainerRegistryArgs", "username");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -193,10 +194,18 @@ public final class LogzSubAccountUserArgs extends com.pulumi.resources.ResourceA
         }
 
         public LogzSubAccountUserArgs build() {
-            $.email = Objects.requireNonNull($.email, "expected parameter 'email' to be non-null");
-            $.firstName = Objects.requireNonNull($.firstName, "expected parameter 'firstName' to be non-null");
-            $.lastName = Objects.requireNonNull($.lastName, "expected parameter 'lastName' to be non-null");
-            $.phoneNumber = Objects.requireNonNull($.phoneNumber, "expected parameter 'phoneNumber' to be non-null");
+            if ($.email == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountUserArgs", "email");
+            }
+            if ($.firstName == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountUserArgs", "firstName");
+            }
+            if ($.lastName == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountUserArgs", "lastName");
+            }
+            if ($.phoneNumber == null) {
+                throw new MissingRequiredPropertyException("LogzSubAccountUserArgs", "phoneNumber");
+            }
             return $;
         }
     }

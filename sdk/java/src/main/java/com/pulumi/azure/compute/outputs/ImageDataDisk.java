@@ -101,26 +101,31 @@ public final class ImageDataDisk {
 
         @CustomType.Setter
         public Builder blobUri(@Nullable String blobUri) {
+
             this.blobUri = blobUri;
             return this;
         }
         @CustomType.Setter
         public Builder caching(@Nullable String caching) {
+
             this.caching = caching;
             return this;
         }
         @CustomType.Setter
         public Builder lun(@Nullable Integer lun) {
+
             this.lun = lun;
             return this;
         }
         @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
+
             this.managedDiskId = managedDiskId;
             return this;
         }
         @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
+
             this.sizeGb = sizeGb;
             return this;
         }

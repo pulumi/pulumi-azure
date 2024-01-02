@@ -7,6 +7,7 @@ import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyGuaranteedBi
 import com.pulumi.azure.mobile.inputs.NetworkServicePccRuleQosPolicyMaximumBitRateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -264,8 +265,12 @@ public final class NetworkServicePccRuleQosPolicyArgs extends com.pulumi.resourc
         }
 
         public NetworkServicePccRuleQosPolicyArgs build() {
-            $.maximumBitRate = Objects.requireNonNull($.maximumBitRate, "expected parameter 'maximumBitRate' to be non-null");
-            $.qosIndicator = Objects.requireNonNull($.qosIndicator, "expected parameter 'qosIndicator' to be non-null");
+            if ($.maximumBitRate == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleQosPolicyArgs", "maximumBitRate");
+            }
+            if ($.qosIndicator == null) {
+                throw new MissingRequiredPropertyException("NetworkServicePccRuleQosPolicyArgs", "qosIndicator");
+            }
             return $;
         }
     }

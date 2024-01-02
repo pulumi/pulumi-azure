@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -157,11 +158,13 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
+
             this.destinationAddresses = destinationAddresses;
             return this;
         }
@@ -170,6 +173,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder destinationFqdns(@Nullable List<String> destinationFqdns) {
+
             this.destinationFqdns = destinationFqdns;
             return this;
         }
@@ -178,6 +182,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder destinationIpGroups(@Nullable List<String> destinationIpGroups) {
+
             this.destinationIpGroups = destinationIpGroups;
             return this;
         }
@@ -186,7 +191,10 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder destinationPorts(List<String> destinationPorts) {
-            this.destinationPorts = Objects.requireNonNull(destinationPorts);
+            if (destinationPorts == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule", "destinationPorts");
+            }
+            this.destinationPorts = destinationPorts;
             return this;
         }
         public Builder destinationPorts(String... destinationPorts) {
@@ -194,12 +202,18 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder protocols(List<String> protocols) {
-            this.protocols = Objects.requireNonNull(protocols);
+            if (protocols == null) {
+              throw new MissingRequiredPropertyException("FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule", "protocols");
+            }
+            this.protocols = protocols;
             return this;
         }
         public Builder protocols(String... protocols) {
@@ -207,6 +221,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
+
             this.sourceAddresses = sourceAddresses;
             return this;
         }
@@ -215,6 +230,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
         }
         @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
+
             this.sourceIpGroups = sourceIpGroups;
             return this;
         }

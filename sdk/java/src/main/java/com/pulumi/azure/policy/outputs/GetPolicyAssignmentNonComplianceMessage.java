@@ -4,6 +4,7 @@
 package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetPolicyAssignmentNonComplianceMessage {
 
         @CustomType.Setter
         public Builder content(String content) {
-            this.content = Objects.requireNonNull(content);
+            if (content == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentNonComplianceMessage", "content");
+            }
+            this.content = content;
             return this;
         }
         @CustomType.Setter
         public Builder policyDefinitionReferenceId(String policyDefinitionReferenceId) {
-            this.policyDefinitionReferenceId = Objects.requireNonNull(policyDefinitionReferenceId);
+            if (policyDefinitionReferenceId == null) {
+              throw new MissingRequiredPropertyException("GetPolicyAssignmentNonComplianceMessage", "policyDefinitionReferenceId");
+            }
+            this.policyDefinitionReferenceId = policyDefinitionReferenceId;
             return this;
         }
         public GetPolicyAssignmentNonComplianceMessage build() {

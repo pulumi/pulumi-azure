@@ -87,21 +87,25 @@ public final class DatabaseLongTermRetentionPolicy {
 
         @CustomType.Setter
         public Builder monthlyRetention(@Nullable String monthlyRetention) {
+
             this.monthlyRetention = monthlyRetention;
             return this;
         }
         @CustomType.Setter
         public Builder weekOfYear(@Nullable Integer weekOfYear) {
+
             this.weekOfYear = weekOfYear;
             return this;
         }
         @CustomType.Setter
         public Builder weeklyRetention(@Nullable String weeklyRetention) {
+
             this.weeklyRetention = weeklyRetention;
             return this;
         }
         @CustomType.Setter
         public Builder yearlyRetention(@Nullable String yearlyRetention) {
+
             this.yearlyRetention = yearlyRetention;
             return this;
         }

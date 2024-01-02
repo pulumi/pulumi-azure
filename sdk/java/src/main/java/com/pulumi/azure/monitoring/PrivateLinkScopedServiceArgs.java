@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class PrivateLinkScopedServiceArgs extends com.pulumi.resources.Res
         }
 
         public PrivateLinkScopedServiceArgs build() {
-            $.linkedResourceId = Objects.requireNonNull($.linkedResourceId, "expected parameter 'linkedResourceId' to be non-null");
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.scopeName = Objects.requireNonNull($.scopeName, "expected parameter 'scopeName' to be non-null");
+            if ($.linkedResourceId == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkScopedServiceArgs", "linkedResourceId");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkScopedServiceArgs", "resourceGroupName");
+            }
+            if ($.scopeName == null) {
+                throw new MissingRequiredPropertyException("PrivateLinkScopedServiceArgs", "scopeName");
+            }
             return $;
         }
     }

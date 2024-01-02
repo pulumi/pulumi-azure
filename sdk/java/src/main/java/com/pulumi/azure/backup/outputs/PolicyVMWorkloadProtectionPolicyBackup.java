@@ -88,21 +88,25 @@ public final class PolicyVMWorkloadProtectionPolicyBackup {
 
         @CustomType.Setter
         public Builder frequency(@Nullable String frequency) {
+
             this.frequency = frequency;
             return this;
         }
         @CustomType.Setter
         public Builder frequencyInMinutes(@Nullable Integer frequencyInMinutes) {
+
             this.frequencyInMinutes = frequencyInMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder time(@Nullable String time) {
+
             this.time = time;
             return this;
         }
         @CustomType.Setter
         public Builder weekdays(@Nullable List<String> weekdays) {
+
             this.weekdays = weekdays;
             return this;
         }

@@ -8,6 +8,7 @@ import com.pulumi.azure.mssql.inputs.VirtualMachineAvailabilityGroupListenerMult
 import com.pulumi.azure.mssql.inputs.VirtualMachineAvailabilityGroupListenerReplicaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -331,8 +332,12 @@ public final class VirtualMachineAvailabilityGroupListenerArgs extends com.pulum
         }
 
         public VirtualMachineAvailabilityGroupListenerArgs build() {
-            $.replicas = Objects.requireNonNull($.replicas, "expected parameter 'replicas' to be non-null");
-            $.sqlVirtualMachineGroupId = Objects.requireNonNull($.sqlVirtualMachineGroupId, "expected parameter 'sqlVirtualMachineGroupId' to be non-null");
+            if ($.replicas == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerArgs", "replicas");
+            }
+            if ($.sqlVirtualMachineGroupId == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineAvailabilityGroupListenerArgs", "sqlVirtualMachineGroupId");
+            }
             return $;
         }
     }

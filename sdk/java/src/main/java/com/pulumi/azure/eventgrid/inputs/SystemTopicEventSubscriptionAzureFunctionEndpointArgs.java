@@ -5,6 +5,7 @@ package com.pulumi.azure.eventgrid.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class SystemTopicEventSubscriptionAzureFunctionEndpointArgs extends
         }
 
         public SystemTopicEventSubscriptionAzureFunctionEndpointArgs build() {
-            $.functionId = Objects.requireNonNull($.functionId, "expected parameter 'functionId' to be non-null");
+            if ($.functionId == null) {
+                throw new MissingRequiredPropertyException("SystemTopicEventSubscriptionAzureFunctionEndpointArgs", "functionId");
+            }
             return $;
         }
     }

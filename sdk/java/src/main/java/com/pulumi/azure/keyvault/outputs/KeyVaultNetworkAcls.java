@@ -4,6 +4,7 @@
 package com.pulumi.azure.keyvault.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -86,16 +87,23 @@ public final class KeyVaultNetworkAcls {
 
         @CustomType.Setter
         public Builder bypass(String bypass) {
-            this.bypass = Objects.requireNonNull(bypass);
+            if (bypass == null) {
+              throw new MissingRequiredPropertyException("KeyVaultNetworkAcls", "bypass");
+            }
+            this.bypass = bypass;
             return this;
         }
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
-            this.defaultAction = Objects.requireNonNull(defaultAction);
+            if (defaultAction == null) {
+              throw new MissingRequiredPropertyException("KeyVaultNetworkAcls", "defaultAction");
+            }
+            this.defaultAction = defaultAction;
             return this;
         }
         @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
+
             this.ipRules = ipRules;
             return this;
         }
@@ -104,6 +112,7 @@ public final class KeyVaultNetworkAcls {
         }
         @CustomType.Setter
         public Builder virtualNetworkSubnetIds(@Nullable List<String> virtualNetworkSubnetIds) {
+
             this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
             return this;
         }

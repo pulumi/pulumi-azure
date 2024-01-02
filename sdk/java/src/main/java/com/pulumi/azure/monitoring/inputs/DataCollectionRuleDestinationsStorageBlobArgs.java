@@ -5,6 +5,7 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -148,9 +149,15 @@ public final class DataCollectionRuleDestinationsStorageBlobArgs extends com.pul
         }
 
         public DataCollectionRuleDestinationsStorageBlobArgs build() {
-            $.containerName = Objects.requireNonNull($.containerName, "expected parameter 'containerName' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.storageAccountId = Objects.requireNonNull($.storageAccountId, "expected parameter 'storageAccountId' to be non-null");
+            if ($.containerName == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageBlobArgs", "containerName");
+            }
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageBlobArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("DataCollectionRuleDestinationsStorageBlobArgs", "storageAccountId");
+            }
             return $;
         }
     }

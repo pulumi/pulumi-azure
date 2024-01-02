@@ -5,6 +5,7 @@ package com.pulumi.azure.trafficmanager.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class ProfileDnsConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         public ProfileDnsConfigArgs build() {
-            $.relativeName = Objects.requireNonNull($.relativeName, "expected parameter 'relativeName' to be non-null");
-            $.ttl = Objects.requireNonNull($.ttl, "expected parameter 'ttl' to be non-null");
+            if ($.relativeName == null) {
+                throw new MissingRequiredPropertyException("ProfileDnsConfigArgs", "relativeName");
+            }
+            if ($.ttl == null) {
+                throw new MissingRequiredPropertyException("ProfileDnsConfigArgs", "ttl");
+            }
             return $;
         }
     }

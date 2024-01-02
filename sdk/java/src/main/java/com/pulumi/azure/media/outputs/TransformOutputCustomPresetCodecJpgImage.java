@@ -5,6 +5,7 @@ package com.pulumi.azure.media.outputs;
 
 import com.pulumi.azure.media.outputs.TransformOutputCustomPresetCodecJpgImageLayer;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -159,16 +160,19 @@ public final class TransformOutputCustomPresetCodecJpgImage {
 
         @CustomType.Setter
         public Builder keyFrameInterval(@Nullable String keyFrameInterval) {
+
             this.keyFrameInterval = keyFrameInterval;
             return this;
         }
         @CustomType.Setter
         public Builder label(@Nullable String label) {
+
             this.label = label;
             return this;
         }
         @CustomType.Setter
         public Builder layers(@Nullable List<TransformOutputCustomPresetCodecJpgImageLayer> layers) {
+
             this.layers = layers;
             return this;
         }
@@ -177,31 +181,39 @@ public final class TransformOutputCustomPresetCodecJpgImage {
         }
         @CustomType.Setter
         public Builder range(@Nullable String range) {
+
             this.range = range;
             return this;
         }
         @CustomType.Setter
         public Builder spriteColumn(@Nullable Integer spriteColumn) {
+
             this.spriteColumn = spriteColumn;
             return this;
         }
         @CustomType.Setter
         public Builder start(String start) {
-            this.start = Objects.requireNonNull(start);
+            if (start == null) {
+              throw new MissingRequiredPropertyException("TransformOutputCustomPresetCodecJpgImage", "start");
+            }
+            this.start = start;
             return this;
         }
         @CustomType.Setter
         public Builder step(@Nullable String step) {
+
             this.step = step;
             return this;
         }
         @CustomType.Setter
         public Builder stretchMode(@Nullable String stretchMode) {
+
             this.stretchMode = stretchMode;
             return this;
         }
         @CustomType.Setter
         public Builder syncMode(@Nullable String syncMode) {
+
             this.syncMode = syncMode;
             return this;
         }

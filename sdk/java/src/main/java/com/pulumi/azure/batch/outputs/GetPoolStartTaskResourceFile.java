@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -126,37 +127,58 @@ public final class GetPoolStartTaskResourceFile {
 
         @CustomType.Setter
         public Builder autoStorageContainerName(String autoStorageContainerName) {
-            this.autoStorageContainerName = Objects.requireNonNull(autoStorageContainerName);
+            if (autoStorageContainerName == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "autoStorageContainerName");
+            }
+            this.autoStorageContainerName = autoStorageContainerName;
             return this;
         }
         @CustomType.Setter
         public Builder blobPrefix(String blobPrefix) {
-            this.blobPrefix = Objects.requireNonNull(blobPrefix);
+            if (blobPrefix == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "blobPrefix");
+            }
+            this.blobPrefix = blobPrefix;
             return this;
         }
         @CustomType.Setter
         public Builder fileMode(String fileMode) {
-            this.fileMode = Objects.requireNonNull(fileMode);
+            if (fileMode == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "fileMode");
+            }
+            this.fileMode = fileMode;
             return this;
         }
         @CustomType.Setter
         public Builder filePath(String filePath) {
-            this.filePath = Objects.requireNonNull(filePath);
+            if (filePath == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "filePath");
+            }
+            this.filePath = filePath;
             return this;
         }
         @CustomType.Setter
         public Builder httpUrl(String httpUrl) {
-            this.httpUrl = Objects.requireNonNull(httpUrl);
+            if (httpUrl == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "httpUrl");
+            }
+            this.httpUrl = httpUrl;
             return this;
         }
         @CustomType.Setter
         public Builder storageContainerUrl(String storageContainerUrl) {
-            this.storageContainerUrl = Objects.requireNonNull(storageContainerUrl);
+            if (storageContainerUrl == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "storageContainerUrl");
+            }
+            this.storageContainerUrl = storageContainerUrl;
             return this;
         }
         @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
-            this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
+            if (userAssignedIdentityId == null) {
+              throw new MissingRequiredPropertyException("GetPoolStartTaskResourceFile", "userAssignedIdentityId");
+            }
+            this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
         public GetPoolStartTaskResourceFile build() {

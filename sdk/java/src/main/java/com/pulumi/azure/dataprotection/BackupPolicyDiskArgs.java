@@ -6,6 +6,7 @@ package com.pulumi.azure.dataprotection;
 import com.pulumi.azure.dataprotection.inputs.BackupPolicyDiskRetentionRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -246,9 +247,15 @@ public final class BackupPolicyDiskArgs extends com.pulumi.resources.ResourceArg
         }
 
         public BackupPolicyDiskArgs build() {
-            $.backupRepeatingTimeIntervals = Objects.requireNonNull($.backupRepeatingTimeIntervals, "expected parameter 'backupRepeatingTimeIntervals' to be non-null");
-            $.defaultRetentionDuration = Objects.requireNonNull($.defaultRetentionDuration, "expected parameter 'defaultRetentionDuration' to be non-null");
-            $.vaultId = Objects.requireNonNull($.vaultId, "expected parameter 'vaultId' to be non-null");
+            if ($.backupRepeatingTimeIntervals == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyDiskArgs", "backupRepeatingTimeIntervals");
+            }
+            if ($.defaultRetentionDuration == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyDiskArgs", "defaultRetentionDuration");
+            }
+            if ($.vaultId == null) {
+                throw new MissingRequiredPropertyException("BackupPolicyDiskArgs", "vaultId");
+            }
             return $;
         }
     }

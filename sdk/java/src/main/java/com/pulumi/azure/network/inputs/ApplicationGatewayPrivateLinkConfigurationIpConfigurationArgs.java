@@ -5,6 +5,7 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -225,10 +226,18 @@ public final class ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs
         }
 
         public ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.primary = Objects.requireNonNull($.primary, "expected parameter 'primary' to be non-null");
-            $.privateIpAddressAllocation = Objects.requireNonNull($.privateIpAddressAllocation, "expected parameter 'privateIpAddressAllocation' to be non-null");
-            $.subnetId = Objects.requireNonNull($.subnetId, "expected parameter 'subnetId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs", "name");
+            }
+            if ($.primary == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs", "primary");
+            }
+            if ($.privateIpAddressAllocation == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs", "privateIpAddressAllocation");
+            }
+            if ($.subnetId == null) {
+                throw new MissingRequiredPropertyException("ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs", "subnetId");
+            }
             return $;
         }
     }

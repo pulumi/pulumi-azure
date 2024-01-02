@@ -5,6 +5,7 @@ package com.pulumi.azure.maps;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -234,8 +235,12 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AccountArgs build() {
-            $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
-            $.skuName = Objects.requireNonNull($.skuName, "expected parameter 'skuName' to be non-null");
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "resourceGroupName");
+            }
+            if ($.skuName == null) {
+                throw new MissingRequiredPropertyException("AccountArgs", "skuName");
+            }
             return $;
         }
     }

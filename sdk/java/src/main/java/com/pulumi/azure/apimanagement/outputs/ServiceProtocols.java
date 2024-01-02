@@ -44,6 +44,7 @@ public final class ServiceProtocols {
 
         @CustomType.Setter
         public Builder enableHttp2(@Nullable Boolean enableHttp2) {
+
             this.enableHttp2 = enableHttp2;
             return this;
         }

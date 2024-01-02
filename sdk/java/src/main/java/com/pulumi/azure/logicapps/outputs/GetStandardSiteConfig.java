@@ -7,6 +7,7 @@ import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigCors;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestriction;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -162,52 +163,74 @@ public final class GetStandardSiteConfig {
 
         @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
+
             this.alwaysOn = alwaysOn;
             return this;
         }
         @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
-            this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
+            if (appScaleLimit == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "appScaleLimit");
+            }
+            this.appScaleLimit = appScaleLimit;
             return this;
         }
         @CustomType.Setter
         public Builder autoSwapSlotName(String autoSwapSlotName) {
-            this.autoSwapSlotName = Objects.requireNonNull(autoSwapSlotName);
+            if (autoSwapSlotName == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "autoSwapSlotName");
+            }
+            this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
         @CustomType.Setter
         public Builder cors(GetStandardSiteConfigCors cors) {
-            this.cors = Objects.requireNonNull(cors);
+            if (cors == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "cors");
+            }
+            this.cors = cors;
             return this;
         }
         @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
+
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
         @CustomType.Setter
         public Builder elasticInstanceMinimum(Integer elasticInstanceMinimum) {
-            this.elasticInstanceMinimum = Objects.requireNonNull(elasticInstanceMinimum);
+            if (elasticInstanceMinimum == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "elasticInstanceMinimum");
+            }
+            this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
         @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
-            this.ftpsState = Objects.requireNonNull(ftpsState);
+            if (ftpsState == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ftpsState");
+            }
+            this.ftpsState = ftpsState;
             return this;
         }
         @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
+
             this.healthCheckPath = healthCheckPath;
             return this;
         }
         @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
+
             this.http2Enabled = http2Enabled;
             return this;
         }
         @CustomType.Setter
         public Builder ipRestrictions(List<GetStandardSiteConfigIpRestriction> ipRestrictions) {
-            this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
+            if (ipRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "ipRestrictions");
+            }
+            this.ipRestrictions = ipRestrictions;
             return this;
         }
         public Builder ipRestrictions(GetStandardSiteConfigIpRestriction... ipRestrictions) {
@@ -215,27 +238,40 @@ public final class GetStandardSiteConfig {
         }
         @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
-            this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
+            if (linuxFxVersion == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "linuxFxVersion");
+            }
+            this.linuxFxVersion = linuxFxVersion;
             return this;
         }
         @CustomType.Setter
         public Builder minTlsVersion(String minTlsVersion) {
-            this.minTlsVersion = Objects.requireNonNull(minTlsVersion);
+            if (minTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "minTlsVersion");
+            }
+            this.minTlsVersion = minTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
-            this.preWarmedInstanceCount = Objects.requireNonNull(preWarmedInstanceCount);
+            if (preWarmedInstanceCount == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "preWarmedInstanceCount");
+            }
+            this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
         @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
+
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder scmIpRestrictions(List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions) {
-            this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
+            if (scmIpRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmIpRestrictions");
+            }
+            this.scmIpRestrictions = scmIpRestrictions;
             return this;
         }
         public Builder scmIpRestrictions(GetStandardSiteConfigScmIpRestriction... scmIpRestrictions) {
@@ -243,31 +279,43 @@ public final class GetStandardSiteConfig {
         }
         @CustomType.Setter
         public Builder scmMinTlsVersion(String scmMinTlsVersion) {
-            this.scmMinTlsVersion = Objects.requireNonNull(scmMinTlsVersion);
+            if (scmMinTlsVersion == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmMinTlsVersion");
+            }
+            this.scmMinTlsVersion = scmMinTlsVersion;
             return this;
         }
         @CustomType.Setter
         public Builder scmType(String scmType) {
-            this.scmType = Objects.requireNonNull(scmType);
+            if (scmType == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "scmType");
+            }
+            this.scmType = scmType;
             return this;
         }
         @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
+
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
         @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
+
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
         @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
-            this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
+            if (vnetRouteAllEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "vnetRouteAllEnabled");
+            }
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
         @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
+
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }

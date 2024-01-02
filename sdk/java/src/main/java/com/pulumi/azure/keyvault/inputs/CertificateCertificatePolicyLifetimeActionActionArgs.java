@@ -5,6 +5,7 @@ package com.pulumi.azure.keyvault.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class CertificateCertificatePolicyLifetimeActionActionArgs extends 
         }
 
         public CertificateCertificatePolicyLifetimeActionActionArgs build() {
-            $.actionType = Objects.requireNonNull($.actionType, "expected parameter 'actionType' to be non-null");
+            if ($.actionType == null) {
+                throw new MissingRequiredPropertyException("CertificateCertificatePolicyLifetimeActionActionArgs", "actionType");
+            }
             return $;
         }
     }

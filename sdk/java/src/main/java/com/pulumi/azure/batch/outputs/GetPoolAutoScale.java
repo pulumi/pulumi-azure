@@ -4,6 +4,7 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class GetPoolAutoScale {
 
         @CustomType.Setter
         public Builder evaluationInterval(String evaluationInterval) {
-            this.evaluationInterval = Objects.requireNonNull(evaluationInterval);
+            if (evaluationInterval == null) {
+              throw new MissingRequiredPropertyException("GetPoolAutoScale", "evaluationInterval");
+            }
+            this.evaluationInterval = evaluationInterval;
             return this;
         }
         @CustomType.Setter
         public Builder formula(String formula) {
-            this.formula = Objects.requireNonNull(formula);
+            if (formula == null) {
+              throw new MissingRequiredPropertyException("GetPoolAutoScale", "formula");
+            }
+            this.formula = formula;
             return this;
         }
         public GetPoolAutoScale build() {

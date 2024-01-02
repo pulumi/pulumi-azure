@@ -60,11 +60,13 @@ public final class PolicyPolicySettingsLogScrubbing {
 
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder rules(@Nullable List<PolicyPolicySettingsLogScrubbingRule> rules) {
+
             this.rules = rules;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -127,8 +128,12 @@ public final class VirtualMachineOsProfileLinuxConfigSshKeyArgs extends com.pulu
         }
 
         public VirtualMachineOsProfileLinuxConfigSshKeyArgs build() {
-            $.keyData = Objects.requireNonNull($.keyData, "expected parameter 'keyData' to be non-null");
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
+            if ($.keyData == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfigSshKeyArgs", "keyData");
+            }
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("VirtualMachineOsProfileLinuxConfigSshKeyArgs", "path");
+            }
             return $;
         }
     }

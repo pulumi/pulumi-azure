@@ -78,6 +78,7 @@ public final class FrontdoorRuleConditionsRemoteAddressCondition {
 
         @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
+
             this.matchValues = matchValues;
             return this;
         }
@@ -86,11 +87,13 @@ public final class FrontdoorRuleConditionsRemoteAddressCondition {
         }
         @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
+
             this.negateCondition = negateCondition;
             return this;
         }
         @CustomType.Setter
         public Builder operator(@Nullable String operator) {
+
             this.operator = operator;
             return this;
         }
