@@ -272,7 +272,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.12
+      uses: pulumi/pulumi-package-publisher@v0.0.13
+      with:
+        sdk: all
     - env:
         SLACK_CHANNEL: provider-upgrade-publish-status
         SLACK_COLOR: "#FF0000"
@@ -371,6 +373,12 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
+    - name: make upstream
+      run: |
+        make upstream
+    - name: Run provider tests
+      run: |
+        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
