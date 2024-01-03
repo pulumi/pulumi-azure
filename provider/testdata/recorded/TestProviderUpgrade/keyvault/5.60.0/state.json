@@ -2,64 +2,64 @@
     "version": 3,
     "deployment": {
         "manifest": {
-            "time": "2024-01-02T17:15:24.435598-05:00",
-            "magic": "150a904cce61863691bbb0e43d95bdf765d68edc1e12cbcb9cc4cbb164078ab7",
-            "version": "3.97.0"
+            "time": "2024-01-03T15:11:33.919862-05:00",
+            "magic": "93c4ba5b44ddc2d598a97cf35d5ebd301b4010f6f6a7b7708471eb84fb06ad4e",
+            "version": "v3.99.0"
         },
         "secrets_providers": {
             "type": "passphrase",
             "state": {
-                "salt": "v1:/ar8GuByZp0=:v1:klhcKz8bU5NacO6r:4GiC7kVeWg+fDdFLxoChNZek0o6P3Q=="
+                "salt": "v1:BHzOSdKHB1U=:v1:sXQhaTEBAVt6OWkJ:ihRbYQ/4qeiCkIEtv4KNY1EmPFkSKw=="
             }
         },
         "resources": [
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-09e72f5e",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-de443af3",
                 "custom": false,
                 "type": "pulumi:pulumi:Stack",
-                "created": "2024-01-02T22:12:26.975996Z",
-                "modified": "2024-01-02T22:12:26.975996Z"
+                "created": "2024-01-03T20:08:42.553852Z",
+                "modified": "2024-01-03T20:08:42.553852Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:providers:azure::default",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:providers:azure::default",
                 "custom": true,
-                "id": "08768c6d-e7c8-4024-8a53-e4d19e1bb4c0",
+                "id": "77f61a5e-431c-44a0-b0c6-ffad17fd1208",
                 "type": "pulumi:providers:azure",
-                "created": "2024-01-02T22:12:29.348648Z",
-                "modified": "2024-01-02T22:12:29.348648Z"
+                "created": "2024-01-03T20:08:42.904737Z",
+                "modified": "2024-01-03T20:08:42.904737Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup",
                 "custom": true,
-                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273",
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478",
                 "type": "azure:core/resourceGroup:ResourceGroup",
                 "inputs": {
                     "__defaults": [
                         "name"
                     ],
                     "location": "East US",
-                    "name": "exampleresourcegroupb2c24273"
+                    "name": "exampleresourcegroupfc737478"
                 },
                 "outputs": {
                     "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":5400000000000,\"delete\":5400000000000,\"read\":300000000000,\"update\":5400000000000}}",
-                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273",
+                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478",
                     "location": "eastus",
                     "managedBy": "",
-                    "name": "exampleresourcegroupb2c24273",
+                    "name": "exampleresourcegroupfc737478",
                     "tags": {}
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-09e72f5e",
-                "provider": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:providers:azure::default::08768c6d-e7c8-4024-8a53-e4d19e1bb4c0",
+                "parent": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-de443af3",
+                "provider": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:providers:azure::default::77f61a5e-431c-44a0-b0c6-ffad17fd1208",
                 "propertyDependencies": {
                     "location": null
                 },
-                "created": "2024-01-02T22:12:35.429344Z",
-                "modified": "2024-01-02T22:12:35.429344Z"
+                "created": "2024-01-03T20:08:48.62564Z",
+                "modified": "2024-01-03T20:08:48.62564Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault",
                 "custom": true,
-                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
                 "type": "azure:keyvault/keyVault:KeyVault",
                 "inputs": {
                     "__defaults": [
@@ -68,9 +68,9 @@
                         "softDeleteRetentionDays"
                     ],
                     "location": "eastus",
-                    "name": "exampleKeyVault95e5a9a",
+                    "name": "exampleKeyVault956f893",
                     "publicNetworkAccessEnabled": true,
-                    "resourceGroupName": "exampleresourcegroupb2c24273",
+                    "resourceGroupName": "exampleresourcegroupfc737478",
                     "skuName": "premium",
                     "softDeleteRetentionDays": 90,
                     "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7"
@@ -83,9 +83,9 @@
                     "enabledForDeployment": false,
                     "enabledForDiskEncryption": false,
                     "enabledForTemplateDeployment": false,
-                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
+                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
                     "location": "eastus",
-                    "name": "exampleKeyVault95e5a9a",
+                    "name": "exampleKeyVault956f893",
                     "networkAcls": {
                         "bypass": "AzureServices",
                         "defaultAction": "Allow",
@@ -94,35 +94,35 @@
                     },
                     "publicNetworkAccessEnabled": true,
                     "purgeProtectionEnabled": false,
-                    "resourceGroupName": "exampleresourcegroupb2c24273",
+                    "resourceGroupName": "exampleresourcegroupfc737478",
                     "skuName": "premium",
                     "softDeleteRetentionDays": 90,
                     "tags": {},
                     "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7",
-                    "vaultUri": "https://examplekeyvault95e5a9a.vault.azure.net/"
+                    "vaultUri": "https://examplekeyvault956f893.vault.azure.net/"
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-09e72f5e",
+                "parent": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-de443af3",
                 "dependencies": [
-                    "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+                    "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
                 ],
-                "provider": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:providers:azure::default::08768c6d-e7c8-4024-8a53-e4d19e1bb4c0",
+                "provider": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:providers:azure::default::77f61a5e-431c-44a0-b0c6-ffad17fd1208",
                 "propertyDependencies": {
                     "location": [
-                        "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+                        "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
                     ],
                     "resourceGroupName": [
-                        "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
+                        "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:core/resourceGroup:ResourceGroup::exampleResourceGroup"
                     ],
                     "skuName": null,
                     "tenantId": null
                 },
-                "created": "2024-01-02T22:15:14.632016Z",
-                "modified": "2024-01-02T22:15:14.632016Z"
+                "created": "2024-01-03T20:11:24.479669Z",
+                "modified": "2024-01-03T20:11:24.479669Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/accessPolicy:AccessPolicy::exampleAccessPolicy",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/accessPolicy:AccessPolicy::exampleAccessPolicy",
                 "custom": true,
-                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a/objectId/3a326790-fa08-4764-890a-51de83ce2e0f",
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893/objectId/e7d1b8ea-596b-44be-890f-8355a351244c",
                 "type": "azure:keyvault/accessPolicy:AccessPolicy",
                 "inputs": {
                     "__defaults": [],
@@ -131,8 +131,8 @@
                         "Create",
                         "Delete"
                     ],
-                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
-                    "objectId": "3a326790-fa08-4764-890a-51de83ce2e0f",
+                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
+                    "objectId": "e7d1b8ea-596b-44be-890f-8355a351244c",
                     "secretPermissions": [
                         "Get",
                         "Set",
@@ -144,14 +144,14 @@
                 },
                 "outputs": {
                     "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":300000000000,\"update\":1800000000000}}",
-                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a/objectId/3a326790-fa08-4764-890a-51de83ce2e0f",
+                    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893/objectId/e7d1b8ea-596b-44be-890f-8355a351244c",
                     "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete"
                     ],
-                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
-                    "objectId": "3a326790-fa08-4764-890a-51de83ce2e0f",
+                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
+                    "objectId": "e7d1b8ea-596b-44be-890f-8355a351244c",
                     "secretPermissions": [
                         "Get",
                         "Set",
@@ -161,72 +161,72 @@
                     ],
                     "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7"
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-09e72f5e",
+                "parent": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-de443af3",
                 "dependencies": [
-                    "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
+                    "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
                 ],
-                "provider": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:providers:azure::default::08768c6d-e7c8-4024-8a53-e4d19e1bb4c0",
+                "provider": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:providers:azure::default::77f61a5e-431c-44a0-b0c6-ffad17fd1208",
                 "propertyDependencies": {
                     "keyPermissions": null,
                     "keyVaultId": [
-                        "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
+                        "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
                     ],
                     "objectId": null,
                     "secretPermissions": null,
                     "tenantId": null
                 },
-                "created": "2024-01-02T22:15:20.445896Z",
-                "modified": "2024-01-02T22:15:20.445896Z"
+                "created": "2024-01-03T20:11:33.376532Z",
+                "modified": "2024-01-03T20:11:33.376532Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/secret:Secret::exampleSecret",
+                "urn": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/secret:Secret::exampleSecret",
                 "custom": true,
-                "id": "https://examplekeyvault95e5a9a.vault.azure.net/secrets/exampleSecret727b2a2/a8fd4e8415524989a8c0f5675dc4e11d",
+                "id": "https://examplekeyvault956f893.vault.azure.net/secrets/exampleSecret573ba22/1331dff6280542ae94b338896d675d80",
                 "type": "azure:keyvault/secret:Secret",
                 "inputs": {
                     "__defaults": [
                         "name"
                     ],
-                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
-                    "name": "exampleSecret727b2a2",
+                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
+                    "name": "exampleSecret573ba22",
                     "value": {
                         "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                        "ciphertext": "v1:/Rc/DV+HqwAMsLHP:VNHsw7GdSbZRMgsr3l+Oh2xihZRFv5bZ48Y="
+                        "ciphertext": "v1:PR5MtSKtGR+4+1lz:UyK2LkkoZCk3yGufH+TT83xKPohJWLE7jfc="
                     }
                 },
                 "outputs": {
                     "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":1800000000000,\"read\":1800000000000,\"update\":1800000000000}}",
                     "contentType": "",
-                    "id": "https://examplekeyvault95e5a9a.vault.azure.net/secrets/exampleSecret727b2a2/a8fd4e8415524989a8c0f5675dc4e11d",
-                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a",
-                    "name": "exampleSecret727b2a2",
-                    "resourceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a/secrets/exampleSecret727b2a2/versions/a8fd4e8415524989a8c0f5675dc4e11d",
-                    "resourceVersionlessId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupb2c24273/providers/Microsoft.KeyVault/vaults/exampleKeyVault95e5a9a/secrets/exampleSecret727b2a2",
+                    "id": "https://examplekeyvault956f893.vault.azure.net/secrets/exampleSecret573ba22/1331dff6280542ae94b338896d675d80",
+                    "keyVaultId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893",
+                    "name": "exampleSecret573ba22",
+                    "resourceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893/secrets/exampleSecret573ba22/versions/1331dff6280542ae94b338896d675d80",
+                    "resourceVersionlessId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/exampleresourcegroupfc737478/providers/Microsoft.KeyVault/vaults/exampleKeyVault956f893/secrets/exampleSecret573ba22",
                     "tags": {},
                     "value": {
                         "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                        "ciphertext": "v1:tMlEQj+IeUP8v0p2:IzcwzYDCcKtkL62pzuiZARTZvc9tcQmqpB8="
+                        "ciphertext": "v1:bI44p7X4vz+whDp6:Ebz8iJRF/JDjEjpTH+w5YP4JGczzo2ETBdo="
                     },
-                    "version": "a8fd4e8415524989a8c0f5675dc4e11d",
-                    "versionlessId": "https://examplekeyvault95e5a9a.vault.azure.net/secrets/exampleSecret727b2a2"
+                    "version": "1331dff6280542ae94b338896d675d80",
+                    "versionlessId": "https://examplekeyvault956f893.vault.azure.net/secrets/exampleSecret573ba22"
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-09e72f5e",
+                "parent": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:pulumi:Stack::keyvault-p-it-antons-mac-keyvault-de443af3",
                 "dependencies": [
-                    "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/accessPolicy:AccessPolicy::exampleAccessPolicy",
-                    "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
+                    "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/accessPolicy:AccessPolicy::exampleAccessPolicy",
+                    "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
                 ],
-                "provider": "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::pulumi:providers:azure::default::08768c6d-e7c8-4024-8a53-e4d19e1bb4c0",
+                "provider": "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::pulumi:providers:azure::default::77f61a5e-431c-44a0-b0c6-ffad17fd1208",
                 "propertyDependencies": {
                     "keyVaultId": [
-                        "urn:pulumi:p-it-antons-mac-keyvault-09e72f5e::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
+                        "urn:pulumi:p-it-antons-mac-keyvault-de443af3::keyvault::azure:keyvault/keyVault:KeyVault::exampleKeyVault"
                     ],
                     "value": null
                 },
                 "additionalSecretOutputs": [
                     "value"
                 ],
-                "created": "2024-01-02T22:15:24.435528Z",
-                "modified": "2024-01-02T22:15:24.435528Z"
+                "created": "2024-01-03T20:11:33.919761Z",
+                "modified": "2024-01-03T20:11:33.919761Z"
             }
         ]
     }
