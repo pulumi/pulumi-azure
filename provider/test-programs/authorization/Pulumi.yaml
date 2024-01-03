@@ -1,0 +1,20 @@
+name: appinsights
+runtime: yaml
+
+resources:
+  exampleAssignment:
+    type: azure:authorization:Assignment
+    properties:
+      scope: ${primary.id}
+      roleDefinitionName: Reader
+      principalId: ${exampleClientConfig.objectId}
+
+variables:
+  primary:
+    fn::invoke:
+      function: azure:core:getSubscription
+      arguments: {}
+  exampleClientConfig:
+    fn::invoke:
+      function: azure:core:getClientConfig
+      arguments: {}
