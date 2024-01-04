@@ -1,5 +1,4 @@
 provider: azure
-lint: false
 major-version: 5
 parallel: 1
 timeout: 90
@@ -24,7 +23,6 @@ plugins:
     version: "0.0.15"
   - name: local
     version: "0.0.1"
-team: ecosystem
 goBuildParallelism: 2
 runner:
   prerequisites: pulumi-ubuntu-8core
