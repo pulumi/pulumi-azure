@@ -54,20 +54,21 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	aadb2c                     = "AadB2C"                // Advisor
-	advisor                    = "Advisor"               // Advisor
-	azureAnalysisServices      = "AnalysisServices"      // Analysis Services
-	azureAPIManagement         = "ApiManagement"         // API Management
-	azureAppConfiguration      = "AppConfiguration"      // App Configuration
-	azureAppInsights           = "AppInsights"           // AppInsights
-	azureAppPlatform           = "AppPlatform"           // AppPlatform
-	azureAppService            = "AppService"            // App Service
-	azureArcKubernetes         = "ArcKubernetes"         // Arc Kubernetes
-	azureArcMachine            = "ArcMachine"            // Arc Machine
-	armMsi                     = "ArmMsi"                // ARM MSI (managed service identity)
-	azureAttestation           = "Attestation"           // Attestation
-	azureAutomation            = "Automation"            // Automation
-	azureAutomanage            = "Automanage"            // Automanage (https://learn.microsoft.com/en-us/azure/governance/machine-configuration/)
+	aadb2c                = "AadB2C"           // Advisor
+	advisor               = "Advisor"          // Advisor
+	azureAnalysisServices = "AnalysisServices" // Analysis Services
+	azureAPIManagement    = "ApiManagement"    // API Management
+	azureAppConfiguration = "AppConfiguration" // App Configuration
+	azureAppInsights      = "AppInsights"      // AppInsights
+	azureAppPlatform      = "AppPlatform"      // AppPlatform
+	azureAppService       = "AppService"       // App Service
+	azureArcKubernetes    = "ArcKubernetes"    // Arc Kubernetes
+	azureArcMachine       = "ArcMachine"       // Arc Machine
+	armMsi                = "ArmMsi"           // ARM MSI (managed service identity)
+	azureAttestation      = "Attestation"      // Attestation
+	azureAutomation       = "Automation"       // Automation
+	// Automanage: See (https://learn.microsoft.com/en-us/azure/governance/machine-configuration/)
+	azureAutomanage            = "Automanage"
 	azureAuthorization         = "Authorization"         // Authorization
 	azureAvs                   = "Avs"                   // Avs
 	azureBackup                = "Backup"                // Backup
@@ -423,7 +424,8 @@ func detectCloudShell() cloudShellProfile {
 	return negative
 }
 
-// stringValue gets a string value from a property map, then from environment vars; if neither are present, returns empty string ""
+// stringValue gets a string value from a property map, then from environment vars; if
+// neither are present, returns empty string ""
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
@@ -492,19 +494,23 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	useOIDC := boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
 	authConfig := auth.Credentials{
 		// SubscriptionID:                stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
-		ClientID:                      stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
-		ClientSecret:                  stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
-		TenantID:                      stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
-		Environment:                   *env,
-		ClientCertificatePath:         stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
-		ClientCertificatePassword:     stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
+		ClientID:     stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientSecret: stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
+		TenantID:     stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		Environment:  *env,
+		ClientCertificatePath: stringValue(vars, "clientCertificatePath", []string{
+			"ARM_CLIENT_CERTIFICATE_PATH"}),
+		ClientCertificatePassword: stringValue(vars, "clientCertificatePassword", []string{
+			"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
 		CustomManagedIdentityEndpoint: stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:            auxTenants,
 
 		// OIDC section. The ACTIONS_ variables are set by GitHub.
-		GitHubOIDCTokenRequestToken: stringValue(vars, "oidcRequestToken", []string{"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
-		GitHubOIDCTokenRequestURL:   stringValue(vars, "oidcRequestUrl", []string{"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL"}),
-		OIDCAssertionToken:          stringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
+		GitHubOIDCTokenRequestToken: stringValue(vars, "oidcRequestToken", []string{
+			"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
+		GitHubOIDCTokenRequestURL: stringValue(vars, "oidcRequestUrl", []string{
+			"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL"}),
+		OIDCAssertionToken: stringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
 
 		// Feature Toggles
 		EnableAuthenticatingUsingClientCertificate: true,
@@ -3567,7 +3573,9 @@ func Provider() tfbridge.ProviderInfo {
 	return prov
 }
 
-func defaultAzureLocation(p tfshim.Provider, rgRegionMap map[string]string) func(res *tfbridge.PulumiResource) (interface{}, error) {
+func defaultAzureLocation(
+	p tfshim.Provider, rgRegionMap map[string]string,
+) func(res *tfbridge.PulumiResource) (interface{}, error) {
 	return func(res *tfbridge.PulumiResource) (interface{}, error) {
 		// In here we will fetch the resource group property from this resource and
 		// use it to query the Azure API and return the resource group's location. We
@@ -3582,10 +3590,10 @@ func defaultAzureLocation(p tfshim.Provider, rgRegionMap map[string]string) func
 				rgName := rg.StringValue()
 				rgRegion, has := rgRegionMap[rgName]
 				if !has {
-					rgRes := p.ResourcesMap().Get("azurerm_resource_group")
-					contract.Assert(rgRes != nil)
+					rgRes, ok := p.ResourcesMap().GetOk("azurerm_resource_group")
+					contract.Assertf(ok, "missing resource azurerm_resource_group")
 					importer := rgRes.Importer()
-					contract.Assert(importer != nil)
+					contract.Assertf(importer != nil, "importer cannot be nil")
 					states, err := importer("azurerm_resource_group",
 						fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
 							rg.StringValue()), p.Meta())
