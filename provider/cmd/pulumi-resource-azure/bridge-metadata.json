@@ -1980,6 +1980,22 @@
                     }
                 }
             },
+            "azurerm_automation_powershell72_module": {
+                "current": "azure:automation/powershell72Module:Powershell72Module",
+                "majorVersion": 5,
+                "fields": {
+                    "module_link": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "hash": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_automation_python3_package": {
                 "current": "azure:automation/python3Package:Python3Package",
                 "majorVersion": 5
@@ -4839,6 +4855,15 @@
                     },
                     "vsts_configuration": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_data_factory_credential_user_managed_identity": {
+                "current": "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity",
+                "majorVersion": 5,
+                "fields": {
+                    "annotations": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -11982,6 +12007,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_log_analytics_workspace_table": {
+                "current": "azure:loganalytics/workspaceTable:WorkspaceTable",
+                "majorVersion": 5
             },
             "azurerm_logic_app_action_custom": {
                 "current": "azure:logicapps/actionCustom:ActionCustom",
@@ -24393,6 +24422,28 @@
                     }
                 }
             },
+            "azurerm_dashboard_grafana": {
+                "current": "azure:dashboard/getGrafana:getGrafana",
+                "majorVersion": 5,
+                "fields": {
+                    "azure_monitor_workspace_integrations": {
+                        "maxItemsOne": false
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "outbound_ips": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_data_factory": {
                 "current": "azure:datafactory/getFactory:getFactory",
                 "majorVersion": 5,
@@ -25578,7 +25629,19 @@
             },
             "azurerm_kusto_cluster": {
                 "current": "azure:kusto/getCluster:getCluster",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_kusto_database": {
                 "current": "azure:kusto/getDatabase:getDatabase",
@@ -29811,6 +29874,7 @@
             "azure:automation/intVariable:IntVariable": "azurerm_automation_variable_int",
             "azure:automation/jobSchedule:JobSchedule": "azurerm_automation_job_schedule",
             "azure:automation/module:Module": "azurerm_automation_module",
+            "azure:automation/powershell72Module:Powershell72Module": "azurerm_automation_powershell72_module",
             "azure:automation/python3Package:Python3Package": "azurerm_automation_python3_package",
             "azure:automation/runBook:RunBook": "azurerm_automation_runbook",
             "azure:automation/schedule:Schedule": "azurerm_automation_schedule",
@@ -30001,6 +30065,7 @@
             "azure:datadog/monitor:Monitor": "azurerm_datadog_monitor",
             "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration": "azurerm_datadog_monitor_sso_configuration",
             "azure:datadog/monitorTagRule:MonitorTagRule": "azurerm_datadog_monitor_tag_rule",
+            "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity": "azurerm_data_factory_credential_user_managed_identity",
             "azure:datafactory/customDataset:CustomDataset": "azurerm_data_factory_custom_dataset",
             "azure:datafactory/dataFlow:DataFlow": "azurerm_data_factory_data_flow",
             "azure:datafactory/datasetAzureBlob:DatasetAzureBlob": "azurerm_data_factory_dataset_azure_blob",
@@ -30229,6 +30294,7 @@
             "azure:loganalytics/queryPack:QueryPack": "azurerm_log_analytics_query_pack",
             "azure:loganalytics/savedSearch:SavedSearch": "azurerm_log_analytics_saved_search",
             "azure:loganalytics/storageInsights:StorageInsights": "azurerm_log_analytics_storage_insights",
+            "azure:loganalytics/workspaceTable:WorkspaceTable": "azurerm_log_analytics_workspace_table",
             "azure:logicapps/actionCustom:ActionCustom": "azurerm_logic_app_action_custom",
             "azure:logicapps/actionHttp:ActionHttp": "azurerm_logic_app_action_http",
             "azure:logicapps/integrationAccount:IntegrationAccount": "azurerm_logic_app_integration_account",
@@ -30837,6 +30903,7 @@
             "azure:cosmosdb/getSqlDatabase:getSqlDatabase": "azurerm_cosmosdb_sql_database",
             "azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition": "azurerm_cosmosdb_sql_role_definition",
             "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard": "azurerm_portal_dashboard_legacy",
+            "azure:dashboard/getGrafana:getGrafana": "azurerm_dashboard_grafana",
             "azure:databasemigration/getProject:getProject": "azurerm_database_migration_project",
             "azure:databasemigration/getService:getService": "azurerm_database_migration_service",
             "azure:databoxedge/getDevice:getDevice": "azurerm_databox_edge_device",
@@ -32495,12 +32562,14 @@
                 "containerRegistries": "container_registry",
                 "defaultBuildService": "default_build_service",
                 "logStreamPublicEndpointEnabled": "log_stream_public_endpoint_enabled",
+                "managedEnvironmentId": "managed_environment_id",
                 "outboundPublicIpAddresses": "outbound_public_ip_addresses",
                 "requiredNetworkTrafficRules": "required_network_traffic_rules",
                 "resourceGroupName": "resource_group_name",
                 "serviceRegistryEnabled": "service_registry_enabled",
                 "serviceRegistryId": "service_registry_id",
                 "skuName": "sku_name",
+                "skuTier": "sku_tier",
                 "zoneRedundant": "zone_redundant"
             },
             "azure:appplatform/springCloudStorage:SpringCloudStorage": {
@@ -37719,6 +37788,10 @@
                 "moduleLink": "module_link",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:automation/powershell72Module:Powershell72Module": {
+                "automationAccountId": "automation_account_id",
+                "moduleLink": "module_link"
+            },
             "azure:automation/python3Package:Python3Package": {
                 "automationAccountName": "automation_account_name",
                 "contentUri": "content_uri",
@@ -42881,6 +42954,26 @@
                 "dashboardProperties": "dashboard_properties",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:dashboard/getGrafana:getGrafana": {
+                "apiKeyEnabled": "api_key_enabled",
+                "autoGeneratedDomainNameLabelScope": "auto_generated_domain_name_label_scope",
+                "azureMonitorWorkspaceIntegrations": "azure_monitor_workspace_integrations",
+                "deterministicOutboundIpEnabled": "deterministic_outbound_ip_enabled",
+                "grafanaMajorVersion": "grafana_major_version",
+                "grafanaVersion": "grafana_version",
+                "outboundIps": "outbound_ips",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "resourceGroupName": "resource_group_name",
+                "zoneRedundancyEnabled": "zone_redundancy_enabled"
+            },
+            "azure:dashboard/getGrafanaAzureMonitorWorkspaceIntegration:getGrafanaAzureMonitorWorkspaceIntegration": {
+                "resourceId": "resource_id"
+            },
+            "azure:dashboard/getGrafanaIdentity:getGrafanaIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
             "azure:dashboard/grafana:Grafana": {
                 "apiKeyEnabled": "api_key_enabled",
                 "autoGeneratedDomainNameLabelScope": "auto_generated_domain_name_label_scope",
@@ -43373,6 +43466,10 @@
             "azure:datafactory/TriggerTumblingWindowTriggerDependency:TriggerTumblingWindowTriggerDependency": {
                 "triggerName": "trigger_name"
             },
+            "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity": {
+                "dataFactoryId": "data_factory_id",
+                "identityId": "identity_id"
+            },
             "azure:datafactory/customDataset:CustomDataset": {
                 "additionalProperties": "additional_properties",
                 "dataFactoryId": "data_factory_id",
@@ -43830,6 +43927,7 @@
                 "backupRepeatingTimeIntervals": "backup_repeating_time_intervals",
                 "defaultRetentionDuration": "default_retention_duration",
                 "retentionRules": "retention_rule",
+                "timeZone": "time_zone",
                 "vaultId": "vault_id"
             },
             "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql": {
@@ -43837,6 +43935,7 @@
                 "defaultRetentionDuration": "default_retention_duration",
                 "resourceGroupName": "resource_group_name",
                 "retentionRules": "retention_rule",
+                "timeZone": "time_zone",
                 "vaultName": "vault_name"
             },
             "azure:dataprotection/backupVault:BackupVault": {
@@ -47265,7 +47364,13 @@
             },
             "azure:kusto/getCluster:getCluster": {
                 "dataIngestionUri": "data_ingestion_uri",
+                "identities": "identity",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:kusto/getClusterIdentity:getClusterIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:kusto/getDatabase:getDatabase": {
                 "clusterName": "cluster_name",
@@ -47621,6 +47726,10 @@
                 "tableNames": "table_names",
                 "workspaceId": "workspace_id"
             },
+            "azure:loganalytics/workspaceTable:WorkspaceTable": {
+                "retentionInDays": "retention_in_days",
+                "workspaceId": "workspace_id"
+            },
             "azure:logicapps/ActionHttpRunAfter:ActionHttpRunAfter": {
                 "actionName": "action_name",
                 "actionResult": "action_result"
@@ -47662,6 +47771,7 @@
                 "linuxFxVersion": "linux_fx_version",
                 "minTlsVersion": "min_tls_version",
                 "preWarmedInstanceCount": "pre_warmed_instance_count",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "runtimeScaleMonitoringEnabled": "runtime_scale_monitoring_enabled",
                 "scmIpRestrictions": "scm_ip_restriction",
                 "scmMinTlsVersion": "scm_min_tls_version",
@@ -47776,6 +47886,7 @@
                 "linuxFxVersion": "linux_fx_version",
                 "minTlsVersion": "min_tls_version",
                 "preWarmedInstanceCount": "pre_warmed_instance_count",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "runtimeScaleMonitoringEnabled": "runtime_scale_monitoring_enabled",
                 "scmIpRestrictions": "scm_ip_restriction",
                 "scmMinTlsVersion": "scm_min_tls_version",
