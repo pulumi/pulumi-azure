@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CredentialUserManagedIdentityArgs, CredentialUserManagedIdentityState } from "./credentialUserManagedIdentity";
+export type CredentialUserManagedIdentity = import("./credentialUserManagedIdentity").CredentialUserManagedIdentity;
+export const CredentialUserManagedIdentity: typeof import("./credentialUserManagedIdentity").CredentialUserManagedIdentity = null as any;
+utilities.lazyLoad(exports, ["CredentialUserManagedIdentity"], () => require("./credentialUserManagedIdentity"));
+
 export { CustomDatasetArgs, CustomDatasetState } from "./customDataset";
 export type CustomDataset = import("./customDataset").CustomDataset;
 export const CustomDataset: typeof import("./customDataset").CustomDataset = null as any;
@@ -255,6 +260,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity":
+                return new CredentialUserManagedIdentity(name, <any>undefined, { urn })
             case "azure:datafactory/customDataset:CustomDataset":
                 return new CustomDataset(name, <any>undefined, { urn })
             case "azure:datafactory/dataFlow:DataFlow":
@@ -356,6 +363,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "datafactory/credentialUserManagedIdentity", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/dataFlow", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureBlob", _module)

@@ -221,6 +221,21 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
      */
@@ -364,6 +379,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         this.linuxFxVersion = $.linuxFxVersion;
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
         this.scmIpRestrictions = $.scmIpRestrictions;
         this.scmMinTlsVersion = $.scmMinTlsVersion;
@@ -679,6 +695,27 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          */
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             return preWarmedInstanceCount(Output.of(preWarmedInstanceCount));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

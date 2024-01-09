@@ -12,20 +12,129 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Azure Resource Policy Remediation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("my-policy-definition"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
+//				ResourceId:         exampleVirtualNetwork.ID(),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"listOfAllowedLocations": map[string]interface{}{
+//							"value": []string{
+//								location,
+//								"East US",
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
+//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourcePolicyRemediation(ctx, "exampleResourcePolicyRemediation", &core.ResourcePolicyRemediationArgs{
+//				ResourceId:         exampleVirtualNetwork.ID(),
+//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Policy Remediations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+//
+// ```
 type ResourcePolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	FailurePercentage   pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
-	LocationFilters     pulumi.StringArrayOutput `pulumi:"locationFilters"`
-	Name                pulumi.StringOutput      `pulumi:"name"`
-	ParallelDeployments pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  pulumi.StringOutput      `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrOutput `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayOutput `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments pulumi.IntPtrOutput `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               pulumi.IntPtrOutput    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
-	ResourceId                  pulumi.StringOutput    `pulumi:"resourceId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrOutput `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
+	// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
 
 // NewResourcePolicyRemediation registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +173,57 @@ func GetResourcePolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicyRemediation resources.
 type resourcePolicyRemediationState struct {
-	FailurePercentage   *float64 `pulumi:"failurePercentage"`
-	LocationFilters     []string `pulumi:"locationFilters"`
-	Name                *string  `pulumi:"name"`
-	ParallelDeployments *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  *string  `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage *float64 `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters []string `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments *int `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               *int    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
-	ResourceId                  *string `pulumi:"resourceId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount *int `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	ResourceId *string `pulumi:"resourceId"`
 }
 
 type ResourcePolicyRemediationState struct {
-	FailurePercentage   pulumi.Float64PtrInput
-	LocationFilters     pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrInput
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayInput
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 	ParallelDeployments pulumi.IntPtrInput
-	PolicyAssignmentId  pulumi.StringPtrInput
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringPtrInput
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	ResourceCount               pulumi.IntPtrInput
-	ResourceDiscoveryMode       pulumi.StringPtrInput
-	ResourceId                  pulumi.StringPtrInput
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrInput
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrInput
+	// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	ResourceId pulumi.StringPtrInput
 }
 
 func (ResourcePolicyRemediationState) ElementType() reflect.Type {
@@ -96,32 +231,58 @@ func (ResourcePolicyRemediationState) ElementType() reflect.Type {
 }
 
 type resourcePolicyRemediationArgs struct {
-	FailurePercentage   *float64 `pulumi:"failurePercentage"`
-	LocationFilters     []string `pulumi:"locationFilters"`
-	Name                *string  `pulumi:"name"`
-	ParallelDeployments *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  string   `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage *float64 `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters []string `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments *int `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               *int    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
-	ResourceId                  string  `pulumi:"resourceId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount *int `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResourcePolicyRemediation resource.
 type ResourcePolicyRemediationArgs struct {
-	FailurePercentage   pulumi.Float64PtrInput
-	LocationFilters     pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrInput
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayInput
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 	ParallelDeployments pulumi.IntPtrInput
-	PolicyAssignmentId  pulumi.StringInput
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringInput
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	ResourceCount               pulumi.IntPtrInput
-	ResourceDiscoveryMode       pulumi.StringPtrInput
-	ResourceId                  pulumi.StringInput
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrInput
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrInput
+	// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	ResourceId pulumi.StringInput
 }
 
 func (ResourcePolicyRemediationArgs) ElementType() reflect.Type {
@@ -211,43 +372,56 @@ func (o ResourcePolicyRemediationOutput) ToResourcePolicyRemediationOutputWithCo
 	return o
 }
 
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 func (o ResourcePolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.Float64PtrOutput { return v.FailurePercentage }).(pulumi.Float64PtrOutput)
 }
 
+// A list of the resource locations that will be remediated.
 func (o ResourcePolicyRemediationOutput) LocationFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringArrayOutput { return v.LocationFilters }).(pulumi.StringArrayOutput)
 }
 
+// The name of the Policy Remediation. Changing this forces a new resource to be created.
 func (o ResourcePolicyRemediationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 func (o ResourcePolicyRemediationOutput) ParallelDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.IntPtrOutput { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Policy Assignment that should be remediated.
 func (o ResourcePolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
+// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+//
+// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+//
 // Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
 func (o ResourcePolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 func (o ResourcePolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
 
+// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 func (o ResourcePolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.IntPtrOutput { return v.ResourceCount }).(pulumi.IntPtrOutput)
 }
 
+// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
 func (o ResourcePolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
 }
 
+// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
 func (o ResourcePolicyRemediationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

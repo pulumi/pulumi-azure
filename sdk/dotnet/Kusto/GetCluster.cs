@@ -123,6 +123,10 @@ namespace Pulumi.Azure.Kusto
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterIdentityResult> Identities;
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
@@ -138,6 +142,8 @@ namespace Pulumi.Azure.Kusto
 
             string id,
 
+            ImmutableArray<Outputs.GetClusterIdentityResult> identities,
+
             string location,
 
             string name,
@@ -150,6 +156,7 @@ namespace Pulumi.Azure.Kusto
         {
             DataIngestionUri = dataIngestionUri;
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

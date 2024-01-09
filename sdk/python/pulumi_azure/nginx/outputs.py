@@ -237,8 +237,10 @@ class DeploymentIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
-        :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param str type: Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned.
+               
+               > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -252,7 +254,7 @@ class DeploymentIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+        Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -260,7 +262,9 @@ class DeploymentIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        Specifies a list of user managed identity ids to be assigned.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

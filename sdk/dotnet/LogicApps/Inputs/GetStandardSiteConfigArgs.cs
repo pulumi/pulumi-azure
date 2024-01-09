@@ -56,6 +56,9 @@ namespace Pulumi.Azure.LogicApps.Inputs
         [Input("preWarmedInstanceCount", required: true)]
         public Input<int> PreWarmedInstanceCount { get; set; } = null!;
 
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
         [Input("runtimeScaleMonitoringEnabled")]
         public Input<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 

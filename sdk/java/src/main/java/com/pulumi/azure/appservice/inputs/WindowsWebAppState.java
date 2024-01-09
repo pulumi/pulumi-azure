@@ -239,14 +239,14 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Should the Windows Web App require HTTPS connections.
+     * Should the Windows Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Should the Windows Web App require HTTPS connections.
+     * @return Should the Windows Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -936,7 +936,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpsOnly Should the Windows Web App require HTTPS connections.
+         * @param httpsOnly Should the Windows Web App require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -947,7 +947,7 @@ public final class WindowsWebAppState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param httpsOnly Should the Windows Web App require HTTPS connections.
+         * @param httpsOnly Should the Windows Web App require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 

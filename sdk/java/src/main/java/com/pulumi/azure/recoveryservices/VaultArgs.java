@@ -92,12 +92,16 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      * 
+     * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+     * 
      */
     @Import(name="immutability")
     private @Nullable Output<String> immutability;
 
     /**
      * @return Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      * 
      */
     public Optional<Output<String>> immutability() {
@@ -371,6 +375,8 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param immutability Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
          * 
+         * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+         * 
          * @return builder
          * 
          */
@@ -381,6 +387,8 @@ public final class VaultArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param immutability Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+         * 
+         * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
          * 
          * @return builder
          * 

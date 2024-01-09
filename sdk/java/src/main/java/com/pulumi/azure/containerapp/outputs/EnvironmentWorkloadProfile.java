@@ -11,7 +11,15 @@ import java.util.Objects;
 
 @CustomType
 public final class EnvironmentWorkloadProfile {
+    /**
+     * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     private Integer maximumCount;
+    /**
+     * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     private Integer minimumCount;
     /**
      * @return The name of the workload profile.
@@ -25,9 +33,17 @@ public final class EnvironmentWorkloadProfile {
     private String workloadProfileType;
 
     private EnvironmentWorkloadProfile() {}
+    /**
+     * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     public Integer maximumCount() {
         return this.maximumCount;
     }
+    /**
+     * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     public Integer minimumCount() {
         return this.minimumCount;
     }

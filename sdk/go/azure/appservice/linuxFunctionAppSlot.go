@@ -126,7 +126,7 @@ type LinuxFunctionAppSlot struct {
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrOutput `pulumi:"identity"`
@@ -256,7 +256,7 @@ type linuxFunctionAppSlotState struct {
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity *LinuxFunctionAppSlotIdentity `pulumi:"identity"`
@@ -342,7 +342,7 @@ type LinuxFunctionAppSlotState struct {
 	FunctionsExtensionVersion pulumi.StringPtrInput
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrInput
@@ -426,7 +426,7 @@ type linuxFunctionAppSlotArgs struct {
 	FunctionAppId string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as detailed below.
 	Identity *LinuxFunctionAppSlotIdentity `pulumi:"identity"`
@@ -495,7 +495,7 @@ type LinuxFunctionAppSlotArgs struct {
 	FunctionAppId pulumi.StringInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as detailed below.
 	Identity LinuxFunctionAppSlotIdentityPtrInput
@@ -711,7 +711,7 @@ func (o LinuxFunctionAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
-// Can the Function App Slot only be accessed via HTTPS?
+// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 func (o LinuxFunctionAppSlotOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }

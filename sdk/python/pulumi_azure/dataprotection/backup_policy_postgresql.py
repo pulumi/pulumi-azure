@@ -21,7 +21,8 @@ class BackupPolicyPostgresqlArgs:
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None):
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BackupPolicyPostgresql resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -30,6 +31,7 @@ class BackupPolicyPostgresqlArgs:
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         """
         pulumi.set(__self__, "backup_repeating_time_intervals", backup_repeating_time_intervals)
         pulumi.set(__self__, "default_retention_duration", default_retention_duration)
@@ -39,6 +41,8 @@ class BackupPolicyPostgresqlArgs:
             pulumi.set(__self__, "name", name)
         if retention_rules is not None:
             pulumi.set(__self__, "retention_rules", retention_rules)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
@@ -112,6 +116,18 @@ class BackupPolicyPostgresqlArgs:
     def retention_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]]):
         pulumi.set(self, "retention_rules", value)
 
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
 
 @pulumi.input_type
 class _BackupPolicyPostgresqlState:
@@ -121,6 +137,7 @@ class _BackupPolicyPostgresqlState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicyPostgresql resources.
@@ -129,6 +146,7 @@ class _BackupPolicyPostgresqlState:
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         if backup_repeating_time_intervals is not None:
@@ -141,6 +159,8 @@ class _BackupPolicyPostgresqlState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_rules is not None:
             pulumi.set(__self__, "retention_rules", retention_rules)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
         if vault_name is not None:
             pulumi.set(__self__, "vault_name", vault_name)
 
@@ -205,6 +225,18 @@ class _BackupPolicyPostgresqlState:
         pulumi.set(self, "retention_rules", value)
 
     @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+    @property
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -227,6 +259,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -248,6 +281,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
             default_retention_duration="P4M",
             retention_rules=[
                 azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
@@ -298,6 +332,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         ...
@@ -325,6 +360,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
             default_retention_duration="P4M",
             retention_rules=[
                 azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
@@ -388,6 +424,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -409,6 +446,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_rules"] = retention_rules
+            __props__.__dict__["time_zone"] = time_zone
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
@@ -427,6 +465,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+            time_zone: Optional[pulumi.Input[str]] = None,
             vault_name: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyPostgresql':
         """
         Get an existing BackupPolicyPostgresql resource's state with the given name, id, and optional extra
@@ -440,6 +479,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -451,6 +491,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_rules"] = retention_rules
+        __props__.__dict__["time_zone"] = time_zone
         __props__.__dict__["vault_name"] = vault_name
         return BackupPolicyPostgresql(resource_name, opts=opts, __props__=__props__)
 
@@ -493,6 +534,14 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
         return pulumi.get(self, "retention_rules")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        return pulumi.get(self, "time_zone")
 
     @property
     @pulumi.getter(name="vaultName")

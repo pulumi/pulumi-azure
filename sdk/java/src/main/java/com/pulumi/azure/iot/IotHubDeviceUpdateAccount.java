@@ -158,14 +158,14 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
         return this.resourceGroupName;
     }
     /**
-     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * @return Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sku() {

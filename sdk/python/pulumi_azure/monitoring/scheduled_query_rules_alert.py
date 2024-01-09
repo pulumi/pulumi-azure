@@ -36,7 +36,7 @@ class ScheduledQueryRulesAlertArgs:
         """
         The set of arguments for constructing a ScheduledQueryRulesAlert resource.
         :param pulumi.Input['ScheduledQueryRulesAlertActionArgs'] action: An `action` block as defined below.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
@@ -98,7 +98,7 @@ class ScheduledQueryRulesAlertArgs:
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Input[str]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -314,7 +314,7 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
@@ -405,7 +405,7 @@ class _ScheduledQueryRulesAlertState:
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -610,7 +610,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
@@ -752,7 +752,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
@@ -819,7 +819,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[str]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 

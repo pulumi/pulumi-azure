@@ -26,6 +26,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         public readonly string LinuxFxVersion;
         public readonly string MinTlsVersion;
         public readonly int PreWarmedInstanceCount;
+        public readonly bool? PublicNetworkAccessEnabled;
         public readonly bool? RuntimeScaleMonitoringEnabled;
         public readonly ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> ScmIpRestrictions;
         public readonly string ScmMinTlsVersion;
@@ -63,6 +64,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             int preWarmedInstanceCount,
 
+            bool? publicNetworkAccessEnabled,
+
             bool? runtimeScaleMonitoringEnabled,
 
             ImmutableArray<Outputs.GetStandardSiteConfigScmIpRestrictionResult> scmIpRestrictions,
@@ -92,6 +95,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinTlsVersion = scmMinTlsVersion;

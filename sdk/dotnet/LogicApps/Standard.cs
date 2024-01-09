@@ -280,6 +280,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The runtime version associated with the Logic App. Defaults to `~3`.
+        /// 
+        /// &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -474,6 +476,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The runtime version associated with the Logic App. Defaults to `~3`.
+        /// 
+        /// &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -668,6 +672,8 @@ namespace Pulumi.Azure.LogicApps
 
         /// <summary>
         /// The runtime version associated with the Logic App. Defaults to `~3`.
+        /// 
+        /// &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

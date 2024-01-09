@@ -64,7 +64,7 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
-        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
+        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input['LinuxFunctionAppSlotIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
@@ -339,7 +339,7 @@ class LinuxFunctionAppSlotArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can the Function App Slot only be accessed via HTTPS?
+        Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -569,7 +569,7 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
-        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
+        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input['LinuxFunctionAppSlotIdentityArgs'] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Linux Function App Slot.
@@ -895,7 +895,7 @@ class _LinuxFunctionAppSlotState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can the Function App Slot only be accessed via HTTPS?
+        Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -1240,7 +1240,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
-        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
+        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotIdentityArgs']] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
@@ -1480,7 +1480,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
-        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
+        :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotIdentityArgs']] identity: An `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Linux Function App Slot.
@@ -1700,7 +1700,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Can the Function App Slot only be accessed via HTTPS?
+        Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

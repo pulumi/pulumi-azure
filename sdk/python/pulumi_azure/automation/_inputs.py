@@ -16,6 +16,8 @@ __all__ = [
     'ConnectionTypeFieldArgs',
     'ModuleModuleLinkArgs',
     'ModuleModuleLinkHashArgs',
+    'Powershell72ModuleModuleLinkArgs',
+    'Powershell72ModuleModuleLinkHashArgs',
     'RunBookDraftArgs',
     'RunBookDraftContentLinkArgs',
     'RunBookDraftContentLinkHashArgs',
@@ -315,6 +317,81 @@ class ModuleModuleLinkArgs:
 
 @pulumi.input_type
 class ModuleModuleLinkHashArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] algorithm: Specifies the algorithm used for the hash content.
+        :param pulumi.Input[str] value: The hash value of the content.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[str]:
+        """
+        Specifies the algorithm used for the hash content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The hash value of the content.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class Powershell72ModuleModuleLinkArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str],
+                 hash: Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']] = None):
+        """
+        :param pulumi.Input[str] uri: The URI of the module content (zip or nupkg).
+        :param pulumi.Input['Powershell72ModuleModuleLinkHashArgs'] hash: A `hash` block as defined below.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI of the module content (zip or nupkg).
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']]:
+        """
+        A `hash` block as defined below.
+        """
+        return pulumi.get(self, "hash")
+
+    @hash.setter
+    def hash(self, value: Optional[pulumi.Input['Powershell72ModuleModuleLinkHashArgs']]):
+        pulumi.set(self, "hash", value)
+
+
+@pulumi.input_type
+class Powershell72ModuleModuleLinkHashArgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input[str],
                  value: pulumi.Input[str]):

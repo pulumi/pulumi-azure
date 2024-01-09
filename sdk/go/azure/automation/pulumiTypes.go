@@ -872,6 +872,318 @@ func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type Powershell72ModuleModuleLink struct {
+	// A `hash` block as defined below.
+	Hash *Powershell72ModuleModuleLinkHash `pulumi:"hash"`
+	// The URI of the module content (zip or nupkg).
+	Uri string `pulumi:"uri"`
+}
+
+// Powershell72ModuleModuleLinkInput is an input type that accepts Powershell72ModuleModuleLinkArgs and Powershell72ModuleModuleLinkOutput values.
+// You can construct a concrete instance of `Powershell72ModuleModuleLinkInput` via:
+//
+//	Powershell72ModuleModuleLinkArgs{...}
+type Powershell72ModuleModuleLinkInput interface {
+	pulumi.Input
+
+	ToPowershell72ModuleModuleLinkOutput() Powershell72ModuleModuleLinkOutput
+	ToPowershell72ModuleModuleLinkOutputWithContext(context.Context) Powershell72ModuleModuleLinkOutput
+}
+
+type Powershell72ModuleModuleLinkArgs struct {
+	// A `hash` block as defined below.
+	Hash Powershell72ModuleModuleLinkHashPtrInput `pulumi:"hash"`
+	// The URI of the module content (zip or nupkg).
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (Powershell72ModuleModuleLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Powershell72ModuleModuleLink)(nil)).Elem()
+}
+
+func (i Powershell72ModuleModuleLinkArgs) ToPowershell72ModuleModuleLinkOutput() Powershell72ModuleModuleLinkOutput {
+	return i.ToPowershell72ModuleModuleLinkOutputWithContext(context.Background())
+}
+
+func (i Powershell72ModuleModuleLinkArgs) ToPowershell72ModuleModuleLinkOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkOutput)
+}
+
+func (i Powershell72ModuleModuleLinkArgs) ToPowershell72ModuleModuleLinkPtrOutput() Powershell72ModuleModuleLinkPtrOutput {
+	return i.ToPowershell72ModuleModuleLinkPtrOutputWithContext(context.Background())
+}
+
+func (i Powershell72ModuleModuleLinkArgs) ToPowershell72ModuleModuleLinkPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkOutput).ToPowershell72ModuleModuleLinkPtrOutputWithContext(ctx)
+}
+
+// Powershell72ModuleModuleLinkPtrInput is an input type that accepts Powershell72ModuleModuleLinkArgs, Powershell72ModuleModuleLinkPtr and Powershell72ModuleModuleLinkPtrOutput values.
+// You can construct a concrete instance of `Powershell72ModuleModuleLinkPtrInput` via:
+//
+//	        Powershell72ModuleModuleLinkArgs{...}
+//
+//	or:
+//
+//	        nil
+type Powershell72ModuleModuleLinkPtrInput interface {
+	pulumi.Input
+
+	ToPowershell72ModuleModuleLinkPtrOutput() Powershell72ModuleModuleLinkPtrOutput
+	ToPowershell72ModuleModuleLinkPtrOutputWithContext(context.Context) Powershell72ModuleModuleLinkPtrOutput
+}
+
+type powershell72ModuleModuleLinkPtrType Powershell72ModuleModuleLinkArgs
+
+func Powershell72ModuleModuleLinkPtr(v *Powershell72ModuleModuleLinkArgs) Powershell72ModuleModuleLinkPtrInput {
+	return (*powershell72ModuleModuleLinkPtrType)(v)
+}
+
+func (*powershell72ModuleModuleLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Powershell72ModuleModuleLink)(nil)).Elem()
+}
+
+func (i *powershell72ModuleModuleLinkPtrType) ToPowershell72ModuleModuleLinkPtrOutput() Powershell72ModuleModuleLinkPtrOutput {
+	return i.ToPowershell72ModuleModuleLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *powershell72ModuleModuleLinkPtrType) ToPowershell72ModuleModuleLinkPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkPtrOutput)
+}
+
+type Powershell72ModuleModuleLinkOutput struct{ *pulumi.OutputState }
+
+func (Powershell72ModuleModuleLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Powershell72ModuleModuleLink)(nil)).Elem()
+}
+
+func (o Powershell72ModuleModuleLinkOutput) ToPowershell72ModuleModuleLinkOutput() Powershell72ModuleModuleLinkOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkOutput) ToPowershell72ModuleModuleLinkOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkOutput) ToPowershell72ModuleModuleLinkPtrOutput() Powershell72ModuleModuleLinkPtrOutput {
+	return o.ToPowershell72ModuleModuleLinkPtrOutputWithContext(context.Background())
+}
+
+func (o Powershell72ModuleModuleLinkOutput) ToPowershell72ModuleModuleLinkPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Powershell72ModuleModuleLink) *Powershell72ModuleModuleLink {
+		return &v
+	}).(Powershell72ModuleModuleLinkPtrOutput)
+}
+
+// A `hash` block as defined below.
+func (o Powershell72ModuleModuleLinkOutput) Hash() Powershell72ModuleModuleLinkHashPtrOutput {
+	return o.ApplyT(func(v Powershell72ModuleModuleLink) *Powershell72ModuleModuleLinkHash { return v.Hash }).(Powershell72ModuleModuleLinkHashPtrOutput)
+}
+
+// The URI of the module content (zip or nupkg).
+func (o Powershell72ModuleModuleLinkOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v Powershell72ModuleModuleLink) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type Powershell72ModuleModuleLinkPtrOutput struct{ *pulumi.OutputState }
+
+func (Powershell72ModuleModuleLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Powershell72ModuleModuleLink)(nil)).Elem()
+}
+
+func (o Powershell72ModuleModuleLinkPtrOutput) ToPowershell72ModuleModuleLinkPtrOutput() Powershell72ModuleModuleLinkPtrOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkPtrOutput) ToPowershell72ModuleModuleLinkPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkPtrOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkPtrOutput) Elem() Powershell72ModuleModuleLinkOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLink) Powershell72ModuleModuleLink {
+		if v != nil {
+			return *v
+		}
+		var ret Powershell72ModuleModuleLink
+		return ret
+	}).(Powershell72ModuleModuleLinkOutput)
+}
+
+// A `hash` block as defined below.
+func (o Powershell72ModuleModuleLinkPtrOutput) Hash() Powershell72ModuleModuleLinkHashPtrOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLink) *Powershell72ModuleModuleLinkHash {
+		if v == nil {
+			return nil
+		}
+		return v.Hash
+	}).(Powershell72ModuleModuleLinkHashPtrOutput)
+}
+
+// The URI of the module content (zip or nupkg).
+func (o Powershell72ModuleModuleLinkPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type Powershell72ModuleModuleLinkHash struct {
+	// Specifies the algorithm used for the hash content.
+	Algorithm string `pulumi:"algorithm"`
+	// The hash value of the content.
+	Value string `pulumi:"value"`
+}
+
+// Powershell72ModuleModuleLinkHashInput is an input type that accepts Powershell72ModuleModuleLinkHashArgs and Powershell72ModuleModuleLinkHashOutput values.
+// You can construct a concrete instance of `Powershell72ModuleModuleLinkHashInput` via:
+//
+//	Powershell72ModuleModuleLinkHashArgs{...}
+type Powershell72ModuleModuleLinkHashInput interface {
+	pulumi.Input
+
+	ToPowershell72ModuleModuleLinkHashOutput() Powershell72ModuleModuleLinkHashOutput
+	ToPowershell72ModuleModuleLinkHashOutputWithContext(context.Context) Powershell72ModuleModuleLinkHashOutput
+}
+
+type Powershell72ModuleModuleLinkHashArgs struct {
+	// Specifies the algorithm used for the hash content.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// The hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (Powershell72ModuleModuleLinkHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Powershell72ModuleModuleLinkHash)(nil)).Elem()
+}
+
+func (i Powershell72ModuleModuleLinkHashArgs) ToPowershell72ModuleModuleLinkHashOutput() Powershell72ModuleModuleLinkHashOutput {
+	return i.ToPowershell72ModuleModuleLinkHashOutputWithContext(context.Background())
+}
+
+func (i Powershell72ModuleModuleLinkHashArgs) ToPowershell72ModuleModuleLinkHashOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkHashOutput)
+}
+
+func (i Powershell72ModuleModuleLinkHashArgs) ToPowershell72ModuleModuleLinkHashPtrOutput() Powershell72ModuleModuleLinkHashPtrOutput {
+	return i.ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (i Powershell72ModuleModuleLinkHashArgs) ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkHashOutput).ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(ctx)
+}
+
+// Powershell72ModuleModuleLinkHashPtrInput is an input type that accepts Powershell72ModuleModuleLinkHashArgs, Powershell72ModuleModuleLinkHashPtr and Powershell72ModuleModuleLinkHashPtrOutput values.
+// You can construct a concrete instance of `Powershell72ModuleModuleLinkHashPtrInput` via:
+//
+//	        Powershell72ModuleModuleLinkHashArgs{...}
+//
+//	or:
+//
+//	        nil
+type Powershell72ModuleModuleLinkHashPtrInput interface {
+	pulumi.Input
+
+	ToPowershell72ModuleModuleLinkHashPtrOutput() Powershell72ModuleModuleLinkHashPtrOutput
+	ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(context.Context) Powershell72ModuleModuleLinkHashPtrOutput
+}
+
+type powershell72ModuleModuleLinkHashPtrType Powershell72ModuleModuleLinkHashArgs
+
+func Powershell72ModuleModuleLinkHashPtr(v *Powershell72ModuleModuleLinkHashArgs) Powershell72ModuleModuleLinkHashPtrInput {
+	return (*powershell72ModuleModuleLinkHashPtrType)(v)
+}
+
+func (*powershell72ModuleModuleLinkHashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Powershell72ModuleModuleLinkHash)(nil)).Elem()
+}
+
+func (i *powershell72ModuleModuleLinkHashPtrType) ToPowershell72ModuleModuleLinkHashPtrOutput() Powershell72ModuleModuleLinkHashPtrOutput {
+	return i.ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (i *powershell72ModuleModuleLinkHashPtrType) ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Powershell72ModuleModuleLinkHashPtrOutput)
+}
+
+type Powershell72ModuleModuleLinkHashOutput struct{ *pulumi.OutputState }
+
+func (Powershell72ModuleModuleLinkHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Powershell72ModuleModuleLinkHash)(nil)).Elem()
+}
+
+func (o Powershell72ModuleModuleLinkHashOutput) ToPowershell72ModuleModuleLinkHashOutput() Powershell72ModuleModuleLinkHashOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkHashOutput) ToPowershell72ModuleModuleLinkHashOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkHashOutput) ToPowershell72ModuleModuleLinkHashPtrOutput() Powershell72ModuleModuleLinkHashPtrOutput {
+	return o.ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (o Powershell72ModuleModuleLinkHashOutput) ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Powershell72ModuleModuleLinkHash) *Powershell72ModuleModuleLinkHash {
+		return &v
+	}).(Powershell72ModuleModuleLinkHashPtrOutput)
+}
+
+// Specifies the algorithm used for the hash content.
+func (o Powershell72ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v Powershell72ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// The hash value of the content.
+func (o Powershell72ModuleModuleLinkHashOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v Powershell72ModuleModuleLinkHash) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type Powershell72ModuleModuleLinkHashPtrOutput struct{ *pulumi.OutputState }
+
+func (Powershell72ModuleModuleLinkHashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Powershell72ModuleModuleLinkHash)(nil)).Elem()
+}
+
+func (o Powershell72ModuleModuleLinkHashPtrOutput) ToPowershell72ModuleModuleLinkHashPtrOutput() Powershell72ModuleModuleLinkHashPtrOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkHashPtrOutput) ToPowershell72ModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) Powershell72ModuleModuleLinkHashPtrOutput {
+	return o
+}
+
+func (o Powershell72ModuleModuleLinkHashPtrOutput) Elem() Powershell72ModuleModuleLinkHashOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLinkHash) Powershell72ModuleModuleLinkHash {
+		if v != nil {
+			return *v
+		}
+		var ret Powershell72ModuleModuleLinkHash
+		return ret
+	}).(Powershell72ModuleModuleLinkHashOutput)
+}
+
+// Specifies the algorithm used for the hash content.
+func (o Powershell72ModuleModuleLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hash value of the content.
+func (o Powershell72ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Powershell72ModuleModuleLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type RunBookDraft struct {
 	// A `publishContentLink` block as defined above.
 	ContentLink  *RunBookDraftContentLink `pulumi:"contentLink"`
@@ -4815,6 +5127,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashPtrInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Powershell72ModuleModuleLinkInput)(nil)).Elem(), Powershell72ModuleModuleLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Powershell72ModuleModuleLinkPtrInput)(nil)).Elem(), Powershell72ModuleModuleLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Powershell72ModuleModuleLinkHashInput)(nil)).Elem(), Powershell72ModuleModuleLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Powershell72ModuleModuleLinkHashPtrInput)(nil)).Elem(), Powershell72ModuleModuleLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftInput)(nil)).Elem(), RunBookDraftArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftPtrInput)(nil)).Elem(), RunBookDraftArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftContentLinkInput)(nil)).Elem(), RunBookDraftContentLinkArgs{})
@@ -4883,6 +5199,10 @@ func init() {
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashPtrOutput{})
+	pulumi.RegisterOutputType(Powershell72ModuleModuleLinkOutput{})
+	pulumi.RegisterOutputType(Powershell72ModuleModuleLinkPtrOutput{})
+	pulumi.RegisterOutputType(Powershell72ModuleModuleLinkHashOutput{})
+	pulumi.RegisterOutputType(Powershell72ModuleModuleLinkHashPtrOutput{})
 	pulumi.RegisterOutputType(RunBookDraftOutput{})
 	pulumi.RegisterOutputType(RunBookDraftPtrOutput{})
 	pulumi.RegisterOutputType(RunBookDraftContentLinkOutput{})

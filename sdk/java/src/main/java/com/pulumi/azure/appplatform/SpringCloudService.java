@@ -183,6 +183,20 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logStreamPublicEndpointEnabled);
     }
     /**
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * 
+     */
+    @Export(name="managedEnvironmentId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedEnvironmentId;
+
+    /**
+     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * 
+     */
+    public Output<Optional<String>> managedEnvironmentId() {
+        return Codegen.optional(this.managedEnvironmentId);
+    }
+    /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      * 
      */
@@ -307,6 +321,20 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> skuName() {
         return Codegen.optional(this.skuName);
+    }
+    /**
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+     * 
+     */
+    @Export(name="skuTier", refs={String.class}, tree="[0]")
+    private Output<String> skuTier;
+
+    /**
+     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+     * 
+     */
+    public Output<String> skuTier() {
+        return this.skuTier;
     }
     /**
      * A mapping of tags to assign to the resource.

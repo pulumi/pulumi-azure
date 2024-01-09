@@ -16,7 +16,9 @@ namespace Pulumi.Azure.Nginx.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        /// Specifies a list of user managed identity ids to be assigned.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -31,7 +33,7 @@ namespace Pulumi.Azure.Nginx.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+        /// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

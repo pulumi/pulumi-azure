@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Application Gateway.
- *
  * ## Example Usage
  *
  * ```typescript

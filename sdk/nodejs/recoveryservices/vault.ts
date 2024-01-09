@@ -82,6 +82,8 @@ export class Vault extends pulumi.CustomResource {
     public readonly identity!: pulumi.Output<outputs.recoveryservices.VaultIdentity | undefined>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     *
+     * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
     public readonly immutability!: pulumi.Output<string>;
     /**
@@ -202,6 +204,8 @@ export interface VaultState {
     identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     *
+     * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
     immutability?: pulumi.Input<string>;
     /**
@@ -268,6 +272,8 @@ export interface VaultArgs {
     identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     *
+     * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
     immutability?: pulumi.Input<string>;
     /**

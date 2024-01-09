@@ -35,12 +35,16 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
+     * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
      * @return Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -110,12 +114,16 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
+     * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * 
      */
     @Import(name="organizationId")
     private @Nullable Output<String> organizationId;
 
     /**
      * @return Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     * 
+     * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     public Optional<Output<String>> organizationId() {
@@ -240,6 +248,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param accountId Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
          * 
+         * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+         * 
          * @return builder
          * 
          */
@@ -250,6 +260,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountId Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+         * 
+         * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
          * 
          * @return builder
          * 
@@ -345,6 +357,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param organizationId Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
          * 
+         * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+         * 
          * @return builder
          * 
          */
@@ -355,6 +369,8 @@ public final class MonitorState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param organizationId Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+         * 
+         * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
          * 
          * @return builder
          * 

@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
-    /// Manages a KeyVault Role Assignment.
+    /// Manages a Managed Hardware Security Module Role Assignment.
     /// 
     /// ## Import
     /// 
-    /// KeyVaults can be imported using the `resource id`, e.g.
+    /// Managed Hardware Security Modules can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
@@ -24,13 +24,13 @@ namespace Pulumi.Azure.KeyVault
     public partial class ManagedHardwareSecurityModuleRoleAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
@@ -42,19 +42,19 @@ namespace Pulumi.Azure.KeyVault
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        /// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("roleDefinitionId")]
         public Output<string> RoleDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        /// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Output("vaultBaseUrl")]
         public Output<string> VaultBaseUrl { get; private set; } = null!;
@@ -106,31 +106,31 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleRoleAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        /// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("roleDefinitionId", required: true)]
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        /// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("vaultBaseUrl", required: true)]
         public Input<string> VaultBaseUrl { get; set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.Azure.KeyVault
     public sealed class ManagedHardwareSecurityModuleRoleAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -162,19 +162,19 @@ namespace Pulumi.Azure.KeyVault
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        /// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("roleDefinitionId")]
         public Input<string>? RoleDefinitionId { get; set; }
 
         /// <summary>
-        /// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        /// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }
 
         /// <summary>
-        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        /// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         /// </summary>
         [Input("vaultBaseUrl")]
         public Input<string>? VaultBaseUrl { get; set; }

@@ -21,9 +21,6 @@ import javax.annotation.Nullable;
  * 
  * Manages a Kubernetes Fleet Manager
  * 
- * &gt; **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
- * .
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

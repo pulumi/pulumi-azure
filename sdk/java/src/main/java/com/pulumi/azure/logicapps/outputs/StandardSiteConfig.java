@@ -85,6 +85,11 @@ public final class StandardSiteConfig {
      */
     private @Nullable Integer preWarmedInstanceCount;
     /**
+     * @return Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean publicNetworkAccessEnabled;
+    /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
      */
@@ -224,6 +229,13 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.preWarmedInstanceCount);
     }
     /**
+     * @return Is public network access enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+    /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
      */
@@ -306,6 +318,7 @@ public final class StandardSiteConfig {
         private @Nullable String linuxFxVersion;
         private @Nullable String minTlsVersion;
         private @Nullable Integer preWarmedInstanceCount;
+        private @Nullable Boolean publicNetworkAccessEnabled;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
         private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
         private @Nullable String scmMinTlsVersion;
@@ -330,6 +343,7 @@ public final class StandardSiteConfig {
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
     	      this.scmMinTlsVersion = defaults.scmMinTlsVersion;
@@ -422,6 +436,12 @@ public final class StandardSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
+
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
 
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
@@ -487,6 +507,7 @@ public final class StandardSiteConfig {
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             _resultValue.scmIpRestrictions = scmIpRestrictions;
             _resultValue.scmMinTlsVersion = scmMinTlsVersion;

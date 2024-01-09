@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        /// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

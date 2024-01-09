@@ -28,7 +28,7 @@ class ScheduledQueryRulesLogArgs:
         """
         The set of arguments for constructing a ScheduledQueryRulesLog resource.
         :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
@@ -69,7 +69,7 @@ class ScheduledQueryRulesLogArgs:
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Input[str]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -178,7 +178,7 @@ class _ScheduledQueryRulesLogState:
         Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
         :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
@@ -233,7 +233,7 @@ class _ScheduledQueryRulesLogState:
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 
@@ -400,7 +400,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
@@ -557,7 +557,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
-        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
+        :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
@@ -600,7 +600,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[str]:
         """
-        The resource URI over which log search query is to be run.
+        The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "data_source_id")
 

@@ -123,7 +123,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
-     * Should the Windows Web App require HTTPS connections.
+     * Should the Windows Web App require HTTPS connections. Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface WindowsWebAppState {
      */
     hostingEnvironmentId?: pulumi.Input<string>;
     /**
-     * Should the Windows Web App require HTTPS connections.
+     * Should the Windows Web App require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -520,7 +520,7 @@ export interface WindowsWebAppArgs {
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * Should the Windows Web App require HTTPS connections.
+     * Should the Windows Web App require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

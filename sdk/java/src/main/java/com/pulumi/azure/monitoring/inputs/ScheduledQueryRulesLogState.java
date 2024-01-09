@@ -50,14 +50,14 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dataSourceId")
     private @Nullable Output<String> dataSourceId;
 
     /**
-     * @return The resource URI over which log search query is to be run.
+     * @return The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dataSourceId() {
@@ -239,7 +239,7 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataSourceId The resource URI over which log search query is to be run.
+         * @param dataSourceId The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ScheduledQueryRulesLogState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param dataSourceId The resource URI over which log search query is to be run.
+         * @param dataSourceId The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -298,14 +298,14 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Can the Function App Slot only be accessed via HTTPS?
+     * @return Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -1067,7 +1067,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?
+         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?
+         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -79,6 +79,8 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// 
+        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Output("immutability")]
         public Output<string> Immutability { get; private set; } = null!;
@@ -213,6 +215,8 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// 
+        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }
@@ -315,6 +319,8 @@ namespace Pulumi.Azure.RecoveryServices
 
         /// <summary>
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+        /// 
+        /// &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         /// </summary>
         [Input("immutability")]
         public Input<string>? Immutability { get; set; }

@@ -3284,7 +3284,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
                
@@ -3355,6 +3354,9 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "node_network_profile", node_network_profile)
         if node_public_ip_prefix_id is not None:
             pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
+        if node_taints is not None:
+            warnings.warn("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""", DeprecationWarning)
+            pulumi.log.warn("""node_taints is deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if only_critical_addons_enabled is not None:
@@ -3659,9 +3661,9 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="nodeTaints")
     def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-        """
+        warnings.warn("""This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""", DeprecationWarning)
+        pulumi.log.warn("""node_taints is deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool""")
+
         return pulumi.get(self, "node_taints")
 
     @node_taints.setter

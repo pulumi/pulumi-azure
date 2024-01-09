@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'GrafanaAzureMonitorWorkspaceIntegrationArgs',
     'GrafanaIdentityArgs',
+    'GetGrafanaIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -104,5 +105,55 @@ class GrafanaIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class GetGrafanaIdentityArgs:
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: str):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: str):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "identity_ids", value)
 
 

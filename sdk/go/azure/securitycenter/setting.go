@@ -59,7 +59,7 @@ type Setting struct {
 
 	// Boolean flag to enable/disable data access.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+	// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 	SettingName pulumi.StringOutput `pulumi:"settingName"`
 }
 
@@ -101,14 +101,14 @@ func GetSetting(ctx *pulumi.Context,
 type settingState struct {
 	// Boolean flag to enable/disable data access.
 	Enabled *bool `pulumi:"enabled"`
-	// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+	// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 	SettingName *string `pulumi:"settingName"`
 }
 
 type SettingState struct {
 	// Boolean flag to enable/disable data access.
 	Enabled pulumi.BoolPtrInput
-	// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+	// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 	SettingName pulumi.StringPtrInput
 }
 
@@ -119,7 +119,7 @@ func (SettingState) ElementType() reflect.Type {
 type settingArgs struct {
 	// Boolean flag to enable/disable data access.
 	Enabled bool `pulumi:"enabled"`
-	// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+	// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 	SettingName string `pulumi:"settingName"`
 }
 
@@ -127,7 +127,7 @@ type settingArgs struct {
 type SettingArgs struct {
 	// Boolean flag to enable/disable data access.
 	Enabled pulumi.BoolInput
-	// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+	// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 	SettingName pulumi.StringInput
 }
 
@@ -223,7 +223,7 @@ func (o SettingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Setting) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
 func (o SettingOutput) SettingName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Setting) pulumi.StringOutput { return v.SettingName }).(pulumi.StringOutput)
 }

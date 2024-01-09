@@ -12,6 +12,8 @@ from .. import _utilities
 __all__ = [
     'GrafanaAzureMonitorWorkspaceIntegration',
     'GrafanaIdentity',
+    'GetGrafanaAzureMonitorWorkspaceIntegrationResult',
+    'GetGrafanaIdentityResult',
 ]
 
 @pulumi.output_type
@@ -122,5 +124,51 @@ class GrafanaIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetGrafanaAzureMonitorWorkspaceIntegrationResult(dict):
+    def __init__(__self__, *,
+                 resource_id: str):
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class GetGrafanaIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
 
 

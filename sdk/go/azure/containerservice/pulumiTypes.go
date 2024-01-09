@@ -6488,7 +6488,7 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeNetworkProfile *KubernetesClusterDefaultNodePoolNodeNetworkProfile `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
-	// A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+	// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
@@ -6604,7 +6604,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	NodeNetworkProfile KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput `pulumi:"nodeNetworkProfile"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
 	NodePublicIpPrefixId pulumi.StringPtrInput `pulumi:"nodePublicIpPrefixId"`
-	// A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+	// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
 	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporaryNameForRotation` must be specified when changing this property.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
@@ -6851,7 +6851,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.St
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
-// A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) []string { return v.NodeTaints }).(pulumi.StringArrayOutput)
 }
@@ -7196,7 +7196,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+// Deprecated: This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) []string {
 		if v == nil {

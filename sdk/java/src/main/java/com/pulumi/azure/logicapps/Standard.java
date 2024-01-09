@@ -510,12 +510,16 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * The runtime version associated with the Logic App. Defaults to `~3`.
      * 
+     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
      * @return The runtime version associated with the Logic App. Defaults to `~3`.
+     * 
+     * &gt; **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      * 
      */
     public Output<Optional<String>> version() {

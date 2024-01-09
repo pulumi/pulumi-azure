@@ -140,6 +140,9 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -294,6 +297,9 @@ export interface ServiceAzureBotState {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
@@ -377,6 +383,9 @@ export interface ServiceAzureBotArgs {
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.

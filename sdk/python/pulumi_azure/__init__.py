@@ -1660,6 +1660,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/powershell72Module",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/powershell72Module:Powershell72Module": "Powershell72Module"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/python3Package",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -3176,6 +3184,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datadog",
   "classes": {
    "azure:datadog/monitorTagRule:MonitorTagRule": "MonitorTagRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/credentialUserManagedIdentity",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity": "CredentialUserManagedIdentity"
   }
  },
  {
@@ -5000,6 +5016,14 @@ _utilities.register(
   "fqn": "pulumi_azure.loganalytics",
   "classes": {
    "azure:loganalytics/storageInsights:StorageInsights": "StorageInsights"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "loganalytics/workspaceTable",
+  "fqn": "pulumi_azure.loganalytics",
+  "classes": {
+   "azure:loganalytics/workspaceTable:WorkspaceTable": "WorkspaceTable"
   }
  },
  {

@@ -151,7 +151,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface WindowsFunctionAppSlotState {
      */
     hostingEnvironmentId?: pulumi.Input<string>;
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -575,7 +575,7 @@ export interface WindowsFunctionAppSlotArgs {
      */
     functionsExtensionVersion?: pulumi.Input<string>;
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

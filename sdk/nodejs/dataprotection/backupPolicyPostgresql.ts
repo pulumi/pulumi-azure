@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     vaultName: exampleBackupVault.name,
  *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
  *     defaultRetentionDuration: "P4M",
  *     retentionRules: [
  *         {
@@ -119,6 +120,10 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
      */
     public readonly retentionRules!: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlRetentionRule[] | undefined>;
     /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    public readonly timeZone!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     public readonly vaultName!: pulumi.Output<string>;
@@ -141,6 +146,7 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
             resourceInputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as BackupPolicyPostgresqlArgs | undefined;
@@ -161,6 +167,7 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -193,6 +200,10 @@ export interface BackupPolicyPostgresqlState {
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
     /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    timeZone?: pulumi.Input<string>;
+    /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     vaultName?: pulumi.Input<string>;
@@ -222,6 +233,10 @@ export interface BackupPolicyPostgresqlArgs {
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
+    /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    timeZone?: pulumi.Input<string>;
     /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      */

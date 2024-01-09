@@ -33,7 +33,7 @@ type ScheduledQueryRulesAlert struct {
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
 	AutoMitigationEnabled pulumi.BoolPtrOutput `pulumi:"autoMitigationEnabled"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -121,7 +121,7 @@ type scheduledQueryRulesAlertState struct {
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
 	AutoMitigationEnabled *bool `pulumi:"autoMitigationEnabled"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -159,7 +159,7 @@ type ScheduledQueryRulesAlertState struct {
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
 	AutoMitigationEnabled pulumi.BoolPtrInput
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type scheduledQueryRulesAlertArgs struct {
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
 	AutoMitigationEnabled *bool `pulumi:"autoMitigationEnabled"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -240,7 +240,7 @@ type ScheduledQueryRulesAlertArgs struct {
 	// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
 	// > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
 	AutoMitigationEnabled pulumi.BoolPtrInput
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
@@ -373,7 +373,7 @@ func (o ScheduledQueryRulesAlertOutput) AutoMitigationEnabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.BoolPtrOutput { return v.AutoMitigationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The resource URI over which log search query is to be run.
+// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesAlertOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }

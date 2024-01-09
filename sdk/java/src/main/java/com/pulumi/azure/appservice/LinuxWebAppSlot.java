@@ -322,14 +322,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
-     * Should the Linux Web App require HTTPS connections.
+     * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
-     * @return Should the Linux Web App require HTTPS connections.
+     * @return Should the Linux Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> httpsOnly() {

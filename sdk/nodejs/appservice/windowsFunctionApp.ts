@@ -144,7 +144,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
-     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean>;
     /**
@@ -441,7 +441,7 @@ export interface WindowsFunctionAppState {
      */
     hostingEnvironmentId?: pulumi.Input<string>;
     /**
-     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -611,7 +611,7 @@ export interface WindowsFunctionAppArgs {
      */
     functionsExtensionVersion?: pulumi.Input<string>;
     /**
-     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

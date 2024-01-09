@@ -43,8 +43,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Application Gateway.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

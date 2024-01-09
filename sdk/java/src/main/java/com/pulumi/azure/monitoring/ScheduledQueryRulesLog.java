@@ -154,14 +154,14 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
         return this.criteria;
     }
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
-     * @return The resource URI over which log search query is to be run.
+     * @return The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> dataSourceId() {

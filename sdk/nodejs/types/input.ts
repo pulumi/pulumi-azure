@@ -7405,7 +7405,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `javaVersion`.
          *
          * > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -14305,6 +14305,28 @@ export namespace automation {
     }
 
     export interface ModuleModuleLinkHash {
+        /**
+         * Specifies the algorithm used for the hash content.
+         */
+        algorithm: pulumi.Input<string>;
+        /**
+         * The hash value of the content.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface Powershell72ModuleModuleLink {
+        /**
+         * A `hash` block as defined below.
+         */
+        hash?: pulumi.Input<inputs.automation.Powershell72ModuleModuleLinkHash>;
+        /**
+         * The URI of the module content (zip or nupkg).
+         */
+        uri: pulumi.Input<string>;
+    }
+
+    export interface Powershell72ModuleModuleLinkHash {
         /**
          * Specifies the algorithm used for the hash content.
          */
@@ -21682,7 +21704,13 @@ export namespace containerapp {
     }
 
     export interface EnvironmentWorkloadProfile {
+        /**
+         * The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+         */
         maximumCount: pulumi.Input<number>;
+        /**
+         * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         */
         minimumCount: pulumi.Input<number>;
         /**
          * The name of the workload profile.
@@ -22640,7 +22668,7 @@ export namespace containerservice {
          */
         nodePublicIpPrefixId?: pulumi.Input<string>;
         /**
-         * A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+         * @deprecated This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
          */
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -25357,6 +25385,20 @@ export namespace cosmosdb {
 }
 
 export namespace dashboard {
+    export interface GetGrafanaIdentity {
+        identityIds?: string[];
+        principalId?: string;
+        tenantId?: string;
+        type: string;
+    }
+
+    export interface GetGrafanaIdentityArgs {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface GrafanaAzureMonitorWorkspaceIntegration {
         /**
          * Specifies the resource ID of the connected Azure Monitor Workspace.
@@ -34523,6 +34565,7 @@ export namespace kusto {
          */
         subnetId: pulumi.Input<string>;
     }
+
 }
 
 export namespace lab {
@@ -35040,6 +35083,7 @@ export namespace logicapps {
         linuxFxVersion?: string;
         minTlsVersion?: string;
         preWarmedInstanceCount?: number;
+        publicNetworkAccessEnabled?: boolean;
         runtimeScaleMonitoringEnabled?: boolean;
         scmIpRestrictions?: inputs.logicapps.GetStandardSiteConfigScmIpRestriction[];
         scmMinTlsVersion?: string;
@@ -35064,6 +35108,7 @@ export namespace logicapps {
         linuxFxVersion?: pulumi.Input<string>;
         minTlsVersion?: pulumi.Input<string>;
         preWarmedInstanceCount?: pulumi.Input<number>;
+        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
         runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.GetStandardSiteConfigScmIpRestrictionArgs>[]>;
         scmMinTlsVersion?: pulumi.Input<string>;
@@ -35381,6 +35426,10 @@ export namespace logicapps {
          * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount?: pulumi.Input<number>;
+        /**
+         * Is public network access enabled? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
         /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
          */
@@ -45411,13 +45460,15 @@ export namespace nginx {
 
     export interface DeploymentIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of user managed identity ids to be assigned.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+         * Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }

@@ -13,7 +13,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     [OutputType]
     public sealed class EnvironmentWorkloadProfile
     {
+        /// <summary>
+        /// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// </summary>
         public readonly int MaximumCount;
+        /// <summary>
+        /// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// </summary>
         public readonly int MinimumCount;
         /// <summary>
         /// The name of the workload profile.

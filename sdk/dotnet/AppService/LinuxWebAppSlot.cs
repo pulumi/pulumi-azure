@@ -160,7 +160,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool?> HttpsOnly { get; private set; } = null!;
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
@@ -631,7 +631,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? HostingEnvironmentId { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App require HTTPS connections.
+        /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }

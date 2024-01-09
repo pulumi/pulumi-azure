@@ -73,6 +73,8 @@ export class Monitor extends pulumi.CustomResource {
     public readonly accountCreationSource!: pulumi.Output<string | undefined>;
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -93,6 +95,8 @@ export class Monitor extends pulumi.CustomResource {
     public readonly orgCreationSource!: pulumi.Output<string | undefined>;
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     public readonly organizationId!: pulumi.Output<string>;
     /**
@@ -176,6 +180,8 @@ export interface MonitorState {
     accountCreationSource?: pulumi.Input<string>;
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -196,6 +202,8 @@ export interface MonitorState {
     orgCreationSource?: pulumi.Input<string>;
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     organizationId?: pulumi.Input<string>;
     /**
@@ -226,6 +234,8 @@ export interface MonitorArgs {
     accountCreationSource?: pulumi.Input<string>;
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -246,6 +256,8 @@ export interface MonitorArgs {
     orgCreationSource?: pulumi.Input<string>;
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+     *
+     * > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
     organizationId?: pulumi.Input<string>;
     /**

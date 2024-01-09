@@ -68,6 +68,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly int? PreWarmedInstanceCount;
         /// <summary>
+        /// Is public network access enabled? Defaults to `true`.
+        /// </summary>
+        public readonly bool? PublicNetworkAccessEnabled;
+        /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
@@ -132,6 +136,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             int? preWarmedInstanceCount,
 
+            bool? publicNetworkAccessEnabled,
+
             bool? runtimeScaleMonitoringEnabled,
 
             ImmutableArray<Outputs.StandardSiteConfigScmIpRestriction> scmIpRestrictions,
@@ -161,6 +167,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             ScmIpRestrictions = scmIpRestrictions;
             ScmMinTlsVersion = scmMinTlsVersion;

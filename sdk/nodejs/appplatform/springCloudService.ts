@@ -104,6 +104,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly logStreamPublicEndpointEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+     */
+    public readonly managedEnvironmentId!: pulumi.Output<string | undefined>;
+    /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      */
     public readonly marketplace!: pulumi.Output<outputs.appplatform.SpringCloudServiceMarketplace>;
@@ -140,6 +144,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     */
+    public readonly skuTier!: pulumi.Output<string>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -171,6 +179,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["defaultBuildService"] = state ? state.defaultBuildService : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = state ? state.logStreamPublicEndpointEnabled : undefined;
+            resourceInputs["managedEnvironmentId"] = state ? state.managedEnvironmentId : undefined;
             resourceInputs["marketplace"] = state ? state.marketplace : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["network"] = state ? state.network : undefined;
@@ -180,6 +189,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["serviceRegistryEnabled"] = state ? state.serviceRegistryEnabled : undefined;
             resourceInputs["serviceRegistryId"] = state ? state.serviceRegistryId : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trace"] = state ? state.trace : undefined;
             resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
@@ -194,12 +204,14 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["defaultBuildService"] = args ? args.defaultBuildService : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logStreamPublicEndpointEnabled"] = args ? args.logStreamPublicEndpointEnabled : undefined;
+            resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
             resourceInputs["marketplace"] = args ? args.marketplace : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceRegistryEnabled"] = args ? args.serviceRegistryEnabled : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trace"] = args ? args.trace : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
@@ -241,6 +253,10 @@ export interface SpringCloudServiceState {
      */
     logStreamPublicEndpointEnabled?: pulumi.Input<boolean>;
     /**
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+     */
+    managedEnvironmentId?: pulumi.Input<string>;
+    /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      */
     marketplace?: pulumi.Input<inputs.appplatform.SpringCloudServiceMarketplace>;
@@ -276,6 +292,10 @@ export interface SpringCloudServiceState {
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
+    /**
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     */
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -319,6 +339,10 @@ export interface SpringCloudServiceArgs {
      */
     logStreamPublicEndpointEnabled?: pulumi.Input<boolean>;
     /**
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+     */
+    managedEnvironmentId?: pulumi.Input<string>;
+    /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      */
     marketplace?: pulumi.Input<inputs.appplatform.SpringCloudServiceMarketplace>;
@@ -342,6 +366,10 @@ export interface SpringCloudServiceArgs {
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
+    /**
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     */
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

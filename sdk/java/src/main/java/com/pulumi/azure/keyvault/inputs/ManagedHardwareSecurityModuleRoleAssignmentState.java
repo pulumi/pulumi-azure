@@ -16,14 +16,14 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
     public static final ManagedHardwareSecurityModuleRoleAssignmentState Empty = new ManagedHardwareSecurityModuleRoleAssignmentState();
 
     /**
-     * The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * @return The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -31,14 +31,14 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
     }
 
     /**
-     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * @return The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -61,14 +61,14 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
     }
 
     /**
-     * The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Import(name="roleDefinitionId")
     private @Nullable Output<String> roleDefinitionId;
 
     /**
-     * @return The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * @return The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> roleDefinitionId() {
@@ -76,14 +76,14 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
     }
 
     /**
-     * Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * @return Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -91,14 +91,14 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
     }
 
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Import(name="vaultBaseUrl")
     private @Nullable Output<String> vaultBaseUrl;
 
     /**
-     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> vaultBaseUrl() {
@@ -135,7 +135,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param name The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+         * @param name The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param name The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+         * @param name The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param principalId The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+         * @param principalId The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param principalId The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+         * @param principalId The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param roleDefinitionId The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+         * @param roleDefinitionId The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param roleDefinitionId The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+         * @param roleDefinitionId The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param scope Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+         * @param scope Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param scope Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+         * @param scope Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ManagedHardwareSecurityModuleRoleAssignmentState extends com.
         }
 
         /**
-         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+         * @param vaultBaseUrl The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
          * 
          * @return builder
          * 

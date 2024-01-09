@@ -674,6 +674,8 @@ class StandardSiteConfig(dict):
             suggest = "min_tls_version"
         elif key == "preWarmedInstanceCount":
             suggest = "pre_warmed_instance_count"
+        elif key == "publicNetworkAccessEnabled":
+            suggest = "public_network_access_enabled"
         elif key == "runtimeScaleMonitoringEnabled":
             suggest = "runtime_scale_monitoring_enabled"
         elif key == "scmIpRestrictions":
@@ -716,6 +718,7 @@ class StandardSiteConfig(dict):
                  linux_fx_version: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
                  pre_warmed_instance_count: Optional[int] = None,
+                 public_network_access_enabled: Optional[bool] = None,
                  runtime_scale_monitoring_enabled: Optional[bool] = None,
                  scm_ip_restrictions: Optional[Sequence['outputs.StandardSiteConfigScmIpRestriction']] = None,
                  scm_min_tls_version: Optional[str] = None,
@@ -740,6 +743,7 @@ class StandardSiteConfig(dict):
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param str min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        :param bool public_network_access_enabled: Is public network access enabled? Defaults to `true`.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         :param Sequence['StandardSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
@@ -779,6 +783,8 @@ class StandardSiteConfig(dict):
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_ip_restrictions is not None:
@@ -901,6 +907,14 @@ class StandardSiteConfig(dict):
         The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         """
         return pulumi.get(self, "pre_warmed_instance_count")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Is public network access enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")
@@ -1962,6 +1976,7 @@ class GetStandardSiteConfigResult(dict):
                  dotnet_framework_version: Optional[str] = None,
                  health_check_path: Optional[str] = None,
                  http2_enabled: Optional[bool] = None,
+                 public_network_access_enabled: Optional[bool] = None,
                  runtime_scale_monitoring_enabled: Optional[bool] = None,
                  scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
@@ -1987,6 +2002,8 @@ class GetStandardSiteConfigResult(dict):
             pulumi.set(__self__, "health_check_path", health_check_path)
         if http2_enabled is not None:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_use_main_ip_restriction is not None:
@@ -2080,6 +2097,11 @@ class GetStandardSiteConfigResult(dict):
     @pulumi.getter(name="http2Enabled")
     def http2_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "http2_enabled")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")

@@ -59,7 +59,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
      */
     public readonly autoMitigationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     public readonly dataSourceId!: pulumi.Output<string>;
     /**
@@ -209,7 +209,7 @@ export interface ScheduledQueryRulesAlertState {
      */
     autoMitigationEnabled?: pulumi.Input<boolean>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     dataSourceId?: pulumi.Input<string>;
     /**
@@ -284,7 +284,7 @@ export interface ScheduledQueryRulesAlertArgs {
      */
     autoMitigationEnabled?: pulumi.Input<boolean>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     dataSourceId: pulumi.Input<string>;
     /**

@@ -1806,6 +1806,8 @@ type StandardSiteConfig struct {
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -1868,6 +1870,8 @@ type StandardSiteConfigArgs struct {
 	MinTlsVersion pulumi.StringPtrInput `pulumi:"minTlsVersion"`
 	// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
+	// Is public network access enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
 	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
@@ -2032,6 +2036,11 @@ func (o StandardSiteConfigOutput) MinTlsVersion() pulumi.StringPtrOutput {
 // The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
 func (o StandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *int { return v.PreWarmedInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Is public network access enabled? Defaults to `true`.
+func (o StandardSiteConfigOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -2232,6 +2241,16 @@ func (o StandardSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutpu
 		}
 		return v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Is public network access enabled? Defaults to `true`.
+func (o StandardSiteConfigPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -4879,6 +4898,7 @@ type GetStandardSiteConfig struct {
 	LinuxFxVersion                string                                  `pulumi:"linuxFxVersion"`
 	MinTlsVersion                 string                                  `pulumi:"minTlsVersion"`
 	PreWarmedInstanceCount        int                                     `pulumi:"preWarmedInstanceCount"`
+	PublicNetworkAccessEnabled    *bool                                   `pulumi:"publicNetworkAccessEnabled"`
 	RuntimeScaleMonitoringEnabled *bool                                   `pulumi:"runtimeScaleMonitoringEnabled"`
 	ScmIpRestrictions             []GetStandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
 	ScmMinTlsVersion              string                                  `pulumi:"scmMinTlsVersion"`
@@ -4914,6 +4934,7 @@ type GetStandardSiteConfigArgs struct {
 	LinuxFxVersion                pulumi.StringInput                              `pulumi:"linuxFxVersion"`
 	MinTlsVersion                 pulumi.StringInput                              `pulumi:"minTlsVersion"`
 	PreWarmedInstanceCount        pulumi.IntInput                                 `pulumi:"preWarmedInstanceCount"`
+	PublicNetworkAccessEnabled    pulumi.BoolPtrInput                             `pulumi:"publicNetworkAccessEnabled"`
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput                             `pulumi:"runtimeScaleMonitoringEnabled"`
 	ScmIpRestrictions             GetStandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
 	ScmMinTlsVersion              pulumi.StringInput                              `pulumi:"scmMinTlsVersion"`
@@ -5051,6 +5072,10 @@ func (o GetStandardSiteConfigOutput) MinTlsVersion() pulumi.StringOutput {
 
 func (o GetStandardSiteConfigOutput) PreWarmedInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) int { return v.PreWarmedInstanceCount }).(pulumi.IntOutput)
+}
+
+func (o GetStandardSiteConfigOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetStandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
@@ -5224,6 +5249,15 @@ func (o GetStandardSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOu
 		}
 		return &v.PreWarmedInstanceCount
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o GetStandardSiteConfigPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o GetStandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {

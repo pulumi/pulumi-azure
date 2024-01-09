@@ -308,14 +308,14 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
-     * Should the Windows Web App Slot require HTTPS connections.
+     * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      * 
      */
     @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
-     * @return Should the Windows Web App Slot require HTTPS connections.
+     * @return Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> httpsOnly() {

@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.kusto.outputs;
 
+import com.pulumi.azure.kusto.outputs.GetClusterIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -21,6 +23,11 @@ public final class GetClusterResult {
      * 
      */
     private String id;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    private List<GetClusterIdentity> identities;
     private String location;
     private String name;
     private String resourceGroupName;
@@ -45,6 +52,13 @@ public final class GetClusterResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public List<GetClusterIdentity> identities() {
+        return this.identities;
     }
     public String location() {
         return this.location;
@@ -77,6 +91,7 @@ public final class GetClusterResult {
     public static final class Builder {
         private String dataIngestionUri;
         private String id;
+        private List<GetClusterIdentity> identities;
         private String location;
         private String name;
         private String resourceGroupName;
@@ -87,6 +102,7 @@ public final class GetClusterResult {
     	      Objects.requireNonNull(defaults);
     	      this.dataIngestionUri = defaults.dataIngestionUri;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -109,6 +125,17 @@ public final class GetClusterResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetClusterIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetClusterIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -154,6 +181,7 @@ public final class GetClusterResult {
             final var _resultValue = new GetClusterResult();
             _resultValue.dataIngestionUri = dataIngestionUri;
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;

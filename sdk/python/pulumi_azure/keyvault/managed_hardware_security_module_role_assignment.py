@@ -21,11 +21,11 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
-        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] name: The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -38,7 +38,7 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -50,7 +50,7 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Input[str]:
         """
-        The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -62,7 +62,7 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -74,7 +74,7 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     @pulumi.getter(name="vaultBaseUrl")
     def vault_base_url(self) -> pulumi.Input[str]:
         """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "vault_base_url")
 
@@ -86,7 +86,7 @@ class ManagedHardwareSecurityModuleRoleAssignmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "name")
 
@@ -106,12 +106,12 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
                  vault_base_url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleAssignment resources.
-        :param pulumi.Input[str] name: The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] resource_id: The resource id of created assignment resource.
-        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -130,7 +130,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "name")
 
@@ -142,7 +142,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -166,7 +166,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -178,7 +178,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -190,7 +190,7 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
     @pulumi.getter(name="vaultBaseUrl")
     def vault_base_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "vault_base_url")
 
@@ -211,11 +211,11 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
                  vault_base_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a KeyVault Role Assignment.
+        Manages a Managed Hardware Security Module Role Assignment.
 
         ## Import
 
-        KeyVaults can be imported using the `resource id`, e.g.
+        Managed Hardware Security Modules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
@@ -223,11 +223,11 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         ...
     @overload
@@ -236,11 +236,11 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
                  args: ManagedHardwareSecurityModuleRoleAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a KeyVault Role Assignment.
+        Manages a Managed Hardware Security Module Role Assignment.
 
         ## Import
 
-        KeyVaults can be imported using the `resource id`, e.g.
+        Managed Hardware Security Modules can be imported using the `resource id`, e.g.
 
         ```sh
          $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
@@ -312,12 +312,12 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] name: The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] principal_id: The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         :param pulumi.Input[str] resource_id: The resource id of created assignment resource.
-        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
-        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        :param pulumi.Input[str] role_definition_id: The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] scope: Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
+        :param pulumi.Input[str] vault_base_url: The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -335,7 +335,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+        The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "name")
 
@@ -343,7 +343,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[str]:
         """
-        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+        The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "principal_id")
 
@@ -359,7 +359,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> pulumi.Output[str]:
         """
-        The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+        The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "role_definition_id")
 
@@ -367,7 +367,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
         """
-        Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+        Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "scope")
 
@@ -375,7 +375,7 @@ class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
     @pulumi.getter(name="vaultBaseUrl")
     def vault_base_url(self) -> pulumi.Output[str]:
         """
-        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+        The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         """
         return pulumi.get(self, "vault_base_url")
 

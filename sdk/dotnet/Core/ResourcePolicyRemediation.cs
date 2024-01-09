@@ -9,36 +9,144 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Core
 {
+    /// <summary>
+    /// Manages an Azure Resource Policy Remediation.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     {
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         DisplayName = "my-policy-definition",
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new()
+    ///     {
+    ///         ResourceId = exampleVirtualNetwork.Id,
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         Parameters = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = new[]
+    ///                 {
+    ///                     location,
+    ///                     "East US",
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///     });
+    /// 
+    ///     var exampleResourcePolicyRemediation = new Azure.Core.ResourcePolicyRemediation("exampleResourcePolicyRemediation", new()
+    ///     {
+    ///         ResourceId = exampleVirtualNetwork.Id,
+    ///         PolicyAssignmentId = exampleResourceGroupPolicyAssignment.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Policy Remediations can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:core/resourcePolicyRemediation:ResourcePolicyRemediation")]
     public partial class ResourcePolicyRemediation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// </summary>
         [Output("failurePercentage")]
         public Output<double?> FailurePercentage { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of the resource locations that will be remediated.
+        /// </summary>
         [Output("locationFilters")]
         public Output<ImmutableArray<string>> LocationFilters { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Policy Remediation. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        /// </summary>
         [Output("parallelDeployments")]
         public Output<int?> ParallelDeployments { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Policy Assignment that should be remediated.
+        /// </summary>
         [Output("policyAssignmentId")]
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// 
+        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        /// </summary>
         [Output("policyDefinitionId")]
         public Output<string?> PolicyDefinitionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
         [Output("policyDefinitionReferenceId")]
         public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        /// </summary>
         [Output("resourceCount")]
         public Output<int?> ResourceCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
         [Output("resourceDiscoveryMode")]
         public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
@@ -88,38 +196,71 @@ namespace Pulumi.Azure.Core
 
     public sealed class ResourcePolicyRemediationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// </summary>
         [Input("failurePercentage")]
         public Input<double>? FailurePercentage { get; set; }
 
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
+
+        /// <summary>
+        /// A list of the resource locations that will be remediated.
+        /// </summary>
         public InputList<string> LocationFilters
         {
             get => _locationFilters ?? (_locationFilters = new InputList<string>());
             set => _locationFilters = value;
         }
 
+        /// <summary>
+        /// The name of the Policy Remediation. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        /// </summary>
         [Input("parallelDeployments")]
         public Input<int>? ParallelDeployments { get; set; }
 
+        /// <summary>
+        /// The ID of the Policy Assignment that should be remediated.
+        /// </summary>
         [Input("policyAssignmentId", required: true)]
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// 
+        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        /// </summary>
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
 
+        /// <summary>
+        /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
 
+        /// <summary>
+        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        /// </summary>
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }
 
+        /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }
 
+        /// <summary>
+        /// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
@@ -131,38 +272,71 @@ namespace Pulumi.Azure.Core
 
     public sealed class ResourcePolicyRemediationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        /// </summary>
         [Input("failurePercentage")]
         public Input<double>? FailurePercentage { get; set; }
 
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
+
+        /// <summary>
+        /// A list of the resource locations that will be remediated.
+        /// </summary>
         public InputList<string> LocationFilters
         {
             get => _locationFilters ?? (_locationFilters = new InputList<string>());
             set => _locationFilters = value;
         }
 
+        /// <summary>
+        /// The name of the Policy Remediation. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        /// </summary>
         [Input("parallelDeployments")]
         public Input<int>? ParallelDeployments { get; set; }
 
+        /// <summary>
+        /// The ID of the Policy Assignment that should be remediated.
+        /// </summary>
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }
 
+        /// <summary>
+        /// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// 
+        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        /// </summary>
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
 
+        /// <summary>
+        /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
         [Input("policyDefinitionReferenceId")]
         public Input<string>? PolicyDefinitionReferenceId { get; set; }
 
+        /// <summary>
+        /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        /// </summary>
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }
 
+        /// <summary>
+        /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        /// </summary>
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }
 
+        /// <summary>
+        /// The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 

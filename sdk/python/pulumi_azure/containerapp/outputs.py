@@ -2384,6 +2384,8 @@ class EnvironmentWorkloadProfile(dict):
                  name: str,
                  workload_profile_type: str):
         """
+        :param int maximum_count: The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+        :param int minimum_count: The minimum number of instances of workload profile that can be deployed in the Container App Environment.
         :param str name: The name of the workload profile.
         :param str workload_profile_type: Workload profile type for the workloads to run on. Possible values include `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
         """
@@ -2395,11 +2397,17 @@ class EnvironmentWorkloadProfile(dict):
     @property
     @pulumi.getter(name="maximumCount")
     def maximum_count(self) -> int:
+        """
+        The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+        """
         return pulumi.get(self, "maximum_count")
 
     @property
     @pulumi.getter(name="minimumCount")
     def minimum_count(self) -> int:
+        """
+        The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        """
         return pulumi.get(self, "minimum_count")
 
     @property

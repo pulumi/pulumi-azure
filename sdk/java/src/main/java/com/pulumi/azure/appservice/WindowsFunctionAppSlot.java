@@ -361,14 +361,14 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return this.hostingEnvironmentId;
     }
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
-     * @return Can the Function App Slot only be accessed via HTTPS?
+     * @return Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> httpsOnly() {

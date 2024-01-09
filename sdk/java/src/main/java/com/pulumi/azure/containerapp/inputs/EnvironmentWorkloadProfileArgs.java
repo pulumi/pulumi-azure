@@ -15,16 +15,32 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
 
     public static final EnvironmentWorkloadProfileArgs Empty = new EnvironmentWorkloadProfileArgs();
 
+    /**
+     * The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     @Import(name="maximumCount", required=true)
     private Output<Integer> maximumCount;
 
+    /**
+     * @return The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     public Output<Integer> maximumCount() {
         return this.maximumCount;
     }
 
+    /**
+     * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     @Import(name="minimumCount", required=true)
     private Output<Integer> minimumCount;
 
+    /**
+     * @return The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+     * 
+     */
     public Output<Integer> minimumCount() {
         return this.minimumCount;
     }
@@ -86,20 +102,44 @@ public final class EnvironmentWorkloadProfileArgs extends com.pulumi.resources.R
             $ = new EnvironmentWorkloadProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maximumCount The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumCount(Output<Integer> maximumCount) {
             $.maximumCount = maximumCount;
             return this;
         }
 
+        /**
+         * @param maximumCount The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maximumCount(Integer maximumCount) {
             return maximumCount(Output.of(maximumCount));
         }
 
+        /**
+         * @param minimumCount The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimumCount(Output<Integer> minimumCount) {
             $.minimumCount = minimumCount;
             return this;
         }
 
+        /**
+         * @param minimumCount The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minimumCount(Integer minimumCount) {
             return minimumCount(Output.of(minimumCount));
         }

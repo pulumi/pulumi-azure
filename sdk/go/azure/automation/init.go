@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JobSchedule{}
 	case "azure:automation/module:Module":
 		r = &Module{}
+	case "azure:automation/powershell72Module:Powershell72Module":
+		r = &Powershell72Module{}
 	case "azure:automation/python3Package:Python3Package":
 		r = &Python3Package{}
 	case "azure:automation/runBook:RunBook":
@@ -169,6 +171,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/module",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/powershell72Module",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

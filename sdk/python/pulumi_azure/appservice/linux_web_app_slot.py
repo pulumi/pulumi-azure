@@ -56,7 +56,7 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['LinuxWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
@@ -282,7 +282,7 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Linux Web App require HTTPS connections.
+        Should the Linux Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -479,7 +479,7 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
-        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['LinuxWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
@@ -770,7 +770,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Linux Web App require HTTPS connections.
+        Should the Linux Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -1073,7 +1073,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
@@ -1288,7 +1288,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
-        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
@@ -1485,7 +1485,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the Linux Web App require HTTPS connections.
+        Should the Linux Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

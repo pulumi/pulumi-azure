@@ -131,7 +131,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
-     * Should the Windows Web App Slot require HTTPS connections.
+     * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -369,7 +369,7 @@ export interface WindowsWebAppSlotState {
      */
     hostingEnvironmentId?: pulumi.Input<string>;
     /**
-     * Should the Windows Web App Slot require HTTPS connections.
+     * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -499,7 +499,7 @@ export interface WindowsWebAppSlotArgs {
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * Should the Windows Web App Slot require HTTPS connections.
+     * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

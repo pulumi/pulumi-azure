@@ -253,14 +253,14 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Can the Function App Slot only be accessed via HTTPS?
+     * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Can the Function App Slot only be accessed via HTTPS?
+     * @return Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -860,7 +860,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?
+         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?
+         * @param httpsOnly Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 

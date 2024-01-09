@@ -307,9 +307,17 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Whether public network access is allowed for this server. Defaults to `true`.
+     * 
+     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }

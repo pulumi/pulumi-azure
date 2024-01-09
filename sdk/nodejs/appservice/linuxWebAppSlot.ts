@@ -135,7 +135,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
     /**
-     * Should the Linux Web App require HTTPS connections.
+     * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      */
     public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
@@ -379,7 +379,7 @@ export interface LinuxWebAppSlotState {
      */
     hostingEnvironmentId?: pulumi.Input<string>;
     /**
-     * Should the Linux Web App require HTTPS connections.
+     * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**
@@ -509,7 +509,7 @@ export interface LinuxWebAppSlotArgs {
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * Should the Linux Web App require HTTPS connections.
+     * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      */
     httpsOnly?: pulumi.Input<boolean>;
     /**

@@ -946,6 +946,130 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetClusterIdentity struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Kusto Cluster.
+	Type string `pulumi:"type"`
+}
+
+// GetClusterIdentityInput is an input type that accepts GetClusterIdentityArgs and GetClusterIdentityOutput values.
+// You can construct a concrete instance of `GetClusterIdentityInput` via:
+//
+//	GetClusterIdentityArgs{...}
+type GetClusterIdentityInput interface {
+	pulumi.Input
+
+	ToGetClusterIdentityOutput() GetClusterIdentityOutput
+	ToGetClusterIdentityOutputWithContext(context.Context) GetClusterIdentityOutput
+}
+
+type GetClusterIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Kusto Cluster.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterIdentity)(nil)).Elem()
+}
+
+func (i GetClusterIdentityArgs) ToGetClusterIdentityOutput() GetClusterIdentityOutput {
+	return i.ToGetClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i GetClusterIdentityArgs) ToGetClusterIdentityOutputWithContext(ctx context.Context) GetClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOutput)
+}
+
+// GetClusterIdentityArrayInput is an input type that accepts GetClusterIdentityArray and GetClusterIdentityArrayOutput values.
+// You can construct a concrete instance of `GetClusterIdentityArrayInput` via:
+//
+//	GetClusterIdentityArray{ GetClusterIdentityArgs{...} }
+type GetClusterIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterIdentityArrayOutput() GetClusterIdentityArrayOutput
+	ToGetClusterIdentityArrayOutputWithContext(context.Context) GetClusterIdentityArrayOutput
+}
+
+type GetClusterIdentityArray []GetClusterIdentityInput
+
+func (GetClusterIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterIdentity)(nil)).Elem()
+}
+
+func (i GetClusterIdentityArray) ToGetClusterIdentityArrayOutput() GetClusterIdentityArrayOutput {
+	return i.ToGetClusterIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterIdentityArray) ToGetClusterIdentityArrayOutputWithContext(ctx context.Context) GetClusterIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityArrayOutput)
+}
+
+type GetClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterIdentity)(nil)).Elem()
+}
+
+func (o GetClusterIdentityOutput) ToGetClusterIdentityOutput() GetClusterIdentityOutput {
+	return o
+}
+
+func (o GetClusterIdentityOutput) ToGetClusterIdentityOutputWithContext(ctx context.Context) GetClusterIdentityOutput {
+	return o
+}
+
+// A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+func (o GetClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this System Assigned Managed Service Identity.
+func (o GetClusterIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID associated with this System Assigned Managed Service Identity.
+func (o GetClusterIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Kusto Cluster.
+func (o GetClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetClusterIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterIdentity)(nil)).Elem()
+}
+
+func (o GetClusterIdentityArrayOutput) ToGetClusterIdentityArrayOutput() GetClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetClusterIdentityArrayOutput) ToGetClusterIdentityArrayOutputWithContext(ctx context.Context) GetClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetClusterIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterIdentity {
+		return vs[0].([]GetClusterIdentity)[vs[1].(int)]
+	}).(GetClusterIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationSharingInput)(nil)).Elem(), AttachedDatabaseConfigurationSharingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AttachedDatabaseConfigurationSharingPtrInput)(nil)).Elem(), AttachedDatabaseConfigurationSharingArgs{})
@@ -957,6 +1081,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuPtrInput)(nil)).Elem(), ClusterSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
@@ -967,4 +1093,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
+	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 }

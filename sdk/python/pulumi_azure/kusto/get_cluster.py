@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetClusterResult',
@@ -21,13 +22,16 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, data_ingestion_uri=None, id=None, location=None, name=None, resource_group_name=None, tags=None, uri=None):
+    def __init__(__self__, data_ingestion_uri=None, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None, uri=None):
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
         pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,6 +63,14 @@ class GetClusterResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetClusterIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -97,6 +109,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             data_ingestion_uri=self.data_ingestion_uri,
             id=self.id,
+            identities=self.identities,
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -133,6 +146,7 @@ def get_cluster(name: Optional[str] = None,
     return AwaitableGetClusterResult(
         data_ingestion_uri=pulumi.get(__ret__, 'data_ingestion_uri'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),

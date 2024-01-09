@@ -17,39 +17,153 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an Azure Subscription Policy Remediation.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+ * import com.pulumi.azure.policy.PolicyFunctions;
+ * import com.pulumi.azure.policy.inputs.GetPolicyDefintionArgs;
+ * import com.pulumi.azure.core.SubscriptionPolicyAssignment;
+ * import com.pulumi.azure.core.SubscriptionPolicyAssignmentArgs;
+ * import com.pulumi.azure.core.SubscriptionPolicyRemediation;
+ * import com.pulumi.azure.core.SubscriptionPolicyRemediationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleSubscription = CoreFunctions.getSubscription();
+ * 
+ *         final var examplePolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+ *             .displayName(&#34;Allowed resource types&#34;)
+ *             .build());
+ * 
+ *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .policyDefinitionId(examplePolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .parameters(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
+ *                         jsonProperty(&#34;value&#34;, jsonArray(
+ *                             &#34;West Europe&#34;, 
+ *                             &#34;East US&#34;
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation(&#34;exampleSubscriptionPolicyRemediation&#34;, SubscriptionPolicyRemediationArgs.builder()        
+ *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Policy Remediations can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights/remediations/remediation1
+ * ```
+ * 
+ */
 @ResourceType(type="azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation")
 public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomResource {
+    /**
+     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     @Export(name="failurePercentage", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> failurePercentage;
 
+    /**
+     * @return A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     public Output<Optional<Double>> failurePercentage() {
         return Codegen.optional(this.failurePercentage);
     }
+    /**
+     * A list of the resource locations that will be remediated.
+     * 
+     */
     @Export(name="locationFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationFilters;
 
+    /**
+     * @return A list of the resource locations that will be remediated.
+     * 
+     */
     public Output<Optional<List<String>>> locationFilters() {
         return Codegen.optional(this.locationFilters);
     }
+    /**
+     * The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     @Export(name="parallelDeployments", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> parallelDeployments;
 
+    /**
+     * @return Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     public Output<Optional<Integer>> parallelDeployments() {
         return Codegen.optional(this.parallelDeployments);
     }
+    /**
+     * The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     @Export(name="policyAssignmentId", refs={String.class}, tree="[0]")
     private Output<String> policyAssignmentId;
 
+    /**
+     * @return The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     public Output<String> policyAssignmentId() {
         return this.policyAssignmentId;
     }
     /**
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
      * @deprecated
      * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
      * 
@@ -58,30 +172,68 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
     @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionId;
 
+    /**
+     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
+     */
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
     }
+    /**
+     * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     @Export(name="policyDefinitionReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionReferenceId;
 
+    /**
+     * @return The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     public Output<Optional<String>> policyDefinitionReferenceId() {
         return Codegen.optional(this.policyDefinitionReferenceId);
     }
+    /**
+     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     @Export(name="resourceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> resourceCount;
 
+    /**
+     * @return Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     public Output<Optional<Integer>> resourceCount() {
         return Codegen.optional(this.resourceCount);
     }
+    /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     @Export(name="resourceDiscoveryMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceDiscoveryMode;
 
+    /**
+     * @return The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     public Output<Optional<String>> resourceDiscoveryMode() {
         return Codegen.optional(this.resourceDiscoveryMode);
     }
+    /**
+     * The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
     private Output<String> subscriptionId;
 
+    /**
+     * @return The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> subscriptionId() {
         return this.subscriptionId;
     }

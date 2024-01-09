@@ -11,9 +11,6 @@ import * as utilities from "../utilities";
  *
  * Manages a Kubernetes Fleet Manager
  *
- * > **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
- * .
- *
  * ## Example Usage
  *
  * ```typescript

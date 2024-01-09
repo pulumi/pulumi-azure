@@ -15,6 +15,11 @@ export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
 utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
+export { GetGrafanaArgs, GetGrafanaResult, GetGrafanaOutputArgs } from "./getGrafana";
+export const getGrafana: typeof import("./getGrafana").getGrafana = null as any;
+export const getGrafanaOutput: typeof import("./getGrafana").getGrafanaOutput = null as any;
+utilities.lazyLoad(exports, ["getGrafana","getGrafanaOutput"], () => require("./getGrafana"));
+
 export { GrafanaArgs, GrafanaState } from "./grafana";
 export type Grafana = import("./grafana").Grafana;
 export const Grafana: typeof import("./grafana").Grafana = null as any;

@@ -116,6 +116,21 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * 
+     */
+    @Import(name="managedEnvironmentId")
+    private @Nullable Output<String> managedEnvironmentId;
+
+    /**
+     * @return The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+     * 
+     */
+    public Optional<Output<String>> managedEnvironmentId() {
+        return Optional.ofNullable(this.managedEnvironmentId);
+    }
+
+    /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      * 
      */
@@ -251,6 +266,21 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+     * 
+     */
+    @Import(name="skuTier")
+    private @Nullable Output<String> skuTier;
+
+    /**
+     * @return Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+     * 
+     */
+    public Optional<Output<String>> skuTier() {
+        return Optional.ofNullable(this.skuTier);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -304,6 +334,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         this.defaultBuildService = $.defaultBuildService;
         this.location = $.location;
         this.logStreamPublicEndpointEnabled = $.logStreamPublicEndpointEnabled;
+        this.managedEnvironmentId = $.managedEnvironmentId;
         this.marketplace = $.marketplace;
         this.name = $.name;
         this.network = $.network;
@@ -313,6 +344,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         this.serviceRegistryEnabled = $.serviceRegistryEnabled;
         this.serviceRegistryId = $.serviceRegistryId;
         this.skuName = $.skuName;
+        this.skuTier = $.skuTier;
         this.tags = $.tags;
         this.trace = $.trace;
         this.zoneRedundant = $.zoneRedundant;
@@ -470,6 +502,27 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
          */
         public Builder logStreamPublicEndpointEnabled(Boolean logStreamPublicEndpointEnabled) {
             return logStreamPublicEndpointEnabled(Output.of(logStreamPublicEndpointEnabled));
+        }
+
+        /**
+         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedEnvironmentId(@Nullable Output<String> managedEnvironmentId) {
+            $.managedEnvironmentId = managedEnvironmentId;
+            return this;
+        }
+
+        /**
+         * @param managedEnvironmentId The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedEnvironmentId(String managedEnvironmentId) {
+            return managedEnvironmentId(Output.of(managedEnvironmentId));
         }
 
         /**
@@ -679,6 +732,27 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
          */
         public Builder skuName(String skuName) {
             return skuName(Output.of(skuName));
+        }
+
+        /**
+         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuTier(@Nullable Output<String> skuTier) {
+            $.skuTier = skuTier;
+            return this;
+        }
+
+        /**
+         * @param skuTier Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuTier(String skuTier) {
+            return skuTier(Output.of(skuTier));
         }
 
         /**

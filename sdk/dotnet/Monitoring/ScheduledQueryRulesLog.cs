@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<Outputs.ScheduledQueryRulesLogCriteria> Criteria { get; private set; } = null!;
 
         /// <summary>
-        /// The resource URI over which log search query is to be run.
+        /// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dataSourceId")]
         public Output<string> DataSourceId { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.ScheduledQueryRulesLogCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
-        /// The resource URI over which log search query is to be run.
+        /// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataSourceId", required: true)]
         public Input<string> DataSourceId { get; set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.ScheduledQueryRulesLogCriteriaGetArgs>? Criteria { get; set; }
 
         /// <summary>
-        /// The resource URI over which log search query is to be run.
+        /// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }

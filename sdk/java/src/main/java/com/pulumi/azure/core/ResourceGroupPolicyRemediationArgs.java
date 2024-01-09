@@ -19,42 +19,86 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
 
     public static final ResourceGroupPolicyRemediationArgs Empty = new ResourceGroupPolicyRemediationArgs();
 
+    /**
+     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     @Import(name="failurePercentage")
     private @Nullable Output<Double> failurePercentage;
 
+    /**
+     * @return A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     public Optional<Output<Double>> failurePercentage() {
         return Optional.ofNullable(this.failurePercentage);
     }
 
+    /**
+     * A list of the resource locations that will be remediated.
+     * 
+     */
     @Import(name="locationFilters")
     private @Nullable Output<List<String>> locationFilters;
 
+    /**
+     * @return A list of the resource locations that will be remediated.
+     * 
+     */
     public Optional<Output<List<String>>> locationFilters() {
         return Optional.ofNullable(this.locationFilters);
     }
 
+    /**
+     * The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     @Import(name="parallelDeployments")
     private @Nullable Output<Integer> parallelDeployments;
 
+    /**
+     * @return Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     public Optional<Output<Integer>> parallelDeployments() {
         return Optional.ofNullable(this.parallelDeployments);
     }
 
+    /**
+     * The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     @Import(name="policyAssignmentId", required=true)
     private Output<String> policyAssignmentId;
 
+    /**
+     * @return The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     public Output<String> policyAssignmentId() {
         return this.policyAssignmentId;
     }
 
     /**
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
      * @deprecated
      * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
      * 
@@ -64,6 +108,10 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
     private @Nullable Output<String> policyDefinitionId;
 
     /**
+     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
      * @deprecated
      * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
      * 
@@ -73,30 +121,62 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.policyDefinitionId);
     }
 
+    /**
+     * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     @Import(name="policyDefinitionReferenceId")
     private @Nullable Output<String> policyDefinitionReferenceId;
 
+    /**
+     * @return The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     public Optional<Output<String>> policyDefinitionReferenceId() {
         return Optional.ofNullable(this.policyDefinitionReferenceId);
     }
 
+    /**
+     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     @Import(name="resourceCount")
     private @Nullable Output<Integer> resourceCount;
 
+    /**
+     * @return Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     public Optional<Output<Integer>> resourceCount() {
         return Optional.ofNullable(this.resourceCount);
     }
 
+    /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     @Import(name="resourceDiscoveryMode")
     private @Nullable Output<String> resourceDiscoveryMode;
 
+    /**
+     * @return The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     public Optional<Output<String>> resourceDiscoveryMode() {
         return Optional.ofNullable(this.resourceDiscoveryMode);
     }
 
+    /**
+     * The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="resourceGroupId", required=true)
     private Output<String> resourceGroupId;
 
+    /**
+     * @return The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> resourceGroupId() {
         return this.resourceGroupId;
     }
@@ -134,56 +214,126 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
             $ = new ResourceGroupPolicyRemediationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param failurePercentage A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failurePercentage(@Nullable Output<Double> failurePercentage) {
             $.failurePercentage = failurePercentage;
             return this;
         }
 
+        /**
+         * @param failurePercentage A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failurePercentage(Double failurePercentage) {
             return failurePercentage(Output.of(failurePercentage));
         }
 
+        /**
+         * @param locationFilters A list of the resource locations that will be remediated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationFilters(@Nullable Output<List<String>> locationFilters) {
             $.locationFilters = locationFilters;
             return this;
         }
 
+        /**
+         * @param locationFilters A list of the resource locations that will be remediated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationFilters(List<String> locationFilters) {
             return locationFilters(Output.of(locationFilters));
         }
 
+        /**
+         * @param locationFilters A list of the resource locations that will be remediated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder locationFilters(String... locationFilters) {
             return locationFilters(List.of(locationFilters));
         }
 
+        /**
+         * @param name The name of the Policy Remediation. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Policy Remediation. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param parallelDeployments Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parallelDeployments(@Nullable Output<Integer> parallelDeployments) {
             $.parallelDeployments = parallelDeployments;
             return this;
         }
 
+        /**
+         * @param parallelDeployments Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder parallelDeployments(Integer parallelDeployments) {
             return parallelDeployments(Output.of(parallelDeployments));
         }
 
+        /**
+         * @param policyAssignmentId The ID of the Policy Assignment that should be remediated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyAssignmentId(Output<String> policyAssignmentId) {
             $.policyAssignmentId = policyAssignmentId;
             return this;
         }
 
+        /**
+         * @param policyAssignmentId The ID of the Policy Assignment that should be remediated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyAssignmentId(String policyAssignmentId) {
             return policyAssignmentId(Output.of(policyAssignmentId));
         }
 
         /**
+         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+         * 
+         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -197,6 +347,10 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param policyDefinitionId The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+         * 
+         * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -208,38 +362,86 @@ public final class ResourceGroupPolicyRemediationArgs extends com.pulumi.resourc
             return policyDefinitionId(Output.of(policyDefinitionId));
         }
 
+        /**
+         * @param policyDefinitionReferenceId The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDefinitionReferenceId(@Nullable Output<String> policyDefinitionReferenceId) {
             $.policyDefinitionReferenceId = policyDefinitionReferenceId;
             return this;
         }
 
+        /**
+         * @param policyDefinitionReferenceId The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policyDefinitionReferenceId(String policyDefinitionReferenceId) {
             return policyDefinitionReferenceId(Output.of(policyDefinitionReferenceId));
         }
 
+        /**
+         * @param resourceCount Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceCount(@Nullable Output<Integer> resourceCount) {
             $.resourceCount = resourceCount;
             return this;
         }
 
+        /**
+         * @param resourceCount Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceCount(Integer resourceCount) {
             return resourceCount(Output.of(resourceCount));
         }
 
+        /**
+         * @param resourceDiscoveryMode The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceDiscoveryMode(@Nullable Output<String> resourceDiscoveryMode) {
             $.resourceDiscoveryMode = resourceDiscoveryMode;
             return this;
         }
 
+        /**
+         * @param resourceDiscoveryMode The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceDiscoveryMode(String resourceDiscoveryMode) {
             return resourceDiscoveryMode(Output.of(resourceDiscoveryMode));
         }
 
+        /**
+         * @param resourceGroupId The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupId(Output<String> resourceGroupId) {
             $.resourceGroupId = resourceGroupId;
             return this;
         }
 
+        /**
+         * @param resourceGroupId The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupId(String resourceGroupId) {
             return resourceGroupId(Output.of(resourceGroupId));
         }

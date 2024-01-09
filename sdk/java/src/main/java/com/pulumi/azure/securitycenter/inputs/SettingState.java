@@ -32,14 +32,14 @@ public final class SettingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="settingName")
     private @Nullable Output<String> settingName;
 
     /**
-     * @return The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+     * @return The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> settingName() {
@@ -93,7 +93,7 @@ public final class SettingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SettingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP` and `Sentinel`. Changing this forces a new resource to be created.
+         * @param settingName The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

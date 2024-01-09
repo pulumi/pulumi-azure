@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity":
+		r = &CredentialUserManagedIdentity{}
 	case "azure:datafactory/customDataset:CustomDataset":
 		r = &CustomDataset{}
 	case "azure:datafactory/dataFlow:DataFlow":
@@ -130,6 +132,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/credentialUserManagedIdentity",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/customDataset",
