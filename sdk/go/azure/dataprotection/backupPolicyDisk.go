@@ -50,6 +50,7 @@ import (
 //					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
 //				},
 //				DefaultRetentionDuration: pulumi.String("P7D"),
+//				TimeZone:                 pulumi.String("W. Europe Standard Time"),
 //				RetentionRules: dataprotection.BackupPolicyDiskRetentionRuleArray{
 //					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
 //						Name:     pulumi.String("Daily"),
@@ -98,6 +99,8 @@ type BackupPolicyDisk struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 	RetentionRules BackupPolicyDiskRetentionRuleArrayOutput `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
 	// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
 	VaultId pulumi.StringOutput `pulumi:"vaultId"`
 }
@@ -149,6 +152,8 @@ type backupPolicyDiskState struct {
 	Name *string `pulumi:"name"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 	RetentionRules []BackupPolicyDiskRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone *string `pulumi:"timeZone"`
 	// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
 	VaultId *string `pulumi:"vaultId"`
 }
@@ -162,6 +167,8 @@ type BackupPolicyDiskState struct {
 	Name pulumi.StringPtrInput
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 	RetentionRules BackupPolicyDiskRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
 	VaultId pulumi.StringPtrInput
 }
@@ -179,6 +186,8 @@ type backupPolicyDiskArgs struct {
 	Name *string `pulumi:"name"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 	RetentionRules []BackupPolicyDiskRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone *string `pulumi:"timeZone"`
 	// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
 	VaultId string `pulumi:"vaultId"`
 }
@@ -193,6 +202,8 @@ type BackupPolicyDiskArgs struct {
 	Name pulumi.StringPtrInput
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 	RetentionRules BackupPolicyDiskRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
 	VaultId pulumi.StringInput
 }
@@ -302,6 +313,11 @@ func (o BackupPolicyDiskOutput) Name() pulumi.StringOutput {
 // One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
 func (o BackupPolicyDiskOutput) RetentionRules() BackupPolicyDiskRetentionRuleArrayOutput {
 	return o.ApplyT(func(v *BackupPolicyDisk) BackupPolicyDiskRetentionRuleArrayOutput { return v.RetentionRules }).(BackupPolicyDiskRetentionRuleArrayOutput)
+}
+
+// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyDiskOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyDisk) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.

@@ -43,6 +43,8 @@ class VaultArgs:
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+               
+               > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -159,6 +161,8 @@ class VaultArgs:
     def immutability(self) -> Optional[pulumi.Input[str]]:
         """
         Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+
+        > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         """
         return pulumi.get(self, "immutability")
 
@@ -279,6 +283,8 @@ class _VaultState:
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+               
+               > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['VaultMonitoringArgs'] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -375,6 +381,8 @@ class _VaultState:
     def immutability(self) -> Optional[pulumi.Input[str]]:
         """
         Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+
+        > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         """
         return pulumi.get(self, "immutability")
 
@@ -547,6 +555,8 @@ class Vault(pulumi.CustomResource):
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+               
+               > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -684,6 +694,8 @@ class Vault(pulumi.CustomResource):
                !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[pulumi.InputType['VaultIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+               
+               > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VaultMonitoringArgs']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
@@ -755,6 +767,8 @@ class Vault(pulumi.CustomResource):
     def immutability(self) -> pulumi.Output[str]:
         """
         Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+
+        > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         """
         return pulumi.get(self, "immutability")
 

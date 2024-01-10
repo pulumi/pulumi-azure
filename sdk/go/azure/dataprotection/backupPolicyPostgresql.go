@@ -50,6 +50,7 @@ import (
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
+//				TimeZone:                 pulumi.String("India Standard Time"),
 //				DefaultRetentionDuration: pulumi.String("P4M"),
 //				RetentionRules: dataprotection.BackupPolicyPostgresqlRetentionRuleArray{
 //					&dataprotection.BackupPolicyPostgresqlRetentionRuleArgs{
@@ -123,6 +124,8 @@ type BackupPolicyPostgresql struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	RetentionRules BackupPolicyPostgresqlRetentionRuleArrayOutput `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
 	// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
 	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
@@ -179,6 +182,8 @@ type backupPolicyPostgresqlState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	RetentionRules []BackupPolicyPostgresqlRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone *string `pulumi:"timeZone"`
 	// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
 	VaultName *string `pulumi:"vaultName"`
 }
@@ -194,6 +199,8 @@ type BackupPolicyPostgresqlState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	RetentionRules BackupPolicyPostgresqlRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrInput
 	// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
 	VaultName pulumi.StringPtrInput
 }
@@ -213,6 +220,8 @@ type backupPolicyPostgresqlArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	RetentionRules []BackupPolicyPostgresqlRetentionRule `pulumi:"retentionRules"`
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone *string `pulumi:"timeZone"`
 	// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
 	VaultName string `pulumi:"vaultName"`
 }
@@ -229,6 +238,8 @@ type BackupPolicyPostgresqlArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	RetentionRules BackupPolicyPostgresqlRetentionRuleArrayInput
+	// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+	TimeZone pulumi.StringPtrInput
 	// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
 	VaultName pulumi.StringInput
 }
@@ -345,6 +356,11 @@ func (o BackupPolicyPostgresqlOutput) RetentionRules() BackupPolicyPostgresqlRet
 	return o.ApplyT(func(v *BackupPolicyPostgresql) BackupPolicyPostgresqlRetentionRuleArrayOutput {
 		return v.RetentionRules
 	}).(BackupPolicyPostgresqlRetentionRuleArrayOutput)
+}
+
+// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+func (o BackupPolicyPostgresqlOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyPostgresql) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.

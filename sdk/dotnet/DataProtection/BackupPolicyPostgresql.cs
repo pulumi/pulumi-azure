@@ -43,6 +43,7 @@ namespace Pulumi.Azure.DataProtection
     ///         {
     ///             "R/2021-05-23T02:30:00+00:00/P1W",
     ///         },
+    ///         TimeZone = "India Standard Time",
     ///         DefaultRetentionDuration = "P4M",
     ///         RetentionRules = new[]
     ///         {
@@ -143,6 +144,12 @@ namespace Pulumi.Azure.DataProtection
         public Output<ImmutableArray<Outputs.BackupPolicyPostgresqlRetentionRule>> RetentionRules { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string?> TimeZone { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Output("vaultName")]
@@ -237,6 +244,12 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
+        /// <summary>
         /// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Input("vaultName", required: true)]
@@ -291,6 +304,12 @@ namespace Pulumi.Azure.DataProtection
             get => _retentionRules ?? (_retentionRules = new InputList<Inputs.BackupPolicyPostgresqlRetentionRuleGetArgs>());
             set => _retentionRules = value;
         }
+
+        /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
 
         /// <summary>
         /// The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.

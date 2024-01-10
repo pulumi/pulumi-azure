@@ -125,6 +125,11 @@ export type Module = import("./module").Module;
 export const Module: typeof import("./module").Module = null as any;
 utilities.lazyLoad(exports, ["Module"], () => require("./module"));
 
+export { Powershell72ModuleArgs, Powershell72ModuleState } from "./powershell72Module";
+export type Powershell72Module = import("./powershell72Module").Powershell72Module;
+export const Powershell72Module: typeof import("./powershell72Module").Powershell72Module = null as any;
+utilities.lazyLoad(exports, ["Powershell72Module"], () => require("./powershell72Module"));
+
 export { Python3PackageArgs, Python3PackageState } from "./python3Package";
 export type Python3Package = import("./python3Package").Python3Package;
 export const Python3Package: typeof import("./python3Package").Python3Package = null as any;
@@ -209,6 +214,8 @@ const _module = {
                 return new JobSchedule(name, <any>undefined, { urn })
             case "azure:automation/module:Module":
                 return new Module(name, <any>undefined, { urn })
+            case "azure:automation/powershell72Module:Powershell72Module":
+                return new Powershell72Module(name, <any>undefined, { urn })
             case "azure:automation/python3Package:Python3Package":
                 return new Python3Package(name, <any>undefined, { urn })
             case "azure:automation/runBook:RunBook":
@@ -249,6 +256,7 @@ pulumi.runtime.registerResourceModule("azure", "automation/hybridRunbookWorkerGr
 pulumi.runtime.registerResourceModule("azure", "automation/intVariable", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/module", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/powershell72Module", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/python3Package", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)

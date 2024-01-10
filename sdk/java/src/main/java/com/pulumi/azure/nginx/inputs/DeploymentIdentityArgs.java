@@ -18,14 +18,18 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
     public static final DeploymentIdentityArgs Empty = new DeploymentIdentityArgs();
 
     /**
-     * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+     * Specifies a list of user managed identity ids to be assigned.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+     * @return Specifies a list of user managed identity ids to be assigned.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -47,14 +51,14 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+     * Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+     * @return Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -89,7 +93,9 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param identityIds Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * @param identityIds Specifies a list of user managed identity ids to be assigned.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -100,7 +106,9 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param identityIds Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * @param identityIds Specifies a list of user managed identity ids to be assigned.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -110,7 +118,9 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param identityIds Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * @param identityIds Specifies a list of user managed identity ids to be assigned.
+         * 
+         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -138,7 +148,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+         * @param type Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -149,7 +159,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param type Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+         * @param type Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          * 
          * @return builder
          * 

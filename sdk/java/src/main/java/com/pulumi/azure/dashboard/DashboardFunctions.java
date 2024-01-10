@@ -6,7 +6,10 @@ package com.pulumi.azure.dashboard;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.dashboard.inputs.Azurerm_portal_dashboardArgs;
 import com.pulumi.azure.dashboard.inputs.Azurerm_portal_dashboardPlainArgs;
+import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
+import com.pulumi.azure.dashboard.inputs.GetGrafanaPlainArgs;
 import com.pulumi.azure.dashboard.outputs.Azurerm_portal_dashboardResult;
+import com.pulumi.azure.dashboard.outputs.GetGrafanaResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -185,5 +188,161 @@ public final class DashboardFunctions {
     @Deprecated /* azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
     public static CompletableFuture<Azurerm_portal_dashboardResult> azurerm_portal_dashboardPlain(Azurerm_portal_dashboardPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", TypeShape.of(Azurerm_portal_dashboardResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Grafana Dashboard.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dashboard.DashboardFunctions;
+     * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
+     *             .name(&#34;example-grafana-dashboard&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args) {
+        return getGrafana(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Grafana Dashboard.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dashboard.DashboardFunctions;
+     * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
+     *             .name(&#34;example-grafana-dashboard&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args) {
+        return getGrafanaPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Grafana Dashboard.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dashboard.DashboardFunctions;
+     * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
+     *             .name(&#34;example-grafana-dashboard&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGrafanaResult> getGrafana(GetGrafanaArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dashboard/getGrafana:getGrafana", TypeShape.of(GetGrafanaResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Grafana Dashboard.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dashboard.DashboardFunctions;
+     * import com.pulumi.azure.dashboard.inputs.GetGrafanaArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DashboardFunctions.getGrafana(GetGrafanaArgs.builder()
+     *             .name(&#34;example-grafana-dashboard&#34;)
+     *             .resourceGroupName(&#34;example-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;name&#34;, example.applyValue(getGrafanaResult -&gt; getGrafanaResult.name()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGrafanaResult> getGrafanaPlain(GetGrafanaPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dashboard/getGrafana:getGrafana", TypeShape.of(GetGrafanaResult.class), args, Utilities.withVersion(options));
     }
 }

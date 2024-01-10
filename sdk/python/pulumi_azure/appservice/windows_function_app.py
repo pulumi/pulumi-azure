@@ -69,7 +69,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
-        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
@@ -368,7 +368,7 @@ class WindowsFunctionAppArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -629,7 +629,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App.
-        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input['WindowsFunctionAppIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App.
@@ -958,7 +958,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -1355,7 +1355,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
-        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
@@ -1611,7 +1611,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App.
-        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App.
@@ -1835,7 +1835,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[bool]:
         """
-        Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

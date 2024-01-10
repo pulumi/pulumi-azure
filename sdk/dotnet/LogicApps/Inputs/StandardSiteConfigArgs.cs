@@ -99,6 +99,12 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<int>? PreWarmedInstanceCount { get; set; }
 
         /// <summary>
+        /// Is public network access enabled? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
         /// </summary>
         [Input("runtimeScaleMonitoringEnabled")]

@@ -208,14 +208,14 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Should the Windows Web App Slot require HTTPS connections.
+     * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Should the Windows Web App Slot require HTTPS connections.
+     * @return Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -709,7 +709,7 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpsOnly Should the Windows Web App Slot require HTTPS connections.
+         * @param httpsOnly Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class WindowsWebAppSlotArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param httpsOnly Should the Windows Web App Slot require HTTPS connections.
+         * @param httpsOnly Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 

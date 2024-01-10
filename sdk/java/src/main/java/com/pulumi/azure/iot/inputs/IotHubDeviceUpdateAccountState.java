@@ -109,14 +109,14 @@ public final class IotHubDeviceUpdateAccountState extends com.pulumi.resources.R
     }
 
     /**
-     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * @return Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -296,7 +296,7 @@ public final class IotHubDeviceUpdateAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param sku Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+         * @param sku Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class IotHubDeviceUpdateAccountState extends com.pulumi.resources.R
         }
 
         /**
-         * @param sku Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+         * @param sku Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

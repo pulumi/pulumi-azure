@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages an Application Gateway.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

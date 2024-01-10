@@ -219,6 +219,8 @@ export class Standard extends pulumi.CustomResource {
     public readonly useExtensionBundle!: pulumi.Output<boolean | undefined>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~3`.
+     *
+     * > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      */
     public readonly version!: pulumi.Output<string | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
@@ -411,6 +413,8 @@ export interface StandardState {
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~3`.
+     *
+     * > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      */
     version?: pulumi.Input<string>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -493,6 +497,8 @@ export interface StandardArgs {
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~3`.
+     *
+     * > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
      */
     version?: pulumi.Input<string>;
     virtualNetworkSubnetId?: pulumi.Input<string>;

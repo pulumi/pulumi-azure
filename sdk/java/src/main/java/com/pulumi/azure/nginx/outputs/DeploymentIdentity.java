@@ -14,21 +14,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentIdentity {
     /**
-     * @return Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+     * @return Specifies a list of user managed identity ids to be assigned.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+     * @return Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     private String type;
 
     private DeploymentIdentity() {}
     /**
-     * @return Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+     * @return Specifies a list of user managed identity ids to be assigned.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {
@@ -41,7 +45,7 @@ public final class DeploymentIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+     * @return Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
      * 
      */
     public String type() {

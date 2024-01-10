@@ -152,10 +152,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;
-
-        /// <summary>
-        /// A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-        /// </summary>
+        [Obsolete(@"This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool")]
         public InputList<string> NodeTaints
         {
             get => _nodeTaints ?? (_nodeTaints = new InputList<string>());

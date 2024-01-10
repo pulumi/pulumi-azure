@@ -15,6 +15,7 @@ __all__ = [
     'ClusterOptimizedAutoScale',
     'ClusterSku',
     'ClusterVirtualNetworkConfiguration',
+    'GetClusterIdentityResult',
 ]
 
 @pulumi.output_type
@@ -345,5 +346,56 @@ class ClusterVirtualNetworkConfiguration(dict):
         The subnet resource id.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetClusterIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+        :param str principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
+        :param str type: The type of Managed Service Identity that is configured on this Kusto Cluster.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID associated with this System Assigned Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID associated with this System Assigned Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this Kusto Cluster.
+        """
+        return pulumi.get(self, "type")
 
 

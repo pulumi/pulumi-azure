@@ -349,16 +349,20 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
+     * @deprecated
+     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
      * 
      */
+    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
     @Import(name="nodeTaints")
     private @Nullable Output<List<String>> nodeTaints;
 
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
+     * @deprecated
+     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
      * 
      */
+    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
     public Optional<Output<List<String>>> nodeTaints() {
         return Optional.ofNullable(this.nodeTaints);
     }
@@ -1164,32 +1168,38 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
+         * 
          */
+        @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
         public Builder nodeTaints(@Nullable Output<List<String>> nodeTaints) {
             $.nodeTaints = nodeTaints;
             return this;
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
+         * 
          */
+        @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
         public Builder nodeTaints(List<String> nodeTaints) {
             return nodeTaints(Output.of(nodeTaints));
         }
 
         /**
-         * @param nodeTaints A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
+         * 
          */
+        @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
         public Builder nodeTaints(String... nodeTaints) {
             return nodeTaints(List.of(nodeTaints));
         }

@@ -72,6 +72,8 @@ type Monitor struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource pulumi.StringPtrOutput `pulumi:"accountCreationSource"`
 	// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrOutput `pulumi:"ingestionKey"`
@@ -82,6 +84,8 @@ type Monitor struct {
 	// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	OrgCreationSource pulumi.StringPtrOutput `pulumi:"orgCreationSource"`
 	// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	OrganizationId pulumi.StringOutput `pulumi:"organizationId"`
 	// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
 	Plan MonitorPlanOutput `pulumi:"plan"`
@@ -142,6 +146,8 @@ type monitorState struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource *string `pulumi:"accountCreationSource"`
 	// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId *string `pulumi:"accountId"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey *string `pulumi:"ingestionKey"`
@@ -152,6 +158,8 @@ type monitorState struct {
 	// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	OrgCreationSource *string `pulumi:"orgCreationSource"`
 	// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	OrganizationId *string `pulumi:"organizationId"`
 	// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
 	Plan *MonitorPlan `pulumi:"plan"`
@@ -167,6 +175,8 @@ type MonitorState struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource pulumi.StringPtrInput
 	// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringPtrInput
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrInput
@@ -177,6 +187,8 @@ type MonitorState struct {
 	// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	OrgCreationSource pulumi.StringPtrInput
 	// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	OrganizationId pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
 	Plan MonitorPlanPtrInput
@@ -196,6 +208,8 @@ type monitorArgs struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource *string `pulumi:"accountCreationSource"`
 	// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId *string `pulumi:"accountId"`
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey *string `pulumi:"ingestionKey"`
@@ -206,6 +220,8 @@ type monitorArgs struct {
 	// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	OrgCreationSource *string `pulumi:"orgCreationSource"`
 	// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	OrganizationId *string `pulumi:"organizationId"`
 	// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
 	Plan MonitorPlan `pulumi:"plan"`
@@ -222,6 +238,8 @@ type MonitorArgs struct {
 	// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	AccountCreationSource pulumi.StringPtrInput
 	// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	AccountId pulumi.StringPtrInput
 	// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
 	IngestionKey pulumi.StringPtrInput
@@ -232,6 +250,8 @@ type MonitorArgs struct {
 	// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
 	OrgCreationSource pulumi.StringPtrInput
 	// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+	//
+	// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 	OrganizationId pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
 	Plan MonitorPlanInput
@@ -336,6 +356,8 @@ func (o MonitorOutput) AccountCreationSource() pulumi.StringPtrOutput {
 }
 
 // Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
+//
+// > **NOTE:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 func (o MonitorOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -361,6 +383,8 @@ func (o MonitorOutput) OrgCreationSource() pulumi.StringPtrOutput {
 }
 
 // Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
+//
+// > **NOTE:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
 func (o MonitorOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
 }

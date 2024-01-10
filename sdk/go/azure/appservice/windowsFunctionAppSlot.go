@@ -126,7 +126,7 @@ type WindowsFunctionAppSlot struct {
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// an `identity` block as detailed below.
 	Identity WindowsFunctionAppSlotIdentityPtrOutput `pulumi:"identity"`
@@ -256,7 +256,7 @@ type windowsFunctionAppSlotState struct {
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// an `identity` block as detailed below.
 	Identity *WindowsFunctionAppSlotIdentity `pulumi:"identity"`
@@ -342,7 +342,7 @@ type WindowsFunctionAppSlotState struct {
 	FunctionsExtensionVersion pulumi.StringPtrInput
 	// The ID of the App Service Environment used by Function App Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// an `identity` block as detailed below.
 	Identity WindowsFunctionAppSlotIdentityPtrInput
@@ -426,7 +426,7 @@ type windowsFunctionAppSlotArgs struct {
 	FunctionAppId string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// an `identity` block as detailed below.
 	Identity *WindowsFunctionAppSlotIdentity `pulumi:"identity"`
@@ -495,7 +495,7 @@ type WindowsFunctionAppSlotArgs struct {
 	FunctionAppId pulumi.StringInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
-	// Can the Function App Slot only be accessed via HTTPS?
+	// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// an `identity` block as detailed below.
 	Identity WindowsFunctionAppSlotIdentityPtrInput
@@ -711,7 +711,7 @@ func (o WindowsFunctionAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
-// Can the Function App Slot only be accessed via HTTPS?
+// Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
 func (o WindowsFunctionAppSlotOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }

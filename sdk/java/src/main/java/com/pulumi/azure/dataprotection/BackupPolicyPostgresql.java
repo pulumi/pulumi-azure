@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .vaultName(exampleBackupVault.name())
  *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
+ *             .timeZone(&#34;India Standard Time&#34;)
  *             .defaultRetentionDuration(&#34;P4M&#34;)
  *             .retentionRules(            
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
@@ -179,6 +180,20 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<BackupPolicyPostgresqlRetentionRule>>> retentionRules() {
         return Codegen.optional(this.retentionRules);
+    }
+    /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> timeZone;
+
+    /**
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    public Output<Optional<String>> timeZone() {
+        return Codegen.optional(this.timeZone);
     }
     /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.

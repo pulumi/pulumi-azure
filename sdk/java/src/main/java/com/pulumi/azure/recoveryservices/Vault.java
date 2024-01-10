@@ -139,12 +139,16 @@ public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      * 
+     * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
+     * 
      */
     @Export(name="immutability", refs={String.class}, tree="[0]")
     private Output<String> immutability;
 
     /**
      * @return Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+     * 
+     * &gt; **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      * 
      */
     public Output<String> immutability() {

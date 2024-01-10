@@ -26,6 +26,18 @@ class ResourcePolicyRemediationArgs:
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourcePolicyRemediation resource.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
+        :param pulumi.Input[str] resource_id: The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+               
+               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         """
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -52,6 +64,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Policy Assignment that should be remediated.
+        """
         return pulumi.get(self, "policy_assignment_id")
 
     @policy_assignment_id.setter
@@ -61,6 +76,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
+        """
+        The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -70,6 +88,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
         return pulumi.get(self, "failure_percentage")
 
     @failure_percentage.setter
@@ -79,6 +100,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="locationFilters")
     def location_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the resource locations that will be remediated.
+        """
         return pulumi.get(self, "location_filters")
 
     @location_filters.setter
@@ -88,6 +112,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Policy Remediation. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,6 +124,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="parallelDeployments")
     def parallel_deployments(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        """
         return pulumi.get(self, "parallel_deployments")
 
     @parallel_deployments.setter
@@ -106,6 +136,11 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+
+        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        """
         warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
         pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
 
@@ -118,6 +153,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")
     def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
@@ -127,6 +165,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="resourceCount")
     def resource_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        """
         return pulumi.get(self, "resource_count")
 
     @resource_count.setter
@@ -136,6 +177,9 @@ class ResourcePolicyRemediationArgs:
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        """
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -158,6 +202,18 @@ class _ResourcePolicyRemediationState:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicyRemediation resources.
+        :param pulumi.Input[float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
+        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+               
+               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        :param pulumi.Input[str] resource_id: The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         """
         if failure_percentage is not None:
             pulumi.set(__self__, "failure_percentage", failure_percentage)
@@ -186,6 +242,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
         return pulumi.get(self, "failure_percentage")
 
     @failure_percentage.setter
@@ -195,6 +254,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="locationFilters")
     def location_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the resource locations that will be remediated.
+        """
         return pulumi.get(self, "location_filters")
 
     @location_filters.setter
@@ -204,6 +266,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Policy Remediation. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -213,6 +278,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="parallelDeployments")
     def parallel_deployments(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        """
         return pulumi.get(self, "parallel_deployments")
 
     @parallel_deployments.setter
@@ -222,6 +290,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Policy Assignment that should be remediated.
+        """
         return pulumi.get(self, "policy_assignment_id")
 
     @policy_assignment_id.setter
@@ -231,6 +302,11 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+
+        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        """
         warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
         pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
 
@@ -243,6 +319,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")
     def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @policy_definition_reference_id.setter
@@ -252,6 +331,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="resourceCount")
     def resource_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        """
         return pulumi.get(self, "resource_count")
 
     @resource_count.setter
@@ -261,6 +343,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        """
         return pulumi.get(self, "resource_discovery_mode")
 
     @resource_discovery_mode.setter
@@ -270,6 +355,9 @@ class _ResourcePolicyRemediationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -294,9 +382,65 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourcePolicyRemediation resource with the given unique name, props, and options.
+        Manages an Azure Resource Policy Remediation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition")
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+            resource_id=example_virtual_network.id,
+            policy_definition_id=example_definition.id,
+            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+                "listOfAllowedLocations": {
+                    "value": [
+                        location,
+                        "East US",
+                    ],
+                },
+            })))
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
+            resource_group_id=example_resource_group.id,
+            policy_definition_id=example_definition.id)
+        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("exampleResourcePolicyRemediation",
+            resource_id=example_virtual_network.id,
+            policy_assignment_id=example_resource_group_policy_assignment.id)
+        ```
+
+        ## Import
+
+        Policy Remediations can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
+        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+               
+               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        :param pulumi.Input[str] resource_id: The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -305,7 +449,51 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
                  args: ResourcePolicyRemediationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourcePolicyRemediation resource with the given unique name, props, and options.
+        Manages an Azure Resource Policy Remediation.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.0.0.0/16"])
+        example_definition = azure.policy.Definition("exampleDefinition",
+            policy_type="Custom",
+            mode="All",
+            display_name="my-policy-definition")
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+            resource_id=example_virtual_network.id,
+            policy_definition_id=example_definition.id,
+            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+                "listOfAllowedLocations": {
+                    "value": [
+                        location,
+                        "East US",
+                    ],
+                },
+            })))
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
+            resource_group_id=example_resource_group.id,
+            policy_definition_id=example_definition.id)
+        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("exampleResourcePolicyRemediation",
+            resource_id=example_virtual_network.id,
+            policy_assignment_id=example_resource_group_policy_assignment.id)
+        ```
+
+        ## Import
+
+        Policy Remediations can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourcePolicyRemediationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -381,6 +569,18 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] failure_percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] location_filters: A list of the resource locations that will be remediated.
+        :param pulumi.Input[str] name: The name of the Policy Remediation. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] parallel_deployments: Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        :param pulumi.Input[str] policy_assignment_id: The ID of the Policy Assignment that should be remediated.
+        :param pulumi.Input[str] policy_definition_id: The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+               
+               > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        :param pulumi.Input[str] policy_definition_reference_id: The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        :param pulumi.Input[int] resource_count: Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        :param pulumi.Input[str] resource_discovery_mode: The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        :param pulumi.Input[str] resource_id: The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,31 +601,51 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="failurePercentage")
     def failure_percentage(self) -> pulumi.Output[Optional[float]]:
+        """
+        A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+        """
         return pulumi.get(self, "failure_percentage")
 
     @property
     @pulumi.getter(name="locationFilters")
     def location_filters(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of the resource locations that will be remediated.
+        """
         return pulumi.get(self, "location_filters")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the Policy Remediation. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parallelDeployments")
     def parallel_deployments(self) -> pulumi.Output[Optional[int]]:
+        """
+        Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        """
         return pulumi.get(self, "parallel_deployments")
 
     @property
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Policy Assignment that should be remediated.
+        """
         return pulumi.get(self, "policy_assignment_id")
 
     @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+
+        > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+        """
         warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
         pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
 
@@ -434,20 +654,32 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="policyDefinitionReferenceId")
     def policy_definition_reference_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        """
         return pulumi.get(self, "policy_definition_reference_id")
 
     @property
     @pulumi.getter(name="resourceCount")
     def resource_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        """
         return pulumi.get(self, "resource_count")
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
     def resource_discovery_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+        """
         return pulumi.get(self, "resource_discovery_mode")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "resource_id")
 

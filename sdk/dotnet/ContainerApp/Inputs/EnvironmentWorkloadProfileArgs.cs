@@ -12,9 +12,15 @@ namespace Pulumi.Azure.ContainerApp.Inputs
 
     public sealed class EnvironmentWorkloadProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// </summary>
         [Input("maximumCount", required: true)]
         public Input<int> MaximumCount { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+        /// </summary>
         [Input("minimumCount", required: true)]
         public Input<int> MinimumCount { get; set; } = null!;
 

@@ -62,11 +62,13 @@ type LookupClusterResult struct {
 	// The Kusto Cluster URI to be used for data ingestion.
 	DataIngestionUri string `pulumi:"dataIngestionUri"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string            `pulumi:"id"`
-	Location          string            `pulumi:"location"`
-	Name              string            `pulumi:"name"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identities        []GetClusterIdentity `pulumi:"identities"`
+	Location          string               `pulumi:"location"`
+	Name              string               `pulumi:"name"`
+	ResourceGroupName string               `pulumi:"resourceGroupName"`
+	Tags              map[string]string    `pulumi:"tags"`
 	// The FQDN of the Azure Kusto Cluster.
 	Uri string `pulumi:"uri"`
 }
@@ -119,6 +121,11 @@ func (o LookupClusterResultOutput) DataIngestionUri() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below.
+func (o LookupClusterResultOutput) Identities() GetClusterIdentityArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterIdentity { return v.Identities }).(GetClusterIdentityArrayOutput)
 }
 
 func (o LookupClusterResultOutput) Location() pulumi.StringOutput {

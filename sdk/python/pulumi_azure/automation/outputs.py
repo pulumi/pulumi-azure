@@ -17,6 +17,8 @@ __all__ = [
     'ConnectionTypeField',
     'ModuleModuleLink',
     'ModuleModuleLinkHash',
+    'Powershell72ModuleModuleLink',
+    'Powershell72ModuleModuleLinkHash',
     'RunBookDraft',
     'RunBookDraftContentLink',
     'RunBookDraftContentLinkHash',
@@ -323,6 +325,65 @@ class ModuleModuleLink(dict):
 
 @pulumi.output_type
 class ModuleModuleLinkHash(dict):
+    def __init__(__self__, *,
+                 algorithm: str,
+                 value: str):
+        """
+        :param str algorithm: Specifies the algorithm used for the hash content.
+        :param str value: The hash value of the content.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        """
+        Specifies the algorithm used for the hash content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The hash value of the content.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Powershell72ModuleModuleLink(dict):
+    def __init__(__self__, *,
+                 uri: str,
+                 hash: Optional['outputs.Powershell72ModuleModuleLinkHash'] = None):
+        """
+        :param str uri: The URI of the module content (zip or nupkg).
+        :param 'Powershell72ModuleModuleLinkHashArgs' hash: A `hash` block as defined below.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI of the module content (zip or nupkg).
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional['outputs.Powershell72ModuleModuleLinkHash']:
+        """
+        A `hash` block as defined below.
+        """
+        return pulumi.get(self, "hash")
+
+
+@pulumi.output_type
+class Powershell72ModuleModuleLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):

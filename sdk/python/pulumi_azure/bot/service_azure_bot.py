@@ -53,6 +53,7 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
@@ -301,6 +302,9 @@ class ServiceAzureBotArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this server. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -372,6 +376,7 @@ class _ServiceAzureBotState:
         :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
@@ -601,6 +606,9 @@ class _ServiceAzureBotState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for this server. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -744,6 +752,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
@@ -924,6 +933,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
@@ -1078,6 +1088,9 @@ class ServiceAzureBot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for this server. Defaults to `true`.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property

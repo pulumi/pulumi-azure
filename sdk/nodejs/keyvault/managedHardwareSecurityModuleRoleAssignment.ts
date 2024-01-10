@@ -5,11 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a KeyVault Role Assignment.
+ * Manages a Managed Hardware Security Module Role Assignment.
  *
  * ## Import
  *
- * KeyVaults can be imported using the `resource id`, e.g.
+ * Managed Hardware Security Modules can be imported using the `resource id`, e.g.
  *
  * ```sh
  *  $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
@@ -44,11 +44,11 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
     }
 
     /**
-     * The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
@@ -56,15 +56,15 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      */
     public readonly vaultBaseUrl!: pulumi.Output<string>;
 
@@ -118,11 +118,11 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
  */
 export interface ManagedHardwareSecurityModuleRoleAssignmentState {
     /**
-     * The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */
     principalId?: pulumi.Input<string>;
     /**
@@ -130,15 +130,15 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      */
     roleDefinitionId?: pulumi.Input<string>;
     /**
-     * Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     scope?: pulumi.Input<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      */
     vaultBaseUrl?: pulumi.Input<string>;
 }
@@ -148,23 +148,23 @@ export interface ManagedHardwareSecurityModuleRoleAssignmentState {
  */
 export interface ManagedHardwareSecurityModuleRoleAssignmentArgs {
     /**
-     * The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */
     principalId: pulumi.Input<string>;
     /**
-     * The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
     scope: pulumi.Input<string>;
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      */
     vaultBaseUrl: pulumi.Input<string>;
 }

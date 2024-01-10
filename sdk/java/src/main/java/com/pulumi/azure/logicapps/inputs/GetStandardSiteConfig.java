@@ -112,6 +112,13 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         return this.preWarmedInstanceCount;
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Boolean publicNetworkAccessEnabled;
+
+    public Optional<Boolean> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     @Import(name="runtimeScaleMonitoringEnabled")
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
 
@@ -184,6 +191,7 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
         this.linuxFxVersion = $.linuxFxVersion;
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
         this.scmIpRestrictions = $.scmIpRestrictions;
         this.scmMinTlsVersion = $.scmMinTlsVersion;
@@ -278,6 +286,11 @@ public final class GetStandardSiteConfig extends com.pulumi.resources.InvokeArgs
 
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             $.preWarmedInstanceCount = preWarmedInstanceCount;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 

@@ -342,14 +342,14 @@ public class WindowsFunctionApp extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
-     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> httpsOnly;
 
     /**
-     * @return Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * @return Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     public Output<Boolean> httpsOnly() {

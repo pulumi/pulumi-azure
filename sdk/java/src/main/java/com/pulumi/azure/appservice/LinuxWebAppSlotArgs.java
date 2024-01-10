@@ -208,14 +208,14 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Should the Linux Web App require HTTPS connections.
+     * Should the Linux Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Should the Linux Web App require HTTPS connections.
+     * @return Should the Linux Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -709,7 +709,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpsOnly Should the Linux Web App require HTTPS connections.
+         * @param httpsOnly Should the Linux Web App require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpsOnly Should the Linux Web App require HTTPS connections.
+         * @param httpsOnly Should the Linux Web App require HTTPS connections. Defaults to `false`.
          * 
          * @return builder
          * 

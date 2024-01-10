@@ -30,7 +30,7 @@ class IotHubDeviceUpdateAccountArgs:
         :param pulumi.Input[str] location: Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
-        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -111,7 +111,7 @@ class IotHubDeviceUpdateAccountArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -151,7 +151,7 @@ class _IotHubDeviceUpdateAccountState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Account.
         """
         if host_name is not None:
@@ -247,7 +247,7 @@ class _IotHubDeviceUpdateAccountState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -317,7 +317,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Account.
         """
         ...
@@ -427,7 +427,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        :param pulumi.Input[str] sku: Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -496,7 +496,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+        Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

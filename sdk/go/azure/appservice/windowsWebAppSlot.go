@@ -108,7 +108,7 @@ type WindowsWebAppSlot struct {
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
-	// Should the Windows Web App Slot require HTTPS connections.
+	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity WindowsWebAppSlotIdentityPtrOutput `pulumi:"identity"`
@@ -223,7 +223,7 @@ type windowsWebAppSlotState struct {
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// Should the Windows Web App Slot require HTTPS connections.
+	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *WindowsWebAppSlotIdentity `pulumi:"identity"`
@@ -298,7 +298,7 @@ type WindowsWebAppSlotState struct {
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
-	// Should the Windows Web App Slot require HTTPS connections.
+	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsWebAppSlotIdentityPtrInput
@@ -371,7 +371,7 @@ type windowsWebAppSlotArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
-	// Should the Windows Web App Slot require HTTPS connections.
+	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *WindowsWebAppSlotIdentity `pulumi:"identity"`
@@ -429,7 +429,7 @@ type WindowsWebAppSlotArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
-	// Should the Windows Web App Slot require HTTPS connections.
+	// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsWebAppSlotIdentityPtrInput
@@ -623,7 +623,7 @@ func (o WindowsWebAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
-// Should the Windows Web App Slot require HTTPS connections.
+// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
 func (o WindowsWebAppSlotOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }

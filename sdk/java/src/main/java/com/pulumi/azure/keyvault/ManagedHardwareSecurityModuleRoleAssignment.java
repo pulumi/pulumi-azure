@@ -14,11 +14,11 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages a KeyVault Role Assignment.
+ * Manages a Managed Hardware Security Module Role Assignment.
  * 
  * ## Import
  * 
- * KeyVaults can be imported using the `resource id`, e.g.
+ * Managed Hardware Security Modules can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
@@ -28,28 +28,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment")
 public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.resources.CustomResource {
     /**
-     * The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+     * @return The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Export(name="principalId", refs={String.class}, tree="[0]")
     private Output<String> principalId;
 
     /**
-     * @return The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+     * @return The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Output<String> principalId() {
@@ -70,42 +70,42 @@ public class ManagedHardwareSecurityModuleRoleAssignment extends com.pulumi.reso
         return this.resourceId;
     }
     /**
-     * The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
-     * @return The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+     * @return The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Output<String> roleDefinitionId() {
         return this.roleDefinitionId;
     }
     /**
-     * Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Export(name="scope", refs={String.class}, tree="[0]")
     private Output<String> scope;
 
     /**
-     * @return Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+     * @return Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Output<String> scope() {
         return this.scope;
     }
     /**
-     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     @Export(name="vaultBaseUrl", refs={String.class}, tree="[0]")
     private Output<String> vaultBaseUrl;
 
     /**
-     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+     * @return The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * 
      */
     public Output<String> vaultBaseUrl() {

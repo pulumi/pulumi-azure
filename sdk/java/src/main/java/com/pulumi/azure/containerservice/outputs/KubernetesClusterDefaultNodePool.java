@@ -133,9 +133,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String nodePublicIpPrefixId;
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
+     * @deprecated
+     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
      * 
      */
+    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
     private @Nullable List<String> nodeTaints;
     /**
      * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -394,9 +396,11 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.nodePublicIpPrefixId);
     }
     /**
-     * @return A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
+     * @deprecated
+     * This field will be removed in v4.0 of the Azure Provider since the AKS API doesn&#39;t allow arbitrary node taints on the default node pool
      * 
      */
+    @Deprecated /* This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool */
     public List<String> nodeTaints() {
         return this.nodeTaints == null ? List.of() : this.nodeTaints;
     }

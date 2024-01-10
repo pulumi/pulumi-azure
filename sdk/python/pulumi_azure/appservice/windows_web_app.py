@@ -59,7 +59,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['WindowsWebAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -302,7 +302,7 @@ class WindowsWebAppArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Windows Web App require HTTPS connections.
+        Should the Windows Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -513,7 +513,7 @@ class _WindowsWebAppState:
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['WindowsWebAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App.
@@ -786,7 +786,7 @@ class _WindowsWebAppState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Windows Web App require HTTPS connections.
+        Should the Windows Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -1126,7 +1126,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Web App should exist. Changing this forces a new Windows Web App to be created.
@@ -1346,7 +1346,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App.
@@ -1532,7 +1532,7 @@ class WindowsWebApp(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the Windows Web App require HTTPS connections.
+        Should the Windows Web App require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

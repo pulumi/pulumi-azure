@@ -56,7 +56,7 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['WindowsWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input['WindowsWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
@@ -282,7 +282,7 @@ class WindowsWebAppSlotArgs:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Windows Web App Slot require HTTPS connections.
+        Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -477,7 +477,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         :param pulumi.Input['WindowsWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App Slot.
@@ -754,7 +754,7 @@ class _WindowsWebAppSlotState:
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the Windows Web App Slot require HTTPS connections.
+        Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 
@@ -1057,7 +1057,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppSlotConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
@@ -1269,7 +1269,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
-        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections.
+        :param pulumi.Input[bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['WindowsWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Web App Slot.
@@ -1457,7 +1457,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the Windows Web App Slot require HTTPS connections.
+        Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         """
         return pulumi.get(self, "https_only")
 

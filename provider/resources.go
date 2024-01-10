@@ -264,20 +264,18 @@ var moduleMap = map[string]string{
 	"healthcare":              azureHealthcare,
 	"hpc":                     azureHpc,
 	// Ignored: azureHsm. The only token is "azurerm_dedicated_hardware_security_module".
-	"hybrid":      azureHybrid,
-	"iothub":      azureIot,
-	"iotcentral":  azureIotCentral,
-	"key_vault":   azureKeyVault,
-	"kusto":       azureKusto,
-	"kubernetes":  azureContainerService,
-	"lab_service": azureLab,
-	"lighthouse":  azureLighthouse,
-	// Ignored: azureLogAnalytics. The token prefix log_ maps into either
-	// azureOperationalInsights or azureLogInsights. Its not clear which from the
-	// token.
-	"logic_app": azureLogicApps,
-	"lb":        azureLB,
-	"new_relic": "NewRelic",
+	"hybrid":        azureHybrid,
+	"iothub":        azureIot,
+	"iotcentral":    azureIotCentral,
+	"key_vault":     azureKeyVault,
+	"kusto":         azureKusto,
+	"kubernetes":    azureContainerService,
+	"lab_service":   azureLab,
+	"lighthouse":    azureLighthouse,
+	"log_analytics": azureLogAnalytics,
+	"logic_app":     azureLogicApps,
+	"lb":            azureLB,
+	"new_relic":     "NewRelic",
 	// Ignored: azureLoadTest. The only token is "azurerm_load_test".
 	"mariadb":             azureMariaDB,
 	"eventgrid":           azureEventGrid,
@@ -623,9 +621,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    50,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -697,9 +693,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    255,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -733,9 +727,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    60,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 					"site_config": {
 						Elem: &tfbridge.SchemaInfo{
@@ -757,9 +749,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    40,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 					"kind": {
 						Type:     "string",
@@ -783,9 +773,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    60,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 					"site_config": {
 						Elem: &tfbridge.SchemaInfo{
@@ -883,9 +871,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    50,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -898,9 +884,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    63,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				}},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
@@ -944,9 +928,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    90,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 					azureLocation: {
 						Default: &tfbridge.DefaultInfo{
@@ -989,10 +971,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_subscription_policy_remediation": {
-				Tok: azureResource(azureCore, "SubscriptionPolicyRemediation"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureCore, "SubscriptionPolicyRemediation"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_tenant_template_deployment": {Tok: azureResource(azureCore, "TenantTemplateDeployment")},
 
@@ -1003,16 +983,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subscription_cost_management_export":   {Tok: azureResource(azureCore, "SubscriptionCostManagementExport")},
 			"azurerm_subscription_cost_management_view":     {Tok: azureResource(azureCore, "SubscriptionCostManagementView")},
 			"azurerm_resource_group_policy_remediation": {
-				Tok: azureResource(azureCore, "ResourceGroupPolicyRemediation"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureCore, "ResourceGroupPolicyRemediation"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_resource_policy_remediation": {
-				Tok: azureResource(azureCore, "ResourcePolicyRemediation"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureCore, "ResourcePolicyRemediation"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			// CDN
@@ -1059,9 +1035,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1075,9 +1049,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    64,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1104,9 +1076,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1118,9 +1088,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1415,9 +1383,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1531,9 +1497,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    44,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1588,9 +1552,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    260,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1603,9 +1565,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    255,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1685,10 +1645,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_flexible_server_configuration": {Tok: azureResource(azureMySQL, "FlexibleServerConfiguration")},
 			"azurerm_mysql_flexible_server_firewall_rule": {Tok: azureResource(azureMySQL, "FlexibleServerFirewallRule")},
 			"azurerm_mysql_flexible_server_active_directory_administrator": {
-				Tok: azureResource(azureMySQL, "FlexibleServerActiveDirectoryAdministratory"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureMySQL, "FlexibleServerActiveDirectoryAdministratory"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_mysql_flexible_database": {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
 
@@ -1789,9 +1747,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    64,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1833,9 +1789,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1857,9 +1811,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1879,9 +1831,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1894,9 +1844,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1923,9 +1871,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -1950,9 +1896,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    80,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				},
 			},
@@ -2088,9 +2032,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    1024,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 					"source": {
 						Asset: &tfbridge.AssetTranslation{
@@ -2107,9 +2049,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    63,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				}},
 			"azurerm_storage_share":           {Tok: azureResource(azureStorage, "Share")},
@@ -2123,9 +2063,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    63,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				}},
 			"azurerm_storage_table": {
@@ -2137,9 +2075,7 @@ func Provider() tfbridge.ProviderInfo {
 						Separator: "",
 						Maxlen:    63,
 						Randlen:   8,
-						Transform: func(name string) string {
-							return strings.ToLower(name)
-						},
+						Transform: strings.ToLower,
 					}),
 				}},
 			"azurerm_storage_table_entity": {
@@ -2227,10 +2163,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Marketplace
 			"azurerm_marketplace_agreement": {Tok: azureResource(azureMarketPlace, "Agreement")},
 			"azurerm_marketplace_role_assignment": {
-				Tok: azureResource(azureMarketPlace, "RoleAssignment"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureMarketPlace, "RoleAssignment"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			// Kusto
@@ -2413,22 +2347,16 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Palo Alto
 			"azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
-				Tok: azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubLocalRulestack"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubLocalRulestack"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_palo_alto_next_generation_firewall_virtual_hub_panorama": {
-				Tok: azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubPanorama"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubPanorama"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_palo_alto_virtual_network_appliance": {
-				Tok: azureResource(azurePaloAlto, "VirtualNetworkAppliance"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azurePaloAlto, "VirtualNetworkAppliance"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			// PowerBI
@@ -2656,10 +2584,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_management_group_policy_remediation": {
-				Tok: azureResource(azureManagement, "GroupPolicyRemediation"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureResource(azureManagement, "GroupPolicyRemediation"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			// communication
@@ -2722,6 +2648,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mobile_network_slice":        {Tok: azureResource(azureMobile, "NetworkSlice")},
 			"azurerm_mobile_network_data_network": {Tok: azureResource(azureMobile, "NetworkDataNetwork")},
 			"azurerm_mobile_network_sim_policy":   {Tok: azureResource(azureMobile, "NetworkSimPolicy")},
+
+			"azurerm_data_factory_credential_user_managed_identity": {
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},
@@ -2849,10 +2779,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_palo_alto_local_rulestack": {
-				Tok: azureDataSource(azurePaloAlto, "getLocalRulestack"),
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Tok:  azureDataSource(azurePaloAlto, "getLocalRulestack"),
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 
 			"azurerm_log_analytics_workspace": {
@@ -3104,9 +3032,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureDataSource(azureServiceBus, "getNamespaceDisasterRecoveryConfig"),
 				// At the time of writing, there are no docs for this data source, so we use a whitespace string to get
 				// the build to pass.
-				Docs: &tfbridge.DocInfo{
-					Markdown: []byte(" "),
-				},
+				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
@@ -3377,9 +3303,7 @@ func Provider() tfbridge.ProviderInfo {
 					Separator: "",
 					Maxlen:    50,
 					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
+					Transform: strings.ToLower,
 				}),
 			},
 		})
@@ -3396,9 +3320,7 @@ func Provider() tfbridge.ProviderInfo {
 					Separator: "",
 					Maxlen:    260,
 					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
+					Transform: strings.ToLower,
 				}),
 			},
 		})
@@ -3421,9 +3343,7 @@ func Provider() tfbridge.ProviderInfo {
 					Separator: "",
 					Maxlen:    260,
 					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
+					Transform: strings.ToLower,
 				}),
 			},
 		})
@@ -3456,9 +3376,7 @@ func Provider() tfbridge.ProviderInfo {
 					Separator: "",
 					Maxlen:    80,
 					Randlen:   8,
-					Transform: func(name string) string {
-						return strings.ToLower(name)
-					},
+					Transform: strings.ToLower,
 				}),
 			}})
 	prov.RenameDataSource("azurerm_traffic_manager_geographical_location",
@@ -3495,9 +3413,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
 		Tok:                azureResource(azureStorage, "ZipBlob"),
 		DeprecationMessage: "ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.",
-		Docs: &tfbridge.DocInfo{
-			Markdown: []byte(" "),
-		},
+		Docs:               &tfbridge.DocInfo{AllowMissing: true},
 		Fields: map[string]*tfbridge.SchemaInfo{
 			"source": {
 				Name: "content",
@@ -3512,9 +3428,7 @@ func Provider() tfbridge.ProviderInfo {
 				Separator: "",
 				Maxlen:    1024,
 				Randlen:   8,
-				Transform: func(name string) string {
-					return strings.ToLower(name)
-				},
+				Transform: strings.ToLower,
 			}),
 		},
 	}

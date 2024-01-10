@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .azurerm_portal_dashboard import *
 from .dashboard import *
+from .get_grafana import *
 from .grafana import *
 from ._inputs import *
 from . import outputs

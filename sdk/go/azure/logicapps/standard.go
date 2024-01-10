@@ -211,6 +211,8 @@ type Standard struct {
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrOutput `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App. Defaults to `~3`.
+	//
+	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrOutput `pulumi:"version"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -314,6 +316,8 @@ type standardState struct {
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App. Defaults to `~3`.
+	//
+	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                *string `pulumi:"version"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -369,6 +373,8 @@ type StandardState struct {
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
 	// The runtime version associated with the Logic App. Defaults to `~3`.
+	//
+	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
@@ -416,6 +422,8 @@ type standardArgs struct {
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App. Defaults to `~3`.
+	//
+	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                *string `pulumi:"version"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -460,6 +468,8 @@ type StandardArgs struct {
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
 	// The runtime version associated with the Logic App. Defaults to `~3`.
+	//
+	// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 	Version                pulumi.StringPtrInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
@@ -673,6 +683,8 @@ func (o StandardOutput) UseExtensionBundle() pulumi.BoolPtrOutput {
 }
 
 // The runtime version associated with the Logic App. Defaults to `~3`.
+//
+// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
 func (o StandardOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

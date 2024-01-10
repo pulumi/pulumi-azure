@@ -111,6 +111,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<bool?> LogStreamPublicEndpointEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// </summary>
+        [Output("managedEnvironmentId")]
+        public Output<string?> ManagedEnvironmentId { get; private set; } = null!;
+
+        /// <summary>
         /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         /// </summary>
         [Output("marketplace")]
@@ -163,6 +169,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// </summary>
+        [Output("skuTier")]
+        public Output<string> SkuTier { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -271,6 +283,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// </summary>
+        [Input("managedEnvironmentId")]
+        public Input<string>? ManagedEnvironmentId { get; set; }
+
+        /// <summary>
         /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         /// </summary>
         [Input("marketplace")]
@@ -305,6 +323,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -381,6 +405,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
+        /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        /// </summary>
+        [Input("managedEnvironmentId")]
+        public Input<string>? ManagedEnvironmentId { get; set; }
+
+        /// <summary>
         /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         /// </summary>
         [Input("marketplace")]
@@ -445,6 +475,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// </summary>
+        [Input("skuTier")]
+        public Input<string>? SkuTier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

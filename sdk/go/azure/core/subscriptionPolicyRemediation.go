@@ -12,20 +12,104 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Azure Subscription Policy Remediation.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
+//				DisplayName: pulumi.StringRef("Allowed resource types"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"listOfAllowedLocations": map[string]interface{}{
+//					"value": []string{
+//						"West Europe",
+//						"East US",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
+//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
+//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
+//				Parameters:         pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscriptionPolicyRemediation(ctx, "exampleSubscriptionPolicyRemediation", &core.SubscriptionPolicyRemediationArgs{
+//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
+//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Policy Remediations can be imported using the `resource id`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights/remediations/remediation1
+//
+// ```
 type SubscriptionPolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	FailurePercentage   pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
-	LocationFilters     pulumi.StringArrayOutput `pulumi:"locationFilters"`
-	Name                pulumi.StringOutput      `pulumi:"name"`
-	ParallelDeployments pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  pulumi.StringOutput      `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrOutput `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayOutput `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments pulumi.IntPtrOutput `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringOutput `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               pulumi.IntPtrOutput    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
-	SubscriptionId              pulumi.StringOutput    `pulumi:"subscriptionId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrOutput `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
+	// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
 // NewSubscriptionPolicyRemediation registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +148,57 @@ func GetSubscriptionPolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubscriptionPolicyRemediation resources.
 type subscriptionPolicyRemediationState struct {
-	FailurePercentage   *float64 `pulumi:"failurePercentage"`
-	LocationFilters     []string `pulumi:"locationFilters"`
-	Name                *string  `pulumi:"name"`
-	ParallelDeployments *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  *string  `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage *float64 `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters []string `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments *int `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               *int    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
-	SubscriptionId              *string `pulumi:"subscriptionId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount *int `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 type SubscriptionPolicyRemediationState struct {
-	FailurePercentage   pulumi.Float64PtrInput
-	LocationFilters     pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrInput
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayInput
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 	ParallelDeployments pulumi.IntPtrInput
-	PolicyAssignmentId  pulumi.StringPtrInput
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringPtrInput
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	ResourceCount               pulumi.IntPtrInput
-	ResourceDiscoveryMode       pulumi.StringPtrInput
-	SubscriptionId              pulumi.StringPtrInput
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrInput
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrInput
+	// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (SubscriptionPolicyRemediationState) ElementType() reflect.Type {
@@ -96,32 +206,58 @@ func (SubscriptionPolicyRemediationState) ElementType() reflect.Type {
 }
 
 type subscriptionPolicyRemediationArgs struct {
-	FailurePercentage   *float64 `pulumi:"failurePercentage"`
-	LocationFilters     []string `pulumi:"locationFilters"`
-	Name                *string  `pulumi:"name"`
-	ParallelDeployments *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId  string   `pulumi:"policyAssignmentId"`
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage *float64 `pulumi:"failurePercentage"`
+	// A list of the resource locations that will be remediated.
+	LocationFilters []string `pulumi:"locationFilters"`
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+	ParallelDeployments *int `pulumi:"parallelDeployments"`
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId string `pulumi:"policyAssignmentId"`
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	ResourceCount               *int    `pulumi:"resourceCount"`
-	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
-	SubscriptionId              string  `pulumi:"subscriptionId"`
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount *int `pulumi:"resourceCount"`
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
+	// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	SubscriptionId string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a SubscriptionPolicyRemediation resource.
 type SubscriptionPolicyRemediationArgs struct {
-	FailurePercentage   pulumi.Float64PtrInput
-	LocationFilters     pulumi.StringArrayInput
-	Name                pulumi.StringPtrInput
+	// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+	FailurePercentage pulumi.Float64PtrInput
+	// A list of the resource locations that will be remediated.
+	LocationFilters pulumi.StringArrayInput
+	// The name of the Policy Remediation. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput
+	// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 	ParallelDeployments pulumi.IntPtrInput
-	PolicyAssignmentId  pulumi.StringInput
+	// The ID of the Policy Assignment that should be remediated.
+	PolicyAssignmentId pulumi.StringInput
+	// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+	//
+	// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+	//
 	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
-	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	ResourceCount               pulumi.IntPtrInput
-	ResourceDiscoveryMode       pulumi.StringPtrInput
-	SubscriptionId              pulumi.StringInput
+	// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+	ResourceCount pulumi.IntPtrInput
+	// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+	ResourceDiscoveryMode pulumi.StringPtrInput
+	// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+	SubscriptionId pulumi.StringInput
 }
 
 func (SubscriptionPolicyRemediationArgs) ElementType() reflect.Type {
@@ -211,43 +347,56 @@ func (o SubscriptionPolicyRemediationOutput) ToSubscriptionPolicyRemediationOutp
 	return o
 }
 
+// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
 func (o SubscriptionPolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.Float64PtrOutput { return v.FailurePercentage }).(pulumi.Float64PtrOutput)
 }
 
+// A list of the resource locations that will be remediated.
 func (o SubscriptionPolicyRemediationOutput) LocationFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringArrayOutput { return v.LocationFilters }).(pulumi.StringArrayOutput)
 }
 
+// The name of the Policy Remediation. Changing this forces a new resource to be created.
 func (o SubscriptionPolicyRemediationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
 func (o SubscriptionPolicyRemediationOutput) ParallelDeployments() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.IntPtrOutput { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the Policy Assignment that should be remediated.
 func (o SubscriptionPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
+// The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+//
+// > **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policyDefinitionReferenceId`.
+//
 // Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
 func (o SubscriptionPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
 
+// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
 func (o SubscriptionPolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
 
+// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
 func (o SubscriptionPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.IntPtrOutput { return v.ResourceCount }).(pulumi.IntPtrOutput)
 }
 
+// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
 func (o SubscriptionPolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
 }
 
+// The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
 func (o SubscriptionPolicyRemediationOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyRemediation) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }

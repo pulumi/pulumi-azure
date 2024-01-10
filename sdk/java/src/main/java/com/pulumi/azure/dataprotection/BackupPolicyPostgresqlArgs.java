@@ -94,6 +94,21 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    @Import(name="timeZone")
+    private @Nullable Output<String> timeZone;
+
+    /**
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    public Optional<Output<String>> timeZone() {
+        return Optional.ofNullable(this.timeZone);
+    }
+
+    /**
      * The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
@@ -116,6 +131,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.retentionRules = $.retentionRules;
+        this.timeZone = $.timeZone;
         this.vaultName = $.vaultName;
     }
 
@@ -260,6 +276,27 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
          */
         public Builder retentionRules(BackupPolicyPostgresqlRetentionRuleArgs... retentionRules) {
             return retentionRules(List.of(retentionRules));
+        }
+
+        /**
+         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeZone(@Nullable Output<String> timeZone) {
+            $.timeZone = timeZone;
+            return this;
+        }
+
+        /**
+         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeZone(String timeZone) {
+            return timeZone(Output.of(timeZone));
         }
 
         /**

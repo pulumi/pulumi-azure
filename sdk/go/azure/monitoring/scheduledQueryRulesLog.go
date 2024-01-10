@@ -131,7 +131,7 @@ type ScheduledQueryRulesLog struct {
 	AuthorizedResourceIds pulumi.StringArrayOutput `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaOutput `pulumi:"criteria"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -190,7 +190,7 @@ type scheduledQueryRulesLogState struct {
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria *ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -211,7 +211,7 @@ type ScheduledQueryRulesLogState struct {
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaPtrInput
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringPtrInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type scheduledQueryRulesLogArgs struct {
 	AuthorizedResourceIds []string `pulumi:"authorizedResourceIds"`
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteria `pulumi:"criteria"`
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId string `pulumi:"dataSourceId"`
 	// The description of the scheduled query rule.
 	Description *string `pulumi:"description"`
@@ -258,7 +258,7 @@ type ScheduledQueryRulesLogArgs struct {
 	AuthorizedResourceIds pulumi.StringArrayInput
 	// A `criteria` block as defined below.
 	Criteria ScheduledQueryRulesLogCriteriaInput
-	// The resource URI over which log search query is to be run.
+	// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 	DataSourceId pulumi.StringInput
 	// The description of the scheduled query rule.
 	Description pulumi.StringPtrInput
@@ -371,7 +371,7 @@ func (o ScheduledQueryRulesLogOutput) Criteria() ScheduledQueryRulesLogCriteriaO
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) ScheduledQueryRulesLogCriteriaOutput { return v.Criteria }).(ScheduledQueryRulesLogCriteriaOutput)
 }
 
-// The resource URI over which log search query is to be run.
+// The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
 func (o ScheduledQueryRulesLogOutput) DataSourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
 }

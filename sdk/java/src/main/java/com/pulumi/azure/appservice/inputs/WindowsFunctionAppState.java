@@ -286,14 +286,14 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     @Import(name="httpsOnly")
     private @Nullable Output<Boolean> httpsOnly;
 
     /**
-     * @return Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     * @return Can the Function App only be accessed via HTTPS?. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> httpsOnly() {
@@ -1107,7 +1107,7 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpsOnly Can the Function App only be accessed via HTTPS? Defaults to `false`.
+         * @param httpsOnly Can the Function App only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1118,7 +1118,7 @@ public final class WindowsFunctionAppState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param httpsOnly Can the Function App only be accessed via HTTPS? Defaults to `false`.
+         * @param httpsOnly Can the Function App only be accessed via HTTPS?. Defaults to `false`.
          * 
          * @return builder
          * 

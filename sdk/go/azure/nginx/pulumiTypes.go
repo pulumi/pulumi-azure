@@ -478,11 +478,13 @@ func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutpu
 }
 
 type DeploymentIdentity struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of user managed identity ids to be assigned.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+	// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -498,11 +500,13 @@ type DeploymentIdentityInput interface {
 }
 
 type DeploymentIdentityArgs struct {
-	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	// Specifies a list of user managed identity ids to be assigned.
+	//
+	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+	// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -583,7 +587,9 @@ func (o DeploymentIdentityOutput) ToDeploymentIdentityPtrOutputWithContext(ctx c
 	}).(DeploymentIdentityPtrOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of user managed identity ids to be assigned.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o DeploymentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -596,7 +602,7 @@ func (o DeploymentIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 func (o DeploymentIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -625,7 +631,9 @@ func (o DeploymentIdentityPtrOutput) Elem() DeploymentIdentityOutput {
 	}).(DeploymentIdentityOutput)
 }
 
-// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+// Specifies a list of user managed identity ids to be assigned.
+//
+// > **NOTE:** This is required when `type` is set to `UserAssigned`.
 func (o DeploymentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentIdentity) []string {
 		if v == nil {
@@ -653,7 +661,7 @@ func (o DeploymentIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+// Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
 func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentIdentity) *string {
 		if v == nil {

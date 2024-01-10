@@ -43,6 +43,7 @@ namespace Pulumi.Azure.DataProtection
     ///             "R/2021-05-19T06:33:16+00:00/PT4H",
     ///         },
     ///         DefaultRetentionDuration = "P7D",
+    ///         TimeZone = "W. Europe Standard Time",
     ///         RetentionRules = new[]
     ///         {
     ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
@@ -105,6 +106,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Output("retentionRules")]
         public Output<ImmutableArray<Outputs.BackupPolicyDiskRetentionRule>> RetentionRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string?> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
@@ -195,6 +202,12 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
+        /// <summary>
         /// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         [Input("vaultId", required: true)]
@@ -243,6 +256,12 @@ namespace Pulumi.Azure.DataProtection
             get => _retentionRules ?? (_retentionRules = new InputList<Inputs.BackupPolicyDiskRetentionRuleGetArgs>());
             set => _retentionRules = value;
         }
+
+        /// <summary>
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
 
         /// <summary>
         /// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.

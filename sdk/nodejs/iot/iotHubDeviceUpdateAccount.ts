@@ -89,7 +89,7 @@ export class IotHubDeviceUpdateAccount extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface IotHubDeviceUpdateAccountState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface IotHubDeviceUpdateAccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+     * Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
     sku?: pulumi.Input<string>;
     /**

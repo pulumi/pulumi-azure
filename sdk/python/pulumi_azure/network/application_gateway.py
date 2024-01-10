@@ -1140,8 +1140,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an Application Gateway.
-
         ## Example Usage
 
         ```python
@@ -1268,8 +1266,6 @@ class ApplicationGateway(pulumi.CustomResource):
                  args: ApplicationGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Application Gateway.
-
         ## Example Usage
 
         ```python

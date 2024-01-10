@@ -4449,7 +4449,9 @@ func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) Envi
 }
 
 type EnvironmentWorkloadProfile struct {
+	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 	MaximumCount int `pulumi:"maximumCount"`
+	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
 	MinimumCount int `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name string `pulumi:"name"`
@@ -4469,7 +4471,9 @@ type EnvironmentWorkloadProfileInput interface {
 }
 
 type EnvironmentWorkloadProfileArgs struct {
+	// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
 	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
 	// The name of the workload profile.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4528,10 +4532,12 @@ func (o EnvironmentWorkloadProfileOutput) ToEnvironmentWorkloadProfileOutputWith
 	return o
 }
 
+// The maximum number of instances of workload profile that can be deployed in the Container App Environment.
 func (o EnvironmentWorkloadProfileOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MaximumCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of instances of workload profile that can be deployed in the Container App Environment.
 func (o EnvironmentWorkloadProfileOutput) MinimumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v EnvironmentWorkloadProfile) int { return v.MinimumCount }).(pulumi.IntOutput)
 }

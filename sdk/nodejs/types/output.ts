@@ -12362,7 +12362,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `javaVersion`.
          *
          * > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -19629,6 +19629,28 @@ export namespace automation {
     }
 
     export interface ModuleModuleLinkHash {
+        /**
+         * Specifies the algorithm used for the hash content.
+         */
+        algorithm: string;
+        /**
+         * The hash value of the content.
+         */
+        value: string;
+    }
+
+    export interface Powershell72ModuleModuleLink {
+        /**
+         * A `hash` block as defined below.
+         */
+        hash?: outputs.automation.Powershell72ModuleModuleLinkHash;
+        /**
+         * The URI of the module content (zip or nupkg).
+         */
+        uri: string;
+    }
+
+    export interface Powershell72ModuleModuleLinkHash {
         /**
          * Specifies the algorithm used for the hash content.
          */
@@ -28637,7 +28659,13 @@ export namespace containerapp {
     }
 
     export interface EnvironmentWorkloadProfile {
+        /**
+         * The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+         */
         maximumCount: number;
+        /**
+         * The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+         */
         minimumCount: number;
         /**
          * The name of the workload profile.
@@ -30574,7 +30602,7 @@ export namespace containerservice {
          */
         nodePublicIpPrefixId?: string;
         /**
-         * A list of the taints added to new nodes during node pool create and scale. `temporaryNameForRotation` must be specified when changing this property.
+         * @deprecated This field will be removed in v4.0 of the Azure Provider since the AKS API doesn't allow arbitrary node taints on the default node pool
          */
         nodeTaints?: string[];
         /**
@@ -33468,6 +33496,17 @@ export namespace cosmosdb {
 }
 
 export namespace dashboard {
+    export interface GetGrafanaAzureMonitorWorkspaceIntegration {
+        resourceId: string;
+    }
+
+    export interface GetGrafanaIdentity {
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        type: string;
+    }
+
     export interface GrafanaAzureMonitorWorkspaceIntegration {
         /**
          * Specifies the resource ID of the connected Azure Monitor Workspace.
@@ -43747,6 +43786,25 @@ export namespace kusto {
         subnetId: string;
     }
 
+    export interface GetClusterIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID associated with this System Assigned Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this System Assigned Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this Kusto Cluster.
+         */
+        type: string;
+    }
+
 }
 
 export namespace lab {
@@ -44383,6 +44441,7 @@ export namespace logicapps {
         linuxFxVersion: string;
         minTlsVersion: string;
         preWarmedInstanceCount: number;
+        publicNetworkAccessEnabled?: boolean;
         runtimeScaleMonitoringEnabled?: boolean;
         scmIpRestrictions: outputs.logicapps.GetStandardSiteConfigScmIpRestriction[];
         scmMinTlsVersion: string;
@@ -44679,6 +44738,10 @@ export namespace logicapps {
          * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
          */
         preWarmedInstanceCount: number;
+        /**
+         * Is public network access enabled? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: boolean;
         /**
          * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
          */
@@ -57890,13 +57953,15 @@ export namespace nginx {
 
     export interface DeploymentIdentity {
         /**
-         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         * Specifies a list of user managed identity ids to be assigned.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
          */
         identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
-         * Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+         * Specifies the identity type of the Nginx Deployment. Possible values are `UserAssigned`, `SystemAssigned`.
          */
         type: string;
     }

@@ -287,14 +287,14 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return this.hostingEnvironmentId;
     }
     /**
-     * Should the Windows Web App require HTTPS connections.
+     * Should the Windows Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     @Export(name="httpsOnly", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> httpsOnly;
 
     /**
-     * @return Should the Windows Web App require HTTPS connections.
+     * @return Should the Windows Web App require HTTPS connections. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> httpsOnly() {

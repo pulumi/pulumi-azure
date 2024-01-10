@@ -78,7 +78,7 @@ type IotHubDeviceUpdateAccount struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the IoT Hub Device Update Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -129,7 +129,7 @@ type iotHubDeviceUpdateAccountState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the IoT Hub Device Update Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -148,7 +148,7 @@ type IotHubDeviceUpdateAccountState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the IoT Hub Device Update Account.
 	Tags pulumi.StringMapInput
@@ -169,7 +169,7 @@ type iotHubDeviceUpdateAccountArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the IoT Hub Device Update Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -187,7 +187,7 @@ type IotHubDeviceUpdateAccountArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+	// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the IoT Hub Device Update Account.
 	Tags pulumi.StringMapInput
@@ -310,7 +310,7 @@ func (o IotHubDeviceUpdateAccountOutput) ResourceGroupName() pulumi.StringOutput
 	return o.ApplyT(func(v *IotHubDeviceUpdateAccount) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`.
+// Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
 func (o IotHubDeviceUpdateAccountOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IotHubDeviceUpdateAccount) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     vaultId: exampleBackupVault.id,
  *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
  *     defaultRetentionDuration: "P7D",
+ *     timeZone: "W. Europe Standard Time",
  *     retentionRules: [
  *         {
  *             name: "Daily",
@@ -100,6 +101,10 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
      */
     public readonly retentionRules!: pulumi.Output<outputs.dataprotection.BackupPolicyDiskRetentionRule[] | undefined>;
     /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    public readonly timeZone!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
      */
     public readonly vaultId!: pulumi.Output<string>;
@@ -121,6 +126,7 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
             resourceInputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
             resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupPolicyDiskArgs | undefined;
@@ -137,6 +143,7 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
             resourceInputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -165,6 +172,10 @@ export interface BackupPolicyDiskState {
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyDiskRetentionRule>[]>;
     /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    timeZone?: pulumi.Input<string>;
+    /**
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
      */
     vaultId?: pulumi.Input<string>;
@@ -190,6 +201,10 @@ export interface BackupPolicyDiskArgs {
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyDiskRetentionRule>[]>;
+    /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     */
+    timeZone?: pulumi.Input<string>;
     /**
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
      */

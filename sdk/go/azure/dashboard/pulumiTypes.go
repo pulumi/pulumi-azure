@@ -304,13 +304,293 @@ func (o GrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetGrafanaAzureMonitorWorkspaceIntegration struct {
+	ResourceId string `pulumi:"resourceId"`
+}
+
+// GetGrafanaAzureMonitorWorkspaceIntegrationInput is an input type that accepts GetGrafanaAzureMonitorWorkspaceIntegrationArgs and GetGrafanaAzureMonitorWorkspaceIntegrationOutput values.
+// You can construct a concrete instance of `GetGrafanaAzureMonitorWorkspaceIntegrationInput` via:
+//
+//	GetGrafanaAzureMonitorWorkspaceIntegrationArgs{...}
+type GetGrafanaAzureMonitorWorkspaceIntegrationInput interface {
+	pulumi.Input
+
+	ToGetGrafanaAzureMonitorWorkspaceIntegrationOutput() GetGrafanaAzureMonitorWorkspaceIntegrationOutput
+	ToGetGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationOutput
+}
+
+type GetGrafanaAzureMonitorWorkspaceIntegrationArgs struct {
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+}
+
+func (GetGrafanaAzureMonitorWorkspaceIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i GetGrafanaAzureMonitorWorkspaceIntegrationArgs) ToGetGrafanaAzureMonitorWorkspaceIntegrationOutput() GetGrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return i.ToGetGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(context.Background())
+}
+
+func (i GetGrafanaAzureMonitorWorkspaceIntegrationArgs) ToGetGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrafanaAzureMonitorWorkspaceIntegrationOutput)
+}
+
+// GetGrafanaAzureMonitorWorkspaceIntegrationArrayInput is an input type that accepts GetGrafanaAzureMonitorWorkspaceIntegrationArray and GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput values.
+// You can construct a concrete instance of `GetGrafanaAzureMonitorWorkspaceIntegrationArrayInput` via:
+//
+//	GetGrafanaAzureMonitorWorkspaceIntegrationArray{ GetGrafanaAzureMonitorWorkspaceIntegrationArgs{...} }
+type GetGrafanaAzureMonitorWorkspaceIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput
+	ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput
+}
+
+type GetGrafanaAzureMonitorWorkspaceIntegrationArray []GetGrafanaAzureMonitorWorkspaceIntegrationInput
+
+func (GetGrafanaAzureMonitorWorkspaceIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (i GetGrafanaAzureMonitorWorkspaceIntegrationArray) ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return i.ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i GetGrafanaAzureMonitorWorkspaceIntegrationArray) ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput)
+}
+
+type GetGrafanaAzureMonitorWorkspaceIntegrationOutput struct{ *pulumi.OutputState }
+
+func (GetGrafanaAzureMonitorWorkspaceIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationOutput) ToGetGrafanaAzureMonitorWorkspaceIntegrationOutput() GetGrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationOutput) ToGetGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return o
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrafanaAzureMonitorWorkspaceIntegration) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+type GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGrafanaAzureMonitorWorkspaceIntegration)(nil)).Elem()
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput() GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGetGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
+	return o
+}
+
+func (o GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntInput) GetGrafanaAzureMonitorWorkspaceIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGrafanaAzureMonitorWorkspaceIntegration {
+		return vs[0].([]GetGrafanaAzureMonitorWorkspaceIntegration)[vs[1].(int)]
+	}).(GetGrafanaAzureMonitorWorkspaceIntegrationOutput)
+}
+
+type GetGrafanaIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	Type        string   `pulumi:"type"`
+}
+
+// GetGrafanaIdentityInput is an input type that accepts GetGrafanaIdentityArgs and GetGrafanaIdentityOutput values.
+// You can construct a concrete instance of `GetGrafanaIdentityInput` via:
+//
+//	GetGrafanaIdentityArgs{...}
+type GetGrafanaIdentityInput interface {
+	pulumi.Input
+
+	ToGetGrafanaIdentityOutput() GetGrafanaIdentityOutput
+	ToGetGrafanaIdentityOutputWithContext(context.Context) GetGrafanaIdentityOutput
+}
+
+type GetGrafanaIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
+}
+
+func (GetGrafanaIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrafanaIdentity)(nil)).Elem()
+}
+
+func (i GetGrafanaIdentityArgs) ToGetGrafanaIdentityOutput() GetGrafanaIdentityOutput {
+	return i.ToGetGrafanaIdentityOutputWithContext(context.Background())
+}
+
+func (i GetGrafanaIdentityArgs) ToGetGrafanaIdentityOutputWithContext(ctx context.Context) GetGrafanaIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrafanaIdentityOutput)
+}
+
+func (i GetGrafanaIdentityArgs) ToGetGrafanaIdentityPtrOutput() GetGrafanaIdentityPtrOutput {
+	return i.ToGetGrafanaIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i GetGrafanaIdentityArgs) ToGetGrafanaIdentityPtrOutputWithContext(ctx context.Context) GetGrafanaIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrafanaIdentityOutput).ToGetGrafanaIdentityPtrOutputWithContext(ctx)
+}
+
+// GetGrafanaIdentityPtrInput is an input type that accepts GetGrafanaIdentityArgs, GetGrafanaIdentityPtr and GetGrafanaIdentityPtrOutput values.
+// You can construct a concrete instance of `GetGrafanaIdentityPtrInput` via:
+//
+//	        GetGrafanaIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetGrafanaIdentityPtrInput interface {
+	pulumi.Input
+
+	ToGetGrafanaIdentityPtrOutput() GetGrafanaIdentityPtrOutput
+	ToGetGrafanaIdentityPtrOutputWithContext(context.Context) GetGrafanaIdentityPtrOutput
+}
+
+type getGrafanaIdentityPtrType GetGrafanaIdentityArgs
+
+func GetGrafanaIdentityPtr(v *GetGrafanaIdentityArgs) GetGrafanaIdentityPtrInput {
+	return (*getGrafanaIdentityPtrType)(v)
+}
+
+func (*getGrafanaIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrafanaIdentity)(nil)).Elem()
+}
+
+func (i *getGrafanaIdentityPtrType) ToGetGrafanaIdentityPtrOutput() GetGrafanaIdentityPtrOutput {
+	return i.ToGetGrafanaIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *getGrafanaIdentityPtrType) ToGetGrafanaIdentityPtrOutputWithContext(ctx context.Context) GetGrafanaIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGrafanaIdentityPtrOutput)
+}
+
+type GetGrafanaIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetGrafanaIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGrafanaIdentity)(nil)).Elem()
+}
+
+func (o GetGrafanaIdentityOutput) ToGetGrafanaIdentityOutput() GetGrafanaIdentityOutput {
+	return o
+}
+
+func (o GetGrafanaIdentityOutput) ToGetGrafanaIdentityOutputWithContext(ctx context.Context) GetGrafanaIdentityOutput {
+	return o
+}
+
+func (o GetGrafanaIdentityOutput) ToGetGrafanaIdentityPtrOutput() GetGrafanaIdentityPtrOutput {
+	return o.ToGetGrafanaIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o GetGrafanaIdentityOutput) ToGetGrafanaIdentityPtrOutputWithContext(ctx context.Context) GetGrafanaIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGrafanaIdentity) *GetGrafanaIdentity {
+		return &v
+	}).(GetGrafanaIdentityPtrOutput)
+}
+
+func (o GetGrafanaIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetGrafanaIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetGrafanaIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrafanaIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetGrafanaIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrafanaIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetGrafanaIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGrafanaIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetGrafanaIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (GetGrafanaIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetGrafanaIdentity)(nil)).Elem()
+}
+
+func (o GetGrafanaIdentityPtrOutput) ToGetGrafanaIdentityPtrOutput() GetGrafanaIdentityPtrOutput {
+	return o
+}
+
+func (o GetGrafanaIdentityPtrOutput) ToGetGrafanaIdentityPtrOutputWithContext(ctx context.Context) GetGrafanaIdentityPtrOutput {
+	return o
+}
+
+func (o GetGrafanaIdentityPtrOutput) Elem() GetGrafanaIdentityOutput {
+	return o.ApplyT(func(v *GetGrafanaIdentity) GetGrafanaIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GetGrafanaIdentity
+		return ret
+	}).(GetGrafanaIdentityOutput)
+}
+
+func (o GetGrafanaIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetGrafanaIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetGrafanaIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrafanaIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetGrafanaIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrafanaIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetGrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetGrafanaIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegrationInput)(nil)).Elem(), GrafanaAzureMonitorWorkspaceIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegrationArrayInput)(nil)).Elem(), GrafanaAzureMonitorWorkspaceIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityInput)(nil)).Elem(), GrafanaIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityPtrInput)(nil)).Elem(), GrafanaIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegrationInput)(nil)).Elem(), GetGrafanaAzureMonitorWorkspaceIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegrationArrayInput)(nil)).Elem(), GetGrafanaAzureMonitorWorkspaceIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaIdentityInput)(nil)).Elem(), GetGrafanaIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaIdentityPtrInput)(nil)).Elem(), GetGrafanaIdentityArgs{})
 	pulumi.RegisterOutputType(GrafanaAzureMonitorWorkspaceIntegrationOutput{})
 	pulumi.RegisterOutputType(GrafanaAzureMonitorWorkspaceIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetGrafanaAzureMonitorWorkspaceIntegrationOutput{})
+	pulumi.RegisterOutputType(GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(GetGrafanaIdentityOutput{})
+	pulumi.RegisterOutputType(GetGrafanaIdentityPtrOutput{})
 }

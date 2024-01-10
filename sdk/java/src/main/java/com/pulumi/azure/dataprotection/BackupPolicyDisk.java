@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .vaultId(exampleBackupVault.id())
  *             .backupRepeatingTimeIntervals(&#34;R/2021-05-19T06:33:16+00:00/PT4H&#34;)
  *             .defaultRetentionDuration(&#34;P7D&#34;)
+ *             .timeZone(&#34;W. Europe Standard Time&#34;)
  *             .retentionRules(            
  *                 BackupPolicyDiskRetentionRuleArgs.builder()
  *                     .name(&#34;Daily&#34;)
@@ -151,6 +152,20 @@ public class BackupPolicyDisk extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<BackupPolicyDiskRetentionRule>>> retentionRules() {
         return Codegen.optional(this.retentionRules);
+    }
+    /**
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> timeZone;
+
+    /**
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * 
+     */
+    public Output<Optional<String>> timeZone() {
+        return Codegen.optional(this.timeZone);
     }
     /**
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.

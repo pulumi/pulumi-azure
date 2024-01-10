@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a KeyVault Role Assignment.
+// Manages a Managed Hardware Security Module Role Assignment.
 //
 // ## Import
 //
-// KeyVaults can be imported using the `resource id`, e.g.
+// Managed Hardware Security Modules can be imported using the `resource id`, e.g.
 //
 // ```sh
 //
@@ -26,17 +26,17 @@ import (
 type ManagedHardwareSecurityModuleRoleAssignment struct {
 	pulumi.CustomResourceState
 
-	// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The resource id of created assignment resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+	// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
-	// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringOutput `pulumi:"scope"`
-	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	VaultBaseUrl pulumi.StringOutput `pulumi:"vaultBaseUrl"`
 }
 
@@ -82,32 +82,32 @@ func GetManagedHardwareSecurityModuleRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleAssignment resources.
 type managedHardwareSecurityModuleRoleAssignmentState struct {
-	// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
-	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 	PrincipalId *string `pulumi:"principalId"`
 	// The resource id of created assignment resource.
 	ResourceId *string `pulumi:"resourceId"`
-	// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+	// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope *string `pulumi:"scope"`
-	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	VaultBaseUrl *string `pulumi:"vaultBaseUrl"`
 }
 
 type ManagedHardwareSecurityModuleRoleAssignmentState struct {
-	// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
-	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 	PrincipalId pulumi.StringPtrInput
 	// The resource id of created assignment resource.
 	ResourceId pulumi.StringPtrInput
-	// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+	// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 	RoleDefinitionId pulumi.StringPtrInput
-	// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringPtrInput
-	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	VaultBaseUrl pulumi.StringPtrInput
 }
 
@@ -116,29 +116,29 @@ func (ManagedHardwareSecurityModuleRoleAssignmentState) ElementType() reflect.Ty
 }
 
 type managedHardwareSecurityModuleRoleAssignmentArgs struct {
-	// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name *string `pulumi:"name"`
-	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 	PrincipalId string `pulumi:"principalId"`
-	// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+	// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
-	// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope string `pulumi:"scope"`
-	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	VaultBaseUrl string `pulumi:"vaultBaseUrl"`
 }
 
 // The set of arguments for constructing a ManagedHardwareSecurityModuleRoleAssignment resource.
 type ManagedHardwareSecurityModuleRoleAssignmentArgs struct {
-	// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+	// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Name pulumi.StringPtrInput
-	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+	// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 	PrincipalId pulumi.StringInput
-	// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+	// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 	RoleDefinitionId pulumi.StringInput
-	// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+	// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 	Scope pulumi.StringInput
-	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+	// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 	VaultBaseUrl pulumi.StringInput
 }
 
@@ -229,12 +229,12 @@ func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) ToManagedHardwareSecu
 	return o
 }
 
-// The name in GUID notation which should be used for this KeyVault Role Assignment. Changing this forces a new KeyVault to be created.
+// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new KeyVault to be created.
+// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -244,17 +244,17 @@ func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) ResourceId() pulumi.S
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The resource ID of the role definition to assign. Changing this forces a new KeyVault to be created.
+// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-// Specifies the scope to create the role assignment. Changing this forces a new KeyVault to be created.
+// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
-// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new KeyVault to be created.
+// The HSM URI of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
 func (o ManagedHardwareSecurityModuleRoleAssignmentOutput) VaultBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleAssignment) pulumi.StringOutput { return v.VaultBaseUrl }).(pulumi.StringOutput)
 }

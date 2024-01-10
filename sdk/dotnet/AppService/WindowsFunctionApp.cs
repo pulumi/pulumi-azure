@@ -171,7 +171,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         /// </summary>
         [Output("httpsOnly")]
         public Output<bool> HttpsOnly { get; private set; } = null!;
@@ -477,7 +477,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? FunctionsExtensionVersion { get; set; }
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
@@ -753,7 +753,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? HostingEnvironmentId { get; set; }
 
         /// <summary>
-        /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        /// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }

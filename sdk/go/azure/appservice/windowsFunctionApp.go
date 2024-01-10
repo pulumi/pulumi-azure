@@ -118,7 +118,7 @@ type WindowsFunctionApp struct {
 	FunctionsExtensionVersion pulumi.StringPtrOutput `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
-	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolOutput `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrOutput `pulumi:"identity"`
@@ -262,7 +262,7 @@ type windowsFunctionAppState struct {
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *WindowsFunctionAppIdentity `pulumi:"identity"`
@@ -359,7 +359,7 @@ type WindowsFunctionAppState struct {
 	FunctionsExtensionVersion pulumi.StringPtrInput
 	// The ID of the App Service Environment used by Function App.
 	HostingEnvironmentId pulumi.StringPtrInput
-	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrInput
@@ -454,7 +454,7 @@ type windowsFunctionAppArgs struct {
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion *string `pulumi:"functionsExtensionVersion"`
-	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// A `identity` block as defined below.
 	Identity *WindowsFunctionAppIdentity `pulumi:"identity"`
@@ -534,7 +534,7 @@ type WindowsFunctionAppArgs struct {
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The runtime version associated with the Function App. Defaults to `~4`.
 	FunctionsExtensionVersion pulumi.StringPtrInput
-	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+	// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// A `identity` block as defined below.
 	Identity WindowsFunctionAppIdentityPtrInput
@@ -756,7 +756,7 @@ func (o WindowsFunctionAppOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
-// Can the Function App only be accessed via HTTPS? Defaults to `false`.
+// Can the Function App only be accessed via HTTPS?. Defaults to `false`.
 func (o WindowsFunctionAppOutput) HttpsOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.BoolOutput { return v.HttpsOnly }).(pulumi.BoolOutput)
 }

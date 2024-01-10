@@ -17,39 +17,172 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages an Azure Resource Policy Remediation.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.policy.Definition;
+ * import com.pulumi.azure.policy.DefinitionArgs;
+ * import com.pulumi.azure.core.ResourcePolicyAssignment;
+ * import com.pulumi.azure.core.ResourcePolicyAssignmentArgs;
+ * import com.pulumi.azure.core.ResourceGroupPolicyAssignment;
+ * import com.pulumi.azure.core.ResourceGroupPolicyAssignmentArgs;
+ * import com.pulumi.azure.core.ResourcePolicyRemediation;
+ * import com.pulumi.azure.core.ResourcePolicyRemediationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West US&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
+ *             .policyType(&#34;Custom&#34;)
+ *             .mode(&#34;All&#34;)
+ *             .displayName(&#34;my-policy-definition&#34;)
+ *             .build());
+ * 
+ *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
+ *             .resourceId(exampleVirtualNetwork.id())
+ *             .policyDefinitionId(exampleDefinition.id())
+ *             .parameters(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
+ *                         jsonProperty(&#34;value&#34;, jsonArray(
+ *                             location, 
+ *                             &#34;East US&#34;
+ *                         ))
+ *                     ))
+ *                 ))))
+ *             .build());
+ * 
+ *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .resourceGroupId(exampleResourceGroup.id())
+ *             .policyDefinitionId(exampleDefinition.id())
+ *             .build());
+ * 
+ *         var exampleResourcePolicyRemediation = new ResourcePolicyRemediation(&#34;exampleResourcePolicyRemediation&#34;, ResourcePolicyRemediationArgs.builder()        
+ *             .resourceId(exampleVirtualNetwork.id())
+ *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Import
+ * 
+ * Policy Remediations can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ *  $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
+ * ```
+ * 
+ */
 @ResourceType(type="azure:core/resourcePolicyRemediation:ResourcePolicyRemediation")
 public class ResourcePolicyRemediation extends com.pulumi.resources.CustomResource {
+    /**
+     * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     @Export(name="failurePercentage", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> failurePercentage;
 
+    /**
+     * @return A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
+     * 
+     */
     public Output<Optional<Double>> failurePercentage() {
         return Codegen.optional(this.failurePercentage);
     }
+    /**
+     * A list of the resource locations that will be remediated.
+     * 
+     */
     @Export(name="locationFilters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> locationFilters;
 
+    /**
+     * @return A list of the resource locations that will be remediated.
+     * 
+     */
     public Output<Optional<List<String>>> locationFilters() {
         return Codegen.optional(this.locationFilters);
     }
+    /**
+     * The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name of the Policy Remediation. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     @Export(name="parallelDeployments", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> parallelDeployments;
 
+    /**
+     * @return Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+     * 
+     */
     public Output<Optional<Integer>> parallelDeployments() {
         return Codegen.optional(this.parallelDeployments);
     }
+    /**
+     * The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     @Export(name="policyAssignmentId", refs={String.class}, tree="[0]")
     private Output<String> policyAssignmentId;
 
+    /**
+     * @return The ID of the Policy Assignment that should be remediated.
+     * 
+     */
     public Output<String> policyAssignmentId() {
         return this.policyAssignmentId;
     }
     /**
+     * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
      * @deprecated
      * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
      * 
@@ -58,30 +191,68 @@ public class ResourcePolicyRemediation extends com.pulumi.resources.CustomResour
     @Export(name="policyDefinitionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionId;
 
+    /**
+     * @return The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     * &gt; **Note:** This property has been deprecated and will be removed in version 4.0 of the provider in favour of `policy_definition_reference_id`.
+     * 
+     */
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
     }
+    /**
+     * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     @Export(name="policyDefinitionReferenceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDefinitionReferenceId;
 
+    /**
+     * @return The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     * 
+     */
     public Output<Optional<String>> policyDefinitionReferenceId() {
         return Codegen.optional(this.policyDefinitionReferenceId);
     }
+    /**
+     * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     @Export(name="resourceCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> resourceCount;
 
+    /**
+     * @return Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+     * 
+     */
     public Output<Optional<Integer>> resourceCount() {
         return Codegen.optional(this.resourceCount);
     }
+    /**
+     * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     @Export(name="resourceDiscoveryMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceDiscoveryMode;
 
+    /**
+     * @return The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
+     * 
+     */
     public Output<Optional<String>> resourceDiscoveryMode() {
         return Codegen.optional(this.resourceDiscoveryMode);
     }
+    /**
+     * The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
+    /**
+     * @return The Resource ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

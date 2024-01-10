@@ -75,6 +75,8 @@ type Vault struct {
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrOutput `pulumi:"identity"`
 	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	//
+	// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 	Immutability pulumi.StringOutput `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -145,6 +147,8 @@ type vaultState struct {
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
 	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	//
+	// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -180,6 +184,8 @@ type VaultState struct {
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
 	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	//
+	// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -219,6 +225,8 @@ type vaultArgs struct {
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
 	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	//
+	// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 	Immutability *string `pulumi:"immutability"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -255,6 +263,8 @@ type VaultArgs struct {
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
 	// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+	//
+	// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 	Immutability pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -388,6 +398,8 @@ func (o VaultOutput) Identity() VaultIdentityPtrOutput {
 }
 
 // Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
+//
+// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
 func (o VaultOutput) Immutability() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Immutability }).(pulumi.StringOutput)
 }

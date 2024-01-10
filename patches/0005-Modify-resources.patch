@@ -104,7 +104,7 @@ index e79b7af93d..5007dd743e 100644
  		},
  		data.ImportStep(),
 diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
-index 9d13f99c59..36fe400fb7 100644
+index fd0873abad..a3c6fb2896 100644
 --- a/internal/services/automation/automation_runbook_resource.go
 +++ b/internal/services/automation/automation_runbook_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -116,9 +116,9 @@ index 9d13f99c59..36fe400fb7 100644
  	"github.com/gofrs/uuid"
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
-@@ -131,7 +133,7 @@ func resourceAutomationRunbook() *pluginsdk.Resource {
- 					string(runbook.RunbookTypeEnumPythonThree),
+@@ -132,7 +134,7 @@ func resourceAutomationRunbook() *pluginsdk.Resource {
  					string(runbook.RunbookTypeEnumPowerShellWorkflow),
+ 					string(runbook.RunbookTypeEnumPowerShellSevenTwo),
  					string(runbook.RunbookTypeEnumScript),
 -				}, false),
 +				}, features.CaseInsensitive()),
@@ -292,7 +292,7 @@ index 6762dc0363..8fd9f0fd08 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index 685f0629ef..59d93042bd 100644
+index 0dcecb543d..523bfc7e95 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
 @@ -347,11 +347,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
@@ -370,7 +370,7 @@ index 52c9190604..f0dcce7dd7 100644
  
  			"write_accelerator_enabled": {
 diff --git a/internal/services/compute/windows_virtual_machine_resource.go b/internal/services/compute/windows_virtual_machine_resource.go
-index c21bf7a6a8..a354149923 100644
+index f422006fb5..be72cc16db 100644
 --- a/internal/services/compute/windows_virtual_machine_resource.go
 +++ b/internal/services/compute/windows_virtual_machine_resource.go
 @@ -370,11 +370,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
@@ -457,7 +457,7 @@ index 3eca00baa6..d21894d318 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 10498877e6..aeccd0fc89 100644
+index 79e0352e13..69a7ec8039 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1129,7 +1129,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -488,7 +488,7 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index afc749ddda..bd89df88d5 100644
+index 3ce97ad15e..8a90235b7a 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -7,6 +7,7 @@ import (
@@ -752,10 +752,10 @@ index e15c10ac79..ebcdb70c0b 100644
  			},
  			"template": {
 diff --git a/internal/services/iothub/iothub_resource.go b/internal/services/iothub/iothub_resource.go
-index fb8b7d1541..b39f1f7391 100644
+index fe0f2a2c40..5ba993084d 100644
 --- a/internal/services/iothub/iothub_resource.go
 +++ b/internal/services/iothub/iothub_resource.go
-@@ -28,6 +28,7 @@ import (
+@@ -30,6 +30,7 @@ import (
  	servicebusValidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/servicebus/validate"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tags"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
@@ -763,7 +763,7 @@ index fb8b7d1541..b39f1f7391 100644
  	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/validation"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/timeouts"
  	"github.com/hashicorp/terraform-provider-azurerm/utils"
-@@ -350,11 +351,13 @@ func resourceIotHub() *pluginsdk.Resource {
+@@ -352,11 +353,13 @@ func resourceIotHub() *pluginsdk.Resource {
  						},
  
  						"encoding": {
@@ -1132,19 +1132,19 @@ index bdf780b66a..5a0bb36d62 100644
  													ConflictsWith: []string{"release_criteria.0.recurrence.0.schedule.0.month_days", "release_criteria.0.recurrence.0.schedule.0.monthly"},
  												},
 diff --git a/internal/services/logic/logic_app_standard_resource.go b/internal/services/logic/logic_app_standard_resource.go
-index ed63c76e14..8c1ecae502 100644
+index 020b22f882..af7ce15081 100644
 --- a/internal/services/logic/logic_app_standard_resource.go
 +++ b/internal/services/logic/logic_app_standard_resource.go
-@@ -5,6 +5,8 @@ package logic
- 
- import (
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
- 	"strconv"
+@@ -10,6 +10,8 @@ import (
  	"strings"
-@@ -140,7 +142,8 @@ func resourceLogicAppStandard() *pluginsdk.Resource {
+ 	"time"
+ 
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/Azure/azure-sdk-for-go/services/web/mgmt/2021-02-01/web" // nolint: staticcheck
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -143,7 +145,8 @@ func resourceLogicAppStandard() *pluginsdk.Resource {
  								string(web.ConnectionStringTypeServiceBus),
  								string(web.ConnectionStringTypeSQLAzure),
  								string(web.ConnectionStringTypeSQLServer),
@@ -1154,7 +1154,7 @@ index ed63c76e14..8c1ecae502 100644
  						},
  
  						"value": {
-@@ -859,7 +862,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
+@@ -867,7 +870,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
  						"v4.0",
  						"v5.0",
  						"v6.0",
@@ -2035,7 +2035,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 891ee976e3..0cfa2a2b8d 100644
+index e67141577d..f3180f75a0 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (

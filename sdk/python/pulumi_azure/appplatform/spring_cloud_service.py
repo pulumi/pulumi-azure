@@ -23,11 +23,13 @@ class SpringCloudServiceArgs:
                  default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
@@ -40,11 +42,13 @@ class SpringCloudServiceArgs:
         :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
+        :param pulumi.Input[str] managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
         :param pulumi.Input['SpringCloudServiceMarketplaceArgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -62,6 +66,8 @@ class SpringCloudServiceArgs:
             pulumi.set(__self__, "location", location)
         if log_stream_public_endpoint_enabled is not None:
             pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
+        if managed_environment_id is not None:
+            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if marketplace is not None:
             pulumi.set(__self__, "marketplace", marketplace)
         if name is not None:
@@ -72,6 +78,8 @@ class SpringCloudServiceArgs:
             pulumi.set(__self__, "service_registry_enabled", service_registry_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trace is not None:
@@ -164,6 +172,18 @@ class SpringCloudServiceArgs:
         pulumi.set(self, "log_stream_public_endpoint_enabled", value)
 
     @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @managed_environment_id.setter
+    def managed_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_environment_id", value)
+
+    @property
     @pulumi.getter
     def marketplace(self) -> Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']]:
         """
@@ -224,6 +244,18 @@ class SpringCloudServiceArgs:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -269,6 +301,7 @@ class _SpringCloudServiceState:
                  default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
@@ -278,6 +311,7 @@ class _SpringCloudServiceState:
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  service_registry_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
@@ -289,6 +323,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
+        :param pulumi.Input[str] managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
         :param pulumi.Input['SpringCloudServiceMarketplaceArgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
@@ -298,6 +333,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -314,6 +350,8 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "location", location)
         if log_stream_public_endpoint_enabled is not None:
             pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
+        if managed_environment_id is not None:
+            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if marketplace is not None:
             pulumi.set(__self__, "marketplace", marketplace)
         if name is not None:
@@ -332,6 +370,8 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "service_registry_id", service_registry_id)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if trace is not None:
@@ -410,6 +450,18 @@ class _SpringCloudServiceState:
     @log_stream_public_endpoint_enabled.setter
     def log_stream_public_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "log_stream_public_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @managed_environment_id.setter
+    def managed_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_environment_id", value)
 
     @property
     @pulumi.getter
@@ -520,6 +572,18 @@ class _SpringCloudServiceState:
         pulumi.set(self, "sku_name", value)
 
     @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -567,12 +631,14 @@ class SpringCloudService(pulumi.CustomResource):
                  default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
@@ -628,12 +694,14 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
+        :param pulumi.Input[str] managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -708,12 +776,14 @@ class SpringCloudService(pulumi.CustomResource):
                  default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_environment_id: Optional[pulumi.Input[str]] = None,
                  marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
@@ -732,6 +802,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["default_build_service"] = default_build_service
             __props__.__dict__["location"] = location
             __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
+            __props__.__dict__["managed_environment_id"] = managed_environment_id
             __props__.__dict__["marketplace"] = marketplace
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
@@ -740,6 +811,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_registry_enabled"] = service_registry_enabled
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trace"] = trace
             __props__.__dict__["zone_redundant"] = zone_redundant
@@ -762,6 +834,7 @@ class SpringCloudService(pulumi.CustomResource):
             default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+            managed_environment_id: Optional[pulumi.Input[str]] = None,
             marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
@@ -771,6 +844,7 @@ class SpringCloudService(pulumi.CustomResource):
             service_registry_enabled: Optional[pulumi.Input[bool]] = None,
             service_registry_id: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
+            sku_tier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'SpringCloudService':
@@ -787,6 +861,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
+        :param pulumi.Input[str] managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
@@ -796,6 +871,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
@@ -810,6 +886,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["default_build_service"] = default_build_service
         __props__.__dict__["location"] = location
         __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
+        __props__.__dict__["managed_environment_id"] = managed_environment_id
         __props__.__dict__["marketplace"] = marketplace
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
@@ -819,6 +896,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["service_registry_enabled"] = service_registry_enabled
         __props__.__dict__["service_registry_id"] = service_registry_id
         __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["sku_tier"] = sku_tier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trace"] = trace
         __props__.__dict__["zone_redundant"] = zone_redundant
@@ -871,6 +949,14 @@ class SpringCloudService(pulumi.CustomResource):
         Should the log stream in vnet injection instance could be accessed from Internet?
         """
         return pulumi.get(self, "log_stream_public_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
+        """
+        return pulumi.get(self, "managed_environment_id")
 
     @property
     @pulumi.getter
@@ -943,6 +1029,14 @@ class SpringCloudService(pulumi.CustomResource):
         Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> pulumi.Output[str]:
+        """
+        Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        """
+        return pulumi.get(self, "sku_tier")
 
     @property
     @pulumi.getter

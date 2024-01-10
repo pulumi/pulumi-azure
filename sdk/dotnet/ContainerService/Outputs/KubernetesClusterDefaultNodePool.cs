@@ -105,9 +105,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NodePublicIpPrefixId;
-        /// <summary>
-        /// A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
-        /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.

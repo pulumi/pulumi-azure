@@ -110,7 +110,7 @@ type LinuxWebAppSlot struct {
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
-	// Should the Linux Web App require HTTPS connections.
+	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrOutput `pulumi:"identity"`
@@ -227,7 +227,7 @@ type linuxWebAppSlotState struct {
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
-	// Should the Linux Web App require HTTPS connections.
+	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppSlotIdentity `pulumi:"identity"`
@@ -304,7 +304,7 @@ type LinuxWebAppSlotState struct {
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
-	// Should the Linux Web App require HTTPS connections.
+	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrInput
@@ -377,7 +377,7 @@ type linuxWebAppSlotArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
-	// Should the Linux Web App require HTTPS connections.
+	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppSlotIdentity `pulumi:"identity"`
@@ -435,7 +435,7 @@ type LinuxWebAppSlotArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
-	// Should the Linux Web App require HTTPS connections.
+	// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrInput
@@ -634,7 +634,7 @@ func (o LinuxWebAppSlotOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.HostingEnvironmentId }).(pulumi.StringOutput)
 }
 
-// Should the Linux Web App require HTTPS connections.
+// Should the Linux Web App require HTTPS connections. Defaults to `false`.
 func (o LinuxWebAppSlotOutput) HttpsOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
 }

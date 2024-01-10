@@ -114,7 +114,7 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
      */
     public readonly criteria!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     public readonly dataSourceId!: pulumi.Output<string>;
     /**
@@ -203,7 +203,7 @@ export interface ScheduledQueryRulesLogState {
      */
     criteria?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     dataSourceId?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface ScheduledQueryRulesLogArgs {
      */
     criteria: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
-     * The resource URI over which log search query is to be run.
+     * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
     dataSourceId: pulumi.Input<string>;
     /**

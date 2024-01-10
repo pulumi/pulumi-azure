@@ -97,6 +97,8 @@ type SpringCloudService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrOutput `pulumi:"logStreamPublicEndpointEnabled"`
+	// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+	ManagedEnvironmentId pulumi.StringPtrOutput `pulumi:"managedEnvironmentId"`
 	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 	Marketplace SpringCloudServiceMarketplaceOutput `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -115,6 +117,8 @@ type SpringCloudService struct {
 	ServiceRegistryId pulumi.StringOutput `pulumi:"serviceRegistryId"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+	SkuTier pulumi.StringOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trace` block as defined below.
@@ -168,6 +172,8 @@ type springCloudServiceState struct {
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
+	// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+	ManagedEnvironmentId *string `pulumi:"managedEnvironmentId"`
 	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 	Marketplace *SpringCloudServiceMarketplace `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -186,6 +192,8 @@ type springCloudServiceState struct {
 	ServiceRegistryId *string `pulumi:"serviceRegistryId"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
+	// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `trace` block as defined below.
@@ -207,6 +215,8 @@ type SpringCloudServiceState struct {
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
+	// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+	ManagedEnvironmentId pulumi.StringPtrInput
 	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 	Marketplace SpringCloudServiceMarketplacePtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -225,6 +235,8 @@ type SpringCloudServiceState struct {
 	ServiceRegistryId pulumi.StringPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
+	// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `trace` block as defined below.
@@ -250,6 +262,8 @@ type springCloudServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
+	// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+	ManagedEnvironmentId *string `pulumi:"managedEnvironmentId"`
 	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 	Marketplace *SpringCloudServiceMarketplace `pulumi:"marketplace"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -262,6 +276,8 @@ type springCloudServiceArgs struct {
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
+	// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `trace` block as defined below.
@@ -284,6 +300,8 @@ type SpringCloudServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Should the log stream in vnet injection instance could be accessed from Internet?
 	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
+	// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+	ManagedEnvironmentId pulumi.StringPtrInput
 	// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 	Marketplace SpringCloudServiceMarketplacePtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -296,6 +314,8 @@ type SpringCloudServiceArgs struct {
 	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput
+	// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `trace` block as defined below.
@@ -427,6 +447,11 @@ func (o SpringCloudServiceOutput) LogStreamPublicEndpointEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.LogStreamPublicEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
+func (o SpringCloudServiceOutput) ManagedEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.StringPtrOutput { return v.ManagedEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
 // A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
 func (o SpringCloudServiceOutput) Marketplace() SpringCloudServiceMarketplaceOutput {
 	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceMarketplaceOutput { return v.Marketplace }).(SpringCloudServiceMarketplaceOutput)
@@ -472,6 +497,11 @@ func (o SpringCloudServiceOutput) ServiceRegistryId() pulumi.StringOutput {
 // Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
 func (o SpringCloudServiceOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+func (o SpringCloudServiceOutput) SkuTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.StringOutput { return v.SkuTier }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

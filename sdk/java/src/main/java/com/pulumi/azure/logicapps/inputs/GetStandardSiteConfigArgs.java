@@ -113,6 +113,13 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
         return this.preWarmedInstanceCount;
     }
 
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
     @Import(name="runtimeScaleMonitoringEnabled")
     private @Nullable Output<Boolean> runtimeScaleMonitoringEnabled;
 
@@ -185,6 +192,7 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
         this.linuxFxVersion = $.linuxFxVersion;
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
         this.scmIpRestrictions = $.scmIpRestrictions;
         this.scmMinTlsVersion = $.scmMinTlsVersion;
@@ -332,6 +340,15 @@ public final class GetStandardSiteConfigArgs extends com.pulumi.resources.Resour
 
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             return preWarmedInstanceCount(Output.of(preWarmedInstanceCount));
+        }
+
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         public Builder runtimeScaleMonitoringEnabled(@Nullable Output<Boolean> runtimeScaleMonitoringEnabled) {
