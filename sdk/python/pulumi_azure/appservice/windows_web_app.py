@@ -71,7 +71,7 @@ class WindowsWebAppArgs:
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
@@ -433,7 +433,7 @@ class WindowsWebAppArgs:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
@@ -534,7 +534,7 @@ class _WindowsWebAppState:
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
@@ -1025,7 +1025,7 @@ class _WindowsWebAppState:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
@@ -1141,7 +1141,7 @@ class WindowsWebApp(pulumi.CustomResource):
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
@@ -1367,7 +1367,7 @@ class WindowsWebApp(pulumi.CustomResource):
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
@@ -1691,7 +1691,7 @@ class WindowsWebApp(pulumi.CustomResource):
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """

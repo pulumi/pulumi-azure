@@ -125,14 +125,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain")
 public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {

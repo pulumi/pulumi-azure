@@ -312,7 +312,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>
@@ -604,7 +604,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>
@@ -938,7 +938,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
         /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>

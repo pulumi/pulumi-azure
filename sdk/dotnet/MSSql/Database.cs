@@ -60,6 +60,130 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// });
     /// ```
+    /// ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = exampleUserAssignedIdentity.TenantId,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///                 ObjectId = data.Azurerm_client_config.Current.Object_id,
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Create",
+    ///                     "Delete",
+    ///                     "Update",
+    ///                     "Recover",
+    ///                     "Purge",
+    ///                     "GetRotationPolicy",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = exampleUserAssignedIdentity.TenantId,
+    ///                 ObjectId = exampleUserAssignedIdentity.PrincipalId,
+    ///                 KeyPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "WrapKey",
+    ///                     "UnwrapKey",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "unwrapKey",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleKeyVault,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         LicenseType = "LicenseIncluded",
+    ///         MaxSizeGb = 4,
+    ///         ReadScale = true,
+    ///         SkuName = "S0",
+    ///         ZoneRedundant = true,
+    ///         EnclaveType = "VBS",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///         Identity = new Azure.MSSql.Inputs.DatabaseIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         TransparentDataEncryptionKeyVaultKeyId = exampleKey.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -121,6 +245,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("geoBackupEnabled")]
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DatabaseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// A `import` block as documented below. Mutually exclusive with `create_mode`.
@@ -233,7 +363,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string?> StorageAccountType { get; private set; } = null!;
@@ -257,6 +387,20 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("transparentDataEncryptionEnabled")]
         public Output<bool?> TransparentDataEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Output("transparentDataEncryptionKeyAutomaticRotationEnabled")]
+        public Output<bool?> TransparentDataEncryptionKeyAutomaticRotationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// 
+        /// &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// </summary>
+        [Output("transparentDataEncryptionKeyVaultKeyId")]
+        public Output<string?> TransparentDataEncryptionKeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -359,6 +503,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DatabaseIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// A `import` block as documented below. Mutually exclusive with `create_mode`.
@@ -471,7 +621,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -501,6 +651,20 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Input("transparentDataEncryptionKeyAutomaticRotationEnabled")]
+        public Input<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
+
+        /// <summary>
+        /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// 
+        /// &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// </summary>
+        [Input("transparentDataEncryptionKeyVaultKeyId")]
+        public Input<string>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
@@ -565,6 +729,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DatabaseIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// A `import` block as documented below. Mutually exclusive with `create_mode`.
@@ -677,7 +847,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -707,6 +877,20 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
+
+        /// <summary>
+        /// Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Input("transparentDataEncryptionKeyAutomaticRotationEnabled")]
+        public Input<bool>? TransparentDataEncryptionKeyAutomaticRotationEnabled { get; set; }
+
+        /// <summary>
+        /// The fully versioned `Key Vault` `Key` URL (e.g. `'https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// 
+        /// &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        /// </summary>
+        [Input("transparentDataEncryptionKeyVaultKeyId")]
+        public Input<string>? TransparentDataEncryptionKeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

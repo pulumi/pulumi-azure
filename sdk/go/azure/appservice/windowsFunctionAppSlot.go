@@ -171,7 +171,7 @@ type WindowsFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -301,7 +301,7 @@ type windowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -387,7 +387,7 @@ type WindowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
@@ -459,7 +459,7 @@ type windowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -528,7 +528,7 @@ type WindowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
@@ -820,7 +820,7 @@ func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 func (o WindowsFunctionAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput {
 		return v.WebdeployPublishBasicAuthenticationEnabled

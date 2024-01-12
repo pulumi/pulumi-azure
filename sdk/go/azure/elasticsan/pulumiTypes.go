@@ -14,11 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ElasticSanSku struct {
-	// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+	// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
 	Name string `pulumi:"name"`
-	// The SKU tier. The only possible value is `Premium`.
+	// The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
 	Tier *string `pulumi:"tier"`
 }
 
@@ -34,11 +34,11 @@ type ElasticSanSkuInput interface {
 }
 
 type ElasticSanSkuArgs struct {
-	// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+	// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The SKU tier. The only possible value is `Premium`.
+	// The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
@@ -119,14 +119,14 @@ func (o ElasticSanSkuOutput) ToElasticSanSkuPtrOutputWithContext(ctx context.Con
 	}).(ElasticSanSkuPtrOutput)
 }
 
-// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 //
 // > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
 func (o ElasticSanSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ElasticSanSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The SKU tier. The only possible value is `Premium`.
+// The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
 func (o ElasticSanSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ElasticSanSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o ElasticSanSkuPtrOutput) Elem() ElasticSanSkuOutput {
 	}).(ElasticSanSkuOutput)
 }
 
-// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 //
 // > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
 func (o ElasticSanSkuPtrOutput) Name() pulumi.StringPtrOutput {
@@ -167,7 +167,7 @@ func (o ElasticSanSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The SKU tier. The only possible value is `Premium`.
+// The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
 func (o ElasticSanSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElasticSanSku) *string {
 		if v == nil {

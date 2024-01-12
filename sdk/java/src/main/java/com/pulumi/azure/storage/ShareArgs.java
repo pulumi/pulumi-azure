@@ -57,7 +57,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      * 
-     * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
     @Import(name="enabledProtocol")
@@ -66,7 +66,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      * 
-     * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
      * 
      */
     public Optional<Output<String>> enabledProtocol() {
@@ -230,7 +230,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enabledProtocol The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
          * 
-         * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+         * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param enabledProtocol The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
          * 
-         * ~&gt;**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+         * ~&gt;**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
          * 
          * @return builder
          * 

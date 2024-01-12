@@ -695,7 +695,7 @@ class WorkspaceEncryption(dict):
         :param str key_vault_id: The ID of the keyVault where the customer owned encryption key is present.
         :param str user_assigned_identity_id: The Key Vault URI to access the encryption key.
                
-               > **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+               > **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -724,7 +724,7 @@ class WorkspaceEncryption(dict):
         """
         The Key Vault URI to access the encryption key.
 
-        > **Note**: `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+        > **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 

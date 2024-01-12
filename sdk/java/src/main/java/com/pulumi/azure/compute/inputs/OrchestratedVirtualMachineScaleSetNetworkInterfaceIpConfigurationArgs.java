@@ -20,14 +20,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs();
 
     /**
-     * A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
      */
     @Import(name="applicationGatewayBackendAddressPoolIds")
     private @Nullable Output<List<String>> applicationGatewayBackendAddressPoolIds;
 
     /**
-     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
      */
     public Optional<Output<List<String>>> applicationGatewayBackendAddressPoolIds() {
@@ -35,14 +35,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     }
 
     /**
-     * A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
      * 
      */
     @Import(name="applicationSecurityGroupIds")
     private @Nullable Output<List<String>> applicationSecurityGroupIds;
 
     /**
-     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
      * 
      */
     public Optional<Output<List<String>>> applicationSecurityGroupIds() {
@@ -50,7 +50,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     }
 
     /**
-     * A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
      * 
@@ -59,7 +59,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     private @Nullable Output<List<String>> loadBalancerBackendAddressPoolIds;
 
     /**
-     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
      * 
@@ -183,7 +183,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationGatewayBackendAddressPoolIds A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
          * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
          * 
@@ -258,7 +258,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
          * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
          * 
@@ -270,7 +270,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         }
 
         /**
-         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * @param loadBalancerBackendAddressPoolIds A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          * 
          * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
          * 

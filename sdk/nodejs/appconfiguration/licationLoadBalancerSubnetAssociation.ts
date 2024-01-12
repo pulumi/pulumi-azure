@@ -86,9 +86,9 @@ export class LicationLoadBalancerSubnetAssociation extends pulumi.CustomResource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * The ID of the subnet which the Application Gateway for Containers associated to.
      *
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -144,9 +144,9 @@ export interface LicationLoadBalancerSubnetAssociationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * The ID of the subnet which the Application Gateway for Containers associated to.
      *
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -168,9 +168,9 @@ export interface LicationLoadBalancerSubnetAssociationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * The ID of the subnet which the Application Gateway for Containers associated to.
      *
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      */
     subnetId: pulumi.Input<string>;
     /**

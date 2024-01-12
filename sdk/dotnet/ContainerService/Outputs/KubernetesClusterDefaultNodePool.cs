@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
-        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>

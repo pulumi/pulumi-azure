@@ -26,12 +26,11 @@ class FrontdoorFirewallPolicyArgs:
                  managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
+                 request_body_check_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FrontdoorFirewallPolicy resource.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-               
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
@@ -43,6 +42,9 @@ class FrontdoorFirewallPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
+        :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
         pulumi.set(__self__, "mode", mode)
@@ -62,6 +64,8 @@ class FrontdoorFirewallPolicyArgs:
             pulumi.set(__self__, "name", name)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
+        if request_body_check_enabled is not None:
+            pulumi.set(__self__, "request_body_check_enabled", request_body_check_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,8 +74,6 @@ class FrontdoorFirewallPolicyArgs:
     def mode(self) -> pulumi.Input[str]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -190,6 +192,20 @@ class FrontdoorFirewallPolicyArgs:
         pulumi.set(self, "redirect_url", value)
 
     @property
+    @pulumi.getter(name="requestBodyCheckEnabled")
+    def request_body_check_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should policy managed rules inspect the request body content? Defaults to `true`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        """
+        return pulumi.get(self, "request_body_check_enabled")
+
+    @request_body_check_enabled.setter
+    def request_body_check_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_body_check_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -214,6 +230,7 @@ class _FrontdoorFirewallPolicyState:
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
+                 request_body_check_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -226,10 +243,11 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-               
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
+        :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
@@ -254,6 +272,8 @@ class _FrontdoorFirewallPolicyState:
             pulumi.set(__self__, "name", name)
         if redirect_url is not None:
             pulumi.set(__self__, "redirect_url", redirect_url)
+        if request_body_check_enabled is not None:
+            pulumi.set(__self__, "request_body_check_enabled", request_body_check_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -338,8 +358,6 @@ class _FrontdoorFirewallPolicyState:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -370,6 +388,20 @@ class _FrontdoorFirewallPolicyState:
     @redirect_url.setter
     def redirect_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "redirect_url", value)
+
+    @property
+    @pulumi.getter(name="requestBodyCheckEnabled")
+    def request_body_check_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should policy managed rules inspect the request body content? Defaults to `true`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        """
+        return pulumi.get(self, "request_body_check_enabled")
+
+    @request_body_check_enabled.setter
+    def request_body_check_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "request_body_check_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -423,6 +455,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
+                 request_body_check_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -557,10 +590,11 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-               
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
+        :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
@@ -718,6 +752,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
+                 request_body_check_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -740,6 +775,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             __props__.__dict__["mode"] = mode
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
+            __props__.__dict__["request_body_check_enabled"] = request_body_check_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -767,6 +803,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             redirect_url: Optional[pulumi.Input[str]] = None,
+            request_body_check_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'FrontdoorFirewallPolicy':
@@ -784,10 +821,11 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-               
-               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
+        :param pulumi.Input[bool] request_body_check_enabled: Should policy managed rules inspect the request body content? Defaults to `true`.
+               
+               > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
                
@@ -807,6 +845,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
         __props__.__dict__["redirect_url"] = redirect_url
+        __props__.__dict__["request_body_check_enabled"] = request_body_check_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
@@ -865,8 +904,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def mode(self) -> pulumi.Output[str]:
         """
         The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-
-        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         """
         return pulumi.get(self, "mode")
 
@@ -885,6 +922,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         If action type is redirect, this field represents redirect URL for the client.
         """
         return pulumi.get(self, "redirect_url")
+
+    @property
+    @pulumi.getter(name="requestBodyCheckEnabled")
+    def request_body_check_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should policy managed rules inspect the request body content? Defaults to `true`.
+
+        > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        """
+        return pulumi.get(self, "request_body_check_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

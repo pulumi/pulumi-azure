@@ -14,7 +14,7 @@ import (
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 //
-// # Manages a Kubernetes Fleet Manager
+// Manages a Kubernetes Fleet Manager.
 //
 // ## Example Usage
 //

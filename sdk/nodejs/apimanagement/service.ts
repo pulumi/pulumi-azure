@@ -206,7 +206,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **NOTE:** Availability zones are only supported in the Premium tier.
      */
@@ -466,7 +466,7 @@ export interface ServiceState {
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
-     * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **NOTE:** Availability zones are only supported in the Premium tier.
      */
@@ -592,7 +592,7 @@ export interface ServiceArgs {
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
-     * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **NOTE:** Availability zones are only supported in the Premium tier.
      */

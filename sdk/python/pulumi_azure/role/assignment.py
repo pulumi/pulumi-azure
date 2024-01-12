@@ -21,6 +21,7 @@ class AssignmentArgs:
                  delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  role_definition_name: Optional[pulumi.Input[str]] = None,
                  skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None):
@@ -37,6 +38,7 @@ class AssignmentArgs:
                > **NOTE:** this field is only used in cross tenant scenario.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         :param pulumi.Input[bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
@@ -55,6 +57,8 @@ class AssignmentArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
         if role_definition_id is not None:
             pulumi.set(__self__, "role_definition_id", role_definition_id)
         if role_definition_name is not None:
@@ -151,6 +155,18 @@ class AssignmentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
     @pulumi.getter(name="roleDefinitionId")
     def role_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -215,7 +231,7 @@ class _AssignmentState:
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
@@ -326,7 +342,7 @@ class _AssignmentState:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_type")
 
@@ -401,6 +417,7 @@ class Assignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  role_definition_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -513,6 +530,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
@@ -642,6 +660,7 @@ class Assignment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  role_definition_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -664,13 +683,13 @@ class Assignment(pulumi.CustomResource):
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__.__dict__["principal_id"] = principal_id
+            __props__.__dict__["principal_type"] = principal_type
             __props__.__dict__["role_definition_id"] = role_definition_id
             __props__.__dict__["role_definition_name"] = role_definition_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
-            __props__.__dict__["principal_type"] = None
         super(Assignment, __self__).__init__(
             'azure:role/assignment:Assignment',
             resource_name,
@@ -709,7 +728,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
                > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
-        :param pulumi.Input[str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
@@ -790,7 +809,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
-        The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "principal_type")
 

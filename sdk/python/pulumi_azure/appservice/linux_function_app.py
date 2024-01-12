@@ -88,7 +88,7 @@ class LinuxFunctionAppArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
@@ -539,7 +539,7 @@ class LinuxFunctionAppArgs:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
@@ -657,7 +657,7 @@ class _LinuxFunctionAppState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
@@ -1237,7 +1237,7 @@ class _LinuxFunctionAppState:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
@@ -1377,7 +1377,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
@@ -1639,7 +1639,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Function App.
@@ -2022,7 +2022,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
         > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """

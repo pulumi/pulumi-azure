@@ -154,6 +154,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// </summary>
+        public readonly string TransparentDataEncryptionKeyVaultKeyId;
+        /// <summary>
         /// This servers MS SQL version.
         /// </summary>
         public readonly string Version;
@@ -178,6 +182,8 @@ namespace Pulumi.Azure.MSSql
 
             ImmutableDictionary<string, string> tags,
 
+            string transparentDataEncryptionKeyVaultKeyId,
+
             string version)
         {
             AdministratorLogin = administratorLogin;
@@ -189,6 +195,7 @@ namespace Pulumi.Azure.MSSql
             ResourceGroupName = resourceGroupName;
             RestorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
             Tags = tags;
+            TransparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
             Version = version;
         }
     }

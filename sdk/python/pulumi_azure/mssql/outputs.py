@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DatabaseIdentity',
     'DatabaseImport',
     'DatabaseLongTermRetentionPolicy',
     'DatabaseShortTermRetentionPolicy',
@@ -44,10 +45,57 @@ __all__ = [
     'VirtualMachineStorageConfigurationLogSettings',
     'VirtualMachineStorageConfigurationTempDbSettings',
     'VirtualMachineWsfcDomainCredential',
+    'GetDatabaseIdentityResult',
     'GetElasticPoolSkusResult',
     'GetManagedInstanceIdentityResult',
     'GetServerIdentityResult',
 ]
+
+@pulumi.output_type
+class DatabaseIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class DatabaseImport(dict):
@@ -2473,6 +2521,35 @@ class VirtualMachineWsfcDomainCredential(dict):
         The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
         """
         return pulumi.get(self, "sql_service_account_password")
+
+
+@pulumi.output_type
+class GetDatabaseIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Database.
+        :param str type: The type of Managed Service Identity that is configured on this Microsoft SQL Database.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Database.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this Microsoft SQL Database.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

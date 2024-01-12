@@ -102,7 +102,7 @@ type ManagedHardwareSecurityModule struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
 	SoftDeleteRetentionDays pulumi.IntPtrOutput `pulumi:"softDeleteRetentionDays"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
@@ -180,7 +180,7 @@ type managedHardwareSecurityModuleState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	TenantId *string `pulumi:"tenantId"`
@@ -213,7 +213,7 @@ type ManagedHardwareSecurityModuleState struct {
 	SkuName pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	TenantId pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type managedHardwareSecurityModuleArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
 	SoftDeleteRetentionDays *int `pulumi:"softDeleteRetentionDays"`
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	TenantId string `pulumi:"tenantId"`
@@ -276,7 +276,7 @@ type ManagedHardwareSecurityModuleArgs struct {
 	SkuName pulumi.StringInput
 	// The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
 	SoftDeleteRetentionDays pulumi.IntPtrInput
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
 	TenantId pulumi.StringInput
@@ -438,7 +438,7 @@ func (o ManagedHardwareSecurityModuleOutput) SoftDeleteRetentionDays() pulumi.In
 	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.IntPtrOutput { return v.SoftDeleteRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+// A mapping of tags to assign to the resource.
 func (o ManagedHardwareSecurityModuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

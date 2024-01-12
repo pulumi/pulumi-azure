@@ -35,7 +35,7 @@ class AutomationArgs:
         :param pulumi.Input[bool] enabled: Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[str] name: The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -152,7 +152,7 @@ class AutomationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags assigned to the resource.
+        A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -183,7 +183,7 @@ class _AutomationState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -304,7 +304,7 @@ class _AutomationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags assigned to the resource.
+        A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 
@@ -396,7 +396,7 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -546,7 +546,7 @@ class Automation(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationSourceArgs']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -631,7 +631,7 @@ class Automation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags assigned to the resource.
+        A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
 

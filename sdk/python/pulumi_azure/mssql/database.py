@@ -24,6 +24,7 @@ class DatabaseArgs:
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  enclave_type: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
                  import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,8 @@ class DatabaseArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_automatic_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Database resource.
@@ -65,6 +68,7 @@ class DatabaseArgs:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+        :param pulumi.Input['DatabaseIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -87,12 +91,16 @@ class DatabaseArgs:
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+        :param pulumi.Input[bool] transparent_data_encryption_key_automatic_rotation_enabled: Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         pulumi.set(__self__, "server_id", server_id)
@@ -110,6 +118,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "enclave_type", enclave_type)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if import_ is not None:
             pulumi.set(__self__, "import_", import_)
         if ledger_enabled is not None:
@@ -150,6 +160,10 @@ class DatabaseArgs:
             pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if transparent_data_encryption_enabled is not None:
             pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
+        if transparent_data_encryption_key_automatic_rotation_enabled is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_automatic_rotation_enabled", transparent_data_encryption_key_automatic_rotation_enabled)
+        if transparent_data_encryption_key_vault_key_id is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -258,6 +272,18 @@ class DatabaseArgs:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DatabaseIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DatabaseIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="import")
@@ -461,7 +487,7 @@ class DatabaseArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -508,6 +534,32 @@ class DatabaseArgs:
         pulumi.set(self, "transparent_data_encryption_enabled", value)
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionKeyAutomaticRotationEnabled")
+    def transparent_data_encryption_key_automatic_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_automatic_rotation_enabled")
+
+    @transparent_data_encryption_key_automatic_rotation_enabled.setter
+    def transparent_data_encryption_key_automatic_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transparent_data_encryption_key_automatic_rotation_enabled", value)
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @transparent_data_encryption_key_vault_key_id.setter
+    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -530,6 +582,7 @@ class _DatabaseState:
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  enclave_type: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
                  import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -551,6 +604,8 @@ class _DatabaseState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_automatic_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Database resources.
@@ -569,6 +624,7 @@ class _DatabaseState:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+        :param pulumi.Input['DatabaseIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -594,12 +650,16 @@ class _DatabaseState:
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+        :param pulumi.Input[bool] transparent_data_encryption_key_automatic_rotation_enabled: Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         if auto_pause_delay_in_minutes is not None:
@@ -616,6 +676,8 @@ class _DatabaseState:
             pulumi.set(__self__, "enclave_type", enclave_type)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if import_ is not None:
             pulumi.set(__self__, "import_", import_)
         if ledger_enabled is not None:
@@ -658,6 +720,10 @@ class _DatabaseState:
             pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
         if transparent_data_encryption_enabled is not None:
             pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
+        if transparent_data_encryption_key_automatic_rotation_enabled is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_automatic_rotation_enabled", transparent_data_encryption_key_automatic_rotation_enabled)
+        if transparent_data_encryption_key_vault_key_id is not None:
+            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -752,6 +818,18 @@ class _DatabaseState:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['DatabaseIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['DatabaseIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="import")
@@ -969,7 +1047,7 @@ class _DatabaseState:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1016,6 +1094,32 @@ class _DatabaseState:
         pulumi.set(self, "transparent_data_encryption_enabled", value)
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionKeyAutomaticRotationEnabled")
+    def transparent_data_encryption_key_automatic_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_automatic_rotation_enabled")
+
+    @transparent_data_encryption_key_automatic_rotation_enabled.setter
+    def transparent_data_encryption_key_automatic_rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transparent_data_encryption_key_automatic_rotation_enabled", value)
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @transparent_data_encryption_key_vault_key_id.setter
+    def transparent_data_encryption_key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent_data_encryption_key_vault_key_id", value)
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1040,6 +1144,7 @@ class Database(pulumi.CustomResource):
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  enclave_type: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -1061,6 +1166,8 @@ class Database(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_automatic_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1095,6 +1202,87 @@ class Database(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
+                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    key_permissions=[
+                        "Get",
+                        "List",
+                        "Create",
+                        "Delete",
+                        "Update",
+                        "Recover",
+                        "Purge",
+                        "GetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "WrapKey",
+                        "UnwrapKey",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "unwrapKey",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+        example_database = azure.mssql.Database("exampleDatabase",
+            server_id=example_server.id,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="S0",
+            zone_redundant=True,
+            enclave_type="VBS",
+            tags={
+                "foo": "bar",
+            },
+            identity=azure.mssql.DatabaseIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            transparent_data_encryption_key_vault_key_id=example_key.id)
+        ```
 
         ## Import
 
@@ -1121,6 +1309,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+        :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -1146,12 +1335,16 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+        :param pulumi.Input[bool] transparent_data_encryption_key_automatic_rotation_enabled: Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         ...
@@ -1192,6 +1385,87 @@ class Database(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard",
+            access_policies=[
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
+                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    key_permissions=[
+                        "Get",
+                        "List",
+                        "Create",
+                        "Delete",
+                        "Update",
+                        "Recover",
+                        "Purge",
+                        "GetRotationPolicy",
+                    ],
+                ),
+                azure.keyvault.KeyVaultAccessPolicyArgs(
+                    tenant_id=example_user_assigned_identity.tenant_id,
+                    object_id=example_user_assigned_identity.principal_id,
+                    key_permissions=[
+                        "Get",
+                        "WrapKey",
+                        "UnwrapKey",
+                    ],
+                ),
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "unwrapKey",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
+        example_database = azure.mssql.Database("exampleDatabase",
+            server_id=example_server.id,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="S0",
+            zone_redundant=True,
+            enclave_type="VBS",
+            tags={
+                "foo": "bar",
+            },
+            identity=azure.mssql.DatabaseIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
+            ),
+            transparent_data_encryption_key_vault_key_id=example_key.id)
+        ```
 
         ## Import
 
@@ -1223,6 +1497,7 @@ class Database(pulumi.CustomResource):
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  enclave_type: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -1244,6 +1519,8 @@ class Database(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
                  transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_automatic_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+                 transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1261,6 +1538,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["enclave_type"] = enclave_type
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["import_"] = import_
             __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
@@ -1284,6 +1562,8 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_detection_policy"] = threat_detection_policy
             __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
+            __props__.__dict__["transparent_data_encryption_key_automatic_rotation_enabled"] = transparent_data_encryption_key_automatic_rotation_enabled
+            __props__.__dict__["transparent_data_encryption_key_vault_key_id"] = transparent_data_encryption_key_vault_key_id
             __props__.__dict__["zone_redundant"] = zone_redundant
         super(Database, __self__).__init__(
             'azure:mssql/database:Database',
@@ -1302,6 +1582,7 @@ class Database(pulumi.CustomResource):
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             enclave_type: Optional[pulumi.Input[str]] = None,
             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']]] = None,
             import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
             ledger_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
@@ -1323,6 +1604,8 @@ class Database(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
             transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+            transparent_data_encryption_key_automatic_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+            transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
@@ -1346,6 +1629,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
+        :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
@@ -1371,12 +1655,16 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
                
                > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
+        :param pulumi.Input[bool] transparent_data_encryption_key_automatic_rotation_enabled: Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] transparent_data_encryption_key_vault_key_id: The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+               
+               > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1390,6 +1678,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["elastic_pool_id"] = elastic_pool_id
         __props__.__dict__["enclave_type"] = enclave_type
         __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["import_"] = import_
         __props__.__dict__["ledger_enabled"] = ledger_enabled
         __props__.__dict__["license_type"] = license_type
@@ -1411,6 +1700,8 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["threat_detection_policy"] = threat_detection_policy
         __props__.__dict__["transparent_data_encryption_enabled"] = transparent_data_encryption_enabled
+        __props__.__dict__["transparent_data_encryption_key_automatic_rotation_enabled"] = transparent_data_encryption_key_automatic_rotation_enabled
+        __props__.__dict__["transparent_data_encryption_key_vault_key_id"] = transparent_data_encryption_key_vault_key_id
         __props__.__dict__["zone_redundant"] = zone_redundant
         return Database(resource_name, opts=opts, __props__=__props__)
 
@@ -1477,6 +1768,14 @@ class Database(pulumi.CustomResource):
         > **NOTE:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
         """
         return pulumi.get(self, "geo_backup_enabled")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.DatabaseIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="import")
@@ -1626,7 +1925,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1655,6 +1954,24 @@ class Database(pulumi.CustomResource):
         > **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
         """
         return pulumi.get(self, "transparent_data_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyAutomaticRotationEnabled")
+    def transparent_data_encryption_key_automatic_rotation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_automatic_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+
+        > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
     @property
     @pulumi.getter(name="zoneRedundant")

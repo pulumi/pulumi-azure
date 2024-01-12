@@ -120,9 +120,17 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
     public Output<Optional<List<ManagedHardwareSecurityModuleRoleDefinitionPermission>>> permissions() {
         return Codegen.optional(this.permissions);
     }
+    /**
+     * The ID of the role definition resource without Key Vault base URL.
+     * 
+     */
     @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
     private Output<String> resourceManagerId;
 
+    /**
+     * @return The ID of the role definition resource without Key Vault base URL.
+     * 
+     */
     public Output<String> resourceManagerId() {
         return this.resourceManagerId;
     }

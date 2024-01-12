@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleDedicatedHost = new azure.compute.DedicatedHost("exampleDedicatedHost", {
  *     location: exampleResourceGroup.location,
  *     dedicatedHostGroupId: exampleDedicatedHostGroup.id,
- *     skuName: "DSv3-Type1",
+ *     skuName: "DSv3-Type3",
  *     platformFaultDomain: 1,
  * });
  * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {

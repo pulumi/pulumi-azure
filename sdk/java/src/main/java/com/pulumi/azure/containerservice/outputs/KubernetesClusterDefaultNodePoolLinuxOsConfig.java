@@ -19,7 +19,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
      */
     private @Nullable Integer swapFileSizeMb;
     /**
-     * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sysctl_config` block as defined below.
      * 
      */
     private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
@@ -43,7 +43,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
         return Optional.ofNullable(this.swapFileSizeMb);
     }
     /**
-     * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sysctl_config` block as defined below.
      * 
      */
     public Optional<KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig> sysctlConfig() {

@@ -263,7 +263,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
         /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
         /// </summary>
@@ -504,7 +504,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
         /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
         /// </summary>
@@ -770,7 +770,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _zones;
 
         /// <summary>
-        /// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
         /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
         /// </summary>

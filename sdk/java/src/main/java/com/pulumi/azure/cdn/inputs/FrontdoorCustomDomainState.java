@@ -17,14 +17,14 @@ public final class FrontdoorCustomDomainState extends com.pulumi.resources.Resou
     public static final FrontdoorCustomDomainState Empty = new FrontdoorCustomDomainState();
 
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     @Import(name="cdnFrontdoorProfileId")
     private @Nullable Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      * 
      */
     public Optional<Output<String>> cdnFrontdoorProfileId() {
@@ -160,7 +160,7 @@ public final class FrontdoorCustomDomainState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class FrontdoorCustomDomainState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+         * @param cdnFrontdoorProfileId The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
          * 
          * @return builder
          * 

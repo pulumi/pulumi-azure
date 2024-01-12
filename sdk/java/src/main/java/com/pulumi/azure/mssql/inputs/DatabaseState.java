@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mssql.inputs;
 
+import com.pulumi.azure.mssql.inputs.DatabaseIdentityArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseImportArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseLongTermRetentionPolicyArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseShortTermRetentionPolicyArgs;
@@ -142,6 +143,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> geoBackupEnabled() {
         return Optional.ofNullable(this.geoBackupEnabled);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<DatabaseIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<DatabaseIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -416,14 +432,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     @Import(name="storageAccountType")
     private @Nullable Output<String> storageAccountType;
 
     /**
-     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     public Optional<Output<String>> storageAccountType() {
@@ -480,6 +496,40 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="transparentDataEncryptionKeyAutomaticRotationEnabled")
+    private @Nullable Output<Boolean> transparentDataEncryptionKeyAutomaticRotationEnabled;
+
+    /**
+     * @return Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> transparentDataEncryptionKeyAutomaticRotationEnabled() {
+        return Optional.ofNullable(this.transparentDataEncryptionKeyAutomaticRotationEnabled);
+    }
+
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     */
+    @Import(name="transparentDataEncryptionKeyVaultKeyId")
+    private @Nullable Output<String> transparentDataEncryptionKeyVaultKeyId;
+
+    /**
+     * @return The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     */
+    public Optional<Output<String>> transparentDataEncryptionKeyVaultKeyId() {
+        return Optional.ofNullable(this.transparentDataEncryptionKeyVaultKeyId);
+    }
+
+    /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      * 
      */
@@ -504,6 +554,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.elasticPoolId = $.elasticPoolId;
         this.enclaveType = $.enclaveType;
         this.geoBackupEnabled = $.geoBackupEnabled;
+        this.identity = $.identity;
         this.import_ = $.import_;
         this.ledgerEnabled = $.ledgerEnabled;
         this.licenseType = $.licenseType;
@@ -525,6 +576,8 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.threatDetectionPolicy = $.threatDetectionPolicy;
         this.transparentDataEncryptionEnabled = $.transparentDataEncryptionEnabled;
+        this.transparentDataEncryptionKeyAutomaticRotationEnabled = $.transparentDataEncryptionKeyAutomaticRotationEnabled;
+        this.transparentDataEncryptionKeyVaultKeyId = $.transparentDataEncryptionKeyVaultKeyId;
         this.zoneRedundant = $.zoneRedundant;
     }
 
@@ -707,6 +760,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder geoBackupEnabled(Boolean geoBackupEnabled) {
             return geoBackupEnabled(Output.of(geoBackupEnabled));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<DatabaseIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(DatabaseIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
@@ -1083,7 +1157,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
          * 
          * @return builder
          * 
@@ -1094,7 +1168,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
          * 
          * @return builder
          * 
@@ -1168,6 +1242,52 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder transparentDataEncryptionEnabled(Boolean transparentDataEncryptionEnabled) {
             return transparentDataEncryptionEnabled(Output.of(transparentDataEncryptionEnabled));
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyAutomaticRotationEnabled Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyAutomaticRotationEnabled(@Nullable Output<Boolean> transparentDataEncryptionKeyAutomaticRotationEnabled) {
+            $.transparentDataEncryptionKeyAutomaticRotationEnabled = transparentDataEncryptionKeyAutomaticRotationEnabled;
+            return this;
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyAutomaticRotationEnabled Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyAutomaticRotationEnabled(Boolean transparentDataEncryptionKeyAutomaticRotationEnabled) {
+            return transparentDataEncryptionKeyAutomaticRotationEnabled(Output.of(transparentDataEncryptionKeyAutomaticRotationEnabled));
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+         * 
+         * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyVaultKeyId(@Nullable Output<String> transparentDataEncryptionKeyVaultKeyId) {
+            $.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
+            return this;
+        }
+
+        /**
+         * @param transparentDataEncryptionKeyVaultKeyId The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+         * 
+         * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transparentDataEncryptionKeyVaultKeyId(String transparentDataEncryptionKeyVaultKeyId) {
+            return transparentDataEncryptionKeyVaultKeyId(Output.of(transparentDataEncryptionKeyVaultKeyId));
         }
 
         /**

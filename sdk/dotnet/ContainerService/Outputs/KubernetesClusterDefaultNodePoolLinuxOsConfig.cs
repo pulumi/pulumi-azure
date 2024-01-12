@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? SwapFileSizeMb;
         /// <summary>
-        /// A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `sysctl_config` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig? SysctlConfig;
         /// <summary>

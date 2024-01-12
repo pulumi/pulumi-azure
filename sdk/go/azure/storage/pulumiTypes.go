@@ -4678,13 +4678,13 @@ func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInvento
 type BlobInventoryPolicyRuleFilter struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes []string `pulumi:"blobTypes"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes []string `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
 	//
@@ -4692,7 +4692,7 @@ type BlobInventoryPolicyRuleFilter struct {
 	IncludeDeleted *bool `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches []string `pulumi:"prefixMatches"`
@@ -4712,13 +4712,13 @@ type BlobInventoryPolicyRuleFilterInput interface {
 type BlobInventoryPolicyRuleFilterArgs struct {
 	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
 	// A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
 	ExcludePrefixes pulumi.StringArrayInput `pulumi:"excludePrefixes"`
 	// Includes blob versions in blob inventory or not? Defaults to `false`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
 	// Includes deleted blobs in blob inventory or not? Defaults to `false`.
 	//
@@ -4726,7 +4726,7 @@ type BlobInventoryPolicyRuleFilterArgs struct {
 	IncludeDeleted pulumi.BoolPtrInput `pulumi:"includeDeleted"`
 	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
 	//
-	// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
+	// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
 	// A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
@@ -4811,7 +4811,7 @@ func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterPtrO
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 func (o BlobInventoryPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
@@ -4823,7 +4823,7 @@ func (o BlobInventoryPolicyRuleFilterOutput) ExcludePrefixes() pulumi.StringArra
 
 // Includes blob versions in blob inventory or not? Defaults to `false`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
 }
@@ -4837,7 +4837,7 @@ func (o BlobInventoryPolicyRuleFilterOutput) IncludeDeleted() pulumi.BoolPtrOutp
 
 // Includes blob snapshots in blob inventory or not? Defaults to `false`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
 }
@@ -4873,7 +4873,7 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) Elem() BlobInventoryPolicyRuleFi
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) []string {
 		if v == nil {
@@ -4895,7 +4895,7 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) ExcludePrefixes() pulumi.StringA
 
 // Includes blob versions in blob inventory or not? Defaults to `false`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
 		if v == nil {
@@ -4919,7 +4919,7 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeDeleted() pulumi.BoolPtrO
 
 // Includes blob snapshots in blob inventory or not? Defaults to `false`.
 //
-// > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
+// > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
 func (o BlobInventoryPolicyRuleFilterPtrOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BlobInventoryPolicyRuleFilter) *bool {
 		if v == nil {

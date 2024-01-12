@@ -22,7 +22,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fully_qualified_domain_name=None, id=None, identities=None, location=None, name=None, resource_group_name=None, restorable_dropped_database_ids=None, tags=None, version=None):
+    def __init__(__self__, administrator_login=None, fully_qualified_domain_name=None, id=None, identities=None, location=None, name=None, resource_group_name=None, restorable_dropped_database_ids=None, tags=None, transparent_data_encryption_key_vault_key_id=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -50,6 +50,9 @@ class GetServerResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transparent_data_encryption_key_vault_key_id and not isinstance(transparent_data_encryption_key_vault_key_id, str):
+            raise TypeError("Expected argument 'transparent_data_encryption_key_vault_key_id' to be a str")
+        pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -121,6 +124,14 @@ class GetServerResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> str:
+        """
+        The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @property
     @pulumi.getter
     def version(self) -> str:
         """
@@ -144,6 +155,7 @@ class AwaitableGetServerResult(GetServerResult):
             resource_group_name=self.resource_group_name,
             restorable_dropped_database_ids=self.restorable_dropped_database_ids,
             tags=self.tags,
+            transparent_data_encryption_key_vault_key_id=self.transparent_data_encryption_key_vault_key_id,
             version=self.version)
 
 
@@ -184,6 +196,7 @@ def get_server(name: Optional[str] = None,
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         restorable_dropped_database_ids=pulumi.get(__ret__, 'restorable_dropped_database_ids'),
         tags=pulumi.get(__ret__, 'tags'),
+        transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         version=pulumi.get(__ret__, 'version'))
 
 

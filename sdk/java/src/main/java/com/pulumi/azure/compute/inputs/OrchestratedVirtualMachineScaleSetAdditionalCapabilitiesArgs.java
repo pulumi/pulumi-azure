@@ -16,14 +16,14 @@ public final class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs 
     public static final OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs Empty = new OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs();
 
     /**
-     * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+     * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="ultraSsdEnabled")
     private @Nullable Output<Boolean> ultraSsdEnabled;
 
     /**
-     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> ultraSsdEnabled() {
@@ -55,7 +55,7 @@ public final class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs 
         }
 
         /**
-         * @param ultraSsdEnabled Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param ultraSsdEnabled Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs 
         }
 
         /**
-         * @param ultraSsdEnabled Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         * @param ultraSsdEnabled Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

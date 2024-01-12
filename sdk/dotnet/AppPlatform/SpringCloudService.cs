@@ -171,7 +171,7 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuTier")]
         public Output<string> SkuTier { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -477,7 +477,7 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined.
+        /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

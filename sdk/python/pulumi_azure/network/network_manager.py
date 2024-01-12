@@ -143,7 +143,7 @@ class _NetworkManagerState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NetworkManager resources.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]] cross_tenant_scopes: A `cross_tenant_scopes` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]] cross_tenant_scopes: One or more `cross_tenant_scopes` blocks as defined below.
         :param pulumi.Input[str] description: A description of the network manager.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
@@ -173,7 +173,7 @@ class _NetworkManagerState:
     @pulumi.getter(name="crossTenantScopes")
     def cross_tenant_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]]]:
         """
-        A `cross_tenant_scopes` block as defined below.
+        One or more `cross_tenant_scopes` blocks as defined below.
         """
         return pulumi.get(self, "cross_tenant_scopes")
 
@@ -435,7 +435,7 @@ class NetworkManager(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerCrossTenantScopeArgs']]]] cross_tenant_scopes: A `cross_tenant_scopes` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerCrossTenantScopeArgs']]]] cross_tenant_scopes: One or more `cross_tenant_scopes` blocks as defined below.
         :param pulumi.Input[str] description: A description of the network manager.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
@@ -462,7 +462,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter(name="crossTenantScopes")
     def cross_tenant_scopes(self) -> pulumi.Output[Sequence['outputs.NetworkManagerCrossTenantScope']]:
         """
-        A `cross_tenant_scopes` block as defined below.
+        One or more `cross_tenant_scopes` blocks as defined below.
         """
         return pulumi.get(self, "cross_tenant_scopes")
 

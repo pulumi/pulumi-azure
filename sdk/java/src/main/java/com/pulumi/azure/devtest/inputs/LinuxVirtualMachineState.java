@@ -258,14 +258,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -699,7 +699,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

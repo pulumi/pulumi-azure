@@ -27,7 +27,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys;
     /**
-     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * @return The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
     private String adminUsername;
@@ -44,7 +44,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private @Nullable Boolean disablePasswordAuthentication;
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
@@ -78,7 +78,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return this.adminSshKeys == null ? List.of() : this.adminSshKeys;
     }
     /**
-     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * @return The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
     public String adminUsername() {
@@ -101,7 +101,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return Optional.ofNullable(this.disablePasswordAuthentication);
     }
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 

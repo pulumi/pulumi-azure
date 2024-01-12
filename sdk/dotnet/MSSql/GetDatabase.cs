@@ -168,6 +168,10 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDatabaseIdentityResult> Identities;
+        /// <summary>
         /// The license type to apply for this database.
         /// </summary>
         public readonly string LicenseType;
@@ -198,6 +202,18 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// Whether or not Transparent Data Encryption is enabled.
+        /// </summary>
+        public readonly bool TransparentDataEncryptionEnabled;
+        /// <summary>
+        /// Whether or not TDE automatically rotates the encryption Key to latest version.
+        /// </summary>
+        public readonly bool TransparentDataEncryptionKeyAutomaticRotationEnabled;
+        /// <summary>
+        /// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// </summary>
+        public readonly string TransparentDataEncryptionKeyVaultKeyId;
+        /// <summary>
         /// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         /// </summary>
         public readonly bool ZoneRedundant;
@@ -211,6 +227,8 @@ namespace Pulumi.Azure.MSSql
             string enclaveType,
 
             string id,
+
+            ImmutableArray<Outputs.GetDatabaseIdentityResult> identities,
 
             string licenseType,
 
@@ -230,12 +248,19 @@ namespace Pulumi.Azure.MSSql
 
             ImmutableDictionary<string, string> tags,
 
+            bool transparentDataEncryptionEnabled,
+
+            bool transparentDataEncryptionKeyAutomaticRotationEnabled,
+
+            string transparentDataEncryptionKeyVaultKeyId,
+
             bool zoneRedundant)
         {
             Collation = collation;
             ElasticPoolId = elasticPoolId;
             EnclaveType = enclaveType;
             Id = id;
+            Identities = identities;
             LicenseType = licenseType;
             MaxSizeGb = maxSizeGb;
             Name = name;
@@ -245,6 +270,9 @@ namespace Pulumi.Azure.MSSql
             SkuName = skuName;
             StorageAccountType = storageAccountType;
             Tags = tags;
+            TransparentDataEncryptionEnabled = transparentDataEncryptionEnabled;
+            TransparentDataEncryptionKeyAutomaticRotationEnabled = transparentDataEncryptionKeyAutomaticRotationEnabled;
+            TransparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
             ZoneRedundant = zoneRedundant;
         }
     }

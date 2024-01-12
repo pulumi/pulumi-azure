@@ -144,7 +144,7 @@ type WindowsWebAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -259,7 +259,7 @@ type windowsWebAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -334,7 +334,7 @@ type WindowsWebAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -395,7 +395,7 @@ type windowsWebAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
@@ -453,7 +453,7 @@ type WindowsWebAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
@@ -710,7 +710,7 @@ func (o WindowsWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 //
 // > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
 func (o WindowsWebAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {

@@ -165,9 +165,9 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<string>;
     /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
@@ -225,11 +225,11 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
-            resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:role/assignment:Assignment" }] };
@@ -271,7 +271,7 @@ export interface AssignmentState {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      */
     principalType?: pulumi.Input<string>;
     /**
@@ -326,6 +326,10 @@ export interface AssignmentArgs {
      * > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
      */
     principalId: pulumi.Input<string>;
+    /**
+     * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     */
+    principalType?: pulumi.Input<string>;
     /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */

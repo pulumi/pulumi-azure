@@ -16477,7 +16477,7 @@ class LinuxWebAppSiteConfig(dict):
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         :param Sequence['LinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
@@ -16732,7 +16732,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -21024,7 +21024,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Possible values include `8`, `11`, and `17`.
                
                > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
-        :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+        :param str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
@@ -21162,7 +21162,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
 
         > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
         """
@@ -34636,7 +34636,7 @@ class WindowsWebAppSiteConfig(dict):
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
-        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         :param Sequence['WindowsWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
@@ -34896,7 +34896,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 

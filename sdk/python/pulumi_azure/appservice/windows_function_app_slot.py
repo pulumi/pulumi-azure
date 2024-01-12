@@ -82,7 +82,7 @@ class WindowsFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -498,7 +498,7 @@ class WindowsFunctionAppSlotArgs:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -594,7 +594,7 @@ class _WindowsFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -1138,7 +1138,7 @@ class _WindowsFunctionAppSlotState:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -1259,7 +1259,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         ...
     @overload
@@ -1505,7 +1505,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1863,7 +1863,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

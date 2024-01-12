@@ -264,14 +264,14 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.softDeleteRetentionDays);
     }
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

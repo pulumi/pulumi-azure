@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ElasticSan.Inputs
     public sealed class ElasticSanSkuGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+        /// The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
         /// </summary>
@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ElasticSan.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The SKU tier. The only possible value is `Premium`.
+        /// The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

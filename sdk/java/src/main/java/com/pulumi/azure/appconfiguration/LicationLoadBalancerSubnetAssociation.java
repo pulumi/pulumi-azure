@@ -127,18 +127,18 @@ public class LicationLoadBalancerSubnetAssociation extends com.pulumi.resources.
         return this.name;
     }
     /**
-     * The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * The ID of the subnet which the Application Gateway for Containers associated to.
      * 
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * @return The ID of the subnet which the Application Gateway for Containers associated to.
      * 
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      * 
      */
     public Output<String> subnetId() {

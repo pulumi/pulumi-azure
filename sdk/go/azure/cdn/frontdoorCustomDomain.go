@@ -110,7 +110,7 @@ import (
 type FrontdoorCustomDomain struct {
 	pulumi.CustomResourceState
 
-	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 	CdnFrontdoorProfileId pulumi.StringOutput `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
 	//
@@ -175,7 +175,7 @@ func GetFrontdoorCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontdoorCustomDomain resources.
 type frontdoorCustomDomainState struct {
-	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 	CdnFrontdoorProfileId *string `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
 	//
@@ -196,7 +196,7 @@ type frontdoorCustomDomainState struct {
 }
 
 type FrontdoorCustomDomainState struct {
-	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 	CdnFrontdoorProfileId pulumi.StringPtrInput
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
 	//
@@ -221,7 +221,7 @@ func (FrontdoorCustomDomainState) ElementType() reflect.Type {
 }
 
 type frontdoorCustomDomainArgs struct {
-	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
 	//
@@ -239,7 +239,7 @@ type frontdoorCustomDomainArgs struct {
 
 // The set of arguments for constructing a FrontdoorCustomDomain resource.
 type FrontdoorCustomDomainArgs struct {
-	// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+	// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 	CdnFrontdoorProfileId pulumi.StringInput
 	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
 	//
@@ -342,7 +342,7 @@ func (o FrontdoorCustomDomainOutput) ToFrontdoorCustomDomainOutputWithContext(ct
 	return o
 }
 
-// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
 func (o FrontdoorCustomDomainOutput) CdnFrontdoorProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomain) pulumi.StringOutput { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }

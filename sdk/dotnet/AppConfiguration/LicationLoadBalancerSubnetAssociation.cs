@@ -101,9 +101,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        /// The ID of the subnet which the Application Gateway for Containers associated to.
         /// 
-        /// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        /// &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -173,9 +173,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        /// The ID of the subnet which the Application Gateway for Containers associated to.
         /// 
-        /// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        /// &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -213,9 +213,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        /// The ID of the subnet which the Application Gateway for Containers associated to.
         /// 
-        /// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        /// &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

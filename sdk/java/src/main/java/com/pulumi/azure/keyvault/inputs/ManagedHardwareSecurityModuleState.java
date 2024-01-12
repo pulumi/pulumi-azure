@@ -216,14 +216,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags to assign to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -577,7 +577,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags to assign to the resource.
          * 
          * @return builder
          * 

@@ -66,14 +66,14 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
      * 
      */
     @Import(name="userAssignedIdentityClientId")
     private @Nullable Output<String> userAssignedIdentityClientId;
 
     /**
-     * @return The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * @return The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityClientId() {
@@ -175,7 +175,7 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
          * 
          * @return builder
          * 

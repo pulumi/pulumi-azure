@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }

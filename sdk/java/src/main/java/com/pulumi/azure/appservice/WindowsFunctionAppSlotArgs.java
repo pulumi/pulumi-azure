@@ -467,14 +467,14 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     @Import(name="webdeployPublishBasicAuthenticationEnabled")
     private @Nullable Output<Boolean> webdeployPublishBasicAuthenticationEnabled;
 
     /**
-     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
@@ -1164,7 +1164,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1175,7 +1175,7 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
          * @return builder
          * 

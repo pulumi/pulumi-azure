@@ -57,6 +57,9 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
      * One or more `permission` blocks as defined below.
      */
     public readonly permissions!: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermission[] | undefined>;
+    /**
+     * The ID of the role definition resource without Key Vault base URL.
+     */
     public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
      * Specify a name for this KeyVault Role Definition.
@@ -125,6 +128,9 @@ export interface ManagedHardwareSecurityModuleRoleDefinitionState {
      * One or more `permission` blocks as defined below.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermission>[]>;
+    /**
+     * The ID of the role definition resource without Key Vault base URL.
+     */
     resourceManagerId?: pulumi.Input<string>;
     /**
      * Specify a name for this KeyVault Role Definition.

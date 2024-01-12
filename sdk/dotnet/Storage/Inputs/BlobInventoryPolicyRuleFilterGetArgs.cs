@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
         /// 
-        /// &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+        /// &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         /// </summary>
         public InputList<string> BlobTypes
         {
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// Includes blob versions in blob inventory or not? Defaults to `false`.
         /// 
-        /// &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+        /// &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         /// </summary>
         [Input("includeBlobVersions")]
         public Input<bool>? IncludeBlobVersions { get; set; }
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// Includes blob snapshots in blob inventory or not? Defaults to `false`.
         /// 
-        /// &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+        /// &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         /// </summary>
         [Input("includeSnapshots")]
         public Input<bool>? IncludeSnapshots { get; set; }

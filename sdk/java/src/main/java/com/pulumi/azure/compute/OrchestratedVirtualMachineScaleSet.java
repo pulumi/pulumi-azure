@@ -33,7 +33,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an Orchestrated Virtual Machine Scale Set.
+ * Manages an Virtual Machine Scale Set in Flexible Orchestration Mode.
  * 
  * ## Disclaimers
  * 
@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
+ * An Virtual Machine Scale Set can be imported using the `resource id`, e.g.
  * 
  * ```sh
  *  $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
@@ -108,7 +108,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * An `automatic_instance_repair` block as defined below.
      * 
-     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     @Export(name="automaticInstanceRepair", refs={OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class}, tree="[0]")
@@ -117,7 +117,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return An `automatic_instance_repair` block as defined below.
      * 
-     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
@@ -202,7 +202,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.evictionPolicy);
     }
     /**
-     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -211,7 +211,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
-     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -262,70 +262,70 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.identity);
     }
     /**
-     * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+     * The number of Virtual Machines in the Virtual Machine Scale Set.
      * 
      */
     @Export(name="instances", refs={Integer.class}, tree="[0]")
     private Output<Integer> instances;
 
     /**
-     * @return The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+     * @return The number of Virtual Machines in the Virtual Machine Scale Set.
      * 
      */
     public Output<Integer> instances() {
         return this.instances;
     }
     /**
-     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
-     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     public Output<Optional<String>> licenseType() {
         return Codegen.optional(this.licenseType);
     }
     /**
-     * The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * @return The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      */
     @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> maxBidPrice;
 
     /**
-     * @return The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      */
     public Output<Optional<Double>> maxBidPrice() {
         return Codegen.optional(this.maxBidPrice);
     }
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -388,7 +388,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.plan);
     }
     /**
-     * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
@@ -397,7 +397,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     private Output<Integer> platformFaultDomainCount;
 
     /**
-     * @return Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
@@ -406,14 +406,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.platformFaultDomainCount;
     }
     /**
-     * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
     @Export(name="priority", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> priority;
 
     /**
-     * @return The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
     public Output<Optional<String>> priority() {
@@ -434,28 +434,28 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.priorityMix);
     }
     /**
-     * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="proximityPlacementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proximityPlacementGroupId;
 
     /**
-     * @return The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * @return The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> proximityPlacementGroupId() {
         return Codegen.optional(this.proximityPlacementGroupId);
     }
     /**
-     * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -464,6 +464,8 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * 
      */
     @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> singlePlacementGroup;
@@ -471,19 +473,21 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     /**
      * @return Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * 
      */
     public Output<Boolean> singlePlacementGroup() {
         return this.singlePlacementGroup;
     }
     /**
-     * The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * @return The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     public Output<Optional<String>> skuName() {
@@ -518,14 +522,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.sourceImageReference);
     }
     /**
-     * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+     * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+     * @return A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -546,14 +550,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.terminationNotification;
     }
     /**
-     * The Unique ID for the Orchestrated Virtual Machine Scale Set.
+     * The Unique ID for the Virtual Machine Scale Set.
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**
-     * @return The Unique ID for the Orchestrated Virtual Machine Scale Set.
+     * @return The Unique ID for the Virtual Machine Scale Set.
      * 
      */
     public Output<String> uniqueId() {
@@ -592,7 +596,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return Codegen.optional(this.zoneBalance);
     }
     /**
-     * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -601,7 +605,7 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+     * @return Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 

@@ -155,7 +155,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly sshKey!: pulumi.Output<string | undefined>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -327,7 +327,7 @@ export interface LinuxVirtualMachineState {
      */
     sshKey?: pulumi.Input<string>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -411,7 +411,7 @@ export interface LinuxVirtualMachineArgs {
      */
     sshKey?: pulumi.Input<string>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     storageType: pulumi.Input<string>;
     /**

@@ -51,7 +51,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * An `automatic_instance_repair` block as defined below.
      * 
-     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     @Import(name="automaticInstanceRepair")
@@ -60,7 +60,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * @return An `automatic_instance_repair` block as defined below.
      * 
-     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>> automaticInstanceRepair() {
@@ -151,7 +151,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -160,7 +160,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     private @Nullable Output<Boolean> extensionOperationsEnabled;
 
     /**
-     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -215,14 +215,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+     * The number of Virtual Machines in the Virtual Machine Scale Set.
      * 
      */
     @Import(name="instances")
     private @Nullable Output<Integer> instances;
 
     /**
-     * @return The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+     * @return The number of Virtual Machines in the Virtual Machine Scale Set.
      * 
      */
     public Optional<Output<Integer>> instances() {
@@ -230,14 +230,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -245,14 +245,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * @return The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -260,14 +260,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      */
     @Import(name="maxBidPrice")
     private @Nullable Output<Double> maxBidPrice;
 
     /**
-     * @return The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+     * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
      */
     public Optional<Output<Double>> maxBidPrice() {
@@ -275,14 +275,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -350,7 +350,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
@@ -359,7 +359,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     private @Nullable Output<Integer> platformFaultDomainCount;
 
     /**
-     * @return Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+     * @return Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
      * 
@@ -369,14 +369,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
-     * @return The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -399,14 +399,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="proximityPlacementGroupId")
     private @Nullable Output<String> proximityPlacementGroupId;
 
     /**
-     * @return The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+     * @return The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> proximityPlacementGroupId() {
@@ -414,14 +414,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -431,6 +431,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * 
      */
     @Import(name="singlePlacementGroup")
     private @Nullable Output<Boolean> singlePlacementGroup;
@@ -438,20 +440,22 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * @return Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
      * 
+     * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+     * 
      */
     public Optional<Output<Boolean>> singlePlacementGroup() {
         return Optional.ofNullable(this.singlePlacementGroup);
     }
 
     /**
-     * The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * @return The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -489,14 +493,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+     * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+     * @return A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -519,14 +523,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Unique ID for the Orchestrated Virtual Machine Scale Set.
+     * The Unique ID for the Virtual Machine Scale Set.
      * 
      */
     @Import(name="uniqueId")
     private @Nullable Output<String> uniqueId;
 
     /**
-     * @return The Unique ID for the Orchestrated Virtual Machine Scale Set.
+     * @return The Unique ID for the Virtual Machine Scale Set.
      * 
      */
     public Optional<Output<String>> uniqueId() {
@@ -568,7 +572,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+     * Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -577,7 +581,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+     * @return Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
      * 
      * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
@@ -668,7 +672,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below.
          * 
-         * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+         * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
          * @return builder
          * 
@@ -681,7 +685,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below.
          * 
-         * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+         * &gt; **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
          * @return builder
          * 
@@ -814,7 +818,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
@@ -827,7 +831,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
@@ -912,7 +916,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+         * @param instances The number of Virtual Machines in the Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -923,7 +927,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
+         * @param instances The number of Virtual Machines in the Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -933,7 +937,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
          * 
          * @return builder
          * 
@@ -944,7 +948,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
          * 
          * @return builder
          * 
@@ -954,7 +958,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param location The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+         * @param location The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -965,7 +969,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param location The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+         * @param location The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -975,7 +979,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
          * 
          * @return builder
          * 
@@ -986,7 +990,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Orchestrated Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Orchestrated Scale Set should not be evicted for price reasons.
+         * @param maxBidPrice The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
          * 
          * @return builder
          * 
@@ -996,7 +1000,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1007,7 +1011,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param name The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param name The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1111,7 +1115,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param platformFaultDomainCount Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param platformFaultDomainCount Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
          * 
@@ -1124,7 +1128,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param platformFaultDomainCount Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+         * @param platformFaultDomainCount Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** The number of Fault Domains varies depending on which Azure Region you&#39;re using - a list can be found [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md).
          * 
@@ -1136,7 +1140,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priority The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
          * 
          * @return builder
          * 
@@ -1147,7 +1151,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priority The Priority of this Orchestrated Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
          * 
          * @return builder
          * 
@@ -1178,7 +1182,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param proximityPlacementGroupId The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+         * @param proximityPlacementGroupId The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1189,7 +1193,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param proximityPlacementGroupId The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+         * @param proximityPlacementGroupId The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1199,7 +1203,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1210,7 +1214,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1221,6 +1225,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
 
         /**
          * @param singlePlacementGroup Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+         * 
+         * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
          * 
          * @return builder
          * 
@@ -1233,6 +1239,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param singlePlacementGroup Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
          * 
+         * &gt; **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
+         * 
          * @return builder
          * 
          */
@@ -1241,7 +1249,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuName The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+         * @param skuName The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -1252,7 +1260,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuName The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+         * @param skuName The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -1304,7 +1312,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+         * @param tags A mapping of tags which should be assigned to this Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1315,7 +1323,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+         * @param tags A mapping of tags which should be assigned to this Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1346,7 +1354,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param uniqueId The Unique ID for the Orchestrated Virtual Machine Scale Set.
+         * @param uniqueId The Unique ID for the Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1357,7 +1365,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param uniqueId The Unique ID for the Orchestrated Virtual Machine Scale Set.
+         * @param uniqueId The Unique ID for the Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1413,7 +1421,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1426,7 +1434,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
@@ -1438,7 +1446,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
+         * @param zones Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances. Changing this forces a new Virtual Machine Scale Set to be created.
          * 
          * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 

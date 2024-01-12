@@ -34,14 +34,14 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * This traffic Weight relates to the latest stable Container Revision.
+     * This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
      * 
      */
     @Import(name="latestRevision")
     private @Nullable Output<Boolean> latestRevision;
 
     /**
-     * @return This traffic Weight relates to the latest stable Container Revision.
+     * @return This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
      * 
      */
     public Optional<Output<Boolean>> latestRevision() {
@@ -70,12 +70,16 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
     /**
      * The suffix string to which this `traffic_weight` applies.
      * 
+     * &gt; **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+     * 
      */
     @Import(name="revisionSuffix")
     private @Nullable Output<String> revisionSuffix;
 
     /**
      * @return The suffix string to which this `traffic_weight` applies.
+     * 
+     * &gt; **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
      * 
      */
     public Optional<Output<String>> revisionSuffix() {
@@ -131,7 +135,7 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param latestRevision This traffic Weight relates to the latest stable Container Revision.
+         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
          * 
          * @return builder
          * 
@@ -142,7 +146,7 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param latestRevision This traffic Weight relates to the latest stable Container Revision.
+         * @param latestRevision This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
          * 
          * @return builder
          * 
@@ -179,6 +183,8 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
         /**
          * @param revisionSuffix The suffix string to which this `traffic_weight` applies.
          * 
+         * &gt; **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
+         * 
          * @return builder
          * 
          */
@@ -189,6 +195,8 @@ public final class AppIngressTrafficWeightArgs extends com.pulumi.resources.Reso
 
         /**
          * @param revisionSuffix The suffix string to which this `traffic_weight` applies.
+         * 
+         * &gt; **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
          * 
          * @return builder
          * 

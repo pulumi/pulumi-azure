@@ -81,7 +81,7 @@ class ServiceArgs:
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -462,7 +462,7 @@ class ServiceArgs:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        Specifies a list of Availability Zones in which this API Management service should be located.
 
         > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -557,7 +557,7 @@ class _ServiceState:
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -1054,7 +1054,7 @@ class _ServiceState:
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        Specifies a list of Availability Zones in which this API Management service should be located.
 
         > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -1160,7 +1160,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -1384,7 +1384,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
@@ -1715,7 +1715,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+        Specifies a list of Availability Zones in which this API Management service should be located.
 
         > **NOTE:** Availability zones are only supported in the Premium tier.
         """

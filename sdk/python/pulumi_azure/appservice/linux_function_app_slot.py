@@ -62,7 +62,7 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
-        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
         :param pulumi.Input['LinuxFunctionAppSlotIdentityArgs'] identity: An `identity` block as detailed below.
@@ -82,7 +82,7 @@ class LinuxFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -315,7 +315,7 @@ class LinuxFunctionAppSlotArgs:
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
     def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are the default FTP Basic Authentication publishing credentials enabled.
+        Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
@@ -498,7 +498,7 @@ class LinuxFunctionAppSlotArgs:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -565,7 +565,7 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
-        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
@@ -594,7 +594,7 @@ class _LinuxFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -847,7 +847,7 @@ class _LinuxFunctionAppSlotState:
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
     def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are the default FTP Basic Authentication publishing credentials enabled.
+        Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
@@ -1138,7 +1138,7 @@ class _LinuxFunctionAppSlotState:
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -1237,7 +1237,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
-        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
@@ -1259,7 +1259,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         ...
     @overload
@@ -1476,7 +1476,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
-        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
@@ -1505,7 +1505,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
-        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1668,7 +1668,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
     def ftp_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Are the default FTP Basic Authentication publishing credentials enabled.
+        Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
@@ -1863,7 +1863,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

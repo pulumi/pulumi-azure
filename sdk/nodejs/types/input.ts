@@ -1409,7 +1409,7 @@ export namespace apimanagement {
          */
         name: pulumi.Input<string>;
         /**
-         * The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+         * The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
          */
         userAssignedIdentityClientId?: pulumi.Input<string>;
     }
@@ -7319,7 +7319,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -8511,7 +8511,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `javaVersion`.
+         * The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `javaVersion`.
          *
          * > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
          */
@@ -12172,7 +12172,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+         * The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -18403,14 +18403,14 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetAdditionalCapabilities {
         /**
-         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
          */
         ultraSsdEnabled?: pulumi.Input<boolean>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
-         * Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+         * Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -18471,7 +18471,7 @@ export namespace compute {
          */
         autoUpgradeMinorVersionEnabled?: pulumi.Input<boolean>;
         /**
-         * An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+         * An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
          */
         extensionsToProvisionAfterVmCreations?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18491,7 +18491,7 @@ export namespace compute {
         /**
          * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
          *
-         * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+         * > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
          */
         protectedSettings?: pulumi.Input<string>;
         /**
@@ -18531,11 +18531,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetIdentity {
         /**
-         * Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -18575,15 +18575,15 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         /**
-         * A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
          */
         applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
          */
         applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+         * A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
          *
          * > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
          */
@@ -18698,9 +18698,9 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfile {
         /**
-         * The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          *
-         * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          */
         customData?: pulumi.Input<string>;
         /**
@@ -18723,7 +18723,7 @@ export namespace compute {
          */
         adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey>[]>;
         /**
-         * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
          */
         adminUsername: pulumi.Input<string>;
         /**
@@ -18737,7 +18737,7 @@ export namespace compute {
          */
         disablePasswordAuthentication?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
          * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
@@ -18794,7 +18794,7 @@ export namespace compute {
          */
         adminPassword: pulumi.Input<string>;
         /**
-         * The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+         * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
          */
         adminUsername: pulumi.Input<string>;
         /**
@@ -18807,7 +18807,7 @@ export namespace compute {
         enableAutomaticUpdates?: pulumi.Input<boolean>;
         hotpatchingEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
          * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
@@ -21110,13 +21110,15 @@ export namespace containerapp {
          */
         fqdn?: pulumi.Input<string>;
         /**
+         * One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+         */
+        ipSecurityRestrictions?: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressIpSecurityRestriction>[]>;
+        /**
          * The target port on the container for the Ingress traffic.
          */
         targetPort: pulumi.Input<number>;
         /**
-         * A `trafficWeight` block as detailed below.
-         *
-         * > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
+         * One or more `trafficWeight` blocks as detailed below.
          */
         trafficWeights: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressTrafficWeight>[]>;
         /**
@@ -21140,13 +21142,34 @@ export namespace containerapp {
         name: pulumi.Input<string>;
     }
 
+    export interface AppIngressIpSecurityRestriction {
+        /**
+         * The IP-filter action. `Allow` or `Deny`.
+         *
+         * > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Describe the IP restriction rule that is being sent to the container-app.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * CIDR notation to match incoming IP address.
+         */
+        ipAddressRange: pulumi.Input<string>;
+        /**
+         * Name for the IP restriction rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface AppIngressTrafficWeight {
         /**
          * The label to apply to the revision as a name prefix for routing traffic.
          */
         label?: pulumi.Input<string>;
         /**
-         * This traffic Weight relates to the latest stable Container Revision.
+         * This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
          */
         latestRevision?: pulumi.Input<boolean>;
         /**
@@ -21157,6 +21180,8 @@ export namespace containerapp {
         percentage: pulumi.Input<number>;
         /**
          * The suffix string to which this `trafficWeight` applies.
+         *
+         * > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
          */
         revisionSuffix?: pulumi.Input<string>;
     }
@@ -22604,7 +22629,7 @@ export namespace containerservice {
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
         /**
-         * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
+         * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
          */
         fipsEnabled?: pulumi.Input<boolean>;
         /**
@@ -22806,7 +22831,7 @@ export namespace containerservice {
          */
         swapFileSizeMb?: pulumi.Input<number>;
         /**
-         * A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+         * A `sysctlConfig` block as defined below.
          */
         sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig>;
         /**
@@ -22821,119 +22846,119 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
         /**
-         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
          */
         fsAioMaxNr?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`.
          */
         fsFileMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`.
          */
         fsInotifyMaxUserWatches?: pulumi.Input<number>;
         /**
-         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`.
          */
         fsNrOpen?: pulumi.Input<number>;
         /**
-         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`.
          */
         kernelThreadsMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`.
          */
         netCoreNetdevMaxBacklog?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`.
          */
         netCoreOptmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`.
          */
         netCoreRmemDefault?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`.
          */
         netCoreRmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`.
          */
         netCoreSomaxconn?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`.
          */
         netCoreWmemDefault?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`.
          */
         netCoreWmemMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `32768` and `65535`.
          */
         netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`.
          */
         netIpv4IpLocalPortRangeMin?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`.
          */
         netIpv4NeighDefaultGcThresh1?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`.
          */
         netIpv4NeighDefaultGcThresh2?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`.
          */
         netIpv4NeighDefaultGcThresh3?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`.
          */
         netIpv4TcpFinTimeout?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `90`.
          */
         netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`.
          */
         netIpv4TcpKeepaliveProbes?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`.
          */
         netIpv4TcpKeepaliveTime?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`.
          */
         netIpv4TcpMaxSynBacklog?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`.
          */
         netIpv4TcpMaxTwBuckets?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+         * The sysctl setting net.ipv4.tcp_tw_reuse.
          */
         netIpv4TcpTwReuse?: pulumi.Input<boolean>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `524288`.
          */
         netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
         /**
-         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`. Changing this forces a new resource to be created.
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `2097152`.
          */
         netNetfilterNfConntrackMax?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`.
          */
         vmMaxMapCount?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.swappiness. Must be between `0` and `100`.
          */
         vmSwappiness?: pulumi.Input<number>;
         /**
-         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`.
          */
         vmVfsCachePressure?: pulumi.Input<number>;
     }
@@ -28165,13 +28190,13 @@ export namespace elasticcloud {
 export namespace elasticsan {
     export interface ElasticSanSku {
         /**
-         * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+         * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          *
          * > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
          */
         name: pulumi.Input<string>;
         /**
-         * The SKU tier. The only possible value is `Premium`.
+         * The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
          */
         tier?: pulumi.Input<string>;
     }
@@ -35882,7 +35907,7 @@ export namespace machinelearning {
         /**
          * The Key Vault URI to access the encryption key.
          *
-         * > **Note**: `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+         * > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -40798,6 +40823,17 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface DatabaseImport {
         /**
          * Specifies the name of the SQL administrator.
@@ -42772,18 +42808,18 @@ export namespace network {
          */
         requestBodyCheck?: pulumi.Input<boolean>;
         /**
-         * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+         * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
          */
         ruleSetType?: pulumi.Input<string>;
         /**
-         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         ruleSetVersion: pulumi.Input<string>;
     }
 
     export interface ApplicationGatewayWafConfigurationDisabledRuleGroup {
         /**
-         * The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+         * The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
          */
         ruleGroupName: pulumi.Input<string>;
         /**
@@ -43909,7 +43945,7 @@ export namespace network {
         /**
          * A list of management group IDs.
          *
-         * **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+         * > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
          */
         managementGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -49573,7 +49609,7 @@ export namespace storage {
         /**
          * A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
          *
-         * > **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
+         * > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blobTypes`.
          */
         blobTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -49583,7 +49619,7 @@ export namespace storage {
         /**
          * Includes blob versions in blob inventory or not? Defaults to `false`.
          *
-         * > **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
+         * > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `includeBlobVersions`.
          */
         includeBlobVersions?: pulumi.Input<boolean>;
         /**
@@ -49595,7 +49631,7 @@ export namespace storage {
         /**
          * Includes blob snapshots in blob inventory or not? Defaults to `false`.
          *
-         * > **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
+         * > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `includeSnapshots`.
          */
         includeSnapshots?: pulumi.Input<boolean>;
         /**
@@ -50943,7 +50979,7 @@ export namespace waf {
          */
         excludedRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`,  `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `APPLICATION-ATTACK-LFI`, `APPLICATION-ATTACK-RFI`, `APPLICATION-ATTACK-RCE`, `APPLICATION-ATTACK-PHP`, `APPLICATION-ATTACK-NodeJS`, `APPLICATION-ATTACK-XSS`, `APPLICATION-ATTACK-SQLI`, `APPLICATION-ATTACK-SESSION-FIXATION`, `APPLICATION-ATTACK-SESSION-JAVA`, `MS-ThreatIntel-WebShells`,
+         * The name of rule group for exclusion. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
          * `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
          */
         ruleGroupName: pulumi.Input<string>;
@@ -50970,7 +51006,7 @@ export namespace waf {
          */
         disabledRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`,
+         * The name of the Rule Group. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
          */
         ruleGroupName: pulumi.Input<string>;
         /**

@@ -1730,7 +1730,7 @@ type WorkspaceEncryption struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The Key Vault URI to access the encryption key.
 	//
-	// > **Note**: `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+	// > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1752,7 +1752,7 @@ type WorkspaceEncryptionArgs struct {
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
 	// The Key Vault URI to access the encryption key.
 	//
-	// > **Note**: `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+	// > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1845,7 +1845,7 @@ func (o WorkspaceEncryptionOutput) KeyVaultId() pulumi.StringOutput {
 
 // The Key Vault URI to access the encryption key.
 //
-// > **Note**: `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+// > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
 func (o WorkspaceEncryptionOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceEncryption) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -1896,7 +1896,7 @@ func (o WorkspaceEncryptionPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
 
 // The Key Vault URI to access the encryption key.
 //
-// > **Note**: `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+// > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
 func (o WorkspaceEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceEncryption) *string {
 		if v == nil {

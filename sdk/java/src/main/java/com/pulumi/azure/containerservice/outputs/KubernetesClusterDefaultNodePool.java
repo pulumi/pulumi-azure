@@ -54,7 +54,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean enableNodePublicIp;
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean fipsEnabled;
@@ -287,7 +287,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableNodePublicIp);
     }
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> fipsEnabled() {

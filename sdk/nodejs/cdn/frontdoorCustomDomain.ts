@@ -87,7 +87,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      */
     public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
  */
 export interface FrontdoorCustomDomainState {
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      */
     cdnFrontdoorProfileId?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface FrontdoorCustomDomainState {
  */
 export interface FrontdoorCustomDomainArgs {
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      */
     cdnFrontdoorProfileId: pulumi.Input<string>;
     /**

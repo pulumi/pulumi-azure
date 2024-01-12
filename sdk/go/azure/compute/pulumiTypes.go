@@ -8180,7 +8180,7 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() 
 }
 
 type OrchestratedVirtualMachineScaleSetAdditionalCapabilities struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -8196,7 +8196,7 @@ type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -8277,7 +8277,7 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToOrches
 	}).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -8306,7 +8306,7 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem(
 	}).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAdditionalCapabilities) *bool {
 		if v == nil {
@@ -8317,7 +8317,7 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Ultra
 }
 
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
-	// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
@@ -8335,7 +8335,7 @@ type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
-	// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
@@ -8418,7 +8418,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrche
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
 }
 
-// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -8452,7 +8452,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
-// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *bool {
 		if v == nil {
@@ -8781,7 +8781,7 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskArrayOutput) Index(i pulumi.In
 type OrchestratedVirtualMachineScaleSetExtension struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersionEnabled *bool `pulumi:"autoUpgradeMinorVersionEnabled"`
-	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+	// An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations []string `pulumi:"extensionsToProvisionAfterVmCreations"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`.
 	//
@@ -8793,7 +8793,7 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 	Name string `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	//
-	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	//
@@ -8823,7 +8823,7 @@ type OrchestratedVirtualMachineScaleSetExtensionInput interface {
 type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	// Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
 	AutoUpgradeMinorVersionEnabled pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersionEnabled"`
-	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+	// An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations pulumi.StringArrayInput `pulumi:"extensionsToProvisionAfterVmCreations"`
 	// Should failures from the extension be suppressed? Possible values are `true` or `false`.
 	//
@@ -8835,7 +8835,7 @@ type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 	//
-	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+	// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	//
@@ -8907,7 +8907,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersi
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *bool { return v.AutoUpgradeMinorVersionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+// An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ExtensionsToProvisionAfterVmCreations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) []string {
 		return v.ExtensionsToProvisionAfterVmCreations
@@ -8933,7 +8933,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) Name() pulumi.StringO
 
 // A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 //
-// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+// > **NOTE:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
 }
@@ -9148,9 +9148,9 @@ func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
 }
 
 type OrchestratedVirtualMachineScaleSetIdentity struct {
-	// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+	// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+	// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -9166,9 +9166,9 @@ type OrchestratedVirtualMachineScaleSetIdentityInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetIdentityArgs struct {
-	// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+	// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+	// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9249,12 +9249,12 @@ func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualM
 	}).(OrchestratedVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
 func (o OrchestratedVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9283,7 +9283,7 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Elem() Orchestrated
 	}).(OrchestratedVirtualMachineScaleSetIdentityOutput)
 }
 
-// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) []string {
 		if v == nil {
@@ -9293,7 +9293,7 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
 func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -9463,11 +9463,11 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i p
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
-	// A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
-	// A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
-	// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
 	// > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -9499,11 +9499,11 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput inte
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
-	// A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
-	// A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
 	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
-	// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+	// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 	//
 	// > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
 	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
@@ -9574,21 +9574,21 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 	return o
 }
 
-// A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+// A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
 		return v.ApplicationGatewayBackendAddressPoolIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+// A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
 		return v.ApplicationSecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 //
 // > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a dependsOn between this resource and the Load Balancer Rule.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
@@ -10322,9 +10322,9 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput) Place
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfile struct {
-	// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	//
-	// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+	// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 	CustomData *string `pulumi:"customData"`
 	// A `linuxConfiguration` block as documented below.
 	LinuxConfiguration *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration `pulumi:"linuxConfiguration"`
@@ -10344,9 +10344,9 @@ type OrchestratedVirtualMachineScaleSetOsProfileInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileArgs struct {
-	// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+	// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 	//
-	// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+	// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 	// A `linuxConfiguration` block as documented below.
 	LinuxConfiguration OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput `pulumi:"linuxConfiguration"`
@@ -10431,9 +10431,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) ToOrchestratedVirtual
 	}).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
 }
 
-// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 //
-// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -10476,9 +10476,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) Elem() Orchestrate
 	}).(OrchestratedVirtualMachineScaleSetOsProfileOutput)
 }
 
-// The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+// The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 //
-// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+// > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *string {
 		if v == nil {
@@ -10513,7 +10513,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// A `adminSshKey` block as documented below.
 	AdminSshKeys []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey `pulumi:"adminSshKeys"`
-	// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
@@ -10521,7 +10521,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	//
 	// > **NOTE:** Either `adminPassword` or `adminSshKey` must be specified.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
-	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
@@ -10548,7 +10548,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// A `adminSshKey` block as documented below.
 	AdminSshKeys OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput `pulumi:"adminSshKeys"`
-	// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput `pulumi:"computerNamePrefix"`
@@ -10556,7 +10556,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	//
 	// > **NOTE:** Either `adminPassword` or `adminSshKey` must be specified.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
-	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
@@ -10656,7 +10656,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Adm
 	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput)
 }
 
-// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -10677,7 +10677,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Dis
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
 // > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
@@ -10746,7 +10746,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput)
 }
 
-// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
 		if v == nil {
@@ -10778,7 +10778,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
 // > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
@@ -11159,14 +11159,14 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`
-	// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	HotpatchingEnabled     *bool `pulumi:"hotpatchingEnabled"`
-	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
@@ -11198,14 +11198,14 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interf
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct {
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
-	// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
 	ComputerNamePrefix pulumi.StringPtrInput `pulumi:"computerNamePrefix"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
 	HotpatchingEnabled     pulumi.BoolPtrInput `pulumi:"hotpatchingEnabled"`
-	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
@@ -11305,7 +11305,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) A
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
 }
 
-// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -11330,7 +11330,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) H
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
 // > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
@@ -11406,7 +11406,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AdminUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		if v == nil {
@@ -11445,7 +11445,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
 // > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {

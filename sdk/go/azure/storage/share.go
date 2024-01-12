@@ -91,7 +91,7 @@ type Share struct {
 	Acls ShareAclArrayOutput `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	//
-	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrOutput `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
@@ -155,7 +155,7 @@ type shareState struct {
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	//
-	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -184,7 +184,7 @@ type ShareState struct {
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	//
-	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -217,7 +217,7 @@ type shareArgs struct {
 	Acls []ShareAcl `pulumi:"acls"`
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	//
-	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol *string `pulumi:"enabledProtocol"`
 	// A mapping of MetaData for this File Share.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -243,7 +243,7 @@ type ShareArgs struct {
 	Acls ShareAclArrayInput
 	// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 	//
-	// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+	// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 	EnabledProtocol pulumi.StringPtrInput
 	// A mapping of MetaData for this File Share.
 	Metadata pulumi.StringMapInput
@@ -360,7 +360,7 @@ func (o ShareOutput) Acls() ShareAclArrayOutput {
 
 // The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 //
-// ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+// ~>**NOTE:** The `FileStorage` `accountKind` of the `storage.Account` is required for the `NFS` protocol.
 func (o ShareOutput) EnabledProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.EnabledProtocol }).(pulumi.StringPtrOutput)
 }

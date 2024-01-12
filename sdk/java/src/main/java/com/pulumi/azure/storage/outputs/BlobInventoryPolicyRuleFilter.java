@@ -17,7 +17,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
      * 
      */
     private List<String> blobTypes;
@@ -29,7 +29,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
      * 
      */
     private @Nullable Boolean includeBlobVersions;
@@ -43,7 +43,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
      * 
      */
     private @Nullable Boolean includeSnapshots;
@@ -57,7 +57,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
      * 
      */
     public List<String> blobTypes() {
@@ -73,7 +73,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
      * 
      */
     public Optional<Boolean> includeBlobVersions() {
@@ -91,7 +91,7 @@ public final class BlobInventoryPolicyRuleFilter {
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
-     * &gt; **NOTE**: The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+     * &gt; **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
      * 
      */
     public Optional<Boolean> includeSnapshots() {

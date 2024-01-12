@@ -77,7 +77,7 @@ import (
 type NetworkManager struct {
 	pulumi.CustomResourceState
 
-	// A `crossTenantScopes` block as defined below.
+	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayOutput `pulumi:"crossTenantScopes"`
 	// A description of the network manager.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -134,7 +134,7 @@ func GetNetworkManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkManager resources.
 type networkManagerState struct {
-	// A `crossTenantScopes` block as defined below.
+	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes []NetworkManagerCrossTenantScope `pulumi:"crossTenantScopes"`
 	// A description of the network manager.
 	Description *string `pulumi:"description"`
@@ -153,7 +153,7 @@ type networkManagerState struct {
 }
 
 type NetworkManagerState struct {
-	// A `crossTenantScopes` block as defined below.
+	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayInput
 	// A description of the network manager.
 	Description pulumi.StringPtrInput
@@ -297,7 +297,7 @@ func (o NetworkManagerOutput) ToNetworkManagerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A `crossTenantScopes` block as defined below.
+// One or more `crossTenantScopes` blocks as defined below.
 func (o NetworkManagerOutput) CrossTenantScopes() NetworkManagerCrossTenantScopeArrayOutput {
 	return o.ApplyT(func(v *NetworkManager) NetworkManagerCrossTenantScopeArrayOutput { return v.CrossTenantScopes }).(NetworkManagerCrossTenantScopeArrayOutput)
 }

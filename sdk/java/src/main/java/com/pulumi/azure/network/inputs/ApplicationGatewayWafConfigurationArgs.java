@@ -127,14 +127,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+     * The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
      * 
      */
     @Import(name="ruleSetType")
     private @Nullable Output<String> ruleSetType;
 
     /**
-     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
      * 
      */
     public Optional<Output<String>> ruleSetType() {
@@ -142,14 +142,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     @Import(name="ruleSetVersion", required=true)
     private Output<String> ruleSetVersion;
 
     /**
-     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+     * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
     public Output<String> ruleSetVersion() {
@@ -356,7 +356,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+         * @param ruleSetType The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+         * @param ruleSetVersion The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          * 
          * @return builder
          * 
