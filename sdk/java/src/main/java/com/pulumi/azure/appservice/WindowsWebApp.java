@@ -563,7 +563,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
@@ -572,7 +572,7 @@ public class WindowsWebApp extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> webdeployPublishBasicAuthenticationEnabled;
 
     /**
-     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 

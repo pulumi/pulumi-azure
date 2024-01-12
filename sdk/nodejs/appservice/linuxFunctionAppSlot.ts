@@ -135,7 +135,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Are the default FTP Basic Authentication publishing credentials enabled.
+     * Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -234,7 +234,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -406,7 +406,7 @@ export interface LinuxFunctionAppSlotState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Are the default FTP Basic Authentication publishing credentials enabled.
+     * Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -505,7 +505,7 @@ export interface LinuxFunctionAppSlotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }
@@ -563,7 +563,7 @@ export interface LinuxFunctionAppSlotArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Are the default FTP Basic Authentication publishing credentials enabled.
+     * Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -634,7 +634,7 @@ export interface LinuxFunctionAppSlotArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }

@@ -78,14 +78,14 @@ public class Setting extends com.pulumi.resources.CustomResource {
         return this.enabled;
     }
     /**
-     * The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
+     * The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="settingName", refs={String.class}, tree="[0]")
     private Output<String> settingName;
 
     /**
-     * @return The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION`  and `Sentinel`. Changing this forces a new resource to be created.
+     * @return The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> settingName() {

@@ -37,7 +37,7 @@ class ShareArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         """
@@ -114,7 +114,7 @@ class ShareArgs:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 
@@ -167,7 +167,7 @@ class _ShareState:
         :param pulumi.Input[Sequence[pulumi.Input['ShareAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
@@ -230,7 +230,7 @@ class _ShareState:
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 
@@ -374,7 +374,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
@@ -504,7 +504,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAclArgs']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
-               ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+               ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes.
@@ -555,7 +555,7 @@ class Share(pulumi.CustomResource):
         """
         The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
 
-        ~>**NOTE:** The `Premium` SKU of the `storage.Account` is required for the `NFS` protocol.
+        ~>**NOTE:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
         """
         return pulumi.get(self, "enabled_protocol")
 

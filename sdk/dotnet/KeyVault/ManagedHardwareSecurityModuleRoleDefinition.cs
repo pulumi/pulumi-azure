@@ -41,6 +41,9 @@ namespace Pulumi.Azure.KeyVault
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the role definition resource without Key Vault base URL.
+        /// </summary>
         [Output("resourceManagerId")]
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
@@ -176,6 +179,9 @@ namespace Pulumi.Azure.KeyVault
             set => _permissions = value;
         }
 
+        /// <summary>
+        /// The ID of the role definition resource without Key Vault base URL.
+        /// </summary>
         [Input("resourceManagerId")]
         public Input<string>? ResourceManagerId { get; set; }
 

@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     /**
-     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
      */
     private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
     /**
-     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
      * 
      */
     private @Nullable List<String> applicationSecurityGroupIds;
     /**
-     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
      * 
@@ -64,21 +64,21 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
     /**
-     * @return A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
      */
     public List<String> applicationGatewayBackendAddressPoolIds() {
         return this.applicationGatewayBackendAddressPoolIds == null ? List.of() : this.applicationGatewayBackendAddressPoolIds;
     }
     /**
-     * @return A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
      * 
      */
     public List<String> applicationSecurityGroupIds() {
         return this.applicationSecurityGroupIds == null ? List.of() : this.applicationSecurityGroupIds;
     }
     /**
-     * @return A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+     * @return A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      * &gt; **NOTE:** When using this field you&#39;ll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
      * 

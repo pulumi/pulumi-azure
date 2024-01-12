@@ -21,9 +21,9 @@ class LicationLoadBalancerSubnetAssociationArgs:
         """
         The set of arguments for constructing a LicationLoadBalancerSubnetAssociation resource.
         :param pulumi.Input[str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
                
-               **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+               > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Association.
         """
@@ -50,9 +50,9 @@ class LicationLoadBalancerSubnetAssociationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        The ID of the subnet which the Application Gateway for Containers associated to.
 
-        **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -96,9 +96,9 @@ class _LicationLoadBalancerSubnetAssociationState:
         Input properties used for looking up and filtering LicationLoadBalancerSubnetAssociation resources.
         :param pulumi.Input[str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
                
-               **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+               > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Association.
         """
         if application_load_balancer_id is not None:
@@ -138,9 +138,9 @@ class _LicationLoadBalancerSubnetAssociationState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        The ID of the subnet which the Application Gateway for Containers associated to.
 
-        **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -216,9 +216,9 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
                
-               **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+               > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Association.
         """
         ...
@@ -327,9 +327,9 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_load_balancer_id: The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Application Gateway for Containers associated to.
                
-               **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+               > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Gateway for Containers Association.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -362,9 +362,9 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+        The ID of the subnet which the Application Gateway for Containers associated to.
 
-        **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+        > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         """
         return pulumi.get(self, "subnet_id")
 

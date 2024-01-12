@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string AdminPassword;
         /// <summary>
-        /// The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        /// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly bool? EnableAutomaticUpdates;
         public readonly bool? HotpatchingEnabled;
         /// <summary>
-        /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>

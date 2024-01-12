@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Role
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -350,6 +350,12 @@ namespace Pulumi.Azure.Role
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("principalType")]
+        public Input<string>? PrincipalType { get; set; }
+
+        /// <summary>
         /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         /// </summary>
         [Input("roleDefinitionId")]
@@ -424,7 +430,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }

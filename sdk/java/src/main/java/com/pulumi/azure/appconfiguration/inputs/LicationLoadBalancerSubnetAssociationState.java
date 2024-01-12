@@ -47,18 +47,18 @@ public final class LicationLoadBalancerSubnetAssociationState extends com.pulumi
     }
 
     /**
-     * The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * The ID of the subnet which the Application Gateway for Containers associated to.
      * 
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+     * @return The ID of the subnet which the Application Gateway for Containers associated to.
      * 
-     * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+     * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -150,9 +150,9 @@ public final class LicationLoadBalancerSubnetAssociationState extends com.pulumi
         }
 
         /**
-         * @param subnetId The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+         * @param subnetId The ID of the subnet which the Application Gateway for Containers associated to.
          * 
-         * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+         * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
          * 
          * @return builder
          * 
@@ -163,9 +163,9 @@ public final class LicationLoadBalancerSubnetAssociationState extends com.pulumi
         }
 
         /**
-         * @param subnetId The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+         * @param subnetId The ID of the subnet which the Application Gateway for Containers associated to.
          * 
-         * **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+         * &gt; **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
          * 
          * @return builder
          * 

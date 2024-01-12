@@ -31,8 +31,9 @@ type ManagedHardwareSecurityModuleRoleDefinition struct {
 	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
-	Permissions       ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput `pulumi:"permissions"`
-	ResourceManagerId pulumi.StringOutput                                              `pulumi:"resourceManagerId"`
+	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput `pulumi:"permissions"`
+	// The ID of the role definition resource without Key Vault base URL.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Specify a name for this KeyVault Role Definition.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
@@ -79,8 +80,9 @@ type managedHardwareSecurityModuleRoleDefinitionState struct {
 	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
 	Name *string `pulumi:"name"`
 	// One or more `permission` blocks as defined below.
-	Permissions       []ManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
-	ResourceManagerId *string                                                 `pulumi:"resourceManagerId"`
+	Permissions []ManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
+	// The ID of the role definition resource without Key Vault base URL.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Specify a name for this KeyVault Role Definition.
 	RoleName *string `pulumi:"roleName"`
 	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
@@ -95,7 +97,8 @@ type ManagedHardwareSecurityModuleRoleDefinitionState struct {
 	// The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
 	Name pulumi.StringPtrInput
 	// One or more `permission` blocks as defined below.
-	Permissions       ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput
+	Permissions ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayInput
+	// The ID of the role definition resource without Key Vault base URL.
 	ResourceManagerId pulumi.StringPtrInput
 	// Specify a name for this KeyVault Role Definition.
 	RoleName pulumi.StringPtrInput
@@ -240,6 +243,7 @@ func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) Permissions() Managed
 	}).(ManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput)
 }
 
+// The ID of the role definition resource without Key Vault base URL.
 func (o ManagedHardwareSecurityModuleRoleDefinitionOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedHardwareSecurityModuleRoleDefinition) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }

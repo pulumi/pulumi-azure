@@ -87,7 +87,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
-     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     public readonly enabledProtocol!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface ShareState {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
-     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface ShareArgs {
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
-     * ~>**NOTE:** The `Premium` SKU of the `azure.storage.Account` is required for the `NFS` protocol.
+     * ~>**NOTE:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
     enabledProtocol?: pulumi.Input<string>;
     /**

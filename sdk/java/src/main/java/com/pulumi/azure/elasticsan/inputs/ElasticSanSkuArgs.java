@@ -17,7 +17,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
     public static final ElasticSanSkuArgs Empty = new ElasticSanSkuArgs();
 
     /**
-     * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+     * The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
      * 
@@ -26,7 +26,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> name;
 
     /**
-     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
      * 
@@ -36,14 +36,14 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU tier. The only possible value is `Premium`.
+     * The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return The SKU tier. The only possible value is `Premium`.
+     * @return The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
      * 
      */
     public Optional<Output<String>> tier() {
@@ -76,7 +76,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+         * @param name The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
          * 
@@ -89,7 +89,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+         * @param name The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
          * 
@@ -101,7 +101,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier The SKU tier. The only possible value is `Premium`.
+         * @param tier The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class ElasticSanSkuArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier The SKU tier. The only possible value is `Premium`.
+         * @param tier The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
          * 
          * @return builder
          * 

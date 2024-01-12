@@ -5639,9 +5639,9 @@ type ApplicationGatewayWafConfiguration struct {
 	MaxRequestBodySizeKb *int `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 	RuleSetType *string `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
 }
 
@@ -5671,9 +5671,9 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	MaxRequestBodySizeKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
-	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
 }
 
@@ -5793,12 +5793,12 @@ func (o ApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.Bool
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
 }
@@ -5897,7 +5897,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RequestBodyCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -5907,7 +5907,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -5918,7 +5918,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetVersion() pulumi.Str
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroup struct {
-	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 	RuleGroupName string `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules []int `pulumi:"rules"`
@@ -5936,7 +5936,7 @@ type ApplicationGatewayWafConfigurationDisabledRuleGroupInput interface {
 }
 
 type ApplicationGatewayWafConfigurationDisabledRuleGroupArgs struct {
-	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+	// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
 	// A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
 	Rules pulumi.IntArrayInput `pulumi:"rules"`
@@ -5993,7 +5993,7 @@ func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToApplication
 	return o
 }
 
-// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `General`, `GoodBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA` and `UnknownBots`.
+// The rule group where specific rules should be disabled. Possible values are `BadBots`, `crs20ProtocolViolations`, `crs21ProtocolAnomalies`, `crs23RequestLimits`, `crs30HttpPolicy`, `crs35BadRobots`, `crs40GenericAttacks`, `crs41SqlInjectionAttacks`, `crs41XssAttacks`, `crs42TightSecurity`, `crs45Trojans`, `crs49InboundBlocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
 func (o ApplicationGatewayWafConfigurationDisabledRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfigurationDisabledRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
@@ -14570,7 +14570,7 @@ func (o NetworkManagerCrossTenantScopeArrayOutput) Index(i pulumi.IntInput) Netw
 type NetworkManagerScope struct {
 	// A list of management group IDs.
 	//
-	// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+	// > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds []string `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
@@ -14590,7 +14590,7 @@ type NetworkManagerScopeInput interface {
 type NetworkManagerScopeArgs struct {
 	// A list of management group IDs.
 	//
-	// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+	// > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 	ManagementGroupIds pulumi.StringArrayInput `pulumi:"managementGroupIds"`
 	// A list of subscription IDs.
 	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
@@ -14675,7 +14675,7 @@ func (o NetworkManagerScopeOutput) ToNetworkManagerScopePtrOutputWithContext(ctx
 
 // A list of management group IDs.
 //
-// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+// > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopeOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkManagerScope) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -14711,7 +14711,7 @@ func (o NetworkManagerScopePtrOutput) Elem() NetworkManagerScopeOutput {
 
 // A list of management group IDs.
 //
-// **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+// > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
 func (o NetworkManagerScopePtrOutput) ManagementGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkManagerScope) []string {
 		if v == nil {
@@ -33367,6 +33367,227 @@ func (o GetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetNetworkInterfaceIpConfigurationOutput)
 }
 
+type GetNetworkManagerCrossTenantScope struct {
+	// A list of management groups used as cross tenant scope for the Network Manager.
+	ManagementGroups []string `pulumi:"managementGroups"`
+	// A list of subscriptions used as cross tenant scope for the Network Manager.
+	Subscriptions []string `pulumi:"subscriptions"`
+	// The tenant ID of the cross tenant scope.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// GetNetworkManagerCrossTenantScopeInput is an input type that accepts GetNetworkManagerCrossTenantScopeArgs and GetNetworkManagerCrossTenantScopeOutput values.
+// You can construct a concrete instance of `GetNetworkManagerCrossTenantScopeInput` via:
+//
+//	GetNetworkManagerCrossTenantScopeArgs{...}
+type GetNetworkManagerCrossTenantScopeInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerCrossTenantScopeOutput() GetNetworkManagerCrossTenantScopeOutput
+	ToGetNetworkManagerCrossTenantScopeOutputWithContext(context.Context) GetNetworkManagerCrossTenantScopeOutput
+}
+
+type GetNetworkManagerCrossTenantScopeArgs struct {
+	// A list of management groups used as cross tenant scope for the Network Manager.
+	ManagementGroups pulumi.StringArrayInput `pulumi:"managementGroups"`
+	// A list of subscriptions used as cross tenant scope for the Network Manager.
+	Subscriptions pulumi.StringArrayInput `pulumi:"subscriptions"`
+	// The tenant ID of the cross tenant scope.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (GetNetworkManagerCrossTenantScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (i GetNetworkManagerCrossTenantScopeArgs) ToGetNetworkManagerCrossTenantScopeOutput() GetNetworkManagerCrossTenantScopeOutput {
+	return i.ToGetNetworkManagerCrossTenantScopeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerCrossTenantScopeArgs) ToGetNetworkManagerCrossTenantScopeOutputWithContext(ctx context.Context) GetNetworkManagerCrossTenantScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerCrossTenantScopeOutput)
+}
+
+// GetNetworkManagerCrossTenantScopeArrayInput is an input type that accepts GetNetworkManagerCrossTenantScopeArray and GetNetworkManagerCrossTenantScopeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagerCrossTenantScopeArrayInput` via:
+//
+//	GetNetworkManagerCrossTenantScopeArray{ GetNetworkManagerCrossTenantScopeArgs{...} }
+type GetNetworkManagerCrossTenantScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerCrossTenantScopeArrayOutput() GetNetworkManagerCrossTenantScopeArrayOutput
+	ToGetNetworkManagerCrossTenantScopeArrayOutputWithContext(context.Context) GetNetworkManagerCrossTenantScopeArrayOutput
+}
+
+type GetNetworkManagerCrossTenantScopeArray []GetNetworkManagerCrossTenantScopeInput
+
+func (GetNetworkManagerCrossTenantScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (i GetNetworkManagerCrossTenantScopeArray) ToGetNetworkManagerCrossTenantScopeArrayOutput() GetNetworkManagerCrossTenantScopeArrayOutput {
+	return i.ToGetNetworkManagerCrossTenantScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerCrossTenantScopeArray) ToGetNetworkManagerCrossTenantScopeArrayOutputWithContext(ctx context.Context) GetNetworkManagerCrossTenantScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerCrossTenantScopeArrayOutput)
+}
+
+type GetNetworkManagerCrossTenantScopeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerCrossTenantScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (o GetNetworkManagerCrossTenantScopeOutput) ToGetNetworkManagerCrossTenantScopeOutput() GetNetworkManagerCrossTenantScopeOutput {
+	return o
+}
+
+func (o GetNetworkManagerCrossTenantScopeOutput) ToGetNetworkManagerCrossTenantScopeOutputWithContext(ctx context.Context) GetNetworkManagerCrossTenantScopeOutput {
+	return o
+}
+
+// A list of management groups used as cross tenant scope for the Network Manager.
+func (o GetNetworkManagerCrossTenantScopeOutput) ManagementGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagerCrossTenantScope) []string { return v.ManagementGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of subscriptions used as cross tenant scope for the Network Manager.
+func (o GetNetworkManagerCrossTenantScopeOutput) Subscriptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagerCrossTenantScope) []string { return v.Subscriptions }).(pulumi.StringArrayOutput)
+}
+
+// The tenant ID of the cross tenant scope.
+func (o GetNetworkManagerCrossTenantScopeOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagerCrossTenantScope) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type GetNetworkManagerCrossTenantScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerCrossTenantScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerCrossTenantScope)(nil)).Elem()
+}
+
+func (o GetNetworkManagerCrossTenantScopeArrayOutput) ToGetNetworkManagerCrossTenantScopeArrayOutput() GetNetworkManagerCrossTenantScopeArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerCrossTenantScopeArrayOutput) ToGetNetworkManagerCrossTenantScopeArrayOutputWithContext(ctx context.Context) GetNetworkManagerCrossTenantScopeArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerCrossTenantScopeArrayOutput) Index(i pulumi.IntInput) GetNetworkManagerCrossTenantScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagerCrossTenantScope {
+		return vs[0].([]GetNetworkManagerCrossTenantScope)[vs[1].(int)]
+	}).(GetNetworkManagerCrossTenantScopeOutput)
+}
+
+type GetNetworkManagerScope struct {
+	// A list of management group IDs used a scope for the Network Manager.
+	ManagementGroupIds []string `pulumi:"managementGroupIds"`
+	// A list of subscription IDs used as the scope for the Network Manager.
+	SubscriptionIds []string `pulumi:"subscriptionIds"`
+}
+
+// GetNetworkManagerScopeInput is an input type that accepts GetNetworkManagerScopeArgs and GetNetworkManagerScopeOutput values.
+// You can construct a concrete instance of `GetNetworkManagerScopeInput` via:
+//
+//	GetNetworkManagerScopeArgs{...}
+type GetNetworkManagerScopeInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerScopeOutput() GetNetworkManagerScopeOutput
+	ToGetNetworkManagerScopeOutputWithContext(context.Context) GetNetworkManagerScopeOutput
+}
+
+type GetNetworkManagerScopeArgs struct {
+	// A list of management group IDs used a scope for the Network Manager.
+	ManagementGroupIds pulumi.StringArrayInput `pulumi:"managementGroupIds"`
+	// A list of subscription IDs used as the scope for the Network Manager.
+	SubscriptionIds pulumi.StringArrayInput `pulumi:"subscriptionIds"`
+}
+
+func (GetNetworkManagerScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerScope)(nil)).Elem()
+}
+
+func (i GetNetworkManagerScopeArgs) ToGetNetworkManagerScopeOutput() GetNetworkManagerScopeOutput {
+	return i.ToGetNetworkManagerScopeOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerScopeArgs) ToGetNetworkManagerScopeOutputWithContext(ctx context.Context) GetNetworkManagerScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerScopeOutput)
+}
+
+// GetNetworkManagerScopeArrayInput is an input type that accepts GetNetworkManagerScopeArray and GetNetworkManagerScopeArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagerScopeArrayInput` via:
+//
+//	GetNetworkManagerScopeArray{ GetNetworkManagerScopeArgs{...} }
+type GetNetworkManagerScopeArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagerScopeArrayOutput() GetNetworkManagerScopeArrayOutput
+	ToGetNetworkManagerScopeArrayOutputWithContext(context.Context) GetNetworkManagerScopeArrayOutput
+}
+
+type GetNetworkManagerScopeArray []GetNetworkManagerScopeInput
+
+func (GetNetworkManagerScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerScope)(nil)).Elem()
+}
+
+func (i GetNetworkManagerScopeArray) ToGetNetworkManagerScopeArrayOutput() GetNetworkManagerScopeArrayOutput {
+	return i.ToGetNetworkManagerScopeArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagerScopeArray) ToGetNetworkManagerScopeArrayOutputWithContext(ctx context.Context) GetNetworkManagerScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagerScopeArrayOutput)
+}
+
+type GetNetworkManagerScopeOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagerScope)(nil)).Elem()
+}
+
+func (o GetNetworkManagerScopeOutput) ToGetNetworkManagerScopeOutput() GetNetworkManagerScopeOutput {
+	return o
+}
+
+func (o GetNetworkManagerScopeOutput) ToGetNetworkManagerScopeOutputWithContext(ctx context.Context) GetNetworkManagerScopeOutput {
+	return o
+}
+
+// A list of management group IDs used a scope for the Network Manager.
+func (o GetNetworkManagerScopeOutput) ManagementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagerScope) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subscription IDs used as the scope for the Network Manager.
+func (o GetNetworkManagerScopeOutput) SubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagerScope) []string { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+type GetNetworkManagerScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagerScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagerScope)(nil)).Elem()
+}
+
+func (o GetNetworkManagerScopeArrayOutput) ToGetNetworkManagerScopeArrayOutput() GetNetworkManagerScopeArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerScopeArrayOutput) ToGetNetworkManagerScopeArrayOutputWithContext(ctx context.Context) GetNetworkManagerScopeArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagerScopeArrayOutput) Index(i pulumi.IntInput) GetNetworkManagerScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagerScope {
+		return vs[0].([]GetNetworkManagerScope)[vs[1].(int)]
+	}).(GetNetworkManagerScopeOutput)
+}
+
 type GetNetworkSecurityGroupSecurityRule struct {
 	// Is network traffic is allowed or denied?
 	Access string `pulumi:"access"`
@@ -36503,6 +36724,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocalNetworkGatewayBgpSettingArrayInput)(nil)).Elem(), GetLocalNetworkGatewayBgpSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceIpConfigurationInput)(nil)).Elem(), GetNetworkInterfaceIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), GetNetworkInterfaceIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerCrossTenantScopeInput)(nil)).Elem(), GetNetworkManagerCrossTenantScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerCrossTenantScopeArrayInput)(nil)).Elem(), GetNetworkManagerCrossTenantScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerScopeInput)(nil)).Elem(), GetNetworkManagerScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagerScopeArrayInput)(nil)).Elem(), GetNetworkManagerScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSecurityGroupSecurityRuleInput)(nil)).Elem(), GetNetworkSecurityGroupSecurityRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkSecurityGroupSecurityRuleArrayInput)(nil)).Elem(), GetNetworkSecurityGroupSecurityRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPublicIPsPublicIpInput)(nil)).Elem(), GetPublicIPsPublicIpArgs{})
@@ -36983,6 +37208,10 @@ func init() {
 	pulumi.RegisterOutputType(GetLocalNetworkGatewayBgpSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerCrossTenantScopeOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerCrossTenantScopeArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerScopeOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagerScopeArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPublicIPsPublicIpOutput{})

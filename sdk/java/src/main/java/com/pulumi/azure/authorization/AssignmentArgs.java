@@ -116,6 +116,21 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="principalType")
+    private @Nullable Output<String> principalType;
+
+    /**
+     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> principalType() {
+        return Optional.ofNullable(this.principalType);
+    }
+
+    /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      * 
      */
@@ -188,6 +203,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.name = $.name;
         this.principalId = $.principalId;
+        this.principalType = $.principalType;
         this.roleDefinitionId = $.roleDefinitionId;
         this.roleDefinitionName = $.roleDefinitionName;
         this.scope = $.scope;
@@ -344,6 +360,27 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
+        }
+
+        /**
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalType(@Nullable Output<String> principalType) {
+            $.principalType = principalType;
+            return this;
+        }
+
+        /**
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalType(String principalType) {
+            return principalType(Output.of(principalType));
         }
 
         /**

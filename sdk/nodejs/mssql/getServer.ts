@@ -80,6 +80,10 @@ export interface GetServerResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     */
+    readonly transparentDataEncryptionKeyVaultKeyId: string;
+    /**
      * This servers MS SQL version.
      */
     readonly version: string;

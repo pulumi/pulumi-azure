@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+        /// Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

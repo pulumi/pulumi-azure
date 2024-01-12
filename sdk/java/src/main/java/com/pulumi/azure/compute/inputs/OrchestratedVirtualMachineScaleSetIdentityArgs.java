@@ -16,14 +16,14 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
     public static final OrchestratedVirtualMachineScaleSetIdentityArgs Empty = new OrchestratedVirtualMachineScaleSetIdentityArgs();
 
     /**
-     * Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
      * 
      */
     @Import(name="identityIds", required=true)
     private Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * @return Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
      * 
      */
     public Output<List<String>> identityIds() {
@@ -31,14 +31,14 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
     }
 
     /**
-     * The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * @return The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -71,7 +71,7 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
         }
 
         /**
-         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
         }
 
         /**
-         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
         }
 
         /**
-         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+         * @param identityIds Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
         }
 
         /**
-         * @param type The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * @param type The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class OrchestratedVirtualMachineScaleSetIdentityArgs extends com.pu
         }
 
         /**
-         * @param type The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * @param type The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
          * 
          * @return builder
          * 

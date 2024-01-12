@@ -326,14 +326,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return this.principalId;
     }
     /**
-     * The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> principalType() {

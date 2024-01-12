@@ -71,7 +71,7 @@ export class NetworkManager extends pulumi.CustomResource {
     }
 
     /**
-     * A `crossTenantScopes` block as defined below.
+     * One or more `crossTenantScopes` blocks as defined below.
      */
     public /*out*/ readonly crossTenantScopes!: pulumi.Output<outputs.network.NetworkManagerCrossTenantScope[]>;
     /**
@@ -154,7 +154,7 @@ export class NetworkManager extends pulumi.CustomResource {
  */
 export interface NetworkManagerState {
     /**
-     * A `crossTenantScopes` block as defined below.
+     * One or more `crossTenantScopes` blocks as defined below.
      */
     crossTenantScopes?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerCrossTenantScope>[]>;
     /**

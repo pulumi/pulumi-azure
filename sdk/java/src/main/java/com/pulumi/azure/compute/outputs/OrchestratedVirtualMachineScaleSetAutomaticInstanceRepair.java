@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
     /**
-     * @return Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+     * @return Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
      * 
      */
     private Boolean enabled;
@@ -26,7 +26,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
 
     private OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair() {}
     /**
-     * @return Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+     * @return Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
      * 
      */
     public Boolean enabled() {

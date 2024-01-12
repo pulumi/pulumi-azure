@@ -291,24 +291,23 @@ var moduleMap = map[string]string{
 	"media_services":      azureMediaServices,
 	"media":               azureMedia,
 	// Ignored: azureMixedReality. The only token is "azurerm_spatial_anchors_account".
-	"monitor": azureMonitoring,
-	"mobile":  azureMobile,
-	"mssql":   azureMSSQL,
-	"mysql":   azureMySQL,
-	"netapp":  azureNetapp,
-	// Ignored: azureNetwork. Tokens don't loose there prefix here, so we can't use
-	// this automapper.
+	"monitor":          azureMonitoring,
+	"mobile":           azureMobile,
+	"mssql":            azureMSSQL,
+	"mysql":            azureMySQL,
+	"netapp":           azureNetapp,
+	"network":          azureNetwork + "~Network",
 	"nginx":            azureNginx,
 	"notification_hub": azureNotificationHub,
 	// Ignored: azureOperationalInsights. The token prefix log_ maps into either
 	// azureOperationalInsights or azureLogInsights. Its not clear which from the
 	// token.
-	"orbital":    azureOrbital,
-	"palo_alto":  azurePaloAlto,
-	"pim":        "Pim",
-	"postgresql": azurePostgresql,
-	"policy":     azurePolicy,
-	// Ignored: azurePortal. The token prefix is included in the output.
+	"orbital":     azureOrbital,
+	"palo_alto":   azurePaloAlto,
+	"pim":         "Pim",
+	"postgresql":  azurePostgresql,
+	"policy":      azurePolicy,
+	"portal":      azurePortal,
 	"powerbi":     azurePowerBi,
 	"proximity":   azureProximity,
 	"private_dns": azurePrivateDNS,

@@ -199,7 +199,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
@@ -443,7 +443,7 @@ export interface LinuxWebAppSlotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
@@ -549,7 +549,7 @@ export interface LinuxWebAppSlotArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */

@@ -7652,6 +7652,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "securitycenter/serverVulnerabilityAssessmentsSetting",
+  "fqn": "pulumi_azure.securitycenter",
+  "classes": {
+   "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting": "ServerVulnerabilityAssessmentsSetting"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "securitycenter/setting",
   "fqn": "pulumi_azure.securitycenter",
   "classes": {

@@ -3859,6 +3859,9 @@
                                 "custom_domain": {
                                     "maxItemsOne": true
                                 },
+                                "ip_security_restriction": {
+                                    "maxItemsOne": false
+                                },
                                 "traffic_weight": {
                                     "maxItemsOne": false
                                 }
@@ -14738,6 +14741,16 @@
                 "current": "azure:mssql/database:Database",
                 "majorVersion": 5,
                 "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "import": {
                         "maxItemsOne": true
                     },
@@ -17389,6 +17402,10 @@
             },
             "azurerm_security_center_server_vulnerability_assessment_virtual_machine": {
                 "current": "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine",
+                "majorVersion": 5
+            },
+            "azurerm_security_center_server_vulnerability_assessments_setting": {
+                "current": "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting",
                 "majorVersion": 5
             },
             "azurerm_security_center_setting": {
@@ -27224,7 +27241,19 @@
             },
             "azurerm_mssql_database": {
                 "current": "azure:mssql/getDatabase:getDatabase",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_mssql_elasticpool": {
                 "current": "azure:mssql/getElasticPool:getElasticPool",
@@ -27452,6 +27481,41 @@
                         }
                     },
                     "private_ip_addresses": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_network_manager": {
+                "current": "azure:network/getNetworkManager:getNetworkManager",
+                "majorVersion": 5,
+                "fields": {
+                    "cross_tenant_scopes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "management_groups": {
+                                    "maxItemsOne": false
+                                },
+                                "subscriptions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "scope": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "management_group_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "subscription_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "scope_accesses": {
                         "maxItemsOne": false
                     }
                 }
@@ -30623,6 +30687,7 @@
             "azure:securitycenter/contact:Contact": "azurerm_security_center_contact",
             "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment": "azurerm_security_center_server_vulnerability_assessment",
             "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine": "azurerm_security_center_server_vulnerability_assessment_virtual_machine",
+            "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting": "azurerm_security_center_server_vulnerability_assessments_setting",
             "azure:securitycenter/setting:Setting": "azurerm_security_center_setting",
             "azure:securitycenter/storageDefender:StorageDefender": "azurerm_security_center_storage_defender",
             "azure:securitycenter/subscriptionPricing:SubscriptionPricing": "azurerm_security_center_subscription_pricing",
@@ -31033,6 +31098,7 @@
             "azure:network/getNatGateway:getNatGateway": "azurerm_nat_gateway",
             "azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan": "azurerm_network_ddos_protection_plan",
             "azure:network/getNetworkInterface:getNetworkInterface": "azurerm_network_interface",
+            "azure:network/getNetworkManager:getNetworkManager": "azurerm_network_manager",
             "azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup": "azurerm_network_manager_network_group",
             "azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup": "azurerm_network_security_group",
             "azure:network/getNetworkWatcher:getNetworkWatcher": "azurerm_network_watcher",
@@ -39004,6 +39070,7 @@
                 "frontendEndpointIds": "frontend_endpoint_ids",
                 "managedRules": "managed_rule",
                 "redirectUrl": "redirect_url",
+                "requestBodyCheckEnabled": "request_body_check_enabled",
                 "resourceGroupName": "resource_group_name",
                 "skuName": "sku_name"
             },
@@ -40815,12 +40882,16 @@
                 "customDomain": "custom_domain",
                 "exposedPort": "exposed_port",
                 "externalEnabled": "external_enabled",
+                "ipSecurityRestrictions": "ip_security_restriction",
                 "targetPort": "target_port",
                 "trafficWeights": "traffic_weight"
             },
             "azure:containerapp/AppIngressCustomDomain:AppIngressCustomDomain": {
                 "certificateBindingType": "certificate_binding_type",
                 "certificateId": "certificate_id"
+            },
+            "azure:containerapp/AppIngressIpSecurityRestriction:AppIngressIpSecurityRestriction": {
+                "ipAddressRange": "ip_address_range"
             },
             "azure:containerapp/AppIngressTrafficWeight:AppIngressTrafficWeight": {
                 "latestRevision": "latest_revision",
@@ -50149,6 +50220,9 @@
                 "resourceGroupName": "resource_group_name",
                 "tenantId": "tenant_id"
             },
+            "azure:mssql/DatabaseIdentity:DatabaseIdentity": {
+                "identityIds": "identity_ids"
+            },
             "azure:mssql/DatabaseImport:DatabaseImport": {
                 "administratorLogin": "administrator_login",
                 "administratorLoginPassword": "administrator_login_password",
@@ -50338,6 +50412,8 @@
                 "storageAccountType": "storage_account_type",
                 "threatDetectionPolicy": "threat_detection_policy",
                 "transparentDataEncryptionEnabled": "transparent_data_encryption_enabled",
+                "transparentDataEncryptionKeyAutomaticRotationEnabled": "transparent_data_encryption_key_automatic_rotation_enabled",
+                "transparentDataEncryptionKeyVaultKeyId": "transparent_data_encryption_key_vault_key_id",
                 "zoneRedundant": "zone_redundant"
             },
             "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy": {
@@ -50380,6 +50456,7 @@
             "azure:mssql/getDatabase:getDatabase": {
                 "elasticPoolId": "elastic_pool_id",
                 "enclaveType": "enclave_type",
+                "identities": "identity",
                 "licenseType": "license_type",
                 "maxSizeGb": "max_size_gb",
                 "readReplicaCount": "read_replica_count",
@@ -50387,7 +50464,13 @@
                 "serverId": "server_id",
                 "skuName": "sku_name",
                 "storageAccountType": "storage_account_type",
+                "transparentDataEncryptionEnabled": "transparent_data_encryption_enabled",
+                "transparentDataEncryptionKeyAutomaticRotationEnabled": "transparent_data_encryption_key_automatic_rotation_enabled",
+                "transparentDataEncryptionKeyVaultKeyId": "transparent_data_encryption_key_vault_key_id",
                 "zoneRedundant": "zone_redundant"
+            },
+            "azure:mssql/getDatabaseIdentity:getDatabaseIdentity": {
+                "identityIds": "identity_ids"
             },
             "azure:mssql/getElasticPool:getElasticPool": {
                 "enclaveType": "enclave_type",
@@ -50427,7 +50510,8 @@
                 "fullyQualifiedDomainName": "fully_qualified_domain_name",
                 "identities": "identity",
                 "resourceGroupName": "resource_group_name",
-                "restorableDroppedDatabaseIds": "restorable_dropped_database_ids"
+                "restorableDroppedDatabaseIds": "restorable_dropped_database_ids",
+                "transparentDataEncryptionKeyVaultKeyId": "transparent_data_encryption_key_vault_key_id"
             },
             "azure:mssql/getServerIdentity:getServerIdentity": {
                 "identityIds": "identity_ids",
@@ -52281,8 +52365,22 @@
                 "publicIpAddressId": "public_ip_address_id",
                 "subnetId": "subnet_id"
             },
+            "azure:network/getNetworkManager:getNetworkManager": {
+                "crossTenantScopes": "cross_tenant_scopes",
+                "resourceGroupName": "resource_group_name",
+                "scopeAccesses": "scope_accesses",
+                "scopes": "scope"
+            },
+            "azure:network/getNetworkManagerCrossTenantScope:getNetworkManagerCrossTenantScope": {
+                "managementGroups": "management_groups",
+                "tenantId": "tenant_id"
+            },
             "azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup": {
                 "networkManagerId": "network_manager_id"
+            },
+            "azure:network/getNetworkManagerScope:getNetworkManagerScope": {
+                "managementGroupIds": "management_group_ids",
+                "subscriptionIds": "subscription_ids"
             },
             "azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup": {
                 "resourceGroupName": "resource_group_name",
@@ -54282,6 +54380,9 @@
             },
             "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine": {
                 "virtualMachineId": "virtual_machine_id"
+            },
+            "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting": {
+                "vulnerabilityAssessmentProvider": "vulnerability_assessment_provider"
             },
             "azure:securitycenter/setting:Setting": {
                 "settingName": "setting_name"

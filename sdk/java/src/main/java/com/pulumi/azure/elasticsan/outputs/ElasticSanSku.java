@@ -13,21 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ElasticSanSku {
     /**
-     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
      * 
      */
     private String name;
     /**
-     * @return The SKU tier. The only possible value is `Premium`.
+     * @return The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
      * 
      */
     private @Nullable String tier;
 
     private ElasticSanSku() {}
     /**
-     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+     * @return The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
      * 
@@ -36,7 +36,7 @@ public final class ElasticSanSku {
         return this.name;
     }
     /**
-     * @return The SKU tier. The only possible value is `Premium`.
+     * @return The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
      * 
      */
     public Optional<String> tier() {

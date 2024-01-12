@@ -234,7 +234,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -505,7 +505,7 @@ export interface WindowsFunctionAppSlotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }
@@ -634,7 +634,7 @@ export interface WindowsFunctionAppSlotArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }

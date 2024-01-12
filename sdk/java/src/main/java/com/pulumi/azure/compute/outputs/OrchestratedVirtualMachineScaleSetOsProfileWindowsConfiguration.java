@@ -22,7 +22,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private String adminPassword;
     /**
-     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * @return The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
     private String adminUsername;
@@ -38,7 +38,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     private @Nullable Boolean enableAutomaticUpdates;
     private @Nullable Boolean hotpatchingEnabled;
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
@@ -81,7 +81,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return this.adminPassword;
     }
     /**
-     * @return The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+     * @return The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      * 
      */
     public String adminUsername() {
@@ -105,7 +105,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.hotpatchingEnabled);
     }
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 

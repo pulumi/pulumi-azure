@@ -257,16 +257,12 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
-     * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
      * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-     * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      * 
      */
     public Output<String> mode() {
@@ -299,6 +295,24 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<String>> redirectUrl() {
         return Codegen.optional(this.redirectUrl);
+    }
+    /**
+     * Should policy managed rules inspect the request body content? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * 
+     */
+    @Export(name="requestBodyCheckEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> requestBodyCheckEnabled;
+
+    /**
+     * @return Should policy managed rules inspect the request body content? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * 
+     */
+    public Output<Optional<Boolean>> requestBodyCheckEnabled() {
+        return Codegen.optional(this.requestBodyCheckEnabled);
     }
     /**
      * The name of the resource group. Changing this forces a new resource to be created.

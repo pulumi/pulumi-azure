@@ -41,6 +41,94 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ * });
+ * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: exampleUserAssignedIdentity.tenantId,
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: true,
+ *     skuName: "standard",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: data.azurerm_client_config.current.tenant_id,
+ *             objectId: data.azurerm_client_config.current.object_id,
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "List",
+ *                 "Create",
+ *                 "Delete",
+ *                 "Update",
+ *                 "Recover",
+ *                 "Purge",
+ *                 "GetRotationPolicy",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: exampleUserAssignedIdentity.tenantId,
+ *             objectId: exampleUserAssignedIdentity.principalId,
+ *             keyPermissions: [
+ *                 "Get",
+ *                 "WrapKey",
+ *                 "UnwrapKey",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "unwrapKey",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [exampleKeyVault],
+ * });
+ * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ *     serverId: exampleServer.id,
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     licenseType: "LicenseIncluded",
+ *     maxSizeGb: 4,
+ *     readScale: true,
+ *     skuName: "S0",
+ *     zoneRedundant: true,
+ *     enclaveType: "VBS",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     transparentDataEncryptionKeyVaultKeyId: exampleKey.id,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -114,6 +202,10 @@ export class Database extends pulumi.CustomResource {
      * > **NOTE:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      */
     public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.mssql.DatabaseIdentity | undefined>;
     /**
      * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
@@ -191,7 +283,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -208,6 +300,16 @@ export class Database extends pulumi.CustomResource {
      * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     public readonly transparentDataEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     */
+    public readonly transparentDataEncryptionKeyAutomaticRotationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     *
+     * > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     */
+    public readonly transparentDataEncryptionKeyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
@@ -233,6 +335,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
             resourceInputs["enclaveType"] = state ? state.enclaveType : undefined;
             resourceInputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["import"] = state ? state.import : undefined;
             resourceInputs["ledgerEnabled"] = state ? state.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
@@ -254,6 +357,8 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
             resourceInputs["transparentDataEncryptionEnabled"] = state ? state.transparentDataEncryptionEnabled : undefined;
+            resourceInputs["transparentDataEncryptionKeyAutomaticRotationEnabled"] = state ? state.transparentDataEncryptionKeyAutomaticRotationEnabled : undefined;
+            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = state ? state.transparentDataEncryptionKeyVaultKeyId : undefined;
             resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
@@ -267,6 +372,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             resourceInputs["enclaveType"] = args ? args.enclaveType : undefined;
             resourceInputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["import"] = args ? args.import : undefined;
             resourceInputs["ledgerEnabled"] = args ? args.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
@@ -288,6 +394,8 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             resourceInputs["transparentDataEncryptionEnabled"] = args ? args.transparentDataEncryptionEnabled : undefined;
+            resourceInputs["transparentDataEncryptionKeyAutomaticRotationEnabled"] = args ? args.transparentDataEncryptionKeyAutomaticRotationEnabled : undefined;
+            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = args ? args.transparentDataEncryptionKeyVaultKeyId : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -335,6 +443,10 @@ export interface DatabaseState {
      * > **NOTE:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.mssql.DatabaseIdentity>;
     /**
      * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
@@ -412,7 +524,7 @@ export interface DatabaseState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -429,6 +541,16 @@ export interface DatabaseState {
      * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     */
+    transparentDataEncryptionKeyAutomaticRotationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     *
+     * > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     */
+    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
@@ -475,6 +597,10 @@ export interface DatabaseArgs {
      * > **NOTE:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.mssql.DatabaseIdentity>;
     /**
      * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
@@ -552,7 +678,7 @@ export interface DatabaseArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -569,6 +695,16 @@ export interface DatabaseArgs {
      * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     */
+    transparentDataEncryptionKeyAutomaticRotationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     *
+     * > **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     */
+    transparentDataEncryptionKeyVaultKeyId?: pulumi.Input<string>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */

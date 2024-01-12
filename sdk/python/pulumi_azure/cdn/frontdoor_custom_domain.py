@@ -23,7 +23,7 @@ class FrontdoorCustomDomainArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorCustomDomain resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] host_name: The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input['FrontdoorCustomDomainTlsArgs'] tls: A `tls` block as defined below.
         :param pulumi.Input[str] dns_zone_id: The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
@@ -45,7 +45,7 @@ class FrontdoorCustomDomainArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -118,7 +118,7 @@ class _FrontdoorCustomDomainState:
                  validation_token: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FrontdoorCustomDomain resources.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
                
                <!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
@@ -149,7 +149,7 @@ class _FrontdoorCustomDomainState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -295,7 +295,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
                
                <!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
@@ -427,7 +427,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] dns_zone_id: The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
                
                <!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
@@ -456,7 +456,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
+        The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 

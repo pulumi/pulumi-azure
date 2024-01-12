@@ -18,18 +18,18 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
     public static final OrchestratedVirtualMachineScaleSetOsProfileArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileArgs();
 
     /**
-     * The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
-     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     @Import(name="customData")
     private @Nullable Output<String> customData;
 
     /**
-     * @return The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+     * @return The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
-     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     public Optional<Output<String>> customData() {
@@ -93,9 +93,9 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param customData The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         * @param customData The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          * 
-         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          * 
          * @return builder
          * 
@@ -106,9 +106,9 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileArgs extends com.p
         }
 
         /**
-         * @param customData The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+         * @param customData The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          * 
-         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          * 
          * @return builder
          * 

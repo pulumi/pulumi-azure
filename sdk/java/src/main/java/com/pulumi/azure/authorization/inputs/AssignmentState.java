@@ -115,14 +115,14 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+     * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -362,7 +362,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principalType The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+         * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

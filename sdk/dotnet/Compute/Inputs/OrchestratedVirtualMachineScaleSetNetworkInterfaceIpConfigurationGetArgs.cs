@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _applicationGatewayBackendAddressPoolIds;
 
         /// <summary>
-        /// A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
         /// </summary>
         public InputList<string> ApplicationGatewayBackendAddressPoolIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _applicationSecurityGroupIds;
 
         /// <summary>
-        /// A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
         /// </summary>
         public InputList<string> ApplicationSecurityGroupIds
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _loadBalancerBackendAddressPoolIds;
 
         /// <summary>
-        /// A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        /// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         /// 
         /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         /// </summary>

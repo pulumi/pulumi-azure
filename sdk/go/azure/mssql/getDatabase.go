@@ -84,6 +84,8 @@ type LookupDatabaseResult struct {
 	EnclaveType string `pulumi:"enclaveType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A `identity` block as defined below.
+	Identities []GetDatabaseIdentity `pulumi:"identities"`
 	// The license type to apply for this database.
 	LicenseType string `pulumi:"licenseType"`
 	// The max size of the database in gigabytes.
@@ -100,6 +102,12 @@ type LookupDatabaseResult struct {
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether or not Transparent Data Encryption is enabled.
+	TransparentDataEncryptionEnabled bool `pulumi:"transparentDataEncryptionEnabled"`
+	// Whether or not TDE automatically rotates the encryption Key to latest version.
+	TransparentDataEncryptionKeyAutomaticRotationEnabled bool `pulumi:"transparentDataEncryptionKeyAutomaticRotationEnabled"`
+	// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	TransparentDataEncryptionKeyVaultKeyId string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
@@ -164,6 +172,11 @@ func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A `identity` block as defined below.
+func (o LookupDatabaseResultOutput) Identities() GetDatabaseIdentityArrayOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) []GetDatabaseIdentity { return v.Identities }).(GetDatabaseIdentityArrayOutput)
+}
+
 // The license type to apply for this database.
 func (o LookupDatabaseResultOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.LicenseType }).(pulumi.StringOutput)
@@ -205,6 +218,21 @@ func (o LookupDatabaseResultOutput) StorageAccountType() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o LookupDatabaseResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether or not Transparent Data Encryption is enabled.
+func (o LookupDatabaseResultOutput) TransparentDataEncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.TransparentDataEncryptionEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether or not TDE automatically rotates the encryption Key to latest version.
+func (o LookupDatabaseResultOutput) TransparentDataEncryptionKeyAutomaticRotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.TransparentDataEncryptionKeyAutomaticRotationEnabled }).(pulumi.BoolOutput)
+}
+
+// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+func (o LookupDatabaseResultOutput) TransparentDataEncryptionKeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.TransparentDataEncryptionKeyVaultKeyId }).(pulumi.StringOutput)
 }
 
 // Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

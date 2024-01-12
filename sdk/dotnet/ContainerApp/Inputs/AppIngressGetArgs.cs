@@ -44,6 +44,18 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
 
+        [Input("ipSecurityRestrictions")]
+        private InputList<Inputs.AppIngressIpSecurityRestrictionGetArgs>? _ipSecurityRestrictions;
+
+        /// <summary>
+        /// One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        /// </summary>
+        public InputList<Inputs.AppIngressIpSecurityRestrictionGetArgs> IpSecurityRestrictions
+        {
+            get => _ipSecurityRestrictions ?? (_ipSecurityRestrictions = new InputList<Inputs.AppIngressIpSecurityRestrictionGetArgs>());
+            set => _ipSecurityRestrictions = value;
+        }
+
         /// <summary>
         /// The target port on the container for the Ingress traffic.
         /// </summary>
@@ -54,9 +66,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         private InputList<Inputs.AppIngressTrafficWeightGetArgs>? _trafficWeights;
 
         /// <summary>
-        /// A `traffic_weight` block as detailed below.
-        /// 
-        /// &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+        /// One or more `traffic_weight` blocks as detailed below.
         /// </summary>
         public InputList<Inputs.AppIngressTrafficWeightGetArgs> TrafficWeights
         {

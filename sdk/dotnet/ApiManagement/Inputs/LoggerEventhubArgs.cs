@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+        /// The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
         /// </summary>
         [Input("userAssignedIdentityClientId")]
         public Input<string>? UserAssignedIdentityClientId { get; set; }

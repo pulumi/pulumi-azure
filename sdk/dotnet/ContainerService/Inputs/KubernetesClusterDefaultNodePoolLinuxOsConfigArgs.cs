@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int>? SwapFileSizeMb { get; set; }
 
         /// <summary>
-        /// A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        /// A `sysctl_config` block as defined below.
         /// </summary>
         [Input("sysctlConfig")]
         public Input<Inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs>? SysctlConfig { get; set; }

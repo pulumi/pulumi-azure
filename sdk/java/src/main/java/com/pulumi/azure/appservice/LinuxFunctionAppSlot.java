@@ -305,14 +305,14 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Are the default FTP Basic Authentication publishing credentials enabled.
+     * Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     @Export(name="ftpPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ftpPublishBasicAuthenticationEnabled;
 
     /**
-     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * @return Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> ftpPublishBasicAuthenticationEnabled() {
@@ -645,14 +645,14 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkSubnetId);
     }
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> webdeployPublishBasicAuthenticationEnabled;
 
     /**
-     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {

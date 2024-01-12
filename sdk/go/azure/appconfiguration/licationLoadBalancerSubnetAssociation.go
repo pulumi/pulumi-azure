@@ -103,9 +103,9 @@ type LicationLoadBalancerSubnetAssociation struct {
 	ApplicationLoadBalancerId pulumi.StringOutput `pulumi:"applicationLoadBalancerId"`
 	// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+	// The ID of the subnet which the Application Gateway for Containers associated to.
 	//
-	// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+	// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -151,9 +151,9 @@ type licationLoadBalancerSubnetAssociationState struct {
 	ApplicationLoadBalancerId *string `pulumi:"applicationLoadBalancerId"`
 	// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+	// The ID of the subnet which the Application Gateway for Containers associated to.
 	//
-	// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+	// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
 	Tags map[string]string `pulumi:"tags"`
@@ -164,9 +164,9 @@ type LicationLoadBalancerSubnetAssociationState struct {
 	ApplicationLoadBalancerId pulumi.StringPtrInput
 	// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+	// The ID of the subnet which the Application Gateway for Containers associated to.
 	//
-	// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+	// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
 	Tags pulumi.StringMapInput
@@ -181,9 +181,9 @@ type licationLoadBalancerSubnetAssociationArgs struct {
 	ApplicationLoadBalancerId string `pulumi:"applicationLoadBalancerId"`
 	// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+	// The ID of the subnet which the Application Gateway for Containers associated to.
 	//
-	// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+	// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
 	Tags map[string]string `pulumi:"tags"`
@@ -195,9 +195,9 @@ type LicationLoadBalancerSubnetAssociationArgs struct {
 	ApplicationLoadBalancerId pulumi.StringInput
 	// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+	// The ID of the subnet which the Application Gateway for Containers associated to.
 	//
-	// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+	// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 	SubnetId pulumi.StringInput
 	// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
 	Tags pulumi.StringMapInput
@@ -300,9 +300,9 @@ func (o LicationLoadBalancerSubnetAssociationOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v *LicationLoadBalancerSubnetAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created.
+// The ID of the subnet which the Application Gateway for Containers associated to.
 //
-// **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
+// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
 func (o LicationLoadBalancerSubnetAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicationLoadBalancerSubnetAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

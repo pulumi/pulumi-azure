@@ -3349,7 +3349,7 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] ultra_ssd_enabled: Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
         """
         if ultra_ssd_enabled is not None:
             pulumi.set(__self__, "ultra_ssd_enabled", ultra_ssd_enabled)
@@ -3358,7 +3358,7 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs:
     @pulumi.getter(name="ultraSsdEnabled")
     def ultra_ssd_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+        Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
@@ -3373,7 +3373,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
                  enabled: pulumi.Input[bool],
                  grace_period: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+        :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         :param pulumi.Input[str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3384,7 +3384,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
+        Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -3595,14 +3595,14 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] type: Specifies the Type of the Extension.
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[bool] auto_upgrade_minor_version_enabled: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
         :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`.
                
                > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param pulumi.Input[str] force_extension_execution_on_change: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -3691,7 +3691,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
     @pulumi.getter(name="extensionsToProvisionAfterVmCreations")
     def extensions_to_provision_after_vm_creations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
+        An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
         """
         return pulumi.get(self, "extensions_to_provision_after_vm_creations")
 
@@ -3731,7 +3731,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
+        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -3809,8 +3809,8 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
-        :param pulumi.Input[str] type: The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+        :param pulumi.Input[str] type: The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -3819,7 +3819,7 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+        Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3831,7 +3831,7 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -3974,9 +3974,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Name which should be used for this IP Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_gateway_backend_address_pool_ids: A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_backend_address_pool_ids: A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_gateway_backend_address_pool_ids: A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_backend_address_pool_ids: A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
                > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
@@ -4020,7 +4020,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
     def application_gateway_backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Backend Address Pools IDs from a Application Gateway which this Orchestrated Virtual Machine Scale Set should be connected to.
+        A list of Backend Address Pools IDs from a Application Gateway which this Virtual Machine Scale Set should be connected to.
         """
         return pulumi.get(self, "application_gateway_backend_address_pool_ids")
 
@@ -4032,7 +4032,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter(name="applicationSecurityGroupIds")
     def application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Application Security Group IDs which this Orchestrated Virtual Machine Scale Set should be connected to.
+        A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
         """
         return pulumi.get(self, "application_security_group_ids")
 
@@ -4044,7 +4044,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter(name="loadBalancerBackendAddressPoolIds")
     def load_balancer_backend_address_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Backend Address Pools IDs from a Load Balancer which this Orchestrated Virtual Machine Scale Set should be connected to.
+        A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
         > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         """
@@ -4412,9 +4412,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
                  linux_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']] = None,
                  windows_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
                
-               > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+               > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs'] linux_configuration: A `linux_configuration` block as documented below.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs'] windows_configuration: A `windows_configuration` block as documented below.
         """
@@ -4429,9 +4429,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
         """
-        The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
+        The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
-        > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
+        > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
         """
         return pulumi.get(self, "custom_data")
 
@@ -4477,14 +4477,14 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None):
         """
-        :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]] admin_ssh_keys: A `admin_ssh_key` block as documented below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
                
                > **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
-        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -4512,7 +4512,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Input[str]:
         """
-        The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_username")
 
@@ -4574,7 +4574,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="patchAssessmentMode")
     def patch_assessment_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
         > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
@@ -4742,10 +4742,10 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None):
         """
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -4793,7 +4793,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Input[str]:
         """
-        The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "admin_username")
 
@@ -4838,7 +4838,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="patchAssessmentMode")
     def patch_assessment_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
         > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """

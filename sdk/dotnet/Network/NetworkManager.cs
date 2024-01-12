@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManager : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A `cross_tenant_scopes` block as defined below.
+        /// One or more `cross_tenant_scopes` blocks as defined below.
         /// </summary>
         [Output("crossTenantScopes")]
         public Output<ImmutableArray<Outputs.NetworkManagerCrossTenantScope>> CrossTenantScopes { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkManagerCrossTenantScopeGetArgs>? _crossTenantScopes;
 
         /// <summary>
-        /// A `cross_tenant_scopes` block as defined below.
+        /// One or more `cross_tenant_scopes` blocks as defined below.
         /// </summary>
         public InputList<Inputs.NetworkManagerCrossTenantScopeGetArgs> CrossTenantScopes
         {

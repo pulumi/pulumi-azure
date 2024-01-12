@@ -15,6 +15,7 @@ __all__ = [
     'AppIdentity',
     'AppIngress',
     'AppIngressCustomDomain',
+    'AppIngressIpSecurityRestriction',
     'AppIngressTrafficWeight',
     'AppRegistry',
     'AppSecret',
@@ -221,6 +222,8 @@ class AppIngress(dict):
             suggest = "exposed_port"
         elif key == "externalEnabled":
             suggest = "external_enabled"
+        elif key == "ipSecurityRestrictions":
+            suggest = "ip_security_restrictions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AppIngress. Access the value via the '{suggest}' property getter instead.")
@@ -241,12 +244,11 @@ class AppIngress(dict):
                  exposed_port: Optional[int] = None,
                  external_enabled: Optional[bool] = None,
                  fqdn: Optional[str] = None,
+                 ip_security_restrictions: Optional[Sequence['outputs.AppIngressIpSecurityRestriction']] = None,
                  transport: Optional[str] = None):
         """
         :param int target_port: The target port on the container for the Ingress traffic.
-        :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
-               
-               > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+        :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param 'AppIngressCustomDomainArgs' custom_domain: One or more `custom_domain` block as detailed below.
         :param int exposed_port: The exposed port on the container for the Ingress traffic.
@@ -254,6 +256,7 @@ class AppIngress(dict):
                > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
         :param bool external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param str fqdn: The FQDN of the ingress.
+        :param Sequence['AppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         :param str transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         """
         pulumi.set(__self__, "target_port", target_port)
@@ -268,6 +271,8 @@ class AppIngress(dict):
             pulumi.set(__self__, "external_enabled", external_enabled)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if ip_security_restrictions is not None:
+            pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
         if transport is not None:
             pulumi.set(__self__, "transport", transport)
 
@@ -283,9 +288,7 @@ class AppIngress(dict):
     @pulumi.getter(name="trafficWeights")
     def traffic_weights(self) -> Sequence['outputs.AppIngressTrafficWeight']:
         """
-        A `traffic_weight` block as detailed below.
-
-        > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+        One or more `traffic_weight` blocks as detailed below.
         """
         return pulumi.get(self, "traffic_weights")
 
@@ -330,6 +333,14 @@ class AppIngress(dict):
         The FQDN of the ingress.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="ipSecurityRestrictions")
+    def ip_security_restrictions(self) -> Optional[Sequence['outputs.AppIngressIpSecurityRestriction']]:
+        """
+        One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        """
+        return pulumi.get(self, "ip_security_restrictions")
 
     @property
     @pulumi.getter
@@ -401,6 +412,79 @@ class AppIngressCustomDomain(dict):
 
 
 @pulumi.output_type
+class AppIngressIpSecurityRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressRange":
+            suggest = "ip_address_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppIngressIpSecurityRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppIngressIpSecurityRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppIngressIpSecurityRestriction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 ip_address_range: str,
+                 name: str,
+                 description: Optional[str] = None):
+        """
+        :param str action: The IP-filter action. `Allow` or `Deny`.
+               
+               > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+        :param str ip_address_range: CIDR notation to match incoming IP address.
+        :param str name: Name for the IP restriction rule.
+        :param str description: Describe the IP restriction rule that is being sent to the container-app.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "ip_address_range", ip_address_range)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The IP-filter action. `Allow` or `Deny`.
+
+        > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipAddressRange")
+    def ip_address_range(self) -> str:
+        """
+        CIDR notation to match incoming IP address.
+        """
+        return pulumi.get(self, "ip_address_range")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name for the IP restriction rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Describe the IP restriction rule that is being sent to the container-app.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class AppIngressTrafficWeight(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -431,8 +515,10 @@ class AppIngressTrafficWeight(dict):
                
                > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
         :param str label: The label to apply to the revision as a name prefix for routing traffic.
-        :param bool latest_revision: This traffic Weight relates to the latest stable Container Revision.
+        :param bool latest_revision: This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
+               
+               > **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
         """
         pulumi.set(__self__, "percentage", percentage)
         if label is not None:
@@ -464,7 +550,7 @@ class AppIngressTrafficWeight(dict):
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[bool]:
         """
-        This traffic Weight relates to the latest stable Container Revision.
+        This traffic Weight applies to the latest stable Container Revision. At most only one `traffic_weight` block can have the `latest_revision` set to `true`.
         """
         return pulumi.get(self, "latest_revision")
 
@@ -473,6 +559,8 @@ class AppIngressTrafficWeight(dict):
     def revision_suffix(self) -> Optional[str]:
         """
         The suffix string to which this `traffic_weight` applies.
+
+        > **Note:** `latest_revision` conflicts with `revision_suffix`, which means you shall either set `latest_revision` to `true` or specify `revision_suffix`. Especially for creation, there shall only be one `traffic_weight`, with the `latest_revision` set to `true`, and leave the `revision_suffix` empty.
         """
         return pulumi.get(self, "revision_suffix")
 

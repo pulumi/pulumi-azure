@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,6 +74,10 @@ export interface GetDatabaseResult {
      */
     readonly id: string;
     /**
+     * A `identity` block as defined below.
+     */
+    readonly identities: outputs.mssql.GetDatabaseIdentity[];
+    /**
      * The license type to apply for this database.
      */
     readonly licenseType: string;
@@ -101,6 +107,18 @@ export interface GetDatabaseResult {
      * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Whether or not Transparent Data Encryption is enabled.
+     */
+    readonly transparentDataEncryptionEnabled: boolean;
+    /**
+     * Whether or not TDE automatically rotates the encryption Key to latest version.
+     */
+    readonly transparentDataEncryptionKeyAutomaticRotationEnabled: boolean;
+    /**
+     * The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     */
+    readonly transparentDataEncryptionKeyVaultKeyId: string;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */

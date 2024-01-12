@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetDatabaseResult',
@@ -21,7 +22,7 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, collation=None, elastic_pool_id=None, enclave_type=None, id=None, license_type=None, max_size_gb=None, name=None, read_replica_count=None, read_scale=None, server_id=None, sku_name=None, storage_account_type=None, tags=None, zone_redundant=None):
+    def __init__(__self__, collation=None, elastic_pool_id=None, enclave_type=None, id=None, identities=None, license_type=None, max_size_gb=None, name=None, read_replica_count=None, read_scale=None, server_id=None, sku_name=None, storage_account_type=None, tags=None, transparent_data_encryption_enabled=None, transparent_data_encryption_key_automatic_rotation_enabled=None, transparent_data_encryption_key_vault_key_id=None, zone_redundant=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -34,6 +35,9 @@ class GetDatabaseResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if license_type and not isinstance(license_type, str):
             raise TypeError("Expected argument 'license_type' to be a str")
         pulumi.set(__self__, "license_type", license_type)
@@ -61,6 +65,15 @@ class GetDatabaseResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if transparent_data_encryption_enabled and not isinstance(transparent_data_encryption_enabled, bool):
+            raise TypeError("Expected argument 'transparent_data_encryption_enabled' to be a bool")
+        pulumi.set(__self__, "transparent_data_encryption_enabled", transparent_data_encryption_enabled)
+        if transparent_data_encryption_key_automatic_rotation_enabled and not isinstance(transparent_data_encryption_key_automatic_rotation_enabled, bool):
+            raise TypeError("Expected argument 'transparent_data_encryption_key_automatic_rotation_enabled' to be a bool")
+        pulumi.set(__self__, "transparent_data_encryption_key_automatic_rotation_enabled", transparent_data_encryption_key_automatic_rotation_enabled)
+        if transparent_data_encryption_key_vault_key_id and not isinstance(transparent_data_encryption_key_vault_key_id, str):
+            raise TypeError("Expected argument 'transparent_data_encryption_key_vault_key_id' to be a str")
+        pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
@@ -96,6 +109,14 @@ class GetDatabaseResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetDatabaseIdentityResult']:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -164,6 +185,30 @@ class GetDatabaseResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transparentDataEncryptionEnabled")
+    def transparent_data_encryption_enabled(self) -> bool:
+        """
+        Whether or not Transparent Data Encryption is enabled.
+        """
+        return pulumi.get(self, "transparent_data_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyAutomaticRotationEnabled")
+    def transparent_data_encryption_key_automatic_rotation_enabled(self) -> bool:
+        """
+        Whether or not TDE automatically rotates the encryption Key to latest version.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_automatic_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
+    def transparent_data_encryption_key_vault_key_id(self) -> str:
+        """
+        The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        """
+        return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> bool:
         """
@@ -182,6 +227,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             elastic_pool_id=self.elastic_pool_id,
             enclave_type=self.enclave_type,
             id=self.id,
+            identities=self.identities,
             license_type=self.license_type,
             max_size_gb=self.max_size_gb,
             name=self.name,
@@ -191,6 +237,9 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             sku_name=self.sku_name,
             storage_account_type=self.storage_account_type,
             tags=self.tags,
+            transparent_data_encryption_enabled=self.transparent_data_encryption_enabled,
+            transparent_data_encryption_key_automatic_rotation_enabled=self.transparent_data_encryption_key_automatic_rotation_enabled,
+            transparent_data_encryption_key_vault_key_id=self.transparent_data_encryption_key_vault_key_id,
             zone_redundant=self.zone_redundant)
 
 
@@ -233,6 +282,7 @@ def get_database(name: Optional[str] = None,
         elastic_pool_id=pulumi.get(__ret__, 'elastic_pool_id'),
         enclave_type=pulumi.get(__ret__, 'enclave_type'),
         id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
         license_type=pulumi.get(__ret__, 'license_type'),
         max_size_gb=pulumi.get(__ret__, 'max_size_gb'),
         name=pulumi.get(__ret__, 'name'),
@@ -242,6 +292,9 @@ def get_database(name: Optional[str] = None,
         sku_name=pulumi.get(__ret__, 'sku_name'),
         storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
         tags=pulumi.get(__ret__, 'tags'),
+        transparent_data_encryption_enabled=pulumi.get(__ret__, 'transparent_data_encryption_enabled'),
+        transparent_data_encryption_key_automatic_rotation_enabled=pulumi.get(__ret__, 'transparent_data_encryption_key_automatic_rotation_enabled'),
+        transparent_data_encryption_key_vault_key_id=pulumi.get(__ret__, 'transparent_data_encryption_key_vault_key_id'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 

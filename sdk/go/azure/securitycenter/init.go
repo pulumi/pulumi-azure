@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerVulnerabilityAssessment{}
 	case "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine":
 		r = &ServerVulnerabilityAssessmentVirtualMachine{}
+	case "azure:securitycenter/serverVulnerabilityAssessmentsSetting:ServerVulnerabilityAssessmentsSetting":
+		r = &ServerVulnerabilityAssessmentsSetting{}
 	case "azure:securitycenter/setting:Setting":
 		r = &Setting{}
 	case "azure:securitycenter/storageDefender:StorageDefender":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"securitycenter/serverVulnerabilityAssessmentVirtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"securitycenter/serverVulnerabilityAssessmentsSetting",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -192,13 +192,15 @@ type FrontdoorFirewallPolicy struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-	//
-	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If action type is redirect, this field represents redirect URL for the client.
 	RedirectUrl pulumi.StringPtrOutput `pulumi:"redirectUrl"`
+	// Should policy managed rules inspect the request body content? Defaults to `true`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+	RequestBodyCheckEnabled pulumi.BoolPtrOutput `pulumi:"requestBodyCheckEnabled"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -261,13 +263,15 @@ type frontdoorFirewallPolicyState struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-	//
-	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// If action type is redirect, this field represents redirect URL for the client.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Should policy managed rules inspect the request body content? Defaults to `true`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+	RequestBodyCheckEnabled *bool `pulumi:"requestBodyCheckEnabled"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -292,13 +296,15 @@ type FrontdoorFirewallPolicyState struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-	//
-	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// If action type is redirect, this field represents redirect URL for the client.
 	RedirectUrl pulumi.StringPtrInput
+	// Should policy managed rules inspect the request body content? Defaults to `true`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+	RequestBodyCheckEnabled pulumi.BoolPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -325,13 +331,15 @@ type frontdoorFirewallPolicyArgs struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-	//
-	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// If action type is redirect, this field represents redirect URL for the client.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Should policy managed rules inspect the request body content? Defaults to `true`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+	RequestBodyCheckEnabled *bool `pulumi:"requestBodyCheckEnabled"`
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -355,13 +363,15 @@ type FrontdoorFirewallPolicyArgs struct {
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-	//
-	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 	Mode pulumi.StringInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// If action type is redirect, this field represents redirect URL for the client.
 	RedirectUrl pulumi.StringPtrInput
+	// Should policy managed rules inspect the request body content? Defaults to `true`.
+	//
+	// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+	RequestBodyCheckEnabled pulumi.BoolPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
@@ -490,8 +500,6 @@ func (o FrontdoorFirewallPolicyOutput) ManagedRules() FrontdoorFirewallPolicyMan
 }
 
 // The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-//
-// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
 func (o FrontdoorFirewallPolicyOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -504,6 +512,13 @@ func (o FrontdoorFirewallPolicyOutput) Name() pulumi.StringOutput {
 // If action type is redirect, this field represents redirect URL for the client.
 func (o FrontdoorFirewallPolicyOutput) RedirectUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Should policy managed rules inspect the request body content? Defaults to `true`.
+//
+// > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+func (o FrontdoorFirewallPolicyOutput) RequestBodyCheckEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.BoolPtrOutput { return v.RequestBodyCheckEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group. Changing this forces a new resource to be created.

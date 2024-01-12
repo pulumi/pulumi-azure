@@ -305,7 +305,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
         public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -574,7 +574,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -885,7 +885,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         /// <summary>
-        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }

@@ -10605,7 +10605,7 @@ type LoggerEventhub struct {
 	EndpointUri *string `pulumi:"endpointUri"`
 	// The name of an EventHub.
 	Name string `pulumi:"name"`
-	// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+	// The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
 	UserAssignedIdentityClientId *string `pulumi:"userAssignedIdentityClientId"`
 }
 
@@ -10629,7 +10629,7 @@ type LoggerEventhubArgs struct {
 	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
 	// The name of an EventHub.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+	// The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
 	UserAssignedIdentityClientId pulumi.StringPtrInput `pulumi:"userAssignedIdentityClientId"`
 }
 
@@ -10727,7 +10727,7 @@ func (o LoggerEventhubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+// The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
 func (o LoggerEventhubOutput) UserAssignedIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoggerEventhub) *string { return v.UserAssignedIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -10788,7 +10788,7 @@ func (o LoggerEventhubPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+// The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
 func (o LoggerEventhubPtrOutput) UserAssignedIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggerEventhub) *string {
 		if v == nil {

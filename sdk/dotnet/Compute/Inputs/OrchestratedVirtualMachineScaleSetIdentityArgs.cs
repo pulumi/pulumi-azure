@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+        /// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        /// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

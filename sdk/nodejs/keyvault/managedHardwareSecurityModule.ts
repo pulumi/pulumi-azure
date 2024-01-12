@@ -122,7 +122,7 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface ManagedHardwareSecurityModuleState {
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -310,7 +310,7 @@ export interface ManagedHardwareSecurityModuleArgs {
      */
     softDeleteRetentionDays?: pulumi.Input<number>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

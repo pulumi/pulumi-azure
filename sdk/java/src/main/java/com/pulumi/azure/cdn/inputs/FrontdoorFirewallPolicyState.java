@@ -114,16 +114,12 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
-     * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
      * @return The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-     * 
-     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -158,6 +154,25 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> redirectUrl() {
         return Optional.ofNullable(this.redirectUrl);
+    }
+
+    /**
+     * Should policy managed rules inspect the request body content? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * 
+     */
+    @Import(name="requestBodyCheckEnabled")
+    private @Nullable Output<Boolean> requestBodyCheckEnabled;
+
+    /**
+     * @return Should policy managed rules inspect the request body content? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     * 
+     */
+    public Optional<Output<Boolean>> requestBodyCheckEnabled() {
+        return Optional.ofNullable(this.requestBodyCheckEnabled);
     }
 
     /**
@@ -221,6 +236,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         this.mode = $.mode;
         this.name = $.name;
         this.redirectUrl = $.redirectUrl;
+        this.requestBodyCheckEnabled = $.requestBodyCheckEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.tags = $.tags;
@@ -403,8 +419,6 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         /**
          * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
          * 
-         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
-         * 
          * @return builder
          * 
          */
@@ -415,8 +429,6 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
 
         /**
          * @param mode The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-         * 
-         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
          * 
          * @return builder
          * 
@@ -465,6 +477,31 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
          */
         public Builder redirectUrl(String redirectUrl) {
             return redirectUrl(Output.of(redirectUrl));
+        }
+
+        /**
+         * @param requestBodyCheckEnabled Should policy managed rules inspect the request body content? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestBodyCheckEnabled(@Nullable Output<Boolean> requestBodyCheckEnabled) {
+            $.requestBodyCheckEnabled = requestBodyCheckEnabled;
+            return this;
+        }
+
+        /**
+         * @param requestBodyCheckEnabled Should policy managed rules inspect the request body content? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn&#39;t take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestBodyCheckEnabled(Boolean requestBodyCheckEnabled) {
+            return requestBodyCheckEnabled(Output.of(requestBodyCheckEnabled));
         }
 
         /**

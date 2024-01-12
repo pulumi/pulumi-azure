@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.AppIngressCustomDomain;
+import com.pulumi.azure.containerapp.outputs.AppIngressIpSecurityRestriction;
 import com.pulumi.azure.containerapp.outputs.AppIngressTrafficWeight;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -45,14 +46,17 @@ public final class AppIngress {
      */
     private @Nullable String fqdn;
     /**
+     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    private @Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions;
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
     private Integer targetPort;
     /**
-     * @return A `traffic_weight` block as detailed below.
-     * 
-     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * @return One or more `traffic_weight` blocks as detailed below.
      * 
      */
     private List<AppIngressTrafficWeight> trafficWeights;
@@ -101,6 +105,13 @@ public final class AppIngress {
         return Optional.ofNullable(this.fqdn);
     }
     /**
+     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    public List<AppIngressIpSecurityRestriction> ipSecurityRestrictions() {
+        return this.ipSecurityRestrictions == null ? List.of() : this.ipSecurityRestrictions;
+    }
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -108,9 +119,7 @@ public final class AppIngress {
         return this.targetPort;
     }
     /**
-     * @return A `traffic_weight` block as detailed below.
-     * 
-     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * @return One or more `traffic_weight` blocks as detailed below.
      * 
      */
     public List<AppIngressTrafficWeight> trafficWeights() {
@@ -138,6 +147,7 @@ public final class AppIngress {
         private @Nullable Integer exposedPort;
         private @Nullable Boolean externalEnabled;
         private @Nullable String fqdn;
+        private @Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions;
         private Integer targetPort;
         private List<AppIngressTrafficWeight> trafficWeights;
         private @Nullable String transport;
@@ -149,6 +159,7 @@ public final class AppIngress {
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
+    	      this.ipSecurityRestrictions = defaults.ipSecurityRestrictions;
     	      this.targetPort = defaults.targetPort;
     	      this.trafficWeights = defaults.trafficWeights;
     	      this.transport = defaults.transport;
@@ -185,6 +196,15 @@ public final class AppIngress {
             return this;
         }
         @CustomType.Setter
+        public Builder ipSecurityRestrictions(@Nullable List<AppIngressIpSecurityRestriction> ipSecurityRestrictions) {
+
+            this.ipSecurityRestrictions = ipSecurityRestrictions;
+            return this;
+        }
+        public Builder ipSecurityRestrictions(AppIngressIpSecurityRestriction... ipSecurityRestrictions) {
+            return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
+        }
+        @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
             if (targetPort == null) {
               throw new MissingRequiredPropertyException("AppIngress", "targetPort");
@@ -216,6 +236,7 @@ public final class AppIngress {
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
+            _resultValue.ipSecurityRestrictions = ipSecurityRestrictions;
             _resultValue.targetPort = targetPort;
             _resultValue.trafficWeights = trafficWeights;
             _resultValue.transport = transport;

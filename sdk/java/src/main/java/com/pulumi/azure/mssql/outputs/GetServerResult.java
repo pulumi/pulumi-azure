@@ -51,6 +51,11 @@ public final class GetServerResult {
      */
     private Map<String,String> tags;
     /**
+     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     */
+    private String transparentDataEncryptionKeyVaultKeyId;
+    /**
      * @return This servers MS SQL version.
      * 
      */
@@ -113,6 +118,13 @@ public final class GetServerResult {
         return this.tags;
     }
     /**
+     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     */
+    public String transparentDataEncryptionKeyVaultKeyId() {
+        return this.transparentDataEncryptionKeyVaultKeyId;
+    }
+    /**
      * @return This servers MS SQL version.
      * 
      */
@@ -138,6 +150,7 @@ public final class GetServerResult {
         private String resourceGroupName;
         private List<String> restorableDroppedDatabaseIds;
         private Map<String,String> tags;
+        private String transparentDataEncryptionKeyVaultKeyId;
         private String version;
         public Builder() {}
         public Builder(GetServerResult defaults) {
@@ -151,6 +164,7 @@ public final class GetServerResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.restorableDroppedDatabaseIds = defaults.restorableDroppedDatabaseIds;
     	      this.tags = defaults.tags;
+    	      this.transparentDataEncryptionKeyVaultKeyId = defaults.transparentDataEncryptionKeyVaultKeyId;
     	      this.version = defaults.version;
         }
 
@@ -233,6 +247,14 @@ public final class GetServerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder transparentDataEncryptionKeyVaultKeyId(String transparentDataEncryptionKeyVaultKeyId) {
+            if (transparentDataEncryptionKeyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "transparentDataEncryptionKeyVaultKeyId");
+            }
+            this.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("GetServerResult", "version");
@@ -251,6 +273,7 @@ public final class GetServerResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
             _resultValue.tags = tags;
+            _resultValue.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
             _resultValue.version = version;
             return _resultValue;
         }

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Compute
     ///     {
     ///         Location = exampleResourceGroup.Location,
     ///         DedicatedHostGroupId = exampleDedicatedHostGroup.Id,
-    ///         SkuName = "DSv3-Type1",
+    ///         SkuName = "DSv3-Type3",
     ///         PlatformFaultDomain = 1,
     ///     });
     /// 

@@ -42,11 +42,11 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly bool? RequestBodyCheck;
         /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
+        /// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP`, `Microsoft_BotManagerRuleSet` and `Microsoft_DefaultRuleSet`. Defaults to `OWASP`.
         /// </summary>
         public readonly string? RuleSetType;
         /// <summary>
-        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        /// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         /// </summary>
         public readonly string RuleSetVersion;
 

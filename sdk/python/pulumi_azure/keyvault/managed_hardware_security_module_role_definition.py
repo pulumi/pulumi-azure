@@ -115,6 +115,7 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
         :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
         :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
         :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
         :param pulumi.Input[str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         :param pulumi.Input[str] vault_base_url: The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
@@ -173,6 +174,9 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @property
     @pulumi.getter(name="resourceManagerId")
     def resource_manager_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the role definition resource without Key Vault base URL.
+        """
         return pulumi.get(self, "resource_manager_id")
 
     @resource_manager_id.setter
@@ -328,6 +332,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
         :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
         :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
         :param pulumi.Input[str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         :param pulumi.Input[str] vault_base_url: The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
@@ -372,6 +377,9 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceManagerId")
     def resource_manager_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the role definition resource without Key Vault base URL.
+        """
         return pulumi.get(self, "resource_manager_id")
 
     @property

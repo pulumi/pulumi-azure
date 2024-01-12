@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *         var exampleDedicatedHost = new DedicatedHost(&#34;exampleDedicatedHost&#34;, DedicatedHostArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .dedicatedHostGroupId(exampleDedicatedHostGroup.id())
- *             .skuName(&#34;DSv3-Type1&#34;)
+ *             .skuName(&#34;DSv3-Type3&#34;)
  *             .platformFaultDomain(1)
  *             .build());
  * 

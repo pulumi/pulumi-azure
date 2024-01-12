@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DatabaseIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+	IdentityIds []string `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// DatabaseIdentityInput is an input type that accepts DatabaseIdentityArgs and DatabaseIdentityOutput values.
+// You can construct a concrete instance of `DatabaseIdentityInput` via:
+//
+//	DatabaseIdentityArgs{...}
+type DatabaseIdentityInput interface {
+	pulumi.Input
+
+	ToDatabaseIdentityOutput() DatabaseIdentityOutput
+	ToDatabaseIdentityOutputWithContext(context.Context) DatabaseIdentityOutput
+}
+
+type DatabaseIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DatabaseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentity)(nil)).Elem()
+}
+
+func (i DatabaseIdentityArgs) ToDatabaseIdentityOutput() DatabaseIdentityOutput {
+	return i.ToDatabaseIdentityOutputWithContext(context.Background())
+}
+
+func (i DatabaseIdentityArgs) ToDatabaseIdentityOutputWithContext(ctx context.Context) DatabaseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentityOutput)
+}
+
+func (i DatabaseIdentityArgs) ToDatabaseIdentityPtrOutput() DatabaseIdentityPtrOutput {
+	return i.ToDatabaseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseIdentityArgs) ToDatabaseIdentityPtrOutputWithContext(ctx context.Context) DatabaseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentityOutput).ToDatabaseIdentityPtrOutputWithContext(ctx)
+}
+
+// DatabaseIdentityPtrInput is an input type that accepts DatabaseIdentityArgs, DatabaseIdentityPtr and DatabaseIdentityPtrOutput values.
+// You can construct a concrete instance of `DatabaseIdentityPtrInput` via:
+//
+//	        DatabaseIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseIdentityPtrOutput() DatabaseIdentityPtrOutput
+	ToDatabaseIdentityPtrOutputWithContext(context.Context) DatabaseIdentityPtrOutput
+}
+
+type databaseIdentityPtrType DatabaseIdentityArgs
+
+func DatabaseIdentityPtr(v *DatabaseIdentityArgs) DatabaseIdentityPtrInput {
+	return (*databaseIdentityPtrType)(v)
+}
+
+func (*databaseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentity)(nil)).Elem()
+}
+
+func (i *databaseIdentityPtrType) ToDatabaseIdentityPtrOutput() DatabaseIdentityPtrOutput {
+	return i.ToDatabaseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseIdentityPtrType) ToDatabaseIdentityPtrOutputWithContext(ctx context.Context) DatabaseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseIdentityPtrOutput)
+}
+
+type DatabaseIdentityOutput struct{ *pulumi.OutputState }
+
+func (DatabaseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseIdentity)(nil)).Elem()
+}
+
+func (o DatabaseIdentityOutput) ToDatabaseIdentityOutput() DatabaseIdentityOutput {
+	return o
+}
+
+func (o DatabaseIdentityOutput) ToDatabaseIdentityOutputWithContext(ctx context.Context) DatabaseIdentityOutput {
+	return o
+}
+
+func (o DatabaseIdentityOutput) ToDatabaseIdentityPtrOutput() DatabaseIdentityPtrOutput {
+	return o.ToDatabaseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseIdentityOutput) ToDatabaseIdentityPtrOutputWithContext(ctx context.Context) DatabaseIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseIdentity) *DatabaseIdentity {
+		return &v
+	}).(DatabaseIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+func (o DatabaseIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+func (o DatabaseIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DatabaseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseIdentity)(nil)).Elem()
+}
+
+func (o DatabaseIdentityPtrOutput) ToDatabaseIdentityPtrOutput() DatabaseIdentityPtrOutput {
+	return o
+}
+
+func (o DatabaseIdentityPtrOutput) ToDatabaseIdentityPtrOutputWithContext(ctx context.Context) DatabaseIdentityPtrOutput {
+	return o
+}
+
+func (o DatabaseIdentityPtrOutput) Elem() DatabaseIdentityOutput {
+	return o.ApplyT(func(v *DatabaseIdentity) DatabaseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseIdentity
+		return ret
+	}).(DatabaseIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+func (o DatabaseIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+func (o DatabaseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseImport struct {
 	// Specifies the name of the SQL administrator.
 	AdministratorLogin string `pulumi:"administratorLogin"`
@@ -6203,6 +6359,112 @@ func (o VirtualMachineWsfcDomainCredentialPtrOutput) SqlServiceAccountPassword()
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetDatabaseIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Database.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of Managed Service Identity that is configured on this Microsoft SQL Database.
+	Type string `pulumi:"type"`
+}
+
+// GetDatabaseIdentityInput is an input type that accepts GetDatabaseIdentityArgs and GetDatabaseIdentityOutput values.
+// You can construct a concrete instance of `GetDatabaseIdentityInput` via:
+//
+//	GetDatabaseIdentityArgs{...}
+type GetDatabaseIdentityInput interface {
+	pulumi.Input
+
+	ToGetDatabaseIdentityOutput() GetDatabaseIdentityOutput
+	ToGetDatabaseIdentityOutputWithContext(context.Context) GetDatabaseIdentityOutput
+}
+
+type GetDatabaseIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Database.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity that is configured on this Microsoft SQL Database.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDatabaseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseIdentity)(nil)).Elem()
+}
+
+func (i GetDatabaseIdentityArgs) ToGetDatabaseIdentityOutput() GetDatabaseIdentityOutput {
+	return i.ToGetDatabaseIdentityOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseIdentityArgs) ToGetDatabaseIdentityOutputWithContext(ctx context.Context) GetDatabaseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseIdentityOutput)
+}
+
+// GetDatabaseIdentityArrayInput is an input type that accepts GetDatabaseIdentityArray and GetDatabaseIdentityArrayOutput values.
+// You can construct a concrete instance of `GetDatabaseIdentityArrayInput` via:
+//
+//	GetDatabaseIdentityArray{ GetDatabaseIdentityArgs{...} }
+type GetDatabaseIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabaseIdentityArrayOutput() GetDatabaseIdentityArrayOutput
+	ToGetDatabaseIdentityArrayOutputWithContext(context.Context) GetDatabaseIdentityArrayOutput
+}
+
+type GetDatabaseIdentityArray []GetDatabaseIdentityInput
+
+func (GetDatabaseIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseIdentity)(nil)).Elem()
+}
+
+func (i GetDatabaseIdentityArray) ToGetDatabaseIdentityArrayOutput() GetDatabaseIdentityArrayOutput {
+	return i.ToGetDatabaseIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabaseIdentityArray) ToGetDatabaseIdentityArrayOutputWithContext(ctx context.Context) GetDatabaseIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseIdentityArrayOutput)
+}
+
+type GetDatabaseIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabaseIdentity)(nil)).Elem()
+}
+
+func (o GetDatabaseIdentityOutput) ToGetDatabaseIdentityOutput() GetDatabaseIdentityOutput {
+	return o
+}
+
+func (o GetDatabaseIdentityOutput) ToGetDatabaseIdentityOutputWithContext(ctx context.Context) GetDatabaseIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Database.
+func (o GetDatabaseIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDatabaseIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Microsoft SQL Database.
+func (o GetDatabaseIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabaseIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDatabaseIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabaseIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabaseIdentity)(nil)).Elem()
+}
+
+func (o GetDatabaseIdentityArrayOutput) ToGetDatabaseIdentityArrayOutput() GetDatabaseIdentityArrayOutput {
+	return o
+}
+
+func (o GetDatabaseIdentityArrayOutput) ToGetDatabaseIdentityArrayOutputWithContext(ctx context.Context) GetDatabaseIdentityArrayOutput {
+	return o
+}
+
+func (o GetDatabaseIdentityArrayOutput) Index(i pulumi.IntInput) GetDatabaseIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabaseIdentity {
+		return vs[0].([]GetDatabaseIdentity)[vs[1].(int)]
+	}).(GetDatabaseIdentityOutput)
+}
+
 type GetElasticPoolSkus struct {
 	// The scale up/out capacity, representing server's compute units.
 	Capacity int `pulumi:"capacity"`
@@ -6576,6 +6838,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentityInput)(nil)).Elem(), DatabaseIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseIdentityPtrInput)(nil)).Elem(), DatabaseIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportInput)(nil)).Elem(), DatabaseImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportPtrInput)(nil)).Elem(), DatabaseImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseLongTermRetentionPolicyInput)(nil)).Elem(), DatabaseLongTermRetentionPolicyArgs{})
@@ -6642,12 +6906,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineStorageConfigurationTempDbSettingsPtrInput)(nil)).Elem(), VirtualMachineStorageConfigurationTempDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineWsfcDomainCredentialInput)(nil)).Elem(), VirtualMachineWsfcDomainCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineWsfcDomainCredentialPtrInput)(nil)).Elem(), VirtualMachineWsfcDomainCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseIdentityInput)(nil)).Elem(), GetDatabaseIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseIdentityArrayInput)(nil)).Elem(), GetDatabaseIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusInput)(nil)).Elem(), GetElasticPoolSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusArrayInput)(nil)).Elem(), GetElasticPoolSkusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityInput)(nil)).Elem(), GetManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityArrayInput)(nil)).Elem(), GetManagedInstanceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
+	pulumi.RegisterOutputType(DatabaseIdentityOutput{})
+	pulumi.RegisterOutputType(DatabaseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseImportOutput{})
 	pulumi.RegisterOutputType(DatabaseImportPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseLongTermRetentionPolicyOutput{})
@@ -6714,6 +6982,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineWsfcDomainCredentialOutput{})
 	pulumi.RegisterOutputType(VirtualMachineWsfcDomainCredentialPtrOutput{})
+	pulumi.RegisterOutputType(GetDatabaseIdentityOutput{})
+	pulumi.RegisterOutputType(GetDatabaseIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedInstanceIdentityOutput{})

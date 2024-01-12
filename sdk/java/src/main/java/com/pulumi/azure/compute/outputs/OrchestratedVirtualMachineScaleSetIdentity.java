@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetIdentity {
     /**
-     * @return Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * @return Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * @return The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
      * 
      */
     private String type;
 
     private OrchestratedVirtualMachineScaleSetIdentity() {}
     /**
-     * @return Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+     * @return Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+     * @return The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
      * 
      */
     public String type() {

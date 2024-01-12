@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.DatabaseArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseState;
+import com.pulumi.azure.mssql.outputs.DatabaseIdentity;
 import com.pulumi.azure.mssql.outputs.DatabaseImport;
 import com.pulumi.azure.mssql.outputs.DatabaseLongTermRetentionPolicy;
 import com.pulumi.azure.mssql.outputs.DatabaseShortTermRetentionPolicy;
@@ -80,6 +81,130 @@ import javax.annotation.Nullable;
  *             .zoneRedundant(true)
  *             .enclaveType(&#34;VBS&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.mssql.Server;
+ * import com.pulumi.azure.mssql.ServerArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.mssql.Database;
+ * import com.pulumi.azure.mssql.DatabaseArgs;
+ * import com.pulumi.azure.mssql.inputs.DatabaseIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .version(&#34;12.0&#34;)
+ *             .administratorLogin(&#34;4dm1n157r470r&#34;)
+ *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(exampleUserAssignedIdentity.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(true)
+ *             .skuName(&#34;standard&#34;)
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(data.azurerm_client_config().current().tenant_id())
+ *                     .objectId(data.azurerm_client_config().current().object_id())
+ *                     .keyPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;,
+ *                         &#34;Create&#34;,
+ *                         &#34;Delete&#34;,
+ *                         &#34;Update&#34;,
+ *                         &#34;Recover&#34;,
+ *                         &#34;Purge&#34;,
+ *                         &#34;GetRotationPolicy&#34;)
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(exampleUserAssignedIdentity.tenantId())
+ *                     .objectId(exampleUserAssignedIdentity.principalId())
+ *                     .keyPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;WrapKey&#34;,
+ *                         &#34;UnwrapKey&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleKeyVault)
+ *                 .build());
+ * 
+ *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .serverId(exampleServer.id())
+ *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
+ *             .licenseType(&#34;LicenseIncluded&#34;)
+ *             .maxSizeGb(4)
+ *             .readScale(true)
+ *             .skuName(&#34;S0&#34;)
+ *             .zoneRedundant(true)
+ *             .enclaveType(&#34;VBS&#34;)
+ *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
+ *             .identity(DatabaseIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *     }
@@ -210,6 +335,20 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> geoBackupEnabled() {
         return Codegen.optional(this.geoBackupEnabled);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={DatabaseIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ DatabaseIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<DatabaseIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * A `import` block as documented below. Mutually exclusive with `create_mode`.
@@ -466,14 +605,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountType;
 
     /**
-     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     public Output<Optional<String>> storageAccountType() {
@@ -524,6 +663,38 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> transparentDataEncryptionEnabled() {
         return Codegen.optional(this.transparentDataEncryptionEnabled);
+    }
+    /**
+     * Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Export(name="transparentDataEncryptionKeyAutomaticRotationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> transparentDataEncryptionKeyAutomaticRotationEnabled;
+
+    /**
+     * @return Boolean flag to specify whether TDE automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> transparentDataEncryptionKeyAutomaticRotationEnabled() {
+        return Codegen.optional(this.transparentDataEncryptionKeyAutomaticRotationEnabled);
+    }
+    /**
+     * The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     */
+    @Export(name="transparentDataEncryptionKeyVaultKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> transparentDataEncryptionKeyVaultKeyId;
+
+    /**
+     * @return The fully versioned `Key Vault` `Key` URL (e.g. `&#39;https://&lt;YourVaultName&gt;.vault.azure.net/keys/&lt;YourKeyName&gt;/&lt;YourKeyVersion&gt;`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     * &gt; **NOTE:** To successfully deploy a `Microsoft SQL Database` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+     * 
+     */
+    public Output<Optional<String>> transparentDataEncryptionKeyVaultKeyId() {
+        return Codegen.optional(this.transparentDataEncryptionKeyVaultKeyId);
     }
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.

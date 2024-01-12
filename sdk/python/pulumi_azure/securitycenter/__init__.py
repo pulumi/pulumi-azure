@@ -13,6 +13,7 @@ from .automation import *
 from .contact import *
 from .server_vulnerability_assessment import *
 from .server_vulnerability_assessment_virtual_machine import *
+from .server_vulnerability_assessments_setting import *
 from .setting import *
 from .storage_defender import *
 from .subscription_pricing import *

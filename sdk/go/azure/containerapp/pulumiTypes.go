@@ -387,11 +387,11 @@ type AppIngress struct {
 	ExternalEnabled *bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn *string `pulumi:"fqdn"`
+	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+	IpSecurityRestrictions []AppIngressIpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort int `pulumi:"targetPort"`
-	// A `trafficWeight` block as detailed below.
-	//
-	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
+	// One or more `trafficWeight` blocks as detailed below.
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	Transport *string `pulumi:"transport"`
@@ -421,11 +421,11 @@ type AppIngressArgs struct {
 	ExternalEnabled pulumi.BoolPtrInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
+	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+	IpSecurityRestrictions AppIngressIpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
-	// A `trafficWeight` block as detailed below.
-	//
-	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
+	// One or more `trafficWeight` blocks as detailed below.
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
@@ -535,14 +535,17 @@ func (o AppIngressOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
 }
 
+// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+func (o AppIngressOutput) IpSecurityRestrictions() AppIngressIpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v AppIngress) []AppIngressIpSecurityRestriction { return v.IpSecurityRestrictions }).(AppIngressIpSecurityRestrictionArrayOutput)
+}
+
 // The target port on the container for the Ingress traffic.
 func (o AppIngressOutput) TargetPort() pulumi.IntOutput {
 	return o.ApplyT(func(v AppIngress) int { return v.TargetPort }).(pulumi.IntOutput)
 }
 
-// A `trafficWeight` block as detailed below.
-//
-// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
+// One or more `trafficWeight` blocks as detailed below.
 func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressTrafficWeight { return v.TrafficWeights }).(AppIngressTrafficWeightArrayOutput)
 }
@@ -628,6 +631,16 @@ func (o AppIngressPtrOutput) Fqdn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+func (o AppIngressPtrOutput) IpSecurityRestrictions() AppIngressIpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v *AppIngress) []AppIngressIpSecurityRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.IpSecurityRestrictions
+	}).(AppIngressIpSecurityRestrictionArrayOutput)
+}
+
 // The target port on the container for the Ingress traffic.
 func (o AppIngressPtrOutput) TargetPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *int {
@@ -638,9 +651,7 @@ func (o AppIngressPtrOutput) TargetPort() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A `trafficWeight` block as detailed below.
-//
-// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
+// One or more `trafficWeight` blocks as detailed below.
 func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v *AppIngress) []AppIngressTrafficWeight {
 		if v == nil {
@@ -835,16 +846,148 @@ func (o AppIngressCustomDomainPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AppIngressIpSecurityRestriction struct {
+	// The IP-filter action. `Allow` or `Deny`.
+	//
+	// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+	Action string `pulumi:"action"`
+	// Describe the IP restriction rule that is being sent to the container-app.
+	Description *string `pulumi:"description"`
+	// CIDR notation to match incoming IP address.
+	IpAddressRange string `pulumi:"ipAddressRange"`
+	// Name for the IP restriction rule.
+	Name string `pulumi:"name"`
+}
+
+// AppIngressIpSecurityRestrictionInput is an input type that accepts AppIngressIpSecurityRestrictionArgs and AppIngressIpSecurityRestrictionOutput values.
+// You can construct a concrete instance of `AppIngressIpSecurityRestrictionInput` via:
+//
+//	AppIngressIpSecurityRestrictionArgs{...}
+type AppIngressIpSecurityRestrictionInput interface {
+	pulumi.Input
+
+	ToAppIngressIpSecurityRestrictionOutput() AppIngressIpSecurityRestrictionOutput
+	ToAppIngressIpSecurityRestrictionOutputWithContext(context.Context) AppIngressIpSecurityRestrictionOutput
+}
+
+type AppIngressIpSecurityRestrictionArgs struct {
+	// The IP-filter action. `Allow` or `Deny`.
+	//
+	// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Describe the IP restriction rule that is being sent to the container-app.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// CIDR notation to match incoming IP address.
+	IpAddressRange pulumi.StringInput `pulumi:"ipAddressRange"`
+	// Name for the IP restriction rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppIngressIpSecurityRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (i AppIngressIpSecurityRestrictionArgs) ToAppIngressIpSecurityRestrictionOutput() AppIngressIpSecurityRestrictionOutput {
+	return i.ToAppIngressIpSecurityRestrictionOutputWithContext(context.Background())
+}
+
+func (i AppIngressIpSecurityRestrictionArgs) ToAppIngressIpSecurityRestrictionOutputWithContext(ctx context.Context) AppIngressIpSecurityRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressIpSecurityRestrictionOutput)
+}
+
+// AppIngressIpSecurityRestrictionArrayInput is an input type that accepts AppIngressIpSecurityRestrictionArray and AppIngressIpSecurityRestrictionArrayOutput values.
+// You can construct a concrete instance of `AppIngressIpSecurityRestrictionArrayInput` via:
+//
+//	AppIngressIpSecurityRestrictionArray{ AppIngressIpSecurityRestrictionArgs{...} }
+type AppIngressIpSecurityRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToAppIngressIpSecurityRestrictionArrayOutput() AppIngressIpSecurityRestrictionArrayOutput
+	ToAppIngressIpSecurityRestrictionArrayOutputWithContext(context.Context) AppIngressIpSecurityRestrictionArrayOutput
+}
+
+type AppIngressIpSecurityRestrictionArray []AppIngressIpSecurityRestrictionInput
+
+func (AppIngressIpSecurityRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (i AppIngressIpSecurityRestrictionArray) ToAppIngressIpSecurityRestrictionArrayOutput() AppIngressIpSecurityRestrictionArrayOutput {
+	return i.ToAppIngressIpSecurityRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i AppIngressIpSecurityRestrictionArray) ToAppIngressIpSecurityRestrictionArrayOutputWithContext(ctx context.Context) AppIngressIpSecurityRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppIngressIpSecurityRestrictionArrayOutput)
+}
+
+type AppIngressIpSecurityRestrictionOutput struct{ *pulumi.OutputState }
+
+func (AppIngressIpSecurityRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (o AppIngressIpSecurityRestrictionOutput) ToAppIngressIpSecurityRestrictionOutput() AppIngressIpSecurityRestrictionOutput {
+	return o
+}
+
+func (o AppIngressIpSecurityRestrictionOutput) ToAppIngressIpSecurityRestrictionOutputWithContext(ctx context.Context) AppIngressIpSecurityRestrictionOutput {
+	return o
+}
+
+// The IP-filter action. `Allow` or `Deny`.
+//
+// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+func (o AppIngressIpSecurityRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v AppIngressIpSecurityRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Describe the IP restriction rule that is being sent to the container-app.
+func (o AppIngressIpSecurityRestrictionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppIngressIpSecurityRestriction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// CIDR notation to match incoming IP address.
+func (o AppIngressIpSecurityRestrictionOutput) IpAddressRange() pulumi.StringOutput {
+	return o.ApplyT(func(v AppIngressIpSecurityRestriction) string { return v.IpAddressRange }).(pulumi.StringOutput)
+}
+
+// Name for the IP restriction rule.
+func (o AppIngressIpSecurityRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppIngressIpSecurityRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppIngressIpSecurityRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (AppIngressIpSecurityRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (o AppIngressIpSecurityRestrictionArrayOutput) ToAppIngressIpSecurityRestrictionArrayOutput() AppIngressIpSecurityRestrictionArrayOutput {
+	return o
+}
+
+func (o AppIngressIpSecurityRestrictionArrayOutput) ToAppIngressIpSecurityRestrictionArrayOutputWithContext(ctx context.Context) AppIngressIpSecurityRestrictionArrayOutput {
+	return o
+}
+
+func (o AppIngressIpSecurityRestrictionArrayOutput) Index(i pulumi.IntInput) AppIngressIpSecurityRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppIngressIpSecurityRestriction {
+		return vs[0].([]AppIngressIpSecurityRestriction)[vs[1].(int)]
+	}).(AppIngressIpSecurityRestrictionOutput)
+}
+
 type AppIngressTrafficWeight struct {
 	// The label to apply to the revision as a name prefix for routing traffic.
 	Label *string `pulumi:"label"`
-	// This traffic Weight relates to the latest stable Container Revision.
+	// This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
 	LatestRevision *bool `pulumi:"latestRevision"`
 	// The percentage of traffic which should be sent this revision.
 	//
 	// > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
 	Percentage int `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
+	//
+	// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
 	RevisionSuffix *string `pulumi:"revisionSuffix"`
 }
 
@@ -862,13 +1005,15 @@ type AppIngressTrafficWeightInput interface {
 type AppIngressTrafficWeightArgs struct {
 	// The label to apply to the revision as a name prefix for routing traffic.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// This traffic Weight relates to the latest stable Container Revision.
+	// This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
 	LatestRevision pulumi.BoolPtrInput `pulumi:"latestRevision"`
 	// The percentage of traffic which should be sent this revision.
 	//
 	// > **Note:** The cumulative values for `weight` must equal 100 exactly and explicitly, no default weights are assumed.
 	Percentage pulumi.IntInput `pulumi:"percentage"`
 	// The suffix string to which this `trafficWeight` applies.
+	//
+	// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
 	RevisionSuffix pulumi.StringPtrInput `pulumi:"revisionSuffix"`
 }
 
@@ -928,7 +1073,7 @@ func (o AppIngressTrafficWeightOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngressTrafficWeight) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// This traffic Weight relates to the latest stable Container Revision.
+// This traffic Weight applies to the latest stable Container Revision. At most only one `trafficWeight` block can have the `latestRevision` set to `true`.
 func (o AppIngressTrafficWeightOutput) LatestRevision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppIngressTrafficWeight) *bool { return v.LatestRevision }).(pulumi.BoolPtrOutput)
 }
@@ -941,6 +1086,8 @@ func (o AppIngressTrafficWeightOutput) Percentage() pulumi.IntOutput {
 }
 
 // The suffix string to which this `trafficWeight` applies.
+//
+// > **Note:** `latestRevision` conflicts with `revisionSuffix`, which means you shall either set `latestRevision` to `true` or specify `revisionSuffix`. Especially for creation, there shall only be one `trafficWeight`, with the `latestRevision` set to `true`, and leave the `revisionSuffix` empty.
 func (o AppIngressTrafficWeightOutput) RevisionSuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngressTrafficWeight) *string { return v.RevisionSuffix }).(pulumi.StringPtrOutput)
 }
@@ -8236,6 +8383,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressPtrInput)(nil)).Elem(), AppIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainInput)(nil)).Elem(), AppIngressCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressCustomDomainPtrInput)(nil)).Elem(), AppIngressCustomDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressIpSecurityRestrictionInput)(nil)).Elem(), AppIngressIpSecurityRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressIpSecurityRestrictionArrayInput)(nil)).Elem(), AppIngressIpSecurityRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressTrafficWeightInput)(nil)).Elem(), AppIngressTrafficWeightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppIngressTrafficWeightArrayInput)(nil)).Elem(), AppIngressTrafficWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppRegistryInput)(nil)).Elem(), AppRegistryArgs{})
@@ -8358,6 +8507,8 @@ func init() {
 	pulumi.RegisterOutputType(AppIngressPtrOutput{})
 	pulumi.RegisterOutputType(AppIngressCustomDomainOutput{})
 	pulumi.RegisterOutputType(AppIngressCustomDomainPtrOutput{})
+	pulumi.RegisterOutputType(AppIngressIpSecurityRestrictionOutput{})
+	pulumi.RegisterOutputType(AppIngressIpSecurityRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(AppIngressTrafficWeightOutput{})
 	pulumi.RegisterOutputType(AppIngressTrafficWeightArrayOutput{})
 	pulumi.RegisterOutputType(AppRegistryOutput{})

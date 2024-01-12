@@ -500,7 +500,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
@@ -509,7 +509,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
     private @Nullable Output<Boolean> webdeployPublishBasicAuthenticationEnabled;
 
     /**
-     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      * 
      * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
      * 
@@ -1267,7 +1267,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
          * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 
@@ -1280,7 +1280,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
          * 
          * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
          * 

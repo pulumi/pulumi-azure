@@ -231,8 +231,6 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-        /// 
-        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -248,6 +246,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("redirectUrl")]
         public Output<string?> RedirectUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        /// </summary>
+        [Output("requestBodyCheckEnabled")]
+        public Output<bool?> RequestBodyCheckEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group. Changing this forces a new resource to be created.
@@ -359,8 +365,6 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-        /// 
-        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -376,6 +380,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
+        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        /// </summary>
+        [Input("requestBodyCheckEnabled")]
+        public Input<bool>? RequestBodyCheckEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group. Changing this forces a new resource to be created.
@@ -467,8 +479,6 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-        /// 
-        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -484,6 +494,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("redirectUrl")]
         public Input<string>? RedirectUrl { get; set; }
+
+        /// <summary>
+        /// Should policy managed rules inspect the request body content? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+        /// </summary>
+        [Input("requestBodyCheckEnabled")]
+        public Input<bool>? RequestBodyCheckEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group. Changing this forces a new resource to be created.

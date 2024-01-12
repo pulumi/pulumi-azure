@@ -561,7 +561,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * Specifies a list of Availability Zones in which this API Management service should be located.
      * 
      * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 
@@ -570,7 +570,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * @return Specifies a list of Availability Zones in which this API Management service should be located.
      * 
      * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 
@@ -1412,7 +1412,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+         * @param zones Specifies a list of Availability Zones in which this API Management service should be located.
          * 
          * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
          * 
@@ -1425,7 +1425,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+         * @param zones Specifies a list of Availability Zones in which this API Management service should be located.
          * 
          * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
          * 
@@ -1437,7 +1437,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zones Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+         * @param zones Specifies a list of Availability Zones in which this API Management service should be located.
          * 
          * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
          * 

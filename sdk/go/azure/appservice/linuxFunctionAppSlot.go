@@ -118,7 +118,7 @@ type LinuxFunctionAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Are the default FTP Basic Authentication publishing credentials enabled.
+	// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
@@ -171,7 +171,7 @@ type LinuxFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -248,7 +248,7 @@ type linuxFunctionAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Are the default FTP Basic Authentication publishing credentials enabled.
+	// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId *string `pulumi:"functionAppId"`
@@ -301,7 +301,7 @@ type linuxFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -334,7 +334,7 @@ type LinuxFunctionAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Are the default FTP Basic Authentication publishing credentials enabled.
+	// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringPtrInput
@@ -387,7 +387,7 @@ type LinuxFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
@@ -420,7 +420,7 @@ type linuxFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Are the default FTP Basic Authentication publishing credentials enabled.
+	// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`
@@ -459,7 +459,7 @@ type linuxFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
@@ -489,7 +489,7 @@ type LinuxFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// Are the default FTP Basic Authentication publishing credentials enabled.
+	// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringInput
@@ -528,7 +528,7 @@ type LinuxFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
-	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
@@ -691,7 +691,7 @@ func (o LinuxFunctionAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Are the default FTP Basic Authentication publishing credentials enabled.
+// Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
 func (o LinuxFunctionAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -816,7 +816,7 @@ func (o LinuxFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOut
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 func (o LinuxFunctionAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput {
 		return v.WebdeployPublishBasicAuthenticationEnabled

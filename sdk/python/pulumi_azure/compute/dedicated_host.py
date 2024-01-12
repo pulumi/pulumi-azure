@@ -311,7 +311,7 @@ class DedicatedHost(pulumi.CustomResource):
         example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
             location=example_resource_group.location,
             dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
+            sku_name="DSv3-Type3",
             platform_fault_domain=1)
         ```
 
@@ -357,7 +357,7 @@ class DedicatedHost(pulumi.CustomResource):
         example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
             location=example_resource_group.location,
             dedicated_host_group_id=example_dedicated_host_group.id,
-            sku_name="DSv3-Type1",
+            sku_name="DSv3-Type3",
             platform_fault_domain=1)
         ```
 

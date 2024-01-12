@@ -144,7 +144,7 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      */
     public readonly skuTier!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface SpringCloudServiceState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -367,7 +367,7 @@ export interface SpringCloudServiceArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined.
+     * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string>;
     /**

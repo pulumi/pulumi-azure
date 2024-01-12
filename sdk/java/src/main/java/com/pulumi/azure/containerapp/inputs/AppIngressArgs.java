@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.inputs;
 
 import com.pulumi.azure.containerapp.inputs.AppIngressCustomDomainArgs;
+import com.pulumi.azure.containerapp.inputs.AppIngressIpSecurityRestrictionArgs;
 import com.pulumi.azure.containerapp.inputs.AppIngressTrafficWeightArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -101,6 +102,21 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    @Import(name="ipSecurityRestrictions")
+    private @Nullable Output<List<AppIngressIpSecurityRestrictionArgs>> ipSecurityRestrictions;
+
+    /**
+     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    public Optional<Output<List<AppIngressIpSecurityRestrictionArgs>>> ipSecurityRestrictions() {
+        return Optional.ofNullable(this.ipSecurityRestrictions);
+    }
+
+    /**
      * The target port on the container for the Ingress traffic.
      * 
      */
@@ -116,18 +132,14 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `traffic_weight` block as detailed below.
-     * 
-     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * One or more `traffic_weight` blocks as detailed below.
      * 
      */
     @Import(name="trafficWeights", required=true)
     private Output<List<AppIngressTrafficWeightArgs>> trafficWeights;
 
     /**
-     * @return A `traffic_weight` block as detailed below.
-     * 
-     * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+     * @return One or more `traffic_weight` blocks as detailed below.
      * 
      */
     public Output<List<AppIngressTrafficWeightArgs>> trafficWeights() {
@@ -157,6 +169,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         this.exposedPort = $.exposedPort;
         this.externalEnabled = $.externalEnabled;
         this.fqdn = $.fqdn;
+        this.ipSecurityRestrictions = $.ipSecurityRestrictions;
         this.targetPort = $.targetPort;
         this.trafficWeights = $.trafficWeights;
         this.transport = $.transport;
@@ -290,6 +303,37 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipSecurityRestrictions One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSecurityRestrictions(@Nullable Output<List<AppIngressIpSecurityRestrictionArgs>> ipSecurityRestrictions) {
+            $.ipSecurityRestrictions = ipSecurityRestrictions;
+            return this;
+        }
+
+        /**
+         * @param ipSecurityRestrictions One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSecurityRestrictions(List<AppIngressIpSecurityRestrictionArgs> ipSecurityRestrictions) {
+            return ipSecurityRestrictions(Output.of(ipSecurityRestrictions));
+        }
+
+        /**
+         * @param ipSecurityRestrictions One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipSecurityRestrictions(AppIngressIpSecurityRestrictionArgs... ipSecurityRestrictions) {
+            return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
+        }
+
+        /**
          * @param targetPort The target port on the container for the Ingress traffic.
          * 
          * @return builder
@@ -311,9 +355,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficWeights A `traffic_weight` block as detailed below.
-         * 
-         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+         * @param trafficWeights One or more `traffic_weight` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -324,9 +366,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficWeights A `traffic_weight` block as detailed below.
-         * 
-         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+         * @param trafficWeights One or more `traffic_weight` blocks as detailed below.
          * 
          * @return builder
          * 
@@ -336,9 +376,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficWeights A `traffic_weight` block as detailed below.
-         * 
-         * &gt; **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
+         * @param trafficWeights One or more `traffic_weight` blocks as detailed below.
          * 
          * @return builder
          * 

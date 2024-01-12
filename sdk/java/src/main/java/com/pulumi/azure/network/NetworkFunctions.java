@@ -26,8 +26,10 @@ import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanArgs;
 import com.pulumi.azure.network.inputs.GetNetworkDdosProtectionPlanPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkInterfaceArgs;
 import com.pulumi.azure.network.inputs.GetNetworkInterfacePlainArgs;
+import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
 import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupPlainArgs;
+import com.pulumi.azure.network.inputs.GetNetworkManagerPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupArgs;
 import com.pulumi.azure.network.inputs.GetNetworkSecurityGroupPlainArgs;
 import com.pulumi.azure.network.inputs.GetNetworkWatcherArgs;
@@ -76,6 +78,7 @@ import com.pulumi.azure.network.outputs.GetNatGatewayResult;
 import com.pulumi.azure.network.outputs.GetNetworkDdosProtectionPlanResult;
 import com.pulumi.azure.network.outputs.GetNetworkInterfaceResult;
 import com.pulumi.azure.network.outputs.GetNetworkManagerNetworkGroupResult;
+import com.pulumi.azure.network.outputs.GetNetworkManagerResult;
 import com.pulumi.azure.network.outputs.GetNetworkSecurityGroupResult;
 import com.pulumi.azure.network.outputs.GetNetworkWatcherResult;
 import com.pulumi.azure.network.outputs.GetPublicIPResult;
@@ -1692,6 +1695,34 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetNetworkInterfaceResult> getNetworkInterfacePlain(GetNetworkInterfacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getNetworkInterface:getNetworkInterface", TypeShape.of(GetNetworkInterfaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a Network Manager.
+     * 
+     */
+    public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args) {
+        return getNetworkManager(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a Network Manager.
+     * 
+     */
+    public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args) {
+        return getNetworkManagerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about a Network Manager.
+     * 
+     */
+    public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getNetworkManager:getNetworkManager", TypeShape.of(GetNetworkManagerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about a Network Manager.
+     * 
+     */
+    public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getNetworkManager:getNetworkManager", TypeShape.of(GetNetworkManagerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Network Manager Network Group.

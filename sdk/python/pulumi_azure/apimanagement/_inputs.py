@@ -4992,7 +4992,7 @@ class LoggerEventhubArgs:
                
                > **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
         :param pulumi.Input[str] endpoint_uri: The endpoint address of an EventHub Namespace. Required when `client_id` is set.
-        :param pulumi.Input[str] user_assigned_identity_client_id: The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+        :param pulumi.Input[str] user_assigned_identity_client_id: The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
         """
         pulumi.set(__self__, "name", name)
         if connection_string is not None:
@@ -5044,7 +5044,7 @@ class LoggerEventhubArgs:
     @pulumi.getter(name="userAssignedIdentityClientId")
     def user_assigned_identity_client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+        The Client Id of the User Assigned Identity with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
         """
         return pulumi.get(self, "user_assigned_identity_client_id")
 

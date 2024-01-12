@@ -19,10 +19,10 @@ class ElasticSanSku(dict):
                  name: str,
                  tier: Optional[str] = None):
         """
-        :param str name: The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+        :param str name: The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
                
                > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
-        :param str tier: The SKU tier. The only possible value is `Premium`.
+        :param str tier: The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
         """
         pulumi.set(__self__, "name", name)
         if tier is not None:
@@ -32,7 +32,7 @@ class ElasticSanSku(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`.
+        The SKU name. Possible values are `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 
         > **NOTE** `Premium_ZRS` SKU is only available in limited Azure regions including `France Central`, `North Europe`, `West Europe`, and `West US 2`. Please refer to this [document](https://azure.microsoft.com/updates/regional-expansion-azure-elastic-san-public-preview-is-now-available-in-more-regions) for more details.
         """
@@ -42,7 +42,7 @@ class ElasticSanSku(dict):
     @pulumi.getter
     def tier(self) -> Optional[str]:
         """
-        The SKU tier. The only possible value is `Premium`.
+        The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
         """
         return pulumi.get(self, "tier")
 

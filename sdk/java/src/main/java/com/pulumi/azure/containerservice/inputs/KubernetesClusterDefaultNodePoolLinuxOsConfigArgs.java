@@ -33,14 +33,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     }
 
     /**
-     * A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * A `sysctl_config` block as defined below.
      * 
      */
     @Import(name="sysctlConfig")
     private @Nullable Output<KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs> sysctlConfig;
 
     /**
-     * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+     * @return A `sysctl_config` block as defined below.
      * 
      */
     public Optional<Output<KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs>> sysctlConfig() {
@@ -126,7 +126,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param sysctlConfig A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+         * @param sysctlConfig A `sysctl_config` block as defined below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param sysctlConfig A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+         * @param sysctlConfig A `sysctl_config` block as defined below.
          * 
          * @return builder
          * 

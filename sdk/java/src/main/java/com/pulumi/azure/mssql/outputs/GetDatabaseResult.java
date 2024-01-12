@@ -3,11 +3,13 @@
 
 package com.pulumi.azure.mssql.outputs;
 
+import com.pulumi.azure.mssql.outputs.GetDatabaseIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -33,6 +35,11 @@ public final class GetDatabaseResult {
      * 
      */
     private String id;
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    private List<GetDatabaseIdentity> identities;
     /**
      * @return The license type to apply for this database.
      * 
@@ -71,6 +78,21 @@ public final class GetDatabaseResult {
      */
     private Map<String,String> tags;
     /**
+     * @return Whether or not Transparent Data Encryption is enabled.
+     * 
+     */
+    private Boolean transparentDataEncryptionEnabled;
+    /**
+     * @return Whether or not TDE automatically rotates the encryption Key to latest version.
+     * 
+     */
+    private Boolean transparentDataEncryptionKeyAutomaticRotationEnabled;
+    /**
+     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     */
+    private String transparentDataEncryptionKeyVaultKeyId;
+    /**
      * @return Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      * 
      */
@@ -104,6 +126,13 @@ public final class GetDatabaseResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return A `identity` block as defined below.
+     * 
+     */
+    public List<GetDatabaseIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return The license type to apply for this database.
@@ -161,6 +190,27 @@ public final class GetDatabaseResult {
         return this.tags;
     }
     /**
+     * @return Whether or not Transparent Data Encryption is enabled.
+     * 
+     */
+    public Boolean transparentDataEncryptionEnabled() {
+        return this.transparentDataEncryptionEnabled;
+    }
+    /**
+     * @return Whether or not TDE automatically rotates the encryption Key to latest version.
+     * 
+     */
+    public Boolean transparentDataEncryptionKeyAutomaticRotationEnabled() {
+        return this.transparentDataEncryptionKeyAutomaticRotationEnabled;
+    }
+    /**
+     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * 
+     */
+    public String transparentDataEncryptionKeyVaultKeyId() {
+        return this.transparentDataEncryptionKeyVaultKeyId;
+    }
+    /**
      * @return Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      * 
      */
@@ -181,6 +231,7 @@ public final class GetDatabaseResult {
         private String elasticPoolId;
         private String enclaveType;
         private String id;
+        private List<GetDatabaseIdentity> identities;
         private String licenseType;
         private Integer maxSizeGb;
         private String name;
@@ -190,6 +241,9 @@ public final class GetDatabaseResult {
         private String skuName;
         private String storageAccountType;
         private Map<String,String> tags;
+        private Boolean transparentDataEncryptionEnabled;
+        private Boolean transparentDataEncryptionKeyAutomaticRotationEnabled;
+        private String transparentDataEncryptionKeyVaultKeyId;
         private Boolean zoneRedundant;
         public Builder() {}
         public Builder(GetDatabaseResult defaults) {
@@ -198,6 +252,7 @@ public final class GetDatabaseResult {
     	      this.elasticPoolId = defaults.elasticPoolId;
     	      this.enclaveType = defaults.enclaveType;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.licenseType = defaults.licenseType;
     	      this.maxSizeGb = defaults.maxSizeGb;
     	      this.name = defaults.name;
@@ -207,6 +262,9 @@ public final class GetDatabaseResult {
     	      this.skuName = defaults.skuName;
     	      this.storageAccountType = defaults.storageAccountType;
     	      this.tags = defaults.tags;
+    	      this.transparentDataEncryptionEnabled = defaults.transparentDataEncryptionEnabled;
+    	      this.transparentDataEncryptionKeyAutomaticRotationEnabled = defaults.transparentDataEncryptionKeyAutomaticRotationEnabled;
+    	      this.transparentDataEncryptionKeyVaultKeyId = defaults.transparentDataEncryptionKeyVaultKeyId;
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
@@ -241,6 +299,17 @@ public final class GetDatabaseResult {
             }
             this.id = id;
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetDatabaseIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "identities");
+            }
+            this.identities = identities;
+            return this;
+        }
+        public Builder identities(GetDatabaseIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder licenseType(String licenseType) {
@@ -315,6 +384,30 @@ public final class GetDatabaseResult {
             return this;
         }
         @CustomType.Setter
+        public Builder transparentDataEncryptionEnabled(Boolean transparentDataEncryptionEnabled) {
+            if (transparentDataEncryptionEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "transparentDataEncryptionEnabled");
+            }
+            this.transparentDataEncryptionEnabled = transparentDataEncryptionEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder transparentDataEncryptionKeyAutomaticRotationEnabled(Boolean transparentDataEncryptionKeyAutomaticRotationEnabled) {
+            if (transparentDataEncryptionKeyAutomaticRotationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "transparentDataEncryptionKeyAutomaticRotationEnabled");
+            }
+            this.transparentDataEncryptionKeyAutomaticRotationEnabled = transparentDataEncryptionKeyAutomaticRotationEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder transparentDataEncryptionKeyVaultKeyId(String transparentDataEncryptionKeyVaultKeyId) {
+            if (transparentDataEncryptionKeyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("GetDatabaseResult", "transparentDataEncryptionKeyVaultKeyId");
+            }
+            this.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             if (zoneRedundant == null) {
               throw new MissingRequiredPropertyException("GetDatabaseResult", "zoneRedundant");
@@ -328,6 +421,7 @@ public final class GetDatabaseResult {
             _resultValue.elasticPoolId = elasticPoolId;
             _resultValue.enclaveType = enclaveType;
             _resultValue.id = id;
+            _resultValue.identities = identities;
             _resultValue.licenseType = licenseType;
             _resultValue.maxSizeGb = maxSizeGb;
             _resultValue.name = name;
@@ -337,6 +431,9 @@ public final class GetDatabaseResult {
             _resultValue.skuName = skuName;
             _resultValue.storageAccountType = storageAccountType;
             _resultValue.tags = tags;
+            _resultValue.transparentDataEncryptionEnabled = transparentDataEncryptionEnabled;
+            _resultValue.transparentDataEncryptionKeyAutomaticRotationEnabled = transparentDataEncryptionKeyAutomaticRotationEnabled;
+            _resultValue.transparentDataEncryptionKeyVaultKeyId = transparentDataEncryptionKeyVaultKeyId;
             _resultValue.zoneRedundant = zoneRedundant;
             return _resultValue;
         }

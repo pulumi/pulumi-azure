@@ -578,7 +578,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkType);
     }
     /**
-     * Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * Specifies a list of Availability Zones in which this API Management service should be located.
      * 
      * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 
@@ -587,7 +587,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> zones;
 
     /**
-     * @return Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
+     * @return Specifies a list of Availability Zones in which this API Management service should be located.
      * 
      * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
      * 

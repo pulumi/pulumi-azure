@@ -184,8 +184,6 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
     public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-     *
-     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -196,6 +194,12 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      * If action type is redirect, this field represents redirect URL for the client.
      */
     public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Should policy managed rules inspect the request body content? Defaults to `true`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     */
+    public readonly requestBodyCheckEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -233,6 +237,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
+            resourceInputs["requestBodyCheckEnabled"] = state ? state.requestBodyCheckEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -255,6 +260,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
+            resourceInputs["requestBodyCheckEnabled"] = args ? args.requestBodyCheckEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -295,8 +301,6 @@ export interface FrontdoorFirewallPolicyState {
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-     *
-     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -307,6 +311,12 @@ export interface FrontdoorFirewallPolicyState {
      * If action type is redirect, this field represents redirect URL for the client.
      */
     redirectUrl?: pulumi.Input<string>;
+    /**
+     * Should policy managed rules inspect the request body content? Defaults to `true`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     */
+    requestBodyCheckEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
@@ -349,8 +359,6 @@ export interface FrontdoorFirewallPolicyArgs {
     managedRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRule>[]>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
-     *
-     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
     mode: pulumi.Input<string>;
     /**
@@ -361,6 +369,12 @@ export interface FrontdoorFirewallPolicyArgs {
      * If action type is redirect, this field represents redirect URL for the client.
      */
     redirectUrl?: pulumi.Input<string>;
+    /**
+     * Should policy managed rules inspect the request body content? Defaults to `true`.
+     *
+     * > **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
+     */
+    requestBodyCheckEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */

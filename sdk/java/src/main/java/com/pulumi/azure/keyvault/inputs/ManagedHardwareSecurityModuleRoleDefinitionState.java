@@ -62,9 +62,17 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
         return Optional.ofNullable(this.permissions);
     }
 
+    /**
+     * The ID of the role definition resource without Key Vault base URL.
+     * 
+     */
     @Import(name="resourceManagerId")
     private @Nullable Output<String> resourceManagerId;
 
+    /**
+     * @return The ID of the role definition resource without Key Vault base URL.
+     * 
+     */
     public Optional<Output<String>> resourceManagerId() {
         return Optional.ofNullable(this.resourceManagerId);
     }
@@ -217,11 +225,23 @@ public final class ManagedHardwareSecurityModuleRoleDefinitionState extends com.
             return permissions(List.of(permissions));
         }
 
+        /**
+         * @param resourceManagerId The ID of the role definition resource without Key Vault base URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceManagerId(@Nullable Output<String> resourceManagerId) {
             $.resourceManagerId = resourceManagerId;
             return this;
         }
 
+        /**
+         * @param resourceManagerId The ID of the role definition resource without Key Vault base URL.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceManagerId(String resourceManagerId) {
             return resourceManagerId(Output.of(resourceManagerId));
         }

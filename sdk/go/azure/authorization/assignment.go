@@ -254,7 +254,7 @@ type Assignment struct {
 	//
 	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+	// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
@@ -326,7 +326,7 @@ type assignmentState struct {
 	//
 	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId *string `pulumi:"principalId"`
-	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+	// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
 	PrincipalType *string `pulumi:"principalType"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
@@ -357,7 +357,7 @@ type AssignmentState struct {
 	//
 	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringPtrInput
-	// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+	// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
 	PrincipalType pulumi.StringPtrInput
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringPtrInput
@@ -392,6 +392,8 @@ type assignmentArgs struct {
 	//
 	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId string `pulumi:"principalId"`
+	// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+	PrincipalType *string `pulumi:"principalType"`
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
@@ -422,6 +424,8 @@ type AssignmentArgs struct {
 	//
 	// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
 	PrincipalId pulumi.StringInput
+	// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+	PrincipalType pulumi.StringPtrInput
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
 	RoleDefinitionId pulumi.StringPtrInput
 	// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
@@ -555,7 +559,7 @@ func (o AssignmentOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+// The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
 func (o AssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }

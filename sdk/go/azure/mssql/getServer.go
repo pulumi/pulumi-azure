@@ -76,6 +76,8 @@ type LookupServerResult struct {
 	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags assigned to this Microsoft SQL Server.
 	Tags map[string]string `pulumi:"tags"`
+	// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	TransparentDataEncryptionKeyVaultKeyId string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// This servers MS SQL version.
 	Version string `pulumi:"version"`
 }
@@ -161,6 +163,11 @@ func (o LookupServerResultOutput) RestorableDroppedDatabaseIds() pulumi.StringAr
 // A mapping of tags assigned to this Microsoft SQL Server.
 func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+func (o LookupServerResultOutput) TransparentDataEncryptionKeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.TransparentDataEncryptionKeyVaultKeyId }).(pulumi.StringOutput)
 }
 
 // This servers MS SQL version.
