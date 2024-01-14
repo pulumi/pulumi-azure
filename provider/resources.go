@@ -16,9 +16,6 @@
 package provider
 
 import (
-	// Allow embedding the metadata file
-	_ "embed"
-
 	"context"
 	"fmt"
 	"os"
@@ -27,13 +24,16 @@ import (
 	"strings"
 	"unicode"
 
+	// Allow embedding the metadata file
+	_ "embed"
+
 	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/go-azure-sdk/sdk/auth"
 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
-	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -41,6 +41,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
+	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 )
 
 const (
