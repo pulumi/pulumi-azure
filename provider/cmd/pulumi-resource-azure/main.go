@@ -20,9 +20,10 @@ import (
 	_ "embed"
 	_ "unsafe" // Import go:linkname
 
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+
 	azure "github.com/pulumi/pulumi-azure/provider/v5"
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
 // The AzureRM Terraform Provider has a setting named ARM_PROVIDER_STRICT, the bulk
