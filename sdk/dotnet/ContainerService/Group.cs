@@ -197,6 +197,14 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
+        /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// </summary>
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -404,6 +412,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> OsType { get; set; } = null!;
 
         /// <summary>
+        /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// </summary>
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -595,6 +611,14 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("osType")]
         public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        /// </summary>
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewayTrustedClientCertificateResult
     {
         /// <summary>
+        /// The content of the Trusted Client Certificate in use.
+        /// </summary>
+        public readonly string Data;
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private GetApplicationGatewayTrustedClientCertificateResult(
+            string data,
+
             string id,
 
             string name)
         {
+            Data = data;
             Id = id;
             Name = name;
         }

@@ -33,6 +33,7 @@ class GroupArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[str]] = None,
@@ -64,6 +65,9 @@ class GroupArgs:
         :param pulumi.Input[str] key_vault_user_assigned_identity_id: The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
@@ -104,6 +108,8 @@ class GroupArgs:
             pulumi.log.warn("""network_profile_id is deprecated: the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead""")
         if network_profile_id is not None:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
         if sku is not None:
@@ -328,6 +334,20 @@ class GroupArgs:
         pulumi.set(self, "network_profile_id", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="restartPolicy")
     def restart_policy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -409,6 +429,7 @@ class _GroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -442,6 +463,9 @@ class _GroupState:
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
                
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        :param pulumi.Input[str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -488,6 +512,8 @@ class _GroupState:
             pulumi.set(__self__, "network_profile_id", network_profile_id)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if restart_policy is not None:
@@ -726,6 +752,20 @@ class _GroupState:
         pulumi.set(self, "os_type", value)
 
     @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -819,6 +859,7 @@ class Group(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -902,6 +943,9 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
                
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        :param pulumi.Input[str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -997,6 +1041,7 @@ class Group(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restart_policy: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -1032,6 +1077,7 @@ class Group(pulumi.CustomResource):
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["priority"] = priority
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1070,6 +1116,7 @@ class Group(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_profile_id: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
+            priority: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             restart_policy: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -1108,6 +1155,9 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
                
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
+        :param pulumi.Input[str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -1137,6 +1187,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_profile_id"] = network_profile_id
         __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["priority"] = priority
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["restart_policy"] = restart_policy
         __props__.__dict__["sku"] = sku
@@ -1296,6 +1347,16 @@ class Group(pulumi.CustomResource):
         > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Output[Optional[str]]:
+        """
+        The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="resourceGroupName")

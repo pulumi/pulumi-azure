@@ -55254,6 +55254,10 @@ export namespace network {
 
     export interface GetApplicationGatewayTrustedClientCertificate {
         /**
+         * The content of the Trusted Client Certificate in use.
+         */
+        data: string;
+        /**
          * The ID of the Rewrite Rule Set
          */
         id: string;

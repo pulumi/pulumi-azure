@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayTrustedClientCertificate {
     /**
+     * @return The content of the Trusted Client Certificate in use.
+     * 
+     */
+    private String data;
+    /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
@@ -22,6 +27,13 @@ public final class GetApplicationGatewayTrustedClientCertificate {
     private String name;
 
     private GetApplicationGatewayTrustedClientCertificate() {}
+    /**
+     * @return The content of the Trusted Client Certificate in use.
+     * 
+     */
+    public String data() {
+        return this.data;
+    }
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -46,15 +58,25 @@ public final class GetApplicationGatewayTrustedClientCertificate {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String data;
         private String id;
         private String name;
         public Builder() {}
         public Builder(GetApplicationGatewayTrustedClientCertificate defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.data = defaults.data;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
+        public Builder data(String data) {
+            if (data == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayTrustedClientCertificate", "data");
+            }
+            this.data = data;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -73,6 +95,7 @@ public final class GetApplicationGatewayTrustedClientCertificate {
         }
         public GetApplicationGatewayTrustedClientCertificate build() {
             final var _resultValue = new GetApplicationGatewayTrustedClientCertificate();
+            _resultValue.data = data;
             _resultValue.id = id;
             _resultValue.name = name;
             return _resultValue;

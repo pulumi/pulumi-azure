@@ -167,6 +167,12 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly osType!: pulumi.Output<string>;
     /**
+     * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     */
+    public readonly priority!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -222,6 +228,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkProfileId"] = state ? state.networkProfileId : undefined;
             resourceInputs["osType"] = state ? state.osType : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = state ? state.restartPolicy : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
@@ -255,6 +262,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkProfileId"] = args ? args.networkProfileId : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -353,6 +361,12 @@ export interface GroupState {
      * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
     osType?: pulumi.Input<string>;
+    /**
+     * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     */
+    priority?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
@@ -455,6 +469,12 @@ export interface GroupArgs {
      * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
     osType: pulumi.Input<string>;
+    /**
+     * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
+     */
+    priority?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
