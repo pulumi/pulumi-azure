@@ -286,6 +286,25 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * 
+     */
+    @Import(name="priority")
+    private @Nullable Output<String> priority;
+
+    /**
+     * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * 
+     */
+    public Optional<Output<String>> priority() {
+        return Optional.ofNullable(this.priority);
+    }
+
+    /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      * 
      */
@@ -394,6 +413,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.networkProfileId = $.networkProfileId;
         this.osType = $.osType;
+        this.priority = $.priority;
         this.resourceGroupName = $.resourceGroupName;
         this.restartPolicy = $.restartPolicy;
         this.sku = $.sku;
@@ -816,6 +836,31 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder osType(String osType) {
             return osType(Output.of(osType));
+        }
+
+        /**
+         * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(@Nullable Output<String> priority) {
+            $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param priority The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder priority(String priority) {
+            return priority(Output.of(priority));
         }
 
         /**

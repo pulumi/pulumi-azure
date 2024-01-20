@@ -30865,6 +30865,8 @@ func (o GetApplicationGatewaySslProfileSslPolicyArrayOutput) Index(i pulumi.IntI
 }
 
 type GetApplicationGatewayTrustedClientCertificate struct {
+	// The content of the Trusted Client Certificate in use.
+	Data string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id string `pulumi:"id"`
 	// The name of this Application Gateway.
@@ -30883,6 +30885,8 @@ type GetApplicationGatewayTrustedClientCertificateInput interface {
 }
 
 type GetApplicationGatewayTrustedClientCertificateArgs struct {
+	// The content of the Trusted Client Certificate in use.
+	Data pulumi.StringInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of this Application Gateway.
@@ -30938,6 +30942,11 @@ func (o GetApplicationGatewayTrustedClientCertificateOutput) ToGetApplicationGat
 
 func (o GetApplicationGatewayTrustedClientCertificateOutput) ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedClientCertificateOutput {
 	return o
+}
+
+// The content of the Trusted Client Certificate in use.
+func (o GetApplicationGatewayTrustedClientCertificateOutput) Data() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedClientCertificate) string { return v.Data }).(pulumi.StringOutput)
 }
 
 // The ID of the Rewrite Rule Set

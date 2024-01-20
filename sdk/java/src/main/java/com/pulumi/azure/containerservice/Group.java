@@ -367,6 +367,24 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.osType;
     }
     /**
+     * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * 
+     */
+    @Export(name="priority", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> priority;
+
+    /**
+     * @return The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+     * 
+     */
+    public Output<Optional<String>> priority() {
+        return Codegen.optional(this.priority);
+    }
+    /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      * 
      */

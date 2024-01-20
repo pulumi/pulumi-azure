@@ -14863,14 +14863,25 @@ class GetApplicationGatewaySslProfileSslPolicyResult(dict):
 @pulumi.output_type
 class GetApplicationGatewayTrustedClientCertificateResult(dict):
     def __init__(__self__, *,
+                 data: str,
                  id: str,
                  name: str):
         """
+        :param str data: The content of the Trusted Client Certificate in use.
         :param str id: The ID of the Rewrite Rule Set
         :param str name: The name of this Application Gateway.
         """
+        pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def data(self) -> str:
+        """
+        The content of the Trusted Client Certificate in use.
+        """
+        return pulumi.get(self, "data")
 
     @property
     @pulumi.getter
