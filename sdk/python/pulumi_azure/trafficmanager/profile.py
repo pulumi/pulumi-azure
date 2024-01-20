@@ -369,7 +369,7 @@ class Profile(pulumi.CustomResource):
 
         server = random.RandomId("server",
             keepers={
-                "azi_id": "1",
+                "azi_id": 1,
             },
             byte_length=8)
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
@@ -433,7 +433,7 @@ class Profile(pulumi.CustomResource):
 
         server = random.RandomId("server",
             keepers={
-                "azi_id": "1",
+                "azi_id": 1,
             },
             byte_length=8)
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
