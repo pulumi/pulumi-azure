@@ -14840,6 +14840,9 @@
                 "fields": {
                     "long_term_retention_policy": {
                         "maxItemsOne": true
+                    },
+                    "point_in_time_restore": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -18821,6 +18824,10 @@
                     }
                 }
             },
+            "azurerm_spring_cloud_dynatrace_application_performance_monitoring": {
+                "current": "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring",
+                "majorVersion": 5
+            },
             "azurerm_spring_cloud_gateway": {
                 "current": "azure:appplatform/springCloudGateway:SpringCloudGateway",
                 "majorVersion": 5,
@@ -20524,6 +20531,37 @@
                     },
                     "storage_location": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_virtual_machine_run_command": {
+                "current": "azure:compute/runCommand:RunCommand",
+                "majorVersion": 5,
+                "fields": {
+                    "error_blob_managed_identity": {
+                        "maxItemsOne": true
+                    },
+                    "instance_view": {
+                        "maxItemsOne": false
+                    },
+                    "output_blob_managed_identity": {
+                        "maxItemsOne": true
+                    },
+                    "parameter": {
+                        "maxItemsOne": false
+                    },
+                    "protected_parameter": {
+                        "maxItemsOne": false
+                    },
+                    "source": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "script_uri_managed_identity": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -27574,6 +27612,41 @@
                 "current": "azure:network/getNetworkWatcher:getNetworkWatcher",
                 "majorVersion": 5
             },
+            "azurerm_nginx_deployment": {
+                "current": "azure:nginx/getDeployment:getDeployment",
+                "majorVersion": 5,
+                "fields": {
+                    "frontend_private": {
+                        "maxItemsOne": false
+                    },
+                    "frontend_public": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ip_address": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "identity": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "logging_storage_account": {
+                        "maxItemsOne": false
+                    },
+                    "network_interface": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_notification_hub": {
                 "current": "azure:notificationhub/getHub:getHub",
                 "majorVersion": 5,
@@ -29863,6 +29936,7 @@
             "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain": "azurerm_spring_cloud_custom_domain",
             "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator": "azurerm_spring_cloud_customized_accelerator",
             "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal": "azurerm_spring_cloud_dev_tool_portal",
+            "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring": "azurerm_spring_cloud_dynatrace_application_performance_monitoring",
             "azure:appplatform/springCloudGateway:SpringCloudGateway": "azurerm_spring_cloud_gateway",
             "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain": "azurerm_spring_cloud_gateway_custom_domain",
             "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig": "azurerm_spring_cloud_gateway_route_config",
@@ -30024,6 +30098,7 @@
             "azure:compute/managedDiskSasToken:ManagedDiskSasToken": "azurerm_managed_disk_sas_token",
             "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet": "azurerm_orchestrated_virtual_machine_scale_set",
             "azure:compute/packetCapture:PacketCapture": "azurerm_virtual_machine_packet_capture",
+            "azure:compute/runCommand:RunCommand": "azurerm_virtual_machine_run_command",
             "azure:compute/scaleSet:ScaleSet": "azurerm_virtual_machine_scale_set",
             "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture": "azurerm_virtual_machine_scale_set_packet_capture",
             "azure:compute/sharedImage:SharedImage": "azurerm_shared_image",
@@ -31118,6 +31193,7 @@
             "azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway": "azurerm_virtual_network_gateway",
             "azure:network/getVirtualWan:getVirtualWan": "azurerm_virtual_wan",
             "azure:network/getVpnGateway:getVpnGateway": "azurerm_vpn_gateway",
+            "azure:nginx/getDeployment:getDeployment": "azurerm_nginx_deployment",
             "azure:notificationhub/getHub:getHub": "azurerm_notification_hub",
             "azure:notificationhub/getNamespace:getNamespace": "azurerm_notification_hub_namespace",
             "azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace": "azurerm_log_analytics_workspace",
@@ -32593,6 +32669,15 @@
                 "applicationLiveViewEnabled": "application_live_view_enabled",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "springCloudServiceId": "spring_cloud_service_id"
+            },
+            "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring": {
+                "apiToken": "api_token",
+                "apiUrl": "api_url",
+                "connectionPoint": "connection_point",
+                "environmentId": "environment_id",
+                "globallyEnabled": "globally_enabled",
+                "springCloudServiceId": "spring_cloud_service_id",
+                "tenantToken": "tenant_token"
             },
             "azure:appplatform/springCloudGateway:SpringCloudGateway": {
                 "apiMetadata": "api_metadata",
@@ -39581,6 +39666,31 @@
                 "storageAccountId": "storage_account_id",
                 "storagePath": "storage_path"
             },
+            "azure:compute/RunCommandErrorBlobManagedIdentity:RunCommandErrorBlobManagedIdentity": {
+                "clientId": "client_id",
+                "objectId": "object_id"
+            },
+            "azure:compute/RunCommandInstanceView:RunCommandInstanceView": {
+                "endTime": "end_time",
+                "errorMessage": "error_message",
+                "executionMessage": "execution_message",
+                "executionState": "execution_state",
+                "exitCode": "exit_code",
+                "startTime": "start_time"
+            },
+            "azure:compute/RunCommandOutputBlobManagedIdentity:RunCommandOutputBlobManagedIdentity": {
+                "clientId": "client_id",
+                "objectId": "object_id"
+            },
+            "azure:compute/RunCommandSource:RunCommandSource": {
+                "commandId": "command_id",
+                "scriptUri": "script_uri",
+                "scriptUriManagedIdentity": "script_uri_managed_identity"
+            },
+            "azure:compute/RunCommandSourceScriptUriManagedIdentity:RunCommandSourceScriptUriManagedIdentity": {
+                "clientId": "client_id",
+                "objectId": "object_id"
+            },
             "azure:compute/ScaleSetBootDiagnostics:ScaleSetBootDiagnostics": {
                 "storageUri": "storage_uri"
             },
@@ -40457,6 +40567,18 @@
                 "maximumCaptureDurationInSeconds": "maximum_capture_duration_in_seconds",
                 "networkWatcherId": "network_watcher_id",
                 "storageLocation": "storage_location",
+                "virtualMachineId": "virtual_machine_id"
+            },
+            "azure:compute/runCommand:RunCommand": {
+                "errorBlobManagedIdentity": "error_blob_managed_identity",
+                "errorBlobUri": "error_blob_uri",
+                "instanceViews": "instance_view",
+                "outputBlobManagedIdentity": "output_blob_managed_identity",
+                "outputBlobUri": "output_blob_uri",
+                "parameters": "parameter",
+                "protectedParameters": "protected_parameter",
+                "runAsPassword": "run_as_password",
+                "runAsUser": "run_as_user",
                 "virtualMachineId": "virtual_machine_id"
             },
             "azure:compute/scaleSet:ScaleSet": {
@@ -50266,6 +50388,10 @@
                 "weeklyRetention": "weekly_retention",
                 "yearlyRetention": "yearly_retention"
             },
+            "azure:mssql/ManagedDatabasePointInTimeRestore:ManagedDatabasePointInTimeRestore": {
+                "restorePointInTime": "restore_point_in_time",
+                "sourceDatabaseId": "source_database_id"
+            },
             "azure:mssql/ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy:ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy": {
                 "graceMinutes": "grace_minutes"
             },
@@ -50487,6 +50613,7 @@
             "azure:mssql/getManagedInstance:getManagedInstance": {
                 "administratorLogin": "administrator_login",
                 "customerManagedKeyId": "customer_managed_key_id",
+                "dnsZone": "dns_zone",
                 "dnsZonePartnerId": "dns_zone_partner_id",
                 "identities": "identity",
                 "licenseType": "license_type",
@@ -50527,11 +50654,13 @@
             "azure:mssql/managedDatabase:ManagedDatabase": {
                 "longTermRetentionPolicy": "long_term_retention_policy",
                 "managedInstanceId": "managed_instance_id",
+                "pointInTimeRestore": "point_in_time_restore",
                 "shortTermRetentionDays": "short_term_retention_days"
             },
             "azure:mssql/managedInstance:ManagedInstance": {
                 "administratorLogin": "administrator_login",
                 "administratorLoginPassword": "administrator_login_password",
+                "dnsZone": "dns_zone",
                 "dnsZonePartnerId": "dns_zone_partner_id",
                 "licenseType": "license_type",
                 "maintenanceConfigurationName": "maintenance_configuration_name",
@@ -53161,6 +53290,37 @@
                 "networkInterfaces": "network_interface",
                 "nginxVersion": "nginx_version",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:nginx/getDeployment:getDeployment": {
+                "diagnoseSupportEnabled": "diagnose_support_enabled",
+                "frontendPrivates": "frontend_private",
+                "frontendPublics": "frontend_public",
+                "identities": "identity",
+                "ipAddress": "ip_address",
+                "loggingStorageAccounts": "logging_storage_account",
+                "managedResourceGroup": "managed_resource_group",
+                "networkInterfaces": "network_interface",
+                "nginxVersion": "nginx_version",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:nginx/getDeploymentFrontendPrivate:getDeploymentFrontendPrivate": {
+                "allocationMethod": "allocation_method",
+                "ipAddress": "ip_address",
+                "subnetId": "subnet_id"
+            },
+            "azure:nginx/getDeploymentFrontendPublic:getDeploymentFrontendPublic": {
+                "ipAddresses": "ip_address"
+            },
+            "azure:nginx/getDeploymentIdentity:getDeploymentIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
+            "azure:nginx/getDeploymentLoggingStorageAccount:getDeploymentLoggingStorageAccount": {
+                "containerName": "container_name"
+            },
+            "azure:nginx/getDeploymentNetworkInterface:getDeploymentNetworkInterface": {
+                "subnetId": "subnet_id"
             },
             "azure:notificationhub/HubApnsCredential:HubApnsCredential": {
                 "applicationMode": "application_mode",

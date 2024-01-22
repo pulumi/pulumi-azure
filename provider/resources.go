@@ -1058,6 +1058,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_scale_set":                {Tok: azureResource(azureCompute, "ScaleSet")},
 			"azurerm_virtual_machine_packet_capture":           {Tok: azureResource(azureCompute, "PacketCapture")},
 			"azurerm_virtual_machine_scale_set_packet_capture": {Tok: azureResource(azureCompute, "ScaleSetPacketCapture")},
+			"azurerm_virtual_machine_run_command":              {Tok: azureResource(azureCompute, "RunCommand")},
 
 			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
 			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
