@@ -22,6 +22,7 @@ __all__ = [
     'FailoverGroupPartnerServer',
     'FailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedDatabaseLongTermRetentionPolicy',
+    'ManagedDatabasePointInTimeRestore',
     'ManagedInstanceFailoverGroupPartnerRegion',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy',
     'ManagedInstanceIdentity',
@@ -739,6 +740,54 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
         The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
         return pulumi.get(self, "yearly_retention")
+
+
+@pulumi.output_type
+class ManagedDatabasePointInTimeRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restorePointInTime":
+            suggest = "restore_point_in_time"
+        elif key == "sourceDatabaseId":
+            suggest = "source_database_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDatabasePointInTimeRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDatabasePointInTimeRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDatabasePointInTimeRestore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restore_point_in_time: str,
+                 source_database_id: str):
+        """
+        :param str restore_point_in_time: The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        :param str source_database_id: The source database id that will be used to restore from. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        pulumi.set(__self__, "source_database_id", source_database_id)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> str:
+        """
+        The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> str:
+        """
+        The source database id that will be used to restore from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_database_id")
 
 
 @pulumi.output_type

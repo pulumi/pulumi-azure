@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql;
 
 import com.pulumi.azure.mssql.inputs.ManagedDatabaseLongTermRetentionPolicyArgs;
+import com.pulumi.azure.mssql.inputs.ManagedDatabasePointInTimeRestoreArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -64,6 +65,21 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * A `point_in_time_restore` block as defined below.
+     * 
+     */
+    @Import(name="pointInTimeRestore")
+    private @Nullable Output<ManagedDatabasePointInTimeRestoreArgs> pointInTimeRestore;
+
+    /**
+     * @return A `point_in_time_restore` block as defined below.
+     * 
+     */
+    public Optional<Output<ManagedDatabasePointInTimeRestoreArgs>> pointInTimeRestore() {
+        return Optional.ofNullable(this.pointInTimeRestore);
+    }
+
+    /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      * 
      */
@@ -84,6 +100,7 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         this.longTermRetentionPolicy = $.longTermRetentionPolicy;
         this.managedInstanceId = $.managedInstanceId;
         this.name = $.name;
+        this.pointInTimeRestore = $.pointInTimeRestore;
         this.shortTermRetentionDays = $.shortTermRetentionDays;
     }
 
@@ -166,6 +183,27 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param pointInTimeRestore A `point_in_time_restore` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointInTimeRestore(@Nullable Output<ManagedDatabasePointInTimeRestoreArgs> pointInTimeRestore) {
+            $.pointInTimeRestore = pointInTimeRestore;
+            return this;
+        }
+
+        /**
+         * @param pointInTimeRestore A `point_in_time_restore` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointInTimeRestore(ManagedDatabasePointInTimeRestoreArgs pointInTimeRestore) {
+            return pointInTimeRestore(Output.of(pointInTimeRestore));
         }
 
         /**

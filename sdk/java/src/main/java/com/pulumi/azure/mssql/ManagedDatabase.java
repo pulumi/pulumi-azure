@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.ManagedDatabaseArgs;
 import com.pulumi.azure.mssql.inputs.ManagedDatabaseState;
 import com.pulumi.azure.mssql.outputs.ManagedDatabaseLongTermRetentionPolicy;
+import com.pulumi.azure.mssql.outputs.ManagedDatabasePointInTimeRestore;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -135,6 +136,20 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * A `point_in_time_restore` block as defined below.
+     * 
+     */
+    @Export(name="pointInTimeRestore", refs={ManagedDatabasePointInTimeRestore.class}, tree="[0]")
+    private Output</* @Nullable */ ManagedDatabasePointInTimeRestore> pointInTimeRestore;
+
+    /**
+     * @return A `point_in_time_restore` block as defined below.
+     * 
+     */
+    public Output<Optional<ManagedDatabasePointInTimeRestore>> pointInTimeRestore() {
+        return Codegen.optional(this.pointInTimeRestore);
     }
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.

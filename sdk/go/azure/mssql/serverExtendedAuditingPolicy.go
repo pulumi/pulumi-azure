@@ -213,6 +213,128 @@ import (
 //	}
 //
 // ```
+// ### With Log Analytics Workspace And EventHub
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
+//				ServerId:                           exampleServer.ID(),
+//				StorageEndpoint:                    pulumi.Any(azurerm_storage_account.Example.Primary_blob_endpoint),
+//				StorageAccountAccessKey:            pulumi.Any(azurerm_storage_account.Example.Primary_access_key),
+//				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
+//				RetentionInDays:                    pulumi.Int(6),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespaceAuthorizationRule, err := eventhub.NewEventHubNamespaceAuthorizationRule(ctx, "exampleEventHubNamespaceAuthorizationRule", &eventhub.EventHubNamespaceAuthorizationRuleArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(true),
+//				Manage:            pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
+//				ServerId:             exampleServer.ID(),
+//				LogMonitoringEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
+//				TargetResourceId: exampleServer.ID().ApplyT(func(id string) (string, error) {
+//					return fmt.Sprintf("%v/databases/master", id), nil
+//				}).(pulumi.StringOutput),
+//				EventhubAuthorizationRuleId: exampleEventHubNamespaceAuthorizationRule.ID(),
+//				EventhubName:                exampleEventHub.Name,
+//				LogAnalyticsWorkspaceId:     exampleAnalyticsWorkspace.ID(),
+//				Logs: monitoring.DiagnosticSettingLogArray{
+//					&monitoring.DiagnosticSettingLogArgs{
+//						Category: pulumi.String("SQLSecurityAuditEvents"),
+//						Enabled:  pulumi.Bool(true),
+//						RetentionPolicy: &monitoring.DiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Metrics: monitoring.DiagnosticSettingMetricArray{
+//					&monitoring.DiagnosticSettingMetricArgs{
+//						Category: pulumi.String("AllMetrics"),
+//						RetentionPolicy: &monitoring.DiagnosticSettingMetricRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(false),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

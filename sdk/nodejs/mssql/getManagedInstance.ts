@@ -58,6 +58,10 @@ export interface GetManagedInstanceResult {
     readonly collation: string;
     readonly customerManagedKeyId: string;
     /**
+     * The Dns Zone where the SQL Managed Instance is located.
+     */
+    readonly dnsZone: string;
+    /**
      * The ID of the SQL Managed Instance which shares the DNS zone.
      */
     readonly dnsZonePartnerId: string;

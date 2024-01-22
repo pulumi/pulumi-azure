@@ -10294,7 +10294,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to run. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -11267,7 +11267,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: string;
         /**
-         * The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: string;
         /**
@@ -11695,7 +11695,7 @@ export namespace appservice {
          */
         azureStaticWebAppV2?: outputs.appservice.LinuxWebAppAuthSettingsV2AzureStaticWebAppV2;
         /**
-         * The path to the App Auth settings. 
+         * The path to the App Auth settings.
          *
          * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
@@ -11949,7 +11949,7 @@ export namespace appservice {
 
     export interface LinuxWebAppAuthSettingsV2Login {
         /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
          *
          * > **Note:** URLs within the current domain are always implicitly allowed.
          */
@@ -12374,7 +12374,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
          */
         pythonVersion?: string;
         /**
@@ -13480,7 +13480,7 @@ export namespace appservice {
          */
         phpVersion?: string;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
          */
         pythonVersion?: string;
         /**
@@ -25595,6 +25595,81 @@ export namespace compute {
          * The URI of the storage path where the packet capture sessions are saved to.
          */
         storagePath: string;
+    }
+
+    export interface RunCommandErrorBlobManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: string;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: string;
+    }
+
+    export interface RunCommandInstanceView {
+        endTime: string;
+        errorMessage: string;
+        executionMessage: string;
+        executionState: string;
+        exitCode: number;
+        output: string;
+        startTime: string;
+    }
+
+    export interface RunCommandOutputBlobManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: string;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: string;
+    }
+
+    export interface RunCommandParameter {
+        /**
+         * The run parameter name.
+         */
+        name: string;
+        /**
+         * The run parameter value.
+         */
+        value: string;
+    }
+
+    export interface RunCommandProtectedParameter {
+        /**
+         * The run parameter name.
+         */
+        name: string;
+        /**
+         * The run parameter value.
+         */
+        value: string;
+    }
+
+    export interface RunCommandSource {
+        commandId?: string;
+        script?: string;
+        scriptUri?: string;
+        /**
+         * A `scriptUriManagedIdentity` block as defined above.
+         */
+        scriptUriManagedIdentity?: outputs.compute.RunCommandSourceScriptUriManagedIdentity;
+    }
+
+    export interface RunCommandSourceScriptUriManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: string;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: string;
     }
 
     export interface ScaleSetBootDiagnostics {
@@ -49862,7 +49937,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesSyslog {
         /**
-         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
          */
         facilityNames: string[];
         /**
@@ -51594,6 +51669,17 @@ export namespace mssql {
          * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
          */
         yearlyRetention: string;
+    }
+
+    export interface ManagedDatabasePointInTimeRestore {
+        /**
+         * The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+         */
+        restorePointInTime: string;
+        /**
+         * The source database id that will be used to restore from. Changing this forces a new resource to be created.
+         */
+        sourceDatabaseId: string;
     }
 
     export interface ManagedInstanceFailoverGroupPartnerRegion {
@@ -53391,7 +53477,7 @@ export namespace network {
          *
          * > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
          */
-        components: string;
+        components?: string;
         /**
          * The URL path to rewrite.
          */
@@ -58008,7 +58094,7 @@ export namespace nginx {
 
     export interface DeploymentFrontendPrivate {
         /**
-         * Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
          */
         allocationMethod: string;
         /**
@@ -58045,7 +58131,7 @@ export namespace nginx {
 
     export interface DeploymentLoggingStorageAccount {
         /**
-         * Specify the container name of Stoage Account for logging.
+         * Specify the container name of Storage Account for logging.
          */
         containerName?: string;
         /**
@@ -58057,6 +58143,59 @@ export namespace nginx {
     export interface DeploymentNetworkInterface {
         /**
          * Specify The SubNet Resource ID to this Nginx Deployment.
+         */
+        subnetId: string;
+    }
+
+    export interface GetDeploymentFrontendPrivate {
+        /**
+         * The method of allocating the private IP to the Nginx Deployment.
+         */
+        allocationMethod: string;
+        /**
+         * List of public IPs of the Ngix Deployment.
+         */
+        ipAddress: string;
+        /**
+         * The subnet resource ID of the Nginx Deployment.
+         */
+        subnetId: string;
+    }
+
+    export interface GetDeploymentFrontendPublic {
+        /**
+         * List of public IPs of the Ngix Deployment.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface GetDeploymentIdentity {
+        /**
+         * List of identities attached to the Nginx Deployment.
+         */
+        identityIds: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Type of identity attached to the Nginx Deployment.
+         */
+        type: string;
+    }
+
+    export interface GetDeploymentLoggingStorageAccount {
+        /**
+         * the container name of Storage Account for logging.
+         */
+        containerName: string;
+        /**
+         * The name of this Nginx Deployment.
+         */
+        name: string;
+    }
+
+    export interface GetDeploymentNetworkInterface {
+        /**
+         * The subnet resource ID of the Nginx Deployment.
          */
         subnetId: string;
     }

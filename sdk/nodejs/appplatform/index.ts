@@ -115,6 +115,11 @@ export type SpringCloudDevToolPortal = import("./springCloudDevToolPortal").Spri
 export const SpringCloudDevToolPortal: typeof import("./springCloudDevToolPortal").SpringCloudDevToolPortal = null as any;
 utilities.lazyLoad(exports, ["SpringCloudDevToolPortal"], () => require("./springCloudDevToolPortal"));
 
+export { SpringCloudDynatraceApplicationPerformanceMonitoringArgs, SpringCloudDynatraceApplicationPerformanceMonitoringState } from "./springCloudDynatraceApplicationPerformanceMonitoring";
+export type SpringCloudDynatraceApplicationPerformanceMonitoring = import("./springCloudDynatraceApplicationPerformanceMonitoring").SpringCloudDynatraceApplicationPerformanceMonitoring;
+export const SpringCloudDynatraceApplicationPerformanceMonitoring: typeof import("./springCloudDynatraceApplicationPerformanceMonitoring").SpringCloudDynatraceApplicationPerformanceMonitoring = null as any;
+utilities.lazyLoad(exports, ["SpringCloudDynatraceApplicationPerformanceMonitoring"], () => require("./springCloudDynatraceApplicationPerformanceMonitoring"));
+
 export { SpringCloudGatewayArgs, SpringCloudGatewayState } from "./springCloudGateway";
 export type SpringCloudGateway = import("./springCloudGateway").SpringCloudGateway;
 export const SpringCloudGateway: typeof import("./springCloudGateway").SpringCloudGateway = null as any;
@@ -190,6 +195,8 @@ const _module = {
                 return new SpringCloudCustomizedAccelerator(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal":
                 return new SpringCloudDevToolPortal(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring":
+                return new SpringCloudDynatraceApplicationPerformanceMonitoring(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudGateway:SpringCloudGateway":
                 return new SpringCloudGateway(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
@@ -227,6 +234,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudContainer
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomizedAccelerator", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudDevToolPortal", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudDynatraceApplicationPerformanceMonitoring", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayRouteConfig", _module)

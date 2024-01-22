@@ -220,6 +220,11 @@ export type PacketCapture = import("./packetCapture").PacketCapture;
 export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
 utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
 
+export { RunCommandArgs, RunCommandState } from "./runCommand";
+export type RunCommand = import("./runCommand").RunCommand;
+export const RunCommand: typeof import("./runCommand").RunCommand = null as any;
+utilities.lazyLoad(exports, ["RunCommand"], () => require("./runCommand"));
+
 export { ScaleSetArgs, ScaleSetState } from "./scaleSet";
 export type ScaleSet = import("./scaleSet").ScaleSet;
 export const ScaleSet: typeof import("./scaleSet").ScaleSet = null as any;
@@ -326,6 +331,8 @@ const _module = {
                 return new OrchestratedVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:compute/packetCapture:PacketCapture":
                 return new PacketCapture(name, <any>undefined, { urn })
+            case "azure:compute/runCommand:RunCommand":
+                return new RunCommand(name, <any>undefined, { urn })
             case "azure:compute/scaleSet:ScaleSet":
                 return new ScaleSet(name, <any>undefined, { urn })
             case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
@@ -376,6 +383,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDiskSasToken", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/orchestratedVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/packetCapture", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/runCommand", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSetPacketCapture", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sharedImage", _module)

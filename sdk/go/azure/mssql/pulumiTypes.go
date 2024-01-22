@@ -1933,6 +1933,162 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedDatabasePointInTimeRestore struct {
+	// The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+	RestorePointInTime string `pulumi:"restorePointInTime"`
+	// The source database id that will be used to restore from. Changing this forces a new resource to be created.
+	SourceDatabaseId string `pulumi:"sourceDatabaseId"`
+}
+
+// ManagedDatabasePointInTimeRestoreInput is an input type that accepts ManagedDatabasePointInTimeRestoreArgs and ManagedDatabasePointInTimeRestoreOutput values.
+// You can construct a concrete instance of `ManagedDatabasePointInTimeRestoreInput` via:
+//
+//	ManagedDatabasePointInTimeRestoreArgs{...}
+type ManagedDatabasePointInTimeRestoreInput interface {
+	pulumi.Input
+
+	ToManagedDatabasePointInTimeRestoreOutput() ManagedDatabasePointInTimeRestoreOutput
+	ToManagedDatabasePointInTimeRestoreOutputWithContext(context.Context) ManagedDatabasePointInTimeRestoreOutput
+}
+
+type ManagedDatabasePointInTimeRestoreArgs struct {
+	// The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+	RestorePointInTime pulumi.StringInput `pulumi:"restorePointInTime"`
+	// The source database id that will be used to restore from. Changing this forces a new resource to be created.
+	SourceDatabaseId pulumi.StringInput `pulumi:"sourceDatabaseId"`
+}
+
+func (ManagedDatabasePointInTimeRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (i ManagedDatabasePointInTimeRestoreArgs) ToManagedDatabasePointInTimeRestoreOutput() ManagedDatabasePointInTimeRestoreOutput {
+	return i.ToManagedDatabasePointInTimeRestoreOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabasePointInTimeRestoreArgs) ToManagedDatabasePointInTimeRestoreOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabasePointInTimeRestoreOutput)
+}
+
+func (i ManagedDatabasePointInTimeRestoreArgs) ToManagedDatabasePointInTimeRestorePtrOutput() ManagedDatabasePointInTimeRestorePtrOutput {
+	return i.ToManagedDatabasePointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedDatabasePointInTimeRestoreArgs) ToManagedDatabasePointInTimeRestorePtrOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabasePointInTimeRestoreOutput).ToManagedDatabasePointInTimeRestorePtrOutputWithContext(ctx)
+}
+
+// ManagedDatabasePointInTimeRestorePtrInput is an input type that accepts ManagedDatabasePointInTimeRestoreArgs, ManagedDatabasePointInTimeRestorePtr and ManagedDatabasePointInTimeRestorePtrOutput values.
+// You can construct a concrete instance of `ManagedDatabasePointInTimeRestorePtrInput` via:
+//
+//	        ManagedDatabasePointInTimeRestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedDatabasePointInTimeRestorePtrInput interface {
+	pulumi.Input
+
+	ToManagedDatabasePointInTimeRestorePtrOutput() ManagedDatabasePointInTimeRestorePtrOutput
+	ToManagedDatabasePointInTimeRestorePtrOutputWithContext(context.Context) ManagedDatabasePointInTimeRestorePtrOutput
+}
+
+type managedDatabasePointInTimeRestorePtrType ManagedDatabasePointInTimeRestoreArgs
+
+func ManagedDatabasePointInTimeRestorePtr(v *ManagedDatabasePointInTimeRestoreArgs) ManagedDatabasePointInTimeRestorePtrInput {
+	return (*managedDatabasePointInTimeRestorePtrType)(v)
+}
+
+func (*managedDatabasePointInTimeRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (i *managedDatabasePointInTimeRestorePtrType) ToManagedDatabasePointInTimeRestorePtrOutput() ManagedDatabasePointInTimeRestorePtrOutput {
+	return i.ToManagedDatabasePointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *managedDatabasePointInTimeRestorePtrType) ToManagedDatabasePointInTimeRestorePtrOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabasePointInTimeRestorePtrOutput)
+}
+
+type ManagedDatabasePointInTimeRestoreOutput struct{ *pulumi.OutputState }
+
+func (ManagedDatabasePointInTimeRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (o ManagedDatabasePointInTimeRestoreOutput) ToManagedDatabasePointInTimeRestoreOutput() ManagedDatabasePointInTimeRestoreOutput {
+	return o
+}
+
+func (o ManagedDatabasePointInTimeRestoreOutput) ToManagedDatabasePointInTimeRestoreOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestoreOutput {
+	return o
+}
+
+func (o ManagedDatabasePointInTimeRestoreOutput) ToManagedDatabasePointInTimeRestorePtrOutput() ManagedDatabasePointInTimeRestorePtrOutput {
+	return o.ToManagedDatabasePointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedDatabasePointInTimeRestoreOutput) ToManagedDatabasePointInTimeRestorePtrOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDatabasePointInTimeRestore) *ManagedDatabasePointInTimeRestore {
+		return &v
+	}).(ManagedDatabasePointInTimeRestorePtrOutput)
+}
+
+// The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+func (o ManagedDatabasePointInTimeRestoreOutput) RestorePointInTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDatabasePointInTimeRestore) string { return v.RestorePointInTime }).(pulumi.StringOutput)
+}
+
+// The source database id that will be used to restore from. Changing this forces a new resource to be created.
+func (o ManagedDatabasePointInTimeRestoreOutput) SourceDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedDatabasePointInTimeRestore) string { return v.SourceDatabaseId }).(pulumi.StringOutput)
+}
+
+type ManagedDatabasePointInTimeRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedDatabasePointInTimeRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedDatabasePointInTimeRestore)(nil)).Elem()
+}
+
+func (o ManagedDatabasePointInTimeRestorePtrOutput) ToManagedDatabasePointInTimeRestorePtrOutput() ManagedDatabasePointInTimeRestorePtrOutput {
+	return o
+}
+
+func (o ManagedDatabasePointInTimeRestorePtrOutput) ToManagedDatabasePointInTimeRestorePtrOutputWithContext(ctx context.Context) ManagedDatabasePointInTimeRestorePtrOutput {
+	return o
+}
+
+func (o ManagedDatabasePointInTimeRestorePtrOutput) Elem() ManagedDatabasePointInTimeRestoreOutput {
+	return o.ApplyT(func(v *ManagedDatabasePointInTimeRestore) ManagedDatabasePointInTimeRestore {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedDatabasePointInTimeRestore
+		return ret
+	}).(ManagedDatabasePointInTimeRestoreOutput)
+}
+
+// The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+func (o ManagedDatabasePointInTimeRestorePtrOutput) RestorePointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabasePointInTimeRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RestorePointInTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source database id that will be used to restore from. Changing this forces a new resource to be created.
+func (o ManagedDatabasePointInTimeRestorePtrOutput) SourceDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabasePointInTimeRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedInstanceFailoverGroupPartnerRegion struct {
 	// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -6860,6 +7016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), FailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabaseLongTermRetentionPolicyPtrInput)(nil)).Elem(), ManagedDatabaseLongTermRetentionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePointInTimeRestoreInput)(nil)).Elem(), ManagedDatabasePointInTimeRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDatabasePointInTimeRestorePtrInput)(nil)).Elem(), ManagedDatabasePointInTimeRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupPartnerRegionArrayInput)(nil)).Elem(), ManagedInstanceFailoverGroupPartnerRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
@@ -6936,6 +7094,8 @@ func init() {
 	pulumi.RegisterOutputType(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(ManagedDatabaseLongTermRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ManagedDatabasePointInTimeRestoreOutput{})
+	pulumi.RegisterOutputType(ManagedDatabasePointInTimeRestorePtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupPartnerRegionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput{})

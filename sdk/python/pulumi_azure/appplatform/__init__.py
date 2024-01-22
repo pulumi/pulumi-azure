@@ -27,6 +27,7 @@ from .spring_cloud_container_deployment import *
 from .spring_cloud_custom_domain import *
 from .spring_cloud_customized_accelerator import *
 from .spring_cloud_dev_tool_portal import *
+from .spring_cloud_dynatrace_application_performance_monitoring import *
 from .spring_cloud_gateway import *
 from .spring_cloud_gateway_custom_domain import *
 from .spring_cloud_gateway_route_config import *

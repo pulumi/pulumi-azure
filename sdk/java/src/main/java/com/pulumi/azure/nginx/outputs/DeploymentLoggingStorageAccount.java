@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DeploymentLoggingStorageAccount {
     /**
-     * @return Specify the container name of Stoage Account for logging.
+     * @return Specify the container name of Storage Account for logging.
      * 
      */
     private @Nullable String containerName;
@@ -24,7 +24,7 @@ public final class DeploymentLoggingStorageAccount {
 
     private DeploymentLoggingStorageAccount() {}
     /**
-     * @return Specify the container name of Stoage Account for logging.
+     * @return Specify the container name of Storage Account for logging.
      * 
      */
     public Optional<String> containerName() {

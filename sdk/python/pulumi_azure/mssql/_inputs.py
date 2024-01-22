@@ -21,6 +21,7 @@ __all__ = [
     'FailoverGroupPartnerServerArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedDatabaseLongTermRetentionPolicyArgs',
+    'ManagedDatabasePointInTimeRestoreArgs',
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'ManagedInstanceIdentityArgs',
@@ -712,6 +713,43 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
     @yearly_retention.setter
     def yearly_retention(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "yearly_retention", value)
+
+
+@pulumi.input_type
+class ManagedDatabasePointInTimeRestoreArgs:
+    def __init__(__self__, *,
+                 restore_point_in_time: pulumi.Input[str],
+                 source_database_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] restore_point_in_time: The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_database_id: The source database id that will be used to restore from. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        pulumi.set(__self__, "source_database_id", source_database_id)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> pulumi.Input[str]:
+        """
+        The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> pulumi.Input[str]:
+        """
+        The source database id that will be used to restore from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_database_id")
+
+    @source_database_id.setter
+    def source_database_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_database_id", value)
 
 
 @pulumi.input_type

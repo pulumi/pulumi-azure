@@ -15,14 +15,14 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
     public static final DeploymentFrontendPrivateArgs Empty = new DeploymentFrontendPrivateArgs();
 
     /**
-     * Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     @Import(name="allocationMethod", required=true)
     private Output<String> allocationMethod;
 
     /**
-     * @return Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public Output<String> allocationMethod() {
@@ -86,7 +86,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * @param allocationMethod Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DeploymentFrontendPrivateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param allocationMethod Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * @param allocationMethod Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
          * 
          * @return builder
          * 

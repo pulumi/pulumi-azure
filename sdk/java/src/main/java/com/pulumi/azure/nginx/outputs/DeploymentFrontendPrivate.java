@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class DeploymentFrontendPrivate {
     /**
-     * @return Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     private String allocationMethod;
@@ -28,7 +28,7 @@ public final class DeploymentFrontendPrivate {
 
     private DeploymentFrontendPrivate() {}
     /**
-     * @return Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+     * @return Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
      * 
      */
     public String allocationMethod() {

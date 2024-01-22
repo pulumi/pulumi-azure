@@ -35,6 +35,8 @@ class PolicyVMArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+               
+               > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyVMRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
@@ -118,6 +120,8 @@ class PolicyVMArgs:
     def instant_restore_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+
+        > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         """
         return pulumi.get(self, "instant_restore_retention_days")
 
@@ -230,6 +234,8 @@ class _PolicyVMState:
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+               
+               > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -294,6 +300,8 @@ class _PolicyVMState:
     def instant_restore_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+
+        > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         """
         return pulumi.get(self, "instant_restore_retention_days")
 
@@ -494,6 +502,8 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+               
+               > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -657,6 +667,8 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+               
+               > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -706,6 +718,8 @@ class PolicyVM(pulumi.CustomResource):
     def instant_restore_retention_days(self) -> pulumi.Output[int]:
         """
         Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
+
+        > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         """
         return pulumi.get(self, "instant_restore_retention_days")
 

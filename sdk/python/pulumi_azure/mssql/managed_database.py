@@ -19,12 +19,14 @@ class ManagedDatabaseArgs:
                  managed_instance_id: pulumi.Input[str],
                  long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_restore: Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']] = None,
                  short_term_retention_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ManagedDatabase resource.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         pulumi.set(__self__, "managed_instance_id", managed_instance_id)
@@ -32,6 +34,8 @@ class ManagedDatabaseArgs:
             pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if point_in_time_restore is not None:
+            pulumi.set(__self__, "point_in_time_restore", point_in_time_restore)
         if short_term_retention_days is not None:
             pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
 
@@ -72,6 +76,18 @@ class ManagedDatabaseArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pointInTimeRestore")
+    def point_in_time_restore(self) -> Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']]:
+        """
+        A `point_in_time_restore` block as defined below.
+        """
+        return pulumi.get(self, "point_in_time_restore")
+
+    @point_in_time_restore.setter
+    def point_in_time_restore(self, value: Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']]):
+        pulumi.set(self, "point_in_time_restore", value)
+
+    @property
     @pulumi.getter(name="shortTermRetentionDays")
     def short_term_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -90,12 +106,14 @@ class _ManagedDatabaseState:
                  long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_restore: Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']] = None,
                  short_term_retention_days: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ManagedDatabase resources.
         :param pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
+        :param pulumi.Input['ManagedDatabasePointInTimeRestoreArgs'] point_in_time_restore: A `point_in_time_restore` block as defined below.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         if long_term_retention_policy is not None:
@@ -104,6 +122,8 @@ class _ManagedDatabaseState:
             pulumi.set(__self__, "managed_instance_id", managed_instance_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if point_in_time_restore is not None:
+            pulumi.set(__self__, "point_in_time_restore", point_in_time_restore)
         if short_term_retention_days is not None:
             pulumi.set(__self__, "short_term_retention_days", short_term_retention_days)
 
@@ -144,6 +164,18 @@ class _ManagedDatabaseState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pointInTimeRestore")
+    def point_in_time_restore(self) -> Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']]:
+        """
+        A `point_in_time_restore` block as defined below.
+        """
+        return pulumi.get(self, "point_in_time_restore")
+
+    @point_in_time_restore.setter
+    def point_in_time_restore(self, value: Optional[pulumi.Input['ManagedDatabasePointInTimeRestoreArgs']]):
+        pulumi.set(self, "point_in_time_restore", value)
+
+    @property
     @pulumi.getter(name="shortTermRetentionDays")
     def short_term_retention_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -164,6 +196,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['ManagedDatabaseLongTermRetentionPolicyArgs']]] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_restore: Optional[pulumi.Input[pulumi.InputType['ManagedDatabasePointInTimeRestoreArgs']]] = None,
                  short_term_retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -208,6 +241,7 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedDatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ManagedDatabasePointInTimeRestoreArgs']] point_in_time_restore: A `point_in_time_restore` block as defined below.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         ...
@@ -271,6 +305,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['ManagedDatabaseLongTermRetentionPolicyArgs']]] = None,
                  managed_instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 point_in_time_restore: Optional[pulumi.Input[pulumi.InputType['ManagedDatabasePointInTimeRestoreArgs']]] = None,
                  short_term_retention_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -286,6 +321,7 @@ class ManagedDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_instance_id'")
             __props__.__dict__["managed_instance_id"] = managed_instance_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["point_in_time_restore"] = point_in_time_restore
             __props__.__dict__["short_term_retention_days"] = short_term_retention_days
         super(ManagedDatabase, __self__).__init__(
             'azure:mssql/managedDatabase:ManagedDatabase',
@@ -300,6 +336,7 @@ class ManagedDatabase(pulumi.CustomResource):
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['ManagedDatabaseLongTermRetentionPolicyArgs']]] = None,
             managed_instance_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            point_in_time_restore: Optional[pulumi.Input[pulumi.InputType['ManagedDatabasePointInTimeRestoreArgs']]] = None,
             short_term_retention_days: Optional[pulumi.Input[int]] = None) -> 'ManagedDatabase':
         """
         Get an existing ManagedDatabase resource's state with the given name, id, and optional extra
@@ -311,6 +348,7 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ManagedDatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[str] managed_instance_id: The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Managed Database to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['ManagedDatabasePointInTimeRestoreArgs']] point_in_time_restore: A `point_in_time_restore` block as defined below.
         :param pulumi.Input[int] short_term_retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -320,6 +358,7 @@ class ManagedDatabase(pulumi.CustomResource):
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
         __props__.__dict__["managed_instance_id"] = managed_instance_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["point_in_time_restore"] = point_in_time_restore
         __props__.__dict__["short_term_retention_days"] = short_term_retention_days
         return ManagedDatabase(resource_name, opts=opts, __props__=__props__)
 
@@ -346,6 +385,14 @@ class ManagedDatabase(pulumi.CustomResource):
         The name of the Managed Database to create. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pointInTimeRestore")
+    def point_in_time_restore(self) -> pulumi.Output[Optional['outputs.ManagedDatabasePointInTimeRestore']]:
+        """
+        A `point_in_time_restore` block as defined below.
+        """
+        return pulumi.get(self, "point_in_time_restore")
 
     @property
     @pulumi.getter(name="shortTermRetentionDays")
