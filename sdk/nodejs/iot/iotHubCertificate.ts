@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * const exampleIotHubCertificate = new azure.iot.IotHubCertificate("exampleIotHubCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     iotDpsName: exampleIotHubDps.name,
- *     certificateContent: Buffer.from(fs.readFileSync("example.cer", 'binary')).toString('base64'),
+ *     certificateContent: fs.readFileSync("example.cer", { encoding: "base64" }),
  * });
  * ```
  *
