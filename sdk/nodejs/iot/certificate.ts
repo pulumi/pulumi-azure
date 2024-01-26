@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     iothubName: exampleIoTHub.name,
  *     isVerified: true,
- *     certificateContent: Buffer.from(fs.readFileSync("example.cer", 'binary')).toString('base64'),
+ *     certificateContent: fs.readFileSync("example.cer", { encoding: "base64" }),
  * });
  * ```
  *

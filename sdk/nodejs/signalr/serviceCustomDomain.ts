@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx", 'binary')).toString('base64'),
+ *         contents: fs.readFileSync("certificate-to-import.pfx", { encoding: "base64" }),
  *         password: "",
  *     },
  * });
