@@ -3467,6 +3467,7 @@ func Provider() tfbridge.ProviderInfo {
 	//     For all resources with `location` properties, default to the resource group's location to which the
 	//        resource belongs. This ensures that each resource doesn't need to be given a location explicitly.
 	rgRegionMap := make(map[string]string)
+	ctx := context.Background()
 	for resname, res := range prov.Resources {
 		if schema := prov.P.ResourcesMap().Get(resname); schema != nil {
 			if tfs, has := schema.Schema().GetOk(azureLocation); has && (tfs.Optional() || tfs.Required()) {
@@ -3477,7 +3478,7 @@ func Provider() tfbridge.ProviderInfo {
 					res.Fields[azureLocation] = &tfbridge.SchemaInfo{
 						Name: azureLocation,
 						Default: &tfbridge.DefaultInfo{
-							From: defaultAzureLocation(p, rgRegionMap),
+							From: defaultAzureLocation(ctx, p, rgRegionMap),
 						},
 					}
 				}
@@ -3488,7 +3489,7 @@ func Provider() tfbridge.ProviderInfo {
 	return prov
 }
 
-func defaultAzureLocation(
+func defaultAzureLocation(ctx context.Context,
 	p tfshim.Provider, rgRegionMap map[string]string,
 ) func(res *tfbridge.PulumiResource) (interface{}, error) {
 	return func(res *tfbridge.PulumiResource) (interface{}, error) {
@@ -3511,7 +3512,7 @@ func defaultAzureLocation(
 					contract.Assertf(importer != nil, "importer cannot be nil")
 					states, err := importer("azurerm_resource_group",
 						fmt.Sprintf("/subscriptions/_/resourceGroups/%s",
-							rg.StringValue()), p.Meta())
+							rg.StringValue()), p.Meta(ctx))
 					if err != nil {
 						return nil, err
 					}
@@ -3519,7 +3520,7 @@ func defaultAzureLocation(
 					case 0:
 						rgRegion = tfbridge.TerraformUnknownVariableValue
 					case 1:
-						state, err := p.Refresh("azurerm_resource_group", states[0], nil)
+						state, err := p.Refresh(ctx, "azurerm_resource_group", states[0], nil)
 						switch {
 						case err != nil:
 							return nil, err
