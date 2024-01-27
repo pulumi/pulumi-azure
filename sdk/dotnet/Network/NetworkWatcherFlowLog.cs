@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
+    /// Manages a Network Watcher Flow Log.
+    /// 
+    /// &gt; **Note** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -971,7 +971,12 @@ type VolumeDataProtectionReplication struct {
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	ReplicationFrequency   string `pulumi:"replicationFrequency"`
+	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+	//
+	// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+	//
+	// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
 }
 
 // VolumeDataProtectionReplicationInput is an input type that accepts VolumeDataProtectionReplicationArgs and VolumeDataProtectionReplicationOutput values.
@@ -992,7 +997,12 @@ type VolumeDataProtectionReplicationArgs struct {
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	ReplicationFrequency   pulumi.StringInput `pulumi:"replicationFrequency"`
+	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+	//
+	// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+	//
+	// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
 }
 
 func (VolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
@@ -1087,6 +1097,11 @@ func (o VolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.S
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
+// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+//
+// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+//
+// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 func (o VolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
 }
@@ -1145,6 +1160,11 @@ func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+//
+// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+//
+// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -1155,6 +1175,11 @@ func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.
 }
 
 type VolumeDataProtectionSnapshotPolicy struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	//
+	// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+	//
+	// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
 }
 
@@ -1170,6 +1195,11 @@ type VolumeDataProtectionSnapshotPolicyInput interface {
 }
 
 type VolumeDataProtectionSnapshotPolicyArgs struct {
+	// Resource ID of the snapshot policy to apply to the volume.
+	//
+	// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+	//
+	// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -1250,6 +1280,11 @@ func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshot
 	}).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
+// Resource ID of the snapshot policy to apply to the volume.
+//
+// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+//
+// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 func (o VolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
 }
@@ -1278,6 +1313,11 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeDataProtection
 	}).(VolumeDataProtectionSnapshotPolicyOutput)
 }
 
+// Resource ID of the snapshot policy to apply to the volume.
+//
+// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+//
+// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionSnapshotPolicy) *string {
 		if v == nil {

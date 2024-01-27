@@ -30,6 +30,13 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("remoteVolumeResourceId", required: true)]
         public Input<string> RemoteVolumeResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+        /// 
+        /// A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+        /// 
+        /// &gt; **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+        /// </summary>
         [Input("replicationFrequency", required: true)]
         public Input<string> ReplicationFrequency { get; set; } = null!;
 

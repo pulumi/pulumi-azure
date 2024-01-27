@@ -7,6 +7,164 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Front Door (standard/premium) Origin.
+ *
+ * !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     loadBalancing: {},
+ * });
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
+ *     enabled: true,
+ *     certificateNameCheckEnabled: false,
+ *     hostName: "contoso.com",
+ *     httpPort: 80,
+ *     httpsPort: 443,
+ *     originHostHeader: "www.contoso.com",
+ *     priority: 1,
+ *     weight: 1,
+ * });
+ * ```
+ * ### With Private Link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Premium",
+ *     accountReplicationType: "LRS",
+ *     allowNestedItemsToBePublic: false,
+ *     networkRules: {
+ *         defaultAction: "Deny",
+ *     },
+ *     tags: {
+ *         environment: "Example",
+ *     },
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     loadBalancing: {},
+ * });
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
+ *     enabled: true,
+ *     certificateNameCheckEnabled: true,
+ *     hostName: exampleAccount.primaryBlobHost,
+ *     originHostHeader: exampleAccount.primaryBlobHost,
+ *     priority: 1,
+ *     weight: 500,
+ *     privateLink: {
+ *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
+ *         targetType: "blob",
+ *         location: exampleAccount.location,
+ *         privateLinkTargetId: exampleAccount.id,
+ *     },
+ * });
+ * ```
+ * ### With Private Link Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     addressSpaces: ["10.5.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.5.1.0/24"],
+ *     privateLinkServiceNetworkPoliciesEnabled: false,
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ *     sku: "Standard",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Static",
+ * });
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ *     sku: "Standard",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     frontendIpConfigurations: [{
+ *         name: examplePublicIp.name,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ * });
+ * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
+ *     natIpConfigurations: [{
+ *         name: "primary",
+ *         privateIpAddress: "10.5.1.17",
+ *         privateIpAddressVersion: "IPv4",
+ *         subnetId: exampleSubnet.id,
+ *         primary: true,
+ *     }],
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * }, {
+ *     dependsOn: [exampleLinkService],
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     loadBalancing: {
+ *         additionalLatencyInMilliseconds: 0,
+ *         sampleSize: 16,
+ *         successfulSamplesRequired: 3,
+ *     },
+ * });
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
+ *     enabled: true,
+ *     hostName: "example.com",
+ *     originHostHeader: "example.com",
+ *     priority: 1,
+ *     weight: 1000,
+ *     certificateNameCheckEnabled: false,
+ *     privateLink: {
+ *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
+ *         location: exampleResourceGroup.location,
+ *         privateLinkTargetId: exampleLinkService.id,
+ *     },
+ * });
+ * ```
+ * ## Example HCL Configurations
+ *
+ * * Private Link Origin with Storage Account Blob
+ * * Private Link Origin with Storage Account Static Web Site
+ * * Private Link Origin with Linux Web Application
+ * * Private Link Origin with Internal Load Balancer
+ *
  * ## Import
  *
  * Front Door Origins can be imported using the `resource id`, e.g.

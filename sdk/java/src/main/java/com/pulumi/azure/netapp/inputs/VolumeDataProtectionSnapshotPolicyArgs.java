@@ -14,9 +14,25 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
 
     public static final VolumeDataProtectionSnapshotPolicyArgs Empty = new VolumeDataProtectionSnapshotPolicyArgs();
 
+    /**
+     * Resource ID of the snapshot policy to apply to the volume.
+     * 
+     * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+     * 
+     * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+     * 
+     */
     @Import(name="snapshotPolicyId", required=true)
     private Output<String> snapshotPolicyId;
 
+    /**
+     * @return Resource ID of the snapshot policy to apply to the volume.
+     * 
+     * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+     * 
+     * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+     * 
+     */
     public Output<String> snapshotPolicyId() {
         return this.snapshotPolicyId;
     }
@@ -45,11 +61,31 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
             $ = new VolumeDataProtectionSnapshotPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param snapshotPolicyId Resource ID of the snapshot policy to apply to the volume.
+         * 
+         * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+         * 
+         * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotPolicyId(Output<String> snapshotPolicyId) {
             $.snapshotPolicyId = snapshotPolicyId;
             return this;
         }
 
+        /**
+         * @param snapshotPolicyId Resource ID of the snapshot policy to apply to the volume.
+         * 
+         * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+         * 
+         * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotPolicyId(String snapshotPolicyId) {
             return snapshotPolicyId(Output.of(snapshotPolicyId));
         }

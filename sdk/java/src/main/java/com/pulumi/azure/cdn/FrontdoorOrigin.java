@@ -18,6 +18,281 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Front Door (standard/premium) Origin.
+ * 
+ * !&gt;**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOrigin;
+ * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .loadBalancing()
+ *             .build());
+ * 
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .enabled(true)
+ *             .certificateNameCheckEnabled(false)
+ *             .hostName(&#34;contoso.com&#34;)
+ *             .httpPort(80)
+ *             .httpsPort(443)
+ *             .originHostHeader(&#34;www.contoso.com&#34;)
+ *             .priority(1)
+ *             .weight(1)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Private Link
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOrigin;
+ * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Premium&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .allowNestedItemsToBePublic(false)
+ *             .networkRules(AccountNetworkRulesArgs.builder()
+ *                 .defaultAction(&#34;Deny&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Example&#34;))
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .loadBalancing()
+ *             .build());
+ * 
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .enabled(true)
+ *             .certificateNameCheckEnabled(true)
+ *             .hostName(exampleAccount.primaryBlobHost())
+ *             .originHostHeader(exampleAccount.primaryBlobHost())
+ *             .priority(1)
+ *             .weight(500)
+ *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
+ *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
+ *                 .targetType(&#34;blob&#34;)
+ *                 .location(exampleAccount.location())
+ *                 .privateLinkTargetId(exampleAccount.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Private Link Service
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.lb.LoadBalancer;
+ * import com.pulumi.azure.lb.LoadBalancerArgs;
+ * import com.pulumi.azure.lb.inputs.LoadBalancerFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.privatedns.LinkService;
+ * import com.pulumi.azure.privatedns.LinkServiceArgs;
+ * import com.pulumi.azure.privatedns.inputs.LinkServiceNatIpConfigurationArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOrigin;
+ * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginPrivateLinkArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .addressSpaces(&#34;10.5.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
+ *             .privateLinkServiceNetworkPoliciesEnabled(false)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .sku(&#34;Standard&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .build());
+ * 
+ *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .sku(&#34;Standard&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
+ *                 .name(examplePublicIp.name())
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .visibilitySubscriptionIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))
+ *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
+ *                 .name(&#34;primary&#34;)
+ *                 .privateIpAddress(&#34;10.5.1.17&#34;)
+ *                 .privateIpAddressVersion(&#34;IPv4&#34;)
+ *                 .subnetId(exampleSubnet.id())
+ *                 .primary(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleLinkService)
+ *                 .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .additionalLatencyInMilliseconds(0)
+ *                 .sampleSize(16)
+ *                 .successfulSamplesRequired(3)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .enabled(true)
+ *             .hostName(&#34;example.com&#34;)
+ *             .originHostHeader(&#34;example.com&#34;)
+ *             .priority(1)
+ *             .weight(1000)
+ *             .certificateNameCheckEnabled(false)
+ *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
+ *                 .requestMessage(&#34;Request access for Private Link Origin CDN Frontdoor&#34;)
+ *                 .location(exampleResourceGroup.location())
+ *                 .privateLinkTargetId(exampleLinkService.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Example HCL Configurations
+ * 
+ * * Private Link Origin with Storage Account Blob
+ * * Private Link Origin with Storage Account Static Web Site
+ * * Private Link Origin with Linux Web Application
+ * * Private Link Origin with Internal Load Balancer
+ * 
  * ## Import
  * 
  * Front Door Origins can be imported using the `resource id`, e.g.

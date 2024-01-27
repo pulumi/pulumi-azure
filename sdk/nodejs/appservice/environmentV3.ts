@@ -7,6 +7,66 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a 3rd Generation (v3) App Service Environment.
+ *
+ * ## Example Usage
+ *
+ * This example provisions an App Service Environment V3. Additional examples of how to use the `azure.appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "Microsoft.Web.hostingEnvironments",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Web/hostingEnvironments",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *         },
+ *     }],
+ * });
+ * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("exampleEnvironmentV3", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     subnetId: exampleSubnet.id,
+ *     internalLoadBalancingMode: "Web, Publishing",
+ *     clusterSettings: [
+ *         {
+ *             name: "DisableTls1.0",
+ *             value: "1",
+ *         },
+ *         {
+ *             name: "InternalEncryption",
+ *             value: "true",
+ *         },
+ *         {
+ *             name: "FrontEndSSLCipherSuiteOrder",
+ *             value: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+ *         },
+ *     ],
+ *     tags: {
+ *         env: "production",
+ *         terraformed: "true",
+ *     },
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     osType: "Linux",
+ *     skuName: "I1v2",
+ *     appServiceEnvironmentId: exampleEnvironmentV3.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.

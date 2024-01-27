@@ -12,6 +12,134 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+//
+// Manages the Custom HTTPS Configuration for an Azure Front Door (classic) Frontend Endpoint.
+//
+// > **NOTE:** Defining custom HTTPS configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
+//
+// !> **BREAKING CHANGE:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+//
+// !> **BREAKING CHANGE:** The `resourceGroupName` field has been removed as of the `v2.58.0` provider release. If the `resourceGroupName` field has been defined in your current `frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named "resourceGroupName" is not expected here.` error. If your pre-existing Front Door instance contained inline `customHttpsConfiguration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+//
+// !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/frontdoor"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "example-vault",
+//				ResourceGroupName: "example-vault-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
+//					&frontdoor.FrontdoorRoutingRuleArgs{
+//						Name: pulumi.String("exampleRoutingRule1"),
+//						AcceptedProtocols: pulumi.StringArray{
+//							pulumi.String("Http"),
+//							pulumi.String("Https"),
+//						},
+//						PatternsToMatches: pulumi.StringArray{
+//							pulumi.String("/*"),
+//						},
+//						FrontendEndpoints: pulumi.StringArray{
+//							pulumi.String("exampleFrontendEndpoint1"),
+//						},
+//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+//							ForwardingProtocol: pulumi.String("MatchRequest"),
+//							BackendPoolName:    pulumi.String("exampleBackendBing"),
+//						},
+//					},
+//				},
+//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
+//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
+//						Name: pulumi.String("exampleLoadBalancingSettings1"),
+//					},
+//				},
+//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+//						Name: pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
+//					&frontdoor.FrontdoorBackendPoolArgs{
+//						Name: pulumi.String("exampleBackendBing"),
+//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+//							&frontdoor.FrontdoorBackendPoolBackendArgs{
+//								HostHeader: pulumi.String("www.bing.com"),
+//								Address:    pulumi.String("www.bing.com"),
+//								HttpPort:   pulumi.Int(80),
+//								HttpsPort:  pulumi.Int(443),
+//							},
+//						},
+//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
+//					&frontdoor.FrontdoorFrontendEndpointArgs{
+//						Name:     pulumi.String("exampleFrontendEndpoint1"),
+//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
+//					},
+//					&frontdoor.FrontdoorFrontendEndpointArgs{
+//						Name:     pulumi.String("exampleFrontendEndpoint2"),
+//						HostName: pulumi.String("examplefd1.examplefd.net"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps0", &frontdoor.CustomHttpsConfigurationArgs{
+//				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
+//					return frontendEndpointsMap.ExampleFrontendEndpoint1, nil
+//				}).(pulumi.StringOutput),
+//				CustomHttpsProvisioningEnabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps1", &frontdoor.CustomHttpsConfigurationArgs{
+//				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
+//					return frontendEndpointsMap.ExampleFrontendEndpoint2, nil
+//				}).(pulumi.StringOutput),
+//				CustomHttpsProvisioningEnabled: pulumi.Bool(true),
+//				CustomHttpsConfiguration: &frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs{
+//					CertificateSource:                  pulumi.String("AzureKeyVault"),
+//					AzureKeyVaultCertificateSecretName: pulumi.String("examplefd1"),
+//					AzureKeyVaultCertificateVaultId:    *pulumi.String(vault.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.

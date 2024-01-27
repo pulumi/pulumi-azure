@@ -197,6 +197,10 @@ class Profile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a CDN Profile to create a collection of CDN Endpoints.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
         ## Example Usage
 
         ```python
@@ -237,6 +241,10 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a CDN Profile to create a collection of CDN Endpoints.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
         ## Example Usage
 
         ```python

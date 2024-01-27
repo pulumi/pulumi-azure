@@ -96,6 +96,9 @@ class WindowsVirtualMachineArgs:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+               
+               > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -516,6 +519,11 @@ class WindowsVirtualMachineArgs:
     @property
     @pulumi.getter(name="hotpatchingEnabled")
     def hotpatching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+
+        > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+        """
         return pulumi.get(self, "hotpatching_enabled")
 
     @hotpatching_enabled.setter
@@ -923,6 +931,9 @@ class _WindowsVirtualMachineState:
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+               
+               > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -1320,6 +1331,11 @@ class _WindowsVirtualMachineState:
     @property
     @pulumi.getter(name="hotpatchingEnabled")
     def hotpatching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+
+        > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+        """
         return pulumi.get(self, "hotpatching_enabled")
 
     @hotpatching_enabled.setter
@@ -1900,6 +1916,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+               
+               > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -2256,6 +2275,9 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
+        :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+               
+               > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -2528,6 +2550,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hotpatchingEnabled")
     def hotpatching_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+
+        > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+        """
         return pulumi.get(self, "hotpatching_enabled")
 
     @property

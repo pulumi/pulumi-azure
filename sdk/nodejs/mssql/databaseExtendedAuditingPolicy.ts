@@ -83,6 +83,12 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable audit events to Azure Monitor? Defaults to `true`.
+     *
+     * > **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     */
     public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -155,6 +161,12 @@ export interface DatabaseExtendedAuditingPolicyState {
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Enable audit events to Azure Monitor? Defaults to `true`.
+     *
+     * > **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -188,6 +200,12 @@ export interface DatabaseExtendedAuditingPolicyArgs {
      * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Enable audit events to Azure Monitor? Defaults to `true`.
+     *
+     * > **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     */
     logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.

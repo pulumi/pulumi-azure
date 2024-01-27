@@ -17,6 +17,121 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * !&gt; **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+ * 
+ * Manages the Custom HTTPS Configuration for an Azure Front Door (classic) Frontend Endpoint.
+ * 
+ * &gt; **NOTE:** Defining custom HTTPS configurations using a separate `azure.frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
+ * 
+ * !&gt; **BREAKING CHANGE:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+ * 
+ * !&gt; **BREAKING CHANGE:** The `resource_group_name` field has been removed as of the `v2.58.0` provider release. If the `resource_group_name` field has been defined in your current `azure.frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named &#34;resource_group_name&#34; is not expected here.` error. If your pre-existing Front Door instance contained inline `custom_https_configuration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+ * 
+ * !&gt; **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.keyvault.KeyvaultFunctions;
+ * import com.pulumi.azure.keyvault.inputs.GetKeyVaultArgs;
+ * import com.pulumi.azure.frontdoor.Frontdoor;
+ * import com.pulumi.azure.frontdoor.FrontdoorArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleForwardingConfigurationArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
+ * import com.pulumi.azure.frontdoor.CustomHttpsConfiguration;
+ * import com.pulumi.azure.frontdoor.CustomHttpsConfigurationArgs;
+ * import com.pulumi.azure.frontdoor.inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         final var vault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+ *             .name(&#34;example-vault&#34;)
+ *             .resourceGroupName(&#34;example-vault-rg&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoor = new Frontdoor(&#34;exampleFrontdoor&#34;, FrontdoorArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .routingRules(FrontdoorRoutingRuleArgs.builder()
+ *                 .name(&#34;exampleRoutingRule1&#34;)
+ *                 .acceptedProtocols(                
+ *                     &#34;Http&#34;,
+ *                     &#34;Https&#34;)
+ *                 .patternsToMatches(&#34;/*&#34;)
+ *                 .frontendEndpoints(&#34;exampleFrontendEndpoint1&#34;)
+ *                 .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfigurationArgs.builder()
+ *                     .forwardingProtocol(&#34;MatchRequest&#34;)
+ *                     .backendPoolName(&#34;exampleBackendBing&#34;)
+ *                     .build())
+ *                 .build())
+ *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
+ *                 .name(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .build())
+ *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
+ *                 .name(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .build())
+ *             .backendPools(FrontdoorBackendPoolArgs.builder()
+ *                 .name(&#34;exampleBackendBing&#34;)
+ *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
+ *                     .hostHeader(&#34;www.bing.com&#34;)
+ *                     .address(&#34;www.bing.com&#34;)
+ *                     .httpPort(80)
+ *                     .httpsPort(443)
+ *                     .build())
+ *                 .loadBalancingName(&#34;exampleLoadBalancingSettings1&#34;)
+ *                 .healthProbeName(&#34;exampleHealthProbeSetting1&#34;)
+ *                 .build())
+ *             .frontendEndpoints(            
+ *                 FrontdoorFrontendEndpointArgs.builder()
+ *                     .name(&#34;exampleFrontendEndpoint1&#34;)
+ *                     .hostName(&#34;example-FrontDoor.azurefd.net&#34;)
+ *                     .build(),
+ *                 FrontdoorFrontendEndpointArgs.builder()
+ *                     .name(&#34;exampleFrontendEndpoint2&#34;)
+ *                     .hostName(&#34;examplefd1.examplefd.net&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleCustomHttps0 = new CustomHttpsConfiguration(&#34;exampleCustomHttps0&#34;, CustomHttpsConfigurationArgs.builder()        
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -&gt; frontendEndpointsMap.exampleFrontendEndpoint1()))
+ *             .customHttpsProvisioningEnabled(false)
+ *             .build());
+ * 
+ *         var exampleCustomHttps1 = new CustomHttpsConfiguration(&#34;exampleCustomHttps1&#34;, CustomHttpsConfigurationArgs.builder()        
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -&gt; frontendEndpointsMap.exampleFrontendEndpoint2()))
+ *             .customHttpsProvisioningEnabled(true)
+ *             .customHttpsConfiguration(CustomHttpsConfigurationCustomHttpsConfigurationArgs.builder()
+ *                 .certificateSource(&#34;AzureKeyVault&#34;)
+ *                 .azureKeyVaultCertificateSecretName(&#34;examplefd1&#34;)
+ *                 .azureKeyVaultCertificateVaultId(vault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.

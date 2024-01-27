@@ -12,6 +12,92 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a SQL Instance Failover Group.
+//
+// ## Example Usage
+//
+// > **Note:** The `sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceFailoverGroup` resource instead.
+//
+// > **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primary, err := sql.NewManagedInstance(ctx, "primary", &sql.ManagedInstanceArgs{
+//				ResourceGroupName:          pulumi.Any(azurerm_resource_group.Primary.Name),
+//				Location:                   pulumi.Any(azurerm_resource_group.Primary.Location),
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   pulumi.Any(azurerm_subnet.Primary.Id),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("prod"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				azurerm_subnet_network_security_group_association.Primary,
+//				azurerm_subnet_route_table_association.Primary,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := sql.NewManagedInstance(ctx, "secondary", &sql.ManagedInstanceArgs{
+//				ResourceGroupName:          pulumi.Any(azurerm_resource_group.Secondary.Name),
+//				Location:                   pulumi.Any(azurerm_resource_group.Secondary.Location),
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   pulumi.Any(azurerm_subnet.Secondary.Id),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("prod"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				azurerm_subnet_network_security_group_association.Secondary,
+//				azurerm_subnet_route_table_association.Secondary,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewManagedInstanceFailoverGroup(ctx, "exampleManagedInstanceFailoverGroup", &sql.ManagedInstanceFailoverGroupArgs{
+//				ResourceGroupName:        pulumi.Any(azurerm_resource_group.Primary.Name),
+//				Location:                 primary.Location,
+//				ManagedInstanceName:      primary.Name,
+//				PartnerManagedInstanceId: secondary.ID(),
+//				ReadWriteEndpointFailoverPolicy: &sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
+//					Mode:         pulumi.String("Automatic"),
+//					GraceMinutes: pulumi.Int(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // SQL Instance Failover Groups can be imported using the `resource id`, e.g.

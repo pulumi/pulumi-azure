@@ -146,6 +146,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should WebSockets be enabled?
         /// </summary>
         public readonly bool? WebsocketsEnabled;
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// 
+        /// Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+        /// </summary>
         public readonly string? WindowsFxVersion;
 
         [OutputConstructor]

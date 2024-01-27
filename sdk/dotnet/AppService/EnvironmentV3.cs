@@ -10,6 +10,102 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
+    /// Manages a 3rd Generation (v3) App Service Environment.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// This example provisions an App Service Environment V3. Additional examples of how to use the `azure.appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "Microsoft.Web.hostingEnvironments",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Web/hostingEnvironments",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironmentV3 = new Azure.AppService.EnvironmentV3("exampleEnvironmentV3", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         InternalLoadBalancingMode = "Web, Publishing",
+    ///         ClusterSettings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             {
+    ///                 Name = "DisableTls1.0",
+    ///                 Value = "1",
+    ///             },
+    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             {
+    ///                 Name = "InternalEncryption",
+    ///                 Value = "true",
+    ///             },
+    ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
+    ///             {
+    ///                 Name = "FrontEndSSLCipherSuiteOrder",
+    ///                 Value = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "env", "production" },
+    ///             { "terraformed", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "I1v2",
+    ///         AppServiceEnvironmentId = exampleEnvironmentV3.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.

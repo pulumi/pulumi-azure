@@ -80,9 +80,21 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
 
+    /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * 
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+     * 
+     */
     @Import(name="hotpatchingEnabled")
     private @Nullable Output<Boolean> hotpatchingEnabled;
 
+    /**
+     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * 
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+     * 
+     */
     public Optional<Output<Boolean>> hotpatchingEnabled() {
         return Optional.ofNullable(this.hotpatchingEnabled);
     }
@@ -303,11 +315,27 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
 
+        /**
+         * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+         * 
+         * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hotpatchingEnabled(@Nullable Output<Boolean> hotpatchingEnabled) {
             $.hotpatchingEnabled = hotpatchingEnabled;
             return this;
         }
 
+        /**
+         * @param hotpatchingEnabled Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+         * 
+         * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hotpatchingEnabled(Boolean hotpatchingEnabled) {
             return hotpatchingEnabled(Output.of(hotpatchingEnabled));
         }

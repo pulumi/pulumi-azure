@@ -465,6 +465,148 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
+        Manages a Front Door (standard/premium) Origin.
+
+        !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs())
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            certificate_name_check_enabled=False,
+            host_name="contoso.com",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.contoso.com",
+            priority=1,
+            weight=1)
+        ```
+        ### With Private Link
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Premium",
+            account_replication_type="LRS",
+            allow_nested_items_to_be_public=False,
+            network_rules=azure.storage.AccountNetworkRulesArgs(
+                default_action="Deny",
+            ),
+            tags={
+                "environment": "Example",
+            })
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs())
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            certificate_name_check_enabled=True,
+            host_name=example_account.primary_blob_host,
+            origin_host_header=example_account.primary_blob_host,
+            priority=1,
+            weight=500,
+            private_link=azure.cdn.FrontdoorOriginPrivateLinkArgs(
+                request_message="Request access for Private Link Origin CDN Frontdoor",
+                target_type="blob",
+                location=example_account.location,
+                private_link_target_id=example_account.id,
+            ))
+        ```
+        ### With Private Link Service
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.1.0/24"],
+            private_link_service_network_policies_enabled=False)
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            sku="Standard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            sku="Standard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name=example_public_ip.name,
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_link_service = azure.privatedns.LinkService("exampleLinkService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            visibility_subscription_ids=[current.subscription_id],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
+                name="primary",
+                private_ip_address="10.5.1.17",
+                private_ip_address_version="IPv4",
+                subnet_id=example_subnet.id,
+                primary=True,
+            )])
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor",
+            opts=pulumi.ResourceOptions(depends_on=[example_link_service]))
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            host_name="example.com",
+            origin_host_header="example.com",
+            priority=1,
+            weight=1000,
+            certificate_name_check_enabled=False,
+            private_link=azure.cdn.FrontdoorOriginPrivateLinkArgs(
+                request_message="Request access for Private Link Origin CDN Frontdoor",
+                location=example_resource_group.location,
+                private_link_target_id=example_link_service.id,
+            ))
+        ```
+        ## Example HCL Configurations
+
+        * Private Link Origin with Storage Account Blob
+        * Private Link Origin with Storage Account Static Web Site
+        * Private Link Origin with Linux Web Application
+        * Private Link Origin with Internal Load Balancer
+
         ## Import
 
         Front Door Origins can be imported using the `resource id`, e.g.
@@ -502,6 +644,148 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  args: FrontdoorOriginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Front Door (standard/premium) Origin.
+
+        !>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs())
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            certificate_name_check_enabled=False,
+            host_name="contoso.com",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.contoso.com",
+            priority=1,
+            weight=1)
+        ```
+        ### With Private Link
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Premium",
+            account_replication_type="LRS",
+            allow_nested_items_to_be_public=False,
+            network_rules=azure.storage.AccountNetworkRulesArgs(
+                default_action="Deny",
+            ),
+            tags={
+                "environment": "Example",
+            })
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor")
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs())
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            certificate_name_check_enabled=True,
+            host_name=example_account.primary_blob_host,
+            origin_host_header=example_account.primary_blob_host,
+            priority=1,
+            weight=500,
+            private_link=azure.cdn.FrontdoorOriginPrivateLinkArgs(
+                request_message="Request access for Private Link Origin CDN Frontdoor",
+                target_type="blob",
+                location=example_account.location,
+                private_link_target_id=example_account.id,
+            ))
+        ```
+        ### With Private Link Service
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.5.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.5.1.0/24"],
+            private_link_service_network_policies_enabled=False)
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            sku="Standard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static")
+        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+            sku="Standard",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+                name=example_public_ip.name,
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_link_service = azure.privatedns.LinkService("exampleLinkService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            visibility_subscription_ids=[current.subscription_id],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
+                name="primary",
+                private_ip_address="10.5.1.17",
+                private_ip_address_version="IPv4",
+                subnet_id=example_subnet.id,
+                primary=True,
+            )])
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
+            resource_group_name=example_resource_group.name,
+            sku_name="Premium_AzureFrontDoor",
+            opts=pulumi.ResourceOptions(depends_on=[example_link_service]))
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+                additional_latency_in_milliseconds=0,
+                sample_size=16,
+                successful_samples_required=3,
+            ))
+        example_frontdoor_origin = azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin",
+            cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
+            enabled=True,
+            host_name="example.com",
+            origin_host_header="example.com",
+            priority=1,
+            weight=1000,
+            certificate_name_check_enabled=False,
+            private_link=azure.cdn.FrontdoorOriginPrivateLinkArgs(
+                request_message="Request access for Private Link Origin CDN Frontdoor",
+                location=example_resource_group.location,
+                private_link_target_id=example_link_service.id,
+            ))
+        ```
+        ## Example HCL Configurations
+
+        * Private Link Origin with Storage Account Blob
+        * Private Link Origin with Storage Account Static Web Site
+        * Private Link Origin with Linux Web Application
+        * Private Link Origin with Internal Load Balancer
+
         ## Import
 
         Front Door Origins can be imported using the `resource id`, e.g.

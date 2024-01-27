@@ -7,6 +7,27 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a custom virtual machine image that can be used to create virtual machines.
+ *
+ * ## Example Usage
+ *
+ * > **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleVirtualMachine = azure.compute.getVirtualMachine({
+ *     name: "examplevm",
+ *     resourceGroupName: "example-resources",
+ * });
+ * const exampleImage = new azure.compute.Image("exampleImage", {
+ *     location: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.location),
+ *     resourceGroupName: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.name),
+ *     sourceVirtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
+ * });
+ * ```
+ *
  * ## Import
  *
  * Images can be imported using the `resource id`, e.g.

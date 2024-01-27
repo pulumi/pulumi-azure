@@ -68,6 +68,11 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
+        /// <summary>
+        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// 
+        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+        /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 

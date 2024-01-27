@@ -223,6 +223,11 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
+        /// <summary>
+        /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// 
+        /// Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 

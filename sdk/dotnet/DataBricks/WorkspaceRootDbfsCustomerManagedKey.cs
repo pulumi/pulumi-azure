@@ -10,6 +10,134 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks
 {
     /// <summary>
+    /// Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "premium",
+    ///         CustomerManagedKeyEnabled = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         PurgeProtectionEnabled = true,
+    ///         SoftDeleteRetentionDays = 7,
+    ///     });
+    /// 
+    ///     var terraform = new Azure.KeyVault.AccessPolicy("terraform", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleKeyVault.TenantId,
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///             "GetRotationPolicy",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             terraform,
+    ///         },
+    ///     });
+    /// 
+    ///     var databricks = new Azure.KeyVault.AccessPolicy("databricks", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleWorkspace.StorageAccountIdentities.Apply(storageAccountIdentities =&gt; storageAccountIdentities[0].TenantId),
+    ///         ObjectId = exampleWorkspace.StorageAccountIdentities.Apply(storageAccountIdentities =&gt; storageAccountIdentities[0].PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleWorkspace,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWorkspaceRootDbfsCustomerManagedKey = new Azure.DataBricks.WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", new()
+    ///     {
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             databricks,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Example HCL Configurations
+    /// 
+    /// * Databricks Workspace with Root Databricks File System Customer Managed Keys
+    /// * Databricks Workspace with Customer Managed Keys for Managed Services
+    /// * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+    /// 
     /// ## Import
     /// 
     /// Databricks Workspace Root DBFS Customer Managed Key can be imported using the `resource id`, e.g.
