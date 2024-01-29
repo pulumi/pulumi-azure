@@ -179,6 +179,12 @@ public final class SlotSiteConfig {
      * 
      */
     private @Nullable Boolean websocketsEnabled;
+    /**
+     * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+     * 
+     */
     private @Nullable String windowsFxVersion;
 
     private SlotSiteConfig() {}
@@ -404,6 +410,12 @@ public final class SlotSiteConfig {
     public Optional<Boolean> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }
+    /**
+     * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+     * 
+     */
     public Optional<String> windowsFxVersion() {
         return Optional.ofNullable(this.windowsFxVersion);
     }

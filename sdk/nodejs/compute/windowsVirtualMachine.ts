@@ -187,6 +187,11 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      * One or more `galleryApplication` blocks as defined below.
      */
     public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineGalleryApplication[] | undefined>;
+    /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     *
+     * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+     */
     public readonly hotpatchingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
@@ -576,6 +581,11 @@ export interface WindowsVirtualMachineState {
      * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
+    /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     *
+     * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+     */
     hotpatchingEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -817,6 +827,11 @@ export interface WindowsVirtualMachineArgs {
      * One or more `galleryApplication` blocks as defined below.
      */
     galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineGalleryApplication>[]>;
+    /**
+     * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     *
+     * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+     */
     hotpatchingEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.

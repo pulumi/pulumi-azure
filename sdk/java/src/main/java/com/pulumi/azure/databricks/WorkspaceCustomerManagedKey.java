@@ -14,6 +14,133 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Customer Managed Key for a Databricks Workspace root DBFS
+ * 
+ * !&gt;**IMPORTANT:** This resource has been deprecated and will be removed from the 4.0 Azure provider. Please use the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource instead.
+ * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.databricks.Workspace;
+ * import com.pulumi.azure.databricks.WorkspaceArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKey;
+ * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .sku(&#34;premium&#34;)
+ *             .customerManagedKeyEnabled(true)
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .softDeleteRetentionDays(7)
+ *             .build());
+ * 
+ *         var terraform = new AccessPolicy(&#34;terraform&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(exampleKeyVault.tenantId())
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .keyPermissions(            
+ *                 &#34;Create&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;Purge&#34;,
+ *                 &#34;Recover&#34;,
+ *                 &#34;Update&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Decrypt&#34;,
+ *                 &#34;Sign&#34;,
+ *                 &#34;GetRotationPolicy&#34;)
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;decrypt&#34;,
+ *                 &#34;encrypt&#34;,
+ *                 &#34;sign&#34;,
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;verify&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(terraform)
+ *                 .build());
+ * 
+ *         var databricks = new AccessPolicy(&#34;databricks&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -&gt; storageAccountIdentities[0].tenantId()))
+ *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -&gt; storageAccountIdentities[0].principalId()))
+ *             .keyPermissions(            
+ *                 &#34;Create&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;Purge&#34;,
+ *                 &#34;Recover&#34;,
+ *                 &#34;Update&#34;,
+ *                 &#34;List&#34;,
+ *                 &#34;Decrypt&#34;,
+ *                 &#34;Sign&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleWorkspace)
+ *                 .build());
+ * 
+ *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey(&#34;exampleWorkspaceRootDbfsCustomerManagedKey&#34;, WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
+ *             .workspaceId(exampleWorkspace.id())
+ *             .keyVaultKeyId(exampleKey.id())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(databricks)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## Example HCL Configurations
+ * 
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+ * 
  * ## Import
  * 
  * Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.

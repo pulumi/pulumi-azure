@@ -12,6 +12,288 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Private Endpoint.
+//
+// Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			service, err := network.NewSubnet(ctx, "service", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//				EnforcePrivateLinkServiceNetworkPolicies: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			endpoint, err := network.NewSubnet(ctx, "endpoint", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Sku:               pulumi.String("Standard"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				Sku:               pulumi.String("Standard"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              examplePublicIp.Name,
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkService, err := privatedns.NewLinkService(ctx, "exampleLinkService", &privatedns.LinkServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
+//					&privatedns.LinkServiceNatIpConfigurationArgs{
+//						Name:     examplePublicIp.Name,
+//						Primary:  pulumi.Bool(true),
+//						SubnetId: service.ID(),
+//					},
+//				},
+//				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//						return &frontendIpConfigurations[0].Id, nil
+//					}).(pulumi.StringPtrOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SubnetId:          endpoint.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        pulumi.String("example-privateserviceconnection"),
+//					PrivateConnectionResourceId: exampleLinkService.ID(),
+//					IsManualConnection:          pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Using a Private Link Service Alias with existing resources:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//				Name: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			vnet, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//				Name:              "example-network",
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			subnet, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
+//				Name:               "default",
+//				VirtualNetworkName: vnet.Name,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
+//				Location:          *pulumi.String(exampleResourceGroup.Location),
+//				ResourceGroupName: *pulumi.String(exampleResourceGroup.Name),
+//				SubnetId:          *pulumi.String(subnet.Id),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                           pulumi.String("example-privateserviceconnection"),
+//					PrivateConnectionResourceAlias: pulumi.String("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice"),
+//					IsManualConnection:             pulumi.Bool(true),
+//					RequestMessage:                 pulumi.String("PL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SubnetId:          exampleSubnet.ID(),
+//				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+//					Name:                        pulumi.String("example-privateserviceconnection"),
+//					PrivateConnectionResourceId: exampleAccount.ID(),
+//					SubresourceNames: pulumi.StringArray{
+//						pulumi.String("blob"),
+//					},
+//					IsManualConnection: pulumi.Bool(false),
+//				},
+//				PrivateDnsZoneGroup: &privatelink.EndpointPrivateDnsZoneGroupArgs{
+//					Name: pulumi.String("example-dns-zone-group"),
+//					PrivateDnsZoneIds: pulumi.StringArray{
+//						exampleZone.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				PrivateDnsZoneName: exampleZone.Name,
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Example HCL Configurations
+//
+// * How to conneca `Private Endpoint` to a Application Gateway
+// * How to connect a `Private Endpoint` to a Cosmos MongoDB
+// * How to connect a `Private Endpoint` to a Cosmos PostgreSQL
+// * How to connect a `Private Endpoint` to a PostgreSQL Server
+// * How to connect a `Private Endpoint` to a Private Link Service
+// * How to connect a `Private Endpoint` to a Private DNS Group
+// * How to connect a `Private Endpoint` to a Databricks Workspace
+//
 // ## Import
 //
 // Private Endpoints can be imported using the `resource id`, e.g.

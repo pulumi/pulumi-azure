@@ -9,9 +9,9 @@ require (
 	github.com/hashicorp/go-azure-sdk v0.20240117.1163544
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
-	github.com/pulumi/providertest v0.0.5
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.71.0
-	github.com/pulumi/pulumi/sdk/v3 v3.101.1
+	github.com/pulumi/providertest v0.0.10
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.72.0
+	github.com/pulumi/pulumi/sdk/v3 v3.103.1
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -192,8 +192,8 @@ require (
 	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.9 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7 // indirect
-	github.com/pulumi/pulumi-yaml v1.4.5 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.101.1 // indirect
+	github.com/pulumi/pulumi-yaml v1.5.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.103.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 // indirect
@@ -232,14 +232,14 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
-	golang.org/x/crypto v0.17.0 // indirect
+	golang.org/x/crypto v0.18.0 // indirect
 	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa // indirect
 	golang.org/x/mod v0.14.0 // indirect
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/oauth2 v0.13.0 // indirect
 	golang.org/x/sync v0.5.0 // indirect
-	golang.org/x/sys v0.15.0 // indirect
-	golang.org/x/term v0.15.0 // indirect
+	golang.org/x/sys v0.16.0 // indirect
+	golang.org/x/term v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.15.0 // indirect

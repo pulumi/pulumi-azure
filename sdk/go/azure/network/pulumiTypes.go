@@ -8360,7 +8360,14 @@ type FirewallIpConfiguration struct {
 	// Specifies the name of the IP Configuration.
 	Name string `pulumi:"name"`
 	// The private IP address associated with the Firewall.
-	PrivateIpAddress  *string `pulumi:"privateIpAddress"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The ID of the Public IP Address associated with the firewall.
+	//
+	// > **NOTE** A public ip address is required unless a `managementIpConfiguration` block is specified.
+	//
+	// > **NOTE** When multiple `ipConfiguration` blocks with `publicIpAddressId` are configured, `pulumi up` will raise an error when one or some of these `ipConfiguration` blocks are removed. because the `publicIpAddressId` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+	//
+	// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	//
@@ -8385,7 +8392,14 @@ type FirewallIpConfigurationArgs struct {
 	// Specifies the name of the IP Configuration.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The private IP address associated with the Firewall.
-	PrivateIpAddress  pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The ID of the Public IP Address associated with the firewall.
+	//
+	// > **NOTE** A public ip address is required unless a `managementIpConfiguration` block is specified.
+	//
+	// > **NOTE** When multiple `ipConfiguration` blocks with `publicIpAddressId` are configured, `pulumi up` will raise an error when one or some of these `ipConfiguration` blocks are removed. because the `publicIpAddressId` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+	//
+	// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 	//
@@ -8456,6 +8470,13 @@ func (o FirewallIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Public IP Address associated with the firewall.
+//
+// > **NOTE** A public ip address is required unless a `managementIpConfiguration` block is specified.
+//
+// > **NOTE** When multiple `ipConfiguration` blocks with `publicIpAddressId` are configured, `pulumi up` will raise an error when one or some of these `ipConfiguration` blocks are removed. because the `publicIpAddressId` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+//
+// > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
 func (o FirewallIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }

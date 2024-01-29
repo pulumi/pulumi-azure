@@ -405,6 +405,11 @@ class VolumeDataProtectionReplication(dict):
         """
         :param str remote_volume_location: Location of the primary volume. Changing this forces a new resource to be created.
         :param str remote_volume_resource_id: Resource ID of the primary volume.
+        :param str replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+               
+               A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+               
+               > **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
         :param str endpoint_type: The endpoint type, default value is `dst` for destination.
         """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
@@ -432,6 +437,13 @@ class VolumeDataProtectionReplication(dict):
     @property
     @pulumi.getter(name="replicationFrequency")
     def replication_frequency(self) -> str:
+        """
+        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+
+        A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+
+        > **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+        """
         return pulumi.get(self, "replication_frequency")
 
     @property
@@ -464,11 +476,25 @@ class VolumeDataProtectionSnapshotPolicy(dict):
 
     def __init__(__self__, *,
                  snapshot_policy_id: str):
+        """
+        :param str snapshot_policy_id: Resource ID of the snapshot policy to apply to the volume.
+               
+               A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+               
+               > **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+        """
         pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
 
     @property
     @pulumi.getter(name="snapshotPolicyId")
     def snapshot_policy_id(self) -> str:
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+
+        A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+
+        > **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+        """
         return pulumi.get(self, "snapshot_policy_id")
 
 

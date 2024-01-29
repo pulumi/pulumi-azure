@@ -19,6 +19,93 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a SQL Instance Failover Group.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note:** The `azure.sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceFailoverGroup` resource instead.
+ * 
+ * &gt; **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.sql.ManagedInstance;
+ * import com.pulumi.azure.sql.ManagedInstanceArgs;
+ * import com.pulumi.azure.sql.ManagedInstanceFailoverGroup;
+ * import com.pulumi.azure.sql.ManagedInstanceFailoverGroupArgs;
+ * import com.pulumi.azure.sql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(azurerm_resource_group.primary().name())
+ *             .location(azurerm_resource_group.primary().location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(azurerm_subnet.primary().id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     azurerm_subnet_network_security_group_association.primary(),
+ *                     azurerm_subnet_route_table_association.primary())
+ *                 .build());
+ * 
+ *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(azurerm_resource_group.secondary().name())
+ *             .location(azurerm_resource_group.secondary().location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(azurerm_subnet.secondary().id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     azurerm_subnet_network_security_group_association.secondary(),
+ *                     azurerm_subnet_route_table_association.secondary())
+ *                 .build());
+ * 
+ *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
+ *             .resourceGroupName(azurerm_resource_group.primary().name())
+ *             .location(primary.location())
+ *             .managedInstanceName(primary.name())
+ *             .partnerManagedInstanceId(secondary.id())
+ *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
+ *                 .mode(&#34;Automatic&#34;)
+ *                 .graceMinutes(60)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * SQL Instance Failover Groups can be imported using the `resource id`, e.g.

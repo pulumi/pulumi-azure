@@ -7,6 +7,69 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a SQL Instance Failover Group.
+ *
+ * ## Example Usage
+ *
+ * > **Note:** The `azure.sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceFailoverGroup` resource instead.
+ *
+ * > **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const primary = new azure.sql.ManagedInstance("primary", {
+ *     resourceGroupName: azurerm_resource_group.primary.name,
+ *     location: azurerm_resource_group.primary.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: azurerm_subnet.primary.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ *     tags: {
+ *         environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         azurerm_subnet_network_security_group_association.primary,
+ *         azurerm_subnet_route_table_association.primary,
+ *     ],
+ * });
+ * const secondary = new azure.sql.ManagedInstance("secondary", {
+ *     resourceGroupName: azurerm_resource_group.secondary.name,
+ *     location: azurerm_resource_group.secondary.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: azurerm_subnet.secondary.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ *     tags: {
+ *         environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         azurerm_subnet_network_security_group_association.secondary,
+ *         azurerm_subnet_route_table_association.secondary,
+ *     ],
+ * });
+ * const exampleManagedInstanceFailoverGroup = new azure.sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", {
+ *     resourceGroupName: azurerm_resource_group.primary.name,
+ *     location: primary.location,
+ *     managedInstanceName: primary.name,
+ *     partnerManagedInstanceId: secondary.id,
+ *     readWriteEndpointFailoverPolicy: {
+ *         mode: "Automatic",
+ *         graceMinutes: 60,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * SQL Instance Failover Groups can be imported using the `resource id`, e.g.

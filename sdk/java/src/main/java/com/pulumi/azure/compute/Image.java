@@ -20,6 +20,49 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a custom virtual machine image that can be used to create virtual machines.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note:** For a more complete example, see the `examples/image` directory within the GitHub Repository.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.compute.ComputeFunctions;
+ * import com.pulumi.azure.compute.inputs.GetVirtualMachineArgs;
+ * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ImageArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+ *             .name(&#34;examplevm&#34;)
+ *             .resourceGroupName(&#34;example-resources&#34;)
+ *             .build());
+ * 
+ *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
+ *             .location(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.location()))
+ *             .resourceGroupName(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.name()))
+ *             .sourceVirtualMachineId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Images can be imported using the `resource id`, e.g.

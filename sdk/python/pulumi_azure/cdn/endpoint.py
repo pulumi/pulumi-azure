@@ -651,6 +651,10 @@ class Endpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format `<endpointname>.azureedge.net`.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
         ## Example Usage
 
         ```python
@@ -710,6 +714,10 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format `<endpointname>.azureedge.net`.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
         ## Example Usage
 
         ```python

@@ -263,6 +263,81 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Manages an Azure SQL Managed Instance Failover Group.
+
+        ## Example Usage
+
+        > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        primary = azure.mssql.ManagedInstance("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=example_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        secondary = azure.mssql.ManagedInstance("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=example_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            location=primary.location,
+            managed_instance_id=primary.id,
+            partner_managed_instance_id=secondary.id,
+            read_write_endpoint_failover_policy=azure.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
+
         ## Import
 
         SQL Instance Failover Groups can be imported using the `resource id`, e.g.
@@ -287,6 +362,81 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  args: ManagedInstanceFailoverGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Azure SQL Managed Instance Failover Group.
+
+        ## Example Usage
+
+        > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        example_route_table = azure.network.RouteTable("exampleRouteTable",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+            subnet_id=example_subnet.id,
+            route_table_id=example_route_table.id)
+        primary = azure.mssql.ManagedInstance("primary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=example_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        secondary = azure.mssql.ManagedInstance("secondary",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=example_subnet.id,
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    example_subnet_network_security_group_association,
+                    example_subnet_route_table_association,
+                ]))
+        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            location=primary.location,
+            managed_instance_id=primary.id,
+            partner_managed_instance_id=secondary.id,
+            read_write_endpoint_failover_policy=azure.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
+
         ## Import
 
         SQL Instance Failover Groups can be imported using the `resource id`, e.g.

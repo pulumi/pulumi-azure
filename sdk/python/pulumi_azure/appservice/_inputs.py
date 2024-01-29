@@ -23088,6 +23088,9 @@ class SlotSiteConfigArgs:
                
                > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
+        :param pulumi.Input[str] windows_fx_version: The Windows Docker container image (`DOCKER|<user/image:tag>`)
+               
+               Additional examples of how to run Containers via the `appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
         """
         if acr_use_managed_identity_credentials is not None:
             pulumi.set(__self__, "acr_use_managed_identity_credentials", acr_use_managed_identity_credentials)
@@ -23528,6 +23531,11 @@ class SlotSiteConfigArgs:
     @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Windows Docker container image (`DOCKER|<user/image:tag>`)
+
+        Additional examples of how to run Containers via the `appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+        """
         return pulumi.get(self, "windows_fx_version")
 
     @windows_fx_version.setter

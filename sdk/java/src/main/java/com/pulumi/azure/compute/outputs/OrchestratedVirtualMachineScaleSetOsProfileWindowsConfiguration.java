@@ -36,6 +36,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      * 
      */
     private @Nullable Boolean enableAutomaticUpdates;
+    /**
+     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * 
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+     * 
+     */
     private @Nullable Boolean hotpatchingEnabled;
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -101,6 +107,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public Optional<Boolean> enableAutomaticUpdates() {
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
+    /**
+     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * 
+     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM&#39;s `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+     * 
+     */
     public Optional<Boolean> hotpatchingEnabled() {
         return Optional.ofNullable(this.hotpatchingEnabled);
     }

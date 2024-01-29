@@ -12,6 +12,138 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Azure SQL Managed Instance Failover Group.
+//
+// ## Example Usage
+//
+// > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRouteTable, err := network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "exampleSubnetRouteTableAssociation", &network.SubnetRouteTableAssociationArgs{
+//				SubnetId:     exampleSubnet.ID(),
+//				RouteTableId: exampleRouteTable.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primary, err := mssql.NewManagedInstance(ctx, "primary", &mssql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   exampleSubnet.ID(),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("prod"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnetNetworkSecurityGroupAssociation,
+//				exampleSubnetRouteTableAssociation,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := mssql.NewManagedInstance(ctx, "secondary", &mssql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   exampleSubnet.ID(),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("prod"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnetNetworkSecurityGroupAssociation,
+//				exampleSubnetRouteTableAssociation,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewManagedInstanceFailoverGroup(ctx, "exampleManagedInstanceFailoverGroup", &mssql.ManagedInstanceFailoverGroupArgs{
+//				Location:                 primary.Location,
+//				ManagedInstanceId:        primary.ID(),
+//				PartnerManagedInstanceId: secondary.ID(),
+//				ReadWriteEndpointFailoverPolicy: &mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
+//					Mode:         pulumi.String("Automatic"),
+//					GraceMinutes: pulumi.Int(60),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // SQL Instance Failover Groups can be imported using the `resource id`, e.g.

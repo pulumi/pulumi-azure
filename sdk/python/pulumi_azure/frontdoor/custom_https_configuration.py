@@ -133,6 +133,80 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+
+        Manages the Custom HTTPS Configuration for an Azure Front Door (classic) Frontend Endpoint.
+
+        > **NOTE:** Defining custom HTTPS configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
+
+        !> **BREAKING CHANGE:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+
+        !> **BREAKING CHANGE:** The `resource_group_name` field has been removed as of the `v2.58.0` provider release. If the `resource_group_name` field has been defined in your current `frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named "resource_group_name" is not expected here.` error. If your pre-existing Front Door instance contained inline `custom_https_configuration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        vault = azure.keyvault.get_key_vault(name="example-vault",
+            resource_group_name="example-vault-rg")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            resource_group_name=example_resource_group.name,
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
+            frontend_endpoints=[
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint1",
+                    host_name="example-FrontDoor.azurefd.net",
+                ),
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint2",
+                    host_name="examplefd1.examplefd.net",
+                ),
+            ])
+        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
+            custom_https_provisioning_enabled=False)
+        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
+            custom_https_provisioning_enabled=True,
+            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
+                certificate_source="AzureKeyVault",
+                azure_key_vault_certificate_secret_name="examplefd1",
+                azure_key_vault_certificate_vault_id=vault.id,
+            ))
+        ```
+
         ## Import
 
         Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.
@@ -154,6 +228,80 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  args: CustomHttpsConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+
+        Manages the Custom HTTPS Configuration for an Azure Front Door (classic) Frontend Endpoint.
+
+        > **NOTE:** Defining custom HTTPS configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
+
+        !> **BREAKING CHANGE:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+
+        !> **BREAKING CHANGE:** The `resource_group_name` field has been removed as of the `v2.58.0` provider release. If the `resource_group_name` field has been defined in your current `frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named "resource_group_name" is not expected here.` error. If your pre-existing Front Door instance contained inline `custom_https_configuration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+
+        !> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue as the necessary changes are identified.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        vault = azure.keyvault.get_key_vault(name="example-vault",
+            resource_group_name="example-vault-rg")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            resource_group_name=example_resource_group.name,
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
+            frontend_endpoints=[
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint1",
+                    host_name="example-FrontDoor.azurefd.net",
+                ),
+                azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                    name="exampleFrontendEndpoint2",
+                    host_name="examplefd1.examplefd.net",
+                ),
+            ])
+        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
+            custom_https_provisioning_enabled=False)
+        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
+            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
+            custom_https_provisioning_enabled=True,
+            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
+                certificate_source="AzureKeyVault",
+                azure_key_vault_certificate_secret_name="examplefd1",
+                azure_key_vault_certificate_vault_id=vault.id,
+            ))
+        ```
+
         ## Import
 
         Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.

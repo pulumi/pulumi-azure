@@ -295,6 +295,64 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a SQL Instance Failover Group.
+
+        ## Example Usage
+
+        > **Note:** The `sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceFailoverGroup` resource instead.
+
+        > **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.sql.ManagedInstance("primary",
+            resource_group_name=azurerm_resource_group["primary"]["name"],
+            location=azurerm_resource_group["primary"]["location"],
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=azurerm_subnet["primary"]["id"],
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_subnet_network_security_group_association["primary"],
+                    azurerm_subnet_route_table_association["primary"],
+                ]))
+        secondary = azure.sql.ManagedInstance("secondary",
+            resource_group_name=azurerm_resource_group["secondary"]["name"],
+            location=azurerm_resource_group["secondary"]["location"],
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=azurerm_subnet["secondary"]["id"],
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_subnet_network_security_group_association["secondary"],
+                    azurerm_subnet_route_table_association["secondary"],
+                ]))
+        example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            resource_group_name=azurerm_resource_group["primary"]["name"],
+            location=primary.location,
+            managed_instance_name=primary.name,
+            partner_managed_instance_id=secondary.id,
+            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
+
         ## Import
 
         SQL Instance Failover Groups can be imported using the `resource id`, e.g.
@@ -320,6 +378,64 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  args: ManagedInstanceFailoverGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a SQL Instance Failover Group.
+
+        ## Example Usage
+
+        > **Note:** The `sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `mssql.ManagedInstanceFailoverGroup` resource instead.
+
+        > **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        primary = azure.sql.ManagedInstance("primary",
+            resource_group_name=azurerm_resource_group["primary"]["name"],
+            location=azurerm_resource_group["primary"]["location"],
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=azurerm_subnet["primary"]["id"],
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_subnet_network_security_group_association["primary"],
+                    azurerm_subnet_route_table_association["primary"],
+                ]))
+        secondary = azure.sql.ManagedInstance("secondary",
+            resource_group_name=azurerm_resource_group["secondary"]["name"],
+            location=azurerm_resource_group["secondary"]["location"],
+            administrator_login="mradministrator",
+            administrator_login_password="thisIsDog11",
+            license_type="BasePrice",
+            subnet_id=azurerm_subnet["secondary"]["id"],
+            sku_name="GP_Gen5",
+            vcores=4,
+            storage_size_in_gb=32,
+            tags={
+                "environment": "prod",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[
+                    azurerm_subnet_network_security_group_association["secondary"],
+                    azurerm_subnet_route_table_association["secondary"],
+                ]))
+        example_managed_instance_failover_group = azure.sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            resource_group_name=azurerm_resource_group["primary"]["name"],
+            location=primary.location,
+            managed_instance_name=primary.name,
+            partner_managed_instance_id=secondary.id,
+            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
+                mode="Automatic",
+                grace_minutes=60,
+            ))
+        ```
+
         ## Import
 
         SQL Instance Failover Groups can be imported using the `resource id`, e.g.

@@ -495,9 +495,21 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.websocketsEnabled);
     }
 
+    /**
+     * The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+     * 
+     */
     @Import(name="windowsFxVersion")
     private @Nullable Output<String> windowsFxVersion;
 
+    /**
+     * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+     * 
+     */
     public Optional<Output<String>> windowsFxVersion() {
         return Optional.ofNullable(this.windowsFxVersion);
     }
@@ -1240,11 +1252,27 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
             return websocketsEnabled(Output.of(websocketsEnabled));
         }
 
+        /**
+         * @param windowsFxVersion The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+         * 
+         * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsFxVersion(@Nullable Output<String> windowsFxVersion) {
             $.windowsFxVersion = windowsFxVersion;
             return this;
         }
 
+        /**
+         * @param windowsFxVersion The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+         * 
+         * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsFxVersion(String windowsFxVersion) {
             return windowsFxVersion(Output.of(windowsFxVersion));
         }

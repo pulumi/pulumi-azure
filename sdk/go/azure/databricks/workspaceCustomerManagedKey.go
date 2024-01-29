@@ -12,6 +12,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Customer Managed Key for a Databricks Workspace root DBFS
+//
+// !>**IMPORTANT:** This resource has been deprecated and will be removed from the 4.0 Azure provider. Please use the `databricks.WorkspaceRootDbfsCustomerManagedKey` resource instead.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "exampleWorkspace", &databricks.WorkspaceArgs{
+//				ResourceGroupName:         exampleResourceGroup.Name,
+//				Location:                  exampleResourceGroup.Location,
+//				Sku:                       pulumi.String("premium"),
+//				CustomerManagedKeyEnabled: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                *pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("premium"),
+//				PurgeProtectionEnabled:  pulumi.Bool(true),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			terraform, err := keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   exampleKeyVault.TenantId,
+//				ObjectId:   *pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//					pulumi.String("GetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				terraform,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			databricks, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//					return &storageAccountIdentities[0].TenantId, nil
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//					return &storageAccountIdentities[0].PrincipalId, nil
+//				}).(pulumi.StringPtrOutput),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleWorkspace,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = databricks.NewWorkspaceRootDbfsCustomerManagedKey(ctx, "exampleWorkspaceRootDbfsCustomerManagedKey", &databricks.WorkspaceRootDbfsCustomerManagedKeyArgs{
+//				WorkspaceId:   exampleWorkspace.ID(),
+//				KeyVaultKeyId: exampleKey.ID(),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				databricks,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ## Example HCL Configurations
+//
+// * Databricks Workspace with Root Databricks File System Customer Managed Keys
+// * Databricks Workspace with Customer Managed Keys for Managed Services
+// * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+//
 // ## Import
 //
 // Databricks Workspace Customer Managed Key can be imported using the `resource id`, e.g.

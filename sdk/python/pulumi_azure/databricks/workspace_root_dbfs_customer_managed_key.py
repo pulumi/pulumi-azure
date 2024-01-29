@@ -98,6 +98,87 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workspace = azure.databricks.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="premium",
+            customer_managed_key_enabled=True,
+            tags={
+                "Environment": "Production",
+            })
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7)
+        terraform = azure.keyvault.AccessPolicy("terraform",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_key_vault.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+        databricks = azure.keyvault.AccessPolicy("databricks",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_workspace.storage_account_identities[0].tenant_id,
+            object_id=example_workspace.storage_account_identities[0].principal_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey",
+            workspace_id=example_workspace.id,
+            key_vault_key_id=example_key.id,
+            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+        ```
+        ## Example HCL Configurations
+
+        * Databricks Workspace with Root Databricks File System Customer Managed Keys
+        * Databricks Workspace with Customer Managed Keys for Managed Services
+        * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+
         ## Import
 
         Databricks Workspace Root DBFS Customer Managed Key can be imported using the `resource id`, e.g.
@@ -118,6 +199,87 @@ class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
                  args: WorkspaceRootDbfsCustomerManagedKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workspace = azure.databricks.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku="premium",
+            customer_managed_key_enabled=True,
+            tags={
+                "Environment": "Production",
+            })
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7)
+        terraform = azure.keyvault.AccessPolicy("terraform",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_key_vault.tenant_id,
+            object_id=current.object_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+                "GetRotationPolicy",
+            ])
+        example_key = azure.keyvault.Key("exampleKey",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[terraform]))
+        databricks = azure.keyvault.AccessPolicy("databricks",
+            key_vault_id=example_key_vault.id,
+            tenant_id=example_workspace.storage_account_identities[0].tenant_id,
+            object_id=example_workspace.storage_account_identities[0].principal_id,
+            key_permissions=[
+                "Create",
+                "Delete",
+                "Get",
+                "Purge",
+                "Recover",
+                "Update",
+                "List",
+                "Decrypt",
+                "Sign",
+            ],
+            opts=pulumi.ResourceOptions(depends_on=[example_workspace]))
+        example_workspace_root_dbfs_customer_managed_key = azure.databricks.WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey",
+            workspace_id=example_workspace.id,
+            key_vault_key_id=example_key.id,
+            opts=pulumi.ResourceOptions(depends_on=[databricks]))
+        ```
+        ## Example HCL Configurations
+
+        * Databricks Workspace with Root Databricks File System Customer Managed Keys
+        * Databricks Workspace with Customer Managed Keys for Managed Services
+        * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+
         ## Import
 
         Databricks Workspace Root DBFS Customer Managed Key can be imported using the `resource id`, e.g.

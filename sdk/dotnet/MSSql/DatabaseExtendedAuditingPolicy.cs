@@ -86,6 +86,12 @@ namespace Pulumi.Azure.MSSql
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+        /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+        /// </summary>
         [Output("logMonitoringEnabled")]
         public Output<bool?> LogMonitoringEnabled { get; private set; } = null!;
 
@@ -177,6 +183,12 @@ namespace Pulumi.Azure.MSSql
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+        /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 
@@ -236,6 +248,12 @@ namespace Pulumi.Azure.MSSql
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Enable audit events to Azure Monitor? Defaults to `true`.
+        /// 
+        /// &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+        /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+        /// </summary>
         [Input("logMonitoringEnabled")]
         public Input<bool>? LogMonitoringEnabled { get; set; }
 

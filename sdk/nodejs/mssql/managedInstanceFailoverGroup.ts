@@ -7,6 +7,92 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an Azure SQL Managed Instance Failover Group.
+ *
+ * ## Example Usage
+ *
+ * > **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", {
+ *     subnetId: exampleSubnet.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * const exampleRouteTable = new azure.network.RouteTable("exampleRouteTable", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", {
+ *     subnetId: exampleSubnet.id,
+ *     routeTableId: exampleRouteTable.id,
+ * });
+ * const primary = new azure.mssql.ManagedInstance("primary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: exampleSubnet.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ *     tags: {
+ *         environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
+ * });
+ * const secondary = new azure.mssql.ManagedInstance("secondary", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     licenseType: "BasePrice",
+ *     subnetId: exampleSubnet.id,
+ *     skuName: "GP_Gen5",
+ *     vcores: 4,
+ *     storageSizeInGb: 32,
+ *     tags: {
+ *         environment: "prod",
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         exampleSubnetNetworkSecurityGroupAssociation,
+ *         exampleSubnetRouteTableAssociation,
+ *     ],
+ * });
+ * const exampleManagedInstanceFailoverGroup = new azure.mssql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", {
+ *     location: primary.location,
+ *     managedInstanceId: primary.id,
+ *     partnerManagedInstanceId: secondary.id,
+ *     readWriteEndpointFailoverPolicy: {
+ *         mode: "Automatic",
+ *         graceMinutes: 60,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * SQL Instance Failover Groups can be imported using the `resource id`, e.g.

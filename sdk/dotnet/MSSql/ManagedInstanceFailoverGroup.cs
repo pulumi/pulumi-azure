@@ -10,6 +10,132 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql
 {
     /// <summary>
+    /// Manages an Azure SQL Managed Instance Failover Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         RouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    ///     var primary = new Azure.MSSql.ManagedInstance("primary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         LicenseType = "BasePrice",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         SkuName = "GP_Gen5",
+    ///         Vcores = 4,
+    ///         StorageSizeInGb = 32,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
+    ///     });
+    /// 
+    ///     var secondary = new Azure.MSSql.ManagedInstance("secondary", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         LicenseType = "BasePrice",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         SkuName = "GP_Gen5",
+    ///         Vcores = 4,
+    ///         StorageSizeInGb = 32,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.MSSql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", new()
+    ///     {
+    ///         Location = primary.Location,
+    ///         ManagedInstanceId = primary.Id,
+    ///         PartnerManagedInstanceId = secondary.Id,
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         {
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 60,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Instance Failover Groups can be imported using the `resource id`, e.g.

@@ -393,6 +393,10 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
+        Manages a Network Watcher Flow Log.
+
+        > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+
         ## Example Usage
 
         ```python
@@ -465,6 +469,10 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  args: NetworkWatcherFlowLogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Network Watcher Flow Log.
+
+        > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+
         ## Example Usage
 
         ```python

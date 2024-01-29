@@ -51,9 +51,23 @@ public final class DatabaseExtendedAuditingPolicyState extends com.pulumi.resour
         return Optional.ofNullable(this.enabled);
     }
 
+    /**
+     * Enable audit events to Azure Monitor? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     * 
+     */
     @Import(name="logMonitoringEnabled")
     private @Nullable Output<Boolean> logMonitoringEnabled;
 
+    /**
+     * @return Enable audit events to Azure Monitor? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     * 
+     */
     public Optional<Output<Boolean>> logMonitoringEnabled() {
         return Optional.ofNullable(this.logMonitoringEnabled);
     }
@@ -194,11 +208,29 @@ public final class DatabaseExtendedAuditingPolicyState extends com.pulumi.resour
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+         * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logMonitoringEnabled(@Nullable Output<Boolean> logMonitoringEnabled) {
             $.logMonitoringEnabled = logMonitoringEnabled;
             return this;
         }
 
+        /**
+         * @param logMonitoringEnabled Enable audit events to Azure Monitor? Defaults to `true`.
+         * 
+         * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+         * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logMonitoringEnabled(Boolean logMonitoringEnabled) {
             return logMonitoringEnabled(Output.of(logMonitoringEnabled));
         }

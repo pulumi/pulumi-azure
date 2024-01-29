@@ -14166,6 +14166,11 @@ export namespace appservice {
          * Should WebSockets be enabled?
          */
         websocketsEnabled: boolean;
+        /**
+         * The Windows Docker container image (`DOCKER|<user/image:tag>`)
+         *
+         * Additional examples of how to run Containers via the `azure.appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+         */
         windowsFxVersion: string;
     }
 
@@ -25368,6 +25373,11 @@ export namespace compute {
          * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
         patchAssessmentMode?: string;
+        /**
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         *
+         * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+         */
         patchMode?: string;
         /**
          * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
@@ -25431,6 +25441,11 @@ export namespace compute {
          * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
          */
         enableAutomaticUpdates?: boolean;
+        /**
+         * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+         *
+         * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a Azure generation 2 directory within the GitHub Repository.
+         */
         hotpatchingEnabled?: boolean;
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -52686,10 +52701,24 @@ export namespace netapp {
          * Resource ID of the primary volume.
          */
         remoteVolumeResourceId: string;
+        /**
+         * Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+         *
+         * A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+         *
+         * > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+         */
         replicationFrequency: string;
     }
 
     export interface VolumeDataProtectionSnapshotPolicy {
+        /**
+         * Resource ID of the snapshot policy to apply to the volume.
+         *
+         * A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+         *
+         * > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+         */
         snapshotPolicyId: string;
     }
 
@@ -54091,6 +54120,15 @@ export namespace network {
          * The private IP address associated with the Firewall.
          */
         privateIpAddress: string;
+        /**
+         * The ID of the Public IP Address associated with the firewall.
+         *
+         * > **NOTE** A public ip address is required unless a `managementIpConfiguration` block is specified.
+         *
+         * > **NOTE** When multiple `ipConfiguration` blocks with `publicIpAddressId` are configured, `pulumi up` will raise an error when one or some of these `ipConfiguration` blocks are removed. because the `publicIpAddressId` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `azure.network.PublicIp` happens before the update of firewall by default. to destroy of `azure.network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `azure.network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+         *
+         * > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+         */
         publicIpAddressId?: string;
         /**
          * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.

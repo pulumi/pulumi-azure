@@ -5,6 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "premium",
+ *     customerManagedKeyEnabled: true,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     purgeProtectionEnabled: true,
+ *     softDeleteRetentionDays: 7,
+ * });
+ * const terraform = new azure.keyvault.AccessPolicy("terraform", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleKeyVault.tenantId,
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [terraform],
+ * });
+ * const databricks = new azure.keyvault.AccessPolicy("databricks", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].tenantId),
+ *     objectId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].principalId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *     ],
+ * }, {
+ *     dependsOn: [exampleWorkspace],
+ * });
+ * const exampleWorkspaceRootDbfsCustomerManagedKey = new azure.databricks.WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", {
+ *     workspaceId: exampleWorkspace.id,
+ *     keyVaultKeyId: exampleKey.id,
+ * }, {
+ *     dependsOn: [databricks],
+ * });
+ * ```
+ * ## Example HCL Configurations
+ *
+ * * Databricks Workspace with Root Databricks File System Customer Managed Keys
+ * * Databricks Workspace with Customer Managed Keys for Managed Services
+ * * Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Root Databricks File System Customer Managed Keys
+ *
  * ## Import
  *
  * Databricks Workspace Root DBFS Customer Managed Key can be imported using the `resource id`, e.g.

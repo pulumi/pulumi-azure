@@ -10,6 +10,91 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql
 {
     /// <summary>
+    /// Manages a SQL Instance Failover Group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **Note:** The `azure.sql.ManagedInstanceFailoverGroup` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the `azure.mssql.ManagedInstanceFailoverGroup` resource instead.
+    /// 
+    /// &gt; **Note:** For a more complete example, see the the `examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var primary = new Azure.Sql.ManagedInstance("primary", new()
+    ///     {
+    ///         ResourceGroupName = azurerm_resource_group.Primary.Name,
+    ///         Location = azurerm_resource_group.Primary.Location,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         LicenseType = "BasePrice",
+    ///         SubnetId = azurerm_subnet.Primary.Id,
+    ///         SkuName = "GP_Gen5",
+    ///         Vcores = 4,
+    ///         StorageSizeInGb = 32,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             azurerm_subnet_network_security_group_association.Primary,
+    ///             azurerm_subnet_route_table_association.Primary,
+    ///         },
+    ///     });
+    /// 
+    ///     var secondary = new Azure.Sql.ManagedInstance("secondary", new()
+    ///     {
+    ///         ResourceGroupName = azurerm_resource_group.Secondary.Name,
+    ///         Location = azurerm_resource_group.Secondary.Location,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///         LicenseType = "BasePrice",
+    ///         SubnetId = azurerm_subnet.Secondary.Id,
+    ///         SkuName = "GP_Gen5",
+    ///         Vcores = 4,
+    ///         StorageSizeInGb = 32,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "prod" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             azurerm_subnet_network_security_group_association.Secondary,
+    ///             azurerm_subnet_route_table_association.Secondary,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.Sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", new()
+    ///     {
+    ///         ResourceGroupName = azurerm_resource_group.Primary.Name,
+    ///         Location = primary.Location,
+    ///         ManagedInstanceName = primary.Name,
+    ///         PartnerManagedInstanceId = secondary.Id,
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.Sql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         {
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 60,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// SQL Instance Failover Groups can be imported using the `resource id`, e.g.

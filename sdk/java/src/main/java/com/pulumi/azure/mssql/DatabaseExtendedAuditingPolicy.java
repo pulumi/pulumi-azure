@@ -128,9 +128,23 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
+    /**
+     * Enable audit events to Azure Monitor? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     * 
+     */
     @Export(name="logMonitoringEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> logMonitoringEnabled;
 
+    /**
+     * @return Enable audit events to Azure Monitor? Defaults to `true`.
+     * 
+     * &gt; **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
+     * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
+     * 
+     */
     public Output<Optional<Boolean>> logMonitoringEnabled() {
         return Codegen.optional(this.logMonitoringEnabled);
     }

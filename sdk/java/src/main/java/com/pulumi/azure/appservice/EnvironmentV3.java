@@ -21,6 +21,101 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a 3rd Generation (v3) App Service Environment.
+ * 
+ * ## Example Usage
+ * 
+ * This example provisions an App Service Environment V3. Additional examples of how to use the `azure.appservice.EnvironmentV3` resource can be found in the `./examples/app-service-environment-v3` directory within the GitHub Repository.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.appservice.EnvironmentV3;
+ * import com.pulumi.azure.appservice.EnvironmentV3Args;
+ * import com.pulumi.azure.appservice.inputs.EnvironmentV3ClusterSettingArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;Microsoft.Web.hostingEnvironments&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;Microsoft.Web/hostingEnvironments&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleEnvironmentV3 = new EnvironmentV3(&#34;exampleEnvironmentV3&#34;, EnvironmentV3Args.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .internalLoadBalancingMode(&#34;Web, Publishing&#34;)
+ *             .clusterSettings(            
+ *                 EnvironmentV3ClusterSettingArgs.builder()
+ *                     .name(&#34;DisableTls1.0&#34;)
+ *                     .value(&#34;1&#34;)
+ *                     .build(),
+ *                 EnvironmentV3ClusterSettingArgs.builder()
+ *                     .name(&#34;InternalEncryption&#34;)
+ *                     .value(&#34;true&#34;)
+ *                     .build(),
+ *                 EnvironmentV3ClusterSettingArgs.builder()
+ *                     .name(&#34;FrontEndSSLCipherSuiteOrder&#34;)
+ *                     .value(&#34;TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;)
+ *                     .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;env&#34;, &#34;production&#34;),
+ *                 Map.entry(&#34;terraformed&#34;, &#34;true&#34;)
+ *             ))
+ *             .build());
+ * 
+ *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .osType(&#34;Linux&#34;)
+ *             .skuName(&#34;I1v2&#34;)
+ *             .appServiceEnvironmentId(exampleEnvironmentV3.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.

@@ -169,7 +169,10 @@ type WindowsVirtualMachine struct {
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
-	HotpatchingEnabled  pulumi.BoolPtrOutput                               `pulumi:"hotpatchingEnabled"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	//
+	// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+	HotpatchingEnabled pulumi.BoolPtrOutput `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -359,7 +362,10 @@ type windowsVirtualMachineState struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
-	HotpatchingEnabled  *bool                                     `pulumi:"hotpatchingEnabled"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	//
+	// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -491,7 +497,10 @@ type WindowsVirtualMachineState struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
-	HotpatchingEnabled  pulumi.BoolPtrInput
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	//
+	// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+	HotpatchingEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -627,7 +636,10 @@ type windowsVirtualMachineArgs struct {
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications []WindowsVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
-	HotpatchingEnabled  *bool                                     `pulumi:"hotpatchingEnabled"`
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	//
+	// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -750,7 +762,10 @@ type WindowsVirtualMachineArgs struct {
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// One or more `galleryApplication` blocks as defined below.
 	GalleryApplications WindowsVirtualMachineGalleryApplicationArrayInput
-	HotpatchingEnabled  pulumi.BoolPtrInput
+	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	//
+	// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
+	HotpatchingEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineIdentityPtrInput
 	// Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1023,6 +1038,9 @@ func (o WindowsVirtualMachineOutput) GalleryApplications() WindowsVirtualMachine
 	}).(WindowsVirtualMachineGalleryApplicationArrayOutput)
 }
 
+// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+//
+// > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a Azure generation 2 directory within the GitHub Repository.
 func (o WindowsVirtualMachineOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.HotpatchingEnabled }).(pulumi.BoolPtrOutput)
 }

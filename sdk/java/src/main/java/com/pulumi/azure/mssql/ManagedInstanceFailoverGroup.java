@@ -19,6 +19,134 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an Azure SQL Managed Instance Failover Group.
+ * 
+ * ## Example Usage
+ * 
+ * &gt; **Note:** For a more complete example, see the `./examples/sql-azure/managed_instance_failover_group` directory within the GitHub Repository.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azure.network.RouteTable;
+ * import com.pulumi.azure.network.RouteTableArgs;
+ * import com.pulumi.azure.network.SubnetRouteTableAssociation;
+ * import com.pulumi.azure.network.SubnetRouteTableAssociationArgs;
+ * import com.pulumi.azure.mssql.ManagedInstance;
+ * import com.pulumi.azure.mssql.ManagedInstanceArgs;
+ * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroup;
+ * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroupArgs;
+ * import com.pulumi.azure.mssql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *             .subnetId(exampleSubnet.id())
+ *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        
+ *             .subnetId(exampleSubnet.id())
+ *             .routeTableId(exampleRouteTable.id())
+ *             .build());
+ * 
+ *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(exampleSubnet.id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleSubnetNetworkSecurityGroupAssociation,
+ *                     exampleSubnetRouteTableAssociation)
+ *                 .build());
+ * 
+ *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .administratorLogin(&#34;mradministrator&#34;)
+ *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
+ *             .licenseType(&#34;BasePrice&#34;)
+ *             .subnetId(exampleSubnet.id())
+ *             .skuName(&#34;GP_Gen5&#34;)
+ *             .vcores(4)
+ *             .storageSizeInGb(32)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     exampleSubnetNetworkSecurityGroupAssociation,
+ *                     exampleSubnetRouteTableAssociation)
+ *                 .build());
+ * 
+ *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
+ *             .location(primary.location())
+ *             .managedInstanceId(primary.id())
+ *             .partnerManagedInstanceId(secondary.id())
+ *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
+ *                 .mode(&#34;Automatic&#34;)
+ *                 .graceMinutes(60)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * SQL Instance Failover Groups can be imported using the `resource id`, e.g.
