@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Nginx.Outputs
     public sealed class DeploymentFrontendPrivate
     {
         /// <summary>
-        /// Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        /// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
         /// </summary>
         public readonly string AllocationMethod;
         /// <summary>

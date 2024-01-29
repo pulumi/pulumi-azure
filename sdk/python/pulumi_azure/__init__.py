@@ -1060,6 +1060,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudDynatraceApplicationPerformanceMonitoring",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring": "SpringCloudDynatraceApplicationPerformanceMonitoring"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudGateway",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -2344,6 +2352,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/packetCapture:PacketCapture": "PacketCapture"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/runCommand",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/runCommand:RunCommand": "RunCommand"
   }
  },
  {

@@ -9227,7 +9227,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param str java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
-        :param str python_version: The version of Python to run. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param str python_version: The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -9292,7 +9292,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -12821,7 +12821,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
         :param str java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         :param str powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
-        :param str python_version: The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        :param str python_version: The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -12886,7 +12886,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         """
         return pulumi.get(self, "python_version")
 
@@ -14482,7 +14482,7 @@ class LinuxWebAppAuthSettingsV2(dict):
         :param 'LinuxWebAppAuthSettingsV2AppleV2Args' apple_v2: An `apple_v2` block as defined below.
         :param bool auth_enabled: Should the AuthV2 Settings be enabled. Defaults to `false`.
         :param 'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
-        :param str config_file_path: The path to the App Auth settings. 
+        :param str config_file_path: The path to the App Auth settings.
                
                > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['LinuxWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
@@ -14594,7 +14594,7 @@ class LinuxWebAppAuthSettingsV2(dict):
     @pulumi.getter(name="configFilePath")
     def config_file_path(self) -> Optional[str]:
         """
-        The path to the App Auth settings. 
+        The path to the App Auth settings.
 
         > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
@@ -15457,7 +15457,7 @@ class LinuxWebAppAuthSettingsV2Login(dict):
                  token_store_sas_setting_name: Optional[str] = None,
                  validate_nonce: Optional[bool] = None):
         """
-        :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+        :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
                
                > **Note:** URLs within the current domain are always implicitly allowed.
         :param str cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
@@ -15498,7 +15498,7 @@ class LinuxWebAppAuthSettingsV2Login(dict):
     @pulumi.getter(name="allowedExternalRedirectUrls")
     def allowed_external_redirect_urls(self) -> Optional[Sequence[str]]:
         """
-        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
 
         > **Note:** URLs within the current domain are always implicitly allowed.
         """
@@ -16883,7 +16883,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -17035,7 +17035,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         """
         return pulumi.get(self, "python_version")
 
@@ -21030,7 +21030,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
-        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+        :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         :param str ruby_version: Te version of Ruby to run. Possible values include `2.6` and `2.7`.
         """
         if docker_image is not None:
@@ -21182,7 +21182,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="pythonVersion")
     def python_version(self) -> Optional[str]:
         """
-        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
         """
         return pulumi.get(self, "python_version")
 

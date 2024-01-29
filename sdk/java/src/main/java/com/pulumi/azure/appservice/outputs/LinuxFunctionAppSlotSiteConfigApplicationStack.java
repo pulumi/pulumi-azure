@@ -40,7 +40,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String powershellCoreVersion;
     /**
-     * @return The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     private @Nullable String pythonVersion;
@@ -92,7 +92,7 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.powershellCoreVersion);
     }
     /**
-     * @return The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<String> pythonVersion() {

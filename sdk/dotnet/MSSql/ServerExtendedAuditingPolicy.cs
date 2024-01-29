@@ -184,6 +184,110 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// });
     /// ```
+    /// ### With Log Analytics Workspace And EventHub
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///     });
+    /// 
+    ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         StorageEndpoint = azurerm_storage_account.Example.Primary_blob_endpoint,
+    ///         StorageAccountAccessKey = azurerm_storage_account.Example.Primary_access_key,
+    ///         StorageAccountAccessKeyIsSecondary = false,
+    ///         RetentionInDays = 6,
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespaceAuthorizationRule = new Azure.EventHub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = true,
+    ///     });
+    /// 
+    ///     var exampleMssql_serverExtendedAuditingPolicyServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         LogMonitoringEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("exampleDiagnosticSetting", new()
+    ///     {
+    ///         TargetResourceId = exampleServer.Id.Apply(id =&gt; $"{id}/databases/master"),
+    ///         EventhubAuthorizationRuleId = exampleEventHubNamespaceAuthorizationRule.Id,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         Logs = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DiagnosticSettingLogArgs
+    ///             {
+    ///                 Category = "SQLSecurityAuditEvents",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingLogRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Metrics = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DiagnosticSettingMetricArgs
+    ///             {
+    ///                 Category = "AllMetrics",
+    ///                 RetentionPolicy = new Azure.Monitoring.Inputs.DiagnosticSettingMetricRetentionPolicyArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

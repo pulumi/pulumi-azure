@@ -12854,6 +12854,998 @@ func (o PacketCaptureStorageLocationPtrOutput) StoragePath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type RunCommandErrorBlobManagedIdentity struct {
+	// The client ID of the managed identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId *string `pulumi:"objectId"`
+}
+
+// RunCommandErrorBlobManagedIdentityInput is an input type that accepts RunCommandErrorBlobManagedIdentityArgs and RunCommandErrorBlobManagedIdentityOutput values.
+// You can construct a concrete instance of `RunCommandErrorBlobManagedIdentityInput` via:
+//
+//	RunCommandErrorBlobManagedIdentityArgs{...}
+type RunCommandErrorBlobManagedIdentityInput interface {
+	pulumi.Input
+
+	ToRunCommandErrorBlobManagedIdentityOutput() RunCommandErrorBlobManagedIdentityOutput
+	ToRunCommandErrorBlobManagedIdentityOutputWithContext(context.Context) RunCommandErrorBlobManagedIdentityOutput
+}
+
+type RunCommandErrorBlobManagedIdentityArgs struct {
+	// The client ID of the managed identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+}
+
+func (RunCommandErrorBlobManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandErrorBlobManagedIdentity)(nil)).Elem()
+}
+
+func (i RunCommandErrorBlobManagedIdentityArgs) ToRunCommandErrorBlobManagedIdentityOutput() RunCommandErrorBlobManagedIdentityOutput {
+	return i.ToRunCommandErrorBlobManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i RunCommandErrorBlobManagedIdentityArgs) ToRunCommandErrorBlobManagedIdentityOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandErrorBlobManagedIdentityOutput)
+}
+
+func (i RunCommandErrorBlobManagedIdentityArgs) ToRunCommandErrorBlobManagedIdentityPtrOutput() RunCommandErrorBlobManagedIdentityPtrOutput {
+	return i.ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i RunCommandErrorBlobManagedIdentityArgs) ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandErrorBlobManagedIdentityOutput).ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// RunCommandErrorBlobManagedIdentityPtrInput is an input type that accepts RunCommandErrorBlobManagedIdentityArgs, RunCommandErrorBlobManagedIdentityPtr and RunCommandErrorBlobManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `RunCommandErrorBlobManagedIdentityPtrInput` via:
+//
+//	        RunCommandErrorBlobManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunCommandErrorBlobManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToRunCommandErrorBlobManagedIdentityPtrOutput() RunCommandErrorBlobManagedIdentityPtrOutput
+	ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(context.Context) RunCommandErrorBlobManagedIdentityPtrOutput
+}
+
+type runCommandErrorBlobManagedIdentityPtrType RunCommandErrorBlobManagedIdentityArgs
+
+func RunCommandErrorBlobManagedIdentityPtr(v *RunCommandErrorBlobManagedIdentityArgs) RunCommandErrorBlobManagedIdentityPtrInput {
+	return (*runCommandErrorBlobManagedIdentityPtrType)(v)
+}
+
+func (*runCommandErrorBlobManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandErrorBlobManagedIdentity)(nil)).Elem()
+}
+
+func (i *runCommandErrorBlobManagedIdentityPtrType) ToRunCommandErrorBlobManagedIdentityPtrOutput() RunCommandErrorBlobManagedIdentityPtrOutput {
+	return i.ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *runCommandErrorBlobManagedIdentityPtrType) ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandErrorBlobManagedIdentityPtrOutput)
+}
+
+type RunCommandErrorBlobManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (RunCommandErrorBlobManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandErrorBlobManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandErrorBlobManagedIdentityOutput) ToRunCommandErrorBlobManagedIdentityOutput() RunCommandErrorBlobManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandErrorBlobManagedIdentityOutput) ToRunCommandErrorBlobManagedIdentityOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandErrorBlobManagedIdentityOutput) ToRunCommandErrorBlobManagedIdentityPtrOutput() RunCommandErrorBlobManagedIdentityPtrOutput {
+	return o.ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o RunCommandErrorBlobManagedIdentityOutput) ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCommandErrorBlobManagedIdentity) *RunCommandErrorBlobManagedIdentity {
+		return &v
+	}).(RunCommandErrorBlobManagedIdentityPtrOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandErrorBlobManagedIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandErrorBlobManagedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandErrorBlobManagedIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandErrorBlobManagedIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+type RunCommandErrorBlobManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (RunCommandErrorBlobManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandErrorBlobManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandErrorBlobManagedIdentityPtrOutput) ToRunCommandErrorBlobManagedIdentityPtrOutput() RunCommandErrorBlobManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandErrorBlobManagedIdentityPtrOutput) ToRunCommandErrorBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandErrorBlobManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandErrorBlobManagedIdentityPtrOutput) Elem() RunCommandErrorBlobManagedIdentityOutput {
+	return o.ApplyT(func(v *RunCommandErrorBlobManagedIdentity) RunCommandErrorBlobManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret RunCommandErrorBlobManagedIdentity
+		return ret
+	}).(RunCommandErrorBlobManagedIdentityOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandErrorBlobManagedIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandErrorBlobManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandErrorBlobManagedIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandErrorBlobManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunCommandInstanceView struct {
+	EndTime          *string `pulumi:"endTime"`
+	ErrorMessage     *string `pulumi:"errorMessage"`
+	ExecutionMessage *string `pulumi:"executionMessage"`
+	ExecutionState   *string `pulumi:"executionState"`
+	ExitCode         *int    `pulumi:"exitCode"`
+	Output           *string `pulumi:"output"`
+	StartTime        *string `pulumi:"startTime"`
+}
+
+// RunCommandInstanceViewInput is an input type that accepts RunCommandInstanceViewArgs and RunCommandInstanceViewOutput values.
+// You can construct a concrete instance of `RunCommandInstanceViewInput` via:
+//
+//	RunCommandInstanceViewArgs{...}
+type RunCommandInstanceViewInput interface {
+	pulumi.Input
+
+	ToRunCommandInstanceViewOutput() RunCommandInstanceViewOutput
+	ToRunCommandInstanceViewOutputWithContext(context.Context) RunCommandInstanceViewOutput
+}
+
+type RunCommandInstanceViewArgs struct {
+	EndTime          pulumi.StringPtrInput `pulumi:"endTime"`
+	ErrorMessage     pulumi.StringPtrInput `pulumi:"errorMessage"`
+	ExecutionMessage pulumi.StringPtrInput `pulumi:"executionMessage"`
+	ExecutionState   pulumi.StringPtrInput `pulumi:"executionState"`
+	ExitCode         pulumi.IntPtrInput    `pulumi:"exitCode"`
+	Output           pulumi.StringPtrInput `pulumi:"output"`
+	StartTime        pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (RunCommandInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInstanceView)(nil)).Elem()
+}
+
+func (i RunCommandInstanceViewArgs) ToRunCommandInstanceViewOutput() RunCommandInstanceViewOutput {
+	return i.ToRunCommandInstanceViewOutputWithContext(context.Background())
+}
+
+func (i RunCommandInstanceViewArgs) ToRunCommandInstanceViewOutputWithContext(ctx context.Context) RunCommandInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInstanceViewOutput)
+}
+
+// RunCommandInstanceViewArrayInput is an input type that accepts RunCommandInstanceViewArray and RunCommandInstanceViewArrayOutput values.
+// You can construct a concrete instance of `RunCommandInstanceViewArrayInput` via:
+//
+//	RunCommandInstanceViewArray{ RunCommandInstanceViewArgs{...} }
+type RunCommandInstanceViewArrayInput interface {
+	pulumi.Input
+
+	ToRunCommandInstanceViewArrayOutput() RunCommandInstanceViewArrayOutput
+	ToRunCommandInstanceViewArrayOutputWithContext(context.Context) RunCommandInstanceViewArrayOutput
+}
+
+type RunCommandInstanceViewArray []RunCommandInstanceViewInput
+
+func (RunCommandInstanceViewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInstanceView)(nil)).Elem()
+}
+
+func (i RunCommandInstanceViewArray) ToRunCommandInstanceViewArrayOutput() RunCommandInstanceViewArrayOutput {
+	return i.ToRunCommandInstanceViewArrayOutputWithContext(context.Background())
+}
+
+func (i RunCommandInstanceViewArray) ToRunCommandInstanceViewArrayOutputWithContext(ctx context.Context) RunCommandInstanceViewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandInstanceViewArrayOutput)
+}
+
+type RunCommandInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandInstanceView)(nil)).Elem()
+}
+
+func (o RunCommandInstanceViewOutput) ToRunCommandInstanceViewOutput() RunCommandInstanceViewOutput {
+	return o
+}
+
+func (o RunCommandInstanceViewOutput) ToRunCommandInstanceViewOutputWithContext(ctx context.Context) RunCommandInstanceViewOutput {
+	return o
+}
+
+func (o RunCommandInstanceViewOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) ErrorMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) ExecutionMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.ExecutionMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) ExecutionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.ExecutionState }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *int { return v.ExitCode }).(pulumi.IntPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) Output() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.Output }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandInstanceViewOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandInstanceView) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type RunCommandInstanceViewArrayOutput struct{ *pulumi.OutputState }
+
+func (RunCommandInstanceViewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandInstanceView)(nil)).Elem()
+}
+
+func (o RunCommandInstanceViewArrayOutput) ToRunCommandInstanceViewArrayOutput() RunCommandInstanceViewArrayOutput {
+	return o
+}
+
+func (o RunCommandInstanceViewArrayOutput) ToRunCommandInstanceViewArrayOutputWithContext(ctx context.Context) RunCommandInstanceViewArrayOutput {
+	return o
+}
+
+func (o RunCommandInstanceViewArrayOutput) Index(i pulumi.IntInput) RunCommandInstanceViewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunCommandInstanceView {
+		return vs[0].([]RunCommandInstanceView)[vs[1].(int)]
+	}).(RunCommandInstanceViewOutput)
+}
+
+type RunCommandOutputBlobManagedIdentity struct {
+	// The client ID of the managed identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId *string `pulumi:"objectId"`
+}
+
+// RunCommandOutputBlobManagedIdentityInput is an input type that accepts RunCommandOutputBlobManagedIdentityArgs and RunCommandOutputBlobManagedIdentityOutput values.
+// You can construct a concrete instance of `RunCommandOutputBlobManagedIdentityInput` via:
+//
+//	RunCommandOutputBlobManagedIdentityArgs{...}
+type RunCommandOutputBlobManagedIdentityInput interface {
+	pulumi.Input
+
+	ToRunCommandOutputBlobManagedIdentityOutput() RunCommandOutputBlobManagedIdentityOutput
+	ToRunCommandOutputBlobManagedIdentityOutputWithContext(context.Context) RunCommandOutputBlobManagedIdentityOutput
+}
+
+type RunCommandOutputBlobManagedIdentityArgs struct {
+	// The client ID of the managed identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+}
+
+func (RunCommandOutputBlobManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandOutputBlobManagedIdentity)(nil)).Elem()
+}
+
+func (i RunCommandOutputBlobManagedIdentityArgs) ToRunCommandOutputBlobManagedIdentityOutput() RunCommandOutputBlobManagedIdentityOutput {
+	return i.ToRunCommandOutputBlobManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i RunCommandOutputBlobManagedIdentityArgs) ToRunCommandOutputBlobManagedIdentityOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandOutputBlobManagedIdentityOutput)
+}
+
+func (i RunCommandOutputBlobManagedIdentityArgs) ToRunCommandOutputBlobManagedIdentityPtrOutput() RunCommandOutputBlobManagedIdentityPtrOutput {
+	return i.ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i RunCommandOutputBlobManagedIdentityArgs) ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandOutputBlobManagedIdentityOutput).ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// RunCommandOutputBlobManagedIdentityPtrInput is an input type that accepts RunCommandOutputBlobManagedIdentityArgs, RunCommandOutputBlobManagedIdentityPtr and RunCommandOutputBlobManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `RunCommandOutputBlobManagedIdentityPtrInput` via:
+//
+//	        RunCommandOutputBlobManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunCommandOutputBlobManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToRunCommandOutputBlobManagedIdentityPtrOutput() RunCommandOutputBlobManagedIdentityPtrOutput
+	ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(context.Context) RunCommandOutputBlobManagedIdentityPtrOutput
+}
+
+type runCommandOutputBlobManagedIdentityPtrType RunCommandOutputBlobManagedIdentityArgs
+
+func RunCommandOutputBlobManagedIdentityPtr(v *RunCommandOutputBlobManagedIdentityArgs) RunCommandOutputBlobManagedIdentityPtrInput {
+	return (*runCommandOutputBlobManagedIdentityPtrType)(v)
+}
+
+func (*runCommandOutputBlobManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandOutputBlobManagedIdentity)(nil)).Elem()
+}
+
+func (i *runCommandOutputBlobManagedIdentityPtrType) ToRunCommandOutputBlobManagedIdentityPtrOutput() RunCommandOutputBlobManagedIdentityPtrOutput {
+	return i.ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *runCommandOutputBlobManagedIdentityPtrType) ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandOutputBlobManagedIdentityPtrOutput)
+}
+
+type RunCommandOutputBlobManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (RunCommandOutputBlobManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandOutputBlobManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandOutputBlobManagedIdentityOutput) ToRunCommandOutputBlobManagedIdentityOutput() RunCommandOutputBlobManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandOutputBlobManagedIdentityOutput) ToRunCommandOutputBlobManagedIdentityOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandOutputBlobManagedIdentityOutput) ToRunCommandOutputBlobManagedIdentityPtrOutput() RunCommandOutputBlobManagedIdentityPtrOutput {
+	return o.ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o RunCommandOutputBlobManagedIdentityOutput) ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCommandOutputBlobManagedIdentity) *RunCommandOutputBlobManagedIdentity {
+		return &v
+	}).(RunCommandOutputBlobManagedIdentityPtrOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandOutputBlobManagedIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandOutputBlobManagedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandOutputBlobManagedIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandOutputBlobManagedIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+type RunCommandOutputBlobManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (RunCommandOutputBlobManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandOutputBlobManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandOutputBlobManagedIdentityPtrOutput) ToRunCommandOutputBlobManagedIdentityPtrOutput() RunCommandOutputBlobManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandOutputBlobManagedIdentityPtrOutput) ToRunCommandOutputBlobManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandOutputBlobManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandOutputBlobManagedIdentityPtrOutput) Elem() RunCommandOutputBlobManagedIdentityOutput {
+	return o.ApplyT(func(v *RunCommandOutputBlobManagedIdentity) RunCommandOutputBlobManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret RunCommandOutputBlobManagedIdentity
+		return ret
+	}).(RunCommandOutputBlobManagedIdentityOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandOutputBlobManagedIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandOutputBlobManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandOutputBlobManagedIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandOutputBlobManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunCommandParameter struct {
+	// The run parameter name.
+	Name string `pulumi:"name"`
+	// The run parameter value.
+	Value string `pulumi:"value"`
+}
+
+// RunCommandParameterInput is an input type that accepts RunCommandParameterArgs and RunCommandParameterOutput values.
+// You can construct a concrete instance of `RunCommandParameterInput` via:
+//
+//	RunCommandParameterArgs{...}
+type RunCommandParameterInput interface {
+	pulumi.Input
+
+	ToRunCommandParameterOutput() RunCommandParameterOutput
+	ToRunCommandParameterOutputWithContext(context.Context) RunCommandParameterOutput
+}
+
+type RunCommandParameterArgs struct {
+	// The run parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The run parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunCommandParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandParameter)(nil)).Elem()
+}
+
+func (i RunCommandParameterArgs) ToRunCommandParameterOutput() RunCommandParameterOutput {
+	return i.ToRunCommandParameterOutputWithContext(context.Background())
+}
+
+func (i RunCommandParameterArgs) ToRunCommandParameterOutputWithContext(ctx context.Context) RunCommandParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandParameterOutput)
+}
+
+// RunCommandParameterArrayInput is an input type that accepts RunCommandParameterArray and RunCommandParameterArrayOutput values.
+// You can construct a concrete instance of `RunCommandParameterArrayInput` via:
+//
+//	RunCommandParameterArray{ RunCommandParameterArgs{...} }
+type RunCommandParameterArrayInput interface {
+	pulumi.Input
+
+	ToRunCommandParameterArrayOutput() RunCommandParameterArrayOutput
+	ToRunCommandParameterArrayOutputWithContext(context.Context) RunCommandParameterArrayOutput
+}
+
+type RunCommandParameterArray []RunCommandParameterInput
+
+func (RunCommandParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandParameter)(nil)).Elem()
+}
+
+func (i RunCommandParameterArray) ToRunCommandParameterArrayOutput() RunCommandParameterArrayOutput {
+	return i.ToRunCommandParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RunCommandParameterArray) ToRunCommandParameterArrayOutputWithContext(ctx context.Context) RunCommandParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandParameterArrayOutput)
+}
+
+type RunCommandParameterOutput struct{ *pulumi.OutputState }
+
+func (RunCommandParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandParameter)(nil)).Elem()
+}
+
+func (o RunCommandParameterOutput) ToRunCommandParameterOutput() RunCommandParameterOutput {
+	return o
+}
+
+func (o RunCommandParameterOutput) ToRunCommandParameterOutputWithContext(ctx context.Context) RunCommandParameterOutput {
+	return o
+}
+
+// The run parameter name.
+func (o RunCommandParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The run parameter value.
+func (o RunCommandParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RunCommandParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RunCommandParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandParameter)(nil)).Elem()
+}
+
+func (o RunCommandParameterArrayOutput) ToRunCommandParameterArrayOutput() RunCommandParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandParameterArrayOutput) ToRunCommandParameterArrayOutputWithContext(ctx context.Context) RunCommandParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandParameterArrayOutput) Index(i pulumi.IntInput) RunCommandParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunCommandParameter {
+		return vs[0].([]RunCommandParameter)[vs[1].(int)]
+	}).(RunCommandParameterOutput)
+}
+
+type RunCommandProtectedParameter struct {
+	// The run parameter name.
+	Name string `pulumi:"name"`
+	// The run parameter value.
+	Value string `pulumi:"value"`
+}
+
+// RunCommandProtectedParameterInput is an input type that accepts RunCommandProtectedParameterArgs and RunCommandProtectedParameterOutput values.
+// You can construct a concrete instance of `RunCommandProtectedParameterInput` via:
+//
+//	RunCommandProtectedParameterArgs{...}
+type RunCommandProtectedParameterInput interface {
+	pulumi.Input
+
+	ToRunCommandProtectedParameterOutput() RunCommandProtectedParameterOutput
+	ToRunCommandProtectedParameterOutputWithContext(context.Context) RunCommandProtectedParameterOutput
+}
+
+type RunCommandProtectedParameterArgs struct {
+	// The run parameter name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The run parameter value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunCommandProtectedParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandProtectedParameter)(nil)).Elem()
+}
+
+func (i RunCommandProtectedParameterArgs) ToRunCommandProtectedParameterOutput() RunCommandProtectedParameterOutput {
+	return i.ToRunCommandProtectedParameterOutputWithContext(context.Background())
+}
+
+func (i RunCommandProtectedParameterArgs) ToRunCommandProtectedParameterOutputWithContext(ctx context.Context) RunCommandProtectedParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandProtectedParameterOutput)
+}
+
+// RunCommandProtectedParameterArrayInput is an input type that accepts RunCommandProtectedParameterArray and RunCommandProtectedParameterArrayOutput values.
+// You can construct a concrete instance of `RunCommandProtectedParameterArrayInput` via:
+//
+//	RunCommandProtectedParameterArray{ RunCommandProtectedParameterArgs{...} }
+type RunCommandProtectedParameterArrayInput interface {
+	pulumi.Input
+
+	ToRunCommandProtectedParameterArrayOutput() RunCommandProtectedParameterArrayOutput
+	ToRunCommandProtectedParameterArrayOutputWithContext(context.Context) RunCommandProtectedParameterArrayOutput
+}
+
+type RunCommandProtectedParameterArray []RunCommandProtectedParameterInput
+
+func (RunCommandProtectedParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandProtectedParameter)(nil)).Elem()
+}
+
+func (i RunCommandProtectedParameterArray) ToRunCommandProtectedParameterArrayOutput() RunCommandProtectedParameterArrayOutput {
+	return i.ToRunCommandProtectedParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RunCommandProtectedParameterArray) ToRunCommandProtectedParameterArrayOutputWithContext(ctx context.Context) RunCommandProtectedParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandProtectedParameterArrayOutput)
+}
+
+type RunCommandProtectedParameterOutput struct{ *pulumi.OutputState }
+
+func (RunCommandProtectedParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandProtectedParameter)(nil)).Elem()
+}
+
+func (o RunCommandProtectedParameterOutput) ToRunCommandProtectedParameterOutput() RunCommandProtectedParameterOutput {
+	return o
+}
+
+func (o RunCommandProtectedParameterOutput) ToRunCommandProtectedParameterOutputWithContext(ctx context.Context) RunCommandProtectedParameterOutput {
+	return o
+}
+
+// The run parameter name.
+func (o RunCommandProtectedParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandProtectedParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The run parameter value.
+func (o RunCommandProtectedParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RunCommandProtectedParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RunCommandProtectedParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RunCommandProtectedParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunCommandProtectedParameter)(nil)).Elem()
+}
+
+func (o RunCommandProtectedParameterArrayOutput) ToRunCommandProtectedParameterArrayOutput() RunCommandProtectedParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandProtectedParameterArrayOutput) ToRunCommandProtectedParameterArrayOutputWithContext(ctx context.Context) RunCommandProtectedParameterArrayOutput {
+	return o
+}
+
+func (o RunCommandProtectedParameterArrayOutput) Index(i pulumi.IntInput) RunCommandProtectedParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunCommandProtectedParameter {
+		return vs[0].([]RunCommandProtectedParameter)[vs[1].(int)]
+	}).(RunCommandProtectedParameterOutput)
+}
+
+type RunCommandSource struct {
+	CommandId *string `pulumi:"commandId"`
+	Script    *string `pulumi:"script"`
+	ScriptUri *string `pulumi:"scriptUri"`
+	// A `scriptUriManagedIdentity` block as defined above.
+	ScriptUriManagedIdentity *RunCommandSourceScriptUriManagedIdentity `pulumi:"scriptUriManagedIdentity"`
+}
+
+// RunCommandSourceInput is an input type that accepts RunCommandSourceArgs and RunCommandSourceOutput values.
+// You can construct a concrete instance of `RunCommandSourceInput` via:
+//
+//	RunCommandSourceArgs{...}
+type RunCommandSourceInput interface {
+	pulumi.Input
+
+	ToRunCommandSourceOutput() RunCommandSourceOutput
+	ToRunCommandSourceOutputWithContext(context.Context) RunCommandSourceOutput
+}
+
+type RunCommandSourceArgs struct {
+	CommandId pulumi.StringPtrInput `pulumi:"commandId"`
+	Script    pulumi.StringPtrInput `pulumi:"script"`
+	ScriptUri pulumi.StringPtrInput `pulumi:"scriptUri"`
+	// A `scriptUriManagedIdentity` block as defined above.
+	ScriptUriManagedIdentity RunCommandSourceScriptUriManagedIdentityPtrInput `pulumi:"scriptUriManagedIdentity"`
+}
+
+func (RunCommandSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandSource)(nil)).Elem()
+}
+
+func (i RunCommandSourceArgs) ToRunCommandSourceOutput() RunCommandSourceOutput {
+	return i.ToRunCommandSourceOutputWithContext(context.Background())
+}
+
+func (i RunCommandSourceArgs) ToRunCommandSourceOutputWithContext(ctx context.Context) RunCommandSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourceOutput)
+}
+
+func (i RunCommandSourceArgs) ToRunCommandSourcePtrOutput() RunCommandSourcePtrOutput {
+	return i.ToRunCommandSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RunCommandSourceArgs) ToRunCommandSourcePtrOutputWithContext(ctx context.Context) RunCommandSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourceOutput).ToRunCommandSourcePtrOutputWithContext(ctx)
+}
+
+// RunCommandSourcePtrInput is an input type that accepts RunCommandSourceArgs, RunCommandSourcePtr and RunCommandSourcePtrOutput values.
+// You can construct a concrete instance of `RunCommandSourcePtrInput` via:
+//
+//	        RunCommandSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunCommandSourcePtrInput interface {
+	pulumi.Input
+
+	ToRunCommandSourcePtrOutput() RunCommandSourcePtrOutput
+	ToRunCommandSourcePtrOutputWithContext(context.Context) RunCommandSourcePtrOutput
+}
+
+type runCommandSourcePtrType RunCommandSourceArgs
+
+func RunCommandSourcePtr(v *RunCommandSourceArgs) RunCommandSourcePtrInput {
+	return (*runCommandSourcePtrType)(v)
+}
+
+func (*runCommandSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandSource)(nil)).Elem()
+}
+
+func (i *runCommandSourcePtrType) ToRunCommandSourcePtrOutput() RunCommandSourcePtrOutput {
+	return i.ToRunCommandSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *runCommandSourcePtrType) ToRunCommandSourcePtrOutputWithContext(ctx context.Context) RunCommandSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourcePtrOutput)
+}
+
+type RunCommandSourceOutput struct{ *pulumi.OutputState }
+
+func (RunCommandSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandSource)(nil)).Elem()
+}
+
+func (o RunCommandSourceOutput) ToRunCommandSourceOutput() RunCommandSourceOutput {
+	return o
+}
+
+func (o RunCommandSourceOutput) ToRunCommandSourceOutputWithContext(ctx context.Context) RunCommandSourceOutput {
+	return o
+}
+
+func (o RunCommandSourceOutput) ToRunCommandSourcePtrOutput() RunCommandSourcePtrOutput {
+	return o.ToRunCommandSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RunCommandSourceOutput) ToRunCommandSourcePtrOutputWithContext(ctx context.Context) RunCommandSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCommandSource) *RunCommandSource {
+		return &v
+	}).(RunCommandSourcePtrOutput)
+}
+
+func (o RunCommandSourceOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandSource) *string { return v.CommandId }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandSourceOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandSource) *string { return v.Script }).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandSourceOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandSource) *string { return v.ScriptUri }).(pulumi.StringPtrOutput)
+}
+
+// A `scriptUriManagedIdentity` block as defined above.
+func (o RunCommandSourceOutput) ScriptUriManagedIdentity() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o.ApplyT(func(v RunCommandSource) *RunCommandSourceScriptUriManagedIdentity { return v.ScriptUriManagedIdentity }).(RunCommandSourceScriptUriManagedIdentityPtrOutput)
+}
+
+type RunCommandSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RunCommandSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandSource)(nil)).Elem()
+}
+
+func (o RunCommandSourcePtrOutput) ToRunCommandSourcePtrOutput() RunCommandSourcePtrOutput {
+	return o
+}
+
+func (o RunCommandSourcePtrOutput) ToRunCommandSourcePtrOutputWithContext(ctx context.Context) RunCommandSourcePtrOutput {
+	return o
+}
+
+func (o RunCommandSourcePtrOutput) Elem() RunCommandSourceOutput {
+	return o.ApplyT(func(v *RunCommandSource) RunCommandSource {
+		if v != nil {
+			return *v
+		}
+		var ret RunCommandSource
+		return ret
+	}).(RunCommandSourceOutput)
+}
+
+func (o RunCommandSourcePtrOutput) CommandId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommandId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandSourcePtrOutput) Script() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RunCommandSourcePtrOutput) ScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `scriptUriManagedIdentity` block as defined above.
+func (o RunCommandSourcePtrOutput) ScriptUriManagedIdentity() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o.ApplyT(func(v *RunCommandSource) *RunCommandSourceScriptUriManagedIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptUriManagedIdentity
+	}).(RunCommandSourceScriptUriManagedIdentityPtrOutput)
+}
+
+type RunCommandSourceScriptUriManagedIdentity struct {
+	// The client ID of the managed identity.
+	ClientId *string `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId *string `pulumi:"objectId"`
+}
+
+// RunCommandSourceScriptUriManagedIdentityInput is an input type that accepts RunCommandSourceScriptUriManagedIdentityArgs and RunCommandSourceScriptUriManagedIdentityOutput values.
+// You can construct a concrete instance of `RunCommandSourceScriptUriManagedIdentityInput` via:
+//
+//	RunCommandSourceScriptUriManagedIdentityArgs{...}
+type RunCommandSourceScriptUriManagedIdentityInput interface {
+	pulumi.Input
+
+	ToRunCommandSourceScriptUriManagedIdentityOutput() RunCommandSourceScriptUriManagedIdentityOutput
+	ToRunCommandSourceScriptUriManagedIdentityOutputWithContext(context.Context) RunCommandSourceScriptUriManagedIdentityOutput
+}
+
+type RunCommandSourceScriptUriManagedIdentityArgs struct {
+	// The client ID of the managed identity.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The object ID of the managed identity.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+}
+
+func (RunCommandSourceScriptUriManagedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandSourceScriptUriManagedIdentity)(nil)).Elem()
+}
+
+func (i RunCommandSourceScriptUriManagedIdentityArgs) ToRunCommandSourceScriptUriManagedIdentityOutput() RunCommandSourceScriptUriManagedIdentityOutput {
+	return i.ToRunCommandSourceScriptUriManagedIdentityOutputWithContext(context.Background())
+}
+
+func (i RunCommandSourceScriptUriManagedIdentityArgs) ToRunCommandSourceScriptUriManagedIdentityOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourceScriptUriManagedIdentityOutput)
+}
+
+func (i RunCommandSourceScriptUriManagedIdentityArgs) ToRunCommandSourceScriptUriManagedIdentityPtrOutput() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return i.ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i RunCommandSourceScriptUriManagedIdentityArgs) ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourceScriptUriManagedIdentityOutput).ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(ctx)
+}
+
+// RunCommandSourceScriptUriManagedIdentityPtrInput is an input type that accepts RunCommandSourceScriptUriManagedIdentityArgs, RunCommandSourceScriptUriManagedIdentityPtr and RunCommandSourceScriptUriManagedIdentityPtrOutput values.
+// You can construct a concrete instance of `RunCommandSourceScriptUriManagedIdentityPtrInput` via:
+//
+//	        RunCommandSourceScriptUriManagedIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunCommandSourceScriptUriManagedIdentityPtrInput interface {
+	pulumi.Input
+
+	ToRunCommandSourceScriptUriManagedIdentityPtrOutput() RunCommandSourceScriptUriManagedIdentityPtrOutput
+	ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(context.Context) RunCommandSourceScriptUriManagedIdentityPtrOutput
+}
+
+type runCommandSourceScriptUriManagedIdentityPtrType RunCommandSourceScriptUriManagedIdentityArgs
+
+func RunCommandSourceScriptUriManagedIdentityPtr(v *RunCommandSourceScriptUriManagedIdentityArgs) RunCommandSourceScriptUriManagedIdentityPtrInput {
+	return (*runCommandSourceScriptUriManagedIdentityPtrType)(v)
+}
+
+func (*runCommandSourceScriptUriManagedIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandSourceScriptUriManagedIdentity)(nil)).Elem()
+}
+
+func (i *runCommandSourceScriptUriManagedIdentityPtrType) ToRunCommandSourceScriptUriManagedIdentityPtrOutput() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return i.ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *runCommandSourceScriptUriManagedIdentityPtrType) ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunCommandSourceScriptUriManagedIdentityPtrOutput)
+}
+
+type RunCommandSourceScriptUriManagedIdentityOutput struct{ *pulumi.OutputState }
+
+func (RunCommandSourceScriptUriManagedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunCommandSourceScriptUriManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ToRunCommandSourceScriptUriManagedIdentityOutput() RunCommandSourceScriptUriManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ToRunCommandSourceScriptUriManagedIdentityOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityOutput {
+	return o
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ToRunCommandSourceScriptUriManagedIdentityPtrOutput() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o.ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunCommandSourceScriptUriManagedIdentity) *RunCommandSourceScriptUriManagedIdentity {
+		return &v
+	}).(RunCommandSourceScriptUriManagedIdentityPtrOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandSourceScriptUriManagedIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandSourceScriptUriManagedIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunCommandSourceScriptUriManagedIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+type RunCommandSourceScriptUriManagedIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (RunCommandSourceScriptUriManagedIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunCommandSourceScriptUriManagedIdentity)(nil)).Elem()
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityPtrOutput) ToRunCommandSourceScriptUriManagedIdentityPtrOutput() RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityPtrOutput) ToRunCommandSourceScriptUriManagedIdentityPtrOutputWithContext(ctx context.Context) RunCommandSourceScriptUriManagedIdentityPtrOutput {
+	return o
+}
+
+func (o RunCommandSourceScriptUriManagedIdentityPtrOutput) Elem() RunCommandSourceScriptUriManagedIdentityOutput {
+	return o.ApplyT(func(v *RunCommandSourceScriptUriManagedIdentity) RunCommandSourceScriptUriManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret RunCommandSourceScriptUriManagedIdentity
+		return ret
+	}).(RunCommandSourceScriptUriManagedIdentityOutput)
+}
+
+// The client ID of the managed identity.
+func (o RunCommandSourceScriptUriManagedIdentityPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandSourceScriptUriManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object ID of the managed identity.
+func (o RunCommandSourceScriptUriManagedIdentityPtrOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunCommandSourceScriptUriManagedIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScaleSetBootDiagnostics struct {
 	// Whether to enable boot diagnostics for the virtual machine. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -31679,6 +32671,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureFilterArrayInput)(nil)).Elem(), PacketCaptureFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureStorageLocationInput)(nil)).Elem(), PacketCaptureStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PacketCaptureStorageLocationPtrInput)(nil)).Elem(), PacketCaptureStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandErrorBlobManagedIdentityInput)(nil)).Elem(), RunCommandErrorBlobManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandErrorBlobManagedIdentityPtrInput)(nil)).Elem(), RunCommandErrorBlobManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandInstanceViewInput)(nil)).Elem(), RunCommandInstanceViewArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandInstanceViewArrayInput)(nil)).Elem(), RunCommandInstanceViewArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandOutputBlobManagedIdentityInput)(nil)).Elem(), RunCommandOutputBlobManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandOutputBlobManagedIdentityPtrInput)(nil)).Elem(), RunCommandOutputBlobManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandParameterInput)(nil)).Elem(), RunCommandParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandParameterArrayInput)(nil)).Elem(), RunCommandParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandProtectedParameterInput)(nil)).Elem(), RunCommandProtectedParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandProtectedParameterArrayInput)(nil)).Elem(), RunCommandProtectedParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandSourceInput)(nil)).Elem(), RunCommandSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandSourcePtrInput)(nil)).Elem(), RunCommandSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandSourceScriptUriManagedIdentityInput)(nil)).Elem(), RunCommandSourceScriptUriManagedIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunCommandSourceScriptUriManagedIdentityPtrInput)(nil)).Elem(), RunCommandSourceScriptUriManagedIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetBootDiagnosticsInput)(nil)).Elem(), ScaleSetBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetBootDiagnosticsPtrInput)(nil)).Elem(), ScaleSetBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScaleSetExtensionInput)(nil)).Elem(), ScaleSetExtensionArgs{})
@@ -32071,6 +33077,20 @@ func init() {
 	pulumi.RegisterOutputType(PacketCaptureFilterArrayOutput{})
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationOutput{})
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(RunCommandErrorBlobManagedIdentityOutput{})
+	pulumi.RegisterOutputType(RunCommandErrorBlobManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(RunCommandInstanceViewOutput{})
+	pulumi.RegisterOutputType(RunCommandInstanceViewArrayOutput{})
+	pulumi.RegisterOutputType(RunCommandOutputBlobManagedIdentityOutput{})
+	pulumi.RegisterOutputType(RunCommandOutputBlobManagedIdentityPtrOutput{})
+	pulumi.RegisterOutputType(RunCommandParameterOutput{})
+	pulumi.RegisterOutputType(RunCommandParameterArrayOutput{})
+	pulumi.RegisterOutputType(RunCommandProtectedParameterOutput{})
+	pulumi.RegisterOutputType(RunCommandProtectedParameterArrayOutput{})
+	pulumi.RegisterOutputType(RunCommandSourceOutput{})
+	pulumi.RegisterOutputType(RunCommandSourcePtrOutput{})
+	pulumi.RegisterOutputType(RunCommandSourceScriptUriManagedIdentityOutput{})
+	pulumi.RegisterOutputType(RunCommandSourceScriptUriManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetBootDiagnosticsOutput{})
 	pulumi.RegisterOutputType(ScaleSetBootDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSetExtensionOutput{})

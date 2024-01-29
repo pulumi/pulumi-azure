@@ -100,7 +100,7 @@ class DeploymentFrontendPrivateArgs:
                  ip_address: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] allocation_method: Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        :param pulumi.Input[str] allocation_method: Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
         :param pulumi.Input[str] ip_address: Specify the IP Address of this private IP.
         :param pulumi.Input[str] subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
         """
@@ -112,7 +112,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> pulumi.Input[str]:
         """
-        Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+        Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -240,7 +240,7 @@ class DeploymentLoggingStorageAccountArgs:
                  container_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] container_name: Specify the container name of Stoage Account for logging.
+        :param pulumi.Input[str] container_name: Specify the container name of Storage Account for logging.
         :param pulumi.Input[str] name: The account name of the StorageAccount for Nginx Logging.
         """
         if container_name is not None:
@@ -252,7 +252,7 @@ class DeploymentLoggingStorageAccountArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the container name of Stoage Account for logging.
+        Specify the container name of Storage Account for logging.
         """
         return pulumi.get(self, "container_name")
 

@@ -226,7 +226,7 @@ func (o ConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) Configur
 }
 
 type DeploymentFrontendPrivate struct {
-	// Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
 	// Specify the IP Address of this private IP.
 	IpAddress string `pulumi:"ipAddress"`
@@ -246,7 +246,7 @@ type DeploymentFrontendPrivateInput interface {
 }
 
 type DeploymentFrontendPrivateArgs struct {
-	// Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
 	// Specify the IP Address of this private IP.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
@@ -305,7 +305,7 @@ func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutputWithCo
 	return o
 }
 
-// Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+// Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
 func (o DeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
@@ -672,7 +672,7 @@ func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DeploymentLoggingStorageAccount struct {
-	// Specify the container name of Stoage Account for logging.
+	// Specify the container name of Storage Account for logging.
 	ContainerName *string `pulumi:"containerName"`
 	// The account name of the StorageAccount for Nginx Logging.
 	Name *string `pulumi:"name"`
@@ -690,7 +690,7 @@ type DeploymentLoggingStorageAccountInput interface {
 }
 
 type DeploymentLoggingStorageAccountArgs struct {
-	// Specify the container name of Stoage Account for logging.
+	// Specify the container name of Storage Account for logging.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	// The account name of the StorageAccount for Nginx Logging.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -747,7 +747,7 @@ func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccount
 	return o
 }
 
-// Specify the container name of Stoage Account for logging.
+// Specify the container name of Storage Account for logging.
 func (o DeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
@@ -874,6 +874,539 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 	}).(DeploymentNetworkInterfaceOutput)
 }
 
+type GetDeploymentFrontendPrivate struct {
+	// The method of allocating the private IP to the Nginx Deployment.
+	AllocationMethod string `pulumi:"allocationMethod"`
+	// List of public IPs of the Ngix Deployment.
+	IpAddress string `pulumi:"ipAddress"`
+	// The subnet resource ID of the Nginx Deployment.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetDeploymentFrontendPrivateInput is an input type that accepts GetDeploymentFrontendPrivateArgs and GetDeploymentFrontendPrivateOutput values.
+// You can construct a concrete instance of `GetDeploymentFrontendPrivateInput` via:
+//
+//	GetDeploymentFrontendPrivateArgs{...}
+type GetDeploymentFrontendPrivateInput interface {
+	pulumi.Input
+
+	ToGetDeploymentFrontendPrivateOutput() GetDeploymentFrontendPrivateOutput
+	ToGetDeploymentFrontendPrivateOutputWithContext(context.Context) GetDeploymentFrontendPrivateOutput
+}
+
+type GetDeploymentFrontendPrivateArgs struct {
+	// The method of allocating the private IP to the Nginx Deployment.
+	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
+	// List of public IPs of the Ngix Deployment.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The subnet resource ID of the Nginx Deployment.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetDeploymentFrontendPrivateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentFrontendPrivate)(nil)).Elem()
+}
+
+func (i GetDeploymentFrontendPrivateArgs) ToGetDeploymentFrontendPrivateOutput() GetDeploymentFrontendPrivateOutput {
+	return i.ToGetDeploymentFrontendPrivateOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentFrontendPrivateArgs) ToGetDeploymentFrontendPrivateOutputWithContext(ctx context.Context) GetDeploymentFrontendPrivateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentFrontendPrivateOutput)
+}
+
+// GetDeploymentFrontendPrivateArrayInput is an input type that accepts GetDeploymentFrontendPrivateArray and GetDeploymentFrontendPrivateArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentFrontendPrivateArrayInput` via:
+//
+//	GetDeploymentFrontendPrivateArray{ GetDeploymentFrontendPrivateArgs{...} }
+type GetDeploymentFrontendPrivateArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentFrontendPrivateArrayOutput() GetDeploymentFrontendPrivateArrayOutput
+	ToGetDeploymentFrontendPrivateArrayOutputWithContext(context.Context) GetDeploymentFrontendPrivateArrayOutput
+}
+
+type GetDeploymentFrontendPrivateArray []GetDeploymentFrontendPrivateInput
+
+func (GetDeploymentFrontendPrivateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentFrontendPrivate)(nil)).Elem()
+}
+
+func (i GetDeploymentFrontendPrivateArray) ToGetDeploymentFrontendPrivateArrayOutput() GetDeploymentFrontendPrivateArrayOutput {
+	return i.ToGetDeploymentFrontendPrivateArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentFrontendPrivateArray) ToGetDeploymentFrontendPrivateArrayOutputWithContext(ctx context.Context) GetDeploymentFrontendPrivateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentFrontendPrivateArrayOutput)
+}
+
+type GetDeploymentFrontendPrivateOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentFrontendPrivateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentFrontendPrivate)(nil)).Elem()
+}
+
+func (o GetDeploymentFrontendPrivateOutput) ToGetDeploymentFrontendPrivateOutput() GetDeploymentFrontendPrivateOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPrivateOutput) ToGetDeploymentFrontendPrivateOutputWithContext(ctx context.Context) GetDeploymentFrontendPrivateOutput {
+	return o
+}
+
+// The method of allocating the private IP to the Nginx Deployment.
+func (o GetDeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
+}
+
+// List of public IPs of the Ngix Deployment.
+func (o GetDeploymentFrontendPrivateOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The subnet resource ID of the Nginx Deployment.
+func (o GetDeploymentFrontendPrivateOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentFrontendPrivate) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetDeploymentFrontendPrivateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentFrontendPrivateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentFrontendPrivate)(nil)).Elem()
+}
+
+func (o GetDeploymentFrontendPrivateArrayOutput) ToGetDeploymentFrontendPrivateArrayOutput() GetDeploymentFrontendPrivateArrayOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPrivateArrayOutput) ToGetDeploymentFrontendPrivateArrayOutputWithContext(ctx context.Context) GetDeploymentFrontendPrivateArrayOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) GetDeploymentFrontendPrivateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentFrontendPrivate {
+		return vs[0].([]GetDeploymentFrontendPrivate)[vs[1].(int)]
+	}).(GetDeploymentFrontendPrivateOutput)
+}
+
+type GetDeploymentFrontendPublic struct {
+	// List of public IPs of the Ngix Deployment.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// GetDeploymentFrontendPublicInput is an input type that accepts GetDeploymentFrontendPublicArgs and GetDeploymentFrontendPublicOutput values.
+// You can construct a concrete instance of `GetDeploymentFrontendPublicInput` via:
+//
+//	GetDeploymentFrontendPublicArgs{...}
+type GetDeploymentFrontendPublicInput interface {
+	pulumi.Input
+
+	ToGetDeploymentFrontendPublicOutput() GetDeploymentFrontendPublicOutput
+	ToGetDeploymentFrontendPublicOutputWithContext(context.Context) GetDeploymentFrontendPublicOutput
+}
+
+type GetDeploymentFrontendPublicArgs struct {
+	// List of public IPs of the Ngix Deployment.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (GetDeploymentFrontendPublicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentFrontendPublic)(nil)).Elem()
+}
+
+func (i GetDeploymentFrontendPublicArgs) ToGetDeploymentFrontendPublicOutput() GetDeploymentFrontendPublicOutput {
+	return i.ToGetDeploymentFrontendPublicOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentFrontendPublicArgs) ToGetDeploymentFrontendPublicOutputWithContext(ctx context.Context) GetDeploymentFrontendPublicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentFrontendPublicOutput)
+}
+
+// GetDeploymentFrontendPublicArrayInput is an input type that accepts GetDeploymentFrontendPublicArray and GetDeploymentFrontendPublicArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentFrontendPublicArrayInput` via:
+//
+//	GetDeploymentFrontendPublicArray{ GetDeploymentFrontendPublicArgs{...} }
+type GetDeploymentFrontendPublicArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentFrontendPublicArrayOutput() GetDeploymentFrontendPublicArrayOutput
+	ToGetDeploymentFrontendPublicArrayOutputWithContext(context.Context) GetDeploymentFrontendPublicArrayOutput
+}
+
+type GetDeploymentFrontendPublicArray []GetDeploymentFrontendPublicInput
+
+func (GetDeploymentFrontendPublicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentFrontendPublic)(nil)).Elem()
+}
+
+func (i GetDeploymentFrontendPublicArray) ToGetDeploymentFrontendPublicArrayOutput() GetDeploymentFrontendPublicArrayOutput {
+	return i.ToGetDeploymentFrontendPublicArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentFrontendPublicArray) ToGetDeploymentFrontendPublicArrayOutputWithContext(ctx context.Context) GetDeploymentFrontendPublicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentFrontendPublicArrayOutput)
+}
+
+type GetDeploymentFrontendPublicOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentFrontendPublicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentFrontendPublic)(nil)).Elem()
+}
+
+func (o GetDeploymentFrontendPublicOutput) ToGetDeploymentFrontendPublicOutput() GetDeploymentFrontendPublicOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPublicOutput) ToGetDeploymentFrontendPublicOutputWithContext(ctx context.Context) GetDeploymentFrontendPublicOutput {
+	return o
+}
+
+// List of public IPs of the Ngix Deployment.
+func (o GetDeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type GetDeploymentFrontendPublicArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentFrontendPublicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentFrontendPublic)(nil)).Elem()
+}
+
+func (o GetDeploymentFrontendPublicArrayOutput) ToGetDeploymentFrontendPublicArrayOutput() GetDeploymentFrontendPublicArrayOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPublicArrayOutput) ToGetDeploymentFrontendPublicArrayOutputWithContext(ctx context.Context) GetDeploymentFrontendPublicArrayOutput {
+	return o
+}
+
+func (o GetDeploymentFrontendPublicArrayOutput) Index(i pulumi.IntInput) GetDeploymentFrontendPublicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentFrontendPublic {
+		return vs[0].([]GetDeploymentFrontendPublic)[vs[1].(int)]
+	}).(GetDeploymentFrontendPublicOutput)
+}
+
+type GetDeploymentIdentity struct {
+	// List of identities attached to the Nginx Deployment.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	// Type of identity attached to the Nginx Deployment.
+	Type string `pulumi:"type"`
+}
+
+// GetDeploymentIdentityInput is an input type that accepts GetDeploymentIdentityArgs and GetDeploymentIdentityOutput values.
+// You can construct a concrete instance of `GetDeploymentIdentityInput` via:
+//
+//	GetDeploymentIdentityArgs{...}
+type GetDeploymentIdentityInput interface {
+	pulumi.Input
+
+	ToGetDeploymentIdentityOutput() GetDeploymentIdentityOutput
+	ToGetDeploymentIdentityOutputWithContext(context.Context) GetDeploymentIdentityOutput
+}
+
+type GetDeploymentIdentityArgs struct {
+	// List of identities attached to the Nginx Deployment.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	// Type of identity attached to the Nginx Deployment.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetDeploymentIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentIdentity)(nil)).Elem()
+}
+
+func (i GetDeploymentIdentityArgs) ToGetDeploymentIdentityOutput() GetDeploymentIdentityOutput {
+	return i.ToGetDeploymentIdentityOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentIdentityArgs) ToGetDeploymentIdentityOutputWithContext(ctx context.Context) GetDeploymentIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentIdentityOutput)
+}
+
+// GetDeploymentIdentityArrayInput is an input type that accepts GetDeploymentIdentityArray and GetDeploymentIdentityArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentIdentityArrayInput` via:
+//
+//	GetDeploymentIdentityArray{ GetDeploymentIdentityArgs{...} }
+type GetDeploymentIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentIdentityArrayOutput() GetDeploymentIdentityArrayOutput
+	ToGetDeploymentIdentityArrayOutputWithContext(context.Context) GetDeploymentIdentityArrayOutput
+}
+
+type GetDeploymentIdentityArray []GetDeploymentIdentityInput
+
+func (GetDeploymentIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentIdentity)(nil)).Elem()
+}
+
+func (i GetDeploymentIdentityArray) ToGetDeploymentIdentityArrayOutput() GetDeploymentIdentityArrayOutput {
+	return i.ToGetDeploymentIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentIdentityArray) ToGetDeploymentIdentityArrayOutputWithContext(ctx context.Context) GetDeploymentIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentIdentityArrayOutput)
+}
+
+type GetDeploymentIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentIdentity)(nil)).Elem()
+}
+
+func (o GetDeploymentIdentityOutput) ToGetDeploymentIdentityOutput() GetDeploymentIdentityOutput {
+	return o
+}
+
+func (o GetDeploymentIdentityOutput) ToGetDeploymentIdentityOutputWithContext(ctx context.Context) GetDeploymentIdentityOutput {
+	return o
+}
+
+// List of identities attached to the Nginx Deployment.
+func (o GetDeploymentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDeploymentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDeploymentIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetDeploymentIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of identity attached to the Nginx Deployment.
+func (o GetDeploymentIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetDeploymentIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentIdentity)(nil)).Elem()
+}
+
+func (o GetDeploymentIdentityArrayOutput) ToGetDeploymentIdentityArrayOutput() GetDeploymentIdentityArrayOutput {
+	return o
+}
+
+func (o GetDeploymentIdentityArrayOutput) ToGetDeploymentIdentityArrayOutputWithContext(ctx context.Context) GetDeploymentIdentityArrayOutput {
+	return o
+}
+
+func (o GetDeploymentIdentityArrayOutput) Index(i pulumi.IntInput) GetDeploymentIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentIdentity {
+		return vs[0].([]GetDeploymentIdentity)[vs[1].(int)]
+	}).(GetDeploymentIdentityOutput)
+}
+
+type GetDeploymentLoggingStorageAccount struct {
+	// the container name of Storage Account for logging.
+	ContainerName string `pulumi:"containerName"`
+	// The name of this Nginx Deployment.
+	Name string `pulumi:"name"`
+}
+
+// GetDeploymentLoggingStorageAccountInput is an input type that accepts GetDeploymentLoggingStorageAccountArgs and GetDeploymentLoggingStorageAccountOutput values.
+// You can construct a concrete instance of `GetDeploymentLoggingStorageAccountInput` via:
+//
+//	GetDeploymentLoggingStorageAccountArgs{...}
+type GetDeploymentLoggingStorageAccountInput interface {
+	pulumi.Input
+
+	ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput
+	ToGetDeploymentLoggingStorageAccountOutputWithContext(context.Context) GetDeploymentLoggingStorageAccountOutput
+}
+
+type GetDeploymentLoggingStorageAccountArgs struct {
+	// the container name of Storage Account for logging.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The name of this Nginx Deployment.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetDeploymentLoggingStorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentLoggingStorageAccount)(nil)).Elem()
+}
+
+func (i GetDeploymentLoggingStorageAccountArgs) ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput {
+	return i.ToGetDeploymentLoggingStorageAccountOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentLoggingStorageAccountArgs) ToGetDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentLoggingStorageAccountOutput)
+}
+
+// GetDeploymentLoggingStorageAccountArrayInput is an input type that accepts GetDeploymentLoggingStorageAccountArray and GetDeploymentLoggingStorageAccountArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentLoggingStorageAccountArrayInput` via:
+//
+//	GetDeploymentLoggingStorageAccountArray{ GetDeploymentLoggingStorageAccountArgs{...} }
+type GetDeploymentLoggingStorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput
+	ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(context.Context) GetDeploymentLoggingStorageAccountArrayOutput
+}
+
+type GetDeploymentLoggingStorageAccountArray []GetDeploymentLoggingStorageAccountInput
+
+func (GetDeploymentLoggingStorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentLoggingStorageAccount)(nil)).Elem()
+}
+
+func (i GetDeploymentLoggingStorageAccountArray) ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput {
+	return i.ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentLoggingStorageAccountArray) ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentLoggingStorageAccountArrayOutput)
+}
+
+type GetDeploymentLoggingStorageAccountOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentLoggingStorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentLoggingStorageAccount)(nil)).Elem()
+}
+
+func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput {
+	return o
+}
+
+func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountOutput {
+	return o
+}
+
+// the container name of Storage Account for logging.
+func (o GetDeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The name of this Nginx Deployment.
+func (o GetDeploymentLoggingStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDeploymentLoggingStorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentLoggingStorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentLoggingStorageAccount)(nil)).Elem()
+}
+
+func (o GetDeploymentLoggingStorageAccountArrayOutput) ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetDeploymentLoggingStorageAccountArrayOutput) ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountArrayOutput {
+	return o
+}
+
+func (o GetDeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) GetDeploymentLoggingStorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentLoggingStorageAccount {
+		return vs[0].([]GetDeploymentLoggingStorageAccount)[vs[1].(int)]
+	}).(GetDeploymentLoggingStorageAccountOutput)
+}
+
+type GetDeploymentNetworkInterface struct {
+	// The subnet resource ID of the Nginx Deployment.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetDeploymentNetworkInterfaceInput is an input type that accepts GetDeploymentNetworkInterfaceArgs and GetDeploymentNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetDeploymentNetworkInterfaceInput` via:
+//
+//	GetDeploymentNetworkInterfaceArgs{...}
+type GetDeploymentNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGetDeploymentNetworkInterfaceOutput() GetDeploymentNetworkInterfaceOutput
+	ToGetDeploymentNetworkInterfaceOutputWithContext(context.Context) GetDeploymentNetworkInterfaceOutput
+}
+
+type GetDeploymentNetworkInterfaceArgs struct {
+	// The subnet resource ID of the Nginx Deployment.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetDeploymentNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentNetworkInterface)(nil)).Elem()
+}
+
+func (i GetDeploymentNetworkInterfaceArgs) ToGetDeploymentNetworkInterfaceOutput() GetDeploymentNetworkInterfaceOutput {
+	return i.ToGetDeploymentNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentNetworkInterfaceArgs) ToGetDeploymentNetworkInterfaceOutputWithContext(ctx context.Context) GetDeploymentNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentNetworkInterfaceOutput)
+}
+
+// GetDeploymentNetworkInterfaceArrayInput is an input type that accepts GetDeploymentNetworkInterfaceArray and GetDeploymentNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentNetworkInterfaceArrayInput` via:
+//
+//	GetDeploymentNetworkInterfaceArray{ GetDeploymentNetworkInterfaceArgs{...} }
+type GetDeploymentNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentNetworkInterfaceArrayOutput() GetDeploymentNetworkInterfaceArrayOutput
+	ToGetDeploymentNetworkInterfaceArrayOutputWithContext(context.Context) GetDeploymentNetworkInterfaceArrayOutput
+}
+
+type GetDeploymentNetworkInterfaceArray []GetDeploymentNetworkInterfaceInput
+
+func (GetDeploymentNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentNetworkInterface)(nil)).Elem()
+}
+
+func (i GetDeploymentNetworkInterfaceArray) ToGetDeploymentNetworkInterfaceArrayOutput() GetDeploymentNetworkInterfaceArrayOutput {
+	return i.ToGetDeploymentNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentNetworkInterfaceArray) ToGetDeploymentNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetDeploymentNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentNetworkInterfaceArrayOutput)
+}
+
+type GetDeploymentNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentNetworkInterface)(nil)).Elem()
+}
+
+func (o GetDeploymentNetworkInterfaceOutput) ToGetDeploymentNetworkInterfaceOutput() GetDeploymentNetworkInterfaceOutput {
+	return o
+}
+
+func (o GetDeploymentNetworkInterfaceOutput) ToGetDeploymentNetworkInterfaceOutputWithContext(ctx context.Context) GetDeploymentNetworkInterfaceOutput {
+	return o
+}
+
+// The subnet resource ID of the Nginx Deployment.
+func (o GetDeploymentNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetDeploymentNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentNetworkInterface)(nil)).Elem()
+}
+
+func (o GetDeploymentNetworkInterfaceArrayOutput) ToGetDeploymentNetworkInterfaceArrayOutput() GetDeploymentNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetDeploymentNetworkInterfaceArrayOutput) ToGetDeploymentNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetDeploymentNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetDeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetDeploymentNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentNetworkInterface {
+		return vs[0].([]GetDeploymentNetworkInterface)[vs[1].(int)]
+	}).(GetDeploymentNetworkInterfaceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileInput)(nil)).Elem(), ConfigurationConfigFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileArrayInput)(nil)).Elem(), ConfigurationConfigFileArray{})
@@ -889,6 +1422,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), DeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceInput)(nil)).Elem(), DeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceArrayInput)(nil)).Elem(), DeploymentNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPrivateInput)(nil)).Elem(), GetDeploymentFrontendPrivateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPrivateArrayInput)(nil)).Elem(), GetDeploymentFrontendPrivateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPublicInput)(nil)).Elem(), GetDeploymentFrontendPublicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPublicArrayInput)(nil)).Elem(), GetDeploymentFrontendPublicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentIdentityInput)(nil)).Elem(), GetDeploymentIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentIdentityArrayInput)(nil)).Elem(), GetDeploymentIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentLoggingStorageAccountInput)(nil)).Elem(), GetDeploymentLoggingStorageAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), GetDeploymentLoggingStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceArrayInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(ConfigurationConfigFileOutput{})
 	pulumi.RegisterOutputType(ConfigurationConfigFileArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProtectedFileOutput{})
@@ -903,4 +1446,14 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentLoggingStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentFrontendPrivateOutput{})
+	pulumi.RegisterOutputType(GetDeploymentFrontendPrivateArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentFrontendPublicOutput{})
+	pulumi.RegisterOutputType(GetDeploymentFrontendPublicArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentIdentityOutput{})
+	pulumi.RegisterOutputType(GetDeploymentIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentLoggingStorageAccountOutput{})
+	pulumi.RegisterOutputType(GetDeploymentLoggingStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceArrayOutput{})
 }

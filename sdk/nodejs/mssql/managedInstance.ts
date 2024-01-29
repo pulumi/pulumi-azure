@@ -231,6 +231,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
+     * The Dns Zone where the SQL Managed Instance is located.
+     */
+    public /*out*/ readonly dnsZone!: pulumi.Output<string>;
+    /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     public readonly dnsZonePartnerId!: pulumi.Output<string | undefined>;
@@ -319,6 +323,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             resourceInputs["collation"] = state ? state.collation : undefined;
+            resourceInputs["dnsZone"] = state ? state.dnsZone : undefined;
             resourceInputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -383,6 +388,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
             resourceInputs["vcores"] = args ? args.vcores : undefined;
+            resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -408,6 +414,10 @@ export interface ManagedInstanceState {
      * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     collation?: pulumi.Input<string>;
+    /**
+     * The Dns Zone where the SQL Managed Instance is located.
+     */
+    dnsZone?: pulumi.Input<string>;
     /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */

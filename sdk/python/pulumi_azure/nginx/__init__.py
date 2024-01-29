@@ -8,5 +8,6 @@ import typing
 from .certificate import *
 from .configuration import *
 from .deployment import *
+from .get_deployment import *
 from ._inputs import *
 from . import outputs

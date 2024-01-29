@@ -67,6 +67,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrchestratedVirtualMachineScaleSet{}
 	case "azure:compute/packetCapture:PacketCapture":
 		r = &PacketCapture{}
+	case "azure:compute/runCommand:RunCommand":
+		r = &RunCommand{}
 	case "azure:compute/scaleSet:ScaleSet":
 		r = &ScaleSet{}
 	case "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture":
@@ -215,6 +217,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/packetCapture",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/runCommand",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

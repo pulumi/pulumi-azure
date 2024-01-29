@@ -300,6 +300,20 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.collation);
     }
     /**
+     * The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    @Export(name="dnsZone", refs={String.class}, tree="[0]")
+    private Output<String> dnsZone;
+
+    /**
+     * @return The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    public Output<String> dnsZone() {
+        return this.dnsZone;
+    }
+    /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */

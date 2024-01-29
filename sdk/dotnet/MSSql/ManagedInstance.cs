@@ -274,6 +274,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
+        /// The Dns Zone where the SQL Managed Instance is located.
+        /// </summary>
+        [Output("dnsZone")]
+        public Output<string> DnsZone { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Output("dnsZonePartnerId")]
@@ -602,6 +608,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("collation")]
         public Input<string>? Collation { get; set; }
+
+        /// <summary>
+        /// The Dns Zone where the SQL Managed Instance is located.
+        /// </summary>
+        [Input("dnsZone")]
+        public Input<string>? DnsZone { get; set; }
 
         /// <summary>
         /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.

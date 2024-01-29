@@ -88,6 +88,13 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetTerminationNotification',
     'PacketCaptureFilter',
     'PacketCaptureStorageLocation',
+    'RunCommandErrorBlobManagedIdentity',
+    'RunCommandInstanceView',
+    'RunCommandOutputBlobManagedIdentity',
+    'RunCommandParameter',
+    'RunCommandProtectedParameter',
+    'RunCommandSource',
+    'RunCommandSourceScriptUriManagedIdentity',
     'ScaleSetBootDiagnostics',
     'ScaleSetExtension',
     'ScaleSetIdentity',
@@ -5433,6 +5440,366 @@ class PacketCaptureStorageLocation(dict):
         The URI of the storage path where the packet capture sessions are saved to.
         """
         return pulumi.get(self, "storage_path")
+
+
+@pulumi.output_type
+class RunCommandErrorBlobManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandErrorBlobManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandErrorBlobManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandErrorBlobManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None):
+        """
+        :param str client_id: The client ID of the managed identity.
+        :param str object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class RunCommandInstanceView(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "executionMessage":
+            suggest = "execution_message"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "exitCode":
+            suggest = "exit_code"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandInstanceView. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandInstanceView.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandInstanceView.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: Optional[str] = None,
+                 error_message: Optional[str] = None,
+                 execution_message: Optional[str] = None,
+                 execution_state: Optional[str] = None,
+                 exit_code: Optional[int] = None,
+                 output: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if execution_message is not None:
+            pulumi.set(__self__, "execution_message", execution_message)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if exit_code is not None:
+            pulumi.set(__self__, "exit_code", exit_code)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="executionMessage")
+    def execution_message(self) -> Optional[str]:
+        return pulumi.get(self, "execution_message")
+
+    @property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[str]:
+        return pulumi.get(self, "execution_state")
+
+    @property
+    @pulumi.getter(name="exitCode")
+    def exit_code(self) -> Optional[int]:
+        return pulumi.get(self, "exit_code")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[str]:
+        return pulumi.get(self, "output")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class RunCommandOutputBlobManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandOutputBlobManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandOutputBlobManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandOutputBlobManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None):
+        """
+        :param str client_id: The client ID of the managed identity.
+        :param str object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class RunCommandParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The run parameter name.
+        :param str value: The run parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The run parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The run parameter value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RunCommandProtectedParameter(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The run parameter name.
+        :param str value: The run parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The run parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The run parameter value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RunCommandSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commandId":
+            suggest = "command_id"
+        elif key == "scriptUri":
+            suggest = "script_uri"
+        elif key == "scriptUriManagedIdentity":
+            suggest = "script_uri_managed_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command_id: Optional[str] = None,
+                 script: Optional[str] = None,
+                 script_uri: Optional[str] = None,
+                 script_uri_managed_identity: Optional['outputs.RunCommandSourceScriptUriManagedIdentity'] = None):
+        """
+        :param 'RunCommandSourceScriptUriManagedIdentityArgs' script_uri_managed_identity: A `script_uri_managed_identity` block as defined above.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if script_uri_managed_identity is not None:
+            pulumi.set(__self__, "script_uri_managed_identity", script_uri_managed_identity)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[str]:
+        return pulumi.get(self, "command_id")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[str]:
+        return pulumi.get(self, "script_uri")
+
+    @property
+    @pulumi.getter(name="scriptUriManagedIdentity")
+    def script_uri_managed_identity(self) -> Optional['outputs.RunCommandSourceScriptUriManagedIdentity']:
+        """
+        A `script_uri_managed_identity` block as defined above.
+        """
+        return pulumi.get(self, "script_uri_managed_identity")
+
+
+@pulumi.output_type
+class RunCommandSourceScriptUriManagedIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunCommandSourceScriptUriManagedIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunCommandSourceScriptUriManagedIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunCommandSourceScriptUriManagedIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None):
+        """
+        :param str client_id: The client ID of the managed identity.
+        :param str object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
 
 
 @pulumi.output_type

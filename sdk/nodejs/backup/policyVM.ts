@@ -107,6 +107,8 @@ export class PolicyVM extends pulumi.CustomResource {
     public readonly instantRestoreResourceGroup!: pulumi.Output<outputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
+     *
+     * > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
     public readonly instantRestoreRetentionDays!: pulumi.Output<number>;
     /**
@@ -214,6 +216,8 @@ export interface PolicyVMState {
     instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
+     *
+     * > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
     instantRestoreRetentionDays?: pulumi.Input<number>;
     /**
@@ -268,6 +272,8 @@ export interface PolicyVMArgs {
     instantRestoreResourceGroup?: pulumi.Input<inputs.backup.PolicyVMInstantRestoreResourceGroup>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
+     *
+     * > **NOTE:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
     instantRestoreRetentionDays?: pulumi.Input<number>;
     /**

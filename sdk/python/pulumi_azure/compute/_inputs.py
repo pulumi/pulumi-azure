@@ -87,6 +87,13 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
     'PacketCaptureFilterArgs',
     'PacketCaptureStorageLocationArgs',
+    'RunCommandErrorBlobManagedIdentityArgs',
+    'RunCommandInstanceViewArgs',
+    'RunCommandOutputBlobManagedIdentityArgs',
+    'RunCommandParameterArgs',
+    'RunCommandProtectedParameterArgs',
+    'RunCommandSourceArgs',
+    'RunCommandSourceScriptUriManagedIdentityArgs',
     'ScaleSetBootDiagnosticsArgs',
     'ScaleSetExtensionArgs',
     'ScaleSetIdentityArgs',
@@ -5374,6 +5381,345 @@ class PacketCaptureStorageLocationArgs:
     @storage_path.setter
     def storage_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_path", value)
+
+
+@pulumi.input_type
+class RunCommandErrorBlobManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The client ID of the managed identity.
+        :param pulumi.Input[str] object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+
+@pulumi.input_type
+class RunCommandInstanceViewArgs:
+    def __init__(__self__, *,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 error_message: Optional[pulumi.Input[str]] = None,
+                 execution_message: Optional[pulumi.Input[str]] = None,
+                 execution_state: Optional[pulumi.Input[str]] = None,
+                 exit_code: Optional[pulumi.Input[int]] = None,
+                 output: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if execution_message is not None:
+            pulumi.set(__self__, "execution_message", execution_message)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if exit_code is not None:
+            pulumi.set(__self__, "exit_code", exit_code)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error_message")
+
+    @error_message.setter
+    def error_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_message", value)
+
+    @property
+    @pulumi.getter(name="executionMessage")
+    def execution_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_message")
+
+    @execution_message.setter
+    def execution_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_message", value)
+
+    @property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_state")
+
+    @execution_state.setter
+    def execution_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_state", value)
+
+    @property
+    @pulumi.getter(name="exitCode")
+    def exit_code(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "exit_code")
+
+    @exit_code.setter
+    def exit_code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "exit_code", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class RunCommandOutputBlobManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The client ID of the managed identity.
+        :param pulumi.Input[str] object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+
+@pulumi.input_type
+class RunCommandParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The run parameter name.
+        :param pulumi.Input[str] value: The run parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The run parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The run parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RunCommandProtectedParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The run parameter name.
+        :param pulumi.Input[str] value: The run parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The run parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The run parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RunCommandSourceArgs:
+    def __init__(__self__, *,
+                 command_id: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None,
+                 script_uri_managed_identity: Optional[pulumi.Input['RunCommandSourceScriptUriManagedIdentityArgs']] = None):
+        """
+        :param pulumi.Input['RunCommandSourceScriptUriManagedIdentityArgs'] script_uri_managed_identity: A `script_uri_managed_identity` block as defined above.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if script_uri_managed_identity is not None:
+            pulumi.set(__self__, "script_uri_managed_identity", script_uri_managed_identity)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "command_id")
+
+    @command_id.setter
+    def command_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command_id", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
+
+    @property
+    @pulumi.getter(name="scriptUriManagedIdentity")
+    def script_uri_managed_identity(self) -> Optional[pulumi.Input['RunCommandSourceScriptUriManagedIdentityArgs']]:
+        """
+        A `script_uri_managed_identity` block as defined above.
+        """
+        return pulumi.get(self, "script_uri_managed_identity")
+
+    @script_uri_managed_identity.setter
+    def script_uri_managed_identity(self, value: Optional[pulumi.Input['RunCommandSourceScriptUriManagedIdentityArgs']]):
+        pulumi.set(self, "script_uri_managed_identity", value)
+
+
+@pulumi.input_type
+class RunCommandSourceScriptUriManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: The client ID of the managed identity.
+        :param pulumi.Input[str] object_id: The object ID of the managed identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of the managed identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the managed identity.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
 
 
 @pulumi.input_type

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppAuthSettingsV2AzureStaticWebAppV2GetArgs>? AzureStaticWebAppV2 { get; set; }
 
         /// <summary>
-        /// The path to the App Auth settings. 
+        /// The path to the App Auth settings.
         /// 
         /// &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>

@@ -87,6 +87,10 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `pointInTimeRestore` block as defined below.
+     */
+    public readonly pointInTimeRestore!: pulumi.Output<outputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
+    /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
     public readonly shortTermRetentionDays!: pulumi.Output<number | undefined>;
@@ -107,6 +111,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
             resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pointInTimeRestore"] = state ? state.pointInTimeRestore : undefined;
             resourceInputs["shortTermRetentionDays"] = state ? state.shortTermRetentionDays : undefined;
         } else {
             const args = argsOrState as ManagedDatabaseArgs | undefined;
@@ -116,6 +121,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
             resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pointInTimeRestore"] = args ? args.pointInTimeRestore : undefined;
             resourceInputs["shortTermRetentionDays"] = args ? args.shortTermRetentionDays : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +146,10 @@ export interface ManagedDatabaseState {
      */
     name?: pulumi.Input<string>;
     /**
+     * A `pointInTimeRestore` block as defined below.
+     */
+    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
+    /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
     shortTermRetentionDays?: pulumi.Input<number>;
@@ -161,6 +171,10 @@ export interface ManagedDatabaseArgs {
      * The name of the Managed Database to create. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A `pointInTimeRestore` block as defined below.
+     */
+    pointInTimeRestore?: pulumi.Input<inputs.mssql.ManagedDatabasePointInTimeRestore>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */

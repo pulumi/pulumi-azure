@@ -404,6 +404,67 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                     example_account,
                 ]))
         ```
+        ### With Log Analytics Workspace And EventHub
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!")
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+            server_id=example_server.id,
+            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
+            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
+            storage_account_access_key_is_secondary=False,
+            retention_in_days=6)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=True,
+            manage=True)
+        example_mssql_server_extended_auditing_policy_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy",
+            server_id=example_server.id,
+            log_monitoring_enabled=True)
+        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
+            target_resource_id=example_server.id.apply(lambda id: f"{id}/databases/master"),
+            eventhub_authorization_rule_id=example_event_hub_namespace_authorization_rule.id,
+            eventhub_name=example_event_hub.name,
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            logs=[azure.monitoring.DiagnosticSettingLogArgs(
+                category="SQLSecurityAuditEvents",
+                enabled=True,
+                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )],
+            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
+                category="AllMetrics",
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )])
+        ```
 
         ## Import
 
@@ -531,6 +592,67 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                     example_assignment,
                     example_account,
                 ]))
+        ```
+        ### With Log Analytics Workspace And EventHub
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="AdminPassword123!")
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+            server_id=example_server.id,
+            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
+            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
+            storage_account_access_key_is_secondary=False,
+            retention_in_days=6)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=True,
+            manage=True)
+        example_mssql_server_extended_auditing_policy_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy",
+            server_id=example_server.id,
+            log_monitoring_enabled=True)
+        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
+            target_resource_id=example_server.id.apply(lambda id: f"{id}/databases/master"),
+            eventhub_authorization_rule_id=example_event_hub_namespace_authorization_rule.id,
+            eventhub_name=example_event_hub.name,
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            logs=[azure.monitoring.DiagnosticSettingLogArgs(
+                category="SQLSecurityAuditEvents",
+                enabled=True,
+                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )],
+            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
+                category="AllMetrics",
+                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
+                    enabled=False,
+                ),
+            )])
         ```
 
         ## Import

@@ -27,6 +27,11 @@ public final class GetManagedInstanceResult {
     private String collation;
     private String customerManagedKeyId;
     /**
+     * @return The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    private String dnsZone;
+    /**
      * @return The ID of the SQL Managed Instance which shares the DNS zone.
      * 
      */
@@ -126,6 +131,13 @@ public final class GetManagedInstanceResult {
     }
     public String customerManagedKeyId() {
         return this.customerManagedKeyId;
+    }
+    /**
+     * @return The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    public String dnsZone() {
+        return this.dnsZone;
     }
     /**
      * @return The ID of the SQL Managed Instance which shares the DNS zone.
@@ -258,6 +270,7 @@ public final class GetManagedInstanceResult {
         private String administratorLogin;
         private String collation;
         private String customerManagedKeyId;
+        private String dnsZone;
         private String dnsZonePartnerId;
         private String fqdn;
         private String id;
@@ -282,6 +295,7 @@ public final class GetManagedInstanceResult {
     	      this.administratorLogin = defaults.administratorLogin;
     	      this.collation = defaults.collation;
     	      this.customerManagedKeyId = defaults.customerManagedKeyId;
+    	      this.dnsZone = defaults.dnsZone;
     	      this.dnsZonePartnerId = defaults.dnsZonePartnerId;
     	      this.fqdn = defaults.fqdn;
     	      this.id = defaults.id;
@@ -324,6 +338,14 @@ public final class GetManagedInstanceResult {
               throw new MissingRequiredPropertyException("GetManagedInstanceResult", "customerManagedKeyId");
             }
             this.customerManagedKeyId = customerManagedKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dnsZone(String dnsZone) {
+            if (dnsZone == null) {
+              throw new MissingRequiredPropertyException("GetManagedInstanceResult", "dnsZone");
+            }
+            this.dnsZone = dnsZone;
             return this;
         }
         @CustomType.Setter
@@ -478,6 +500,7 @@ public final class GetManagedInstanceResult {
             _resultValue.administratorLogin = administratorLogin;
             _resultValue.collation = collation;
             _resultValue.customerManagedKeyId = customerManagedKeyId;
+            _resultValue.dnsZone = dnsZone;
             _resultValue.dnsZonePartnerId = dnsZonePartnerId;
             _resultValue.fqdn = fqdn;
             _resultValue.id = id;

@@ -65,6 +65,21 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    @Import(name="dnsZone")
+    private @Nullable Output<String> dnsZone;
+
+    /**
+     * @return The Dns Zone where the SQL Managed Instance is located.
+     * 
+     */
+    public Optional<Output<String>> dnsZone() {
+        return Optional.ofNullable(this.dnsZone);
+    }
+
+    /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
@@ -340,6 +355,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         this.administratorLogin = $.administratorLogin;
         this.administratorLoginPassword = $.administratorLoginPassword;
         this.collation = $.collation;
+        this.dnsZone = $.dnsZone;
         this.dnsZonePartnerId = $.dnsZonePartnerId;
         this.fqdn = $.fqdn;
         this.identity = $.identity;
@@ -439,6 +455,27 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
          */
         public Builder collation(String collation) {
             return collation(Output.of(collation));
+        }
+
+        /**
+         * @param dnsZone The Dns Zone where the SQL Managed Instance is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsZone(@Nullable Output<String> dnsZone) {
+            $.dnsZone = dnsZone;
+            return this;
+        }
+
+        /**
+         * @param dnsZone The Dns Zone where the SQL Managed Instance is located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsZone(String dnsZone) {
+            return dnsZone(Output.of(dnsZone));
         }
 
         /**

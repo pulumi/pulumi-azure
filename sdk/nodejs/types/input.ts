@@ -5337,7 +5337,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -6310,7 +6310,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to use. Possible values are `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -6738,7 +6738,7 @@ export namespace appservice {
          */
         azureStaticWebAppV2?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsV2AzureStaticWebAppV2>;
         /**
-         * The path to the App Auth settings. 
+         * The path to the App Auth settings.
          *
          * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
@@ -6992,7 +6992,7 @@ export namespace appservice {
 
     export interface LinuxWebAppAuthSettingsV2Login {
         /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
          *
          * > **Note:** URLs within the current domain are always implicitly allowed.
          */
@@ -7417,7 +7417,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -8523,7 +8523,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -18969,6 +18969,81 @@ export namespace compute {
          * The URI of the storage path where the packet capture sessions are saved to.
          */
         storagePath?: pulumi.Input<string>;
+    }
+
+    export interface RunCommandErrorBlobManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: pulumi.Input<string>;
+    }
+
+    export interface RunCommandInstanceView {
+        endTime?: pulumi.Input<string>;
+        errorMessage?: pulumi.Input<string>;
+        executionMessage?: pulumi.Input<string>;
+        executionState?: pulumi.Input<string>;
+        exitCode?: pulumi.Input<number>;
+        output?: pulumi.Input<string>;
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface RunCommandOutputBlobManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: pulumi.Input<string>;
+    }
+
+    export interface RunCommandParameter {
+        /**
+         * The run parameter name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The run parameter value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RunCommandProtectedParameter {
+        /**
+         * The run parameter name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The run parameter value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RunCommandSource {
+        commandId?: pulumi.Input<string>;
+        script?: pulumi.Input<string>;
+        scriptUri?: pulumi.Input<string>;
+        /**
+         * A `scriptUriManagedIdentity` block as defined above.
+         */
+        scriptUriManagedIdentity?: pulumi.Input<inputs.compute.RunCommandSourceScriptUriManagedIdentity>;
+    }
+
+    export interface RunCommandSourceScriptUriManagedIdentity {
+        /**
+         * The client ID of the managed identity.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The object ID of the managed identity.
+         */
+        objectId?: pulumi.Input<string>;
     }
 
     export interface ScaleSetBootDiagnostics {
@@ -40081,7 +40156,7 @@ export namespace monitoring {
 
     export interface DataCollectionRuleDataSourcesSyslog {
         /**
-         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
          */
         facilityNames: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -41006,6 +41081,17 @@ export namespace mssql {
          * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
          */
         yearlyRetention?: pulumi.Input<string>;
+    }
+
+    export interface ManagedDatabasePointInTimeRestore {
+        /**
+         * The point in time for the restore from `sourceDatabaseId`. Changing this forces a new resource to be created.
+         */
+        restorePointInTime: pulumi.Input<string>;
+        /**
+         * The source database id that will be used to restore from. Changing this forces a new resource to be created.
+         */
+        sourceDatabaseId: pulumi.Input<string>;
     }
 
     export interface ManagedInstanceFailoverGroupPartnerRegion {
@@ -45474,7 +45560,7 @@ export namespace nginx {
 
     export interface DeploymentFrontendPrivate {
         /**
-         * Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * Specify the method of allocating the private IP. Possible values are `Static` and `Dynamic`.
          */
         allocationMethod: pulumi.Input<string>;
         /**
@@ -45511,7 +45597,7 @@ export namespace nginx {
 
     export interface DeploymentLoggingStorageAccount {
         /**
-         * Specify the container name of Stoage Account for logging.
+         * Specify the container name of Storage Account for logging.
          */
         containerName?: pulumi.Input<string>;
         /**
@@ -45526,6 +45612,7 @@ export namespace nginx {
          */
         subnetId: pulumi.Input<string>;
     }
+
 }
 
 export namespace notificationhub {

@@ -116,6 +116,75 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * ### With Log Analytics Workspace And EventHub
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     version: "12.0",
+ *     administratorLogin: "missadministrator",
+ *     administratorLoginPassword: "AdminPassword123!",
+ * });
+ * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", {
+ *     serverId: exampleServer.id,
+ *     storageEndpoint: azurerm_storage_account.example.primary_blob_endpoint,
+ *     storageAccountAccessKey: azurerm_storage_account.example.primary_access_key,
+ *     storageAccountAccessKeyIsSecondary: false,
+ *     retentionInDays: 6,
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     partitionCount: 2,
+ *     messageRetention: 1,
+ * });
+ * const exampleEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", {
+ *     namespaceName: exampleEventHubNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     listen: true,
+ *     send: true,
+ *     manage: true,
+ * });
+ * const exampleMssql_serverExtendedAuditingPolicyServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy", {
+ *     serverId: exampleServer.id,
+ *     logMonitoringEnabled: true,
+ * });
+ * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
+ *     targetResourceId: pulumi.interpolate`${exampleServer.id}/databases/master`,
+ *     eventhubAuthorizationRuleId: exampleEventHubNamespaceAuthorizationRule.id,
+ *     eventhubName: exampleEventHub.name,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logs: [{
+ *         category: "SQLSecurityAuditEvents",
+ *         enabled: true,
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ *     metrics: [{
+ *         category: "AllMetrics",
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ * });
+ * ```
  *
  * ## Import
  *

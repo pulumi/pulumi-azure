@@ -64,6 +64,8 @@ type LookupManagedInstanceResult struct {
 	// Specifies how the SQL Managed Instance will be collated.
 	Collation            string `pulumi:"collation"`
 	CustomerManagedKeyId string `pulumi:"customerManagedKeyId"`
+	// The Dns Zone where the SQL Managed Instance is located.
+	DnsZone string `pulumi:"dnsZone"`
 	// The ID of the SQL Managed Instance which shares the DNS zone.
 	DnsZonePartnerId string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance.
@@ -152,6 +154,11 @@ func (o LookupManagedInstanceResultOutput) Collation() pulumi.StringOutput {
 
 func (o LookupManagedInstanceResultOutput) CustomerManagedKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedInstanceResult) string { return v.CustomerManagedKeyId }).(pulumi.StringOutput)
+}
+
+// The Dns Zone where the SQL Managed Instance is located.
+func (o LookupManagedInstanceResultOutput) DnsZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedInstanceResult) string { return v.DnsZone }).(pulumi.StringOutput)
 }
 
 // The ID of the SQL Managed Instance which shares the DNS zone.

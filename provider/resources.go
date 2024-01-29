@@ -205,15 +205,16 @@ var moduleMap = map[string]string{
 	"automation":  azureAutomation,
 	"automanage":  azureAutomanage,
 	// Ignored: azureAuthorization. Only used with RenameResourceWithAlias
-	"vmware":        azureAvs,
-	"backup":        azureBackup,
-	"batch":         azureBatch,
-	"billing":       azureBilling,
-	"blueprint":     azureBlueprint,
-	"bot":           azureBot,
-	"cdn":           azureCDN,
-	"cognitive":     azureCognitive,
-	"communication": azureCommunication,
+	"vmware":          azureAvs,
+	"backup":          azureBackup,
+	"batch":           azureBatch,
+	"billing":         azureBilling,
+	"blueprint":       azureBlueprint,
+	"bot":             azureBot,
+	"cdn":             azureCDN,
+	"cognitive":       azureCognitive,
+	"communication":   azureCommunication,
+	"virtual_machine": azureCompute,
 	// Ignored: azureCompute. No clear token pattern. Tokens that map to azureCompute include:
 	//
 	// "azurerm_disk_encryption_set
@@ -1054,11 +1055,6 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_virtual_machine_data_disk_attachment":     {Tok: azureResource(azureCompute, "DataDiskAttachment")},
-			"azurerm_virtual_machine_scale_set":                {Tok: azureResource(azureCompute, "ScaleSet")},
-			"azurerm_virtual_machine_packet_capture":           {Tok: azureResource(azureCompute, "PacketCapture")},
-			"azurerm_virtual_machine_scale_set_packet_capture": {Tok: azureResource(azureCompute, "ScaleSetPacketCapture")},
-
 			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
 			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
 			"azurerm_image":                {Tok: azureResource(azureCompute, "Image")},

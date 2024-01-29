@@ -16,14 +16,14 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
     public static final DeploymentLoggingStorageAccountArgs Empty = new DeploymentLoggingStorageAccountArgs();
 
     /**
-     * Specify the container name of Stoage Account for logging.
+     * Specify the container name of Storage Account for logging.
      * 
      */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
     /**
-     * @return Specify the container name of Stoage Account for logging.
+     * @return Specify the container name of Storage Account for logging.
      * 
      */
     public Optional<Output<String>> containerName() {
@@ -71,7 +71,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param containerName Specify the container name of Stoage Account for logging.
+         * @param containerName Specify the container name of Storage Account for logging.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DeploymentLoggingStorageAccountArgs extends com.pulumi.resour
         }
 
         /**
-         * @param containerName Specify the container name of Stoage Account for logging.
+         * @param containerName Specify the container name of Storage Account for logging.
          * 
          * @return builder
          * 

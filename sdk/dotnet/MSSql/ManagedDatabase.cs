@@ -96,6 +96,12 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A `point_in_time_restore` block as defined below.
+        /// </summary>
+        [Output("pointInTimeRestore")]
+        public Output<Outputs.ManagedDatabasePointInTimeRestore?> PointInTimeRestore { get; private set; } = null!;
+
+        /// <summary>
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         /// </summary>
         [Output("shortTermRetentionDays")]
@@ -166,6 +172,12 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `point_in_time_restore` block as defined below.
+        /// </summary>
+        [Input("pointInTimeRestore")]
+        public Input<Inputs.ManagedDatabasePointInTimeRestoreArgs>? PointInTimeRestore { get; set; }
+
+        /// <summary>
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         /// </summary>
         [Input("shortTermRetentionDays")]
@@ -196,6 +208,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A `point_in_time_restore` block as defined below.
+        /// </summary>
+        [Input("pointInTimeRestore")]
+        public Input<Inputs.ManagedDatabasePointInTimeRestoreGetArgs>? PointInTimeRestore { get; set; }
 
         /// <summary>
         /// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.

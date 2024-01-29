@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppAuthSettingsV2AzureStaticWebAppV2? AzureStaticWebAppV2;
         /// <summary>
-        /// The path to the App Auth settings. 
+        /// The path to the App Auth settings.
         /// 
         /// &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>
