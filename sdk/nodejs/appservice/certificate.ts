@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.appservice.Certificate("exampleCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     pfxBlob: Buffer.from(fs.readFileSync("certificate.pfx", 'binary')).toString('base64'),
+ *     pfxBlob: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
  *     password: "password123!",
  * });
  * ```
