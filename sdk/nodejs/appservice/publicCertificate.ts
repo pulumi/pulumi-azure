@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     appServiceName: exampleAppService.name,
  *     certificateName: "example-public-certificate",
  *     certificateLocation: "Unknown",
- *     blob: Buffer.from(fs.readFileSync("app_service_public_certificate.cer", 'binary')).toString('base64'),
+ *     blob: fs.readFileSync("app_service_public_certificate.cer", { encoding: "base64" }),
  * });
  * ```
  *
