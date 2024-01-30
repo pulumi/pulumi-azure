@@ -154,7 +154,7 @@ namespace Pulumi.Azure
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
-        [Input("auxiliaryTenantIds", json: true)]
+        [Input("auxiliaryTenantIds")]
         private InputList<string>? _auxiliaryTenantIds;
         public InputList<string> AuxiliaryTenantIds
         {
@@ -210,13 +210,13 @@ namespace Pulumi.Azure
         /// <summary>
         /// This will disable the x-ms-correlation-request-id header.
         /// </summary>
-        [Input("disableCorrelationRequestId", json: true)]
+        [Input("disableCorrelationRequestId")]
         public Input<bool>? DisableCorrelationRequestId { get; set; }
 
         /// <summary>
         /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
         /// </summary>
-        [Input("disableTerraformPartnerId", json: true)]
+        [Input("disableTerraformPartnerId")]
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
@@ -225,7 +225,7 @@ namespace Pulumi.Azure
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
-        [Input("features", json: true)]
+        [Input("features")]
         public Input<Inputs.ProviderFeaturesArgs>? Features { get; set; }
 
         /// <summary>
@@ -277,13 +277,13 @@ namespace Pulumi.Azure
         /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
         /// registered?
         /// </summary>
-        [Input("skipProviderRegistration", json: true)]
+        [Input("skipProviderRegistration")]
         public Input<bool>? SkipProviderRegistration { get; set; }
 
         /// <summary>
         /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
         /// </summary>
-        [Input("storageUseAzuread", json: true)]
+        [Input("storageUseAzuread")]
         public Input<bool>? StorageUseAzuread { get; set; }
 
         /// <summary>
@@ -301,25 +301,25 @@ namespace Pulumi.Azure
         /// <summary>
         /// Allow Azure AKS Workload Identity to be used for Authentication.
         /// </summary>
-        [Input("useAksWorkloadIdentity", json: true)]
+        [Input("useAksWorkloadIdentity")]
         public Input<bool>? UseAksWorkloadIdentity { get; set; }
 
         /// <summary>
         /// Allow Azure CLI to be used for Authentication.
         /// </summary>
-        [Input("useCli", json: true)]
+        [Input("useCli")]
         public Input<bool>? UseCli { get; set; }
 
         /// <summary>
         /// Allow Managed Service Identity to be used for Authentication.
         /// </summary>
-        [Input("useMsi", json: true)]
+        [Input("useMsi")]
         public Input<bool>? UseMsi { get; set; }
 
         /// <summary>
         /// Allow OpenID Connect to be used for authentication
         /// </summary>
-        [Input("useOidc", json: true)]
+        [Input("useOidc")]
         public Input<bool>? UseOidc { get; set; }
 
         public ProviderArgs()

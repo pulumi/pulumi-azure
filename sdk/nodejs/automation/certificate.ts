@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
  *     description: "This is an example certificate",
- *     base64: Buffer.from(fs.readFileSync("certificate.pfx", 'binary')).toString('base64'),
+ *     base64: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
  *     exportable: true,
  * });
  * ```
