@@ -605,7 +605,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
+            __props__.__dict__["auxiliary_tenant_ids"] = auxiliary_tenant_ids
             __props__.__dict__["client_certificate"] = client_certificate
             __props__.__dict__["client_certificate_password"] = client_certificate_password
             __props__.__dict__["client_certificate_path"] = client_certificate_path
@@ -613,12 +613,12 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_id_file_path"] = client_id_file_path
             __props__.__dict__["client_secret"] = client_secret
             __props__.__dict__["client_secret_file_path"] = client_secret_file_path
-            __props__.__dict__["disable_correlation_request_id"] = pulumi.Output.from_input(disable_correlation_request_id).apply(pulumi.runtime.to_json) if disable_correlation_request_id is not None else None
-            __props__.__dict__["disable_terraform_partner_id"] = pulumi.Output.from_input(disable_terraform_partner_id).apply(pulumi.runtime.to_json) if disable_terraform_partner_id is not None else None
+            __props__.__dict__["disable_correlation_request_id"] = disable_correlation_request_id
+            __props__.__dict__["disable_terraform_partner_id"] = disable_terraform_partner_id
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment
-            __props__.__dict__["features"] = pulumi.Output.from_input(features).apply(pulumi.runtime.to_json) if features is not None else None
+            __props__.__dict__["features"] = features
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
             __props__.__dict__["metadata_host"] = metadata_host
@@ -630,18 +630,18 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["partner_id"] = partner_id
             if skip_provider_registration is None:
                 skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
-            __props__.__dict__["skip_provider_registration"] = pulumi.Output.from_input(skip_provider_registration).apply(pulumi.runtime.to_json) if skip_provider_registration is not None else None
+            __props__.__dict__["skip_provider_registration"] = skip_provider_registration
             if storage_use_azuread is None:
                 storage_use_azuread = (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
-            __props__.__dict__["storage_use_azuread"] = pulumi.Output.from_input(storage_use_azuread).apply(pulumi.runtime.to_json) if storage_use_azuread is not None else None
+            __props__.__dict__["storage_use_azuread"] = storage_use_azuread
             if subscription_id is None:
                 subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
-            __props__.__dict__["use_aks_workload_identity"] = pulumi.Output.from_input(use_aks_workload_identity).apply(pulumi.runtime.to_json) if use_aks_workload_identity is not None else None
-            __props__.__dict__["use_cli"] = pulumi.Output.from_input(use_cli).apply(pulumi.runtime.to_json) if use_cli is not None else None
-            __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
-            __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
+            __props__.__dict__["use_aks_workload_identity"] = use_aks_workload_identity
+            __props__.__dict__["use_cli"] = use_cli
+            __props__.__dict__["use_msi"] = use_msi
+            __props__.__dict__["use_oidc"] = use_oidc
         super(Provider, __self__).__init__(
             'azure',
             resource_name,
