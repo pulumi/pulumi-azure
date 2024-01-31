@@ -343,6 +343,8 @@ var moduleMap = map[string]string{
 	"web_application_firewall": azureWaf,
 	"web_pubsub":               azureWebPubSub,
 	"network_function":         azureNetworkFunction,
+	"chaos_studio":     		azureChaosStudio,
+	"redhat_openshift": 		azureRedHatOpenShift,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -2651,8 +2653,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_credential_user_managed_identity": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
-			"azurerm_chaos_studio_target":      {Tok: azureResource(azureChaosStudio, "Target")},
-			"azurerm_redhat_openshift_cluster": {Tok: azureResource(azureRedHatOpenShift, "Cluster")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},
