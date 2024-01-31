@@ -18,6 +18,8 @@ import com.pulumi.azure.network.inputs.GetGatewayConnectionArgs;
 import com.pulumi.azure.network.inputs.GetGatewayConnectionPlainArgs;
 import com.pulumi.azure.network.inputs.GetIpGroupArgs;
 import com.pulumi.azure.network.inputs.GetIpGroupPlainArgs;
+import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
+import com.pulumi.azure.network.inputs.GetIpGroupsPlainArgs;
 import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayArgs;
 import com.pulumi.azure.network.inputs.GetLocalNetworkGatewayPlainArgs;
 import com.pulumi.azure.network.inputs.GetNatGatewayArgs;
@@ -73,6 +75,7 @@ import com.pulumi.azure.network.outputs.GetFirewallPolicyResult;
 import com.pulumi.azure.network.outputs.GetFirewallResult;
 import com.pulumi.azure.network.outputs.GetGatewayConnectionResult;
 import com.pulumi.azure.network.outputs.GetIpGroupResult;
+import com.pulumi.azure.network.outputs.GetIpGroupsResult;
 import com.pulumi.azure.network.outputs.GetLocalNetworkGatewayResult;
 import com.pulumi.azure.network.outputs.GetNatGatewayResult;
 import com.pulumi.azure.network.outputs.GetNetworkDdosProtectionPlanResult;
@@ -1199,6 +1202,162 @@ public final class NetworkFunctions {
      */
     public static CompletableFuture<GetIpGroupResult> getIpGroupPlain(GetIpGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:network/getIpGroup:getIpGroup", TypeShape.of(GetIpGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args) {
+        return getIpGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args) {
+        return getIpGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:network/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:network/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Local Network Gateway.

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
+    [Obsolete(@"azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups")]
     public static class GetIpGroups
     {
         /// <summary>
@@ -26,7 +27,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Compute.GetIpGroups.Invoke(new()
+        ///     var example = Azure.Network.GetIpGroups.Invoke(new()
         ///     {
         ///         Name = "existing",
         ///         ResourceGroupName = "existing",
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Compute
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var example = Azure.Compute.GetIpGroups.Invoke(new()
+        ///     var example = Azure.Network.GetIpGroups.Invoke(new()
         ///     {
         ///         Name = "existing",
         ///         ResourceGroupName = "existing",

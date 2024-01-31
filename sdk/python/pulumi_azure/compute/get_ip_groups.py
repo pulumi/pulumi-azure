@@ -16,6 +16,8 @@ __all__ = [
     'get_ip_groups_output',
 ]
 
+warnings.warn("""azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIpGroupsResult:
     """
@@ -116,7 +118,7 @@ def get_ip_groups(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_ip_groups(name="existing",
+    example = azure.network.get_ip_groups(name="existing",
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
@@ -125,6 +127,7 @@ def get_ip_groups(name: Optional[str] = None,
     :param str name: A substring to match some number of IP Groups.
     :param str resource_group_name: The name of the Resource Group where the IP Groups exist.
     """
+    pulumi.log.warn("""get_ip_groups is deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -154,7 +157,7 @@ def get_ip_groups_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_ip_groups(name="existing",
+    example = azure.network.get_ip_groups(name="existing",
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
@@ -163,4 +166,5 @@ def get_ip_groups_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: A substring to match some number of IP Groups.
     :param str resource_group_name: The name of the Resource Group where the IP Groups exist.
     """
+    pulumi.log.warn("""get_ip_groups is deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups""")
     ...

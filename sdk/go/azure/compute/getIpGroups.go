@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := compute.GetIpGroups(ctx, &compute.GetIpGroupsArgs{
+//			example, err := network.GetIpGroups(ctx, &network.GetIpGroupsArgs{
 //				Name:              "existing",
 //				ResourceGroupName: "existing",
 //			}, nil)
@@ -40,6 +40,8 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
 func GetIpGroups(ctx *pulumi.Context, args *GetIpGroupsArgs, opts ...pulumi.InvokeOption) (*GetIpGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpGroupsResult

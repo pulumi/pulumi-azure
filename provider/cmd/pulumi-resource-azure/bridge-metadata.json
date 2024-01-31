@@ -25436,7 +25436,14 @@
                 }
             },
             "azurerm_ip_groups": {
-                "current": "azure:compute/getIpGroups:getIpGroups",
+                "current": "azure:network/getIpGroups:getIpGroups",
+                "past": [
+                    {
+                        "name": "azure:compute/getIpGroups:getIpGroups",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
                 "majorVersion": 5,
                 "fields": {
                     "ids": {
@@ -29997,6 +30004,13 @@
                     "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
                 }
             }
+        },
+        "datasources": {
+            "azurerm_ip_groups": {
+                "renames": [
+                    "azure:compute/getIpGroups:getIpGroups"
+                ]
+            }
         }
     },
     "renames": {
@@ -31151,7 +31165,7 @@
             "azure:compute/getDiskEncryptionSet:getDiskEncryptionSet": "azurerm_disk_encryption_set",
             "azure:compute/getImage:getImage": "azurerm_image",
             "azure:compute/getImages:getImages": "azurerm_images",
-            "azure:compute/getIpGroups:getIpGroups": "azurerm_ip_groups",
+            "azure:compute/getIpGroups:getIpGroups": "azurerm_ip_groups_legacy",
             "azure:compute/getManagedDisk:getManagedDisk": "azurerm_managed_disk",
             "azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet": "azurerm_orchestrated_virtual_machine_scale_set",
             "azure:compute/getPlatformImage:getPlatformImage": "azurerm_platform_image",
@@ -31324,6 +31338,7 @@
             "azure:network/getFirewallPolicy:getFirewallPolicy": "azurerm_firewall_policy",
             "azure:network/getGatewayConnection:getGatewayConnection": "azurerm_virtual_network_gateway_connection",
             "azure:network/getIpGroup:getIpGroup": "azurerm_ip_group",
+            "azure:network/getIpGroups:getIpGroups": "azurerm_ip_groups",
             "azure:network/getLocalNetworkGateway:getLocalNetworkGateway": "azurerm_local_network_gateway",
             "azure:network/getNatGateway:getNatGateway": "azurerm_nat_gateway",
             "azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan": "azurerm_network_ddos_protection_plan",
@@ -52674,6 +52689,9 @@
                 "remoteAddressCidrs": "remote_address_cidrs"
             },
             "azure:network/getIpGroup:getIpGroup": {
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:network/getIpGroups:getIpGroups": {
                 "resourceGroupName": "resource_group_name"
             },
             "azure:network/getLocalNetworkGateway:getLocalNetworkGateway": {

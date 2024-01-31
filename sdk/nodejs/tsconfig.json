@@ -1115,6 +1115,7 @@
         "network/getFirewallPolicy.ts",
         "network/getGatewayConnection.ts",
         "network/getIpGroup.ts",
+        "network/getIpGroups.ts",
         "network/getLocalNetworkGateway.ts",
         "network/getNatGateway.ts",
         "network/getNetworkDdosProtectionPlan.ts",

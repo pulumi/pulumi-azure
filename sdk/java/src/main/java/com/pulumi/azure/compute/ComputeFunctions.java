@@ -1484,8 +1484,8 @@ public final class ComputeFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1499,7 +1499,7 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
@@ -1509,7 +1509,11 @@ public final class ComputeFunctions {
      * }
      * ```
      * 
+     * @deprecated
+     * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
+     * 
      */
+    @Deprecated /* azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args) {
         return getIpGroups(args, InvokeOptions.Empty);
     }
@@ -1523,8 +1527,8 @@ public final class ComputeFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1538,7 +1542,7 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
@@ -1548,7 +1552,11 @@ public final class ComputeFunctions {
      * }
      * ```
      * 
+     * @deprecated
+     * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
+     * 
      */
+    @Deprecated /* azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args) {
         return getIpGroupsPlain(args, InvokeOptions.Empty);
     }
@@ -1562,8 +1570,8 @@ public final class ComputeFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1577,7 +1585,7 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
@@ -1587,7 +1595,11 @@ public final class ComputeFunctions {
      * }
      * ```
      * 
+     * @deprecated
+     * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
+     * 
      */
+    @Deprecated /* azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
     public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:compute/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
     }
@@ -1601,8 +1613,8 @@ public final class ComputeFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.compute.ComputeFunctions;
-     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetIpGroupsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1616,7 +1628,7 @@ public final class ComputeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *         final var example = NetworkFunctions.getIpGroups(GetIpGroupsArgs.builder()
      *             .name(&#34;existing&#34;)
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
@@ -1626,7 +1638,11 @@ public final class ComputeFunctions {
      * }
      * ```
      * 
+     * @deprecated
+     * azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups
+     * 
      */
+    @Deprecated /* azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
     public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
     }
