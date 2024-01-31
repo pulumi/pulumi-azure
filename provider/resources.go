@@ -343,8 +343,8 @@ var moduleMap = map[string]string{
 	"web_application_firewall": azureWaf,
 	"web_pubsub":               azureWebPubSub,
 	"network_function":         azureNetworkFunction,
-	"chaos_studio":     		azureChaosStudio,
-	"redhat_openshift": 		azureRedHatOpenShift,
+	"chaos_studio":             azureChaosStudio,
+	"redhat_openshift":         azureRedHatOpenShift,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
