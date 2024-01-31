@@ -913,7 +913,7 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
                  endpoint_resource_id: str,
                  endpoint_tenant_id: Optional[str] = None):
         """
-        :param str endpoint_resource_id: The resource id of the resource access rule to be granted access.
+        :param str endpoint_resource_id: The ID of the Azure resource that should be allowed access to the target storage account.
         :param str endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
@@ -924,7 +924,7 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
     @pulumi.getter(name="endpointResourceId")
     def endpoint_resource_id(self) -> str:
         """
-        The resource id of the resource access rule to be granted access.
+        The ID of the Azure resource that should be allowed access to the target storage account.
         """
         return pulumi.get(self, "endpoint_resource_id")
 

@@ -105,6 +105,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataProtectionSnapshotPolicy);
     }
     /**
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * 
+     */
+    @Export(name="encryptionKeySource", refs={String.class}, tree="[0]")
+    private Output<String> encryptionKeySource;
+
+    /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * 
+     */
+    public Output<String> encryptionKeySource() {
+        return this.encryptionKeySource;
+    }
+    /**
      * One or more `export_policy_rule` block defined below.
      * 
      */
@@ -117,6 +131,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<VolumeExportPolicyRule>>> exportPolicyRules() {
         return Codegen.optional(this.exportPolicyRules);
+    }
+    /**
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * 
+     */
+    @Export(name="keyVaultPrivateEndpointId", refs={String.class}, tree="[0]")
+    private Output<String> keyVaultPrivateEndpointId;
+
+    /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * 
+     */
+    public Output<String> keyVaultPrivateEndpointId() {
+        return this.keyVaultPrivateEndpointId;
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

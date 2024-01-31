@@ -79,6 +79,7 @@ const (
 	azureBlueprint             = "Blueprint"             // Blueprint
 	azureBot                   = "Bot"                   // Bot
 	azureCDN                   = "Cdn"                   // CDN
+	azureChaosStudio		   = "ChaosStudio"		 	 // Chaos Studio
 	azureCognitive             = "Cognitive"             // Cognitive
 	azureCommunication         = "Communication"         // Communication
 	azureCompute               = "Compute"               // Virtual Machines
@@ -158,6 +159,7 @@ const (
 	azurePurview               = "Purview"               // Purview
 	azureRecoveryServices      = "RecoveryServices"      // Recovery Services
 	azureRedis                 = "Redis"                 // RedisCache
+	azureRedHatOpenShift	   = "RedHatOpenShift"		 // RedHat OpenShift
 	azureRelay                 = "Relay"                 // Relay
 	azureSecurityCenter        = "SecurityCenter"        // Security Center
 	azureSentinel              = "Sentinel"              // Sentinel
@@ -2649,6 +2651,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_credential_user_managed_identity": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+			"azurerm_chaos_studio_target":		{Tok: azureResource(azureChaosStudio, "Target")},
+			"azurerm_redhat_openshift_cluster":	{Tok: azureResource(azureRedHatOpenShift, "Cluster")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},
@@ -3133,6 +3137,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
 			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
+			"azurerm_ip_groups": 							  {Tok: azureDataSource(azureNetwork, "getIpGroups")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

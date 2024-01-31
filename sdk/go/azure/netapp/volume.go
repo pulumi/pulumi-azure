@@ -34,8 +34,12 @@ type Volume struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrOutput `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	EncryptionKeySource pulumi.StringOutput `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	KeyVaultPrivateEndpointId pulumi.StringOutput `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -133,8 +137,12 @@ type volumeState struct {
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -182,8 +190,12 @@ type VolumeState struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	KeyVaultPrivateEndpointId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -235,8 +247,12 @@ type volumeArgs struct {
 	DataProtectionReplication *VolumeDataProtectionReplication `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy *VolumeDataProtectionSnapshotPolicy `pulumi:"dataProtectionSnapshotPolicy"`
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -283,8 +299,12 @@ type VolumeArgs struct {
 	DataProtectionReplication VolumeDataProtectionReplicationPtrInput
 	// A `dataProtectionSnapshotPolicy` block as defined below.
 	DataProtectionSnapshotPolicy VolumeDataProtectionSnapshotPolicyPtrInput
+	// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
+	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+	KeyVaultPrivateEndpointId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -431,9 +451,19 @@ func (o VolumeOutput) DataProtectionSnapshotPolicy() VolumeDataProtectionSnapsho
 	return o.ApplyT(func(v *Volume) VolumeDataProtectionSnapshotPolicyPtrOutput { return v.DataProtectionSnapshotPolicy }).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
+// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`.
+func (o VolumeOutput) EncryptionKeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.EncryptionKeySource }).(pulumi.StringOutput)
+}
+
 // One or more `exportPolicyRule` block defined below.
 func (o VolumeOutput) ExportPolicyRules() VolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *Volume) VolumeExportPolicyRuleArrayOutput { return v.ExportPolicyRules }).(VolumeExportPolicyRuleArrayOutput)
+}
+
+// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`.
+func (o VolumeOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

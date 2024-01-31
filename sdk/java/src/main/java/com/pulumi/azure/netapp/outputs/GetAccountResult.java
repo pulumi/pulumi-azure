@@ -3,10 +3,14 @@
 
 package com.pulumi.azure.netapp.outputs;
 
+import com.pulumi.azure.netapp.outputs.GetAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountResult {
@@ -15,6 +19,7 @@ public final class GetAccountResult {
      * 
      */
     private String id;
+    private @Nullable GetAccountIdentity identity;
     /**
      * @return The Azure Region where the NetApp Account exists.
      * 
@@ -22,6 +27,7 @@ public final class GetAccountResult {
     private String location;
     private String name;
     private String resourceGroupName;
+    private Map<String,String> tags;
 
     private GetAccountResult() {}
     /**
@@ -30,6 +36,9 @@ public final class GetAccountResult {
      */
     public String id() {
         return this.id;
+    }
+    public Optional<GetAccountIdentity> identity() {
+        return Optional.ofNullable(this.identity);
     }
     /**
      * @return The Azure Region where the NetApp Account exists.
@@ -44,6 +53,9 @@ public final class GetAccountResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -55,16 +67,20 @@ public final class GetAccountResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private @Nullable GetAccountIdentity identity;
         private String location;
         private String name;
         private String resourceGroupName;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.identity = defaults.identity;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -73,6 +89,12 @@ public final class GetAccountResult {
               throw new MissingRequiredPropertyException("GetAccountResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder identity(@Nullable GetAccountIdentity identity) {
+
+            this.identity = identity;
             return this;
         }
         @CustomType.Setter
@@ -99,12 +121,22 @@ public final class GetAccountResult {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetAccountResult build() {
             final var _resultValue = new GetAccountResult();
             _resultValue.id = id;
+            _resultValue.identity = identity;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

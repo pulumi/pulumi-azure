@@ -167,14 +167,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.monthDays);
     }
     /**
-     * List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     * One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
     @Export(name="monthlyOccurrences", refs={List.class,ScheduleMonthlyOccurrence.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScheduleMonthlyOccurrence>> monthlyOccurrences;
 
     /**
-     * @return List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     * @return One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      * 
      */
     public Output<Optional<List<ScheduleMonthlyOccurrence>>> monthlyOccurrences() {

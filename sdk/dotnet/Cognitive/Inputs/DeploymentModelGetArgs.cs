@@ -25,10 +25,10 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The version of Cognitive Services Account Deployment model.
+        /// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public DeploymentModelGetArgs()
         {

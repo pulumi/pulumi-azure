@@ -52,10 +52,22 @@ namespace Pulumi.Azure.NetApp
         public Output<Outputs.VolumeDataProtectionSnapshotPolicy?> DataProtectionSnapshotPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// </summary>
+        [Output("encryptionKeySource")]
+        public Output<string> EncryptionKeySource { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `export_policy_rule` block defined below.
         /// </summary>
         [Output("exportPolicyRules")]
         public Output<ImmutableArray<Outputs.VolumeExportPolicyRule>> ExportPolicyRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// </summary>
+        [Output("keyVaultPrivateEndpointId")]
+        public Output<string> KeyVaultPrivateEndpointId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -231,6 +243,12 @@ namespace Pulumi.Azure.NetApp
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyArgs>? DataProtectionSnapshotPolicy { get; set; }
 
+        /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// </summary>
+        [Input("encryptionKeySource")]
+        public Input<string>? EncryptionKeySource { get; set; }
+
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleArgs>? _exportPolicyRules;
 
@@ -242,6 +260,12 @@ namespace Pulumi.Azure.NetApp
             get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRuleArgs>());
             set => _exportPolicyRules = value;
         }
+
+        /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// </summary>
+        [Input("keyVaultPrivateEndpointId")]
+        public Input<string>? KeyVaultPrivateEndpointId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -385,6 +409,12 @@ namespace Pulumi.Azure.NetApp
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }
 
+        /// <summary>
+        /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        /// </summary>
+        [Input("encryptionKeySource")]
+        public Input<string>? EncryptionKeySource { get; set; }
+
         [Input("exportPolicyRules")]
         private InputList<Inputs.VolumeExportPolicyRuleGetArgs>? _exportPolicyRules;
 
@@ -396,6 +426,12 @@ namespace Pulumi.Azure.NetApp
             get => _exportPolicyRules ?? (_exportPolicyRules = new InputList<Inputs.VolumeExportPolicyRuleGetArgs>());
             set => _exportPolicyRules = value;
         }
+
+        /// <summary>
+        /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        /// </summary>
+        [Input("keyVaultPrivateEndpointId")]
+        public Input<string>? KeyVaultPrivateEndpointId { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

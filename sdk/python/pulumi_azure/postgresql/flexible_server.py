@@ -936,7 +936,8 @@ class FlexibleServer(pulumi.CustomResource):
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example_resource_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -1035,7 +1036,8 @@ class FlexibleServer(pulumi.CustomResource):
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example_resource_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

@@ -71,6 +71,11 @@ public final class GetJobResult {
     private String outputErrorPolicy;
     private String resourceGroupName;
     /**
+     * @return The SKU Name to use for the Stream Analytics Job.
+     * 
+     */
+    private String skuName;
+    /**
      * @return The starting mode set for this Stream Analytics Job.
      * 
      */
@@ -176,6 +181,13 @@ public final class GetJobResult {
         return this.resourceGroupName;
     }
     /**
+     * @return The SKU Name to use for the Stream Analytics Job.
+     * 
+     */
+    public String skuName() {
+        return this.skuName;
+    }
+    /**
      * @return The starting mode set for this Stream Analytics Job.
      * 
      */
@@ -226,6 +238,7 @@ public final class GetJobResult {
         private String name;
         private String outputErrorPolicy;
         private String resourceGroupName;
+        private String skuName;
         private String startMode;
         private String startTime;
         private Integer streamingUnits;
@@ -246,6 +259,7 @@ public final class GetJobResult {
     	      this.name = defaults.name;
     	      this.outputErrorPolicy = defaults.outputErrorPolicy;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.skuName = defaults.skuName;
     	      this.startMode = defaults.startMode;
     	      this.startTime = defaults.startTime;
     	      this.streamingUnits = defaults.streamingUnits;
@@ -360,6 +374,14 @@ public final class GetJobResult {
             return this;
         }
         @CustomType.Setter
+        public Builder skuName(String skuName) {
+            if (skuName == null) {
+              throw new MissingRequiredPropertyException("GetJobResult", "skuName");
+            }
+            this.skuName = skuName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder startMode(String startMode) {
             if (startMode == null) {
               throw new MissingRequiredPropertyException("GetJobResult", "startMode");
@@ -406,6 +428,7 @@ public final class GetJobResult {
             _resultValue.name = name;
             _resultValue.outputErrorPolicy = outputErrorPolicy;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
             _resultValue.startMode = startMode;
             _resultValue.startTime = startTime;
             _resultValue.streamingUnits = streamingUnits;

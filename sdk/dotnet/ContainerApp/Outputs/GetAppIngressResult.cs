@@ -31,6 +31,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAppIngressIpSecurityRestrictionResult> IpSecurityRestrictions;
+        /// <summary>
         /// The target port on the container for the Ingress traffic.
         /// </summary>
         public readonly int TargetPort;
@@ -55,6 +59,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string fqdn,
 
+            ImmutableArray<Outputs.GetAppIngressIpSecurityRestrictionResult> ipSecurityRestrictions,
+
             int targetPort,
 
             ImmutableArray<Outputs.GetAppIngressTrafficWeightResult> trafficWeights,
@@ -66,6 +72,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;
             Fqdn = fqdn;
+            IpSecurityRestrictions = ipSecurityRestrictions;
             TargetPort = targetPort;
             TrafficWeights = trafficWeights;
             Transport = transport;

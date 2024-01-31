@@ -96,6 +96,10 @@ export interface GetJobResult {
     readonly outputErrorPolicy: string;
     readonly resourceGroupName: string;
     /**
+     * The SKU Name to use for the Stream Analytics Job.
+     */
+    readonly skuName: string;
+    /**
      * The starting mode set for this Stream Analytics Job.
      */
     readonly startMode: string;

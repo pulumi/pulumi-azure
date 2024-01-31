@@ -199,7 +199,7 @@ import javax.annotation.Nullable;
  * App Service Plan instances can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverfarms/instance1
+ *  $ pulumi import azure:appservice/plan:Plan instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/serverFarms/instance1
  * ```
  * 
  */

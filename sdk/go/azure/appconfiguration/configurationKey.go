@@ -205,7 +205,7 @@ type ConfigurationKey struct {
 	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 	// The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
 	//
 	// > **NOTE:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
@@ -480,8 +480,8 @@ func (o ConfigurationKeyOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value of the App Configuration Key. This should only be set when type is set to `kv`.
-func (o ConfigurationKeyOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+func (o ConfigurationKeyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.

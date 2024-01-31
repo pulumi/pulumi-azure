@@ -70,6 +70,10 @@ type IntegrationRuntimeSsis struct {
 
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrOutput `pulumi:"catalogInfo"`
+	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+	//
+	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	CredentialName pulumi.StringPtrOutput `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrOutput `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -140,6 +144,10 @@ func GetIntegrationRuntimeSsis(ctx *pulumi.Context,
 type integrationRuntimeSsisState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
+	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+	//
+	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -175,6 +183,10 @@ type integrationRuntimeSsisState struct {
 type IntegrationRuntimeSsisState struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
+	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+	//
+	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -214,6 +226,10 @@ func (IntegrationRuntimeSsisState) ElementType() reflect.Type {
 type integrationRuntimeSsisArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo *IntegrationRuntimeSsisCatalogInfo `pulumi:"catalogInfo"`
+	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+	//
+	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	CredentialName *string `pulumi:"credentialName"`
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript *IntegrationRuntimeSsisCustomSetupScript `pulumi:"customSetupScript"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -250,6 +266,10 @@ type integrationRuntimeSsisArgs struct {
 type IntegrationRuntimeSsisArgs struct {
 	// A `catalogInfo` block as defined below.
 	CatalogInfo IntegrationRuntimeSsisCatalogInfoPtrInput
+	// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+	//
+	// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+	CredentialName pulumi.StringPtrInput
 	// A `customSetupScript` block as defined below.
 	CustomSetupScript IntegrationRuntimeSsisCustomSetupScriptPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -372,6 +392,13 @@ func (o IntegrationRuntimeSsisOutput) ToIntegrationRuntimeSsisOutputWithContext(
 // A `catalogInfo` block as defined below.
 func (o IntegrationRuntimeSsisOutput) CatalogInfo() IntegrationRuntimeSsisCatalogInfoPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisCatalogInfoPtrOutput { return v.CatalogInfo }).(IntegrationRuntimeSsisCatalogInfoPtrOutput)
+}
+
+// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+//
+// > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+func (o IntegrationRuntimeSsisOutput) CredentialName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsis) pulumi.StringPtrOutput { return v.CredentialName }).(pulumi.StringPtrOutput)
 }
 
 // A `customSetupScript` block as defined below.

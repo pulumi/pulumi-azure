@@ -95,6 +95,16 @@ export const getFactory: typeof import("./getFactory").getFactory = null as any;
 export const getFactoryOutput: typeof import("./getFactory").getFactoryOutput = null as any;
 utilities.lazyLoad(exports, ["getFactory","getFactoryOutput"], () => require("./getFactory"));
 
+export { GetTriggerScheduleArgs, GetTriggerScheduleResult, GetTriggerScheduleOutputArgs } from "./getTriggerSchedule";
+export const getTriggerSchedule: typeof import("./getTriggerSchedule").getTriggerSchedule = null as any;
+export const getTriggerScheduleOutput: typeof import("./getTriggerSchedule").getTriggerScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getTriggerSchedule","getTriggerScheduleOutput"], () => require("./getTriggerSchedule"));
+
+export { GetTriggerSchedulesArgs, GetTriggerSchedulesResult, GetTriggerSchedulesOutputArgs } from "./getTriggerSchedules";
+export const getTriggerSchedules: typeof import("./getTriggerSchedules").getTriggerSchedules = null as any;
+export const getTriggerSchedulesOutput: typeof import("./getTriggerSchedules").getTriggerSchedulesOutput = null as any;
+utilities.lazyLoad(exports, ["getTriggerSchedules","getTriggerSchedulesOutput"], () => require("./getTriggerSchedules"));
+
 export { IntegrationRuntimeManagedArgs, IntegrationRuntimeManagedState } from "./integrationRuntimeManaged";
 export type IntegrationRuntimeManaged = import("./integrationRuntimeManaged").IntegrationRuntimeManaged;
 export const IntegrationRuntimeManaged: typeof import("./integrationRuntimeManaged").IntegrationRuntimeManaged = null as any;

@@ -270,6 +270,20 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
+     * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     * 
+     */
+    @Export(name="skuName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> skuName;
+
+    /**
+     * @return The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     * 
+     */
+    public Output<Optional<String>> skuName() {
+        return Codegen.optional(this.skuName);
+    }
+    /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      * 
      */
@@ -287,6 +301,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * * 
      * 
      */
     @Export(name="streamingUnits", refs={Integer.class}, tree="[0]")
@@ -296,6 +311,7 @@ public class Job extends com.pulumi.resources.CustomResource {
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * * 
      * 
      */
     public Output<Optional<Integer>> streamingUnits() {

@@ -307,14 +307,14 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
-    private Output<String> value;
+    private Output</* @Nullable */ String> value;
 
     /**
      * @return The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
     }
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.

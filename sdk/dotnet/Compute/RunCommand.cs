@@ -191,7 +191,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     // authurize to storage blob using user assigned identity
+    ///     // authorize to storage blob using user assigned identity
     ///     var example2RunCommand = new Azure.Compute.RunCommand("example2RunCommand", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,
@@ -245,7 +245,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     // authurize to storage blob using SAS token
+    ///     // authorize to storage blob using SAS token
     ///     var example3RunCommand = new Azure.Compute.RunCommand("example3RunCommand", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,

@@ -233,6 +233,8 @@ namespace Pulumi.Azure.Role
 
         /// <summary>
         /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -351,6 +353,8 @@ namespace Pulumi.Azure.Role
 
         /// <summary>
         /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
@@ -431,6 +435,8 @@ namespace Pulumi.Azure.Role
 
         /// <summary>
         /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }

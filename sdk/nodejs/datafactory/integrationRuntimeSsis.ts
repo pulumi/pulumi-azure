@@ -68,6 +68,12 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly catalogInfo!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
     /**
+     * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     *
+     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     */
+    public readonly credentialName!: pulumi.Output<string | undefined>;
+    /**
      * A `customSetupScript` block as defined below.
      */
     public readonly customSetupScript!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCustomSetupScript | undefined>;
@@ -142,6 +148,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSsisState | undefined;
             resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
+            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
             resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -166,6 +173,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
                 throw new Error("Missing required property 'nodeSize'");
             }
             resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
+            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
             resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -195,6 +203,12 @@ export interface IntegrationRuntimeSsisState {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    /**
+     * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     *
+     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * A `customSetupScript` block as defined below.
      */
@@ -265,6 +279,12 @@ export interface IntegrationRuntimeSsisArgs {
      * A `catalogInfo` block as defined below.
      */
     catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisCatalogInfo>;
+    /**
+     * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     *
+     * > **NOTE** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
+     */
+    credentialName?: pulumi.Input<string>;
     /**
      * A `customSetupScript` block as defined below.
      */

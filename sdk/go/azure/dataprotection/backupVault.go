@@ -72,7 +72,7 @@ type BackupVault struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+	// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 	Redundancy pulumi.StringOutput `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -129,7 +129,7 @@ type backupVaultState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+	// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 	Redundancy *string `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -148,7 +148,7 @@ type BackupVaultState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+	// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 	Redundancy pulumi.StringPtrInput
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type backupVaultArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+	// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 	Redundancy string `pulumi:"redundancy"`
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -191,7 +191,7 @@ type BackupVaultArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+	// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 	Redundancy pulumi.StringInput
 	// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
 	ResourceGroupName pulumi.StringInput
@@ -308,7 +308,7 @@ func (o BackupVaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
 func (o BackupVaultOutput) Redundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Redundancy }).(pulumi.StringOutput)
 }

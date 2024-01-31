@@ -143,6 +143,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+        /// </summary>
+        [Output("skuName")]
+        public Output<string?> SkuName { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         /// </summary>
         [Output("streamAnalyticsClusterId")]
@@ -152,6 +158,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+        /// *
         /// </summary>
         [Output("streamingUnits")]
         public Output<int?> StreamingUnits { get; private set; } = null!;
@@ -303,6 +310,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        /// <summary>
         /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         /// </summary>
         [Input("streamAnalyticsClusterId")]
@@ -312,6 +325,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+        /// *
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }
@@ -437,6 +451,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
+        /// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+        /// </summary>
+        [Input("skuName")]
+        public Input<string>? SkuName { get; set; }
+
+        /// <summary>
         /// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
         /// </summary>
         [Input("streamAnalyticsClusterId")]
@@ -446,6 +466,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
         /// 
         /// &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+        /// *
         /// </summary>
         [Input("streamingUnits")]
         public Input<int>? StreamingUnits { get; set; }

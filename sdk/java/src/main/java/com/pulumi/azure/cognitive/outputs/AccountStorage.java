@@ -15,6 +15,8 @@ public final class AccountStorage {
     /**
      * @return The client ID of the managed identity associated with the storage resource.
      * 
+     * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+     * 
      */
     private @Nullable String identityClientId;
     /**
@@ -26,6 +28,8 @@ public final class AccountStorage {
     private AccountStorage() {}
     /**
      * @return The client ID of the managed identity associated with the storage resource.
+     * 
+     * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
      * 
      */
     public Optional<String> identityClientId() {

@@ -220,6 +220,21 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     * 
+     */
+    @Import(name="skuName")
+    private @Nullable Output<String> skuName;
+
+    /**
+     * @return The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     * 
+     */
+    public Optional<Output<String>> skuName() {
+        return Optional.ofNullable(this.skuName);
+    }
+
+    /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      * 
      */
@@ -238,6 +253,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * * 
      * 
      */
     @Import(name="streamingUnits")
@@ -247,6 +263,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
      * @return Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      * 
      * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+     * * 
      * 
      */
     public Optional<Output<Integer>> streamingUnits() {
@@ -318,6 +335,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.outputErrorPolicy = $.outputErrorPolicy;
         this.resourceGroupName = $.resourceGroupName;
+        this.skuName = $.skuName;
         this.streamAnalyticsClusterId = $.streamAnalyticsClusterId;
         this.streamingUnits = $.streamingUnits;
         this.tags = $.tags;
@@ -631,6 +649,27 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param skuName The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuName(@Nullable Output<String> skuName) {
+            $.skuName = skuName;
+            return this;
+        }
+
+        /**
+         * @param skuName The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuName(String skuName) {
+            return skuName(Output.of(skuName));
+        }
+
+        /**
          * @param streamAnalyticsClusterId The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
          * 
          * @return builder
@@ -655,6 +694,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
          * 
          * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+         * * 
          * 
          * @return builder
          * 
@@ -668,6 +708,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
          * @param streamingUnits Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
          * 
          * &gt; **NOTE:** `streaming_units` must be set when `type` is `Cloud`.
+         * * 
          * 
          * @return builder
          * 

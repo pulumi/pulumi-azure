@@ -71,8 +71,10 @@ type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
 	// Volume data protection block
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
+	EncryptionKeySource        string                               `pulumi:"encryptionKeySource"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                        string `pulumi:"id"`
+	KeyVaultPrivateEndpointId string `pulumi:"keyVaultPrivateEndpointId"`
 	// The Azure Region where the NetApp Volume exists.
 	Location string `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
@@ -153,9 +155,17 @@ func (o LookupVolumeResultOutput) DataProtectionReplications() GetVolumeDataProt
 	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeDataProtectionReplication { return v.DataProtectionReplications }).(GetVolumeDataProtectionReplicationArrayOutput)
 }
 
+func (o LookupVolumeResultOutput) EncryptionKeySource() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.EncryptionKeySource }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupVolumeResultOutput) KeyVaultPrivateEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.KeyVaultPrivateEndpointId }).(pulumi.StringOutput)
 }
 
 // The Azure Region where the NetApp Volume exists.

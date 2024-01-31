@@ -167,7 +167,7 @@ export class ConfigurationKey extends pulumi.CustomResource {
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string | undefined>;
     /**
      * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
      *

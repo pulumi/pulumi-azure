@@ -3,16 +3,26 @@
 
 package com.pulumi.azure.netapp.inputs;
 
+import com.pulumi.azure.netapp.inputs.GetAccountIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountArgs Empty = new GetAccountArgs();
+
+    @Import(name="identity")
+    private @Nullable Output<GetAccountIdentityArgs> identity;
+
+    public Optional<Output<GetAccountIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
+    }
 
     /**
      * The name of the NetApp Account.
@@ -47,6 +57,7 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
     private GetAccountArgs() {}
 
     private GetAccountArgs(GetAccountArgs $) {
+        this.identity = $.identity;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -67,6 +78,15 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetAccountArgs defaults) {
             $ = new GetAccountArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder identity(@Nullable Output<GetAccountIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        public Builder identity(GetAccountIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

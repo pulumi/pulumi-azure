@@ -118,12 +118,16 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
+     * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
      * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -365,6 +369,8 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
+         * 
          * @return builder
          * 
          */
@@ -375,6 +381,8 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param principalType The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
          * 
          * @return builder
          * 

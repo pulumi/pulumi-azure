@@ -17,14 +17,14 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     public static final CertificateArgs Empty = new CertificateArgs();
 
     /**
-     * Specify the path to the cert file of this certificate.
+     * Specify the path to the certificate file of this certificate.
      * 
      */
     @Import(name="certificateVirtualPath", required=true)
     private Output<String> certificateVirtualPath;
 
     /**
-     * @return Specify the path to the cert file of this certificate.
+     * @return Specify the path to the certificate file of this certificate.
      * 
      */
     public Output<String> certificateVirtualPath() {
@@ -120,7 +120,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateVirtualPath Specify the path to the cert file of this certificate.
+         * @param certificateVirtualPath Specify the path to the certificate file of this certificate.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateVirtualPath Specify the path to the cert file of this certificate.
+         * @param certificateVirtualPath Specify the path to the certificate file of this certificate.
          * 
          * @return builder
          * 

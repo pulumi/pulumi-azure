@@ -76,6 +76,12 @@ namespace Pulumi.Azure.PostgreSql
     ///         PrivateDnsZoneName = exampleZone.Name,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSubnet,
+    ///         },
     ///     });
     /// 
     ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()

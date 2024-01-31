@@ -19,12 +19,16 @@ public final class AccountStorageArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The client ID of the managed identity associated with the storage resource.
      * 
+     * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+     * 
      */
     @Import(name="identityClientId")
     private @Nullable Output<String> identityClientId;
 
     /**
      * @return The client ID of the managed identity associated with the storage resource.
+     * 
+     * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
      * 
      */
     public Optional<Output<String>> identityClientId() {
@@ -74,6 +78,8 @@ public final class AccountStorageArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param identityClientId The client ID of the managed identity associated with the storage resource.
          * 
+         * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class AccountStorageArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param identityClientId The client ID of the managed identity associated with the storage resource.
+         * 
+         * &gt; **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
          * 
          * @return builder
          * 

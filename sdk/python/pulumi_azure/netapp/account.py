@@ -18,6 +18,7 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  active_directory: Optional[pulumi.Input['AccountActiveDirectoryArgs']] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -25,6 +26,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -32,6 +34,8 @@ class AccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -62,6 +66,18 @@ class AccountArgs:
     @active_directory.setter
     def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        The identity block where it is used when customer managed keys based encryption will be enabled.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -104,6 +120,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  active_directory: Optional[pulumi.Input['AccountActiveDirectoryArgs']] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -111,6 +128,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -118,6 +136,8 @@ class _AccountState:
         """
         if active_directory is not None:
             pulumi.set(__self__, "active_directory", active_directory)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -138,6 +158,18 @@ class _AccountState:
     @active_directory.setter
     def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        The identity block where it is used when customer managed keys based encryption will be enabled.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -194,6 +226,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -211,9 +244,13 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.netapp.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
+        current = azure.core.get_client_config()
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
             location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             active_directory=azure.netapp.AccountActiveDirectoryArgs(
                 username="aduser",
                 password="aduserpwd",
@@ -221,6 +258,10 @@ class Account(pulumi.CustomResource):
                 dns_servers=["1.2.3.4"],
                 domain="westcentralus.com",
                 organizational_unit="OU=FirstLevel",
+            ),
+            identity=azure.netapp.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
             ))
         ```
 
@@ -235,6 +276,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -258,9 +300,13 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.netapp.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
+        current = azure.core.get_client_config()
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
             location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             active_directory=azure.netapp.AccountActiveDirectoryArgs(
                 username="aduser",
                 password="aduserpwd",
@@ -268,6 +314,10 @@ class Account(pulumi.CustomResource):
                 dns_servers=["1.2.3.4"],
                 domain="westcentralus.com",
                 organizational_unit="OU=FirstLevel",
+            ),
+            identity=azure.netapp.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example_user_assigned_identity.id],
             ))
         ```
 
@@ -295,6 +345,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -309,6 +360,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["active_directory"] = active_directory
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -326,6 +378,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +391,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: The identity block where it is used when customer managed keys based encryption will be enabled.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -348,6 +402,7 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["active_directory"] = active_directory
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -361,6 +416,14 @@ class Account(pulumi.CustomResource):
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
+        """
+        The identity block where it is used when customer managed keys based encryption will be enabled.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

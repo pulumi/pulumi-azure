@@ -93,7 +93,9 @@ import javax.annotation.Nullable;
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleSubnet)
+ *                 .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())

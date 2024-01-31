@@ -22,9 +22,9 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The version of Cognitive Services Account Deployment model.
+        /// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         /// </summary>
-        public readonly string Version;
+        public readonly string? Version;
 
         [OutputConstructor]
         private DeploymentModel(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
 
             string name,
 
-            string version)
+            string? version)
         {
             Format = format;
             Name = name;

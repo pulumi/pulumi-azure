@@ -131,7 +131,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * Specify the path to the cert file of this certificate.
+     * Specify the path to the certificate file of this certificate.
      */
     public readonly certificateVirtualPath!: pulumi.Output<string>;
     /**
@@ -199,7 +199,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * Specify the path to the cert file of this certificate.
+     * Specify the path to the certificate file of this certificate.
      */
     certificateVirtualPath?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * Specify the path to the cert file of this certificate.
+     * Specify the path to the certificate file of this certificate.
      */
     certificateVirtualPath: pulumi.Input<string>;
     /**

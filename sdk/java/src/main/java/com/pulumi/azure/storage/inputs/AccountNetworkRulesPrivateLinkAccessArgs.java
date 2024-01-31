@@ -17,14 +17,14 @@ public final class AccountNetworkRulesPrivateLinkAccessArgs extends com.pulumi.r
     public static final AccountNetworkRulesPrivateLinkAccessArgs Empty = new AccountNetworkRulesPrivateLinkAccessArgs();
 
     /**
-     * The resource id of the resource access rule to be granted access.
+     * The ID of the Azure resource that should be allowed access to the target storage account.
      * 
      */
     @Import(name="endpointResourceId", required=true)
     private Output<String> endpointResourceId;
 
     /**
-     * @return The resource id of the resource access rule to be granted access.
+     * @return The ID of the Azure resource that should be allowed access to the target storage account.
      * 
      */
     public Output<String> endpointResourceId() {
@@ -72,7 +72,7 @@ public final class AccountNetworkRulesPrivateLinkAccessArgs extends com.pulumi.r
         }
 
         /**
-         * @param endpointResourceId The resource id of the resource access rule to be granted access.
+         * @param endpointResourceId The ID of the Azure resource that should be allowed access to the target storage account.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AccountNetworkRulesPrivateLinkAccessArgs extends com.pulumi.r
         }
 
         /**
-         * @param endpointResourceId The resource id of the resource access rule to be granted access.
+         * @param endpointResourceId The ID of the Azure resource that should be allowed access to the target storage account.
          * 
          * @return builder
          * 

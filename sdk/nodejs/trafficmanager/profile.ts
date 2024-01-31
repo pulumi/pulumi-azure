@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const server = new random.RandomId("server", {
  *     keepers: {
- *         azi_id: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });

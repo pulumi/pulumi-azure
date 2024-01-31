@@ -99,6 +99,21 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * 
+     */
+    @Import(name="encryptionKeySource")
+    private @Nullable Output<String> encryptionKeySource;
+
+    /**
+     * @return The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+     * 
+     */
+    public Optional<Output<String>> encryptionKeySource() {
+        return Optional.ofNullable(this.encryptionKeySource);
+    }
+
+    /**
      * One or more `export_policy_rule` block defined below.
      * 
      */
@@ -111,6 +126,21 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<VolumeExportPolicyRuleArgs>>> exportPolicyRules() {
         return Optional.ofNullable(this.exportPolicyRules);
+    }
+
+    /**
+     * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * 
+     */
+    @Import(name="keyVaultPrivateEndpointId")
+    private @Nullable Output<String> keyVaultPrivateEndpointId;
+
+    /**
+     * @return The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+     * 
+     */
+    public Optional<Output<String>> keyVaultPrivateEndpointId() {
+        return Optional.ofNullable(this.keyVaultPrivateEndpointId);
     }
 
     /**
@@ -365,7 +395,9 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.createFromSnapshotResourceId = $.createFromSnapshotResourceId;
         this.dataProtectionReplication = $.dataProtectionReplication;
         this.dataProtectionSnapshotPolicy = $.dataProtectionSnapshotPolicy;
+        this.encryptionKeySource = $.encryptionKeySource;
         this.exportPolicyRules = $.exportPolicyRules;
+        this.keyVaultPrivateEndpointId = $.keyVaultPrivateEndpointId;
         this.location = $.location;
         this.mountIpAddresses = $.mountIpAddresses;
         this.name = $.name;
@@ -508,6 +540,27 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeySource(@Nullable Output<String> encryptionKeySource) {
+            $.encryptionKeySource = encryptionKeySource;
+            return this;
+        }
+
+        /**
+         * @param encryptionKeySource The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionKeySource(String encryptionKeySource) {
+            return encryptionKeySource(Output.of(encryptionKeySource));
+        }
+
+        /**
          * @param exportPolicyRules One or more `export_policy_rule` block defined below.
          * 
          * @return builder
@@ -536,6 +589,27 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder exportPolicyRules(VolumeExportPolicyRuleArgs... exportPolicyRules) {
             return exportPolicyRules(List.of(exportPolicyRules));
+        }
+
+        /**
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateEndpointId(@Nullable Output<String> keyVaultPrivateEndpointId) {
+            $.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultPrivateEndpointId The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultPrivateEndpointId(String keyVaultPrivateEndpointId) {
+            return keyVaultPrivateEndpointId(Output.of(keyVaultPrivateEndpointId));
         }
 
         /**

@@ -56,6 +56,8 @@ if typing.TYPE_CHECKING:
     bot = __bot
     import pulumi_azure.cdn as __cdn
     cdn = __cdn
+    import pulumi_azure.chaosstudio as __chaosstudio
+    chaosstudio = __chaosstudio
     import pulumi_azure.cognitive as __cognitive
     cognitive = __cognitive
     import pulumi_azure.communication as __communication
@@ -228,6 +230,8 @@ if typing.TYPE_CHECKING:
     purview = __purview
     import pulumi_azure.recoveryservices as __recoveryservices
     recoveryservices = __recoveryservices
+    import pulumi_azure.redhatopenshift as __redhatopenshift
+    redhatopenshift = __redhatopenshift
     import pulumi_azure.redis as __redis
     redis = __redis
     import pulumi_azure.relay as __relay
@@ -292,6 +296,7 @@ else:
     blueprint = _utilities.lazy_import('pulumi_azure.blueprint')
     bot = _utilities.lazy_import('pulumi_azure.bot')
     cdn = _utilities.lazy_import('pulumi_azure.cdn')
+    chaosstudio = _utilities.lazy_import('pulumi_azure.chaosstudio')
     cognitive = _utilities.lazy_import('pulumi_azure.cognitive')
     communication = _utilities.lazy_import('pulumi_azure.communication')
     compute = _utilities.lazy_import('pulumi_azure.compute')
@@ -378,6 +383,7 @@ else:
     proximity = _utilities.lazy_import('pulumi_azure.proximity')
     purview = _utilities.lazy_import('pulumi_azure.purview')
     recoveryservices = _utilities.lazy_import('pulumi_azure.recoveryservices')
+    redhatopenshift = _utilities.lazy_import('pulumi_azure.redhatopenshift')
     redis = _utilities.lazy_import('pulumi_azure.redis')
     relay = _utilities.lazy_import('pulumi_azure.relay')
     role = _utilities.lazy_import('pulumi_azure.role')
@@ -2128,6 +2134,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/profile:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "chaosstudio/target",
+  "fqn": "pulumi_azure.chaosstudio",
+  "classes": {
+   "azure:chaosstudio/target:Target": "Target"
   }
  },
  {
@@ -3992,6 +4006,14 @@ _utilities.register(
   "fqn": "pulumi_azure.elasticsan",
   "classes": {
    "azure:elasticsan/elasticSan:ElasticSan": "ElasticSan"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "elasticsan/volumeGroup",
+  "fqn": "pulumi_azure.elasticsan",
+  "classes": {
+   "azure:elasticsan/volumeGroup:VolumeGroup": "VolumeGroup"
   }
  },
  {
@@ -6204,6 +6226,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "netapp/accountEncryption",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/accountEncryption:AccountEncryption": "AccountEncryption"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "netapp/pool",
   "fqn": "pulumi_azure.netapp",
   "classes": {
@@ -7496,6 +7526,14 @@ _utilities.register(
   "fqn": "pulumi_azure.recoveryservices",
   "classes": {
    "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": "VaultResourceGuardAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "redhatopenshift/cluster",
+  "fqn": "pulumi_azure.redhatopenshift",
+  "classes": {
+   "azure:redhatopenshift/cluster:Cluster": "Cluster"
   }
  },
  {

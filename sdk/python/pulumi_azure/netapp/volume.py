@@ -27,7 +27,9 @@ class VolumeArgs:
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 encryption_key_source: Optional[pulumi.Input[str]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
+                 key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[str]] = None,
@@ -50,7 +52,9 @@ class VolumeArgs:
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
@@ -78,8 +82,12 @@ class VolumeArgs:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
             pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+        if encryption_key_source is not None:
+            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy_rules is not None:
             pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+        if key_vault_private_endpoint_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -232,6 +240,18 @@ class VolumeArgs:
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @encryption_key_source.setter
+    def encryption_key_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_source", value)
+
+    @property
     @pulumi.getter(name="exportPolicyRules")
     def export_policy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]:
         """
@@ -242,6 +262,18 @@ class VolumeArgs:
     @export_policy_rules.setter
     def export_policy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]):
         pulumi.set(self, "export_policy_rules", value)
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointId")
+    def key_vault_private_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_id")
+
+    @key_vault_private_endpoint_id.setter
+    def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_private_endpoint_id", value)
 
     @property
     @pulumi.getter
@@ -362,7 +394,9 @@ class _VolumeState:
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 encryption_key_source: Optional[pulumi.Input[str]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
+                 key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -386,7 +420,9 @@ class _VolumeState:
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -416,8 +452,12 @@ class _VolumeState:
             pulumi.set(__self__, "data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
             pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+        if encryption_key_source is not None:
+            pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy_rules is not None:
             pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+        if key_vault_private_endpoint_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mount_ip_addresses is not None:
@@ -512,6 +552,18 @@ class _VolumeState:
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @encryption_key_source.setter
+    def encryption_key_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_source", value)
+
+    @property
     @pulumi.getter(name="exportPolicyRules")
     def export_policy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]:
         """
@@ -522,6 +574,18 @@ class _VolumeState:
     @export_policy_rules.setter
     def export_policy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]):
         pulumi.set(self, "export_policy_rules", value)
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointId")
+    def key_vault_private_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_id")
+
+    @key_vault_private_endpoint_id.setter
+    def key_vault_private_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_private_endpoint_id", value)
 
     @property
     @pulumi.getter
@@ -728,7 +792,9 @@ class Volume(pulumi.CustomResource):
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+                 encryption_key_source: Optional[pulumi.Input[str]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[str]] = None,
@@ -761,7 +827,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created.
@@ -815,7 +883,9 @@ class Volume(pulumi.CustomResource):
                  create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
                  data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
                  data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+                 encryption_key_source: Optional[pulumi.Input[str]] = None,
                  export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[str]] = None,
@@ -847,7 +917,9 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
             __props__.__dict__["data_protection_replication"] = data_protection_replication
             __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
+            __props__.__dict__["encryption_key_source"] = encryption_key_source
             __props__.__dict__["export_policy_rules"] = export_policy_rules
+            __props__.__dict__["key_vault_private_endpoint_id"] = key_vault_private_endpoint_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_features"] = network_features
@@ -891,7 +963,9 @@ class Volume(pulumi.CustomResource):
             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
             data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
             data_protection_snapshot_policy: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']]] = None,
+            encryption_key_source: Optional[pulumi.Input[str]] = None,
             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+            key_vault_private_endpoint_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -920,7 +994,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['VolumeDataProtectionSnapshotPolicyArgs']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -949,7 +1025,9 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__.__dict__["data_protection_replication"] = data_protection_replication
         __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
+        __props__.__dict__["encryption_key_source"] = encryption_key_source
         __props__.__dict__["export_policy_rules"] = export_policy_rules
+        __props__.__dict__["key_vault_private_endpoint_id"] = key_vault_private_endpoint_id
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_ip_addresses"] = mount_ip_addresses
         __props__.__dict__["name"] = name
@@ -1009,12 +1087,28 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "data_protection_snapshot_policy")
 
     @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> pulumi.Output[str]:
+        """
+        The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`.
+        """
+        return pulumi.get(self, "encryption_key_source")
+
+    @property
     @pulumi.getter(name="exportPolicyRules")
     def export_policy_rules(self) -> pulumi.Output[Optional[Sequence['outputs.VolumeExportPolicyRule']]]:
         """
         One or more `export_policy_rule` block defined below.
         """
         return pulumi.get(self, "export_policy_rules")
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointId")
+    def key_vault_private_endpoint_id(self) -> pulumi.Output[str]:
+        """
+        The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_id")
 
     @property
     @pulumi.getter

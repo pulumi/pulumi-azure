@@ -160,10 +160,12 @@ namespace Pulumi.Azure.NetApp
         /// Volume data protection block
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
+        public readonly string EncryptionKeySource;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KeyVaultPrivateEndpointId;
         /// <summary>
         /// The Azure Region where the NetApp Volume exists.
         /// </summary>
@@ -214,7 +216,11 @@ namespace Pulumi.Azure.NetApp
 
             ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> dataProtectionReplications,
 
+            string encryptionKeySource,
+
             string id,
+
+            string keyVaultPrivateEndpointId,
 
             string location,
 
@@ -244,7 +250,9 @@ namespace Pulumi.Azure.NetApp
         {
             AccountName = accountName;
             DataProtectionReplications = dataProtectionReplications;
+            EncryptionKeySource = encryptionKeySource;
             Id = id;
+            KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             Location = location;
             MountIpAddresses = mountIpAddresses;
             Name = name;

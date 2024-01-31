@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -24,6 +26,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:netapp/getAccount:getAccount", {
+        "identity": args.identity,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -33,6 +36,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountArgs {
+    identity?: inputs.netapp.GetAccountIdentity;
     /**
      * The name of the NetApp Account.
      */
@@ -51,12 +55,14 @@ export interface GetAccountResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly identity?: outputs.netapp.GetAccountIdentity;
     /**
      * The Azure Region where the NetApp Account exists.
      */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    readonly tags: {[key: string]: string};
 }
 /**
  * Uses this data source to access information about an existing NetApp Account.
@@ -82,6 +88,7 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getAccount.
  */
 export interface GetAccountOutputArgs {
+    identity?: pulumi.Input<inputs.netapp.GetAccountIdentityArgs>;
     /**
      * The name of the NetApp Account.
      */

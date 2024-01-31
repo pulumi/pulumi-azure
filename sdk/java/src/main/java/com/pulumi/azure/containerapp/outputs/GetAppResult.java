@@ -48,7 +48,7 @@ public final class GetAppResult {
     private String latestRevisionName;
     private String location;
     /**
-     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * @return Name for the IP restriction rule.
      * 
      */
     private String name;
@@ -134,7 +134,7 @@ public final class GetAppResult {
         return this.location;
     }
     /**
-     * @return The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * @return Name for the IP restriction rule.
      * 
      */
     public String name() {

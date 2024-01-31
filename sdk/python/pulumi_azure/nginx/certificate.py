@@ -21,7 +21,7 @@ class CertificateArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created.
@@ -38,7 +38,7 @@ class CertificateArgs:
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> pulumi.Input[str]:
         """
-        Specify the path to the cert file of this certificate.
+        Specify the path to the certificate file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -105,7 +105,7 @@ class _CertificateState:
                  nginx_deployment_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
@@ -126,7 +126,7 @@ class _CertificateState:
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the path to the cert file of this certificate.
+        Specify the path to the certificate file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 
@@ -287,7 +287,7 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
@@ -454,7 +454,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the cert file of this certificate.
+        :param pulumi.Input[str] certificate_virtual_path: Specify the path to the certificate file of this certificate.
         :param pulumi.Input[str] key_vault_secret_id: Specify the ID of the Key Vault Secret for this certificate.
         :param pulumi.Input[str] key_virtual_path: Specify the path to the key file of this certificate.
         :param pulumi.Input[str] name: The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created.
@@ -475,7 +475,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="certificateVirtualPath")
     def certificate_virtual_path(self) -> pulumi.Output[str]:
         """
-        Specify the path to the cert file of this certificate.
+        Specify the path to the certificate file of this certificate.
         """
         return pulumi.get(self, "certificate_virtual_path")
 

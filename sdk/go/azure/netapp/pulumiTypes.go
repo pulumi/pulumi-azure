@@ -245,6 +245,192 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccountIdentity struct {
+	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+	Type string `pulumi:"type"`
+}
+
+// AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
+// You can construct a concrete instance of `AccountIdentityInput` via:
+//
+//	AccountIdentityArgs{...}
+type AccountIdentityInput interface {
+	pulumi.Input
+
+	ToAccountIdentityOutput() AccountIdentityOutput
+	ToAccountIdentityOutputWithContext(context.Context) AccountIdentityOutput
+}
+
+type AccountIdentityArgs struct {
+	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutput() AccountIdentityOutput {
+	return i.ToAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput).ToAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountIdentityPtrInput` via:
+//
+//	        AccountIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountIdentityPtrOutput() AccountIdentityPtrOutput
+	ToAccountIdentityPtrOutputWithContext(context.Context) AccountIdentityPtrOutput
+}
+
+type accountIdentityPtrType AccountIdentityArgs
+
+func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {
+	return (*accountIdentityPtrType)(v)
+}
+
+func (*accountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
+}
+
+type AccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutput() AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
+		return &v
+	}).(AccountIdentityPtrOutput)
+}
+
+// The identity id of the user assigned identity to use when type is `UserAssigned`
+func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+func (o AccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
+}
+
+// The identity id of the user assigned identity to use when type is `UserAssigned`
+func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type SnapshotPolicyDailySchedule struct {
 	// Hour of the day that the snapshots will be created, valid range is from 0 to 23.
 	Hour int `pulumi:"hour"`
@@ -2204,6 +2390,184 @@ func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntI
 	}).(VolumeGroupSapHanaVolumeExportPolicyRuleOutput)
 }
 
+type GetAccountIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	Type        string   `pulumi:"type"`
+}
+
+// GetAccountIdentityInput is an input type that accepts GetAccountIdentityArgs and GetAccountIdentityOutput values.
+// You can construct a concrete instance of `GetAccountIdentityInput` via:
+//
+//	GetAccountIdentityArgs{...}
+type GetAccountIdentityInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityOutput() GetAccountIdentityOutput
+	ToGetAccountIdentityOutputWithContext(context.Context) GetAccountIdentityOutput
+}
+
+type GetAccountIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
+}
+
+func (GetAccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return i.ToGetAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityPtrOutput() GetAccountIdentityPtrOutput {
+	return i.ToGetAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i GetAccountIdentityArgs) ToGetAccountIdentityPtrOutputWithContext(ctx context.Context) GetAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput).ToGetAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// GetAccountIdentityPtrInput is an input type that accepts GetAccountIdentityArgs, GetAccountIdentityPtr and GetAccountIdentityPtrOutput values.
+// You can construct a concrete instance of `GetAccountIdentityPtrInput` via:
+//
+//	        GetAccountIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToGetAccountIdentityPtrOutput() GetAccountIdentityPtrOutput
+	ToGetAccountIdentityPtrOutputWithContext(context.Context) GetAccountIdentityPtrOutput
+}
+
+type getAccountIdentityPtrType GetAccountIdentityArgs
+
+func GetAccountIdentityPtr(v *GetAccountIdentityArgs) GetAccountIdentityPtrInput {
+	return (*getAccountIdentityPtrType)(v)
+}
+
+func (*getAccountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountIdentity)(nil)).Elem()
+}
+
+func (i *getAccountIdentityPtrType) ToGetAccountIdentityPtrOutput() GetAccountIdentityPtrOutput {
+	return i.ToGetAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *getAccountIdentityPtrType) ToGetAccountIdentityPtrOutputWithContext(ctx context.Context) GetAccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityPtrOutput)
+}
+
+type GetAccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentityOutput {
+	return o
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
+	return o
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityPtrOutput() GetAccountIdentityPtrOutput {
+	return o.ToGetAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o GetAccountIdentityOutput) ToGetAccountIdentityPtrOutputWithContext(ctx context.Context) GetAccountIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAccountIdentity) *GetAccountIdentity {
+		return &v
+	}).(GetAccountIdentityPtrOutput)
+}
+
+func (o GetAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAccountIdentity)(nil)).Elem()
+}
+
+func (o GetAccountIdentityPtrOutput) ToGetAccountIdentityPtrOutput() GetAccountIdentityPtrOutput {
+	return o
+}
+
+func (o GetAccountIdentityPtrOutput) ToGetAccountIdentityPtrOutputWithContext(ctx context.Context) GetAccountIdentityPtrOutput {
+	return o
+}
+
+func (o GetAccountIdentityPtrOutput) Elem() GetAccountIdentityOutput {
+	return o.ApplyT(func(v *GetAccountIdentity) GetAccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret GetAccountIdentity
+		return ret
+	}).(GetAccountIdentityOutput)
+}
+
+func (o GetAccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetAccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetAccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetAccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetSnapshotPolicyDailySchedule struct {
 	// Hour of the day that the snapshots will be created.
 	Hour int `pulumi:"hour"`
@@ -3425,6 +3789,8 @@ func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.I
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyDailyScheduleInput)(nil)).Elem(), SnapshotPolicyDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyDailySchedulePtrInput)(nil)).Elem(), SnapshotPolicyDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyHourlyScheduleInput)(nil)).Elem(), SnapshotPolicyHourlyScheduleArgs{})
@@ -3447,6 +3813,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityPtrInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyHourlyScheduleInput)(nil)).Elem(), GetSnapshotPolicyHourlyScheduleArgs{})
@@ -3467,6 +3835,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeExportPolicyRuleArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AccountIdentityOutput{})
+	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyDailyScheduleOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyDailySchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyHourlyScheduleOutput{})
@@ -3489,6 +3859,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
+	pulumi.RegisterOutputType(GetAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyHourlyScheduleOutput{})

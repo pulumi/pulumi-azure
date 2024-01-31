@@ -22,6 +22,8 @@ import com.pulumi.azure.compute.inputs.GetImageArgs;
 import com.pulumi.azure.compute.inputs.GetImagePlainArgs;
 import com.pulumi.azure.compute.inputs.GetImagesArgs;
 import com.pulumi.azure.compute.inputs.GetImagesPlainArgs;
+import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+import com.pulumi.azure.compute.inputs.GetIpGroupsPlainArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskArgs;
 import com.pulumi.azure.compute.inputs.GetManagedDiskPlainArgs;
 import com.pulumi.azure.compute.inputs.GetOrchestratedVirtualMachineScaleSetArgs;
@@ -53,6 +55,7 @@ import com.pulumi.azure.compute.outputs.GetDiskAccessResult;
 import com.pulumi.azure.compute.outputs.GetDiskEncryptionSetResult;
 import com.pulumi.azure.compute.outputs.GetImageResult;
 import com.pulumi.azure.compute.outputs.GetImagesResult;
+import com.pulumi.azure.compute.outputs.GetIpGroupsResult;
 import com.pulumi.azure.compute.outputs.GetManagedDiskResult;
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetResult;
 import com.pulumi.azure.compute.outputs.GetPlatformImageResult;
@@ -1470,6 +1473,162 @@ public final class ComputeFunctions {
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:compute/getImages:getImages", TypeShape.of(GetImagesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args) {
+        return getIpGroups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args) {
+        return getIpGroupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetIpGroupsResult> getIpGroups(GetIpGroupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:compute/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing IP Groups.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.compute.ComputeFunctions;
+     * import com.pulumi.azure.compute.inputs.GetIpGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ComputeFunctions.getIpGroups(GetIpGroupsArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetIpGroupsResult> getIpGroupsPlain(GetIpGroupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:compute/getIpGroups:getIpGroups", TypeShape.of(GetIpGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Managed Disk.

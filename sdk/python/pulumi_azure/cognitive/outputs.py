@@ -288,6 +288,8 @@ class AccountStorage(dict):
         """
         :param str storage_account_id: Full resource id of a Microsoft.Storage resource.
         :param str identity_client_id: The client ID of the managed identity associated with the storage resource.
+               
+               > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         if identity_client_id is not None:
@@ -306,6 +308,8 @@ class AccountStorage(dict):
     def identity_client_id(self) -> Optional[str]:
         """
         The client ID of the managed identity associated with the storage resource.
+
+        > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -315,15 +319,16 @@ class DeploymentModel(dict):
     def __init__(__self__, *,
                  format: str,
                  name: str,
-                 version: str):
+                 version: Optional[str] = None):
         """
         :param str format: The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
         :param str name: The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
-        :param str version: The version of Cognitive Services Account Deployment model.
+        :param str version: The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -343,9 +348,9 @@ class DeploymentModel(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
-        The version of Cognitive Services Account Deployment model.
+        The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
         """
         return pulumi.get(self, "version")
 

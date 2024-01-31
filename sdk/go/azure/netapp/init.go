@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:netapp/account:Account":
 		r = &Account{}
+	case "azure:netapp/accountEncryption:AccountEncryption":
+		r = &AccountEncryption{}
 	case "azure:netapp/pool:Pool":
 		r = &Pool{}
 	case "azure:netapp/snapshot:Snapshot":
@@ -51,6 +53,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"netapp/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"netapp/accountEncryption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

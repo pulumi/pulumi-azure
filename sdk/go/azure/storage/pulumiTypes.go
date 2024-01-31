@@ -2234,7 +2234,7 @@ func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.Strin
 }
 
 type AccountNetworkRulesPrivateLinkAccess struct {
-	// The resource id of the resource access rule to be granted access.
+	// The ID of the Azure resource that should be allowed access to the target storage account.
 	EndpointResourceId string `pulumi:"endpointResourceId"`
 	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId *string `pulumi:"endpointTenantId"`
@@ -2252,7 +2252,7 @@ type AccountNetworkRulesPrivateLinkAccessInput interface {
 }
 
 type AccountNetworkRulesPrivateLinkAccessArgs struct {
-	// The resource id of the resource access rule to be granted access.
+	// The ID of the Azure resource that should be allowed access to the target storage account.
 	EndpointResourceId pulumi.StringInput `pulumi:"endpointResourceId"`
 	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId pulumi.StringPtrInput `pulumi:"endpointTenantId"`
@@ -2309,7 +2309,7 @@ func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivate
 	return o
 }
 
-// The resource id of the resource access rule to be granted access.
+// The ID of the Azure resource that should be allowed access to the target storage account.
 func (o AccountNetworkRulesPrivateLinkAccessOutput) EndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccess) string { return v.EndpointResourceId }).(pulumi.StringOutput)
 }

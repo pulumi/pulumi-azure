@@ -22,16 +22,22 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
         if data_protection_replications and not isinstance(data_protection_replications, list):
             raise TypeError("Expected argument 'data_protection_replications' to be a list")
         pulumi.set(__self__, "data_protection_replications", data_protection_replications)
+        if encryption_key_source and not isinstance(encryption_key_source, str):
+            raise TypeError("Expected argument 'encryption_key_source' to be a str")
+        pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault_private_endpoint_id and not isinstance(key_vault_private_endpoint_id, str):
+            raise TypeError("Expected argument 'key_vault_private_endpoint_id' to be a str")
+        pulumi.set(__self__, "key_vault_private_endpoint_id", key_vault_private_endpoint_id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,12 +92,22 @@ class GetVolumeResult:
         return pulumi.get(self, "data_protection_replications")
 
     @property
+    @pulumi.getter(name="encryptionKeySource")
+    def encryption_key_source(self) -> str:
+        return pulumi.get(self, "encryption_key_source")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointId")
+    def key_vault_private_endpoint_id(self) -> str:
+        return pulumi.get(self, "key_vault_private_endpoint_id")
 
     @property
     @pulumi.getter
@@ -197,7 +213,9 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             account_name=self.account_name,
             data_protection_replications=self.data_protection_replications,
+            encryption_key_source=self.encryption_key_source,
             id=self.id,
+            key_vault_private_endpoint_id=self.key_vault_private_endpoint_id,
             location=self.location,
             mount_ip_addresses=self.mount_ip_addresses,
             name=self.name,
@@ -254,7 +272,9 @@ def get_volume(account_name: Optional[str] = None,
     return AwaitableGetVolumeResult(
         account_name=pulumi.get(__ret__, 'account_name'),
         data_protection_replications=pulumi.get(__ret__, 'data_protection_replications'),
+        encryption_key_source=pulumi.get(__ret__, 'encryption_key_source'),
         id=pulumi.get(__ret__, 'id'),
+        key_vault_private_endpoint_id=pulumi.get(__ret__, 'key_vault_private_endpoint_id'),
         location=pulumi.get(__ret__, 'location'),
         mount_ip_addresses=pulumi.get(__ret__, 'mount_ip_addresses'),
         name=pulumi.get(__ret__, 'name'),

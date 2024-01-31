@@ -81,7 +81,9 @@ import (
 //				PrivateDnsZoneName: exampleZone.Name,
 //				VirtualNetworkId:   exampleVirtualNetwork.ID(),
 //				ResourceGroupName:  exampleResourceGroup.Name,
-//			})
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleSubnet,
+//			}))
 //			if err != nil {
 //				return err
 //			}

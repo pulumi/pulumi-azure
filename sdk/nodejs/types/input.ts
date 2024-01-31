@@ -17447,6 +17447,8 @@ export namespace cognitive {
     export interface AccountStorage {
         /**
          * The client ID of the managed identity associated with the storage resource.
+         *
+         * > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
          */
         identityClientId?: pulumi.Input<string>;
         /**
@@ -17465,9 +17467,9 @@ export namespace cognitive {
          */
         name: pulumi.Input<string>;
         /**
-         * The version of Cognitive Services Account Deployment model.
+         * The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
          */
-        version: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
     }
 
     export interface DeploymentScale {
@@ -28289,6 +28291,59 @@ export namespace elasticsan {
          * The SKU tier. The only possible value is `Premium`. Defaults to `Premium`.
          */
         tier?: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupEncryption {
+        /**
+         * The timestamp of the expiration time for the current version of the customer managed key.
+         */
+        currentVersionedKeyExpirationTimestamp?: pulumi.Input<string>;
+        /**
+         * The ID of the current versioned Key Vault Key in use.
+         */
+        currentVersionedKeyId?: pulumi.Input<string>;
+        /**
+         * The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The timestamp of the last rotation of the Key Vault Key.
+         */
+        lastKeyRotationTimestamp?: pulumi.Input<string>;
+        /**
+         * The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupIdentity {
+        /**
+         * A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface VolumeGroupNetworkRule {
+        /**
+         * The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+         */
+        subnetId: pulumi.Input<string>;
     }
 }
 
@@ -41731,6 +41786,33 @@ export namespace netapp {
         username: pulumi.Input<string>;
     }
 
+    export interface AccountIdentity {
+        /**
+         * The identity id of the user assigned identity to use when type is `UserAssigned`
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface GetAccountIdentity {
+        identityIds?: string[];
+        principalId?: string;
+        tenantId?: string;
+        type: string;
+    }
+
+    export interface GetAccountIdentityArgs {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface SnapshotPolicyDailySchedule {
         /**
          * Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -46800,6 +46882,139 @@ export namespace recoveryservices {
     }
 }
 
+export namespace redhatopenshift {
+    export interface ClusterApiServerProfile {
+        /**
+         * The IP Address the Ingress Profile is associated with.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The URL the API Server Profile is associated with.
+         */
+        url?: pulumi.Input<string>;
+        /**
+         * Cluster API server visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         */
+        visibility: pulumi.Input<string>;
+    }
+
+    export interface ClusterClusterProfile {
+        /**
+         * The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
+         */
+        domain: pulumi.Input<string>;
+        /**
+         * Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        fipsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
+         */
+        pullSecret?: pulumi.Input<string>;
+        /**
+         * The resource group that the cluster profile is attached to.
+         */
+        resourceGroupId?: pulumi.Input<string>;
+        /**
+         * The version of the OpenShift cluster. Changing this forces a new resource to be created.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface ClusterIngressProfile {
+        /**
+         * The IP Address the Ingress Profile is associated with.
+         */
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Cluster Ingress visibility. Supported values are `Public` and `Private`. Defaults to `Public`. Changing this forces a new resource to be created.
+         */
+        visibility: pulumi.Input<string>;
+    }
+
+    export interface ClusterMainProfile {
+        /**
+         * The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
+         */
+        diskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
+         *
+         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         */
+        encryptionAtHostEnabled?: pulumi.Input<boolean>;
+        /**
+         * The ID of the subnet where main nodes will be hosted. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * The size of the Virtual Machines for the main nodes. Changing this forces a new resource to be created.
+         */
+        vmSize: pulumi.Input<string>;
+    }
+
+    export interface ClusterNetworkProfile {
+        /**
+         * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `LoadBalancer`. Changing this forces a new resource to be created.
+         */
+        outboundType?: pulumi.Input<string>;
+        /**
+         * The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
+         */
+        podCidr: pulumi.Input<string>;
+        /**
+         * The network range used by the OpenShift service. Changing this forces a new resource to be created.
+         */
+        serviceCidr: pulumi.Input<string>;
+    }
+
+    export interface ClusterServicePrincipal {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The Client Secret for the Service Principal.
+         *
+         * > **Note:** Currently a service principal cannot be associated with more than one ARO clusters on the Azure subscription.
+         */
+        clientSecret: pulumi.Input<string>;
+    }
+
+    export interface ClusterWorkerProfile {
+        /**
+         * The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
+         */
+        diskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * The internal OS disk size of the worker Virtual Machines in GB. Changing this forces a new resource to be created.
+         */
+        diskSizeGb: pulumi.Input<number>;
+        /**
+         * Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
+         *
+         * **NOTE:** `encryptionAtHostEnabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         */
+        encryptionAtHostEnabled?: pulumi.Input<boolean>;
+        /**
+         * The initial number of worker nodes which should exist in the cluster. Changing this forces a new resource to be created.
+         */
+        nodeCount: pulumi.Input<number>;
+        /**
+         * The ID of the subnet where worker nodes will be hosted. Changing this forces a new resource to be created.
+         */
+        subnetId: pulumi.Input<string>;
+        /**
+         * The size of the Virtual Machines for the worker nodes. Changing this forces a new resource to be created.
+         */
+        vmSize: pulumi.Input<string>;
+    }
+}
+
 export namespace redis {
     export interface CacheIdentity {
         /**
@@ -49469,7 +49684,7 @@ export namespace storage {
 
     export interface AccountNetworkRulesPrivateLinkAccess {
         /**
-         * The resource id of the resource access rule to be granted access.
+         * The ID of the Azure resource that should be allowed access to the target storage account.
          */
         endpointResourceId: pulumi.Input<string>;
         /**

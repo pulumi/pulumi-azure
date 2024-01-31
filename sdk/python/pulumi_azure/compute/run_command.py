@@ -585,7 +585,7 @@ class RunCommand(pulumi.CustomResource):
             source=azure.compute.RunCommandSourceArgs(
                 script="echo 'hello world'",
             ))
-        # authurize to storage blob using user assigned identity
+        # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2RunCommand",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,
@@ -618,7 +618,7 @@ class RunCommand(pulumi.CustomResource):
                 "some_key": "some-value",
             },
             opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        # authurize to storage blob using SAS token
+        # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3RunCommand",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,
@@ -780,7 +780,7 @@ class RunCommand(pulumi.CustomResource):
             source=azure.compute.RunCommandSourceArgs(
                 script="echo 'hello world'",
             ))
-        # authurize to storage blob using user assigned identity
+        # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2RunCommand",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,
@@ -813,7 +813,7 @@ class RunCommand(pulumi.CustomResource):
                 "some_key": "some-value",
             },
             opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        # authurize to storage blob using SAS token
+        # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3RunCommand",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,

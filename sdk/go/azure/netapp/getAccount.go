@@ -52,6 +52,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountArgs struct {
+	Identity *GetAccountIdentity `pulumi:"identity"`
 	// The name of the NetApp Account.
 	Name string `pulumi:"name"`
 	// The Name of the Resource Group where the NetApp Account exists.
@@ -61,11 +62,13 @@ type LookupAccountArgs struct {
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string              `pulumi:"id"`
+	Identity *GetAccountIdentity `pulumi:"identity"`
 	// The Azure Region where the NetApp Account exists.
-	Location          string `pulumi:"location"`
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Location          string            `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -83,6 +86,7 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountOutputArgs struct {
+	Identity GetAccountIdentityPtrInput `pulumi:"identity"`
 	// The name of the NetApp Account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Name of the Resource Group where the NetApp Account exists.
@@ -113,6 +117,10 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o LookupAccountResultOutput) Identity() GetAccountIdentityPtrOutput {
+	return o.ApplyT(func(v LookupAccountResult) *GetAccountIdentity { return v.Identity }).(GetAccountIdentityPtrOutput)
+}
+
 // The Azure Region where the NetApp Account exists.
 func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
@@ -124,6 +132,10 @@ func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

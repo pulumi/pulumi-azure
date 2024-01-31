@@ -181,7 +181,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// Specify the path to the cert file of this certificate.
+	// Specify the path to the certificate file of this certificate.
 	CertificateVirtualPath pulumi.StringOutput `pulumi:"certificateVirtualPath"`
 	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringOutput `pulumi:"keyVaultSecretId"`
@@ -235,7 +235,7 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Specify the path to the cert file of this certificate.
+	// Specify the path to the certificate file of this certificate.
 	CertificateVirtualPath *string `pulumi:"certificateVirtualPath"`
 	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
@@ -248,7 +248,7 @@ type certificateState struct {
 }
 
 type CertificateState struct {
-	// Specify the path to the cert file of this certificate.
+	// Specify the path to the certificate file of this certificate.
 	CertificateVirtualPath pulumi.StringPtrInput
 	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringPtrInput
@@ -265,7 +265,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// Specify the path to the cert file of this certificate.
+	// Specify the path to the certificate file of this certificate.
 	CertificateVirtualPath string `pulumi:"certificateVirtualPath"`
 	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
@@ -279,7 +279,7 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// Specify the path to the cert file of this certificate.
+	// Specify the path to the certificate file of this certificate.
 	CertificateVirtualPath pulumi.StringInput
 	// Specify the ID of the Key Vault Secret for this certificate.
 	KeyVaultSecretId pulumi.StringInput
@@ -378,7 +378,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Specify the path to the cert file of this certificate.
+// Specify the path to the certificate file of this certificate.
 func (o CertificateOutput) CertificateVirtualPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CertificateVirtualPath }).(pulumi.StringOutput)
 }

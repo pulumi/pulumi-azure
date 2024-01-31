@@ -16520,6 +16520,245 @@ func (o GetFactoryVstsConfigurationArrayOutput) Index(i pulumi.IntInput) GetFact
 	}).(GetFactoryVstsConfigurationOutput)
 }
 
+type GetTriggerScheduleSchedule struct {
+	// Day(s) of the month on which the trigger is scheduled.
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Day(s) of the week on which the trigger is scheduled.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Hours of the day on which the trigger is scheduled.
+	Hours []int `pulumi:"hours"`
+	// Minutes of the hour on which the trigger is scheduled.
+	Minutes []int `pulumi:"minutes"`
+	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+	Monthlies []GetTriggerScheduleScheduleMonthly `pulumi:"monthlies"`
+}
+
+// GetTriggerScheduleScheduleInput is an input type that accepts GetTriggerScheduleScheduleArgs and GetTriggerScheduleScheduleOutput values.
+// You can construct a concrete instance of `GetTriggerScheduleScheduleInput` via:
+//
+//	GetTriggerScheduleScheduleArgs{...}
+type GetTriggerScheduleScheduleInput interface {
+	pulumi.Input
+
+	ToGetTriggerScheduleScheduleOutput() GetTriggerScheduleScheduleOutput
+	ToGetTriggerScheduleScheduleOutputWithContext(context.Context) GetTriggerScheduleScheduleOutput
+}
+
+type GetTriggerScheduleScheduleArgs struct {
+	// Day(s) of the month on which the trigger is scheduled.
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Day(s) of the week on which the trigger is scheduled.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Hours of the day on which the trigger is scheduled.
+	Hours pulumi.IntArrayInput `pulumi:"hours"`
+	// Minutes of the hour on which the trigger is scheduled.
+	Minutes pulumi.IntArrayInput `pulumi:"minutes"`
+	// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+	Monthlies GetTriggerScheduleScheduleMonthlyArrayInput `pulumi:"monthlies"`
+}
+
+func (GetTriggerScheduleScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTriggerScheduleSchedule)(nil)).Elem()
+}
+
+func (i GetTriggerScheduleScheduleArgs) ToGetTriggerScheduleScheduleOutput() GetTriggerScheduleScheduleOutput {
+	return i.ToGetTriggerScheduleScheduleOutputWithContext(context.Background())
+}
+
+func (i GetTriggerScheduleScheduleArgs) ToGetTriggerScheduleScheduleOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTriggerScheduleScheduleOutput)
+}
+
+// GetTriggerScheduleScheduleArrayInput is an input type that accepts GetTriggerScheduleScheduleArray and GetTriggerScheduleScheduleArrayOutput values.
+// You can construct a concrete instance of `GetTriggerScheduleScheduleArrayInput` via:
+//
+//	GetTriggerScheduleScheduleArray{ GetTriggerScheduleScheduleArgs{...} }
+type GetTriggerScheduleScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetTriggerScheduleScheduleArrayOutput() GetTriggerScheduleScheduleArrayOutput
+	ToGetTriggerScheduleScheduleArrayOutputWithContext(context.Context) GetTriggerScheduleScheduleArrayOutput
+}
+
+type GetTriggerScheduleScheduleArray []GetTriggerScheduleScheduleInput
+
+func (GetTriggerScheduleScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTriggerScheduleSchedule)(nil)).Elem()
+}
+
+func (i GetTriggerScheduleScheduleArray) ToGetTriggerScheduleScheduleArrayOutput() GetTriggerScheduleScheduleArrayOutput {
+	return i.ToGetTriggerScheduleScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetTriggerScheduleScheduleArray) ToGetTriggerScheduleScheduleArrayOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTriggerScheduleScheduleArrayOutput)
+}
+
+type GetTriggerScheduleScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetTriggerScheduleScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTriggerScheduleSchedule)(nil)).Elem()
+}
+
+func (o GetTriggerScheduleScheduleOutput) ToGetTriggerScheduleScheduleOutput() GetTriggerScheduleScheduleOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleOutput) ToGetTriggerScheduleScheduleOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleOutput {
+	return o
+}
+
+// Day(s) of the month on which the trigger is scheduled.
+func (o GetTriggerScheduleScheduleOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetTriggerScheduleSchedule) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Day(s) of the week on which the trigger is scheduled.
+func (o GetTriggerScheduleScheduleOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTriggerScheduleSchedule) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Hours of the day on which the trigger is scheduled.
+func (o GetTriggerScheduleScheduleOutput) Hours() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetTriggerScheduleSchedule) []int { return v.Hours }).(pulumi.IntArrayOutput)
+}
+
+// Minutes of the hour on which the trigger is scheduled.
+func (o GetTriggerScheduleScheduleOutput) Minutes() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetTriggerScheduleSchedule) []int { return v.Minutes }).(pulumi.IntArrayOutput)
+}
+
+// A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+func (o GetTriggerScheduleScheduleOutput) Monthlies() GetTriggerScheduleScheduleMonthlyArrayOutput {
+	return o.ApplyT(func(v GetTriggerScheduleSchedule) []GetTriggerScheduleScheduleMonthly { return v.Monthlies }).(GetTriggerScheduleScheduleMonthlyArrayOutput)
+}
+
+type GetTriggerScheduleScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTriggerScheduleScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTriggerScheduleSchedule)(nil)).Elem()
+}
+
+func (o GetTriggerScheduleScheduleArrayOutput) ToGetTriggerScheduleScheduleArrayOutput() GetTriggerScheduleScheduleArrayOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleArrayOutput) ToGetTriggerScheduleScheduleArrayOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleArrayOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleArrayOutput) Index(i pulumi.IntInput) GetTriggerScheduleScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTriggerScheduleSchedule {
+		return vs[0].([]GetTriggerScheduleSchedule)[vs[1].(int)]
+	}).(GetTriggerScheduleScheduleOutput)
+}
+
+type GetTriggerScheduleScheduleMonthly struct {
+	// The occurrence of the specified day during the month.
+	Week int `pulumi:"week"`
+	// The day of the week on which the trigger runs.
+	Weekday string `pulumi:"weekday"`
+}
+
+// GetTriggerScheduleScheduleMonthlyInput is an input type that accepts GetTriggerScheduleScheduleMonthlyArgs and GetTriggerScheduleScheduleMonthlyOutput values.
+// You can construct a concrete instance of `GetTriggerScheduleScheduleMonthlyInput` via:
+//
+//	GetTriggerScheduleScheduleMonthlyArgs{...}
+type GetTriggerScheduleScheduleMonthlyInput interface {
+	pulumi.Input
+
+	ToGetTriggerScheduleScheduleMonthlyOutput() GetTriggerScheduleScheduleMonthlyOutput
+	ToGetTriggerScheduleScheduleMonthlyOutputWithContext(context.Context) GetTriggerScheduleScheduleMonthlyOutput
+}
+
+type GetTriggerScheduleScheduleMonthlyArgs struct {
+	// The occurrence of the specified day during the month.
+	Week pulumi.IntInput `pulumi:"week"`
+	// The day of the week on which the trigger runs.
+	Weekday pulumi.StringInput `pulumi:"weekday"`
+}
+
+func (GetTriggerScheduleScheduleMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTriggerScheduleScheduleMonthly)(nil)).Elem()
+}
+
+func (i GetTriggerScheduleScheduleMonthlyArgs) ToGetTriggerScheduleScheduleMonthlyOutput() GetTriggerScheduleScheduleMonthlyOutput {
+	return i.ToGetTriggerScheduleScheduleMonthlyOutputWithContext(context.Background())
+}
+
+func (i GetTriggerScheduleScheduleMonthlyArgs) ToGetTriggerScheduleScheduleMonthlyOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTriggerScheduleScheduleMonthlyOutput)
+}
+
+// GetTriggerScheduleScheduleMonthlyArrayInput is an input type that accepts GetTriggerScheduleScheduleMonthlyArray and GetTriggerScheduleScheduleMonthlyArrayOutput values.
+// You can construct a concrete instance of `GetTriggerScheduleScheduleMonthlyArrayInput` via:
+//
+//	GetTriggerScheduleScheduleMonthlyArray{ GetTriggerScheduleScheduleMonthlyArgs{...} }
+type GetTriggerScheduleScheduleMonthlyArrayInput interface {
+	pulumi.Input
+
+	ToGetTriggerScheduleScheduleMonthlyArrayOutput() GetTriggerScheduleScheduleMonthlyArrayOutput
+	ToGetTriggerScheduleScheduleMonthlyArrayOutputWithContext(context.Context) GetTriggerScheduleScheduleMonthlyArrayOutput
+}
+
+type GetTriggerScheduleScheduleMonthlyArray []GetTriggerScheduleScheduleMonthlyInput
+
+func (GetTriggerScheduleScheduleMonthlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTriggerScheduleScheduleMonthly)(nil)).Elem()
+}
+
+func (i GetTriggerScheduleScheduleMonthlyArray) ToGetTriggerScheduleScheduleMonthlyArrayOutput() GetTriggerScheduleScheduleMonthlyArrayOutput {
+	return i.ToGetTriggerScheduleScheduleMonthlyArrayOutputWithContext(context.Background())
+}
+
+func (i GetTriggerScheduleScheduleMonthlyArray) ToGetTriggerScheduleScheduleMonthlyArrayOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleMonthlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTriggerScheduleScheduleMonthlyArrayOutput)
+}
+
+type GetTriggerScheduleScheduleMonthlyOutput struct{ *pulumi.OutputState }
+
+func (GetTriggerScheduleScheduleMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTriggerScheduleScheduleMonthly)(nil)).Elem()
+}
+
+func (o GetTriggerScheduleScheduleMonthlyOutput) ToGetTriggerScheduleScheduleMonthlyOutput() GetTriggerScheduleScheduleMonthlyOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleMonthlyOutput) ToGetTriggerScheduleScheduleMonthlyOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleMonthlyOutput {
+	return o
+}
+
+// The occurrence of the specified day during the month.
+func (o GetTriggerScheduleScheduleMonthlyOutput) Week() pulumi.IntOutput {
+	return o.ApplyT(func(v GetTriggerScheduleScheduleMonthly) int { return v.Week }).(pulumi.IntOutput)
+}
+
+// The day of the week on which the trigger runs.
+func (o GetTriggerScheduleScheduleMonthlyOutput) Weekday() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTriggerScheduleScheduleMonthly) string { return v.Weekday }).(pulumi.StringOutput)
+}
+
+type GetTriggerScheduleScheduleMonthlyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTriggerScheduleScheduleMonthlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTriggerScheduleScheduleMonthly)(nil)).Elem()
+}
+
+func (o GetTriggerScheduleScheduleMonthlyArrayOutput) ToGetTriggerScheduleScheduleMonthlyArrayOutput() GetTriggerScheduleScheduleMonthlyArrayOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleMonthlyArrayOutput) ToGetTriggerScheduleScheduleMonthlyArrayOutputWithContext(ctx context.Context) GetTriggerScheduleScheduleMonthlyArrayOutput {
+	return o
+}
+
+func (o GetTriggerScheduleScheduleMonthlyArrayOutput) Index(i pulumi.IntInput) GetTriggerScheduleScheduleMonthlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTriggerScheduleScheduleMonthly {
+		return vs[0].([]GetTriggerScheduleScheduleMonthly)[vs[1].(int)]
+	}).(GetTriggerScheduleScheduleMonthlyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServiceInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDatasetLinkedServicePtrInput)(nil)).Elem(), CustomDatasetLinkedServiceArgs{})
@@ -16725,6 +16964,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFactoryIdentityArrayInput)(nil)).Elem(), GetFactoryIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFactoryVstsConfigurationInput)(nil)).Elem(), GetFactoryVstsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFactoryVstsConfigurationArrayInput)(nil)).Elem(), GetFactoryVstsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleInput)(nil)).Elem(), GetTriggerScheduleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleArrayInput)(nil)).Elem(), GetTriggerScheduleScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleMonthlyInput)(nil)).Elem(), GetTriggerScheduleScheduleMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTriggerScheduleScheduleMonthlyArrayInput)(nil)).Elem(), GetTriggerScheduleScheduleMonthlyArray{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServiceOutput{})
 	pulumi.RegisterOutputType(CustomDatasetLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkOutput{})
@@ -16929,4 +17172,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFactoryIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetFactoryVstsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetFactoryVstsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetTriggerScheduleScheduleOutput{})
+	pulumi.RegisterOutputType(GetTriggerScheduleScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetTriggerScheduleScheduleMonthlyOutput{})
+	pulumi.RegisterOutputType(GetTriggerScheduleScheduleMonthlyArrayOutput{})
 }

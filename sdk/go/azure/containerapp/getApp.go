@@ -73,7 +73,7 @@ type LookupAppResult struct {
 	LatestRevisionFqdn string          `pulumi:"latestRevisionFqdn"`
 	LatestRevisionName string          `pulumi:"latestRevisionName"`
 	Location           string          `pulumi:"location"`
-	// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+	// Name for the IP restriction rule.
 	Name                string   `pulumi:"name"`
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
 	// A `registry` block as detailed below.
@@ -172,7 +172,7 @@ func (o LookupAppResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+// Name for the IP restriction rule.
 func (o LookupAppResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Name }).(pulumi.StringOutput)
 }

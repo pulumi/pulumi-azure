@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", 1 },
+    ///             { "azi_id", "1" },
     ///         },
     ///         ByteLength = 8,
     ///     });

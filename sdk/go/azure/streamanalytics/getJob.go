@@ -84,6 +84,8 @@ type LookupJobResult struct {
 	// The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
 	OutputErrorPolicy string `pulumi:"outputErrorPolicy"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SKU Name to use for the Stream Analytics Job.
+	SkuName string `pulumi:"skuName"`
 	// The starting mode set for this Stream Analytics Job.
 	StartMode string `pulumi:"startMode"`
 	// The time at which this Stream Analytics Job was scheduled to start.
@@ -195,6 +197,11 @@ func (o LookupJobResultOutput) OutputErrorPolicy() pulumi.StringOutput {
 
 func (o LookupJobResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupJobResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The SKU Name to use for the Stream Analytics Job.
+func (o LookupJobResultOutput) SkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
 // The starting mode set for this Stream Analytics Job.

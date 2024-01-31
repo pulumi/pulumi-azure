@@ -99,11 +99,14 @@ type Job struct {
 	OutputErrorPolicy pulumi.StringPtrOutput `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrOutput `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+	// *
 	StreamingUnits pulumi.IntPtrOutput `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -179,11 +182,14 @@ type jobState struct {
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+	SkuName *string `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+	// *
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -224,11 +230,14 @@ type JobState struct {
 	OutputErrorPolicy pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+	SkuName pulumi.StringPtrInput
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+	// *
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -271,11 +280,14 @@ type jobArgs struct {
 	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+	SkuName *string `pulumi:"skuName"`
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId *string `pulumi:"streamAnalyticsClusterId"`
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+	// *
 	StreamingUnits *int `pulumi:"streamingUnits"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -315,11 +327,14 @@ type JobArgs struct {
 	OutputErrorPolicy pulumi.StringPtrInput
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+	SkuName pulumi.StringPtrInput
 	// The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 	StreamAnalyticsClusterId pulumi.StringPtrInput
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	//
 	// > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+	// *
 	StreamingUnits pulumi.IntPtrInput
 	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
@@ -485,6 +500,11 @@ func (o JobOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+func (o JobOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
 // The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
 func (o JobOutput) StreamAnalyticsClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.StreamAnalyticsClusterId }).(pulumi.StringPtrOutput)
@@ -493,6 +513,7 @@ func (o JobOutput) StreamAnalyticsClusterId() pulumi.StringPtrOutput {
 // Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 //
 // > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+// *
 func (o JobOutput) StreamingUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }

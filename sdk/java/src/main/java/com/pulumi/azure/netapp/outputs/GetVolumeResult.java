@@ -21,11 +21,13 @@ public final class GetVolumeResult {
      * 
      */
     private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
+    private String encryptionKeySource;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    private String keyVaultPrivateEndpointId;
     /**
      * @return The Azure Region where the NetApp Volume exists.
      * 
@@ -91,12 +93,18 @@ public final class GetVolumeResult {
     public List<GetVolumeDataProtectionReplication> dataProtectionReplications() {
         return this.dataProtectionReplications;
     }
+    public String encryptionKeySource() {
+        return this.encryptionKeySource;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    public String keyVaultPrivateEndpointId() {
+        return this.keyVaultPrivateEndpointId;
     }
     /**
      * @return The Azure Region where the NetApp Volume exists.
@@ -189,7 +197,9 @@ public final class GetVolumeResult {
     public static final class Builder {
         private String accountName;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
+        private String encryptionKeySource;
         private String id;
+        private String keyVaultPrivateEndpointId;
         private String location;
         private List<String> mountIpAddresses;
         private String name;
@@ -208,7 +218,9 @@ public final class GetVolumeResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
     	      this.dataProtectionReplications = defaults.dataProtectionReplications;
+    	      this.encryptionKeySource = defaults.encryptionKeySource;
     	      this.id = defaults.id;
+    	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
     	      this.location = defaults.location;
     	      this.mountIpAddresses = defaults.mountIpAddresses;
     	      this.name = defaults.name;
@@ -244,11 +256,27 @@ public final class GetVolumeResult {
             return dataProtectionReplications(List.of(dataProtectionReplications));
         }
         @CustomType.Setter
+        public Builder encryptionKeySource(String encryptionKeySource) {
+            if (encryptionKeySource == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "encryptionKeySource");
+            }
+            this.encryptionKeySource = encryptionKeySource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetVolumeResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultPrivateEndpointId(String keyVaultPrivateEndpointId) {
+            if (keyVaultPrivateEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "keyVaultPrivateEndpointId");
+            }
+            this.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             return this;
         }
         @CustomType.Setter
@@ -363,7 +391,9 @@ public final class GetVolumeResult {
             final var _resultValue = new GetVolumeResult();
             _resultValue.accountName = accountName;
             _resultValue.dataProtectionReplications = dataProtectionReplications;
+            _resultValue.encryptionKeySource = encryptionKeySource;
             _resultValue.id = id;
+            _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             _resultValue.location = location;
             _resultValue.mountIpAddresses = mountIpAddresses;
             _resultValue.name = name;

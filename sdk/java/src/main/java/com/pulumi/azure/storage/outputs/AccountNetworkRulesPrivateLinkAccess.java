@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountNetworkRulesPrivateLinkAccess {
     /**
-     * @return The resource id of the resource access rule to be granted access.
+     * @return The ID of the Azure resource that should be allowed access to the target storage account.
      * 
      */
     private String endpointResourceId;
@@ -25,7 +25,7 @@ public final class AccountNetworkRulesPrivateLinkAccess {
 
     private AccountNetworkRulesPrivateLinkAccess() {}
     /**
-     * @return The resource id of the resource access rule to be granted access.
+     * @return The ID of the Azure resource that should be allowed access to the target storage account.
      * 
      */
     public String endpointResourceId() {

@@ -5,6 +5,8 @@ package com.pulumi.azure.netapp;
 
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.netapp.inputs.GetAccountArgs;
+import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+import com.pulumi.azure.netapp.inputs.GetAccountEncryptionPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetAccountPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetPoolArgs;
 import com.pulumi.azure.netapp.inputs.GetPoolPlainArgs;
@@ -18,6 +20,7 @@ import com.pulumi.azure.netapp.inputs.GetVolumeGroupSapHanaPlainArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumePlainArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRuleArgs;
 import com.pulumi.azure.netapp.inputs.GetVolumeQuotaRulePlainArgs;
+import com.pulumi.azure.netapp.outputs.GetAccountEncryptionResult;
 import com.pulumi.azure.netapp.outputs.GetAccountResult;
 import com.pulumi.azure.netapp.outputs.GetPoolResult;
 import com.pulumi.azure.netapp.outputs.GetSnapshotPolicyResult;
@@ -187,6 +190,158 @@ public final class NetappFunctions {
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:netapp/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Account Encryption Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
+     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args) {
+        return getAccountEncryption(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Account Encryption Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
+     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args) {
+        return getAccountEncryptionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Account Encryption Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
+     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NetApp Account Encryption Resource.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.netapp.NetappFunctions;
+     * import com.pulumi.azure.netapp.inputs.GetAccountEncryptionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetappFunctions.getAccountEncryption(GetAccountEncryptionArgs.builder()
+     *             .netappAccountId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccountEncryptionResult -&gt; getAccountEncryptionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:netapp/getAccountEncryption:getAccountEncryption", TypeShape.of(GetAccountEncryptionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Uses this data source to access information about an existing NetApp Pool.

@@ -18,9 +18,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const current = azure.core.getClientConfig({});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
  *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAccount = new azure.netapp.Account("exampleAccount", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     activeDirectory: {
  *         username: "aduser",
  *         password: "aduserpwd",
@@ -28,6 +33,10 @@ import * as utilities from "../utilities";
  *         dnsServers: ["1.2.3.4"],
  *         domain: "westcentralus.com",
  *         organizationalUnit: "OU=FirstLevel",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  * });
  * ```
@@ -73,6 +82,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly activeDirectory!: pulumi.Output<outputs.netapp.AccountActiveDirectory | undefined>;
     /**
+     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     */
+    public readonly identity!: pulumi.Output<outputs.netapp.AccountIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -103,6 +116,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["activeDirectory"] = state ? state.activeDirectory : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -113,6 +127,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["activeDirectory"] = args ? args.activeDirectory : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -131,6 +146,10 @@ export interface AccountState {
      * A `activeDirectory` block as defined below.
      */
     activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
+    /**
+     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     */
+    identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -157,6 +176,10 @@ export interface AccountArgs {
      * A `activeDirectory` block as defined below.
      */
     activeDirectory?: pulumi.Input<inputs.netapp.AccountActiveDirectory>;
+    /**
+     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     */
+    identity?: pulumi.Input<inputs.netapp.AccountIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
