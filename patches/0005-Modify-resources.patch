@@ -52,7 +52,7 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index b4fc9cea41..68b16f23e4 100644
+index 3b0d1f427f..e9043db21d 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
 @@ -1033,10 +1033,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
@@ -126,7 +126,7 @@ index fd0873abad..a3c6fb2896 100644
  
  			"log_progress": {
 diff --git a/internal/services/automation/automation_schedule_resource.go b/internal/services/automation/automation_schedule_resource.go
-index 1de7c1b4e8..e65fb4dcb2 100644
+index 111ae21ae1..ed886bf6b7 100644
 --- a/internal/services/automation/automation_schedule_resource.go
 +++ b/internal/services/automation/automation_schedule_resource.go
 @@ -6,6 +6,7 @@ package automation
@@ -156,7 +156,7 @@ index 1de7c1b4e8..e65fb4dcb2 100644
  				},
  				Set:           set.HashStringIgnoreCase,
  				ConflictsWith: []string{"month_days", "monthly_occurrence"},
-@@ -163,7 +165,7 @@ func resourceAutomationSchedule() *pluginsdk.Resource {
+@@ -164,7 +166,7 @@ func resourceAutomationSchedule() *pluginsdk.Resource {
  								string(schedule.ScheduleDayFriday),
  								string(schedule.ScheduleDaySaturday),
  								string(schedule.ScheduleDaySunday),
@@ -222,7 +222,7 @@ index 67956f15c9..0b70ccb184 100644
  
  			"tags": tags.Schema(),
 diff --git a/internal/services/compute/image_resource.go b/internal/services/compute/image_resource.go
-index 6762dc0363..8fd9f0fd08 100644
+index d1de175cb8..d18589669e 100644
 --- a/internal/services/compute/image_resource.go
 +++ b/internal/services/compute/image_resource.go
 @@ -7,6 +7,9 @@ import (
@@ -235,7 +235,7 @@ index 6762dc0363..8fd9f0fd08 100644
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-@@ -89,18 +92,18 @@ func resourceImage() *pluginsdk.Resource {
+@@ -88,18 +91,18 @@ func resourceImage() *pluginsdk.Resource {
  							Type:     pluginsdk.TypeString,
  							Optional: true,
  							ValidateFunc: validation.StringInSlice([]string{
@@ -260,7 +260,7 @@ index 6762dc0363..8fd9f0fd08 100644
  						},
  
  						"managed_disk_id": {
-@@ -124,10 +127,10 @@ func resourceImage() *pluginsdk.Resource {
+@@ -123,10 +126,10 @@ func resourceImage() *pluginsdk.Resource {
  							Optional: true,
  							Default:  string(images.CachingTypesNone),
  							ValidateFunc: validation.StringInSlice([]string{
@@ -275,7 +275,7 @@ index 6762dc0363..8fd9f0fd08 100644
  						},
  
  						"size_gb": {
-@@ -177,10 +180,11 @@ func resourceImage() *pluginsdk.Resource {
+@@ -176,10 +179,11 @@ func resourceImage() *pluginsdk.Resource {
  							Optional: true,
  							Default:  string(images.CachingTypesNone),
  							ValidateFunc: validation.StringInSlice([]string{
@@ -292,10 +292,10 @@ index 6762dc0363..8fd9f0fd08 100644
  
  						"size_gb": {
 diff --git a/internal/services/compute/linux_virtual_machine_resource.go b/internal/services/compute/linux_virtual_machine_resource.go
-index 0dcecb543d..523bfc7e95 100644
+index 1493cb62df..c7d6007942 100644
 --- a/internal/services/compute/linux_virtual_machine_resource.go
 +++ b/internal/services/compute/linux_virtual_machine_resource.go
-@@ -347,11 +347,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
+@@ -344,11 +344,11 @@ func resourceLinuxVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -313,7 +313,7 @@ index 0dcecb543d..523bfc7e95 100644
  			},
  
 diff --git a/internal/services/compute/managed_disk_resource.go b/internal/services/compute/managed_disk_resource.go
-index 7c246c7e1f..0246cccbb2 100644
+index fa43f4e9c8..9ddf246435 100644
 --- a/internal/services/compute/managed_disk_resource.go
 +++ b/internal/services/compute/managed_disk_resource.go
 @@ -164,6 +164,7 @@ func resourceManagedDisk() *pluginsdk.Resource {
@@ -338,7 +338,7 @@ index 0b0cd11d72..1918f4e937 100644
  
  			"incremental_enabled": {
 diff --git a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
-index 52c9190604..f0dcce7dd7 100644
+index 4852606790..219bed8e64 100644
 --- a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 +++ b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 @@ -5,6 +5,7 @@ package compute
@@ -370,10 +370,10 @@ index 52c9190604..f0dcce7dd7 100644
  
  			"write_accelerator_enabled": {
 diff --git a/internal/services/compute/windows_virtual_machine_resource.go b/internal/services/compute/windows_virtual_machine_resource.go
-index f422006fb5..be72cc16db 100644
+index b05a7ccb2d..3389a0c6c6 100644
 --- a/internal/services/compute/windows_virtual_machine_resource.go
 +++ b/internal/services/compute/windows_virtual_machine_resource.go
-@@ -370,11 +370,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
+@@ -367,11 +367,11 @@ func resourceWindowsVirtualMachine() *pluginsdk.Resource {
  			},
  
  			"platform_fault_domain": {
@@ -391,19 +391,19 @@ index f422006fb5..be72cc16db 100644
  			},
  
 diff --git a/internal/services/containers/container_group_resource.go b/internal/services/containers/container_group_resource.go
-index ca0cfcbae8..e1f9d17adb 100644
+index d3a87501ae..7294b71876 100644
 --- a/internal/services/containers/container_group_resource.go
 +++ b/internal/services/containers/container_group_resource.go
-@@ -6,6 +6,8 @@ package containers
- import (
+@@ -7,6 +7,8 @@ import (
  	"bytes"
+ 	"context"
  	"fmt"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"log"
  	"strings"
  	"time"
-@@ -70,7 +72,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
+@@ -71,7 +73,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
  					string(containerinstance.ContainerGroupIPAddressTypePublic),
  					string(containerinstance.ContainerGroupIPAddressTypePrivate),
  					"None",
@@ -413,7 +413,7 @@ index ca0cfcbae8..e1f9d17adb 100644
  			},
  
  			"os_type": {
-@@ -80,7 +83,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
+@@ -81,7 +84,8 @@ func resourceContainerGroup() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(containerinstance.OperatingSystemTypesWindows),
  					string(containerinstance.OperatingSystemTypesLinux),
@@ -423,7 +423,7 @@ index ca0cfcbae8..e1f9d17adb 100644
  			},
  
  			"image_registry_credential": {
-@@ -166,7 +170,7 @@ func resourceContainerGroup() *pluginsdk.Resource {
+@@ -167,7 +171,7 @@ func resourceContainerGroup() *pluginsdk.Resource {
  					string(containerinstance.ContainerGroupRestartPolicyAlways),
  					string(containerinstance.ContainerGroupRestartPolicyNever),
  					string(containerinstance.ContainerGroupRestartPolicyOnFailure),
@@ -433,7 +433,7 @@ index ca0cfcbae8..e1f9d17adb 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/container_registry_resource.go b/internal/services/containers/container_registry_resource.go
-index 3eca00baa6..d21894d318 100644
+index a506d9b4e3..bf48597849 100644
 --- a/internal/services/containers/container_registry_resource.go
 +++ b/internal/services/containers/container_registry_resource.go
 @@ -7,7 +7,6 @@ import (
@@ -488,45 +488,46 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index 3ce97ad15e..8a90235b7a 100644
+index 7740e3d1e5..221ad16326 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
-@@ -7,6 +7,7 @@ import (
- 	"bytes"
- 	"context"
- 	"fmt"
+@@ -13,6 +13,8 @@ import (
+ 	"strings"
+ 	"time"
+ 
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
- 	"log"
- 	"net/http"
- 	"regexp"
-@@ -203,7 +204,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
++
+ 	"github.com/Azure/azure-sdk-for-go/services/cosmos-db/mgmt/2021-10-15/documentdb" // nolint: staticcheck
+ 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+@@ -204,7 +206,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  				Required: true,
  				ValidateFunc: validation.StringInSlice([]string{
- 					string(documentdb.DatabaseAccountOfferTypeStandard),
+ 					string(cosmosdb.DatabaseAccountOfferTypeStandard),
 -				}, false),
 +				}, features.CaseInsensitive()),
  			},
  
  			"analytical_storage": {
-@@ -276,7 +277,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
- 					string(documentdb.DatabaseAccountKindGlobalDocumentDB),
- 					string(documentdb.DatabaseAccountKindMongoDB),
- 					string(documentdb.DatabaseAccountKindParse),
+@@ -277,7 +279,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+ 					string(cosmosdb.DatabaseAccountKindGlobalDocumentDB),
+ 					string(cosmosdb.DatabaseAccountKindMongoDB),
+ 					string(cosmosdb.DatabaseAccountKindParse),
 -				}, false),
 +				}, features.CaseInsensitive()),
  			},
  
  			"ip_range_filter": func() *schema.Schema {
-@@ -350,7 +351,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
- 								string(documentdb.DefaultConsistencyLevelEventual),
- 								string(documentdb.DefaultConsistencyLevelSession),
- 								string(documentdb.DefaultConsistencyLevelStrong),
+@@ -351,7 +353,7 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+ 								string(cosmosdb.DefaultConsistencyLevelEventual),
+ 								string(cosmosdb.DefaultConsistencyLevelSession),
+ 								string(cosmosdb.DefaultConsistencyLevelStrong),
 -							}, false),
 +							}, features.CaseInsensitive()),
  						},
  
  						"max_interval_in_seconds": {
-@@ -407,8 +408,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
+@@ -408,8 +410,9 @@ func resourceCosmosDbAccount() *pluginsdk.Resource {
  				Elem: &pluginsdk.Resource{
  					Schema: map[string]*pluginsdk.Schema{
  						"name": {
@@ -783,7 +784,7 @@ index fe0f2a2c40..5ba993084d 100644
  								string(devices.EncodingAvro),
  								string(devices.EncodingAvroDeflate),
 diff --git a/internal/services/keyvault/key_vault_certificate_resource.go b/internal/services/keyvault/key_vault_certificate_resource.go
-index aacbc3d280..797af5e1f3 100644
+index 7bb4ed0809..eab4c819de 100644
 --- a/internal/services/keyvault/key_vault_certificate_resource.go
 +++ b/internal/services/keyvault/key_vault_certificate_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -806,7 +807,7 @@ index aacbc3d280..797af5e1f3 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index 451b7ba662..d9a90fb475 100644
+index e1d7d72e3e..48bfd018c5 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
 @@ -9,6 +9,7 @@ import (
@@ -817,7 +818,7 @@ index 451b7ba662..d9a90fb475 100644
  	"log"
  	"strings"
  	"time"
-@@ -184,7 +185,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -183,7 +184,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Windows_Client",
  					"Windows_Server",
@@ -826,7 +827,7 @@ index 451b7ba662..d9a90fb475 100644
  			},
  
  			"vm_size": {
-@@ -250,7 +251,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -249,7 +250,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(compute.OperatingSystemTypesLinux),
  								string(compute.OperatingSystemTypesWindows),
@@ -836,7 +837,7 @@ index 451b7ba662..d9a90fb475 100644
  						},
  
  						"name": {
-@@ -285,7 +287,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -284,7 +286,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  								string(compute.StorageAccountTypesPremiumLRS),
  								string(compute.StorageAccountTypesStandardLRS),
  								string(compute.StorageAccountTypesStandardSSDLRS),
@@ -846,7 +847,7 @@ index 451b7ba662..d9a90fb475 100644
  						},
  
  						"image_uri": {
-@@ -359,7 +362,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -358,7 +361,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  								string(compute.StorageAccountTypesStandardLRS),
  								string(compute.StorageAccountTypesStandardSSDLRS),
  								string(compute.StorageAccountTypesUltraSSDLRS),
@@ -856,7 +857,7 @@ index 451b7ba662..d9a90fb475 100644
  						},
  
  						"create_option": {
-@@ -506,7 +510,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -505,7 +509,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  										ValidateFunc: validation.StringInSlice([]string{
  											"HTTP",
  											"HTTPS",
@@ -1132,7 +1133,7 @@ index bdf780b66a..5a0bb36d62 100644
  													ConflictsWith: []string{"release_criteria.0.recurrence.0.schedule.0.month_days", "release_criteria.0.recurrence.0.schedule.0.monthly"},
  												},
 diff --git a/internal/services/logic/logic_app_standard_resource.go b/internal/services/logic/logic_app_standard_resource.go
-index 020b22f882..af7ce15081 100644
+index 0c29d3383e..4faec6e9f7 100644
 --- a/internal/services/logic/logic_app_standard_resource.go
 +++ b/internal/services/logic/logic_app_standard_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -1154,7 +1155,7 @@ index 020b22f882..af7ce15081 100644
  						},
  
  						"value": {
-@@ -867,7 +870,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
+@@ -871,7 +874,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
  						"v4.0",
  						"v5.0",
  						"v6.0",
@@ -1263,7 +1264,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 382ac8c28d..9fd781b313 100644
+index c8d0a4a7a7..801b4793d7 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1274,7 +1275,7 @@ index 382ac8c28d..9fd781b313 100644
  	"log"
  	"strings"
  	"time"
-@@ -1522,7 +1523,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1596,7 +1597,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1284,7 +1285,7 @@ index 382ac8c28d..9fd781b313 100644
  						},
  					},
  
-@@ -1533,7 +1535,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1607,7 +1609,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
@@ -1293,7 +1294,7 @@ index 382ac8c28d..9fd781b313 100644
  					},
  
  					"email_addresses": {
-@@ -1561,7 +1563,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1635,7 +1637,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1394,7 +1395,7 @@ index 99b9550833..80cfadc5d3 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index c0ae34feae..5498f67f0b 100644
+index 0003f0247c..00530893f6 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -1479,7 +1480,7 @@ index c0ae34feae..5498f67f0b 100644
  						},
  
  						"path": {
-@@ -1417,7 +1420,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
+@@ -1416,7 +1419,7 @@ func resourceApplicationGateway() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(network.ApplicationGatewayFirewallModeDetection),
  								string(network.ApplicationGatewayFirewallModePrevention),
@@ -2057,10 +2058,10 @@ index e67141577d..f3180f75a0 100644
  
  			"storage_mode_type": {
 diff --git a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
-index 531538f052..614e6bec69 100644
+index 3c73bae3bc..41759ee1ea 100644
 --- a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 +++ b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
-@@ -231,7 +231,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
+@@ -229,7 +229,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
  								string(disks.DiskStorageAccountTypesPremiumLRS),
  								string(disks.DiskStorageAccountTypesStandardSSDLRS),
  								string(disks.DiskStorageAccountTypesUltraSSDLRS),
@@ -2069,7 +2070,7 @@ index 531538f052..614e6bec69 100644
  						},
  
  						"target_replica_disk_type": {
-@@ -243,7 +243,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
+@@ -241,7 +241,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
  								string(disks.DiskStorageAccountTypesPremiumLRS),
  								string(disks.DiskStorageAccountTypesStandardSSDLRS),
  								string(disks.DiskStorageAccountTypesUltraSSDLRS),
@@ -2765,7 +2766,7 @@ index 415467db71..65c6a3299c 100644
  
  			"validity_in_years": {
 diff --git a/internal/services/web/function_app.go b/internal/services/web/function_app.go
-index debbd04f90..56ac2d062e 100644
+index c3dfeff2cf..86a94c195d 100644
 --- a/internal/services/web/function_app.go
 +++ b/internal/services/web/function_app.go
 @@ -6,6 +6,8 @@ package web
@@ -2788,10 +2789,10 @@ index debbd04f90..56ac2d062e 100644
  
  				"vnet_route_all_enabled": {
 diff --git a/internal/services/web/function_app_slot_resource.go b/internal/services/web/function_app_slot_resource.go
-index da8c25a5b0..fa2bfff38e 100644
+index baaf28b822..ec0522f4b1 100644
 --- a/internal/services/web/function_app_slot_resource.go
 +++ b/internal/services/web/function_app_slot_resource.go
-@@ -258,6 +258,7 @@ func resourceFunctionAppSlotCreate(d *pluginsdk.ResourceData, meta interface{})
+@@ -259,6 +259,7 @@ func resourceFunctionAppSlotCreate(d *pluginsdk.ResourceData, meta interface{})
  
  	appServicePlanID := d.Get("app_service_plan_id").(string)
  	enabled := d.Get("enabled").(bool)
@@ -2799,7 +2800,7 @@ index da8c25a5b0..fa2bfff38e 100644
  	httpsOnly := d.Get("https_only").(bool)
  	dailyMemoryTimeQuota := d.Get("daily_memory_time_quota").(int)
  	t := d.Get("tags").(map[string]interface{})
-@@ -280,11 +281,12 @@ func resourceFunctionAppSlotCreate(d *pluginsdk.ResourceData, meta interface{})
+@@ -281,11 +282,12 @@ func resourceFunctionAppSlotCreate(d *pluginsdk.ResourceData, meta interface{})
  		Location: &location,
  		Tags:     tags.Expand(t),
  		SiteProperties: &web.SiteProperties{
@@ -2817,7 +2818,7 @@ index da8c25a5b0..fa2bfff38e 100644
  		},
  	}
  
-@@ -348,6 +350,7 @@ func resourceFunctionAppSlotUpdate(d *pluginsdk.ResourceData, meta interface{})
+@@ -349,6 +351,7 @@ func resourceFunctionAppSlotUpdate(d *pluginsdk.ResourceData, meta interface{})
  	}
  	appServicePlanID := d.Get("app_service_plan_id").(string)
  	enabled := d.Get("enabled").(bool)
@@ -2825,7 +2826,7 @@ index da8c25a5b0..fa2bfff38e 100644
  	httpsOnly := d.Get("https_only").(bool)
  	dailyMemoryTimeQuota := d.Get("daily_memory_time_quota").(int)
  	t := d.Get("tags").(map[string]interface{})
-@@ -380,11 +383,12 @@ func resourceFunctionAppSlotUpdate(d *pluginsdk.ResourceData, meta interface{})
+@@ -381,11 +384,12 @@ func resourceFunctionAppSlotUpdate(d *pluginsdk.ResourceData, meta interface{})
  		Location: &location,
  		Tags:     tags.Expand(t),
  		SiteProperties: &web.SiteProperties{

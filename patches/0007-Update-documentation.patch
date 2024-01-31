@@ -249,7 +249,7 @@ index 4cc96679d7..510129c9ff 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 8c6820ff59..6a4850690a 100644
+index 0a17990cdc..83a563279f 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -262,7 +262,7 @@ index 8c6820ff59..6a4850690a 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_api.html.markdown b/website/docs/r/api_management_api.html.markdown
-index a57e145b97..3c061faa0d 100644
+index eb9f6021fd..115ff7ced8 100644
 --- a/website/docs/r/api_management_api.html.markdown
 +++ b/website/docs/r/api_management_api.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -445,7 +445,7 @@ index 812c4d4e0d..eafc1ba3cf 100644
  }
  
 diff --git a/website/docs/r/api_management_logger.html.markdown b/website/docs/r/api_management_logger.html.markdown
-index 23888dc9c8..f36bb15c62 100644
+index e1c6fd705b..487624a246 100644
 --- a/website/docs/r/api_management_logger.html.markdown
 +++ b/website/docs/r/api_management_logger.html.markdown
 @@ -30,7 +30,7 @@ resource "azurerm_api_management" "example" {
@@ -975,7 +975,7 @@ index 0000000000..2789c4e8a4
 +terraform import azurerm_connection_monitor.monitor1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/monitor1
 +```
 diff --git a/website/docs/r/container_group.html.markdown b/website/docs/r/container_group.html.markdown
-index f989739c54..d1e5387d51 100644
+index 8777a8e41d..43db0332c3 100644
 --- a/website/docs/r/container_group.html.markdown
 +++ b/website/docs/r/container_group.html.markdown
 @@ -14,7 +14,7 @@ Manages as an Azure Container Group instance.
@@ -987,7 +987,7 @@ index f989739c54..d1e5387d51 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -273,7 +273,7 @@ A `volume` block supports:
+@@ -277,7 +277,7 @@ A `volume` block supports:
  
  ~> **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
  
@@ -1799,7 +1799,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 9ad3ead710..b195d4efdc 100644
+index db93f3bc05..9e8b86ca29 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -2836,7 +2836,7 @@ index 90c527a40a..785001d398 100644
 +!> **NOTE:** When importing a Subscription that was not created programmatically, either by this provider resource or using the Alias API, it will have no Alias ID to import via `pulumi import`.
 +In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 diff --git a/website/docs/r/synapse_role_assignment.html.markdown b/website/docs/r/synapse_role_assignment.html.markdown
-index ae32a169ea..8e5bc03cdc 100644
+index 6615ced1a0..8cdbb9f9bd 100644
 --- a/website/docs/r/synapse_role_assignment.html.markdown
 +++ b/website/docs/r/synapse_role_assignment.html.markdown
 @@ -108,4 +108,4 @@ Synapse Role Assignment can be imported using the `resource id`, e.g.
