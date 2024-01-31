@@ -79,6 +79,7 @@ const (
 	azureBlueprint             = "Blueprint"             // Blueprint
 	azureBot                   = "Bot"                   // Bot
 	azureCDN                   = "Cdn"                   // CDN
+	azureChaosStudio           = "ChaosStudio"           // Chaos Studio
 	azureCognitive             = "Cognitive"             // Cognitive
 	azureCommunication         = "Communication"         // Communication
 	azureCompute               = "Compute"               // Virtual Machines
@@ -158,6 +159,7 @@ const (
 	azurePurview               = "Purview"               // Purview
 	azureRecoveryServices      = "RecoveryServices"      // Recovery Services
 	azureRedis                 = "Redis"                 // RedisCache
+	azureRedHatOpenShift       = "RedHatOpenShift"       // RedHat OpenShift
 	azureRelay                 = "Relay"                 // Relay
 	azureSecurityCenter        = "SecurityCenter"        // Security Center
 	azureSentinel              = "Sentinel"              // Sentinel
@@ -341,6 +343,8 @@ var moduleMap = map[string]string{
 	"web_application_firewall": azureWaf,
 	"web_pubsub":               azureWebPubSub,
 	"network_function":         azureNetworkFunction,
+	"chaos_studio":             azureChaosStudio,
+	"redhat_openshift":         azureRedHatOpenShift,
 
 	// We don't apply mappings to legacy roles, so they are omitted here.
 }
@@ -3133,6 +3137,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_orchestrated_virtual_machine_scale_set": {Tok: azureDataSource(azureCompute, "getOrchestratedVirtualMachineScaleSet")},
 			"azurerm_container_app":                          {Tok: azureDataSource(azureContainerApp, "getApp")},
+			"azurerm_ip_groups":                              {Tok: azureDataSource(azureNetwork, "getIpGroups")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			TypeScriptVersion: "4.7.4",

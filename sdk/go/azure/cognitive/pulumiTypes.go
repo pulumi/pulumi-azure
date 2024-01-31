@@ -654,6 +654,8 @@ func (o AccountNetworkAclsVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput
 
 type AccountStorage struct {
 	// The client ID of the managed identity associated with the storage resource.
+	//
+	// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Full resource id of a Microsoft.Storage resource.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -672,6 +674,8 @@ type AccountStorageInput interface {
 
 type AccountStorageArgs struct {
 	// The client ID of the managed identity associated with the storage resource.
+	//
+	// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Full resource id of a Microsoft.Storage resource.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
@@ -729,6 +733,8 @@ func (o AccountStorageOutput) ToAccountStorageOutputWithContext(ctx context.Cont
 }
 
 // The client ID of the managed identity associated with the storage resource.
+//
+// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 func (o AccountStorageOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStorage) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -763,8 +769,8 @@ type DeploymentModel struct {
 	Format string `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// The version of Cognitive Services Account Deployment model.
-	Version string `pulumi:"version"`
+	// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+	Version *string `pulumi:"version"`
 }
 
 // DeploymentModelInput is an input type that accepts DeploymentModelArgs and DeploymentModelOutput values.
@@ -783,8 +789,8 @@ type DeploymentModelArgs struct {
 	Format pulumi.StringInput `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The version of Cognitive Services Account Deployment model.
-	Version pulumi.StringInput `pulumi:"version"`
+	// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (DeploymentModelArgs) ElementType() reflect.Type {
@@ -874,9 +880,9 @@ func (o DeploymentModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentModel) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of Cognitive Services Account Deployment model.
-func (o DeploymentModelOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentModel) string { return v.Version }).(pulumi.StringOutput)
+// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+func (o DeploymentModelOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModel) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type DeploymentModelPtrOutput struct{ *pulumi.OutputState }
@@ -923,13 +929,13 @@ func (o DeploymentModelPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of Cognitive Services Account Deployment model.
+// The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
 func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentModel) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Version
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 

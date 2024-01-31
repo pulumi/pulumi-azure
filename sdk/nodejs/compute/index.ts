@@ -130,6 +130,11 @@ export const getImages: typeof import("./getImages").getImages = null as any;
 export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
 utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
 
+export { GetIpGroupsArgs, GetIpGroupsResult, GetIpGroupsOutputArgs } from "./getIpGroups";
+export const getIpGroups: typeof import("./getIpGroups").getIpGroups = null as any;
+export const getIpGroupsOutput: typeof import("./getIpGroups").getIpGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getIpGroups","getIpGroupsOutput"], () => require("./getIpGroups"));
+
 export { GetManagedDiskArgs, GetManagedDiskResult, GetManagedDiskOutputArgs } from "./getManagedDisk";
 export const getManagedDisk: typeof import("./getManagedDisk").getManagedDisk = null as any;
 export const getManagedDiskOutput: typeof import("./getManagedDisk").getManagedDiskOutput = null as any;

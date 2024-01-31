@@ -740,7 +740,7 @@ class ConfigurationKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         The value of the App Configuration Key. This should only be set when type is set to `kv`.
         """

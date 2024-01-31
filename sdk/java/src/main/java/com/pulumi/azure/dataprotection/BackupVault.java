@@ -130,14 +130,14 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      * 
      */
     @Export(name="redundancy", refs={String.class}, tree="[0]")
     private Output<String> redundancy;
 
     /**
-     * @return Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * @return Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      * 
      */
     public Output<String> redundancy() {

@@ -214,7 +214,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.

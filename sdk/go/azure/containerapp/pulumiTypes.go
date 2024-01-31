@@ -4962,6 +4962,8 @@ type GetAppIngress struct {
 	ExternalEnabled bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn string `pulumi:"fqdn"`
+	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+	IpSecurityRestrictions []GetAppIngressIpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort int `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
@@ -4991,6 +4993,8 @@ type GetAppIngressArgs struct {
 	ExternalEnabled pulumi.BoolInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
 	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+	IpSecurityRestrictions GetAppIngressIpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
 	// The target port on the container for the Ingress traffic.
 	TargetPort pulumi.IntInput `pulumi:"targetPort"`
 	// A `trafficWeight` block as detailed below.
@@ -5072,6 +5076,11 @@ func (o GetAppIngressOutput) ExternalEnabled() pulumi.BoolOutput {
 // The FQDN of the ingress.
 func (o GetAppIngressOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppIngress) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// One or more `ipSecurityRestriction` blocks for IP-filtering rules as defined below.
+func (o GetAppIngressOutput) IpSecurityRestrictions() GetAppIngressIpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v GetAppIngress) []GetAppIngressIpSecurityRestriction { return v.IpSecurityRestrictions }).(GetAppIngressIpSecurityRestrictionArrayOutput)
 }
 
 // The target port on the container for the Ingress traffic.
@@ -5222,6 +5231,130 @@ func (o GetAppIngressCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAppIng
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngressCustomDomain {
 		return vs[0].([]GetAppIngressCustomDomain)[vs[1].(int)]
 	}).(GetAppIngressCustomDomainOutput)
+}
+
+type GetAppIngressIpSecurityRestriction struct {
+	// The IP-filter action.
+	Action string `pulumi:"action"`
+	// Description of the IP restriction rule that is being sent to the container-app.
+	Description string `pulumi:"description"`
+	// CIDR notation that matches the incoming IP address.
+	IpAddressRange string `pulumi:"ipAddressRange"`
+	// The name of the Container App.
+	Name string `pulumi:"name"`
+}
+
+// GetAppIngressIpSecurityRestrictionInput is an input type that accepts GetAppIngressIpSecurityRestrictionArgs and GetAppIngressIpSecurityRestrictionOutput values.
+// You can construct a concrete instance of `GetAppIngressIpSecurityRestrictionInput` via:
+//
+//	GetAppIngressIpSecurityRestrictionArgs{...}
+type GetAppIngressIpSecurityRestrictionInput interface {
+	pulumi.Input
+
+	ToGetAppIngressIpSecurityRestrictionOutput() GetAppIngressIpSecurityRestrictionOutput
+	ToGetAppIngressIpSecurityRestrictionOutputWithContext(context.Context) GetAppIngressIpSecurityRestrictionOutput
+}
+
+type GetAppIngressIpSecurityRestrictionArgs struct {
+	// The IP-filter action.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Description of the IP restriction rule that is being sent to the container-app.
+	Description pulumi.StringInput `pulumi:"description"`
+	// CIDR notation that matches the incoming IP address.
+	IpAddressRange pulumi.StringInput `pulumi:"ipAddressRange"`
+	// The name of the Container App.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAppIngressIpSecurityRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (i GetAppIngressIpSecurityRestrictionArgs) ToGetAppIngressIpSecurityRestrictionOutput() GetAppIngressIpSecurityRestrictionOutput {
+	return i.ToGetAppIngressIpSecurityRestrictionOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressIpSecurityRestrictionArgs) ToGetAppIngressIpSecurityRestrictionOutputWithContext(ctx context.Context) GetAppIngressIpSecurityRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressIpSecurityRestrictionOutput)
+}
+
+// GetAppIngressIpSecurityRestrictionArrayInput is an input type that accepts GetAppIngressIpSecurityRestrictionArray and GetAppIngressIpSecurityRestrictionArrayOutput values.
+// You can construct a concrete instance of `GetAppIngressIpSecurityRestrictionArrayInput` via:
+//
+//	GetAppIngressIpSecurityRestrictionArray{ GetAppIngressIpSecurityRestrictionArgs{...} }
+type GetAppIngressIpSecurityRestrictionArrayInput interface {
+	pulumi.Input
+
+	ToGetAppIngressIpSecurityRestrictionArrayOutput() GetAppIngressIpSecurityRestrictionArrayOutput
+	ToGetAppIngressIpSecurityRestrictionArrayOutputWithContext(context.Context) GetAppIngressIpSecurityRestrictionArrayOutput
+}
+
+type GetAppIngressIpSecurityRestrictionArray []GetAppIngressIpSecurityRestrictionInput
+
+func (GetAppIngressIpSecurityRestrictionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (i GetAppIngressIpSecurityRestrictionArray) ToGetAppIngressIpSecurityRestrictionArrayOutput() GetAppIngressIpSecurityRestrictionArrayOutput {
+	return i.ToGetAppIngressIpSecurityRestrictionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAppIngressIpSecurityRestrictionArray) ToGetAppIngressIpSecurityRestrictionArrayOutputWithContext(ctx context.Context) GetAppIngressIpSecurityRestrictionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressIpSecurityRestrictionArrayOutput)
+}
+
+type GetAppIngressIpSecurityRestrictionOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressIpSecurityRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (o GetAppIngressIpSecurityRestrictionOutput) ToGetAppIngressIpSecurityRestrictionOutput() GetAppIngressIpSecurityRestrictionOutput {
+	return o
+}
+
+func (o GetAppIngressIpSecurityRestrictionOutput) ToGetAppIngressIpSecurityRestrictionOutputWithContext(ctx context.Context) GetAppIngressIpSecurityRestrictionOutput {
+	return o
+}
+
+// The IP-filter action.
+func (o GetAppIngressIpSecurityRestrictionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressIpSecurityRestriction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Description of the IP restriction rule that is being sent to the container-app.
+func (o GetAppIngressIpSecurityRestrictionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressIpSecurityRestriction) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// CIDR notation that matches the incoming IP address.
+func (o GetAppIngressIpSecurityRestrictionOutput) IpAddressRange() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressIpSecurityRestriction) string { return v.IpAddressRange }).(pulumi.StringOutput)
+}
+
+// The name of the Container App.
+func (o GetAppIngressIpSecurityRestrictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppIngressIpSecurityRestriction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAppIngressIpSecurityRestrictionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAppIngressIpSecurityRestrictionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAppIngressIpSecurityRestriction)(nil)).Elem()
+}
+
+func (o GetAppIngressIpSecurityRestrictionArrayOutput) ToGetAppIngressIpSecurityRestrictionArrayOutput() GetAppIngressIpSecurityRestrictionArrayOutput {
+	return o
+}
+
+func (o GetAppIngressIpSecurityRestrictionArrayOutput) ToGetAppIngressIpSecurityRestrictionArrayOutputWithContext(ctx context.Context) GetAppIngressIpSecurityRestrictionArrayOutput {
+	return o
+}
+
+func (o GetAppIngressIpSecurityRestrictionArrayOutput) Index(i pulumi.IntInput) GetAppIngressIpSecurityRestrictionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngressIpSecurityRestriction {
+		return vs[0].([]GetAppIngressIpSecurityRestriction)[vs[1].(int)]
+	}).(GetAppIngressIpSecurityRestrictionOutput)
 }
 
 type GetAppIngressTrafficWeight struct {
@@ -8449,6 +8582,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressArrayInput)(nil)).Elem(), GetAppIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainInput)(nil)).Elem(), GetAppIngressCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressCustomDomainArrayInput)(nil)).Elem(), GetAppIngressCustomDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressIpSecurityRestrictionInput)(nil)).Elem(), GetAppIngressIpSecurityRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressIpSecurityRestrictionArrayInput)(nil)).Elem(), GetAppIngressIpSecurityRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressTrafficWeightInput)(nil)).Elem(), GetAppIngressTrafficWeightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppIngressTrafficWeightArrayInput)(nil)).Elem(), GetAppIngressTrafficWeightArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAppRegistryInput)(nil)).Elem(), GetAppRegistryArgs{})
@@ -8573,6 +8708,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppIngressArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIngressCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetAppIngressCustomDomainArrayOutput{})
+	pulumi.RegisterOutputType(GetAppIngressIpSecurityRestrictionOutput{})
+	pulumi.RegisterOutputType(GetAppIngressIpSecurityRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetAppIngressTrafficWeightOutput{})
 	pulumi.RegisterOutputType(GetAppIngressTrafficWeightArrayOutput{})
 	pulumi.RegisterOutputType(GetAppRegistryOutput{})

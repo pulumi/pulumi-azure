@@ -10,10 +10,20 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { AccountEncryptionArgs, AccountEncryptionState } from "./accountEncryption";
+export type AccountEncryption = import("./accountEncryption").AccountEncryption;
+export const AccountEncryption: typeof import("./accountEncryption").AccountEncryption = null as any;
+utilities.lazyLoad(exports, ["AccountEncryption"], () => require("./accountEncryption"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
+export { GetAccountEncryptionArgs, GetAccountEncryptionResult, GetAccountEncryptionOutputArgs } from "./getAccountEncryption";
+export const getAccountEncryption: typeof import("./getAccountEncryption").getAccountEncryption = null as any;
+export const getAccountEncryptionOutput: typeof import("./getAccountEncryption").getAccountEncryptionOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountEncryption","getAccountEncryptionOutput"], () => require("./getAccountEncryption"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -82,6 +92,8 @@ const _module = {
         switch (type) {
             case "azure:netapp/account:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure:netapp/accountEncryption:AccountEncryption":
+                return new AccountEncryption(name, <any>undefined, { urn })
             case "azure:netapp/pool:Pool":
                 return new Pool(name, <any>undefined, { urn })
             case "azure:netapp/snapshot:Snapshot":
@@ -100,6 +112,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "netapp/account", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/accountEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)

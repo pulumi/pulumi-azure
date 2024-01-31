@@ -97,6 +97,24 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.catalogInfo);
     }
     /**
+     * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     * 
+     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * 
+     */
+    @Export(name="credentialName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> credentialName;
+
+    /**
+     * @return The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     * 
+     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * 
+     */
+    public Output<Optional<String>> credentialName() {
+        return Codegen.optional(this.credentialName);
+    }
+    /**
      * A `custom_setup_script` block as defined below.
      * 
      */

@@ -142,7 +142,7 @@ class GetAppResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+        Name for the IP restriction rule.
         """
         return pulumi.get(self, "name")
 

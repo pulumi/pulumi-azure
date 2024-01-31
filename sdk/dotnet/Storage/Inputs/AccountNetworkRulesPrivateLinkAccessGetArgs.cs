@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountNetworkRulesPrivateLinkAccessGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource id of the resource access rule to be granted access.
+        /// The ID of the Azure resource that should be allowed access to the target storage account.
         /// </summary>
         [Input("endpointResourceId", required: true)]
         public Input<string> EndpointResourceId { get; set; } = null!;

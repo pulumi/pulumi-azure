@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  *         script: "echo 'hello world'",
  *     },
  * });
- * // authurize to storage blob using user assigned identity
+ * // authorize to storage blob using user assigned identity
  * const example2RunCommand = new azure.compute.RunCommand("example2RunCommand", {
  *     location: exampleResourceGroup.location,
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
@@ -166,7 +166,7 @@ import * as utilities from "../utilities";
  * }, {
  *     dependsOn: [exampleAssignment],
  * });
- * // authurize to storage blob using SAS token
+ * // authorize to storage blob using SAS token
  * const example3RunCommand = new azure.compute.RunCommand("example3RunCommand", {
  *     location: exampleResourceGroup.location,
  *     virtualMachineId: exampleLinuxVirtualMachine.id,

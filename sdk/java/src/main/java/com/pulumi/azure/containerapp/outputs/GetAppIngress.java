@@ -4,6 +4,7 @@
 package com.pulumi.azure.containerapp.outputs;
 
 import com.pulumi.azure.containerapp.outputs.GetAppIngressCustomDomain;
+import com.pulumi.azure.containerapp.outputs.GetAppIngressIpSecurityRestriction;
 import com.pulumi.azure.containerapp.outputs.GetAppIngressTrafficWeight;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -36,6 +37,11 @@ public final class GetAppIngress {
      * 
      */
     private String fqdn;
+    /**
+     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    private List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions;
     /**
      * @return The target port on the container for the Ingress traffic.
      * 
@@ -85,6 +91,13 @@ public final class GetAppIngress {
         return this.fqdn;
     }
     /**
+     * @return One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+     * 
+     */
+    public List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions() {
+        return this.ipSecurityRestrictions;
+    }
+    /**
      * @return The target port on the container for the Ingress traffic.
      * 
      */
@@ -120,6 +133,7 @@ public final class GetAppIngress {
         private Integer exposedPort;
         private Boolean externalEnabled;
         private String fqdn;
+        private List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions;
         private Integer targetPort;
         private List<GetAppIngressTrafficWeight> trafficWeights;
         private String transport;
@@ -131,6 +145,7 @@ public final class GetAppIngress {
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
+    	      this.ipSecurityRestrictions = defaults.ipSecurityRestrictions;
     	      this.targetPort = defaults.targetPort;
     	      this.trafficWeights = defaults.trafficWeights;
     	      this.transport = defaults.transport;
@@ -180,6 +195,17 @@ public final class GetAppIngress {
             return this;
         }
         @CustomType.Setter
+        public Builder ipSecurityRestrictions(List<GetAppIngressIpSecurityRestriction> ipSecurityRestrictions) {
+            if (ipSecurityRestrictions == null) {
+              throw new MissingRequiredPropertyException("GetAppIngress", "ipSecurityRestrictions");
+            }
+            this.ipSecurityRestrictions = ipSecurityRestrictions;
+            return this;
+        }
+        public Builder ipSecurityRestrictions(GetAppIngressIpSecurityRestriction... ipSecurityRestrictions) {
+            return ipSecurityRestrictions(List.of(ipSecurityRestrictions));
+        }
+        @CustomType.Setter
         public Builder targetPort(Integer targetPort) {
             if (targetPort == null) {
               throw new MissingRequiredPropertyException("GetAppIngress", "targetPort");
@@ -213,6 +239,7 @@ public final class GetAppIngress {
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
+            _resultValue.ipSecurityRestrictions = ipSecurityRestrictions;
             _resultValue.targetPort = targetPort;
             _resultValue.trafficWeights = trafficWeights;
             _resultValue.transport = transport;

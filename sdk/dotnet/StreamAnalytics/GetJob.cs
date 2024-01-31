@@ -170,6 +170,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public readonly string OutputErrorPolicy;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The SKU Name to use for the Stream Analytics Job.
+        /// </summary>
+        public readonly string SkuName;
+        /// <summary>
         /// The starting mode set for this Stream Analytics Job.
         /// </summary>
         public readonly string StartMode;
@@ -214,6 +218,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
             string resourceGroupName,
 
+            string skuName,
+
             string startMode,
 
             string startTime,
@@ -235,6 +241,7 @@ namespace Pulumi.Azure.StreamAnalytics
             Name = name;
             OutputErrorPolicy = outputErrorPolicy;
             ResourceGroupName = resourceGroupName;
+            SkuName = skuName;
             StartMode = startMode;
             StartTime = startTime;
             StreamingUnits = streamingUnits;

@@ -40,6 +40,25 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     * 
+     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * 
+     */
+    @Import(name="credentialName")
+    private @Nullable Output<String> credentialName;
+
+    /**
+     * @return The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+     * 
+     * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+     * 
+     */
+    public Optional<Output<String>> credentialName() {
+        return Optional.ofNullable(this.credentialName);
+    }
+
+    /**
      * A `custom_setup_script` block as defined below.
      * 
      */
@@ -268,6 +287,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
 
     private IntegrationRuntimeSsisState(IntegrationRuntimeSsisState $) {
         this.catalogInfo = $.catalogInfo;
+        this.credentialName = $.credentialName;
         this.customSetupScript = $.customSetupScript;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
@@ -322,6 +342,31 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
          */
         public Builder catalogInfo(IntegrationRuntimeSsisCatalogInfoArgs catalogInfo) {
             return catalogInfo(Output.of(catalogInfo));
+        }
+
+        /**
+         * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+         * 
+         * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(@Nullable Output<String> credentialName) {
+            $.credentialName = credentialName;
+            return this;
+        }
+
+        /**
+         * @param credentialName The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+         * 
+         * &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder credentialName(String credentialName) {
+            return credentialName(Output.of(credentialName));
         }
 
         /**

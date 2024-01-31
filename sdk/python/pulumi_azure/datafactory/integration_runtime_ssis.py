@@ -19,6 +19,7 @@ class IntegrationRuntimeSsisArgs:
                  data_factory_id: pulumi.Input[str],
                  node_size: pulumi.Input[str],
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,9 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+               
+               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
@@ -55,6 +59,8 @@ class IntegrationRuntimeSsisArgs:
         pulumi.set(__self__, "node_size", node_size)
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
         if custom_setup_script is not None:
             pulumi.set(__self__, "custom_setup_script", custom_setup_script)
         if description is not None:
@@ -117,6 +123,20 @@ class IntegrationRuntimeSsisArgs:
     @catalog_info.setter
     def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+
+        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential_name", value)
 
     @property
     @pulumi.getter(name="customSetupScript")
@@ -279,6 +299,7 @@ class IntegrationRuntimeSsisArgs:
 class _IntegrationRuntimeSsisState:
     def __init__(__self__, *,
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs']] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -297,6 +318,9 @@ class _IntegrationRuntimeSsisState:
         """
         Input properties used for looking up and filtering IntegrationRuntimeSsis resources.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+               
+               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input['IntegrationRuntimeSsisCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -315,6 +339,8 @@ class _IntegrationRuntimeSsisState:
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
         if custom_setup_script is not None:
             pulumi.set(__self__, "custom_setup_script", custom_setup_script)
         if data_factory_id is not None:
@@ -357,6 +383,20 @@ class _IntegrationRuntimeSsisState:
     @catalog_info.setter
     def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+
+        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential_name", value)
 
     @property
     @pulumi.getter(name="customSetupScript")
@@ -545,6 +585,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -591,6 +632,9 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+               
+               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -656,6 +700,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
+                 credential_name: Optional[pulumi.Input[str]] = None,
                  custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -681,6 +726,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             __props__ = IntegrationRuntimeSsisArgs.__new__(IntegrationRuntimeSsisArgs)
 
             __props__.__dict__["catalog_info"] = catalog_info
+            __props__.__dict__["credential_name"] = credential_name
             __props__.__dict__["custom_setup_script"] = custom_setup_script
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
@@ -711,6 +757,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']]] = None,
+            credential_name: Optional[pulumi.Input[str]] = None,
             custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -734,6 +781,9 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCatalogInfoArgs']] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input[str] credential_name: The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+               
+               > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisCustomSetupScriptArgs']] custom_setup_script: A `custom_setup_script` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: Integration runtime description.
@@ -755,6 +805,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         __props__ = _IntegrationRuntimeSsisState.__new__(_IntegrationRuntimeSsisState)
 
         __props__.__dict__["catalog_info"] = catalog_info
+        __props__.__dict__["credential_name"] = credential_name
         __props__.__dict__["custom_setup_script"] = custom_setup_script
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
@@ -779,6 +830,16 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         A `catalog_info` block as defined below.
         """
         return pulumi.get(self, "catalog_info")
+
+    @property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `datafactory.CredentialUserManagedIdentity`
+
+        > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        """
+        return pulumi.get(self, "credential_name")
 
     @property
     @pulumi.getter(name="customSetupScript")

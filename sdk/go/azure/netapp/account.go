@@ -23,6 +23,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -37,9 +38,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
 //				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //				ActiveDirectory: &netapp.AccountActiveDirectoryArgs{
 //					Username:      pulumi.String("aduser"),
 //					Password:      pulumi.String("aduserpwd"),
@@ -49,6 +61,12 @@ import (
 //					},
 //					Domain:             pulumi.String("westcentralus.com"),
 //					OrganizationalUnit: pulumi.String("OU=FirstLevel"),
+//				},
+//				Identity: &netapp.AccountIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -74,6 +92,8 @@ type Account struct {
 
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrOutput `pulumi:"activeDirectory"`
+	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
@@ -119,6 +139,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory *AccountActiveDirectory `pulumi:"activeDirectory"`
+	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
@@ -132,6 +154,8 @@ type accountState struct {
 type AccountState struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrInput
+	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
@@ -149,6 +173,8 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory *AccountActiveDirectory `pulumi:"activeDirectory"`
+	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
@@ -163,6 +189,8 @@ type accountArgs struct {
 type AccountArgs struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory AccountActiveDirectoryPtrInput
+	// The identity block where it is used when customer managed keys based encryption will be enabled.
+	Identity AccountIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the NetApp Account. Changing this forces a new resource to be created.
@@ -263,6 +291,11 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 // A `activeDirectory` block as defined below.
 func (o AccountOutput) ActiveDirectory() AccountActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *Account) AccountActiveDirectoryPtrOutput { return v.ActiveDirectory }).(AccountActiveDirectoryPtrOutput)
+}
+
+// The identity block where it is used when customer managed keys based encryption will be enabled.
+func (o AccountOutput) Identity() AccountIdentityPtrOutput {
+	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

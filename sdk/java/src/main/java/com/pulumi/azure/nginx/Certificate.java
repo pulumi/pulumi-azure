@@ -161,14 +161,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * Specify the path to the cert file of this certificate.
+     * Specify the path to the certificate file of this certificate.
      * 
      */
     @Export(name="certificateVirtualPath", refs={String.class}, tree="[0]")
     private Output<String> certificateVirtualPath;
 
     /**
-     * @return Specify the path to the cert file of this certificate.
+     * @return Specify the path to the certificate file of this certificate.
      * 
      */
     public Output<String> certificateVirtualPath() {

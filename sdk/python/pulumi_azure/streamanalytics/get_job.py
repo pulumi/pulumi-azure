@@ -22,7 +22,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, identities=None, job_id=None, last_output_time=None, location=None, name=None, output_error_policy=None, resource_group_name=None, start_mode=None, start_time=None, streaming_units=None, transformation_query=None):
+    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, identities=None, job_id=None, last_output_time=None, location=None, name=None, output_error_policy=None, resource_group_name=None, sku_name=None, start_mode=None, start_time=None, streaming_units=None, transformation_query=None):
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -62,6 +62,9 @@ class GetJobResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name and not isinstance(sku_name, str):
+            raise TypeError("Expected argument 'sku_name' to be a str")
+        pulumi.set(__self__, "sku_name", sku_name)
         if start_mode and not isinstance(start_mode, str):
             raise TypeError("Expected argument 'start_mode' to be a str")
         pulumi.set(__self__, "start_mode", start_mode)
@@ -174,6 +177,14 @@ class GetJobResult:
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> str:
+        """
+        The SKU Name to use for the Stream Analytics Job.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @property
     @pulumi.getter(name="startMode")
     def start_mode(self) -> str:
         """
@@ -225,6 +236,7 @@ class AwaitableGetJobResult(GetJobResult):
             name=self.name,
             output_error_policy=self.output_error_policy,
             resource_group_name=self.resource_group_name,
+            sku_name=self.sku_name,
             start_mode=self.start_mode,
             start_time=self.start_time,
             streaming_units=self.streaming_units,
@@ -272,6 +284,7 @@ def get_job(name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         output_error_policy=pulumi.get(__ret__, 'output_error_policy'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
         start_mode=pulumi.get(__ret__, 'start_mode'),
         start_time=pulumi.get(__ret__, 'start_time'),
         streaming_units=pulumi.get(__ret__, 'streaming_units'),

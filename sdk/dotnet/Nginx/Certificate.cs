@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Nginx
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate.
+        /// Specify the path to the certificate file of this certificate.
         /// </summary>
         [Output("certificateVirtualPath")]
         public Output<string> CertificateVirtualPath { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate.
+        /// Specify the path to the certificate file of this certificate.
         /// </summary>
         [Input("certificateVirtualPath", required: true)]
         public Input<string> CertificateVirtualPath { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the path to the cert file of this certificate.
+        /// Specify the path to the certificate file of this certificate.
         /// </summary>
         [Input("certificateVirtualPath")]
         public Input<string>? CertificateVirtualPath { get; set; }

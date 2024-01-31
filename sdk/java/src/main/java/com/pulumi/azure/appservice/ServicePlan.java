@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * AppServices can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appservice/servicePlan:ServicePlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/serverfarms/farm1
+ *  $ pulumi import azure:appservice/servicePlan:ServicePlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/serverFarms/farm1
  * ```
  * 
  */

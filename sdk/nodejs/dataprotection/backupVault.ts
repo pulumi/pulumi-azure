@@ -79,7 +79,7 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
     public readonly redundancy!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface BackupVaultState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
     redundancy?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface BackupVaultArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
     redundancy: pulumi.Input<string>;
     /**

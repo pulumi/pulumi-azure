@@ -71,10 +71,12 @@ export interface GetVolumeResult {
      * Volume data protection block
      */
     readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
+    readonly encryptionKeySource: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyVaultPrivateEndpointId: string;
     /**
      * The Azure Region where the NetApp Volume exists.
      */

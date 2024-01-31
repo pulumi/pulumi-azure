@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'AccountActiveDirectoryArgs',
+    'AccountIdentityArgs',
     'SnapshotPolicyDailyScheduleArgs',
     'SnapshotPolicyHourlyScheduleArgs',
     'SnapshotPolicyMonthlyScheduleArgs',
@@ -22,6 +23,7 @@ __all__ = [
     'VolumeGroupSapHanaVolumeDataProtectionReplicationArgs',
     'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs',
     'VolumeGroupSapHanaVolumeExportPolicyRuleArgs',
+    'GetAccountIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -120,6 +122,68 @@ class AccountActiveDirectoryArgs:
     @organizational_unit.setter
     def organizational_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit", value)
+
+
+@pulumi.input_type
+class AccountIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The identity id of the user assigned identity to use when type is `UserAssigned`
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identity id of the user assigned identity to use when type is `UserAssigned`
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type
@@ -1034,5 +1098,55 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
     @unix_read_write.setter
     def unix_read_write(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unix_read_write", value)
+
+
+@pulumi.input_type
+class GetAccountIdentityArgs:
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: str):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: str):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "identity_ids", value)
 
 

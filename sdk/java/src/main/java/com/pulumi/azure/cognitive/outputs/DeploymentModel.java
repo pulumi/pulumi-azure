@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentModel {
@@ -21,10 +23,10 @@ public final class DeploymentModel {
      */
     private String name;
     /**
-     * @return The version of Cognitive Services Account Deployment model.
+     * @return The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
      * 
      */
-    private String version;
+    private @Nullable String version;
 
     private DeploymentModel() {}
     /**
@@ -42,11 +44,11 @@ public final class DeploymentModel {
         return this.name;
     }
     /**
-     * @return The version of Cognitive Services Account Deployment model.
+     * @return The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
      * 
      */
-    public String version() {
-        return this.version;
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -60,7 +62,7 @@ public final class DeploymentModel {
     public static final class Builder {
         private String format;
         private String name;
-        private String version;
+        private @Nullable String version;
         public Builder() {}
         public Builder(DeploymentModel defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,10 +88,8 @@ public final class DeploymentModel {
             return this;
         }
         @CustomType.Setter
-        public Builder version(String version) {
-            if (version == null) {
-              throw new MissingRequiredPropertyException("DeploymentModel", "version");
-            }
+        public Builder version(@Nullable String version) {
+
             this.version = version;
             return this;
         }

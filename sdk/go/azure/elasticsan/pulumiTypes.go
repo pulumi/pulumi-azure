@@ -177,9 +177,534 @@ func (o ElasticSanSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeGroupEncryption struct {
+	// The timestamp of the expiration time for the current version of the customer managed key.
+	CurrentVersionedKeyExpirationTimestamp *string `pulumi:"currentVersionedKeyExpirationTimestamp"`
+	// The ID of the current versioned Key Vault Key in use.
+	CurrentVersionedKeyId *string `pulumi:"currentVersionedKeyId"`
+	// The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The timestamp of the last rotation of the Key Vault Key.
+	LastKeyRotationTimestamp *string `pulumi:"lastKeyRotationTimestamp"`
+	// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// VolumeGroupEncryptionInput is an input type that accepts VolumeGroupEncryptionArgs and VolumeGroupEncryptionOutput values.
+// You can construct a concrete instance of `VolumeGroupEncryptionInput` via:
+//
+//	VolumeGroupEncryptionArgs{...}
+type VolumeGroupEncryptionInput interface {
+	pulumi.Input
+
+	ToVolumeGroupEncryptionOutput() VolumeGroupEncryptionOutput
+	ToVolumeGroupEncryptionOutputWithContext(context.Context) VolumeGroupEncryptionOutput
+}
+
+type VolumeGroupEncryptionArgs struct {
+	// The timestamp of the expiration time for the current version of the customer managed key.
+	CurrentVersionedKeyExpirationTimestamp pulumi.StringPtrInput `pulumi:"currentVersionedKeyExpirationTimestamp"`
+	// The ID of the current versioned Key Vault Key in use.
+	CurrentVersionedKeyId pulumi.StringPtrInput `pulumi:"currentVersionedKeyId"`
+	// The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The timestamp of the last rotation of the Key Vault Key.
+	LastKeyRotationTimestamp pulumi.StringPtrInput `pulumi:"lastKeyRotationTimestamp"`
+	// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (VolumeGroupEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupEncryption)(nil)).Elem()
+}
+
+func (i VolumeGroupEncryptionArgs) ToVolumeGroupEncryptionOutput() VolumeGroupEncryptionOutput {
+	return i.ToVolumeGroupEncryptionOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupEncryptionArgs) ToVolumeGroupEncryptionOutputWithContext(ctx context.Context) VolumeGroupEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupEncryptionOutput)
+}
+
+func (i VolumeGroupEncryptionArgs) ToVolumeGroupEncryptionPtrOutput() VolumeGroupEncryptionPtrOutput {
+	return i.ToVolumeGroupEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupEncryptionArgs) ToVolumeGroupEncryptionPtrOutputWithContext(ctx context.Context) VolumeGroupEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupEncryptionOutput).ToVolumeGroupEncryptionPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupEncryptionPtrInput is an input type that accepts VolumeGroupEncryptionArgs, VolumeGroupEncryptionPtr and VolumeGroupEncryptionPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupEncryptionPtrInput` via:
+//
+//	        VolumeGroupEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupEncryptionPtrOutput() VolumeGroupEncryptionPtrOutput
+	ToVolumeGroupEncryptionPtrOutputWithContext(context.Context) VolumeGroupEncryptionPtrOutput
+}
+
+type volumeGroupEncryptionPtrType VolumeGroupEncryptionArgs
+
+func VolumeGroupEncryptionPtr(v *VolumeGroupEncryptionArgs) VolumeGroupEncryptionPtrInput {
+	return (*volumeGroupEncryptionPtrType)(v)
+}
+
+func (*volumeGroupEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupEncryption)(nil)).Elem()
+}
+
+func (i *volumeGroupEncryptionPtrType) ToVolumeGroupEncryptionPtrOutput() VolumeGroupEncryptionPtrOutput {
+	return i.ToVolumeGroupEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupEncryptionPtrType) ToVolumeGroupEncryptionPtrOutputWithContext(ctx context.Context) VolumeGroupEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupEncryptionPtrOutput)
+}
+
+type VolumeGroupEncryptionOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupEncryption)(nil)).Elem()
+}
+
+func (o VolumeGroupEncryptionOutput) ToVolumeGroupEncryptionOutput() VolumeGroupEncryptionOutput {
+	return o
+}
+
+func (o VolumeGroupEncryptionOutput) ToVolumeGroupEncryptionOutputWithContext(ctx context.Context) VolumeGroupEncryptionOutput {
+	return o
+}
+
+func (o VolumeGroupEncryptionOutput) ToVolumeGroupEncryptionPtrOutput() VolumeGroupEncryptionPtrOutput {
+	return o.ToVolumeGroupEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupEncryptionOutput) ToVolumeGroupEncryptionPtrOutputWithContext(ctx context.Context) VolumeGroupEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupEncryption) *VolumeGroupEncryption {
+		return &v
+	}).(VolumeGroupEncryptionPtrOutput)
+}
+
+// The timestamp of the expiration time for the current version of the customer managed key.
+func (o VolumeGroupEncryptionOutput) CurrentVersionedKeyExpirationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupEncryption) *string { return v.CurrentVersionedKeyExpirationTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the current versioned Key Vault Key in use.
+func (o VolumeGroupEncryptionOutput) CurrentVersionedKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupEncryption) *string { return v.CurrentVersionedKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+func (o VolumeGroupEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The timestamp of the last rotation of the Key Vault Key.
+func (o VolumeGroupEncryptionOutput) LastKeyRotationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupEncryption) *string { return v.LastKeyRotationTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+func (o VolumeGroupEncryptionOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupEncryption) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupEncryption)(nil)).Elem()
+}
+
+func (o VolumeGroupEncryptionPtrOutput) ToVolumeGroupEncryptionPtrOutput() VolumeGroupEncryptionPtrOutput {
+	return o
+}
+
+func (o VolumeGroupEncryptionPtrOutput) ToVolumeGroupEncryptionPtrOutputWithContext(ctx context.Context) VolumeGroupEncryptionPtrOutput {
+	return o
+}
+
+func (o VolumeGroupEncryptionPtrOutput) Elem() VolumeGroupEncryptionOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) VolumeGroupEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupEncryption
+		return ret
+	}).(VolumeGroupEncryptionOutput)
+}
+
+// The timestamp of the expiration time for the current version of the customer managed key.
+func (o VolumeGroupEncryptionPtrOutput) CurrentVersionedKeyExpirationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentVersionedKeyExpirationTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the current versioned Key Vault Key in use.
+func (o VolumeGroupEncryptionPtrOutput) CurrentVersionedKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentVersionedKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+func (o VolumeGroupEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of the last rotation of the Key Vault Key.
+func (o VolumeGroupEncryptionPtrOutput) LastKeyRotationTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastKeyRotationTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+func (o VolumeGroupEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupIdentity struct {
+	// A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// VolumeGroupIdentityInput is an input type that accepts VolumeGroupIdentityArgs and VolumeGroupIdentityOutput values.
+// You can construct a concrete instance of `VolumeGroupIdentityInput` via:
+//
+//	VolumeGroupIdentityArgs{...}
+type VolumeGroupIdentityInput interface {
+	pulumi.Input
+
+	ToVolumeGroupIdentityOutput() VolumeGroupIdentityOutput
+	ToVolumeGroupIdentityOutputWithContext(context.Context) VolumeGroupIdentityOutput
+}
+
+type VolumeGroupIdentityArgs struct {
+	// A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VolumeGroupIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupIdentity)(nil)).Elem()
+}
+
+func (i VolumeGroupIdentityArgs) ToVolumeGroupIdentityOutput() VolumeGroupIdentityOutput {
+	return i.ToVolumeGroupIdentityOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupIdentityArgs) ToVolumeGroupIdentityOutputWithContext(ctx context.Context) VolumeGroupIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupIdentityOutput)
+}
+
+func (i VolumeGroupIdentityArgs) ToVolumeGroupIdentityPtrOutput() VolumeGroupIdentityPtrOutput {
+	return i.ToVolumeGroupIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupIdentityArgs) ToVolumeGroupIdentityPtrOutputWithContext(ctx context.Context) VolumeGroupIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupIdentityOutput).ToVolumeGroupIdentityPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupIdentityPtrInput is an input type that accepts VolumeGroupIdentityArgs, VolumeGroupIdentityPtr and VolumeGroupIdentityPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupIdentityPtrInput` via:
+//
+//	        VolumeGroupIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeGroupIdentityPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupIdentityPtrOutput() VolumeGroupIdentityPtrOutput
+	ToVolumeGroupIdentityPtrOutputWithContext(context.Context) VolumeGroupIdentityPtrOutput
+}
+
+type volumeGroupIdentityPtrType VolumeGroupIdentityArgs
+
+func VolumeGroupIdentityPtr(v *VolumeGroupIdentityArgs) VolumeGroupIdentityPtrInput {
+	return (*volumeGroupIdentityPtrType)(v)
+}
+
+func (*volumeGroupIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupIdentity)(nil)).Elem()
+}
+
+func (i *volumeGroupIdentityPtrType) ToVolumeGroupIdentityPtrOutput() VolumeGroupIdentityPtrOutput {
+	return i.ToVolumeGroupIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupIdentityPtrType) ToVolumeGroupIdentityPtrOutputWithContext(ctx context.Context) VolumeGroupIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupIdentityPtrOutput)
+}
+
+type VolumeGroupIdentityOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupIdentity)(nil)).Elem()
+}
+
+func (o VolumeGroupIdentityOutput) ToVolumeGroupIdentityOutput() VolumeGroupIdentityOutput {
+	return o
+}
+
+func (o VolumeGroupIdentityOutput) ToVolumeGroupIdentityOutputWithContext(ctx context.Context) VolumeGroupIdentityOutput {
+	return o
+}
+
+func (o VolumeGroupIdentityOutput) ToVolumeGroupIdentityPtrOutput() VolumeGroupIdentityPtrOutput {
+	return o.ToVolumeGroupIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupIdentityOutput) ToVolumeGroupIdentityPtrOutputWithContext(ctx context.Context) VolumeGroupIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupIdentity) *VolumeGroupIdentity {
+		return &v
+	}).(VolumeGroupIdentityPtrOutput)
+}
+
+// A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeGroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o VolumeGroupIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VolumeGroupIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupIdentity)(nil)).Elem()
+}
+
+func (o VolumeGroupIdentityPtrOutput) ToVolumeGroupIdentityPtrOutput() VolumeGroupIdentityPtrOutput {
+	return o
+}
+
+func (o VolumeGroupIdentityPtrOutput) ToVolumeGroupIdentityPtrOutputWithContext(ctx context.Context) VolumeGroupIdentityPtrOutput {
+	return o
+}
+
+func (o VolumeGroupIdentityPtrOutput) Elem() VolumeGroupIdentityOutput {
+	return o.ApplyT(func(v *VolumeGroupIdentity) VolumeGroupIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupIdentity
+		return ret
+	}).(VolumeGroupIdentityOutput)
+}
+
+// A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeGroupIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+func (o VolumeGroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+func (o VolumeGroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupNetworkRule struct {
+	// The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+	Action *string `pulumi:"action"`
+	// The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// VolumeGroupNetworkRuleInput is an input type that accepts VolumeGroupNetworkRuleArgs and VolumeGroupNetworkRuleOutput values.
+// You can construct a concrete instance of `VolumeGroupNetworkRuleInput` via:
+//
+//	VolumeGroupNetworkRuleArgs{...}
+type VolumeGroupNetworkRuleInput interface {
+	pulumi.Input
+
+	ToVolumeGroupNetworkRuleOutput() VolumeGroupNetworkRuleOutput
+	ToVolumeGroupNetworkRuleOutputWithContext(context.Context) VolumeGroupNetworkRuleOutput
+}
+
+type VolumeGroupNetworkRuleArgs struct {
+	// The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (VolumeGroupNetworkRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (i VolumeGroupNetworkRuleArgs) ToVolumeGroupNetworkRuleOutput() VolumeGroupNetworkRuleOutput {
+	return i.ToVolumeGroupNetworkRuleOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupNetworkRuleArgs) ToVolumeGroupNetworkRuleOutputWithContext(ctx context.Context) VolumeGroupNetworkRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupNetworkRuleOutput)
+}
+
+// VolumeGroupNetworkRuleArrayInput is an input type that accepts VolumeGroupNetworkRuleArray and VolumeGroupNetworkRuleArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupNetworkRuleArrayInput` via:
+//
+//	VolumeGroupNetworkRuleArray{ VolumeGroupNetworkRuleArgs{...} }
+type VolumeGroupNetworkRuleArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupNetworkRuleArrayOutput() VolumeGroupNetworkRuleArrayOutput
+	ToVolumeGroupNetworkRuleArrayOutputWithContext(context.Context) VolumeGroupNetworkRuleArrayOutput
+}
+
+type VolumeGroupNetworkRuleArray []VolumeGroupNetworkRuleInput
+
+func (VolumeGroupNetworkRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (i VolumeGroupNetworkRuleArray) ToVolumeGroupNetworkRuleArrayOutput() VolumeGroupNetworkRuleArrayOutput {
+	return i.ToVolumeGroupNetworkRuleArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupNetworkRuleArray) ToVolumeGroupNetworkRuleArrayOutputWithContext(ctx context.Context) VolumeGroupNetworkRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupNetworkRuleArrayOutput)
+}
+
+type VolumeGroupNetworkRuleOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupNetworkRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (o VolumeGroupNetworkRuleOutput) ToVolumeGroupNetworkRuleOutput() VolumeGroupNetworkRuleOutput {
+	return o
+}
+
+func (o VolumeGroupNetworkRuleOutput) ToVolumeGroupNetworkRuleOutputWithContext(ctx context.Context) VolumeGroupNetworkRuleOutput {
+	return o
+}
+
+// The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+func (o VolumeGroupNetworkRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupNetworkRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+func (o VolumeGroupNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type VolumeGroupNetworkRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupNetworkRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupNetworkRule)(nil)).Elem()
+}
+
+func (o VolumeGroupNetworkRuleArrayOutput) ToVolumeGroupNetworkRuleArrayOutput() VolumeGroupNetworkRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupNetworkRuleArrayOutput) ToVolumeGroupNetworkRuleArrayOutputWithContext(ctx context.Context) VolumeGroupNetworkRuleArrayOutput {
+	return o
+}
+
+func (o VolumeGroupNetworkRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupNetworkRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupNetworkRule {
+		return vs[0].([]VolumeGroupNetworkRule)[vs[1].(int)]
+	}).(VolumeGroupNetworkRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuInput)(nil)).Elem(), ElasticSanSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticSanSkuPtrInput)(nil)).Elem(), ElasticSanSkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupEncryptionInput)(nil)).Elem(), VolumeGroupEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupEncryptionPtrInput)(nil)).Elem(), VolumeGroupEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupIdentityInput)(nil)).Elem(), VolumeGroupIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupIdentityPtrInput)(nil)).Elem(), VolumeGroupIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleInput)(nil)).Elem(), VolumeGroupNetworkRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupNetworkRuleArrayInput)(nil)).Elem(), VolumeGroupNetworkRuleArray{})
 	pulumi.RegisterOutputType(ElasticSanSkuOutput{})
 	pulumi.RegisterOutputType(ElasticSanSkuPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupEncryptionOutput{})
+	pulumi.RegisterOutputType(VolumeGroupEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupIdentityOutput{})
+	pulumi.RegisterOutputType(VolumeGroupIdentityPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupNetworkRuleOutput{})
+	pulumi.RegisterOutputType(VolumeGroupNetworkRuleArrayOutput{})
 }

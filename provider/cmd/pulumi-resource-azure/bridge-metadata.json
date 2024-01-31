@@ -3534,6 +3534,10 @@
                 "current": "azure:cdn/profile:Profile",
                 "majorVersion": 5
             },
+            "azurerm_chaos_studio_target": {
+                "current": "azure:chaosstudio/target:Target",
+                "majorVersion": 5
+            },
             "azurerm_cognitive_account": {
                 "current": "azure:cognitive/account:Account",
                 "majorVersion": 5,
@@ -6249,6 +6253,28 @@
                         "maxItemsOne": true
                     },
                     "zones": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_elastic_san_volume_group": {
+                "current": "azure:elasticsan/volumeGroup:VolumeGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "encryption": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_rule": {
                         "maxItemsOne": false
                     }
                 }
@@ -15224,8 +15250,22 @@
                                 }
                             }
                         }
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
+            },
+            "azurerm_netapp_account_encryption": {
+                "current": "azure:netapp/accountEncryption:AccountEncryption",
+                "majorVersion": 5
             },
             "azurerm_netapp_pool": {
                 "current": "azure:netapp/pool:Pool",
@@ -16809,6 +16849,33 @@
             "azurerm_recovery_services_vault_resource_guard_association": {
                 "current": "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation",
                 "majorVersion": 5
+            },
+            "azurerm_redhat_openshift_cluster": {
+                "current": "azure:redhatopenshift/cluster:Cluster",
+                "majorVersion": 5,
+                "fields": {
+                    "api_server_profile": {
+                        "maxItemsOne": true
+                    },
+                    "cluster_profile": {
+                        "maxItemsOne": true
+                    },
+                    "ingress_profile": {
+                        "maxItemsOne": true
+                    },
+                    "main_profile": {
+                        "maxItemsOne": true
+                    },
+                    "network_profile": {
+                        "maxItemsOne": true
+                    },
+                    "service_principal": {
+                        "maxItemsOne": true
+                    },
+                    "worker_profile": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azurerm_redis_cache": {
                 "current": "azure:redis/cache:Cache",
@@ -24220,6 +24287,9 @@
                                 "custom_domain": {
                                     "maxItemsOne": false
                                 },
+                                "ip_security_restriction": {
+                                    "maxItemsOne": false
+                                },
                                 "traffic_weight": {
                                     "maxItemsOne": false
                                 }
@@ -24517,6 +24587,46 @@
                         }
                     },
                     "vsts_configuration": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_data_factory_trigger_schedule": {
+                "current": "azure:datafactory/getTriggerSchedule:getTriggerSchedule",
+                "majorVersion": 5,
+                "fields": {
+                    "annotations": {
+                        "maxItemsOne": false
+                    },
+                    "schedule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "days_of_month": {
+                                    "maxItemsOne": false
+                                },
+                                "days_of_week": {
+                                    "maxItemsOne": false
+                                },
+                                "hours": {
+                                    "maxItemsOne": false
+                                },
+                                "minutes": {
+                                    "maxItemsOne": false
+                                },
+                                "monthly": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_data_factory_trigger_schedules": {
+                "current": "azure:datafactory/getTriggerSchedules:getTriggerSchedules",
+                "majorVersion": 5,
+                "fields": {
+                    "items": {
                         "maxItemsOne": false
                     }
                 }
@@ -25321,6 +25431,25 @@
                 "majorVersion": 5,
                 "fields": {
                     "cidrs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_ip_groups": {
+                "current": "azure:network/getIpGroups:getIpGroups",
+                "past": [
+                    {
+                        "name": "azure:compute/getIpGroups:getIpGroups",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
+                "majorVersion": 5,
+                "fields": {
+                    "ids": {
+                        "maxItemsOne": false
+                    },
+                    "names": {
                         "maxItemsOne": false
                     }
                 }
@@ -27391,6 +27520,22 @@
             },
             "azurerm_netapp_account": {
                 "current": "azure:netapp/getAccount:getAccount",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_netapp_account_encryption": {
+                "current": "azure:netapp/getAccountEncryption:getAccountEncryption",
                 "majorVersion": 5
             },
             "azurerm_netapp_pool": {
@@ -27610,6 +27755,10 @@
             },
             "azurerm_network_watcher": {
                 "current": "azure:network/getNetworkWatcher:getNetworkWatcher",
+                "majorVersion": 5
+            },
+            "azurerm_nginx_certificate": {
+                "current": "azure:nginx/getCertificate:getCertificate",
                 "majorVersion": 5
             },
             "azurerm_nginx_deployment": {
@@ -29800,6 +29949,11 @@
     },
     "auto-settings": {
         "resources": {
+            "azurerm_automation_schedule": {
+                "maxItemsOneOverrides": {
+                    "monthly_occurrence": false
+                }
+            },
             "azurerm_automation_software_update_configuration": {
                 "maxItemsOneOverrides": {
                     "linux": false,
@@ -29849,6 +30003,13 @@
                 "maxItemsOneOverrides": {
                     "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
                 }
+            }
+        },
+        "datasources": {
+            "azurerm_ip_groups": {
+                "renames": [
+                    "azure:compute/getIpGroups:getIpGroups"
+                ]
             }
         }
     },
@@ -30070,6 +30231,7 @@
             "azure:cdn/frontdoorSecret:FrontdoorSecret": "azurerm_cdn_frontdoor_secret",
             "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy": "azurerm_cdn_frontdoor_security_policy",
             "azure:cdn/profile:Profile": "azurerm_cdn_profile",
+            "azure:chaosstudio/target:Target": "azurerm_chaos_studio_target",
             "azure:cognitive/account:Account": "azurerm_cognitive_account",
             "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey": "azurerm_cognitive_account_customer_managed_key",
             "azure:cognitive/deployment:Deployment": "azurerm_cognitive_deployment",
@@ -30303,6 +30465,7 @@
             "azure:domainservices/serviceTrust:ServiceTrust": "azurerm_active_directory_domain_service_trust",
             "azure:elasticcloud/elasticsearch:Elasticsearch": "azurerm_elastic_cloud_elasticsearch",
             "azure:elasticsan/elasticSan:ElasticSan": "azurerm_elastic_san",
+            "azure:elasticsan/volumeGroup:VolumeGroup": "azurerm_elastic_san_volume_group",
             "azure:eventgrid/domain:Domain": "azurerm_eventgrid_domain",
             "azure:eventgrid/domainTopic:DomainTopic": "azurerm_eventgrid_domain_topic",
             "azure:eventgrid/eventSubscription:EventSubscription": "azurerm_eventgrid_event_subscription",
@@ -30579,6 +30742,7 @@
             "azure:mysql/serverKey:ServerKey": "azurerm_mysql_server_key",
             "azure:mysql/virtualNetworkRule:VirtualNetworkRule": "azurerm_mysql_virtual_network_rule",
             "azure:netapp/account:Account": "azurerm_netapp_account",
+            "azure:netapp/accountEncryption:AccountEncryption": "azurerm_netapp_account_encryption",
             "azure:netapp/pool:Pool": "azurerm_netapp_pool",
             "azure:netapp/snapshot:Snapshot": "azurerm_netapp_snapshot",
             "azure:netapp/snapshotPolicy:SnapshotPolicy": "azurerm_netapp_snapshot_policy",
@@ -30741,6 +30905,7 @@
             "azure:purview/account:Account": "azurerm_purview_account",
             "azure:recoveryservices/vault:Vault": "azurerm_recovery_services_vault",
             "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": "azurerm_recovery_services_vault_resource_guard_association",
+            "azure:redhatopenshift/cluster:Cluster": "azurerm_redhat_openshift_cluster",
             "azure:redis/cache:Cache": "azurerm_redis_cache",
             "azure:redis/enterpriseCluster:EnterpriseCluster": "azurerm_redis_enterprise_cluster",
             "azure:redis/enterpriseDatabase:EnterpriseDatabase": "azurerm_redis_enterprise_database",
@@ -31000,6 +31165,7 @@
             "azure:compute/getDiskEncryptionSet:getDiskEncryptionSet": "azurerm_disk_encryption_set",
             "azure:compute/getImage:getImage": "azurerm_image",
             "azure:compute/getImages:getImages": "azurerm_images",
+            "azure:compute/getIpGroups:getIpGroups": "azurerm_ip_groups_legacy",
             "azure:compute/getManagedDisk:getManagedDisk": "azurerm_managed_disk",
             "azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet": "azurerm_orchestrated_virtual_machine_scale_set",
             "azure:compute/getPlatformImage:getPlatformImage": "azurerm_platform_image",
@@ -31050,6 +31216,8 @@
             "azure:databricks/getWorkspace:getWorkspace": "azurerm_databricks_workspace",
             "azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection": "azurerm_databricks_workspace_private_endpoint_connection",
             "azure:datafactory/getFactory:getFactory": "azurerm_data_factory",
+            "azure:datafactory/getTriggerSchedule:getTriggerSchedule": "azurerm_data_factory_trigger_schedule",
+            "azure:datafactory/getTriggerSchedules:getTriggerSchedules": "azurerm_data_factory_trigger_schedules",
             "azure:dataprotection/getBackupVault:getBackupVault": "azurerm_data_protection_backup_vault",
             "azure:datashare/getAccount:getAccount": "azurerm_data_share_account",
             "azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage": "azurerm_data_share_dataset_blob_storage",
@@ -31156,6 +31324,7 @@
             "azure:mysql/getFlexibleServer:getFlexibleServer": "azurerm_mysql_flexible_server",
             "azure:mysql/getServer:getServer": "azurerm_mysql_server",
             "azure:netapp/getAccount:getAccount": "azurerm_netapp_account",
+            "azure:netapp/getAccountEncryption:getAccountEncryption": "azurerm_netapp_account_encryption",
             "azure:netapp/getPool:getPool": "azurerm_netapp_pool",
             "azure:netapp/getSnapshot:getSnapshot": "azurerm_netapp_snapshot",
             "azure:netapp/getSnapshotPolicy:getSnapshotPolicy": "azurerm_netapp_snapshot_policy",
@@ -31169,6 +31338,7 @@
             "azure:network/getFirewallPolicy:getFirewallPolicy": "azurerm_firewall_policy",
             "azure:network/getGatewayConnection:getGatewayConnection": "azurerm_virtual_network_gateway_connection",
             "azure:network/getIpGroup:getIpGroup": "azurerm_ip_group",
+            "azure:network/getIpGroups:getIpGroups": "azurerm_ip_groups",
             "azure:network/getLocalNetworkGateway:getLocalNetworkGateway": "azurerm_local_network_gateway",
             "azure:network/getNatGateway:getNatGateway": "azurerm_nat_gateway",
             "azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan": "azurerm_network_ddos_protection_plan",
@@ -31193,6 +31363,7 @@
             "azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway": "azurerm_virtual_network_gateway",
             "azure:network/getVirtualWan:getVirtualWan": "azurerm_virtual_wan",
             "azure:network/getVpnGateway:getVpnGateway": "azurerm_vpn_gateway",
+            "azure:nginx/getCertificate:getCertificate": "azurerm_nginx_certificate",
             "azure:nginx/getDeployment:getDeployment": "azurerm_nginx_deployment",
             "azure:notificationhub/getHub:getHub": "azurerm_notification_hub",
             "azure:notificationhub/getNamespace:getNamespace": "azurerm_notification_hub_namespace",
@@ -39289,6 +39460,10 @@
             "azure:cdn/profile:Profile": {
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:chaosstudio/target:Target": {
+                "targetResourceId": "target_resource_id",
+                "targetType": "target_type"
+            },
             "azure:cognitive/AccountCustomerManagedKey:AccountCustomerManagedKey": {
                 "identityClientId": "identity_client_id",
                 "keyVaultKeyId": "key_vault_key_id"
@@ -40204,6 +40379,9 @@
                 "osState": "os_state",
                 "osType": "os_type",
                 "sizeGb": "size_gb"
+            },
+            "azure:compute/getIpGroups:getIpGroups": {
+                "resourceGroupName": "resource_group_name"
             },
             "azure:compute/getManagedDisk:getManagedDisk": {
                 "createOption": "create_option",
@@ -41199,12 +41377,16 @@
                 "customDomains": "custom_domain",
                 "exposedPort": "exposed_port",
                 "externalEnabled": "external_enabled",
+                "ipSecurityRestrictions": "ip_security_restriction",
                 "targetPort": "target_port",
                 "trafficWeights": "traffic_weight"
             },
             "azure:containerapp/getAppIngressCustomDomain:getAppIngressCustomDomain": {
                 "certificateBindingType": "certificate_binding_type",
                 "certificateId": "certificate_id"
+            },
+            "azure:containerapp/getAppIngressIpSecurityRestriction:getAppIngressIpSecurityRestriction": {
+                "ipAddressRange": "ip_address_range"
             },
             "azure:containerapp/getAppIngressTrafficWeight:getAppIngressTrafficWeight": {
                 "latestRevision": "latest_revision",
@@ -43824,6 +44006,22 @@
                 "rootFolder": "root_folder",
                 "tenantId": "tenant_id"
             },
+            "azure:datafactory/getTriggerSchedule:getTriggerSchedule": {
+                "dataFactoryId": "data_factory_id",
+                "endTime": "end_time",
+                "pipelineName": "pipeline_name",
+                "schedules": "schedule",
+                "startTime": "start_time",
+                "timeZone": "time_zone"
+            },
+            "azure:datafactory/getTriggerScheduleSchedule:getTriggerScheduleSchedule": {
+                "daysOfMonths": "days_of_month",
+                "daysOfWeeks": "days_of_week",
+                "monthlies": "monthly"
+            },
+            "azure:datafactory/getTriggerSchedules:getTriggerSchedules": {
+                "dataFactoryId": "data_factory_id"
+            },
             "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged": {
                 "catalogInfo": "catalog_info",
                 "customSetupScript": "custom_setup_script",
@@ -43850,6 +44048,7 @@
             },
             "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis": {
                 "catalogInfo": "catalog_info",
+                "credentialName": "credential_name",
                 "customSetupScript": "custom_setup_script",
                 "dataFactoryId": "data_factory_id",
                 "expressCustomSetup": "express_custom_setup",
@@ -44756,6 +44955,21 @@
                 "sendAzureadLogs": "send_azuread_logs",
                 "sendSubscriptionLogs": "send_subscription_logs"
             },
+            "azure:elasticsan/VolumeGroupEncryption:VolumeGroupEncryption": {
+                "currentVersionedKeyExpirationTimestamp": "current_versioned_key_expiration_timestamp",
+                "currentVersionedKeyId": "current_versioned_key_id",
+                "keyVaultKeyId": "key_vault_key_id",
+                "lastKeyRotationTimestamp": "last_key_rotation_timestamp",
+                "userAssignedIdentityId": "user_assigned_identity_id"
+            },
+            "azure:elasticsan/VolumeGroupIdentity:VolumeGroupIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
+            "azure:elasticsan/VolumeGroupNetworkRule:VolumeGroupNetworkRule": {
+                "subnetId": "subnet_id"
+            },
             "azure:elasticsan/elasticSan:ElasticSan": {
                 "baseSizeInTib": "base_size_in_tib",
                 "extendedSizeInTib": "extended_size_in_tib",
@@ -44765,6 +44979,12 @@
                 "totalSizeInTib": "total_size_in_tib",
                 "totalVolumeSizeInGib": "total_volume_size_in_gib",
                 "volumeGroupCount": "volume_group_count"
+            },
+            "azure:elasticsan/volumeGroup:VolumeGroup": {
+                "elasticSanId": "elastic_san_id",
+                "encryptionType": "encryption_type",
+                "networkRules": "network_rule",
+                "protocolType": "protocol_type"
             },
             "azure:eventgrid/DomainIdentity:DomainIdentity": {
                 "identityIds": "identity_ids",
@@ -50991,6 +51211,11 @@
                 "organizationalUnit": "organizational_unit",
                 "smbServerName": "smb_server_name"
             },
+            "azure:netapp/AccountIdentity:AccountIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
             "azure:netapp/SnapshotPolicyDailySchedule:SnapshotPolicyDailySchedule": {
                 "snapshotsToKeep": "snapshots_to_keep"
             },
@@ -51060,8 +51285,25 @@
                 "activeDirectory": "active_directory",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:netapp/accountEncryption:AccountEncryption": {
+                "encryptionKey": "encryption_key",
+                "netappAccountId": "netapp_account_id",
+                "systemAssignedIdentityPrincipalId": "system_assigned_identity_principal_id",
+                "userAssignedIdentityId": "user_assigned_identity_id"
+            },
             "azure:netapp/getAccount:getAccount": {
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:netapp/getAccountEncryption:getAccountEncryption": {
+                "encryptionKey": "encryption_key",
+                "netappAccountId": "netapp_account_id",
+                "systemAssignedIdentityPrincipalId": "system_assigned_identity_principal_id",
+                "userAssignedIdentityId": "user_assigned_identity_id"
+            },
+            "azure:netapp/getAccountIdentity:getAccountIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:netapp/getPool:getPool": {
                 "accountName": "account_name",
@@ -51100,6 +51342,8 @@
             "azure:netapp/getVolume:getVolume": {
                 "accountName": "account_name",
                 "dataProtectionReplications": "data_protection_replication",
+                "encryptionKeySource": "encryption_key_source",
+                "keyVaultPrivateEndpointId": "key_vault_private_endpoint_id",
                 "mountIpAddresses": "mount_ip_addresses",
                 "networkFeatures": "network_features",
                 "poolName": "pool_name",
@@ -51190,7 +51434,9 @@
                 "createFromSnapshotResourceId": "create_from_snapshot_resource_id",
                 "dataProtectionReplication": "data_protection_replication",
                 "dataProtectionSnapshotPolicy": "data_protection_snapshot_policy",
+                "encryptionKeySource": "encryption_key_source",
                 "exportPolicyRules": "export_policy_rule",
+                "keyVaultPrivateEndpointId": "key_vault_private_endpoint_id",
                 "mountIpAddresses": "mount_ip_addresses",
                 "networkFeatures": "network_features",
                 "poolName": "pool_name",
@@ -52445,6 +52691,9 @@
             "azure:network/getIpGroup:getIpGroup": {
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:network/getIpGroups:getIpGroups": {
+                "resourceGroupName": "resource_group_name"
+            },
             "azure:network/getLocalNetworkGateway:getLocalNetworkGateway": {
                 "addressSpaces": "address_space",
                 "bgpSettings": "bgp_settings",
@@ -53290,6 +53539,12 @@
                 "networkInterfaces": "network_interface",
                 "nginxVersion": "nginx_version",
                 "resourceGroupName": "resource_group_name"
+            },
+            "azure:nginx/getCertificate:getCertificate": {
+                "certificateVirtualPath": "certificate_virtual_path",
+                "keyVaultSecretId": "key_vault_secret_id",
+                "keyVirtualPath": "key_virtual_path",
+                "nginxDeploymentId": "nginx_deployment_id"
             },
             "azure:nginx/getDeployment:getDeployment": {
                 "diagnoseSupportEnabled": "diagnose_support_enabled",
@@ -54264,6 +54519,51 @@
             "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation": {
                 "resourceGuardId": "resource_guard_id",
                 "vaultId": "vault_id"
+            },
+            "azure:redhatopenshift/ClusterApiServerProfile:ClusterApiServerProfile": {
+                "ipAddress": "ip_address"
+            },
+            "azure:redhatopenshift/ClusterClusterProfile:ClusterClusterProfile": {
+                "fipsEnabled": "fips_enabled",
+                "pullSecret": "pull_secret",
+                "resourceGroupId": "resource_group_id"
+            },
+            "azure:redhatopenshift/ClusterIngressProfile:ClusterIngressProfile": {
+                "ipAddress": "ip_address"
+            },
+            "azure:redhatopenshift/ClusterMainProfile:ClusterMainProfile": {
+                "diskEncryptionSetId": "disk_encryption_set_id",
+                "encryptionAtHostEnabled": "encryption_at_host_enabled",
+                "subnetId": "subnet_id",
+                "vmSize": "vm_size"
+            },
+            "azure:redhatopenshift/ClusterNetworkProfile:ClusterNetworkProfile": {
+                "outboundType": "outbound_type",
+                "podCidr": "pod_cidr",
+                "serviceCidr": "service_cidr"
+            },
+            "azure:redhatopenshift/ClusterServicePrincipal:ClusterServicePrincipal": {
+                "clientId": "client_id",
+                "clientSecret": "client_secret"
+            },
+            "azure:redhatopenshift/ClusterWorkerProfile:ClusterWorkerProfile": {
+                "diskEncryptionSetId": "disk_encryption_set_id",
+                "diskSizeGb": "disk_size_gb",
+                "encryptionAtHostEnabled": "encryption_at_host_enabled",
+                "nodeCount": "node_count",
+                "subnetId": "subnet_id",
+                "vmSize": "vm_size"
+            },
+            "azure:redhatopenshift/cluster:Cluster": {
+                "apiServerProfile": "api_server_profile",
+                "clusterProfile": "cluster_profile",
+                "consoleUrl": "console_url",
+                "ingressProfile": "ingress_profile",
+                "mainProfile": "main_profile",
+                "networkProfile": "network_profile",
+                "resourceGroupName": "resource_group_name",
+                "servicePrincipal": "service_principal",
+                "workerProfile": "worker_profile"
             },
             "azure:redis/CacheIdentity:CacheIdentity": {
                 "identityIds": "identity_ids",
@@ -56621,6 +56921,7 @@
                 "lastOutputTime": "last_output_time",
                 "outputErrorPolicy": "output_error_policy",
                 "resourceGroupName": "resource_group_name",
+                "skuName": "sku_name",
                 "startMode": "start_mode",
                 "startTime": "start_time",
                 "streamingUnits": "streaming_units",
@@ -56641,6 +56942,7 @@
                 "jobStorageAccounts": "job_storage_account",
                 "outputErrorPolicy": "output_error_policy",
                 "resourceGroupName": "resource_group_name",
+                "skuName": "sku_name",
                 "streamAnalyticsClusterId": "stream_analytics_cluster_id",
                 "streamingUnits": "streaming_units",
                 "transformationQuery": "transformation_query"

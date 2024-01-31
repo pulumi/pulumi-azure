@@ -48,6 +48,7 @@ __all__ = [
     'GetAppIdentityResult',
     'GetAppIngressResult',
     'GetAppIngressCustomDomainResult',
+    'GetAppIngressIpSecurityRestrictionResult',
     'GetAppIngressTrafficWeightResult',
     'GetAppRegistryResult',
     'GetAppSecretResult',
@@ -2606,6 +2607,7 @@ class GetAppIngressResult(dict):
                  exposed_port: int,
                  external_enabled: bool,
                  fqdn: str,
+                 ip_security_restrictions: Sequence['outputs.GetAppIngressIpSecurityRestrictionResult'],
                  target_port: int,
                  traffic_weights: Sequence['outputs.GetAppIngressTrafficWeightResult'],
                  transport: str):
@@ -2614,6 +2616,7 @@ class GetAppIngressResult(dict):
         :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param bool external_enabled: Is this an external Ingress.
         :param str fqdn: The FQDN of the ingress.
+        :param Sequence['GetAppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         :param int target_port: The target port on the container for the Ingress traffic.
         :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
@@ -2623,6 +2626,7 @@ class GetAppIngressResult(dict):
         pulumi.set(__self__, "exposed_port", exposed_port)
         pulumi.set(__self__, "external_enabled", external_enabled)
         pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
         pulumi.set(__self__, "transport", transport)
@@ -2663,6 +2667,14 @@ class GetAppIngressResult(dict):
         The FQDN of the ingress.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="ipSecurityRestrictions")
+    def ip_security_restrictions(self) -> Sequence['outputs.GetAppIngressIpSecurityRestrictionResult']:
+        """
+        One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
+        """
+        return pulumi.get(self, "ip_security_restrictions")
 
     @property
     @pulumi.getter(name="targetPort")
@@ -2719,6 +2731,57 @@ class GetAppIngressCustomDomainResult(dict):
         The ID of the Container App Environment Certificate.
         """
         return pulumi.get(self, "certificate_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Container App.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAppIngressIpSecurityRestrictionResult(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 description: str,
+                 ip_address_range: str,
+                 name: str):
+        """
+        :param str action: The IP-filter action.
+        :param str description: Description of the IP restriction rule that is being sent to the container-app.
+        :param str ip_address_range: CIDR notation that matches the incoming IP address.
+        :param str name: The name of the Container App.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "ip_address_range", ip_address_range)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The IP-filter action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the IP restriction rule that is being sent to the container-app.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="ipAddressRange")
+    def ip_address_range(self) -> str:
+        """
+        CIDR notation that matches the incoming IP address.
+        """
+        return pulumi.get(self, "ip_address_range")
 
     @property
     @pulumi.getter

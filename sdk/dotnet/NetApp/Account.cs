@@ -29,10 +29,18 @@ namespace Pulumi.Azure.NetApp
     ///         Location = "West Europe",
     ///     });
     /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
     ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
     ///         {
     ///             Username = "aduser",
@@ -44,6 +52,14 @@ namespace Pulumi.Azure.NetApp
     ///             },
     ///             Domain = "westcentralus.com",
     ///             OrganizationalUnit = "OU=FirstLevel",
+    ///         },
+    ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -66,6 +82,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("activeDirectory")]
         public Output<Outputs.AccountActiveDirectory?> ActiveDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -144,6 +166,12 @@ namespace Pulumi.Azure.NetApp
         public Input<Inputs.AccountActiveDirectoryArgs>? ActiveDirectory { get; set; }
 
         /// <summary>
+        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -186,6 +214,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("activeDirectory")]
         public Input<Inputs.AccountActiveDirectoryGetArgs>? ActiveDirectory { get; set; }
+
+        /// <summary>
+        /// The identity block where it is used when customer managed keys based encryption will be enabled.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

@@ -166,6 +166,8 @@ export class Assignment extends pulumi.CustomResource {
     public readonly principalId!: pulumi.Output<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     public readonly principalType!: pulumi.Output<string>;
     /**
@@ -272,6 +274,8 @@ export interface AssignmentState {
     principalId?: pulumi.Input<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     principalType?: pulumi.Input<string>;
     /**
@@ -328,6 +332,8 @@ export interface AssignmentArgs {
     principalId: pulumi.Input<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If one of `condition` or `conditionVersion` is set both fields must be present.
      */
     principalType?: pulumi.Input<string>;
     /**

@@ -82,14 +82,14 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      * 
      */
     @Import(name="redundancy")
     private @Nullable Output<String> redundancy;
 
     /**
-     * @return Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+     * @return Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      * 
      */
     public Optional<Output<String>> redundancy() {
@@ -245,7 +245,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redundancy Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+         * @param redundancy Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class BackupVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redundancy Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+         * @param redundancy Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
          * 
          * @return builder
          * 

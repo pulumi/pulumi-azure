@@ -127,6 +127,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     */
+    public readonly skuName!: pulumi.Output<string | undefined>;
+    /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
     public readonly streamAnalyticsClusterId!: pulumi.Output<string | undefined>;
@@ -134,6 +138,7 @@ export class Job extends pulumi.CustomResource {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+     * *
      */
     public readonly streamingUnits!: pulumi.Output<number | undefined>;
     /**
@@ -177,6 +182,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["streamAnalyticsClusterId"] = state ? state.streamAnalyticsClusterId : undefined;
             resourceInputs["streamingUnits"] = state ? state.streamingUnits : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -202,6 +208,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["streamAnalyticsClusterId"] = args ? args.streamAnalyticsClusterId : undefined;
             resourceInputs["streamingUnits"] = args ? args.streamingUnits : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -273,6 +280,10 @@ export interface JobState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     */
+    skuName?: pulumi.Input<string>;
+    /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
     streamAnalyticsClusterId?: pulumi.Input<string>;
@@ -280,6 +291,7 @@ export interface JobState {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+     * *
      */
     streamingUnits?: pulumi.Input<number>;
     /**
@@ -353,6 +365,10 @@ export interface JobArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
+     */
+    skuName?: pulumi.Input<string>;
+    /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
     streamAnalyticsClusterId?: pulumi.Input<string>;
@@ -360,6 +376,7 @@ export interface JobArgs {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      *
      * > **NOTE:** `streamingUnits` must be set when `type` is `Cloud`.
+     * *
      */
     streamingUnits?: pulumi.Input<number>;
     /**

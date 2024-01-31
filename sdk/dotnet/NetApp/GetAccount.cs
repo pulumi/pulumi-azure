@@ -73,6 +73,9 @@ namespace Pulumi.Azure.NetApp
 
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
+        [Input("identity")]
+        public Inputs.GetAccountIdentityArgs? Identity { get; set; }
+
         /// <summary>
         /// The name of the NetApp Account.
         /// </summary>
@@ -93,6 +96,9 @@ namespace Pulumi.Azure.NetApp
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("identity")]
+        public Input<Inputs.GetAccountIdentityInputArgs>? Identity { get; set; }
+
         /// <summary>
         /// The name of the NetApp Account.
         /// </summary>
@@ -119,27 +125,35 @@ namespace Pulumi.Azure.NetApp
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly Outputs.GetAccountIdentityResult? Identity;
         /// <summary>
         /// The Azure Region where the NetApp Account exists.
         /// </summary>
         public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetAccountResult(
             string id,
 
+            Outputs.GetAccountIdentityResult? identity,
+
             string location,
 
             string name,
 
-            string resourceGroupName)
+            string resourceGroupName,
+
+            ImmutableDictionary<string, string> tags)
         {
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            Tags = tags;
         }
     }
 }

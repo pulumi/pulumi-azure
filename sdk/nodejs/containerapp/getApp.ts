@@ -73,7 +73,7 @@ export interface GetAppResult {
     readonly latestRevisionName: string;
     readonly location: string;
     /**
-     * The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+     * Name for the IP restriction rule.
      */
     readonly name: string;
     readonly outboundIpAddresses: string[];

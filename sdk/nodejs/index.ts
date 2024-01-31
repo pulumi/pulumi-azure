@@ -37,6 +37,7 @@ import * as billing from "./billing";
 import * as blueprint from "./blueprint";
 import * as bot from "./bot";
 import * as cdn from "./cdn";
+import * as chaosstudio from "./chaosstudio";
 import * as cognitive from "./cognitive";
 import * as communication from "./communication";
 import * as compute from "./compute";
@@ -123,6 +124,7 @@ import * as privatelink from "./privatelink";
 import * as proximity from "./proximity";
 import * as purview from "./purview";
 import * as recoveryservices from "./recoveryservices";
+import * as redhatopenshift from "./redhatopenshift";
 import * as redis from "./redis";
 import * as relay from "./relay";
 import * as role from "./role";
@@ -169,6 +171,7 @@ export {
     blueprint,
     bot,
     cdn,
+    chaosstudio,
     cognitive,
     communication,
     compute,
@@ -255,6 +258,7 @@ export {
     proximity,
     purview,
     recoveryservices,
+    redhatopenshift,
     redis,
     relay,
     role,

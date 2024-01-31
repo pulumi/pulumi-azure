@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetAccountResult',
@@ -21,10 +23,13 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, id=None, location=None, name=None, resource_group_name=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, resource_group_name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -34,6 +39,9 @@ class GetAccountResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -42,6 +50,11 @@ class GetAccountResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.GetAccountIdentityResult']:
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -61,6 +74,11 @@ class GetAccountResult:
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
@@ -69,12 +87,15 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
-            resource_group_name=self.resource_group_name)
+            resource_group_name=self.resource_group_name,
+            tags=self.tags)
 
 
-def get_account(name: Optional[str] = None,
+def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] = None,
+                name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
@@ -96,6 +117,7 @@ def get_account(name: Optional[str] = None,
     :param str resource_group_name: The Name of the Resource Group where the NetApp Account exists.
     """
     __args__ = dict()
+    __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -103,13 +125,16 @@ def get_account(name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(name: Optional[pulumi.Input[str]] = None,
+def get_account_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetAccountIdentityArgs']]]] = None,
+                       name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """

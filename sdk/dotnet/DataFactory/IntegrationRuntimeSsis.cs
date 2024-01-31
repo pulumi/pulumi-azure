@@ -61,6 +61,14 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeSsisCatalogInfo?> CatalogInfo { get; private set; } = null!;
 
         /// <summary>
+        /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+        /// 
+        /// &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// </summary>
+        [Output("credentialName")]
+        public Output<string?> CredentialName { get; private set; } = null!;
+
+        /// <summary>
         /// A `custom_setup_script` block as defined below.
         /// </summary>
         [Output("customSetupScript")]
@@ -203,6 +211,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoArgs>? CatalogInfo { get; set; }
 
         /// <summary>
+        /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+        /// 
+        /// &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
+
+        /// <summary>
         /// A `custom_setup_script` block as defined below.
         /// </summary>
         [Input("customSetupScript")]
@@ -311,6 +327,14 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("catalogInfo")]
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoGetArgs>? CatalogInfo { get; set; }
+
+        /// <summary>
+        /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
+        /// 
+        /// &gt; **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
+        /// </summary>
+        [Input("credentialName")]
+        public Input<string>? CredentialName { get; set; }
 
         /// <summary>
         /// A `custom_setup_script` block as defined below.

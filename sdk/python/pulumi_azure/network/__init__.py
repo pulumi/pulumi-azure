@@ -30,6 +30,7 @@ from .get_firewall import *
 from .get_firewall_policy import *
 from .get_gateway_connection import *
 from .get_ip_group import *
+from .get_ip_groups import *
 from .get_local_network_gateway import *
 from .get_nat_gateway import *
 from .get_network_ddos_protection_plan import *

@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs {
@@ -45,18 +47,18 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The version of Cognitive Services Account Deployment model.
+     * The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
      * 
      */
-    @Import(name="version", required=true)
-    private Output<String> version;
+    @Import(name="version")
+    private @Nullable Output<String> version;
 
     /**
-     * @return The version of Cognitive Services Account Deployment model.
+     * @return The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
      * 
      */
-    public Output<String> version() {
-        return this.version;
+    public Optional<Output<String>> version() {
+        return Optional.ofNullable(this.version);
     }
 
     private DeploymentModelArgs() {}
@@ -128,18 +130,18 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param version The version of Cognitive Services Account Deployment model.
+         * @param version The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
          * 
          * @return builder
          * 
          */
-        public Builder version(Output<String> version) {
+        public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
         /**
-         * @param version The version of Cognitive Services Account Deployment model.
+         * @param version The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
          * 
          * @return builder
          * 
@@ -154,9 +156,6 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("DeploymentModelArgs", "name");
-            }
-            if ($.version == null) {
-                throw new MissingRequiredPropertyException("DeploymentModelArgs", "version");
             }
             return $;
         }

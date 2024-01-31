@@ -11,6 +11,9 @@ from .. import _utilities
 
 __all__ = [
     'ElasticSanSkuArgs',
+    'VolumeGroupEncryptionArgs',
+    'VolumeGroupIdentityArgs',
+    'VolumeGroupNetworkRuleArgs',
 ]
 
 @pulumi.input_type
@@ -53,5 +56,199 @@ class ElasticSanSkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class VolumeGroupEncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str],
+                 current_versioned_key_expiration_timestamp: Optional[pulumi.Input[str]] = None,
+                 current_versioned_key_id: Optional[pulumi.Input[str]] = None,
+                 last_key_rotation_timestamp: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+        :param pulumi.Input[str] current_versioned_key_expiration_timestamp: The timestamp of the expiration time for the current version of the customer managed key.
+        :param pulumi.Input[str] current_versioned_key_id: The ID of the current versioned Key Vault Key in use.
+        :param pulumi.Input[str] last_key_rotation_timestamp: The timestamp of the last rotation of the Key Vault Key.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if current_versioned_key_expiration_timestamp is not None:
+            pulumi.set(__self__, "current_versioned_key_expiration_timestamp", current_versioned_key_expiration_timestamp)
+        if current_versioned_key_id is not None:
+            pulumi.set(__self__, "current_versioned_key_id", current_versioned_key_id)
+        if last_key_rotation_timestamp is not None:
+            pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The Key Vault key URI for Customer Managed Key encryption, which can be either a full URI or a versionless URI.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="currentVersionedKeyExpirationTimestamp")
+    def current_versioned_key_expiration_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of the expiration time for the current version of the customer managed key.
+        """
+        return pulumi.get(self, "current_versioned_key_expiration_timestamp")
+
+    @current_versioned_key_expiration_timestamp.setter
+    def current_versioned_key_expiration_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_versioned_key_expiration_timestamp", value)
+
+    @property
+    @pulumi.getter(name="currentVersionedKeyId")
+    def current_versioned_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the current versioned Key Vault Key in use.
+        """
+        return pulumi.get(self, "current_versioned_key_id")
+
+    @current_versioned_key_id.setter
+    def current_versioned_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_versioned_key_id", value)
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timestamp of the last rotation of the Key Vault Key.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
+
+    @last_key_rotation_timestamp.setter
+    def last_key_rotation_timestamp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_key_rotation_timestamp", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the User Assigned Identity used by this Elastic SAN Volume Group.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class VolumeGroupIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Identity that should be assigned to this Elastic SAN Volume Group. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the User Assigned Identity IDs that should be assigned to this Elastic SAN Volume Group.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with the Managed Service Identity assigned to this Elastic SAN Volume Group.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity assigned to this Elastic SAN Volume Group.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class VolumeGroupNetworkRuleArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+        :param pulumi.Input[str] action: The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet which should be allowed to access this Elastic SAN Volume Group.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action to take when the Subnet attempts to access this Elastic SAN Volume Group. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "action", value)
 
 

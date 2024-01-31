@@ -76,7 +76,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Output("redundancy")]
         public Output<string> Redundancy { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Input("redundancy", required: true)]
         public Input<string> Redundancy { get; set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created.
+        /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         /// </summary>
         [Input("redundancy")]
         public Input<string>? Redundancy { get; set; }

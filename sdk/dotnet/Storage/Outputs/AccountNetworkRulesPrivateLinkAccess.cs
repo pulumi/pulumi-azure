@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountNetworkRulesPrivateLinkAccess
     {
         /// <summary>
-        /// The resource id of the resource access rule to be granted access.
+        /// The ID of the Azure resource that should be allowed access to the target storage account.
         /// </summary>
         public readonly string EndpointResourceId;
         /// <summary>

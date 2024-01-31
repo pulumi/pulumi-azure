@@ -130,6 +130,11 @@ export const getIpGroup: typeof import("./getIpGroup").getIpGroup = null as any;
 export const getIpGroupOutput: typeof import("./getIpGroup").getIpGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getIpGroup","getIpGroupOutput"], () => require("./getIpGroup"));
 
+export { GetIpGroupsArgs, GetIpGroupsResult, GetIpGroupsOutputArgs } from "./getIpGroups";
+export const getIpGroups: typeof import("./getIpGroups").getIpGroups = null as any;
+export const getIpGroupsOutput: typeof import("./getIpGroups").getIpGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getIpGroups","getIpGroupsOutput"], () => require("./getIpGroups"));
+
 export { GetLocalNetworkGatewayArgs, GetLocalNetworkGatewayResult, GetLocalNetworkGatewayOutputArgs } from "./getLocalNetworkGateway";
 export const getLocalNetworkGateway: typeof import("./getLocalNetworkGateway").getLocalNetworkGateway = null as any;
 export const getLocalNetworkGatewayOutput: typeof import("./getLocalNetworkGateway").getLocalNetworkGatewayOutput = null as any;

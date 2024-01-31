@@ -140,7 +140,7 @@ namespace Pulumi.Azure.ContainerApp
         public readonly string LatestRevisionName;
         public readonly string Location;
         /// <summary>
-        /// The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
+        /// Name for the IP restriction rule.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> OutboundIpAddresses;

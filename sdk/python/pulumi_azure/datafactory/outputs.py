@@ -113,6 +113,8 @@ __all__ = [
     'GetFactoryGithubConfigurationResult',
     'GetFactoryIdentityResult',
     'GetFactoryVstsConfigurationResult',
+    'GetTriggerScheduleScheduleResult',
+    'GetTriggerScheduleScheduleMonthlyResult',
 ]
 
 @pulumi.output_type
@@ -5879,5 +5881,96 @@ class GetFactoryVstsConfigurationResult(dict):
         The Tenant ID associated with the VSTS account.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetTriggerScheduleScheduleResult(dict):
+    def __init__(__self__, *,
+                 days_of_months: Sequence[int],
+                 days_of_weeks: Sequence[str],
+                 hours: Sequence[int],
+                 minutes: Sequence[int],
+                 monthlies: Sequence['outputs.GetTriggerScheduleScheduleMonthlyResult']):
+        """
+        :param Sequence[int] days_of_months: Day(s) of the month on which the trigger is scheduled.
+        :param Sequence[str] days_of_weeks: Day(s) of the week on which the trigger is scheduled.
+        :param Sequence[int] hours: Hours of the day on which the trigger is scheduled.
+        :param Sequence[int] minutes: Minutes of the hour on which the trigger is scheduled.
+        :param Sequence['GetTriggerScheduleScheduleMonthlyArgs'] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+        pulumi.set(__self__, "monthlies", monthlies)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> Sequence[int]:
+        """
+        Day(s) of the month on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "days_of_months")
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Sequence[str]:
+        """
+        Day(s) of the week on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Sequence[int]:
+        """
+        Hours of the day on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Sequence[int]:
+        """
+        Minutes of the hour on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter
+    def monthlies(self) -> Sequence['outputs.GetTriggerScheduleScheduleMonthlyResult']:
+        """
+        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled.
+        """
+        return pulumi.get(self, "monthlies")
+
+
+@pulumi.output_type
+class GetTriggerScheduleScheduleMonthlyResult(dict):
+    def __init__(__self__, *,
+                 week: int,
+                 weekday: str):
+        """
+        :param int week: The occurrence of the specified day during the month.
+        :param str weekday: The day of the week on which the trigger runs.
+        """
+        pulumi.set(__self__, "week", week)
+        pulumi.set(__self__, "weekday", weekday)
+
+    @property
+    @pulumi.getter
+    def week(self) -> int:
+        """
+        The occurrence of the specified day during the month.
+        """
+        return pulumi.get(self, "week")
+
+    @property
+    @pulumi.getter
+    def weekday(self) -> str:
+        """
+        The day of the week on which the trigger runs.
+        """
+        return pulumi.get(self, "weekday")
 
 

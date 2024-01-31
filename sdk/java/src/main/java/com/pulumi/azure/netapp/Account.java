@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.netapp.AccountArgs;
 import com.pulumi.azure.netapp.inputs.AccountState;
 import com.pulumi.azure.netapp.outputs.AccountActiveDirectory;
+import com.pulumi.azure.netapp.outputs.AccountIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -30,9 +31,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.netapp.Account;
  * import com.pulumi.azure.netapp.AccountArgs;
  * import com.pulumi.azure.netapp.inputs.AccountActiveDirectoryArgs;
+ * import com.pulumi.azure.netapp.inputs.AccountIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,9 +55,16 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
  *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .activeDirectory(AccountActiveDirectoryArgs.builder()
  *                 .username(&#34;aduser&#34;)
  *                 .password(&#34;aduserpwd&#34;)
@@ -60,6 +72,10 @@ import javax.annotation.Nullable;
  *                 .dnsServers(&#34;1.2.3.4&#34;)
  *                 .domain(&#34;westcentralus.com&#34;)
  *                 .organizationalUnit(&#34;OU=FirstLevel&#34;)
+ *                 .build())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .build());
  * 
@@ -91,6 +107,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccountActiveDirectory>> activeDirectory() {
         return Codegen.optional(this.activeDirectory);
+    }
+    /**
+     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * 
+     */
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ AccountIdentity> identity;
+
+    /**
+     * @return The identity block where it is used when customer managed keys based encryption will be enabled.
+     * 
+     */
+    public Output<Optional<AccountIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

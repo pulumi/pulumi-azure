@@ -10,6 +10,11 @@ export type ElasticSan = import("./elasticSan").ElasticSan;
 export const ElasticSan: typeof import("./elasticSan").ElasticSan = null as any;
 utilities.lazyLoad(exports, ["ElasticSan"], () => require("./elasticSan"));
 
+export { VolumeGroupArgs, VolumeGroupState } from "./volumeGroup";
+export type VolumeGroup = import("./volumeGroup").VolumeGroup;
+export const VolumeGroup: typeof import("./volumeGroup").VolumeGroup = null as any;
+utilities.lazyLoad(exports, ["VolumeGroup"], () => require("./volumeGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:elasticsan/elasticSan:ElasticSan":
                 return new ElasticSan(name, <any>undefined, { urn })
+            case "azure:elasticsan/volumeGroup:VolumeGroup":
+                return new VolumeGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "elasticsan/elasticSan", _module)
+pulumi.runtime.registerResourceModule("azure", "elasticsan/volumeGroup", _module)

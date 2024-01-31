@@ -4,6 +4,7 @@
 package com.pulumi.azure.netapp.inputs;
 
 import com.pulumi.azure.netapp.inputs.AccountActiveDirectoryArgs;
+import com.pulumi.azure.netapp.inputs.AccountIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -30,6 +31,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AccountActiveDirectoryArgs>> activeDirectory() {
         return Optional.ofNullable(this.activeDirectory);
+    }
+
+    /**
+     * The identity block where it is used when customer managed keys based encryption will be enabled.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<AccountIdentityArgs> identity;
+
+    /**
+     * @return The identity block where it is used when customer managed keys based encryption will be enabled.
+     * 
+     */
+    public Optional<Output<AccountIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -96,6 +112,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     private AccountState(AccountState $) {
         this.activeDirectory = $.activeDirectory;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -139,6 +156,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder activeDirectory(AccountActiveDirectoryArgs activeDirectory) {
             return activeDirectory(Output.of(activeDirectory));
+        }
+
+        /**
+         * @param identity The identity block where it is used when customer managed keys based encryption will be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<AccountIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity The identity block where it is used when customer managed keys based encryption will be enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(AccountIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
