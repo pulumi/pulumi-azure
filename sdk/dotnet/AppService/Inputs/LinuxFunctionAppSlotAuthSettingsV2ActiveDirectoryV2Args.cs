@@ -68,6 +68,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The thumbprint of the certificate used for signing purposes.
+        /// </summary>
         [Input("clientSecretCertificateThumbprint")]
         public Input<string>? ClientSecretCertificateThumbprint { get; set; }
 

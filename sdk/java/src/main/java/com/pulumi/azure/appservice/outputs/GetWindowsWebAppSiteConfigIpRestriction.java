@@ -19,13 +19,25 @@ public final class GetWindowsWebAppSiteConfigIpRestriction {
      */
     private String action;
     private List<GetWindowsWebAppSiteConfigIpRestrictionHeader> headers;
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     private String ipAddress;
     /**
      * @return The name of this Windows Web App.
      * 
      */
     private String name;
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     private String serviceTag;
     /**
      * @return The subnet id which the Windows Web App is vNet Integrated with.
@@ -44,6 +56,10 @@ public final class GetWindowsWebAppSiteConfigIpRestriction {
     public List<GetWindowsWebAppSiteConfigIpRestrictionHeader> headers() {
         return this.headers;
     }
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
@@ -54,9 +70,17 @@ public final class GetWindowsWebAppSiteConfigIpRestriction {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public String serviceTag() {
         return this.serviceTag;
     }

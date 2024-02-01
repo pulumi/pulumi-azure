@@ -61,6 +61,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Specifies a list of Default Documents for the Windows Function App.
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
+        /// <summary>
+        /// Is detailed error logging enabled
+        /// </summary>
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>
         /// The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -124,6 +127,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         /// </summary>
         public readonly string? ScmMinimumTlsVersion;
+        /// <summary>
+        /// The SCM Type in use by the Windows Function App.
+        /// </summary>
         public readonly string? ScmType;
         /// <summary>
         /// Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
@@ -141,6 +147,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should Web Sockets be enabled. Defaults to `false`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
+        /// <summary>
+        /// The Windows FX Version string.
+        /// </summary>
         public readonly string? WindowsFxVersion;
         /// <summary>
         /// The number of Workers for this Windows Function App.

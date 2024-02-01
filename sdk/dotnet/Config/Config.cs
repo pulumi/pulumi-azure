@@ -123,9 +123,6 @@ namespace Pulumi.Azure
         }
 
         private static readonly __Value<bool?> _disableTerraformPartnerId = new __Value<bool?>(() => __config.GetBoolean("disableTerraformPartnerId"));
-        /// <summary>
-        /// This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-        /// </summary>
         public static bool? DisableTerraformPartnerId
         {
             get => _disableTerraformPartnerId.Get();
@@ -353,14 +350,41 @@ namespace Pulumi.Azure
 
              public class FeaturesKeyVault
              {
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
                 public bool? PurgeSoftDeletedCertificatesOnDestroy { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
                 public bool? PurgeSoftDeletedHardwareSecurityModulesOnDestroy { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
                 public bool? PurgeSoftDeletedKeysOnDestroy { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+            /// </summary>
                 public bool? PurgeSoftDeletedSecretsOnDestroy { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+            /// </summary>
                 public bool? RecoverSoftDeletedCertificates { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+            /// </summary>
                 public bool? RecoverSoftDeletedKeyVaults { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+            /// </summary>
                 public bool? RecoverSoftDeletedKeys { get; set; }
+            /// <summary>
+            /// When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+            /// </summary>
                 public bool? RecoverSoftDeletedSecrets { get; set; }
             }
 

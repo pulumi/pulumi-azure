@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
  *             .labId(exampleLab.id())
- *             .email(&#34;terraform-acctest@hashicorp.com&#34;)
+ *             .email(&#34;terraform-acctest@example.com&#34;)
  *             .build());
  * 
  *     }

@@ -94,7 +94,7 @@ import (
 //				return err
 //			}
 //			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("ms.admin@hashicorp.com"),
+//				UserPrincipalName: pulumi.String("ms.admin@example.com"),
 //				DisplayName:       pulumi.String("Ms Admin"),
 //				MailNickname:      pulumi.String("ms.admin"),
 //				Password:          pulumi.String("SecretP@sswd99!"),

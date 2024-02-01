@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Lab
     ///     var exampleUser = new Azure.Lab.User("exampleUser", new()
     ///     {
     ///         LabId = exampleLab.Id,
-    ///         Email = "terraform-acctest@hashicorp.com",
+    ///         Email = "terraform-acctest@example.com",
     ///     });
     /// 
     /// });

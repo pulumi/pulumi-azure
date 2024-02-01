@@ -35,6 +35,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The ID of the Client to use to authenticate with Azure Active Directory.
         /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// The thumbprint of the certificate used for signing purposes.
+        /// </summary>
         public readonly string? ClientSecretCertificateThumbprint;
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.

@@ -31,6 +31,10 @@ public final class LinuxWebAppSlotBackupSchedule {
      * 
      */
     private @Nullable Boolean keepAtLeastOneBackup;
+    /**
+     * @return The time the backup was last attempted.
+     * 
+     */
     private @Nullable String lastExecutionTime;
     /**
      * @return After how many days backups should be deleted. Defaults to `30`.
@@ -67,6 +71,10 @@ public final class LinuxWebAppSlotBackupSchedule {
     public Optional<Boolean> keepAtLeastOneBackup() {
         return Optional.ofNullable(this.keepAtLeastOneBackup);
     }
+    /**
+     * @return The time the backup was last attempted.
+     * 
+     */
     public Optional<String> lastExecutionTime() {
         return Optional.ofNullable(this.lastExecutionTime);
     }

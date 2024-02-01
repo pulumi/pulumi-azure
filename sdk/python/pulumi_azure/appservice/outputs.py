@@ -7386,6 +7386,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -7468,6 +7469,9 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -8422,6 +8426,7 @@ class LinuxFunctionAppBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -8465,6 +8470,9 @@ class LinuxFunctionAppBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -8745,12 +8753,14 @@ class LinuxFunctionAppSiteConfig(dict):
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['LinuxFunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param str linux_fx_version: The Linux FX Version
         :param str load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -8762,6 +8772,7 @@ class LinuxFunctionAppSiteConfig(dict):
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str scm_type: The SCM Type in use by the Linux Function App.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -8952,6 +8963,9 @@ class LinuxFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[bool]:
+        """
+        Is detailed error logging enabled
+        """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
     @property
@@ -9005,6 +9019,9 @@ class LinuxFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> Optional[str]:
+        """
+        The Linux FX Version
+        """
         return pulumi.get(self, "linux_fx_version")
 
     @property
@@ -9084,6 +9101,9 @@ class LinuxFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="scmType")
     def scm_type(self) -> Optional[str]:
+        """
+        The SCM Type in use by the Linux Function App.
+        """
         return pulumi.get(self, "scm_type")
 
     @property
@@ -10958,6 +10978,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -11040,6 +11061,9 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -14796,6 +14820,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -14878,6 +14903,9 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -15067,6 +15095,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
                  token_endpoint: Optional[str] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str name: The name of the Custom OIDC Authentication Provider.
         :param str openid_configuration_endpoint: Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -15108,6 +15137,9 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -15828,6 +15860,7 @@ class LinuxWebAppBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -15871,6 +15904,9 @@ class LinuxWebAppBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -17829,6 +17865,7 @@ class LinuxWebAppSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
+        :param str name: The Site Credentials Username used for publishing.
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -17839,6 +17876,9 @@ class LinuxWebAppSiteCredential(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -18929,6 +18969,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -19011,6 +19052,9 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -19200,6 +19244,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
                  token_endpoint: Optional[str] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str name: The name of the Custom OIDC Authentication Provider.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -19241,6 +19286,9 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -19961,6 +20009,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -20004,6 +20053,9 @@ class LinuxWebAppSlotBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -21976,6 +22028,7 @@ class LinuxWebAppSlotSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
+        :param str name: The Site Credentials Username used for publishing.
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -21986,6 +22039,9 @@ class LinuxWebAppSlotSiteCredential(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -24325,6 +24381,7 @@ class SourceControlGithubActionConfiguration(dict):
         :param 'SourceControlGithubActionConfigurationCodeConfigurationArgs' code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         :param 'SourceControlGithubActionConfigurationContainerConfigurationArgs' container_configuration: A `container_configuration` block as defined above.
         :param bool generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        :param bool linux_action: Denotes this action uses a Linux base image.
         """
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
@@ -24362,6 +24419,9 @@ class SourceControlGithubActionConfiguration(dict):
     @property
     @pulumi.getter(name="linuxAction")
     def linux_action(self) -> Optional[bool]:
+        """
+        Denotes this action uses a Linux base image.
+        """
         return pulumi.get(self, "linux_action")
 
 
@@ -25841,6 +25901,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -25923,6 +25984,9 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -26877,6 +26941,7 @@ class WindowsFunctionAppBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -26920,6 +26985,9 @@ class WindowsFunctionAppBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -27192,6 +27260,7 @@ class WindowsFunctionAppSiteConfig(dict):
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param 'WindowsFunctionAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Function App.
+        :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -27209,10 +27278,12 @@ class WindowsFunctionAppSiteConfig(dict):
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param Sequence['WindowsFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param str scm_type: The SCM Type in use by the Windows Function App.
         :param bool scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param bool use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param str windows_fx_version: The Windows FX Version string.
         :param int worker_count: The number of Workers for this Windows Function App.
         """
         if always_on is not None:
@@ -27379,6 +27450,9 @@ class WindowsFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[bool]:
+        """
+        Is detailed error logging enabled
+        """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
     @property
@@ -27506,6 +27580,9 @@ class WindowsFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="scmType")
     def scm_type(self) -> Optional[str]:
+        """
+        The SCM Type in use by the Windows Function App.
+        """
         return pulumi.get(self, "scm_type")
 
     @property
@@ -27543,6 +27620,9 @@ class WindowsFunctionAppSiteConfig(dict):
     @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[str]:
+        """
+        The Windows FX Version string.
+        """
         return pulumi.get(self, "windows_fx_version")
 
     @property
@@ -29266,6 +29346,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -29348,6 +29429,9 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -32953,6 +33037,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -33035,6 +33120,9 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -33989,6 +34077,7 @@ class WindowsWebAppBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -34032,6 +34121,9 @@ class WindowsWebAppBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -37375,6 +37467,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
                > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param Sequence[str] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param str client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -37457,6 +37550,9 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @property
@@ -37646,6 +37742,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
                  token_endpoint: Optional[str] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param str name: The name of the Custom OIDC Authentication Provider.
         :param str openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param str authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param str certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -37687,6 +37784,9 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -38407,6 +38507,7 @@ class WindowsWebAppSlotBackupSchedule(dict):
                > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -38450,6 +38551,9 @@ class WindowsWebAppSlotBackupSchedule(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[str]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -40671,6 +40775,7 @@ class WindowsWebAppSlotSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
+        :param str name: The Site Credentials Username used for publishing.
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -40681,6 +40786,9 @@ class WindowsWebAppSlotSiteCredential(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -43951,6 +44059,7 @@ class GetLinuxFunctionAppBackupScheduleResult(dict):
         :param int frequency_interval: How often the backup is executed.
         :param str frequency_unit: The unit of time for how often the backup takes place.
         :param bool keep_at_least_one_backup: Does the service keep at least one backup, regardless of age of backup?
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups are deleted.
         :param str start_time: When the schedule starts working in RFC-3339 format.
         """
@@ -43988,6 +44097,9 @@ class GetLinuxFunctionAppBackupScheduleResult(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> str:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -47653,7 +47765,10 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: A `action` block as defined above.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Linux Web App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Linux Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -47680,6 +47795,9 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -47693,11 +47811,17 @@ class GetLinuxWebAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -47716,6 +47840,12 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -47724,21 +47854,33 @@ class GetLinuxWebAppSiteConfigIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 
@@ -47754,7 +47896,10 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: A `action` block as defined above.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Linux Web App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Linux Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -47781,6 +47926,9 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -47794,11 +47942,17 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -47817,6 +47971,12 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -47825,21 +47985,33 @@ class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 
@@ -49429,6 +49601,7 @@ class GetWindowsFunctionAppBackupScheduleResult(dict):
         :param int frequency_interval: How often the backup is executed.
         :param str frequency_unit: The unit of time the backup should take place.
         :param bool keep_at_least_one_backup: Should the service keep at least one backup.
+        :param str last_execution_time: The time the backup was last attempted.
         :param int retention_period_days: After how many days backups is deleted.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -49466,6 +49639,9 @@ class GetWindowsFunctionAppBackupScheduleResult(dict):
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> str:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @property
@@ -50095,7 +50271,11 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
                  service_tag: str,
                  virtual_network_subnet_id: str):
         """
+        :param str action: The action to take.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Windows Function App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Windows Function App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -50109,6 +50289,9 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        The action to take.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -50119,6 +50302,9 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -50132,11 +50318,17 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -50155,6 +50347,12 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -50163,21 +50361,33 @@ class GetWindowsFunctionAppSiteConfigIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 
@@ -50192,7 +50402,11 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  service_tag: str,
                  virtual_network_subnet_id: str):
         """
+        :param str action: The action to take.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Windows Function App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Windows Function App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -50206,6 +50420,9 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        The action to take.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -50216,6 +50433,9 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -50229,11 +50449,17 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -50252,6 +50478,12 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -50260,21 +50492,33 @@ class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 
@@ -53046,7 +53290,10 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: A `action` block as defined above.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Windows Web App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Windows Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -53073,6 +53320,9 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -53086,11 +53336,17 @@ class GetWindowsWebAppSiteConfigIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -53109,6 +53365,12 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -53117,21 +53379,33 @@ class GetWindowsWebAppSiteConfigIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 
@@ -53147,7 +53421,10 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
                  virtual_network_subnet_id: str):
         """
         :param str action: A `action` block as defined above.
+        :param str ip_address: The CIDR notation of the IP or IP Range to match.
         :param str name: The name of this Windows Web App.
+        :param int priority: The priority value of this `ip_restriction`.
+        :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The subnet id which the Windows Web App is vNet Integrated with.
         """
         pulumi.set(__self__, "action", action)
@@ -53174,6 +53451,9 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
+        """
+        The CIDR notation of the IP or IP Range to match.
+        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -53187,11 +53467,17 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionResult(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
+        """
+        The priority value of this `ip_restriction`.
+        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="serviceTag")
     def service_tag(self) -> str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
         return pulumi.get(self, "service_tag")
 
     @property
@@ -53210,6 +53496,12 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
                  x_fd_health_probes: Sequence[str],
                  x_forwarded_fors: Sequence[str],
                  x_forwarded_hosts: Sequence[str]):
+        """
+        :param Sequence[str] x_azure_fdids: The list of Azure Front Door IDs.
+        :param Sequence[str] x_fd_health_probes: Specifies if a Front Door Health Probe is expected.
+        :param Sequence[str] x_forwarded_fors: The list of addresses for which matching is applied.
+        :param Sequence[str] x_forwarded_hosts: The list of Hosts for which matching will be applied.
+        """
         pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
         pulumi.set(__self__, "x_fd_health_probes", x_fd_health_probes)
         pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
@@ -53218,21 +53510,33 @@ class GetWindowsWebAppSiteConfigScmIpRestrictionHeaderResult(dict):
     @property
     @pulumi.getter(name="xAzureFdids")
     def x_azure_fdids(self) -> Sequence[str]:
+        """
+        The list of Azure Front Door IDs.
+        """
         return pulumi.get(self, "x_azure_fdids")
 
     @property
     @pulumi.getter(name="xFdHealthProbes")
     def x_fd_health_probes(self) -> Sequence[str]:
+        """
+        Specifies if a Front Door Health Probe is expected.
+        """
         return pulumi.get(self, "x_fd_health_probes")
 
     @property
     @pulumi.getter(name="xForwardedFors")
     def x_forwarded_fors(self) -> Sequence[str]:
+        """
+        The list of addresses for which matching is applied.
+        """
         return pulumi.get(self, "x_forwarded_fors")
 
     @property
     @pulumi.getter(name="xForwardedHosts")
     def x_forwarded_hosts(self) -> Sequence[str]:
+        """
+        The list of Hosts for which matching will be applied.
+        """
         return pulumi.get(self, "x_forwarded_hosts")
 
 

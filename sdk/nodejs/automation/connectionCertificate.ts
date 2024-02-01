@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.automation.Certificate("exampleCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
- *     base64: Buffer.from(fs.readFileSync("certificate.pfx", 'binary')).toString('base64'),
+ *     base64: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
  * });
  * const exampleConnectionCertificate = new azure.automation.ConnectionCertificate("exampleConnectionCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,

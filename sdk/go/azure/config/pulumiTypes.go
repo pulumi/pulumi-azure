@@ -691,15 +691,24 @@ func (o FeaturesCognitiveAccountPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.Boo
 }
 
 type FeaturesKeyVault struct {
-	PurgeSoftDeleteOnDestroy                         *bool `pulumi:"purgeSoftDeleteOnDestroy"`
-	PurgeSoftDeletedCertificatesOnDestroy            *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedCertificatesOnDestroy *bool `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
 	PurgeSoftDeletedHardwareSecurityModulesOnDestroy *bool `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
-	PurgeSoftDeletedKeysOnDestroy                    *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	PurgeSoftDeletedSecretsOnDestroy                 *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	RecoverSoftDeletedCertificates                   *bool `pulumi:"recoverSoftDeletedCertificates"`
-	RecoverSoftDeletedKeyVaults                      *bool `pulumi:"recoverSoftDeletedKeyVaults"`
-	RecoverSoftDeletedKeys                           *bool `pulumi:"recoverSoftDeletedKeys"`
-	RecoverSoftDeletedSecrets                        *bool `pulumi:"recoverSoftDeletedSecrets"`
+	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedKeysOnDestroy *bool `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedSecretsOnDestroy *bool `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedCertificates *bool `pulumi:"recoverSoftDeletedCertificates"`
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedKeyVaults *bool `pulumi:"recoverSoftDeletedKeyVaults"`
+	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedKeys *bool `pulumi:"recoverSoftDeletedKeys"`
+	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedSecrets *bool `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 // FeaturesKeyVaultInput is an input type that accepts FeaturesKeyVaultArgs and FeaturesKeyVaultOutput values.
@@ -714,15 +723,24 @@ type FeaturesKeyVaultInput interface {
 }
 
 type FeaturesKeyVaultArgs struct {
-	PurgeSoftDeleteOnDestroy                         pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
-	PurgeSoftDeletedCertificatesOnDestroy            pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedCertificatesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedCertificatesOnDestroy"`
+	// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
 	PurgeSoftDeletedHardwareSecurityModulesOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedHardwareSecurityModulesOnDestroy"`
-	PurgeSoftDeletedKeysOnDestroy                    pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
-	PurgeSoftDeletedSecretsOnDestroy                 pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
-	RecoverSoftDeletedCertificates                   pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
-	RecoverSoftDeletedKeyVaults                      pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
-	RecoverSoftDeletedKeys                           pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
-	RecoverSoftDeletedSecrets                        pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
+	// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedKeysOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedKeysOnDestroy"`
+	// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+	PurgeSoftDeletedSecretsOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeletedSecretsOnDestroy"`
+	// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedCertificates pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedCertificates"`
+	// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedKeyVaults pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeyVaults"`
+	// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedKeys pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedKeys"`
+	// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+	RecoverSoftDeletedSecrets pulumi.BoolPtrInput `pulumi:"recoverSoftDeletedSecrets"`
 }
 
 func (FeaturesKeyVaultArgs) ElementType() reflect.Type {
@@ -802,38 +820,47 @@ func (o FeaturesKeyVaultOutput) ToFeaturesKeyVaultPtrOutputWithContext(ctx conte
 	}).(FeaturesKeyVaultPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedCertificatesOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedHardwareSecurityModulesOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedKeysOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.PurgeSoftDeletedSecretsOnDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedCertificates }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeyVaults }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedKeys }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesKeyVault) *bool { return v.RecoverSoftDeletedSecrets }).(pulumi.BoolPtrOutput)
 }
@@ -862,6 +889,7 @@ func (o FeaturesKeyVaultPtrOutput) Elem() FeaturesKeyVaultOutput {
 	}).(FeaturesKeyVaultOutput)
 }
 
+// When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -871,6 +899,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -880,6 +909,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedCertificatesOnDestroy() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModulesOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -889,6 +919,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedHardwareSecurityModulesOnDest
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -898,6 +929,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedKeysOnDestroy() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
 func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -907,6 +939,7 @@ func (o FeaturesKeyVaultPtrOutput) PurgeSoftDeletedSecretsOnDestroy() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedCertificates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -916,6 +949,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedCertificates() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -925,6 +959,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeyVaults() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {
@@ -934,6 +969,7 @@ func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedKeys() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
 func (o FeaturesKeyVaultPtrOutput) RecoverSoftDeletedSecrets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FeaturesKeyVault) *bool {
 		if v == nil {

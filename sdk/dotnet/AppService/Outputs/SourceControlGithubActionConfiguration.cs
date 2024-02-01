@@ -25,6 +25,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? GenerateWorkflowFile;
+        /// <summary>
+        /// Denotes this action uses a Linux base image.
+        /// </summary>
         public readonly bool? LinuxAction;
 
         [OutputConstructor]

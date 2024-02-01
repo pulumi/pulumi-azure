@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var admin = new User(&#34;admin&#34;, UserArgs.builder()        
- *             .userPrincipalName(&#34;ms.admin@hashicorp.com&#34;)
+ *             .userPrincipalName(&#34;ms.admin@example.com&#34;)
  *             .displayName(&#34;Ms Admin&#34;)
  *             .mailNickname(&#34;ms.admin&#34;)
  *             .password(&#34;SecretP@sswd99!&#34;)

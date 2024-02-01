@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = lab.NewUser(ctx, "exampleUser", &lab.UserArgs{
 //				LabId: exampleLab.ID(),
-//				Email: pulumi.String("terraform-acctest@hashicorp.com"),
+//				Email: pulumi.String("terraform-acctest@example.com"),
 //			})
 //			if err != nil {
 //				return err

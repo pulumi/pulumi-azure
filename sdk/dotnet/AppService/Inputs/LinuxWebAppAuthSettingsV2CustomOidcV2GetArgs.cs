@@ -48,6 +48,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("issuerEndpoint")]
         public Input<string>? IssuerEndpoint { get; set; }
 
+        /// <summary>
+        /// The name of the Custom OIDC Authentication Provider.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

@@ -207,6 +207,17 @@ class FeaturesKeyVault(dict):
                  recover_soft_deleted_key_vaults: Optional[bool] = None,
                  recover_soft_deleted_keys: Optional[bool] = None,
                  recover_soft_deleted_secrets: Optional[bool] = None):
+        """
+        :param bool purge_soft_delete_on_destroy: When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+        :param bool purge_soft_deleted_certificates_on_destroy: When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        :param bool purge_soft_deleted_hardware_security_modules_on_destroy: When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+        :param bool purge_soft_deleted_keys_on_destroy: When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+        :param bool purge_soft_deleted_secrets_on_destroy: When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+        :param bool recover_soft_deleted_certificates: When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+        :param bool recover_soft_deleted_key_vaults: When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+        :param bool recover_soft_deleted_keys: When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+        :param bool recover_soft_deleted_secrets: When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+        """
         if purge_soft_delete_on_destroy is not None:
             pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if purge_soft_deleted_certificates_on_destroy is not None:
@@ -229,46 +240,73 @@ class FeaturesKeyVault(dict):
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
     def purge_soft_delete_on_destroy(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+        """
         return pulumi.get(self, "purge_soft_delete_on_destroy")
 
     @property
     @pulumi.getter(name="purgeSoftDeletedCertificatesOnDestroy")
     def purge_soft_deleted_certificates_on_destroy(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        """
         return pulumi.get(self, "purge_soft_deleted_certificates_on_destroy")
 
     @property
     @pulumi.getter(name="purgeSoftDeletedHardwareSecurityModulesOnDestroy")
     def purge_soft_deleted_hardware_security_modules_on_destroy(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+        """
         return pulumi.get(self, "purge_soft_deleted_hardware_security_modules_on_destroy")
 
     @property
     @pulumi.getter(name="purgeSoftDeletedKeysOnDestroy")
     def purge_soft_deleted_keys_on_destroy(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+        """
         return pulumi.get(self, "purge_soft_deleted_keys_on_destroy")
 
     @property
     @pulumi.getter(name="purgeSoftDeletedSecretsOnDestroy")
     def purge_soft_deleted_secrets_on_destroy(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+        """
         return pulumi.get(self, "purge_soft_deleted_secrets_on_destroy")
 
     @property
     @pulumi.getter(name="recoverSoftDeletedCertificates")
     def recover_soft_deleted_certificates(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+        """
         return pulumi.get(self, "recover_soft_deleted_certificates")
 
     @property
     @pulumi.getter(name="recoverSoftDeletedKeyVaults")
     def recover_soft_deleted_key_vaults(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+        """
         return pulumi.get(self, "recover_soft_deleted_key_vaults")
 
     @property
     @pulumi.getter(name="recoverSoftDeletedKeys")
     def recover_soft_deleted_keys(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+        """
         return pulumi.get(self, "recover_soft_deleted_keys")
 
     @property
     @pulumi.getter(name="recoverSoftDeletedSecrets")
     def recover_soft_deleted_secrets(self) -> Optional[bool]:
+        """
+        When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+        """
         return pulumi.get(self, "recover_soft_deleted_secrets")
 
 

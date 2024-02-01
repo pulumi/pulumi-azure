@@ -88,6 +88,10 @@ public final class LinuxFunctionAppSiteConfig {
      * 
      */
     private @Nullable List<String> defaultDocuments;
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
      * @return The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -119,6 +123,10 @@ public final class LinuxFunctionAppSiteConfig {
      * 
      */
     private @Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
+    /**
+     * @return The Linux FX Version
+     * 
+     */
     private @Nullable String linuxFxVersion;
     /**
      * @return The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -167,6 +175,10 @@ public final class LinuxFunctionAppSiteConfig {
      * 
      */
     private @Nullable String scmMinimumTlsVersion;
+    /**
+     * @return The SCM Type in use by the Linux Function App.
+     * 
+     */
     private @Nullable String scmType;
     /**
      * @return Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
@@ -290,6 +302,10 @@ public final class LinuxFunctionAppSiteConfig {
     public List<String> defaultDocuments() {
         return this.defaultDocuments == null ? List.of() : this.defaultDocuments;
     }
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
@@ -335,6 +351,10 @@ public final class LinuxFunctionAppSiteConfig {
     public List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions() {
         return this.ipRestrictions == null ? List.of() : this.ipRestrictions;
     }
+    /**
+     * @return The Linux FX Version
+     * 
+     */
     public Optional<String> linuxFxVersion() {
         return Optional.ofNullable(this.linuxFxVersion);
     }
@@ -403,6 +423,10 @@ public final class LinuxFunctionAppSiteConfig {
     public Optional<String> scmMinimumTlsVersion() {
         return Optional.ofNullable(this.scmMinimumTlsVersion);
     }
+    /**
+     * @return The SCM Type in use by the Linux Function App.
+     * 
+     */
     public Optional<String> scmType() {
         return Optional.ofNullable(this.scmType);
     }
