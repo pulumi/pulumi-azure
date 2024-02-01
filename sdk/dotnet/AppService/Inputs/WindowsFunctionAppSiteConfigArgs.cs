@@ -108,6 +108,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _defaultDocuments = value;
         }
 
+        /// <summary>
+        /// Is detailed error logging enabled
+        /// </summary>
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
@@ -215,6 +218,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("scmMinimumTlsVersion")]
         public Input<string>? ScmMinimumTlsVersion { get; set; }
 
+        /// <summary>
+        /// The SCM Type in use by the Windows Function App.
+        /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 
@@ -242,6 +248,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }
 
+        /// <summary>
+        /// The Windows FX Version string.
+        /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }
 

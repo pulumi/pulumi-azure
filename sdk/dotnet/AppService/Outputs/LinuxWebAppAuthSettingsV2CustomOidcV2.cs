@@ -37,6 +37,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
         /// </summary>
         public readonly string? IssuerEndpoint;
+        /// <summary>
+        /// The name of the Custom OIDC Authentication Provider.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// The name of the claim that contains the users name.

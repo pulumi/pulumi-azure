@@ -196,9 +196,17 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         return Optional.ofNullable(this.defaultDocuments);
     }
 
+    /**
+     * Is detailed error logging enabled
+     * 
+     */
     @Import(name="detailedErrorLoggingEnabled")
     private @Nullable Output<Boolean> detailedErrorLoggingEnabled;
 
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     public Optional<Output<Boolean>> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
@@ -432,9 +440,17 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         return Optional.ofNullable(this.scmMinimumTlsVersion);
     }
 
+    /**
+     * The SCM Type in use by the Windows Function App.
+     * 
+     */
     @Import(name="scmType")
     private @Nullable Output<String> scmType;
 
+    /**
+     * @return The SCM Type in use by the Windows Function App.
+     * 
+     */
     public Optional<Output<String>> scmType() {
         return Optional.ofNullable(this.scmType);
     }
@@ -499,9 +515,17 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
         return Optional.ofNullable(this.websocketsEnabled);
     }
 
+    /**
+     * The Windows FX Version string.
+     * 
+     */
     @Import(name="windowsFxVersion")
     private @Nullable Output<String> windowsFxVersion;
 
+    /**
+     * @return The Windows FX Version string.
+     * 
+     */
     public Optional<Output<String>> windowsFxVersion() {
         return Optional.ofNullable(this.windowsFxVersion);
     }
@@ -827,11 +851,23 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
             return defaultDocuments(List.of(defaultDocuments));
         }
 
+        /**
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * 
+         * @return builder
+         * 
+         */
         public Builder detailedErrorLoggingEnabled(@Nullable Output<Boolean> detailedErrorLoggingEnabled) {
             $.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
 
+        /**
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * 
+         * @return builder
+         * 
+         */
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
             return detailedErrorLoggingEnabled(Output.of(detailedErrorLoggingEnabled));
         }
@@ -1175,11 +1211,23 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
             return scmMinimumTlsVersion(Output.of(scmMinimumTlsVersion));
         }
 
+        /**
+         * @param scmType The SCM Type in use by the Windows Function App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(@Nullable Output<String> scmType) {
             $.scmType = scmType;
             return this;
         }
 
+        /**
+         * @param scmType The SCM Type in use by the Windows Function App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(String scmType) {
             return scmType(Output.of(scmType));
         }
@@ -1268,11 +1316,23 @@ public final class WindowsFunctionAppSiteConfigArgs extends com.pulumi.resources
             return websocketsEnabled(Output.of(websocketsEnabled));
         }
 
+        /**
+         * @param windowsFxVersion The Windows FX Version string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsFxVersion(@Nullable Output<String> windowsFxVersion) {
             $.windowsFxVersion = windowsFxVersion;
             return this;
         }
 
+        /**
+         * @param windowsFxVersion The Windows FX Version string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder windowsFxVersion(String windowsFxVersion) {
             return windowsFxVersion(Output.of(windowsFxVersion));
         }

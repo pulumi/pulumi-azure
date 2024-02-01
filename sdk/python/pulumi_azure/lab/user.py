@@ -198,7 +198,7 @@ class User(pulumi.CustomResource):
             ))
         example_user = azure.lab.User("exampleUser",
             lab_id=example_lab.id,
-            email="terraform-acctest@hashicorp.com")
+            email="terraform-acctest@example.com")
         ```
 
         ## Import
@@ -257,7 +257,7 @@ class User(pulumi.CustomResource):
             ))
         example_user = azure.lab.User("exampleUser",
             lab_id=example_lab.id,
-            email="terraform-acctest@hashicorp.com")
+            email="terraform-acctest@example.com")
         ```
 
         ## Import

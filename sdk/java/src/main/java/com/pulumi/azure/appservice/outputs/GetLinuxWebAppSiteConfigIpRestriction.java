@@ -19,13 +19,25 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
      */
     private String action;
     private List<GetLinuxWebAppSiteConfigIpRestrictionHeader> headers;
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     private String ipAddress;
     /**
      * @return The name of this Linux Web App.
      * 
      */
     private String name;
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     private String serviceTag;
     /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
@@ -44,6 +56,10 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
     public List<GetLinuxWebAppSiteConfigIpRestrictionHeader> headers() {
         return this.headers;
     }
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
@@ -54,9 +70,17 @@ public final class GetLinuxWebAppSiteConfigIpRestriction {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public String serviceTag() {
         return this.serviceTag;
     }

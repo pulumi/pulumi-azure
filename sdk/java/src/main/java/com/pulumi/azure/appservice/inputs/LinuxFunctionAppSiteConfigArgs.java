@@ -226,9 +226,17 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.defaultDocuments);
     }
 
+    /**
+     * Is detailed error logging enabled
+     * 
+     */
     @Import(name="detailedErrorLoggingEnabled")
     private @Nullable Output<Boolean> detailedErrorLoggingEnabled;
 
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     public Optional<Output<Boolean>> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
@@ -323,9 +331,17 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.ipRestrictions);
     }
 
+    /**
+     * The Linux FX Version
+     * 
+     */
     @Import(name="linuxFxVersion")
     private @Nullable Output<String> linuxFxVersion;
 
+    /**
+     * @return The Linux FX Version
+     * 
+     */
     public Optional<Output<String>> linuxFxVersion() {
         return Optional.ofNullable(this.linuxFxVersion);
     }
@@ -469,9 +485,17 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.scmMinimumTlsVersion);
     }
 
+    /**
+     * The SCM Type in use by the Linux Function App.
+     * 
+     */
     @Import(name="scmType")
     private @Nullable Output<String> scmType;
 
+    /**
+     * @return The SCM Type in use by the Linux Function App.
+     * 
+     */
     public Optional<Output<String>> scmType() {
         return Optional.ofNullable(this.scmType);
     }
@@ -901,11 +925,23 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
             return defaultDocuments(List.of(defaultDocuments));
         }
 
+        /**
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * 
+         * @return builder
+         * 
+         */
         public Builder detailedErrorLoggingEnabled(@Nullable Output<Boolean> detailedErrorLoggingEnabled) {
             $.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
 
+        /**
+         * @param detailedErrorLoggingEnabled Is detailed error logging enabled
+         * 
+         * @return builder
+         * 
+         */
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
             return detailedErrorLoggingEnabled(Output.of(detailedErrorLoggingEnabled));
         }
@@ -1046,11 +1082,23 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
             return ipRestrictions(List.of(ipRestrictions));
         }
 
+        /**
+         * @param linuxFxVersion The Linux FX Version
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxFxVersion(@Nullable Output<String> linuxFxVersion) {
             $.linuxFxVersion = linuxFxVersion;
             return this;
         }
 
+        /**
+         * @param linuxFxVersion The Linux FX Version
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxFxVersion(String linuxFxVersion) {
             return linuxFxVersion(Output.of(linuxFxVersion));
         }
@@ -1258,11 +1306,23 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
             return scmMinimumTlsVersion(Output.of(scmMinimumTlsVersion));
         }
 
+        /**
+         * @param scmType The SCM Type in use by the Linux Function App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(@Nullable Output<String> scmType) {
             $.scmType = scmType;
             return this;
         }
 
+        /**
+         * @param scmType The SCM Type in use by the Linux Function App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scmType(String scmType) {
             return scmType(Output.of(scmType));
         }

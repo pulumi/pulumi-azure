@@ -13,15 +13,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWindowsFunctionAppSiteConfigIpRestriction {
+    /**
+     * @return The action to take.
+     * 
+     */
     private String action;
     private List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers;
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     private String ipAddress;
     /**
      * @return The name of this Windows Function App.
      * 
      */
     private String name;
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     private Integer priority;
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     private String serviceTag;
     /**
      * @return The subnet id which the Windows Function App is vNet Integrated with.
@@ -30,12 +46,20 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     private String virtualNetworkSubnetId;
 
     private GetWindowsFunctionAppSiteConfigIpRestriction() {}
+    /**
+     * @return The action to take.
+     * 
+     */
     public String action() {
         return this.action;
     }
     public List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers() {
         return this.headers;
     }
+    /**
+     * @return The CIDR notation of the IP or IP Range to match.
+     * 
+     */
     public String ipAddress() {
         return this.ipAddress;
     }
@@ -46,9 +70,17 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The priority value of this `ip_restriction`.
+     * 
+     */
     public Integer priority() {
         return this.priority;
     }
+    /**
+     * @return The Service Tag used for this IP Restriction.
+     * 
+     */
     public String serviceTag() {
         return this.serviceTag;
     }

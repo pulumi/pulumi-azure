@@ -98,9 +98,17 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args ext
         return this.clientId;
     }
 
+    /**
+     * The thumbprint of the certificate used for signing purposes.
+     * 
+     */
     @Import(name="clientSecretCertificateThumbprint")
     private @Nullable Output<String> clientSecretCertificateThumbprint;
 
+    /**
+     * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     */
     public Optional<Output<String>> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
@@ -381,11 +389,23 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args ext
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecretCertificateThumbprint(@Nullable Output<String> clientSecretCertificateThumbprint) {
             $.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
             return this;
         }
 
+        /**
+         * @param clientSecretCertificateThumbprint The thumbprint of the certificate used for signing purposes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecretCertificateThumbprint(String clientSecretCertificateThumbprint) {
             return clientSecretCertificateThumbprint(Output.of(clientSecretCertificateThumbprint));
         }

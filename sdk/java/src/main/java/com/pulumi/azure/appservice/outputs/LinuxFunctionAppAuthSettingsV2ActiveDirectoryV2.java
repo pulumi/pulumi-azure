@@ -42,6 +42,10 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
      * 
      */
     private String clientId;
+    /**
+     * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
@@ -112,6 +116,10 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
     public String clientId() {
         return this.clientId;
     }
+    /**
+     * @return The thumbprint of the certificate used for signing purposes.
+     * 
+     */
     public Optional<String> clientSecretCertificateThumbprint() {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }

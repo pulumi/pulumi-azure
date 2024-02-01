@@ -78,6 +78,10 @@ public final class WindowsFunctionAppSiteConfig {
      * 
      */
     private @Nullable List<String> defaultDocuments;
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
      * @return The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -156,6 +160,10 @@ public final class WindowsFunctionAppSiteConfig {
      * 
      */
     private @Nullable String scmMinimumTlsVersion;
+    /**
+     * @return The SCM Type in use by the Windows Function App.
+     * 
+     */
     private @Nullable String scmType;
     /**
      * @return Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
@@ -177,6 +185,10 @@ public final class WindowsFunctionAppSiteConfig {
      * 
      */
     private @Nullable Boolean websocketsEnabled;
+    /**
+     * @return The Windows FX Version string.
+     * 
+     */
     private @Nullable String windowsFxVersion;
     /**
      * @return The number of Workers for this Windows Function App.
@@ -266,6 +278,10 @@ public final class WindowsFunctionAppSiteConfig {
     public List<String> defaultDocuments() {
         return this.defaultDocuments == null ? List.of() : this.defaultDocuments;
     }
+    /**
+     * @return Is detailed error logging enabled
+     * 
+     */
     public Optional<Boolean> detailedErrorLoggingEnabled() {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
@@ -376,6 +392,10 @@ public final class WindowsFunctionAppSiteConfig {
     public Optional<String> scmMinimumTlsVersion() {
         return Optional.ofNullable(this.scmMinimumTlsVersion);
     }
+    /**
+     * @return The SCM Type in use by the Windows Function App.
+     * 
+     */
     public Optional<String> scmType() {
         return Optional.ofNullable(this.scmType);
     }
@@ -407,6 +427,10 @@ public final class WindowsFunctionAppSiteConfig {
     public Optional<Boolean> websocketsEnabled() {
         return Optional.ofNullable(this.websocketsEnabled);
     }
+    /**
+     * @return The Windows FX Version string.
+     * 
+     */
     public Optional<String> windowsFxVersion() {
         return Optional.ofNullable(this.windowsFxVersion);
     }

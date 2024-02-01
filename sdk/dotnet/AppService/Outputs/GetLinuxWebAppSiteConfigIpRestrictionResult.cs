@@ -18,12 +18,21 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Action;
         public readonly ImmutableArray<Outputs.GetLinuxWebAppSiteConfigIpRestrictionHeaderResult> Headers;
+        /// <summary>
+        /// The CIDR notation of the IP or IP Range to match.
+        /// </summary>
         public readonly string IpAddress;
         /// <summary>
         /// The name of this Linux Web App.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The priority value of this `ip_restriction`.
+        /// </summary>
         public readonly int Priority;
+        /// <summary>
+        /// The Service Tag used for this IP Restriction.
+        /// </summary>
         public readonly string ServiceTag;
         /// <summary>
         /// The subnet id which the Linux Web App is vNet Integrated with.

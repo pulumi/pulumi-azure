@@ -67,9 +67,17 @@ public final class WindowsWebAppSlotBackupScheduleArgs extends com.pulumi.resour
         return Optional.ofNullable(this.keepAtLeastOneBackup);
     }
 
+    /**
+     * The time the backup was last attempted.
+     * 
+     */
     @Import(name="lastExecutionTime")
     private @Nullable Output<String> lastExecutionTime;
 
+    /**
+     * @return The time the backup was last attempted.
+     * 
+     */
     public Optional<Output<String>> lastExecutionTime() {
         return Optional.ofNullable(this.lastExecutionTime);
     }
@@ -200,11 +208,23 @@ public final class WindowsWebAppSlotBackupScheduleArgs extends com.pulumi.resour
             return keepAtLeastOneBackup(Output.of(keepAtLeastOneBackup));
         }
 
+        /**
+         * @param lastExecutionTime The time the backup was last attempted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastExecutionTime(@Nullable Output<String> lastExecutionTime) {
             $.lastExecutionTime = lastExecutionTime;
             return this;
         }
 
+        /**
+         * @param lastExecutionTime The time the backup was last attempted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastExecutionTime(String lastExecutionTime) {
             return lastExecutionTime(Output.of(lastExecutionTime));
         }

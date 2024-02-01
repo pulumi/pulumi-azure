@@ -15,9 +15,17 @@ public final class WindowsWebAppSlotSiteCredentialArgs extends com.pulumi.resour
 
     public static final WindowsWebAppSlotSiteCredentialArgs Empty = new WindowsWebAppSlotSiteCredentialArgs();
 
+    /**
+     * The Site Credentials Username used for publishing.
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return The Site Credentials Username used for publishing.
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -62,11 +70,23 @@ public final class WindowsWebAppSlotSiteCredentialArgs extends com.pulumi.resour
             $ = new WindowsWebAppSlotSiteCredentialArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The Site Credentials Username used for publishing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The Site Credentials Username used for publishing.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

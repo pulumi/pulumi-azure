@@ -27,6 +27,10 @@ public final class GetWindowsFunctionAppBackupSchedule {
      * 
      */
     private Boolean keepAtLeastOneBackup;
+    /**
+     * @return The time the backup was last attempted.
+     * 
+     */
     private String lastExecutionTime;
     /**
      * @return After how many days backups is deleted.
@@ -61,6 +65,10 @@ public final class GetWindowsFunctionAppBackupSchedule {
     public Boolean keepAtLeastOneBackup() {
         return this.keepAtLeastOneBackup;
     }
+    /**
+     * @return The time the backup was last attempted.
+     * 
+     */
     public String lastExecutionTime() {
         return this.lastExecutionTime;
     }
