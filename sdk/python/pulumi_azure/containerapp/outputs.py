@@ -2614,6 +2614,7 @@ class GetAppIngressResult(dict):
         """
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
+        :param int exposed_port: The exposed port on the container for the Ingress traffic.
         :param bool external_enabled: Is this an external Ingress.
         :param str fqdn: The FQDN of the ingress.
         :param Sequence['GetAppIngressIpSecurityRestrictionArgs'] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
@@ -2650,6 +2651,9 @@ class GetAppIngressResult(dict):
     @property
     @pulumi.getter(name="exposedPort")
     def exposed_port(self) -> int:
+        """
+        The exposed port on the container for the Ingress traffic.
+        """
         return pulumi.get(self, "exposed_port")
 
     @property

@@ -28,6 +28,10 @@ public final class SourceControlGithubActionConfiguration {
      * 
      */
     private @Nullable Boolean generateWorkflowFile;
+    /**
+     * @return Denotes this action uses a Linux base image.
+     * 
+     */
     private @Nullable Boolean linuxAction;
 
     private SourceControlGithubActionConfiguration() {}
@@ -52,6 +56,10 @@ public final class SourceControlGithubActionConfiguration {
     public Optional<Boolean> generateWorkflowFile() {
         return Optional.ofNullable(this.generateWorkflowFile);
     }
+    /**
+     * @return Denotes this action uses a Linux base image.
+     * 
+     */
     public Optional<Boolean> linuxAction() {
         return Optional.ofNullable(this.linuxAction);
     }

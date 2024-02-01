@@ -13,9 +13,21 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class GetLinuxWebAppSiteConfigScmIpRestrictionHeaderResult
     {
+        /// <summary>
+        /// The list of Azure Front Door IDs.
+        /// </summary>
         public readonly ImmutableArray<string> XAzureFdids;
+        /// <summary>
+        /// Specifies if a Front Door Health Probe is expected.
+        /// </summary>
         public readonly ImmutableArray<string> XFdHealthProbes;
+        /// <summary>
+        /// The list of addresses for which matching is applied.
+        /// </summary>
         public readonly ImmutableArray<string> XForwardedFors;
+        /// <summary>
+        /// The list of Hosts for which matching will be applied.
+        /// </summary>
         public readonly ImmutableArray<string> XForwardedHosts;
 
         [OutputConstructor]

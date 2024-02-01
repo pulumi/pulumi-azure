@@ -62,9 +62,17 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
         return Optional.ofNullable(this.generateWorkflowFile);
     }
 
+    /**
+     * Denotes this action uses a Linux base image.
+     * 
+     */
     @Import(name="linuxAction")
     private @Nullable Output<Boolean> linuxAction;
 
+    /**
+     * @return Denotes this action uses a Linux base image.
+     * 
+     */
     public Optional<Output<Boolean>> linuxAction() {
         return Optional.ofNullable(this.linuxAction);
     }
@@ -159,11 +167,23 @@ public final class SourceControlGithubActionConfigurationArgs extends com.pulumi
             return generateWorkflowFile(Output.of(generateWorkflowFile));
         }
 
+        /**
+         * @param linuxAction Denotes this action uses a Linux base image.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxAction(@Nullable Output<Boolean> linuxAction) {
             $.linuxAction = linuxAction;
             return this;
         }
 
+        /**
+         * @param linuxAction Denotes this action uses a Linux base image.
+         * 
+         * @return builder
+         * 
+         */
         public Builder linuxAction(Boolean linuxAction) {
             return linuxAction(Output.of(linuxAction));
         }

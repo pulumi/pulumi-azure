@@ -232,7 +232,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
-            user_principal_name="ms.admin@hashicorp.com",
+            user_principal_name="ms.admin@example.com",
             display_name="Ms Admin",
             mail_nickname="ms.admin",
             password="SecretP@sswd99!")
@@ -303,7 +303,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
-            user_principal_name="ms.admin@hashicorp.com",
+            user_principal_name="ms.admin@example.com",
             display_name="Ms Admin",
             mail_nickname="ms.admin",
             password="SecretP@sswd99!")

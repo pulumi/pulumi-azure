@@ -107,9 +107,17 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         return Optional.ofNullable(this.issuerEndpoint);
     }
 
+    /**
+     * The name of the Custom OIDC Authentication Provider.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -334,11 +342,23 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
             return issuerEndpoint(Output.of(issuerEndpoint));
         }
 
+        /**
+         * @param name The name of the Custom OIDC Authentication Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the Custom OIDC Authentication Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

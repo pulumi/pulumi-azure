@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     memberObjectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
  * });
  * const admin = new azuread.User("admin", {
- *     userPrincipalName: "ms.admin@hashicorp.com",
+ *     userPrincipalName: "ms.admin@example.com",
  *     displayName: "Ms Admin",
  *     mailNickname: "ms.admin",
  *     password: "SecretP@sswd99!",

@@ -13,6 +13,9 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class LinuxWebAppSiteCredential
     {
+        /// <summary>
+        /// The Site Credentials Username used for publishing.
+        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// The Site Credentials Password used for publishing.

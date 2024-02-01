@@ -121,12 +121,15 @@ func (o GetLinuxWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetLinu
 
 type GetLinuxWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
-	Action    string                                        `pulumi:"action"`
-	Headers   []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                        `pulumi:"ipAddress"`
+	Action  string                                        `pulumi:"action"`
+	Headers []GetLinuxWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -145,12 +148,15 @@ type GetLinuxWebAppSiteConfigIpRestrictionInput interface {
 
 type GetLinuxWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action    pulumi.StringInput                                    `pulumi:"action"`
-	Headers   GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                    `pulumi:"ipAddress"`
+	Action  pulumi.StringInput                                    `pulumi:"action"`
+	Headers GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -218,6 +224,7 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Headers() GetLinuxWebAppSit
 	}).(GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -227,10 +234,12 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetLinuxWebAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -261,9 +270,13 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetLinuxWebAppSiteConfigIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -279,9 +292,13 @@ type GetLinuxWebAppSiteConfigIpRestrictionHeaderInput interface {
 }
 
 type GetLinuxWebAppSiteConfigIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -336,18 +353,22 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) ToGetLinuxWebAppSiteC
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
@@ -374,12 +395,15 @@ func (o GetLinuxWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi.I
 
 type GetLinuxWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
-	Action    string                                           `pulumi:"action"`
-	Headers   []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                           `pulumi:"ipAddress"`
+	Action  string                                           `pulumi:"action"`
+	Headers []GetLinuxWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -398,12 +422,15 @@ type GetLinuxWebAppSiteConfigScmIpRestrictionInput interface {
 
 type GetLinuxWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action    pulumi.StringInput                                       `pulumi:"action"`
-	Headers   GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                       `pulumi:"ipAddress"`
+	Action  pulumi.StringInput                                       `pulumi:"action"`
+	Headers GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Linux Web App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -471,6 +498,7 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Headers() GetLinuxWebApp
 	}).(GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -480,10 +508,12 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOutp
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -514,9 +544,13 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntI
 }
 
 type GetLinuxWebAppSiteConfigScmIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -532,9 +566,13 @@ type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderInput interface {
 }
 
 type GetLinuxWebAppSiteConfigScmIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -589,18 +627,22 @@ func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetLinuxWebAppSi
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetLinuxWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
@@ -3760,8 +3802,9 @@ type GetWindowsFunctionAppBackupSchedule struct {
 	// The unit of time the backup should take place.
 	FrequencyUnit string `pulumi:"frequencyUnit"`
 	// Should the service keep at least one backup.
-	KeepAtLeastOneBackup bool   `pulumi:"keepAtLeastOneBackup"`
-	LastExecutionTime    string `pulumi:"lastExecutionTime"`
+	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
+	// The time the backup was last attempted.
+	LastExecutionTime string `pulumi:"lastExecutionTime"`
 	// After how many days backups is deleted.
 	RetentionPeriodDays int `pulumi:"retentionPeriodDays"`
 	// When the schedule should start working in RFC-3339 format.
@@ -3785,8 +3828,9 @@ type GetWindowsFunctionAppBackupScheduleArgs struct {
 	// The unit of time the backup should take place.
 	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
 	// Should the service keep at least one backup.
-	KeepAtLeastOneBackup pulumi.BoolInput   `pulumi:"keepAtLeastOneBackup"`
-	LastExecutionTime    pulumi.StringInput `pulumi:"lastExecutionTime"`
+	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
+	// The time the backup was last attempted.
+	LastExecutionTime pulumi.StringInput `pulumi:"lastExecutionTime"`
 	// After how many days backups is deleted.
 	RetentionPeriodDays pulumi.IntInput `pulumi:"retentionPeriodDays"`
 	// When the schedule should start working in RFC-3339 format.
@@ -3859,6 +3903,7 @@ func (o GetWindowsFunctionAppBackupScheduleOutput) KeepAtLeastOneBackup() pulumi
 	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) bool { return v.KeepAtLeastOneBackup }).(pulumi.BoolOutput)
 }
 
+// The time the backup was last attempted.
 func (o GetWindowsFunctionAppBackupScheduleOutput) LastExecutionTime() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppBackupSchedule) string { return v.LastExecutionTime }).(pulumi.StringOutput)
 }
@@ -4886,12 +4931,16 @@ func (o GetWindowsFunctionAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetWindowsFunctionAppSiteConfigIpRestriction struct {
-	Action    string                                               `pulumi:"action"`
-	Headers   []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                               `pulumi:"ipAddress"`
+	// The action to take.
+	Action  string                                               `pulumi:"action"`
+	Headers []GetWindowsFunctionAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -4909,12 +4958,16 @@ type GetWindowsFunctionAppSiteConfigIpRestrictionInput interface {
 }
 
 type GetWindowsFunctionAppSiteConfigIpRestrictionArgs struct {
-	Action    pulumi.StringInput                                           `pulumi:"action"`
-	Headers   GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                           `pulumi:"ipAddress"`
+	// The action to take.
+	Action  pulumi.StringInput                                           `pulumi:"action"`
+	Headers GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -4971,6 +5024,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ToGetWindowsFunction
 	return o
 }
 
+// The action to take.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -4981,6 +5035,7 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Headers() GetWindows
 	}).(GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -4990,10 +5045,12 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Name() pulumi.String
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -5024,9 +5081,13 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.
 }
 
 type GetWindowsFunctionAppSiteConfigIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -5042,9 +5103,13 @@ type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderInput interface {
 }
 
 type GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -5099,18 +5164,22 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsFu
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
@@ -5136,12 +5205,16 @@ func (o GetWindowsFunctionAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i p
 }
 
 type GetWindowsFunctionAppSiteConfigScmIpRestriction struct {
-	Action    string                                                  `pulumi:"action"`
-	Headers   []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                                  `pulumi:"ipAddress"`
+	// The action to take.
+	Action  string                                                  `pulumi:"action"`
+	Headers []GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -5159,12 +5232,16 @@ type GetWindowsFunctionAppSiteConfigScmIpRestrictionInput interface {
 }
 
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionArgs struct {
-	Action    pulumi.StringInput                                              `pulumi:"action"`
-	Headers   GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                              `pulumi:"ipAddress"`
+	// The action to take.
+	Action  pulumi.StringInput                                              `pulumi:"action"`
+	Headers GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Function App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -5221,6 +5298,7 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ToGetWindowsFunct
 	return o
 }
 
+// The action to take.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -5231,6 +5309,7 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Headers() GetWind
 	}).(GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -5240,10 +5319,12 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Name() pulumi.Str
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -5274,9 +5355,13 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulu
 }
 
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -5292,9 +5377,13 @@ type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderInput interface {
 }
 
 type GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -5349,18 +5438,22 @@ func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindow
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetWindowsFunctionAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
@@ -10975,12 +11068,15 @@ func (o GetWindowsWebAppSiteConfigCorArrayOutput) Index(i pulumi.IntInput) GetWi
 
 type GetWindowsWebAppSiteConfigIpRestriction struct {
 	// A `action` block as defined above.
-	Action    string                                          `pulumi:"action"`
-	Headers   []GetWindowsWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                          `pulumi:"ipAddress"`
+	Action  string                                          `pulumi:"action"`
+	Headers []GetWindowsWebAppSiteConfigIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -10999,12 +11095,15 @@ type GetWindowsWebAppSiteConfigIpRestrictionInput interface {
 
 type GetWindowsWebAppSiteConfigIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action    pulumi.StringInput                                      `pulumi:"action"`
-	Headers   GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                      `pulumi:"ipAddress"`
+	Action  pulumi.StringInput                                      `pulumi:"action"`
+	Headers GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -11072,6 +11171,7 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Headers() GetWindowsWebAp
 	}).(GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -11081,10 +11181,12 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Name() pulumi.StringOutpu
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetWindowsWebAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -11115,9 +11217,13 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetWindowsWebAppSiteConfigIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -11133,9 +11239,13 @@ type GetWindowsWebAppSiteConfigIpRestrictionHeaderInput interface {
 }
 
 type GetWindowsWebAppSiteConfigIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -11190,18 +11300,22 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) ToGetWindowsWebAppS
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }
@@ -11228,12 +11342,15 @@ func (o GetWindowsWebAppSiteConfigIpRestrictionHeaderArrayOutput) Index(i pulumi
 
 type GetWindowsWebAppSiteConfigScmIpRestriction struct {
 	// A `action` block as defined above.
-	Action    string                                             `pulumi:"action"`
-	Headers   []GetWindowsWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
-	IpAddress string                                             `pulumi:"ipAddress"`
+	Action  string                                             `pulumi:"action"`
+	Headers []GetWindowsWebAppSiteConfigScmIpRestrictionHeader `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
-	Name       string `pulumi:"name"`
-	Priority   int    `pulumi:"priority"`
+	Name string `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority int `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
@@ -11252,12 +11369,15 @@ type GetWindowsWebAppSiteConfigScmIpRestrictionInput interface {
 
 type GetWindowsWebAppSiteConfigScmIpRestrictionArgs struct {
 	// A `action` block as defined above.
-	Action    pulumi.StringInput                                         `pulumi:"action"`
-	Headers   GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
-	IpAddress pulumi.StringInput                                         `pulumi:"ipAddress"`
+	Action  pulumi.StringInput                                         `pulumi:"action"`
+	Headers GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayInput `pulumi:"headers"`
+	// The CIDR notation of the IP or IP Range to match.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of this Windows Web App.
-	Name       pulumi.StringInput `pulumi:"name"`
-	Priority   pulumi.IntInput    `pulumi:"priority"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority value of this `ipRestriction`.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
@@ -11325,6 +11445,7 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Headers() GetWindowsWe
 	}).(GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArrayOutput)
 }
 
+// The CIDR notation of the IP or IP Range to match.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
@@ -11334,10 +11455,12 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Name() pulumi.StringOu
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The priority value of this `ipRestriction`.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// The Service Tag used for this IP Restriction.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
@@ -11368,9 +11491,13 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.In
 }
 
 type GetWindowsWebAppSiteConfigScmIpRestrictionHeader struct {
-	XAzureFdids     []string `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes []string `pulumi:"xFdHealthProbes"`
-	XForwardedFors  []string `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts []string `pulumi:"xForwardedHosts"`
 }
 
@@ -11386,9 +11513,13 @@ type GetWindowsWebAppSiteConfigScmIpRestrictionHeaderInput interface {
 }
 
 type GetWindowsWebAppSiteConfigScmIpRestrictionHeaderArgs struct {
-	XAzureFdids     pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// The list of Azure Front Door IDs.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// Specifies if a Front Door Health Probe is expected.
 	XFdHealthProbes pulumi.StringArrayInput `pulumi:"xFdHealthProbes"`
-	XForwardedFors  pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of addresses for which matching is applied.
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// The list of Hosts for which matching will be applied.
 	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
 }
 
@@ -11443,18 +11574,22 @@ func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) ToGetWindowsWebA
 	return o
 }
 
+// The list of Azure Front Door IDs.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XAzureFdids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
 }
 
+// Specifies if a Front Door Health Probe is expected.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XFdHealthProbes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XFdHealthProbes }).(pulumi.StringArrayOutput)
 }
 
+// The list of addresses for which matching is applied.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedFors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
 }
 
+// The list of Hosts for which matching will be applied.
 func (o GetWindowsWebAppSiteConfigScmIpRestrictionHeaderOutput) XForwardedHosts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfigScmIpRestrictionHeader) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
 }

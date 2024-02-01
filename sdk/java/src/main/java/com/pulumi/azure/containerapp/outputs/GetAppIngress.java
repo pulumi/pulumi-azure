@@ -26,6 +26,10 @@ public final class GetAppIngress {
      * 
      */
     private List<GetAppIngressCustomDomain> customDomains;
+    /**
+     * @return The exposed port on the container for the Ingress traffic.
+     * 
+     */
     private Integer exposedPort;
     /**
      * @return Is this an external Ingress.
@@ -73,6 +77,10 @@ public final class GetAppIngress {
     public List<GetAppIngressCustomDomain> customDomains() {
         return this.customDomains;
     }
+    /**
+     * @return The exposed port on the container for the Ingress traffic.
+     * 
+     */
     public Integer exposedPort() {
         return this.exposedPort;
     }

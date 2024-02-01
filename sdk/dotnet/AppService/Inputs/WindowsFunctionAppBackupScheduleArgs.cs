@@ -32,6 +32,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("keepAtLeastOneBackup")]
         public Input<bool>? KeepAtLeastOneBackup { get; set; }
 
+        /// <summary>
+        /// The time the backup was last attempted.
+        /// </summary>
         [Input("lastExecutionTime")]
         public Input<string>? LastExecutionTime { get; set; }
 

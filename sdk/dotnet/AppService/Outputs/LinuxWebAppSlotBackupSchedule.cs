@@ -27,6 +27,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         /// </summary>
         public readonly bool? KeepAtLeastOneBackup;
+        /// <summary>
+        /// The time the backup was last attempted.
+        /// </summary>
         public readonly string? LastExecutionTime;
         /// <summary>
         /// After how many days backups should be deleted. Defaults to `30`.

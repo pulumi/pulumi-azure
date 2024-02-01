@@ -43,6 +43,10 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
      * 
      */
     private @Nullable String issuerEndpoint;
+    /**
+     * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     */
     private String name;
     /**
      * @return The name of the claim that contains the users name.
@@ -108,6 +112,10 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2 {
     public Optional<String> issuerEndpoint() {
         return Optional.ofNullable(this.issuerEndpoint);
     }
+    /**
+     * @return The name of the Custom OIDC Authentication Provider.
+     * 
+     */
     public String name() {
         return this.name;
     }

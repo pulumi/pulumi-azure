@@ -80,7 +80,7 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var admin = new AzureAD.User("admin", new()
     ///     {
-    ///         UserPrincipalName = "ms.admin@hashicorp.com",
+    ///         UserPrincipalName = "ms.admin@example.com",
     ///         DisplayName = "Ms Admin",
     ///         MailNickname = "ms.admin",
     ///         Password = "SecretP@sswd99!",
