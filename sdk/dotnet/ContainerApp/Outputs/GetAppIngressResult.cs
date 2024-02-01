@@ -21,6 +21,9 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressCustomDomainResult> CustomDomains;
+        /// <summary>
+        /// The exposed port on the container for the Ingress traffic.
+        /// </summary>
         public readonly int ExposedPort;
         /// <summary>
         /// Is this an external Ingress.

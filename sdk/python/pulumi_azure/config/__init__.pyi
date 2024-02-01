@@ -56,9 +56,6 @@ This will disable the x-ms-correlation-request-id header.
 """
 
 disableTerraformPartnerId: Optional[bool]
-"""
-This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-"""
 
 environment: str
 """

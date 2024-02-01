@@ -4957,7 +4957,8 @@ type GetAppIngress struct {
 	AllowInsecureConnections bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []GetAppIngressCustomDomain `pulumi:"customDomains"`
-	ExposedPort   int                         `pulumi:"exposedPort"`
+	// The exposed port on the container for the Ingress traffic.
+	ExposedPort int `pulumi:"exposedPort"`
 	// Is this an external Ingress.
 	ExternalEnabled bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -4988,7 +4989,8 @@ type GetAppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains GetAppIngressCustomDomainArrayInput `pulumi:"customDomains"`
-	ExposedPort   pulumi.IntInput                     `pulumi:"exposedPort"`
+	// The exposed port on the container for the Ingress traffic.
+	ExposedPort pulumi.IntInput `pulumi:"exposedPort"`
 	// Is this an external Ingress.
 	ExternalEnabled pulumi.BoolInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -5064,6 +5066,7 @@ func (o GetAppIngressOutput) CustomDomains() GetAppIngressCustomDomainArrayOutpu
 	return o.ApplyT(func(v GetAppIngress) []GetAppIngressCustomDomain { return v.CustomDomains }).(GetAppIngressCustomDomainArrayOutput)
 }
 
+// The exposed port on the container for the Ingress traffic.
 func (o GetAppIngressOutput) ExposedPort() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppIngress) int { return v.ExposedPort }).(pulumi.IntOutput)
 }

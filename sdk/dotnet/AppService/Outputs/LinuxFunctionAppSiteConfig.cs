@@ -69,6 +69,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Specifies a list of Default Documents for the Linux Web App.
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
+        /// <summary>
+        /// Is detailed error logging enabled
+        /// </summary>
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>
         /// The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -94,6 +97,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// One or more `ip_restriction` blocks as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.LinuxFunctionAppSiteConfigIpRestriction> IpRestrictions;
+        /// <summary>
+        /// The Linux FX Version
+        /// </summary>
         public readonly string? LinuxFxVersion;
         /// <summary>
         /// The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -133,6 +139,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         /// </summary>
         public readonly string? ScmMinimumTlsVersion;
+        /// <summary>
+        /// The SCM Type in use by the Linux Function App.
+        /// </summary>
         public readonly string? ScmType;
         /// <summary>
         /// Should the Linux Function App `ip_restriction` configuration be used for the SCM also.

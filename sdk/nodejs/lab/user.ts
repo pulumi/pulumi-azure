@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleUser = new azure.lab.User("exampleUser", {
  *     labId: exampleLab.id,
- *     email: "terraform-acctest@hashicorp.com",
+ *     email: "terraform-acctest@example.com",
  * });
  * ```
  *

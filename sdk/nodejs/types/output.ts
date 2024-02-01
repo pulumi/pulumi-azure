@@ -6093,6 +6093,9 @@ export namespace appservice {
          * Does the service keep at least one backup, regardless of age of backup?
          */
         keepAtLeastOneBackup: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups are deleted.
@@ -7443,12 +7446,21 @@ export namespace appservice {
          */
         action: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Linux Web App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Linux Web App is vNet Integrated with.
@@ -7457,9 +7469,21 @@ export namespace appservice {
     }
 
     export interface GetLinuxWebAppSiteConfigIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
@@ -7469,12 +7493,21 @@ export namespace appservice {
          */
         action: string;
         headers: outputs.appservice.GetLinuxWebAppSiteConfigScmIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Linux Web App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Linux Web App is vNet Integrated with.
@@ -7483,9 +7516,21 @@ export namespace appservice {
     }
 
     export interface GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
@@ -8084,6 +8129,9 @@ export namespace appservice {
          * Should the service keep at least one backup.
          */
         keepAtLeastOneBackup: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups is deleted.
@@ -8315,14 +8363,26 @@ export namespace appservice {
     }
 
     export interface GetWindowsFunctionAppSiteConfigIpRestriction {
+        /**
+         * The action to take.
+         */
         action: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Windows Function App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Windows Function App is vNet Integrated with.
@@ -8331,21 +8391,45 @@ export namespace appservice {
     }
 
     export interface GetWindowsFunctionAppSiteConfigIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
     export interface GetWindowsFunctionAppSiteConfigScmIpRestriction {
+        /**
+         * The action to take.
+         */
         action: string;
         headers: outputs.appservice.GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Windows Function App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Windows Function App is vNet Integrated with.
@@ -8354,9 +8438,21 @@ export namespace appservice {
     }
 
     export interface GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
@@ -9374,12 +9470,21 @@ export namespace appservice {
          */
         action: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Windows Web App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Windows Web App is vNet Integrated with.
@@ -9388,9 +9493,21 @@ export namespace appservice {
     }
 
     export interface GetWindowsWebAppSiteConfigIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
@@ -9400,12 +9517,21 @@ export namespace appservice {
          */
         action: string;
         headers: outputs.appservice.GetWindowsWebAppSiteConfigScmIpRestrictionHeader[];
+        /**
+         * The CIDR notation of the IP or IP Range to match.
+         */
         ipAddress: string;
         /**
          * The name of this Windows Web App.
          */
         name: string;
+        /**
+         * The priority value of this `ipRestriction`.
+         */
         priority: number;
+        /**
+         * The Service Tag used for this IP Restriction.
+         */
         serviceTag: string;
         /**
          * The subnet id which the Windows Web App is vNet Integrated with.
@@ -9414,9 +9540,21 @@ export namespace appservice {
     }
 
     export interface GetWindowsWebAppSiteConfigScmIpRestrictionHeader {
+        /**
+         * The list of Azure Front Door IDs.
+         */
         xAzureFdids: string[];
+        /**
+         * Specifies if a Front Door Health Probe is expected.
+         */
         xFdHealthProbes: string[];
+        /**
+         * The list of addresses for which matching is applied.
+         */
         xForwardedFors: string[];
+        /**
+         * The list of Hosts for which matching will be applied.
+         */
         xForwardedHosts: string[];
     }
 
@@ -9798,6 +9936,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -10068,6 +10209,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -10172,6 +10316,9 @@ export namespace appservice {
          * Specifies a list of Default Documents for the Linux Web App.
          */
         defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled
+         */
         detailedErrorLoggingEnabled: boolean;
         /**
          * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -10197,6 +10344,9 @@ export namespace appservice {
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: outputs.appservice.LinuxFunctionAppSiteConfigIpRestriction[];
+        /**
+         * The Linux FX Version
+         */
         linuxFxVersion: string;
         /**
          * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -10236,6 +10386,9 @@ export namespace appservice {
          * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
+        /**
+         * The SCM Type in use by the Linux Function App.
+         */
         scmType: string;
         /**
          * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
@@ -10759,6 +10912,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11797,6 +11953,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11871,6 +12030,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint: string;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: string;
         /**
          * The name of the claim that contains the users name.
@@ -12064,6 +12226,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -12593,6 +12758,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name: string;
         /**
          * The Site Credentials Password used for publishing.
@@ -12899,6 +13067,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -12973,6 +13144,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint: string;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: string;
         /**
          * The name of the claim that contains the users name.
@@ -13166,6 +13340,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -13699,6 +13876,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name: string;
         /**
          * The Site Credentials Password used for publishing.
@@ -14340,6 +14520,9 @@ export namespace appservice {
          * Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
          */
         generateWorkflowFile?: boolean;
+        /**
+         * Denotes this action uses a Linux base image.
+         */
         linuxAction: boolean;
     }
 
@@ -14737,6 +14920,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -15007,6 +15193,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -15103,6 +15292,9 @@ export namespace appservice {
          * Specifies a list of Default Documents for the Windows Function App.
          */
         defaultDocuments: string[];
+        /**
+         * Is detailed error logging enabled
+         */
         detailedErrorLoggingEnabled: boolean;
         /**
          * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -15166,6 +15358,9 @@ export namespace appservice {
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: string;
+        /**
+         * The SCM Type in use by the Windows Function App.
+         */
         scmType: string;
         /**
          * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
@@ -15183,6 +15378,9 @@ export namespace appservice {
          * Should Web Sockets be enabled. Defaults to `false`.
          */
         websocketsEnabled?: boolean;
+        /**
+         * The Windows FX Version string.
+         */
         windowsFxVersion: string;
         /**
          * The number of Workers for this Windows Function App.
@@ -15657,6 +15855,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -16652,6 +16853,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -16922,6 +17126,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -17843,6 +18050,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: string;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -17917,6 +18127,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint: string;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: string;
         /**
          * The name of the claim that contains the users name.
@@ -18110,6 +18323,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime: string;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -18714,6 +18930,9 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name: string;
         /**
          * The Site Credentials Password used for publishing.
@@ -27420,14 +27639,41 @@ export namespace config {
     }
 
     export interface FeaturesKeyVault {
+        /**
+         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+         */
         purgeSoftDeleteOnDestroy?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+         */
         purgeSoftDeletedCertificatesOnDestroy?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+         */
         purgeSoftDeletedHardwareSecurityModulesOnDestroy?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+         */
         purgeSoftDeletedKeysOnDestroy?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+         */
         purgeSoftDeletedSecretsOnDestroy?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+         */
         recoverSoftDeletedCertificates?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+         */
         recoverSoftDeletedKeyVaults?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+         */
         recoverSoftDeletedKeys?: boolean;
+        /**
+         * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+         */
         recoverSoftDeletedSecrets?: boolean;
     }
 
@@ -28831,6 +29077,9 @@ export namespace containerapp {
          * One or more `customDomain` block as detailed below.
          */
         customDomains: outputs.containerapp.GetAppIngressCustomDomain[];
+        /**
+         * The exposed port on the container for the Ingress traffic.
+         */
         exposedPort: number;
         /**
          * Is this an external Ingress.

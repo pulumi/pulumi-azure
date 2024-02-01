@@ -120,6 +120,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _defaultDocuments = value;
         }
 
+        /// <summary>
+        /// Is detailed error logging enabled
+        /// </summary>
         [Input("detailedErrorLoggingEnabled")]
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
@@ -165,6 +168,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _ipRestrictions = value;
         }
 
+        /// <summary>
+        /// The Linux FX Version
+        /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
 
@@ -230,6 +236,9 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("scmMinimumTlsVersion")]
         public Input<string>? ScmMinimumTlsVersion { get; set; }
 
+        /// <summary>
+        /// The SCM Type in use by the Linux Function App.
+        /// </summary>
         [Input("scmType")]
         public Input<string>? ScmType { get; set; }
 

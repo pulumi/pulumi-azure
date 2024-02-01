@@ -39,14 +39,41 @@ export interface ProviderFeaturesCognitiveAccount {
 }
 
 export interface ProviderFeaturesKeyVault {
+    /**
+     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+     */
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+     */
     purgeSoftDeletedCertificatesOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+     */
     purgeSoftDeletedHardwareSecurityModulesOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+     */
     purgeSoftDeletedKeysOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+     */
     purgeSoftDeletedSecretsOnDestroy?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Certificate` resources will be restored, instead of creating new ones
+     */
     recoverSoftDeletedCertificates?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.KeyVault` resources will be restored, instead of creating new ones
+     */
     recoverSoftDeletedKeyVaults?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Key` resources will be restored, instead of creating new ones
+     */
     recoverSoftDeletedKeys?: pulumi.Input<boolean>;
+    /**
+     * When enabled soft-deleted `azure.keyvault.Secret` resources will be restored, instead of creating new ones
+     */
     recoverSoftDeletedSecrets?: pulumi.Input<boolean>;
 }
 
@@ -4841,6 +4868,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -5111,6 +5141,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -5215,6 +5248,9 @@ export namespace appservice {
          * Specifies a list of Default Documents for the Linux Web App.
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is detailed error logging enabled
+         */
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
          * The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
@@ -5240,6 +5276,9 @@ export namespace appservice {
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigIpRestriction>[]>;
+        /**
+         * The Linux FX Version
+         */
         linuxFxVersion?: pulumi.Input<string>;
         /**
          * The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
@@ -5279,6 +5318,9 @@ export namespace appservice {
          * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The SCM Type in use by the Linux Function App.
+         */
         scmType?: pulumi.Input<string>;
         /**
          * Should the Linux Function App `ipRestriction` configuration be used for the SCM also.
@@ -5802,6 +5844,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -6840,6 +6885,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -6914,6 +6962,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: pulumi.Input<string>;
         /**
          * The name of the claim that contains the users name.
@@ -7107,6 +7158,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -7636,6 +7690,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name?: pulumi.Input<string>;
         /**
          * The Site Credentials Password used for publishing.
@@ -7942,6 +7999,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -8016,6 +8076,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: pulumi.Input<string>;
         /**
          * The name of the claim that contains the users name.
@@ -8209,6 +8272,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -8742,6 +8808,9 @@ export namespace appservice {
     }
 
     export interface LinuxWebAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name?: pulumi.Input<string>;
         /**
          * The Site Credentials Password used for publishing.
@@ -9383,6 +9452,9 @@ export namespace appservice {
          * Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
          */
         generateWorkflowFile?: pulumi.Input<boolean>;
+        /**
+         * Denotes this action uses a Linux base image.
+         */
         linuxAction?: pulumi.Input<boolean>;
     }
 
@@ -9780,6 +9852,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -10050,6 +10125,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -10146,6 +10224,9 @@ export namespace appservice {
          * Specifies a list of Default Documents for the Windows Function App.
          */
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Is detailed error logging enabled
+         */
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
          * The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
@@ -10209,6 +10290,9 @@ export namespace appservice {
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
+        /**
+         * The SCM Type in use by the Windows Function App.
+         */
         scmType?: pulumi.Input<string>;
         /**
          * Should the Windows Function App `ipRestriction` configuration be used for the SCM also.
@@ -10226,6 +10310,9 @@ export namespace appservice {
          * Should Web Sockets be enabled. Defaults to `false`.
          */
         websocketsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Windows FX Version string.
+         */
         windowsFxVersion?: pulumi.Input<string>;
         /**
          * The number of Workers for this Windows Function App.
@@ -10700,6 +10787,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11695,6 +11785,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -11965,6 +12058,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -12886,6 +12982,9 @@ export namespace appservice {
          * The ID of the Client to use to authenticate with Azure Active Directory.
          */
         clientId: pulumi.Input<string>;
+        /**
+         * The thumbprint of the certificate used for signing purposes.
+         */
         clientSecretCertificateThumbprint?: pulumi.Input<string>;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
@@ -12960,6 +13059,9 @@ export namespace appservice {
          * The endpoint that issued the Token as supplied by `openidConfigurationEndpoint` response.
          */
         issuerEndpoint?: pulumi.Input<string>;
+        /**
+         * The name of the Custom OIDC Authentication Provider.
+         */
         name: pulumi.Input<string>;
         /**
          * The name of the claim that contains the users name.
@@ -13153,6 +13255,9 @@ export namespace appservice {
          * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        /**
+         * The time the backup was last attempted.
+         */
         lastExecutionTime?: pulumi.Input<string>;
         /**
          * After how many days backups should be deleted. Defaults to `30`.
@@ -13757,6 +13862,9 @@ export namespace appservice {
     }
 
     export interface WindowsWebAppSlotSiteCredential {
+        /**
+         * The Site Credentials Username used for publishing.
+         */
         name?: pulumi.Input<string>;
         /**
          * The Site Credentials Password used for publishing.

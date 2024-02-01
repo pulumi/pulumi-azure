@@ -7166,6 +7166,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -7272,6 +7273,9 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -8177,6 +8181,7 @@ class LinuxFunctionAppBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -8232,6 +8237,9 @@ class LinuxFunctionAppBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -8446,12 +8454,14 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[bool] container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param pulumi.Input['LinuxFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Linux Web App.
+        :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param pulumi.Input[str] health_check_path: The path to be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
+        :param pulumi.Input[str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param pulumi.Input[str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
@@ -8463,6 +8473,7 @@ class LinuxFunctionAppSiteConfigArgs:
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_type: The SCM Type in use by the Linux Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
@@ -8705,6 +8716,9 @@ class LinuxFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is detailed error logging enabled
+        """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
     @detailed_error_logging_enabled.setter
@@ -8786,6 +8800,9 @@ class LinuxFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="linuxFxVersion")
     def linux_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Linux FX Version
+        """
         return pulumi.get(self, "linux_fx_version")
 
     @linux_fx_version.setter
@@ -8905,6 +8922,9 @@ class LinuxFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="scmType")
     def scm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SCM Type in use by the Linux Function App.
+        """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
@@ -10764,6 +10784,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -10870,6 +10891,9 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -14621,6 +14645,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -14727,6 +14752,9 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -14885,6 +14913,7 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
                  token_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] name: The name of the Custom OIDC Authentication Provider.
         :param pulumi.Input[str] openid_configuration_endpoint: Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
         :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -14930,6 +14959,9 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -15628,6 +15660,7 @@ class LinuxWebAppBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -15683,6 +15716,9 @@ class LinuxWebAppBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -17663,6 +17699,7 @@ class LinuxWebAppSiteCredentialArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -17673,6 +17710,9 @@ class LinuxWebAppSiteCredentialArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -18748,6 +18788,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -18854,6 +18895,9 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -19012,6 +19056,7 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
                  token_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] name: The name of the Custom OIDC Authentication Provider.
         :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -19057,6 +19102,9 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -19755,6 +19803,7 @@ class LinuxWebAppSlotBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -19810,6 +19859,9 @@ class LinuxWebAppSlotBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -21806,6 +21858,7 @@ class LinuxWebAppSlotSiteCredentialArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -21816,6 +21869,9 @@ class LinuxWebAppSlotSiteCredentialArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -24117,6 +24173,7 @@ class SourceControlGithubActionConfigurationArgs:
         :param pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgs'] code_configuration: A `code_configuration` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgs'] container_configuration: A `container_configuration` block as defined above.
         :param pulumi.Input[bool] generate_workflow_file: Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] linux_action: Denotes this action uses a Linux base image.
         """
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
@@ -24166,6 +24223,9 @@ class SourceControlGithubActionConfigurationArgs:
     @property
     @pulumi.getter(name="linuxAction")
     def linux_action(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Denotes this action uses a Linux base image.
+        """
         return pulumi.get(self, "linux_action")
 
     @linux_action.setter
@@ -25578,6 +25638,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -25684,6 +25745,9 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -26589,6 +26653,7 @@ class WindowsFunctionAppBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -26644,6 +26709,9 @@ class WindowsFunctionAppBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -26854,6 +26922,7 @@ class WindowsFunctionAppSiteConfigArgs:
                > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
         :param pulumi.Input['WindowsFunctionAppSiteConfigCorsArgs'] cors: A `cors` block as defined above.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] default_documents: Specifies a list of Default Documents for the Windows Function App.
+        :param pulumi.Input[bool] detailed_error_logging_enabled: Is detailed error logging enabled
         :param pulumi.Input[int] elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[int] health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
@@ -26871,10 +26940,12 @@ class WindowsFunctionAppSiteConfigArgs:
                > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param pulumi.Input[str] scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[str] scm_type: The SCM Type in use by the Windows Function App.
         :param pulumi.Input[bool] scm_use_main_ip_restriction: Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
         :param pulumi.Input[bool] use32_bit_worker: Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param pulumi.Input[bool] websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param pulumi.Input[str] windows_fx_version: The Windows FX Version string.
         :param pulumi.Input[int] worker_count: The number of Workers for this Windows Function App.
         """
         if always_on is not None:
@@ -27085,6 +27156,9 @@ class WindowsFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="detailedErrorLoggingEnabled")
     def detailed_error_logging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is detailed error logging enabled
+        """
         return pulumi.get(self, "detailed_error_logging_enabled")
 
     @detailed_error_logging_enabled.setter
@@ -27276,6 +27350,9 @@ class WindowsFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="scmType")
     def scm_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SCM Type in use by the Windows Function App.
+        """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
@@ -27333,6 +27410,9 @@ class WindowsFunctionAppSiteConfigArgs:
     @property
     @pulumi.getter(name="windowsFxVersion")
     def windows_fx_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Windows FX Version string.
+        """
         return pulumi.get(self, "windows_fx_version")
 
     @windows_fx_version.setter
@@ -29024,6 +29104,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -29130,6 +29211,9 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -32725,6 +32809,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -32831,6 +32916,9 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -33736,6 +33824,7 @@ class WindowsWebAppBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -33791,6 +33880,9 @@ class WindowsWebAppBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -37157,6 +37249,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
                > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_identities: The list of allowed Identities for the Default Authorisation Policy.
+        :param pulumi.Input[str] client_secret_certificate_thumbprint: The thumbprint of the certificate used for signing purposes.
         :param pulumi.Input[str] client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
@@ -37263,6 +37356,9 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     @property
     @pulumi.getter(name="clientSecretCertificateThumbprint")
     def client_secret_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
         return pulumi.get(self, "client_secret_certificate_thumbprint")
 
     @client_secret_certificate_thumbprint.setter
@@ -37421,6 +37517,7 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
                  token_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_id: The ID of the Client to use to authenticate with Azure Active Directory.
+        :param pulumi.Input[str] name: The name of the Custom OIDC Authentication Provider.
         :param pulumi.Input[str] openid_configuration_endpoint: The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
         :param pulumi.Input[str] authorisation_endpoint: The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
         :param pulumi.Input[str] certification_uri: The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
@@ -37466,6 +37563,9 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom OIDC Authentication Provider.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -38164,6 +38264,7 @@ class WindowsWebAppSlotBackupScheduleArgs:
                > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
         :param pulumi.Input[str] frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
         :param pulumi.Input[bool] keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param pulumi.Input[str] last_execution_time: The time the backup was last attempted.
         :param pulumi.Input[int] retention_period_days: After how many days backups should be deleted. Defaults to `30`.
         :param pulumi.Input[str] start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -38219,6 +38320,9 @@ class WindowsWebAppSlotBackupScheduleArgs:
     @property
     @pulumi.getter(name="lastExecutionTime")
     def last_execution_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the backup was last attempted.
+        """
         return pulumi.get(self, "last_execution_time")
 
     @last_execution_time.setter
@@ -40478,6 +40582,7 @@ class WindowsWebAppSlotSiteCredentialArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The Site Credentials Username used for publishing.
         :param pulumi.Input[str] password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -40488,6 +40593,9 @@ class WindowsWebAppSlotSiteCredentialArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Site Credentials Username used for publishing.
+        """
         return pulumi.get(self, "name")
 
     @name.setter

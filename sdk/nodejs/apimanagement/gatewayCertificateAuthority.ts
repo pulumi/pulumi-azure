@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
- *     data: Buffer.from(fs.readFileSync("example.pfx", 'binary')).toString('base64'),
+ *     data: fs.readFileSync("example.pfx", { encoding: "base64" }),
  * });
  * const exampleGatewayCertificateAuthority = new azure.apimanagement.GatewayCertificateAuthority("exampleGatewayCertificateAuthority", {
  *     apiManagementId: exampleService.id,

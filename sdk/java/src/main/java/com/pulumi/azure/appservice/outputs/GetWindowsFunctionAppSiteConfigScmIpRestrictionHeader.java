@@ -11,21 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
+    /**
+     * @return The list of Azure Front Door IDs.
+     * 
+     */
     private List<String> xAzureFdids;
+    /**
+     * @return Specifies if a Front Door Health Probe is expected.
+     * 
+     */
     private List<String> xFdHealthProbes;
+    /**
+     * @return The list of addresses for which matching is applied.
+     * 
+     */
     private List<String> xForwardedFors;
+    /**
+     * @return The list of Hosts for which matching will be applied.
+     * 
+     */
     private List<String> xForwardedHosts;
 
     private GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader() {}
+    /**
+     * @return The list of Azure Front Door IDs.
+     * 
+     */
     public List<String> xAzureFdids() {
         return this.xAzureFdids;
     }
+    /**
+     * @return Specifies if a Front Door Health Probe is expected.
+     * 
+     */
     public List<String> xFdHealthProbes() {
         return this.xFdHealthProbes;
     }
+    /**
+     * @return The list of addresses for which matching is applied.
+     * 
+     */
     public List<String> xForwardedFors() {
         return this.xForwardedFors;
     }
+    /**
+     * @return The list of Hosts for which matching will be applied.
+     * 
+     */
     public List<String> xForwardedHosts() {
         return this.xForwardedHosts;
     }
