@@ -71,7 +71,7 @@ namespace Pulumi.Azure.AppService
     ///         }),
     ///         ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["bindings"] = new[]
+    ///             ["bindings"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.AppService
     ///         }),
     ///         ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
-    ///             ["bindings"] = new[]
+    ///             ["bindings"] = new object?[]
     ///             {
     ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
