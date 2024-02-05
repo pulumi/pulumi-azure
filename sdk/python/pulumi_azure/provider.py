@@ -607,11 +607,11 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             __props__.__dict__["client_certificate"] = client_certificate
-            __props__.__dict__["client_certificate_password"] = client_certificate_password
+            __props__.__dict__["client_certificate_password"] = None if client_secret is None else pulumi.Output.secret(client_certificate_password)
             __props__.__dict__["client_certificate_path"] = client_certificate_path
-            __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_id"] = None if client_id is None else pulumi.Output.secret(client_id)
             __props__.__dict__["client_id_file_path"] = client_id_file_path
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["client_secret_file_path"] = client_secret_file_path
             __props__.__dict__["disable_correlation_request_id"] = pulumi.Output.from_input(disable_correlation_request_id).apply(pulumi.runtime.to_json) if disable_correlation_request_id is not None else None
             __props__.__dict__["disable_terraform_partner_id"] = pulumi.Output.from_input(disable_terraform_partner_id).apply(pulumi.runtime.to_json) if disable_terraform_partner_id is not None else None
