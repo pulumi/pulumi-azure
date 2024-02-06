@@ -1038,7 +1038,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             $.metadataHost = Codegen.stringProp("metadataHost").output().arg($.metadataHost).env("ARM_METADATA_HOSTNAME").getNullable();
             $.skipProviderRegistration = Codegen.booleanProp("skipProviderRegistration").output().arg($.skipProviderRegistration).env("ARM_SKIP_PROVIDER_REGISTRATION").def(false).getNullable();
             $.storageUseAzuread = Codegen.booleanProp("storageUseAzuread").output().arg($.storageUseAzuread).env("ARM_STORAGE_USE_AZUREAD").def(false).getNullable();
-            $.subscriptionId = Codegen.stringProp("subscriptionId").output().arg($.subscriptionId).env("ARM_SUBSCRIPTION_ID").def("").getNullable();
+            $.subscriptionId = Codegen.stringProp("subscriptionId").secret().arg($.subscriptionId).env("ARM_SUBSCRIPTION_ID").def("").getNullable();
             return $;
         }
     }

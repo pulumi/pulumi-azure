@@ -144,6 +144,21 @@ namespace Pulumi.Azure
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "clientCertificate",
+                    "clientCertificatePassword",
+                    "clientCertificatePath",
+                    "clientId",
+                    "clientIdFilePath",
+                    "clientSecret",
+                    "clientSecretFilePath",
+                    "oidcRequestToken",
+                    "oidcToken",
+                    "oidcTokenFilePath",
+                    "subscriptionId",
+                    "tenantId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -162,50 +177,120 @@ namespace Pulumi.Azure
             set => _auxiliaryTenantIds = value;
         }
 
+        [Input("clientCertificate")]
+        private Input<string>? _clientCertificate;
+
         /// <summary>
         /// Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
         /// </summary>
-        [Input("clientCertificate")]
-        public Input<string>? ClientCertificate { get; set; }
+        public Input<string>? ClientCertificate
+        {
+            get => _clientCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientCertificatePassword")]
+        private Input<string>? _clientCertificatePassword;
 
         /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
         /// Certificate
         /// </summary>
-        [Input("clientCertificatePassword")]
-        public Input<string>? ClientCertificatePassword { get; set; }
+        public Input<string>? ClientCertificatePassword
+        {
+            get => _clientCertificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientCertificatePath")]
+        private Input<string>? _clientCertificatePath;
 
         /// <summary>
         /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
         /// Principal using a Client Certificate.
         /// </summary>
-        [Input("clientCertificatePath")]
-        public Input<string>? ClientCertificatePath { get; set; }
+        public Input<string>? ClientCertificatePath
+        {
+            get => _clientCertificatePath;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientId")]
+        private Input<string>? _clientId;
 
         /// <summary>
         /// The Client ID which should be used.
         /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
+        public Input<string>? ClientId
+        {
+            get => _clientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientIdFilePath")]
+        private Input<string>? _clientIdFilePath;
 
         /// <summary>
         /// The path to a file containing the Client ID which should be used.
         /// </summary>
-        [Input("clientIdFilePath")]
-        public Input<string>? ClientIdFilePath { get; set; }
+        public Input<string>? ClientIdFilePath
+        {
+            get => _clientIdFilePath;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientIdFilePath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
 
         /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecretFilePath")]
+        private Input<string>? _clientSecretFilePath;
 
         /// <summary>
         /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
         /// using a Client Secret.
         /// </summary>
-        [Input("clientSecretFilePath")]
-        public Input<string>? ClientSecretFilePath { get; set; }
+        public Input<string>? ClientSecretFilePath
+        {
+            get => _clientSecretFilePath;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecretFilePath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// This will disable the x-ms-correlation-request-id header.
@@ -241,12 +326,22 @@ namespace Pulumi.Azure
         [Input("msiEndpoint")]
         public Input<string>? MsiEndpoint { get; set; }
 
+        [Input("oidcRequestToken")]
+        private Input<string>? _oidcRequestToken;
+
         /// <summary>
         /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
         /// Connect.
         /// </summary>
-        [Input("oidcRequestToken")]
-        public Input<string>? OidcRequestToken { get; set; }
+        public Input<string>? OidcRequestToken
+        {
+            get => _oidcRequestToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oidcRequestToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
@@ -255,17 +350,37 @@ namespace Pulumi.Azure
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
 
+        [Input("oidcToken")]
+        private Input<string>? _oidcToken;
+
         /// <summary>
         /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
-        [Input("oidcToken")]
-        public Input<string>? OidcToken { get; set; }
+        public Input<string>? OidcToken
+        {
+            get => _oidcToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oidcToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("oidcTokenFilePath")]
+        private Input<string>? _oidcTokenFilePath;
 
         /// <summary>
         /// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
-        [Input("oidcTokenFilePath")]
-        public Input<string>? OidcTokenFilePath { get; set; }
+        public Input<string>? OidcTokenFilePath
+        {
+            get => _oidcTokenFilePath;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oidcTokenFilePath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -286,17 +401,37 @@ namespace Pulumi.Azure
         [Input("storageUseAzuread", json: true)]
         public Input<bool>? StorageUseAzuread { get; set; }
 
+        [Input("subscriptionId")]
+        private Input<string>? _subscriptionId;
+
         /// <summary>
         /// The Subscription ID which should be used.
         /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
+        public Input<string>? SubscriptionId
+        {
+            get => _subscriptionId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _subscriptionId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tenantId")]
+        private Input<string>? _tenantId;
 
         /// <summary>
         /// The Tenant ID which should be used.
         /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
+        public Input<string>? TenantId
+        {
+            get => _tenantId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tenantId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Allow Azure AKS Workload Identity to be used for Authentication.
