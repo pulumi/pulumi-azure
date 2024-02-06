@@ -92,6 +92,57 @@ func NewProvider(ctx *pulumi.Context,
 			args.SubscriptionId = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.ClientCertificate != nil {
+		args.ClientCertificate = pulumi.ToSecret(args.ClientCertificate).(pulumi.StringPtrInput)
+	}
+	if args.ClientCertificatePassword != nil {
+		args.ClientCertificatePassword = pulumi.ToSecret(args.ClientCertificatePassword).(pulumi.StringPtrInput)
+	}
+	if args.ClientCertificatePath != nil {
+		args.ClientCertificatePath = pulumi.ToSecret(args.ClientCertificatePath).(pulumi.StringPtrInput)
+	}
+	if args.ClientId != nil {
+		args.ClientId = pulumi.ToSecret(args.ClientId).(pulumi.StringPtrInput)
+	}
+	if args.ClientIdFilePath != nil {
+		args.ClientIdFilePath = pulumi.ToSecret(args.ClientIdFilePath).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecretFilePath != nil {
+		args.ClientSecretFilePath = pulumi.ToSecret(args.ClientSecretFilePath).(pulumi.StringPtrInput)
+	}
+	if args.OidcRequestToken != nil {
+		args.OidcRequestToken = pulumi.ToSecret(args.OidcRequestToken).(pulumi.StringPtrInput)
+	}
+	if args.OidcToken != nil {
+		args.OidcToken = pulumi.ToSecret(args.OidcToken).(pulumi.StringPtrInput)
+	}
+	if args.OidcTokenFilePath != nil {
+		args.OidcTokenFilePath = pulumi.ToSecret(args.OidcTokenFilePath).(pulumi.StringPtrInput)
+	}
+	if args.SubscriptionId != nil {
+		args.SubscriptionId = pulumi.ToSecret(args.SubscriptionId).(pulumi.StringPtrInput)
+	}
+	if args.TenantId != nil {
+		args.TenantId = pulumi.ToSecret(args.TenantId).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"clientCertificate",
+		"clientCertificatePassword",
+		"clientCertificatePath",
+		"clientId",
+		"clientIdFilePath",
+		"clientSecret",
+		"clientSecretFilePath",
+		"oidcRequestToken",
+		"oidcToken",
+		"oidcTokenFilePath",
+		"subscriptionId",
+		"tenantId",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azure", name, args, &resource, opts...)

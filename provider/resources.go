@@ -548,6 +548,7 @@ func Provider() tfbridge.ProviderInfo {
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
 	cloudShell := detectCloudShell()
+	yes := true
 
 	prov := tfbridge.ProviderInfo{
 		P:                p,
@@ -567,6 +568,7 @@ func Provider() tfbridge.ProviderInfo {
 					Value:   cloudShell.subscriptionID,
 					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
 				},
+				Secret: &yes,
 			},
 			"environment": {
 				Default: &tfbridge.DefaultInfo{
@@ -591,6 +593,18 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_METADATA_HOSTNAME"},
 				},
 			},
+			"auxillary_tenant_ids":        {Secret: &yes},
+			"client_certificate":          {Secret: &yes},
+			"client_certificate_password": {Secret: &yes},
+			"client_certificate_path":     {Secret: &yes},
+			"client_id":                   {Secret: &yes},
+			"client_id_file_path":         {Secret: &yes},
+			"client_secret":               {Secret: &yes},
+			"client_secret_file_path":     {Secret: &yes},
+			"oidc_request_token":          {Secret: &yes},
+			"oidc_token":                  {Secret: &yes},
+			"oidc_token_file_path":        {Secret: &yes},
+			"tenant_id":                   {Secret: &yes},
 		},
 		ExtraConfig: map[string]*tfbridge.ConfigInfo{
 			azureLocation: {
