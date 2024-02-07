@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Wed, 7 Feb 2024 13:38:41 -0500
+Date: Wed, 7 Feb 2024 13:53:37 -0500
 Subject: [PATCH 5/5] Modify resources
 
 
@@ -951,7 +951,7 @@ index 0b56225df8..b77f4b035c 100644
  
  		"sku_tier": {
 diff --git a/internal/services/loadbalancer/nat_pool_resource.go b/internal/services/loadbalancer/nat_pool_resource.go
-index 4cb2090275..4243c86d75 100644
+index 4cb2090275..45009871bc 100644
 --- a/internal/services/loadbalancer/nat_pool_resource.go
 +++ b/internal/services/loadbalancer/nat_pool_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -962,21 +962,17 @@ index 4cb2090275..4243c86d75 100644
  	"log"
  	"time"
  
-@@ -69,9 +70,9 @@ func resourceArmLoadBalancerNatPool() *pluginsdk.Resource {
- 				Required: true,
- 				ValidateFunc: validation.StringInSlice([]string{
+@@ -71,7 +72,7 @@ func resourceArmLoadBalancerNatPool() *pluginsdk.Resource {
  					string(loadbalancers.TransportProtocolAll),
--					string(loadbalancers.TransportProtocolTcp),
--					string(loadbalancers.TransportProtocolUdp),
+ 					string(loadbalancers.TransportProtocolTcp),
+ 					string(loadbalancers.TransportProtocolUdp),
 -				}, false),
-+					string(loadbalancers.TransportProtocolTCP),
-+					string(loadbalancers.TransportProtocolUDP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"frontend_port_start": {
 diff --git a/internal/services/loadbalancer/nat_rule_resource.go b/internal/services/loadbalancer/nat_rule_resource.go
-index f5e7302547..88677c10a9 100644
+index f5e7302547..498a6a8379 100644
 --- a/internal/services/loadbalancer/nat_rule_resource.go
 +++ b/internal/services/loadbalancer/nat_rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -987,21 +983,17 @@ index f5e7302547..88677c10a9 100644
  	"log"
  	"time"
  
-@@ -67,9 +68,9 @@ func resourceArmLoadBalancerNatRule() *pluginsdk.Resource {
- 				Required: true,
- 				ValidateFunc: validation.StringInSlice([]string{
+@@ -69,7 +70,7 @@ func resourceArmLoadBalancerNatRule() *pluginsdk.Resource {
  					string(loadbalancers.TransportProtocolAll),
--					string(loadbalancers.TransportProtocolTcp),
--					string(loadbalancers.TransportProtocolUdp),
+ 					string(loadbalancers.TransportProtocolTcp),
+ 					string(loadbalancers.TransportProtocolUdp),
 -				}, false),
-+					string(loadbalancers.TransportProtocolTCP),
-+					string(loadbalancers.TransportProtocolUDP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"frontend_port": {
 diff --git a/internal/services/loadbalancer/probe_resource.go b/internal/services/loadbalancer/probe_resource.go
-index ea0a79b9a6..aa551363d3 100644
+index ea0a79b9a6..addfe7d710 100644
 --- a/internal/services/loadbalancer/probe_resource.go
 +++ b/internal/services/loadbalancer/probe_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1012,19 +1004,17 @@ index ea0a79b9a6..aa551363d3 100644
  	"log"
  	"time"
  
-@@ -66,8 +67,8 @@ func resourceArmLoadBalancerProbe() *pluginsdk.Resource {
- 				ValidateFunc: validation.StringInSlice([]string{
+@@ -67,7 +68,7 @@ func resourceArmLoadBalancerProbe() *pluginsdk.Resource {
  					string(loadbalancers.ProbeProtocolHTTP),
  					string(loadbalancers.ProbeProtocolHTTPS),
--					string(loadbalancers.ProbeProtocolTcp),
+ 					string(loadbalancers.ProbeProtocolTcp),
 -				}, false),
-+					string(loadbalancers.ProbeProtocolTCP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"port": {
 diff --git a/internal/services/loadbalancer/rule_resource.go b/internal/services/loadbalancer/rule_resource.go
-index 74365aa972..7acf365175 100644
+index 74365aa972..792b8a2f9c 100644
 --- a/internal/services/loadbalancer/rule_resource.go
 +++ b/internal/services/loadbalancer/rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1035,15 +1025,11 @@ index 74365aa972..7acf365175 100644
  	"log"
  	"time"
  
-@@ -369,9 +370,9 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
- 			DiffSuppressFunc: suppress.CaseDifference,
- 			ValidateFunc: validation.StringInSlice([]string{
+@@ -371,7 +372,7 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
  				string(loadbalancers.TransportProtocolAll),
--				string(loadbalancers.TransportProtocolTcp),
--				string(loadbalancers.TransportProtocolUdp),
+ 				string(loadbalancers.TransportProtocolTcp),
+ 				string(loadbalancers.TransportProtocolUdp),
 -			}, false),
-+				string(loadbalancers.TransportProtocolTCP),
-+				string(loadbalancers.TransportProtocolUDP),
 +			}, features.CaseInsensitive()),
  		},
  
