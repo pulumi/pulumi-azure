@@ -141,6 +141,8 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
+     * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
@@ -148,13 +150,17 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
+     * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+     * 
      */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
 
     /**
-     * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+     * 
+     * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
      * 
      * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 
@@ -163,7 +169,9 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> vaultKeyReference;
 
     /**
-     * @return The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     * @return The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+     * 
+     * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
      * 
      * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 
@@ -376,6 +384,8 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param value The value of the App Configuration Key. This should only be set when type is set to `kv`.
          * 
+         * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+         * 
          * @return builder
          * 
          */
@@ -387,6 +397,8 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param value The value of the App Configuration Key. This should only be set when type is set to `kv`.
          * 
+         * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+         * 
          * @return builder
          * 
          */
@@ -395,7 +407,9 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vaultKeyReference The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+         * @param vaultKeyReference The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+         * 
+         * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
          * 
          * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
          * 
@@ -408,7 +422,9 @@ public final class ConfigurationKeyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vaultKeyReference The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+         * @param vaultKeyReference The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+         * 
+         * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
          * 
          * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
          * 

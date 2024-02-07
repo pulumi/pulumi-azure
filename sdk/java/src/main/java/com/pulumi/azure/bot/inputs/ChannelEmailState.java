@@ -76,6 +76,21 @@ public final class ChannelEmailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The magic code used to set up OAUTH authentication.
+     * 
+     */
+    @Import(name="magicCode")
+    private @Nullable Output<String> magicCode;
+
+    /**
+     * @return The magic code used to set up OAUTH authentication.
+     * 
+     */
+    public Optional<Output<String>> magicCode() {
+        return Optional.ofNullable(this.magicCode);
+    }
+
+    /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      * 
      */
@@ -97,6 +112,7 @@ public final class ChannelEmailState extends com.pulumi.resources.ResourceArgs {
         this.emailAddress = $.emailAddress;
         this.emailPassword = $.emailPassword;
         this.location = $.location;
+        this.magicCode = $.magicCode;
         this.resourceGroupName = $.resourceGroupName;
     }
 
@@ -200,6 +216,27 @@ public final class ChannelEmailState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param magicCode The magic code used to set up OAUTH authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder magicCode(@Nullable Output<String> magicCode) {
+            $.magicCode = magicCode;
+            return this;
+        }
+
+        /**
+         * @param magicCode The magic code used to set up OAUTH authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder magicCode(String magicCode) {
+            return magicCode(Output.of(magicCode));
         }
 
         /**

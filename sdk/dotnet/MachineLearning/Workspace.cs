@@ -421,7 +421,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("highBusinessImpact")]
         public Output<bool?> HighBusinessImpact { get; private set; } = null!;
@@ -593,7 +593,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("highBusinessImpact")]
         public Input<bool>? HighBusinessImpact { get; set; }
@@ -733,7 +733,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
-        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        /// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("highBusinessImpact")]
         public Input<bool>? HighBusinessImpact { get; set; }

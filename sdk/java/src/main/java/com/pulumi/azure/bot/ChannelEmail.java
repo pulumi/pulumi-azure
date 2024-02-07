@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -115,14 +116,14 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="emailPassword", refs={String.class}, tree="[0]")
-    private Output<String> emailPassword;
+    private Output</* @Nullable */ String> emailPassword;
 
     /**
      * @return The email password that the Bot will authenticate with.
      * 
      */
-    public Output<String> emailPassword() {
-        return this.emailPassword;
+    public Output<Optional<String>> emailPassword() {
+        return Codegen.optional(this.emailPassword);
     }
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -137,6 +138,20 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The magic code used to set up OAUTH authentication.
+     * 
+     */
+    @Export(name="magicCode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> magicCode;
+
+    /**
+     * @return The magic code used to set up OAUTH authentication.
+     * 
+     */
+    public Output<Optional<String>> magicCode() {
+        return Codegen.optional(this.magicCode);
     }
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -186,7 +201,8 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "emailPassword"
+                "emailPassword",
+                "magicCode"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

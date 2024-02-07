@@ -357,7 +357,7 @@ namespace Pulumi.Azure.Storage
         public readonly string? IpAddress;
         public readonly Outputs.GetAccountBlobContainerSASPermissionsResult Permissions;
         /// <summary>
-        /// The computed Blob Container Shared Access Signature (SAS).
+        /// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
         /// </summary>
         public readonly string Sas;
         public readonly string Start;

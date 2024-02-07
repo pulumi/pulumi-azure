@@ -421,6 +421,8 @@ func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
 }
 
 type DatabaseLongTermRetentionPolicy struct {
+	// Specifies if the backups are immutable. Defaults to `false`.
+	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -443,6 +445,8 @@ type DatabaseLongTermRetentionPolicyInput interface {
 }
 
 type DatabaseLongTermRetentionPolicyArgs struct {
+	// Specifies if the backups are immutable. Defaults to `false`.
+	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -530,6 +534,11 @@ func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicy
 	}).(DatabaseLongTermRetentionPolicyPtrOutput)
 }
 
+// Specifies if the backups are immutable. Defaults to `false`.
+func (o DatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 func (o DatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -572,6 +581,16 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetenti
 		var ret DatabaseLongTermRetentionPolicy
 		return ret
 	}).(DatabaseLongTermRetentionPolicyOutput)
+}
+
+// Specifies if the backups are immutable. Defaults to `false`.
+func (o DatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableBackupsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -1740,6 +1759,8 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Mode() pulumi.Str
 }
 
 type ManagedDatabaseLongTermRetentionPolicy struct {
+	// Specifies if the backups are immutable. Defaults to `false`.
+	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -1762,6 +1783,8 @@ type ManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type ManagedDatabaseLongTermRetentionPolicyArgs struct {
+	// Specifies if the backups are immutable. Defaults to `false`.
+	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -1849,6 +1872,11 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermR
 	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
 }
 
+// Specifies if the backups are immutable. Defaults to `false`.
+func (o ManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -1891,6 +1919,16 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseL
 		var ret ManagedDatabaseLongTermRetentionPolicy
 		return ret
 	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
+}
+
+// Specifies if the backups are immutable. Defaults to `false`.
+func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableBackupsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.

@@ -174,7 +174,11 @@ namespace Pulumi.Azure
         public InputList<string> AuxiliaryTenantIds
         {
             get => _auxiliaryTenantIds ?? (_auxiliaryTenantIds = new InputList<string>());
-            set => _auxiliaryTenantIds = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<string>());
+                _auxiliaryTenantIds = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         [Input("clientCertificate")]

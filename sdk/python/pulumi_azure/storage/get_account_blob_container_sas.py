@@ -134,7 +134,7 @@ class GetAccountBlobContainerSASResult:
     @pulumi.getter
     def sas(self) -> str:
         """
-        The computed Blob Container Shared Access Signature (SAS).
+        The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
         """
         return pulumi.get(self, "sas")
 

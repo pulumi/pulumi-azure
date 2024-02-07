@@ -30,6 +30,8 @@ __all__ = [
     'ReplicationRecoveryPlanShutdownRecoveryGroupArgs',
     'ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs',
     'ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs',
+    'VmwareReplicatedVmManagedDiskArgs',
+    'VmwareReplicatedVmNetworkInterfaceArgs',
 ]
 
 @pulumi.input_type
@@ -1978,5 +1980,159 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
     @script_path.setter
     def script_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_path", value)
+
+
+@pulumi.input_type
+class VmwareReplicatedVmManagedDiskArgs:
+    def __init__(__self__, *,
+                 disk_id: pulumi.Input[str],
+                 target_disk_type: pulumi.Input[str],
+                 log_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] disk_id: The ID of the disk to be replicated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_disk_type: The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        :param pulumi.Input[str] log_storage_account_id: The ID of the storage account that should be used for logging during replication.
+        :param pulumi.Input[str] target_disk_encryption_set_id: The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+        """
+        pulumi.set(__self__, "disk_id", disk_id)
+        pulumi.set(__self__, "target_disk_type", target_disk_type)
+        if log_storage_account_id is not None:
+            pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        if target_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "target_disk_encryption_set_id", target_disk_encryption_set_id)
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the disk to be replicated. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @disk_id.setter
+    def disk_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "disk_id", value)
+
+    @property
+    @pulumi.getter(name="targetDiskType")
+    def target_disk_type(self) -> pulumi.Input[str]:
+        """
+        The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+        """
+        return pulumi.get(self, "target_disk_type")
+
+    @target_disk_type.setter
+    def target_disk_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_disk_type", value)
+
+    @property
+    @pulumi.getter(name="logStorageAccountId")
+    def log_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the storage account that should be used for logging during replication.
+        """
+        return pulumi.get(self, "log_storage_account_id")
+
+    @log_storage_account_id.setter
+    def log_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetDiskEncryptionSetId")
+    def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+        """
+        return pulumi.get(self, "target_disk_encryption_set_id")
+
+    @target_disk_encryption_set_id.setter
+    def target_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_disk_encryption_set_id", value)
+
+
+@pulumi.input_type
+class VmwareReplicatedVmNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 is_primary: pulumi.Input[bool],
+                 source_mac_address: pulumi.Input[str],
+                 target_static_ip: Optional[pulumi.Input[str]] = None,
+                 target_subnet_name: Optional[pulumi.Input[str]] = None,
+                 test_subnet_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] is_primary: Whether this `network_interface` is primary for the replicated VM.
+        :param pulumi.Input[str] source_mac_address: Mac address of the network interface of source VM.
+        :param pulumi.Input[str] target_static_ip: Static IP to assign when a failover is done.
+        :param pulumi.Input[str] target_subnet_name: Name of the subnet to use when a failover is done.
+        :param pulumi.Input[str] test_subnet_name: Name of the subnet to use when a test failover is done.
+        """
+        pulumi.set(__self__, "is_primary", is_primary)
+        pulumi.set(__self__, "source_mac_address", source_mac_address)
+        if target_static_ip is not None:
+            pulumi.set(__self__, "target_static_ip", target_static_ip)
+        if target_subnet_name is not None:
+            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+        if test_subnet_name is not None:
+            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> pulumi.Input[bool]:
+        """
+        Whether this `network_interface` is primary for the replicated VM.
+        """
+        return pulumi.get(self, "is_primary")
+
+    @is_primary.setter
+    def is_primary(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_primary", value)
+
+    @property
+    @pulumi.getter(name="sourceMacAddress")
+    def source_mac_address(self) -> pulumi.Input[str]:
+        """
+        Mac address of the network interface of source VM.
+        """
+        return pulumi.get(self, "source_mac_address")
+
+    @source_mac_address.setter
+    def source_mac_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_mac_address", value)
+
+    @property
+    @pulumi.getter(name="targetStaticIp")
+    def target_static_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Static IP to assign when a failover is done.
+        """
+        return pulumi.get(self, "target_static_ip")
+
+    @target_static_ip.setter
+    def target_static_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_static_ip", value)
+
+    @property
+    @pulumi.getter(name="targetSubnetName")
+    def target_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the subnet to use when a failover is done.
+        """
+        return pulumi.get(self, "target_subnet_name")
+
+    @target_subnet_name.setter
+    def target_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="testSubnetName")
+    def test_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the subnet to use when a test failover is done.
+        """
+        return pulumi.get(self, "test_subnet_name")
+
+    @test_subnet_name.setter
+    def test_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "test_subnet_name", value)
 
 

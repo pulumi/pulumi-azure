@@ -2702,6 +2702,28 @@ export namespace appplatform {
         maxAgeSeconds?: pulumi.Input<number>;
     }
 
+    export interface SpringCloudGatewayLocalResponseCachePerInstance {
+        /**
+         * Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+         */
+        timeToLive?: pulumi.Input<string>;
+    }
+
+    export interface SpringCloudGatewayLocalResponseCachePerRoute {
+        /**
+         * Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+         */
+        size?: pulumi.Input<string>;
+        /**
+         * Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+         */
+        timeToLive?: pulumi.Input<string>;
+    }
+
     export interface SpringCloudGatewayQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -21971,6 +21993,28 @@ export namespace containerservice {
         tag?: pulumi.Input<string>;
     }
 
+    export interface FleetUpdateStrategyStage {
+        /**
+         * Specifies the time in seconds to wait at the end of this stage before starting the next one.
+         */
+        afterStageWaitInSeconds?: pulumi.Input<number>;
+        /**
+         * One or more `group` blocks as defined below.
+         */
+        groups: pulumi.Input<pulumi.Input<inputs.containerservice.FleetUpdateStrategyStageGroup>[]>;
+        /**
+         * The name which should be used for this stage.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface FleetUpdateStrategyStageGroup {
+        /**
+         * The name which should be used for this group.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface FluxConfigurationBlobStorage {
         /**
          * Specifies the account key (shared key) to access the storage account.
@@ -23165,11 +23209,34 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolNodeNetworkProfile {
         /**
+         * One or more `allowedHostPorts` blocks as defined below.
+         */
+        allowedHostPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort>[]>;
+        /**
+         * A list of Application Security Group IDs which should be associated with this Node Pool.
+         */
+        applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
+        /**
+         * Specifies the end of the port range.
+         */
+        portEnd?: pulumi.Input<number>;
+        /**
+         * Specifies the start of the port range.
+         */
+        portStart?: pulumi.Input<number>;
+        /**
+         * Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+         */
+        protocol?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -23596,6 +23663,8 @@ export namespace containerservice {
         annotationsAllowed?: pulumi.Input<string>;
         /**
          * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+         *
+         * > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
          */
         labelsAllowed?: pulumi.Input<string>;
     }
@@ -23930,11 +23999,34 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolNodeNetworkProfile {
         /**
+         * One or more `allowedHostPorts` blocks as defined below.
+         */
+        allowedHostPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort>[]>;
+        /**
+         * A list of Application Security Group IDs which should be associated with this Node Pool.
+         */
+        applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort {
+        /**
+         * Specifies the end of the port range.
+         */
+        portEnd?: pulumi.Input<number>;
+        /**
+         * Specifies the start of the port range.
+         */
+        portStart?: pulumi.Input<number>;
+        /**
+         * Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+         */
+        protocol?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
@@ -25226,6 +25318,10 @@ export namespace cosmosdb {
          */
         databases?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountRestoreDatabase>[]>;
         /**
+         * One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        gremlinDatabases?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountRestoreGremlinDatabase>[]>;
+        /**
          * The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
          */
         restoreTimestampInUtc: pulumi.Input<string>;
@@ -25235,6 +25331,10 @@ export namespace cosmosdb {
          * > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
          */
         sourceCosmosdbAccountId: pulumi.Input<string>;
+        /**
+         * A list of specific tables available for restore. Changing this forces a new resource to be created.
+         */
+        tablesToRestores?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AccountRestoreDatabase {
@@ -25244,6 +25344,17 @@ export namespace cosmosdb {
         collectionNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The database name for the restore request. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface AccountRestoreGremlinDatabase {
+        /**
+         * A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+         */
+        graphNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
     }
@@ -41120,6 +41231,10 @@ export namespace mssql {
 
     export interface DatabaseLongTermRetentionPolicy {
         /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
+        immutableBackupsEnabled?: pulumi.Input<boolean>;
+        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
         monthlyRetention?: pulumi.Input<string>;
@@ -41243,6 +41358,10 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
+        immutableBackupsEnabled?: pulumi.Input<boolean>;
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
@@ -45197,7 +45316,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+         * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
          */
         publicCertData: pulumi.Input<string>;
     }
@@ -45981,6 +46100,8 @@ export namespace orbital {
         bandwidthMhz: pulumi.Input<number>;
         /**
          * Center frequency in Mhz.
+         *
+         * > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
          */
         centerFrequencyMhz: pulumi.Input<number>;
         /**
@@ -46088,6 +46209,7 @@ export namespace paloalto {
         networkVirtualApplianceId: pulumi.Input<string>;
         publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
         trustedSubnetId?: pulumi.Input<string>;
         untrustedSubnetId?: pulumi.Input<string>;
         virtualHubId: pulumi.Input<string>;
@@ -46123,6 +46245,7 @@ export namespace paloalto {
         networkVirtualApplianceId: pulumi.Input<string>;
         publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
         trustedSubnetId?: pulumi.Input<string>;
         untrustedSubnetId?: pulumi.Input<string>;
         virtualHubId: pulumi.Input<string>;
@@ -46204,6 +46327,10 @@ export namespace paloalto {
          */
         publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `vnetConfiguration` block as defined below.
          */
@@ -46292,6 +46419,10 @@ export namespace paloalto {
          */
         publicIpAddressIds: pulumi.Input<pulumi.Input<string>[]>;
         publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `vnetConfiguration` block as defined below.
          */
@@ -47024,7 +47155,7 @@ export namespace redhatopenshift {
          */
         resourceGroupId?: pulumi.Input<string>;
         /**
-         * The version of the OpenShift cluster. Changing this forces a new resource to be created.
+         * The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
          */
         version: pulumi.Input<string>;
     }
@@ -49380,6 +49511,48 @@ export namespace siterecovery {
          */
         type: pulumi.Input<string>;
     }
+
+    export interface VmwareReplicatedVmManagedDisk {
+        /**
+         * The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         */
+        diskId: pulumi.Input<string>;
+        /**
+         * The ID of the storage account that should be used for logging during replication.
+         */
+        logStorageAccountId?: pulumi.Input<string>;
+        /**
+         * The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+         */
+        targetDiskEncryptionSetId?: pulumi.Input<string>;
+        /**
+         * The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         */
+        targetDiskType: pulumi.Input<string>;
+    }
+
+    export interface VmwareReplicatedVmNetworkInterface {
+        /**
+         * Whether this `networkInterface` is primary for the replicated VM.
+         */
+        isPrimary: pulumi.Input<boolean>;
+        /**
+         * Mac address of the network interface of source VM.
+         */
+        sourceMacAddress: pulumi.Input<string>;
+        /**
+         * Static IP to assign when a failover is done.
+         */
+        targetStaticIp?: pulumi.Input<string>;
+        /**
+         * Name of the subnet to use when a failover is done.
+         */
+        targetSubnetName?: pulumi.Input<string>;
+        /**
+         * Name of the subnet to use when a test failover is done.
+         */
+        testSubnetName?: pulumi.Input<string>;
+    }
 }
 
 export namespace sql {
@@ -50743,6 +50916,10 @@ export namespace streamanalytics {
 
     export interface JobIdentity {
         /**
+         * The identity id of the user assigned identity to use when type is `UserAssigned`
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
@@ -50751,7 +50928,7 @@ export namespace streamanalytics {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }

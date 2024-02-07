@@ -27,7 +27,7 @@ class ContactArgs:
         :param pulumi.Input[str] reservation_end_time: Reservation end time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spacecraft_id: The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "contact_profile_id", contact_profile_id)
         pulumi.set(__self__, "ground_station_name", ground_station_name)
@@ -101,7 +101,7 @@ class ContactArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        The name of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -123,7 +123,7 @@ class _ContactState:
         Input properties used for looking up and filtering Contact resources.
         :param pulumi.Input[str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ground_station_name: Name of the Azure ground station. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spacecraft_id: The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
@@ -169,7 +169,7 @@ class _ContactState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        The name of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -317,7 +317,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ground_station_name: Name of the Azure ground station. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spacecraft_id: The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
@@ -486,7 +486,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_profile_id: ID of the orbital contact profile. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ground_station_name: Name of the Azure ground station. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of the Contact. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spacecraft_id: The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
@@ -523,7 +523,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        The name of the Contact. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

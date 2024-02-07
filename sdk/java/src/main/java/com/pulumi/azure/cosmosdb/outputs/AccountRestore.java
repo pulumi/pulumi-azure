@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.outputs;
 
 import com.pulumi.azure.cosmosdb.outputs.AccountRestoreDatabase;
+import com.pulumi.azure.cosmosdb.outputs.AccountRestoreGremlinDatabase;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -19,6 +20,11 @@ public final class AccountRestore {
      */
     private @Nullable List<AccountRestoreDatabase> databases;
     /**
+     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<AccountRestoreGremlinDatabase> gremlinDatabases;
+    /**
      * @return The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
      * 
      */
@@ -30,6 +36,11 @@ public final class AccountRestore {
      * 
      */
     private String sourceCosmosdbAccountId;
+    /**
+     * @return A list of specific tables available for restore. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<String> tablesToRestores;
 
     private AccountRestore() {}
     /**
@@ -38,6 +49,13 @@ public final class AccountRestore {
      */
     public List<AccountRestoreDatabase> databases() {
         return this.databases == null ? List.of() : this.databases;
+    }
+    /**
+     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<AccountRestoreGremlinDatabase> gremlinDatabases() {
+        return this.gremlinDatabases == null ? List.of() : this.gremlinDatabases;
     }
     /**
      * @return The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
@@ -55,6 +73,13 @@ public final class AccountRestore {
     public String sourceCosmosdbAccountId() {
         return this.sourceCosmosdbAccountId;
     }
+    /**
+     * @return A list of specific tables available for restore. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<String> tablesToRestores() {
+        return this.tablesToRestores == null ? List.of() : this.tablesToRestores;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,14 +91,18 @@ public final class AccountRestore {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AccountRestoreDatabase> databases;
+        private @Nullable List<AccountRestoreGremlinDatabase> gremlinDatabases;
         private String restoreTimestampInUtc;
         private String sourceCosmosdbAccountId;
+        private @Nullable List<String> tablesToRestores;
         public Builder() {}
         public Builder(AccountRestore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databases = defaults.databases;
+    	      this.gremlinDatabases = defaults.gremlinDatabases;
     	      this.restoreTimestampInUtc = defaults.restoreTimestampInUtc;
     	      this.sourceCosmosdbAccountId = defaults.sourceCosmosdbAccountId;
+    	      this.tablesToRestores = defaults.tablesToRestores;
         }
 
         @CustomType.Setter
@@ -84,6 +113,15 @@ public final class AccountRestore {
         }
         public Builder databases(AccountRestoreDatabase... databases) {
             return databases(List.of(databases));
+        }
+        @CustomType.Setter
+        public Builder gremlinDatabases(@Nullable List<AccountRestoreGremlinDatabase> gremlinDatabases) {
+
+            this.gremlinDatabases = gremlinDatabases;
+            return this;
+        }
+        public Builder gremlinDatabases(AccountRestoreGremlinDatabase... gremlinDatabases) {
+            return gremlinDatabases(List.of(gremlinDatabases));
         }
         @CustomType.Setter
         public Builder restoreTimestampInUtc(String restoreTimestampInUtc) {
@@ -101,11 +139,22 @@ public final class AccountRestore {
             this.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
             return this;
         }
+        @CustomType.Setter
+        public Builder tablesToRestores(@Nullable List<String> tablesToRestores) {
+
+            this.tablesToRestores = tablesToRestores;
+            return this;
+        }
+        public Builder tablesToRestores(String... tablesToRestores) {
+            return tablesToRestores(List.of(tablesToRestores));
+        }
         public AccountRestore build() {
             final var _resultValue = new AccountRestore();
             _resultValue.databases = databases;
+            _resultValue.gremlinDatabases = gremlinDatabases;
             _resultValue.restoreTimestampInUtc = restoreTimestampInUtc;
             _resultValue.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
+            _resultValue.tablesToRestores = tablesToRestores;
             return _resultValue;
         }
     }

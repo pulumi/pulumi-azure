@@ -159,7 +159,7 @@ type Contact struct {
 	ContactProfileId pulumi.StringOutput `pulumi:"contactProfileId"`
 	// Name of the Azure ground station. Changing this forces a new resource to be created.
 	GroundStationName pulumi.StringOutput `pulumi:"groundStationName"`
-	// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+	// The name of the Contact. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Reservation end time of the Contact. Changing this forces a new resource to be created.
 	ReservationEndTime pulumi.StringOutput `pulumi:"reservationEndTime"`
@@ -218,7 +218,7 @@ type contactState struct {
 	ContactProfileId *string `pulumi:"contactProfileId"`
 	// Name of the Azure ground station. Changing this forces a new resource to be created.
 	GroundStationName *string `pulumi:"groundStationName"`
-	// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+	// The name of the Contact. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Reservation end time of the Contact. Changing this forces a new resource to be created.
 	ReservationEndTime *string `pulumi:"reservationEndTime"`
@@ -233,7 +233,7 @@ type ContactState struct {
 	ContactProfileId pulumi.StringPtrInput
 	// Name of the Azure ground station. Changing this forces a new resource to be created.
 	GroundStationName pulumi.StringPtrInput
-	// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+	// The name of the Contact. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Reservation end time of the Contact. Changing this forces a new resource to be created.
 	ReservationEndTime pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type contactArgs struct {
 	ContactProfileId string `pulumi:"contactProfileId"`
 	// Name of the Azure ground station. Changing this forces a new resource to be created.
 	GroundStationName string `pulumi:"groundStationName"`
-	// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+	// The name of the Contact. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Reservation end time of the Contact. Changing this forces a new resource to be created.
 	ReservationEndTime string `pulumi:"reservationEndTime"`
@@ -268,7 +268,7 @@ type ContactArgs struct {
 	ContactProfileId pulumi.StringInput
 	// Name of the Azure ground station. Changing this forces a new resource to be created.
 	GroundStationName pulumi.StringInput
-	// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+	// The name of the Contact. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Reservation end time of the Contact. Changing this forces a new resource to be created.
 	ReservationEndTime pulumi.StringInput
@@ -375,7 +375,7 @@ func (o ContactOutput) GroundStationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.GroundStationName }).(pulumi.StringOutput)
 }
 
-// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+// The name of the Contact. Changing this forces a new resource to be created.
 func (o ContactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

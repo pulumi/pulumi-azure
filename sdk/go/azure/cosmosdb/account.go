@@ -166,6 +166,8 @@ type Account struct {
 	NetworkAclBypassIds pulumi.StringArrayOutput `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
+	// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+	PartitionMergeEnabled pulumi.BoolPtrOutput `pulumi:"partitionMergeEnabled"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// Primary Mongodb connection string for the CosmosDB Account.
@@ -332,6 +334,8 @@ type accountState struct {
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType *string `pulumi:"offerType"`
+	// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+	PartitionMergeEnabled *bool `pulumi:"partitionMergeEnabled"`
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// Primary Mongodb connection string for the CosmosDB Account.
@@ -441,6 +445,8 @@ type AccountState struct {
 	NetworkAclBypassIds pulumi.StringArrayInput
 	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringPtrInput
+	// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+	PartitionMergeEnabled pulumi.BoolPtrInput
 	// The Primary key for the CosmosDB Account.
 	PrimaryKey pulumi.StringPtrInput
 	// Primary Mongodb connection string for the CosmosDB Account.
@@ -550,6 +556,8 @@ type accountArgs struct {
 	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType string `pulumi:"offerType"`
+	// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+	PartitionMergeEnabled *bool `pulumi:"partitionMergeEnabled"`
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -628,6 +636,8 @@ type AccountArgs struct {
 	NetworkAclBypassIds pulumi.StringArrayInput
 	// Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 	OfferType pulumi.StringInput
+	// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+	PartitionMergeEnabled pulumi.BoolPtrInput
 	// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -877,6 +887,11 @@ func (o AccountOutput) NetworkAclBypassIds() pulumi.StringArrayOutput {
 // Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
 func (o AccountOutput) OfferType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.OfferType }).(pulumi.StringOutput)
+}
+
+// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+func (o AccountOutput) PartitionMergeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PartitionMergeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The Primary key for the CosmosDB Account.

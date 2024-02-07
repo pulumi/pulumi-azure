@@ -1295,12 +1295,16 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AccountRestore struct {
 	// A `database` block as defined below. Changing this forces a new resource to be created.
 	Databases []AccountRestoreDatabase `pulumi:"databases"`
+	// One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+	GremlinDatabases []AccountRestoreGremlinDatabase `pulumi:"gremlinDatabases"`
 	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 	RestoreTimestampInUtc string `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId string `pulumi:"sourceCosmosdbAccountId"`
+	// A list of specific tables available for restore. Changing this forces a new resource to be created.
+	TablesToRestores []string `pulumi:"tablesToRestores"`
 }
 
 // AccountRestoreInput is an input type that accepts AccountRestoreArgs and AccountRestoreOutput values.
@@ -1317,12 +1321,16 @@ type AccountRestoreInput interface {
 type AccountRestoreArgs struct {
 	// A `database` block as defined below. Changing this forces a new resource to be created.
 	Databases AccountRestoreDatabaseArrayInput `pulumi:"databases"`
+	// One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+	GremlinDatabases AccountRestoreGremlinDatabaseArrayInput `pulumi:"gremlinDatabases"`
 	// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 	RestoreTimestampInUtc pulumi.StringInput `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId pulumi.StringInput `pulumi:"sourceCosmosdbAccountId"`
+	// A list of specific tables available for restore. Changing this forces a new resource to be created.
+	TablesToRestores pulumi.StringArrayInput `pulumi:"tablesToRestores"`
 }
 
 func (AccountRestoreArgs) ElementType() reflect.Type {
@@ -1407,6 +1415,11 @@ func (o AccountRestoreOutput) Databases() AccountRestoreDatabaseArrayOutput {
 	return o.ApplyT(func(v AccountRestore) []AccountRestoreDatabase { return v.Databases }).(AccountRestoreDatabaseArrayOutput)
 }
 
+// One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+func (o AccountRestoreOutput) GremlinDatabases() AccountRestoreGremlinDatabaseArrayOutput {
+	return o.ApplyT(func(v AccountRestore) []AccountRestoreGremlinDatabase { return v.GremlinDatabases }).(AccountRestoreGremlinDatabaseArrayOutput)
+}
+
 // The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 func (o AccountRestoreOutput) RestoreTimestampInUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountRestore) string { return v.RestoreTimestampInUtc }).(pulumi.StringOutput)
@@ -1417,6 +1430,11 @@ func (o AccountRestoreOutput) RestoreTimestampInUtc() pulumi.StringOutput {
 // > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 func (o AccountRestoreOutput) SourceCosmosdbAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountRestore) string { return v.SourceCosmosdbAccountId }).(pulumi.StringOutput)
+}
+
+// A list of specific tables available for restore. Changing this forces a new resource to be created.
+func (o AccountRestoreOutput) TablesToRestores() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountRestore) []string { return v.TablesToRestores }).(pulumi.StringArrayOutput)
 }
 
 type AccountRestorePtrOutput struct{ *pulumi.OutputState }
@@ -1453,6 +1471,16 @@ func (o AccountRestorePtrOutput) Databases() AccountRestoreDatabaseArrayOutput {
 	}).(AccountRestoreDatabaseArrayOutput)
 }
 
+// One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+func (o AccountRestorePtrOutput) GremlinDatabases() AccountRestoreGremlinDatabaseArrayOutput {
+	return o.ApplyT(func(v *AccountRestore) []AccountRestoreGremlinDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.GremlinDatabases
+	}).(AccountRestoreGremlinDatabaseArrayOutput)
+}
+
 // The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
 func (o AccountRestorePtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRestore) *string {
@@ -1473,6 +1501,16 @@ func (o AccountRestorePtrOutput) SourceCosmosdbAccountId() pulumi.StringPtrOutpu
 		}
 		return &v.SourceCosmosdbAccountId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of specific tables available for restore. Changing this forces a new resource to be created.
+func (o AccountRestorePtrOutput) TablesToRestores() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountRestore) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TablesToRestores
+	}).(pulumi.StringArrayOutput)
 }
 
 type AccountRestoreDatabase struct {
@@ -1579,6 +1617,112 @@ func (o AccountRestoreDatabaseArrayOutput) Index(i pulumi.IntInput) AccountResto
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountRestoreDatabase {
 		return vs[0].([]AccountRestoreDatabase)[vs[1].(int)]
 	}).(AccountRestoreDatabaseOutput)
+}
+
+type AccountRestoreGremlinDatabase struct {
+	// A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+	GraphNames []string `pulumi:"graphNames"`
+	// The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// AccountRestoreGremlinDatabaseInput is an input type that accepts AccountRestoreGremlinDatabaseArgs and AccountRestoreGremlinDatabaseOutput values.
+// You can construct a concrete instance of `AccountRestoreGremlinDatabaseInput` via:
+//
+//	AccountRestoreGremlinDatabaseArgs{...}
+type AccountRestoreGremlinDatabaseInput interface {
+	pulumi.Input
+
+	ToAccountRestoreGremlinDatabaseOutput() AccountRestoreGremlinDatabaseOutput
+	ToAccountRestoreGremlinDatabaseOutputWithContext(context.Context) AccountRestoreGremlinDatabaseOutput
+}
+
+type AccountRestoreGremlinDatabaseArgs struct {
+	// A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+	GraphNames pulumi.StringArrayInput `pulumi:"graphNames"`
+	// The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AccountRestoreGremlinDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestoreGremlinDatabase)(nil)).Elem()
+}
+
+func (i AccountRestoreGremlinDatabaseArgs) ToAccountRestoreGremlinDatabaseOutput() AccountRestoreGremlinDatabaseOutput {
+	return i.ToAccountRestoreGremlinDatabaseOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreGremlinDatabaseArgs) ToAccountRestoreGremlinDatabaseOutputWithContext(ctx context.Context) AccountRestoreGremlinDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreGremlinDatabaseOutput)
+}
+
+// AccountRestoreGremlinDatabaseArrayInput is an input type that accepts AccountRestoreGremlinDatabaseArray and AccountRestoreGremlinDatabaseArrayOutput values.
+// You can construct a concrete instance of `AccountRestoreGremlinDatabaseArrayInput` via:
+//
+//	AccountRestoreGremlinDatabaseArray{ AccountRestoreGremlinDatabaseArgs{...} }
+type AccountRestoreGremlinDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToAccountRestoreGremlinDatabaseArrayOutput() AccountRestoreGremlinDatabaseArrayOutput
+	ToAccountRestoreGremlinDatabaseArrayOutputWithContext(context.Context) AccountRestoreGremlinDatabaseArrayOutput
+}
+
+type AccountRestoreGremlinDatabaseArray []AccountRestoreGremlinDatabaseInput
+
+func (AccountRestoreGremlinDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRestoreGremlinDatabase)(nil)).Elem()
+}
+
+func (i AccountRestoreGremlinDatabaseArray) ToAccountRestoreGremlinDatabaseArrayOutput() AccountRestoreGremlinDatabaseArrayOutput {
+	return i.ToAccountRestoreGremlinDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i AccountRestoreGremlinDatabaseArray) ToAccountRestoreGremlinDatabaseArrayOutputWithContext(ctx context.Context) AccountRestoreGremlinDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRestoreGremlinDatabaseArrayOutput)
+}
+
+type AccountRestoreGremlinDatabaseOutput struct{ *pulumi.OutputState }
+
+func (AccountRestoreGremlinDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRestoreGremlinDatabase)(nil)).Elem()
+}
+
+func (o AccountRestoreGremlinDatabaseOutput) ToAccountRestoreGremlinDatabaseOutput() AccountRestoreGremlinDatabaseOutput {
+	return o
+}
+
+func (o AccountRestoreGremlinDatabaseOutput) ToAccountRestoreGremlinDatabaseOutputWithContext(ctx context.Context) AccountRestoreGremlinDatabaseOutput {
+	return o
+}
+
+// A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+func (o AccountRestoreGremlinDatabaseOutput) GraphNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountRestoreGremlinDatabase) []string { return v.GraphNames }).(pulumi.StringArrayOutput)
+}
+
+// The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+func (o AccountRestoreGremlinDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountRestoreGremlinDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AccountRestoreGremlinDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountRestoreGremlinDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountRestoreGremlinDatabase)(nil)).Elem()
+}
+
+func (o AccountRestoreGremlinDatabaseArrayOutput) ToAccountRestoreGremlinDatabaseArrayOutput() AccountRestoreGremlinDatabaseArrayOutput {
+	return o
+}
+
+func (o AccountRestoreGremlinDatabaseArrayOutput) ToAccountRestoreGremlinDatabaseArrayOutputWithContext(ctx context.Context) AccountRestoreGremlinDatabaseArrayOutput {
+	return o
+}
+
+func (o AccountRestoreGremlinDatabaseArrayOutput) Index(i pulumi.IntInput) AccountRestoreGremlinDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountRestoreGremlinDatabase {
+		return vs[0].([]AccountRestoreGremlinDatabase)[vs[1].(int)]
+	}).(AccountRestoreGremlinDatabaseOutput)
 }
 
 type AccountVirtualNetworkRule struct {
@@ -6935,6 +7079,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestorePtrInput)(nil)).Elem(), AccountRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreDatabaseInput)(nil)).Elem(), AccountRestoreDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreDatabaseArrayInput)(nil)).Elem(), AccountRestoreDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreGremlinDatabaseInput)(nil)).Elem(), AccountRestoreGremlinDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountRestoreGremlinDatabaseArrayInput)(nil)).Elem(), AccountRestoreGremlinDatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleInput)(nil)).Elem(), AccountVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CassandraClusterIdentityInput)(nil)).Elem(), CassandraClusterIdentityArgs{})
@@ -7040,6 +7186,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountRestorePtrOutput{})
 	pulumi.RegisterOutputType(AccountRestoreDatabaseOutput{})
 	pulumi.RegisterOutputType(AccountRestoreDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(AccountRestoreGremlinDatabaseOutput{})
+	pulumi.RegisterOutputType(AccountRestoreGremlinDatabaseArrayOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(CassandraClusterIdentityOutput{})

@@ -500,11 +500,13 @@ func (o FunctionJavascriptUdaOutputTypePtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 type JobIdentity struct {
+	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -520,11 +522,13 @@ type JobIdentityInput interface {
 }
 
 type JobIdentityArgs struct {
+	// The identity id of the user assigned identity to use when type is `UserAssigned`
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -605,6 +609,11 @@ func (o JobIdentityOutput) ToJobIdentityPtrOutputWithContext(ctx context.Context
 	}).(JobIdentityPtrOutput)
 }
 
+// The identity id of the user assigned identity to use when type is `UserAssigned`
+func (o JobIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -615,7 +624,7 @@ func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o JobIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JobIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -644,6 +653,16 @@ func (o JobIdentityPtrOutput) Elem() JobIdentityOutput {
 	}).(JobIdentityOutput)
 }
 
+// The identity id of the user assigned identity to use when type is `UserAssigned`
+func (o JobIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
@@ -664,7 +683,7 @@ func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o JobIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -2625,6 +2644,8 @@ func (o StreamInputIotHubSerializationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type GetJobIdentity struct {
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -2645,6 +2666,8 @@ type GetJobIdentityInput interface {
 }
 
 type GetJobIdentityArgs struct {
+	// A list of User Assigned Managed Identity IDs assigned to this resource.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
@@ -2702,6 +2725,11 @@ func (o GetJobIdentityOutput) ToGetJobIdentityOutput() GetJobIdentityOutput {
 
 func (o GetJobIdentityOutput) ToGetJobIdentityOutputWithContext(ctx context.Context) GetJobIdentityOutput {
 	return o
+}
+
+// A list of User Assigned Managed Identity IDs assigned to this resource.
+func (o GetJobIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The Principal ID associated with this Managed Service Identity.

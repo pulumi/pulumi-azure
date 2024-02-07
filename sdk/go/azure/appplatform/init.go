@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudDevToolPortal{}
 	case "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring":
 		r = &SpringCloudDynatraceApplicationPerformanceMonitoring{}
+	case "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring":
+		r = &SpringCloudElasticApplicationPerformanceMonitoring{}
 	case "azure:appplatform/springCloudGateway:SpringCloudGateway":
 		r = &SpringCloudGateway{}
 	case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
@@ -71,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudGatewayRouteConfig{}
 	case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
 		r = &SpringCloudJavaDeployment{}
+	case "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring":
+		r = &SpringCloudNewRelicApplicationPerformanceMonitoring{}
 	case "azure:appplatform/springCloudService:SpringCloudService":
 		r = &SpringCloudService{}
 	case "azure:appplatform/springCloudStorage:SpringCloudStorage":
@@ -195,6 +199,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"appplatform/springCloudElasticApplicationPerformanceMonitoring",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"appplatform/springCloudGateway",
 		&module{version},
 	)
@@ -211,6 +220,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudJavaDeployment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudNewRelicApplicationPerformanceMonitoring",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -173,14 +173,14 @@ public class Contact extends com.pulumi.resources.CustomResource {
         return this.groundStationName;
     }
     /**
-     * The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+     * The name of the Contact. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+     * @return The name of the Contact. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

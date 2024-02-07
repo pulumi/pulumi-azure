@@ -19,6 +19,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
     private String networkVirtualApplianceId;
     private List<String> publicIpAddressIds;
     private @Nullable List<String> publicIpAddresses;
+    private @Nullable List<String> trustedAddressRanges;
     private @Nullable String trustedSubnetId;
     private @Nullable String untrustedSubnetId;
     private String virtualHubId;
@@ -41,6 +42,9 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
     }
     public List<String> publicIpAddresses() {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
+    }
+    public List<String> trustedAddressRanges() {
+        return this.trustedAddressRanges == null ? List.of() : this.trustedAddressRanges;
     }
     public Optional<String> trustedSubnetId() {
         return Optional.ofNullable(this.trustedSubnetId);
@@ -67,6 +71,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
         private String networkVirtualApplianceId;
         private List<String> publicIpAddressIds;
         private @Nullable List<String> publicIpAddresses;
+        private @Nullable List<String> trustedAddressRanges;
         private @Nullable String trustedSubnetId;
         private @Nullable String untrustedSubnetId;
         private String virtualHubId;
@@ -79,6 +84,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
     	      this.networkVirtualApplianceId = defaults.networkVirtualApplianceId;
     	      this.publicIpAddressIds = defaults.publicIpAddressIds;
     	      this.publicIpAddresses = defaults.publicIpAddresses;
+    	      this.trustedAddressRanges = defaults.trustedAddressRanges;
     	      this.trustedSubnetId = defaults.trustedSubnetId;
     	      this.untrustedSubnetId = defaults.untrustedSubnetId;
     	      this.virtualHubId = defaults.virtualHubId;
@@ -137,6 +143,15 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
             return publicIpAddresses(List.of(publicIpAddresses));
         }
         @CustomType.Setter
+        public Builder trustedAddressRanges(@Nullable List<String> trustedAddressRanges) {
+
+            this.trustedAddressRanges = trustedAddressRanges;
+            return this;
+        }
+        public Builder trustedAddressRanges(String... trustedAddressRanges) {
+            return trustedAddressRanges(List.of(trustedAddressRanges));
+        }
+        @CustomType.Setter
         public Builder trustedSubnetId(@Nullable String trustedSubnetId) {
 
             this.trustedSubnetId = trustedSubnetId;
@@ -164,6 +179,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile 
             _resultValue.networkVirtualApplianceId = networkVirtualApplianceId;
             _resultValue.publicIpAddressIds = publicIpAddressIds;
             _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.trustedAddressRanges = trustedAddressRanges;
             _resultValue.trustedSubnetId = trustedSubnetId;
             _resultValue.untrustedSubnetId = untrustedSubnetId;
             _resultValue.virtualHubId = virtualHubId;

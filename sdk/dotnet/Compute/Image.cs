@@ -67,7 +67,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -85,8 +84,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ImageOsDisk?> OsDisk { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
-        /// the image. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -177,7 +175,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -195,8 +192,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ImageOsDiskArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
-        /// the image. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -255,7 +251,6 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -273,8 +268,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ImageOsDiskGetArgs>? OsDisk { get; set; }
 
         /// <summary>
-        /// The name of the resource group in which to create. Changing this forces a new resource to be created.
-        /// the image. Changing this forces a new resource to be created.
+        /// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

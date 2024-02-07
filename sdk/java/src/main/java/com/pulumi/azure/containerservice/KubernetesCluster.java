@@ -192,16 +192,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * A `azure_active_directory_role_based_access_control` block as defined below.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
-     * 
      */
     @Export(name="azureActiveDirectoryRoleBasedAccessControl", refs={KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
      * @return A `azure_active_directory_role_based_access_control` block as defined below.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
      * 
      */
     public Output<Optional<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -438,16 +434,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-     * 
      */
     @Export(name="imageCleanerIntervalHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> imageCleanerIntervalHours;
 
     /**
      * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
      * 
      */
     public Output<Optional<Integer>> imageCleanerIntervalHours() {
@@ -692,12 +684,16 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
      * 
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * 
      */
     @Export(name="monitorMetrics", refs={KubernetesClusterMonitorMetrics.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterMonitorMetrics> monitorMetrics;
 
     /**
      * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     public Output<Optional<KubernetesClusterMonitorMetrics>> monitorMetrics() {

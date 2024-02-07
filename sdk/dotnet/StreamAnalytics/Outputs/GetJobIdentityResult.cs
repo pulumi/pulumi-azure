@@ -14,6 +14,10 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
     public sealed class GetJobIdentityResult
     {
         /// <summary>
+        /// A list of User Assigned Managed Identity IDs assigned to this resource.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
         /// </summary>
         public readonly string PrincipalId;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private GetJobIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

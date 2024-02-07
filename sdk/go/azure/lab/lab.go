@@ -83,7 +83,7 @@ type Lab struct {
 	// An `autoShutdown` block as defined below.
 	AutoShutdown LabAutoShutdownPtrOutput `pulumi:"autoShutdown"`
 	// A `connectionSetting` block as defined below.
-	ConnectionSetting LabConnectionSettingPtrOutput `pulumi:"connectionSetting"`
+	ConnectionSetting LabConnectionSettingOutput `pulumi:"connectionSetting"`
 	// The description of the Lab Service Lab.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
@@ -115,6 +115,9 @@ func NewLab(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConnectionSetting == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionSetting'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -215,7 +218,7 @@ type labArgs struct {
 	// An `autoShutdown` block as defined below.
 	AutoShutdown *LabAutoShutdown `pulumi:"autoShutdown"`
 	// A `connectionSetting` block as defined below.
-	ConnectionSetting *LabConnectionSetting `pulumi:"connectionSetting"`
+	ConnectionSetting LabConnectionSetting `pulumi:"connectionSetting"`
 	// The description of the Lab Service Lab.
 	Description *string `pulumi:"description"`
 	// The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
@@ -245,7 +248,7 @@ type LabArgs struct {
 	// An `autoShutdown` block as defined below.
 	AutoShutdown LabAutoShutdownPtrInput
 	// A `connectionSetting` block as defined below.
-	ConnectionSetting LabConnectionSettingPtrInput
+	ConnectionSetting LabConnectionSettingInput
 	// The description of the Lab Service Lab.
 	Description pulumi.StringPtrInput
 	// The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
@@ -363,8 +366,8 @@ func (o LabOutput) AutoShutdown() LabAutoShutdownPtrOutput {
 }
 
 // A `connectionSetting` block as defined below.
-func (o LabOutput) ConnectionSetting() LabConnectionSettingPtrOutput {
-	return o.ApplyT(func(v *Lab) LabConnectionSettingPtrOutput { return v.ConnectionSetting }).(LabConnectionSettingPtrOutput)
+func (o LabOutput) ConnectionSetting() LabConnectionSettingOutput {
+	return o.ApplyT(func(v *Lab) LabConnectionSettingOutput { return v.ConnectionSetting }).(LabConnectionSettingOutput)
 }
 
 // The description of the Lab Service Lab.

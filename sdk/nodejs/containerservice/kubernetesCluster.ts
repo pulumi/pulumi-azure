@@ -100,8 +100,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly automaticChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
      */
     public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
@@ -176,8 +174,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
      */
     public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
     /**
@@ -252,6 +248,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly microsoftDefender!: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     *
+     * > **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      */
     public readonly monitorMetrics!: pulumi.Output<outputs.containerservice.KubernetesClusterMonitorMetrics | undefined>;
     /**
@@ -610,8 +608,6 @@ export interface KubernetesClusterState {
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
@@ -686,8 +682,6 @@ export interface KubernetesClusterState {
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -762,6 +756,8 @@ export interface KubernetesClusterState {
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     *
+     * > **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      */
     monitorMetrics?: pulumi.Input<inputs.containerservice.KubernetesClusterMonitorMetrics>;
     /**
@@ -958,8 +954,6 @@ export interface KubernetesClusterArgs {
     automaticChannelUpgrade?: pulumi.Input<string>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
      */
     azureActiveDirectoryRoleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl>;
     /**
@@ -1026,8 +1020,6 @@ export interface KubernetesClusterArgs {
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -1086,6 +1078,8 @@ export interface KubernetesClusterArgs {
     microsoftDefender?: pulumi.Input<inputs.containerservice.KubernetesClusterMicrosoftDefender>;
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
+     *
+     * > **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      */
     monitorMetrics?: pulumi.Input<inputs.containerservice.KubernetesClusterMonitorMetrics>;
     /**

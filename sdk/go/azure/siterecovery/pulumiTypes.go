@@ -3383,6 +3383,263 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput) Index(
 	}).(ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput)
 }
 
+type VmwareReplicatedVmManagedDisk struct {
+	// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+	DiskId string `pulumi:"diskId"`
+	// The ID of the storage account that should be used for logging during replication.
+	LogStorageAccountId *string `pulumi:"logStorageAccountId"`
+	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
+	// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	TargetDiskType string `pulumi:"targetDiskType"`
+}
+
+// VmwareReplicatedVmManagedDiskInput is an input type that accepts VmwareReplicatedVmManagedDiskArgs and VmwareReplicatedVmManagedDiskOutput values.
+// You can construct a concrete instance of `VmwareReplicatedVmManagedDiskInput` via:
+//
+//	VmwareReplicatedVmManagedDiskArgs{...}
+type VmwareReplicatedVmManagedDiskInput interface {
+	pulumi.Input
+
+	ToVmwareReplicatedVmManagedDiskOutput() VmwareReplicatedVmManagedDiskOutput
+	ToVmwareReplicatedVmManagedDiskOutputWithContext(context.Context) VmwareReplicatedVmManagedDiskOutput
+}
+
+type VmwareReplicatedVmManagedDiskArgs struct {
+	// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+	DiskId pulumi.StringInput `pulumi:"diskId"`
+	// The ID of the storage account that should be used for logging during replication.
+	LogStorageAccountId pulumi.StringPtrInput `pulumi:"logStorageAccountId"`
+	// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
+	// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
+}
+
+func (VmwareReplicatedVmManagedDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmwareReplicatedVmManagedDisk)(nil)).Elem()
+}
+
+func (i VmwareReplicatedVmManagedDiskArgs) ToVmwareReplicatedVmManagedDiskOutput() VmwareReplicatedVmManagedDiskOutput {
+	return i.ToVmwareReplicatedVmManagedDiskOutputWithContext(context.Background())
+}
+
+func (i VmwareReplicatedVmManagedDiskArgs) ToVmwareReplicatedVmManagedDiskOutputWithContext(ctx context.Context) VmwareReplicatedVmManagedDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicatedVmManagedDiskOutput)
+}
+
+// VmwareReplicatedVmManagedDiskArrayInput is an input type that accepts VmwareReplicatedVmManagedDiskArray and VmwareReplicatedVmManagedDiskArrayOutput values.
+// You can construct a concrete instance of `VmwareReplicatedVmManagedDiskArrayInput` via:
+//
+//	VmwareReplicatedVmManagedDiskArray{ VmwareReplicatedVmManagedDiskArgs{...} }
+type VmwareReplicatedVmManagedDiskArrayInput interface {
+	pulumi.Input
+
+	ToVmwareReplicatedVmManagedDiskArrayOutput() VmwareReplicatedVmManagedDiskArrayOutput
+	ToVmwareReplicatedVmManagedDiskArrayOutputWithContext(context.Context) VmwareReplicatedVmManagedDiskArrayOutput
+}
+
+type VmwareReplicatedVmManagedDiskArray []VmwareReplicatedVmManagedDiskInput
+
+func (VmwareReplicatedVmManagedDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmwareReplicatedVmManagedDisk)(nil)).Elem()
+}
+
+func (i VmwareReplicatedVmManagedDiskArray) ToVmwareReplicatedVmManagedDiskArrayOutput() VmwareReplicatedVmManagedDiskArrayOutput {
+	return i.ToVmwareReplicatedVmManagedDiskArrayOutputWithContext(context.Background())
+}
+
+func (i VmwareReplicatedVmManagedDiskArray) ToVmwareReplicatedVmManagedDiskArrayOutputWithContext(ctx context.Context) VmwareReplicatedVmManagedDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicatedVmManagedDiskArrayOutput)
+}
+
+type VmwareReplicatedVmManagedDiskOutput struct{ *pulumi.OutputState }
+
+func (VmwareReplicatedVmManagedDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmwareReplicatedVmManagedDisk)(nil)).Elem()
+}
+
+func (o VmwareReplicatedVmManagedDiskOutput) ToVmwareReplicatedVmManagedDiskOutput() VmwareReplicatedVmManagedDiskOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmManagedDiskOutput) ToVmwareReplicatedVmManagedDiskOutputWithContext(ctx context.Context) VmwareReplicatedVmManagedDiskOutput {
+	return o
+}
+
+// The ID of the disk to be replicated. Changing this forces a new resource to be created.
+func (o VmwareReplicatedVmManagedDiskOutput) DiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) string { return v.DiskId }).(pulumi.StringOutput)
+}
+
+// The ID of the storage account that should be used for logging during replication.
+func (o VmwareReplicatedVmManagedDiskOutput) LogStorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) *string { return v.LogStorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+func (o VmwareReplicatedVmManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
+}
+
+type VmwareReplicatedVmManagedDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (VmwareReplicatedVmManagedDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmwareReplicatedVmManagedDisk)(nil)).Elem()
+}
+
+func (o VmwareReplicatedVmManagedDiskArrayOutput) ToVmwareReplicatedVmManagedDiskArrayOutput() VmwareReplicatedVmManagedDiskArrayOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmManagedDiskArrayOutput) ToVmwareReplicatedVmManagedDiskArrayOutputWithContext(ctx context.Context) VmwareReplicatedVmManagedDiskArrayOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmManagedDiskArrayOutput) Index(i pulumi.IntInput) VmwareReplicatedVmManagedDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmwareReplicatedVmManagedDisk {
+		return vs[0].([]VmwareReplicatedVmManagedDisk)[vs[1].(int)]
+	}).(VmwareReplicatedVmManagedDiskOutput)
+}
+
+type VmwareReplicatedVmNetworkInterface struct {
+	// Whether this `networkInterface` is primary for the replicated VM.
+	IsPrimary bool `pulumi:"isPrimary"`
+	// Mac address of the network interface of source VM.
+	SourceMacAddress string `pulumi:"sourceMacAddress"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp *string `pulumi:"targetStaticIp"`
+	// Name of the subnet to use when a failover is done.
+	TargetSubnetName *string `pulumi:"targetSubnetName"`
+	// Name of the subnet to use when a test failover is done.
+	TestSubnetName *string `pulumi:"testSubnetName"`
+}
+
+// VmwareReplicatedVmNetworkInterfaceInput is an input type that accepts VmwareReplicatedVmNetworkInterfaceArgs and VmwareReplicatedVmNetworkInterfaceOutput values.
+// You can construct a concrete instance of `VmwareReplicatedVmNetworkInterfaceInput` via:
+//
+//	VmwareReplicatedVmNetworkInterfaceArgs{...}
+type VmwareReplicatedVmNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToVmwareReplicatedVmNetworkInterfaceOutput() VmwareReplicatedVmNetworkInterfaceOutput
+	ToVmwareReplicatedVmNetworkInterfaceOutputWithContext(context.Context) VmwareReplicatedVmNetworkInterfaceOutput
+}
+
+type VmwareReplicatedVmNetworkInterfaceArgs struct {
+	// Whether this `networkInterface` is primary for the replicated VM.
+	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
+	// Mac address of the network interface of source VM.
+	SourceMacAddress pulumi.StringInput `pulumi:"sourceMacAddress"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
+	// Name of the subnet to use when a failover is done.
+	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
+	// Name of the subnet to use when a test failover is done.
+	TestSubnetName pulumi.StringPtrInput `pulumi:"testSubnetName"`
+}
+
+func (VmwareReplicatedVmNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmwareReplicatedVmNetworkInterface)(nil)).Elem()
+}
+
+func (i VmwareReplicatedVmNetworkInterfaceArgs) ToVmwareReplicatedVmNetworkInterfaceOutput() VmwareReplicatedVmNetworkInterfaceOutput {
+	return i.ToVmwareReplicatedVmNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i VmwareReplicatedVmNetworkInterfaceArgs) ToVmwareReplicatedVmNetworkInterfaceOutputWithContext(ctx context.Context) VmwareReplicatedVmNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicatedVmNetworkInterfaceOutput)
+}
+
+// VmwareReplicatedVmNetworkInterfaceArrayInput is an input type that accepts VmwareReplicatedVmNetworkInterfaceArray and VmwareReplicatedVmNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `VmwareReplicatedVmNetworkInterfaceArrayInput` via:
+//
+//	VmwareReplicatedVmNetworkInterfaceArray{ VmwareReplicatedVmNetworkInterfaceArgs{...} }
+type VmwareReplicatedVmNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToVmwareReplicatedVmNetworkInterfaceArrayOutput() VmwareReplicatedVmNetworkInterfaceArrayOutput
+	ToVmwareReplicatedVmNetworkInterfaceArrayOutputWithContext(context.Context) VmwareReplicatedVmNetworkInterfaceArrayOutput
+}
+
+type VmwareReplicatedVmNetworkInterfaceArray []VmwareReplicatedVmNetworkInterfaceInput
+
+func (VmwareReplicatedVmNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmwareReplicatedVmNetworkInterface)(nil)).Elem()
+}
+
+func (i VmwareReplicatedVmNetworkInterfaceArray) ToVmwareReplicatedVmNetworkInterfaceArrayOutput() VmwareReplicatedVmNetworkInterfaceArrayOutput {
+	return i.ToVmwareReplicatedVmNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i VmwareReplicatedVmNetworkInterfaceArray) ToVmwareReplicatedVmNetworkInterfaceArrayOutputWithContext(ctx context.Context) VmwareReplicatedVmNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmwareReplicatedVmNetworkInterfaceArrayOutput)
+}
+
+type VmwareReplicatedVmNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (VmwareReplicatedVmNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmwareReplicatedVmNetworkInterface)(nil)).Elem()
+}
+
+func (o VmwareReplicatedVmNetworkInterfaceOutput) ToVmwareReplicatedVmNetworkInterfaceOutput() VmwareReplicatedVmNetworkInterfaceOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmNetworkInterfaceOutput) ToVmwareReplicatedVmNetworkInterfaceOutputWithContext(ctx context.Context) VmwareReplicatedVmNetworkInterfaceOutput {
+	return o
+}
+
+// Whether this `networkInterface` is primary for the replicated VM.
+func (o VmwareReplicatedVmNetworkInterfaceOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmNetworkInterface) bool { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Mac address of the network interface of source VM.
+func (o VmwareReplicatedVmNetworkInterfaceOutput) SourceMacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmNetworkInterface) string { return v.SourceMacAddress }).(pulumi.StringOutput)
+}
+
+// Static IP to assign when a failover is done.
+func (o VmwareReplicatedVmNetworkInterfaceOutput) TargetStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmNetworkInterface) *string { return v.TargetStaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to use when a failover is done.
+func (o VmwareReplicatedVmNetworkInterfaceOutput) TargetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmNetworkInterface) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to use when a test failover is done.
+func (o VmwareReplicatedVmNetworkInterfaceOutput) TestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmwareReplicatedVmNetworkInterface) *string { return v.TestSubnetName }).(pulumi.StringPtrOutput)
+}
+
+type VmwareReplicatedVmNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (VmwareReplicatedVmNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmwareReplicatedVmNetworkInterface)(nil)).Elem()
+}
+
+func (o VmwareReplicatedVmNetworkInterfaceArrayOutput) ToVmwareReplicatedVmNetworkInterfaceArrayOutput() VmwareReplicatedVmNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmNetworkInterfaceArrayOutput) ToVmwareReplicatedVmNetworkInterfaceArrayOutputWithContext(ctx context.Context) VmwareReplicatedVmNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VmwareReplicatedVmNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) VmwareReplicatedVmNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmwareReplicatedVmNetworkInterface {
+		return vs[0].([]VmwareReplicatedVmNetworkInterface)[vs[1].(int)]
+	}).(VmwareReplicatedVmNetworkInterfaceOutput)
+}
+
 type GetReplicationRecoveryPlanAzureToAzureSetting struct {
 	PrimaryEdgeZone  string `pulumi:"primaryEdgeZone"`
 	PrimaryZone      string `pulumi:"primaryZone"`
@@ -4074,6 +4331,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanShutdownRecoveryGroupPreActionInput)(nil)).Elem(), ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayInput)(nil)).Elem(), ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmwareReplicatedVmManagedDiskInput)(nil)).Elem(), VmwareReplicatedVmManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmwareReplicatedVmManagedDiskArrayInput)(nil)).Elem(), VmwareReplicatedVmManagedDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmwareReplicatedVmNetworkInterfaceInput)(nil)).Elem(), VmwareReplicatedVmNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VmwareReplicatedVmNetworkInterfaceArrayInput)(nil)).Elem(), VmwareReplicatedVmNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSettingInput)(nil)).Elem(), GetReplicationRecoveryPlanAzureToAzureSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanAzureToAzureSettingArrayInput)(nil)).Elem(), GetReplicationRecoveryPlanAzureToAzureSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationRecoveryPlanRecoveryGroupInput)(nil)).Elem(), GetReplicationRecoveryPlanRecoveryGroupArgs{})
@@ -4124,6 +4385,10 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput{})
+	pulumi.RegisterOutputType(VmwareReplicatedVmManagedDiskOutput{})
+	pulumi.RegisterOutputType(VmwareReplicatedVmManagedDiskArrayOutput{})
+	pulumi.RegisterOutputType(VmwareReplicatedVmNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(VmwareReplicatedVmNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanAzureToAzureSettingOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetReplicationRecoveryPlanRecoveryGroupOutput{})

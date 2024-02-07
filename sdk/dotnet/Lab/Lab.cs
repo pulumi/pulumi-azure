@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Lab
         /// A `connection_setting` block as defined below.
         /// </summary>
         [Output("connectionSetting")]
-        public Output<Outputs.LabConnectionSetting?> ConnectionSetting { get; private set; } = null!;
+        public Output<Outputs.LabConnectionSetting> ConnectionSetting { get; private set; } = null!;
 
         /// <summary>
         /// The description of the Lab Service Lab.
@@ -205,8 +205,8 @@ namespace Pulumi.Azure.Lab
         /// <summary>
         /// A `connection_setting` block as defined below.
         /// </summary>
-        [Input("connectionSetting")]
-        public Input<Inputs.LabConnectionSettingArgs>? ConnectionSetting { get; set; }
+        [Input("connectionSetting", required: true)]
+        public Input<Inputs.LabConnectionSettingArgs> ConnectionSetting { get; set; } = null!;
 
         /// <summary>
         /// The description of the Lab Service Lab.

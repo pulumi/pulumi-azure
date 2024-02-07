@@ -52,6 +52,18 @@ namespace Pulumi.Azure.PaloAlto.Inputs
             set => _publicIpAddresses = value;
         }
 
+        [Input("trustedAddressRanges")]
+        private InputList<string>? _trustedAddressRanges;
+
+        /// <summary>
+        /// Specifies a list of trusted ranges to use for the Network.
+        /// </summary>
+        public InputList<string> TrustedAddressRanges
+        {
+            get => _trustedAddressRanges ?? (_trustedAddressRanges = new InputList<string>());
+            set => _trustedAddressRanges = value;
+        }
+
         /// <summary>
         /// A `vnet_configuration` block as defined below.
         /// </summary>

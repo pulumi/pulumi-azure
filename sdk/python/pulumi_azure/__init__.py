@@ -1074,6 +1074,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudElasticApplicationPerformanceMonitoring",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring": "SpringCloudElasticApplicationPerformanceMonitoring"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudGateway",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -1102,6 +1110,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment": "SpringCloudJavaDeployment"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudNewRelicApplicationPerformanceMonitoring",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring": "SpringCloudNewRelicApplicationPerformanceMonitoring"
   }
  },
  {
@@ -2558,6 +2574,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerservice",
   "classes": {
    "azure:containerservice/connectedRegistry:ConnectedRegistry": "ConnectedRegistry"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/fleetUpdateStrategy",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy": "FleetUpdateStrategy"
   }
  },
  {
@@ -8238,6 +8262,14 @@ _utilities.register(
   "fqn": "pulumi_azure.siterecovery",
   "classes": {
    "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "VMWareReplicationPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "siterecovery/vmwareReplicatedVm",
+  "fqn": "pulumi_azure.siterecovery",
+  "classes": {
+   "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm": "VmwareReplicatedVm"
   }
  },
  {

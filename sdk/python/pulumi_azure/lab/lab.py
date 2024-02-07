@@ -16,12 +16,12 @@ __all__ = ['LabArgs', 'Lab']
 @pulumi.input_type
 class LabArgs:
     def __init__(__self__, *,
+                 connection_setting: pulumi.Input['LabConnectionSettingArgs'],
                  resource_group_name: pulumi.Input[str],
                  security: pulumi.Input['LabSecurityArgs'],
                  title: pulumi.Input[str],
                  virtual_machine: pulumi.Input['LabVirtualMachineArgs'],
                  auto_shutdown: Optional[pulumi.Input['LabAutoShutdownArgs']] = None,
-                 connection_setting: Optional[pulumi.Input['LabConnectionSettingArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -31,12 +31,12 @@ class LabArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Lab resource.
+        :param pulumi.Input['LabConnectionSettingArgs'] connection_setting: A `connection_setting` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LabSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] title: The title of the Lab Service Lab.
         :param pulumi.Input['LabVirtualMachineArgs'] virtual_machine: A `virtual_machine` block as defined below.
         :param pulumi.Input['LabAutoShutdownArgs'] auto_shutdown: An `auto_shutdown` block as defined below.
-        :param pulumi.Input['LabConnectionSettingArgs'] connection_setting: A `connection_setting` block as defined below.
         :param pulumi.Input[str] description: The description of the Lab Service Lab.
         :param pulumi.Input[str] lab_plan_id: The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created.
@@ -45,14 +45,13 @@ class LabArgs:
         :param pulumi.Input['LabRosterArgs'] roster: A `roster` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Lab.
         """
+        pulumi.set(__self__, "connection_setting", connection_setting)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "security", security)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "virtual_machine", virtual_machine)
         if auto_shutdown is not None:
             pulumi.set(__self__, "auto_shutdown", auto_shutdown)
-        if connection_setting is not None:
-            pulumi.set(__self__, "connection_setting", connection_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if lab_plan_id is not None:
@@ -67,6 +66,18 @@ class LabArgs:
             pulumi.set(__self__, "roster", roster)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="connectionSetting")
+    def connection_setting(self) -> pulumi.Input['LabConnectionSettingArgs']:
+        """
+        A `connection_setting` block as defined below.
+        """
+        return pulumi.get(self, "connection_setting")
+
+    @connection_setting.setter
+    def connection_setting(self, value: pulumi.Input['LabConnectionSettingArgs']):
+        pulumi.set(self, "connection_setting", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -127,18 +138,6 @@ class LabArgs:
     @auto_shutdown.setter
     def auto_shutdown(self, value: Optional[pulumi.Input['LabAutoShutdownArgs']]):
         pulumi.set(self, "auto_shutdown", value)
-
-    @property
-    @pulumi.getter(name="connectionSetting")
-    def connection_setting(self) -> Optional[pulumi.Input['LabConnectionSettingArgs']]:
-        """
-        A `connection_setting` block as defined below.
-        """
-        return pulumi.get(self, "connection_setting")
-
-    @connection_setting.setter
-    def connection_setting(self, value: Optional[pulumi.Input['LabConnectionSettingArgs']]):
-        pulumi.set(self, "connection_setting", value)
 
     @property
     @pulumi.getter
@@ -606,6 +605,8 @@ class Lab(pulumi.CustomResource):
             __props__ = LabArgs.__new__(LabArgs)
 
             __props__.__dict__["auto_shutdown"] = auto_shutdown
+            if connection_setting is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_setting'")
             __props__.__dict__["connection_setting"] = connection_setting
             __props__.__dict__["description"] = description
             __props__.__dict__["lab_plan_id"] = lab_plan_id
@@ -699,7 +700,7 @@ class Lab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionSetting")
-    def connection_setting(self) -> pulumi.Output[Optional['outputs.LabConnectionSetting']]:
+    def connection_setting(self) -> pulumi.Output['outputs.LabConnectionSetting']:
         """
         A `connection_setting` block as defined below.
         """

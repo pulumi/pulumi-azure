@@ -31,7 +31,7 @@ public final class GetAccountBlobContainerSASResult {
     private @Nullable String ipAddress;
     private GetAccountBlobContainerSASPermissions permissions;
     /**
-     * @return The computed Blob Container Shared Access Signature (SAS).
+     * @return The computed Blob Container Shared Access Signature (SAS). The delimiter character (&#39;?&#39;) for the query string is the prefix of `sas`.
      * 
      */
     private String sas;
@@ -79,7 +79,7 @@ public final class GetAccountBlobContainerSASResult {
         return this.permissions;
     }
     /**
-     * @return The computed Blob Container Shared Access Signature (SAS).
+     * @return The computed Blob Container Shared Access Signature (SAS). The delimiter character (&#39;?&#39;) for the query string is the prefix of `sas`.
      * 
      */
     public String sas() {

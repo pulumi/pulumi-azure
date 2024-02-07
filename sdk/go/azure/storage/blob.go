@@ -105,7 +105,6 @@ type Blob struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
@@ -181,7 +180,6 @@ type blobState struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	// Changing this forces a new resource to be created.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName *string `pulumi:"storageContainerName"`
@@ -219,7 +217,6 @@ type BlobState struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringPtrInput
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringPtrInput
@@ -261,7 +258,6 @@ type blobArgs struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	// Changing this forces a new resource to be created.
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName string `pulumi:"storageContainerName"`
@@ -298,7 +294,6 @@ type BlobArgs struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	// Changing this forces a new resource to be created.
 	StorageAccountName pulumi.StringInput
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
 	StorageContainerName pulumi.StringInput
@@ -453,7 +448,6 @@ func (o BlobOutput) SourceUri() pulumi.StringPtrOutput {
 }
 
 // Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-// Changing this forces a new resource to be created.
 func (o BlobOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }

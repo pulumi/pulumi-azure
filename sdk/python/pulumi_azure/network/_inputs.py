@@ -11123,7 +11123,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
                  public_cert_data: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A user-defined name of the root certificate.
-        :param pulumi.Input[str] public_cert_data: The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+        :param pulumi.Input[str] public_cert_data: The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_cert_data", public_cert_data)
@@ -11144,7 +11144,7 @@ class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs:
     @pulumi.getter(name="publicCertData")
     def public_cert_data(self) -> pulumi.Input[str]:
         """
-        The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+        The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
         """
         return pulumi.get(self, "public_cert_data")
 

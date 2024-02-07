@@ -29,8 +29,7 @@ class TopicArgs:
                  support_ordering: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Topic resource.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-               this topic in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         :param pulumi.Input[str] default_message_ttl: The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
@@ -78,8 +77,7 @@ class TopicArgs:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Input[str]:
         """
-        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        this topic in. Changing this forces a new resource to be created.
+        The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -267,8 +265,7 @@ class _TopicState:
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-               this topic in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
@@ -420,8 +417,7 @@ class _TopicState:
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        this topic in. Changing this forces a new resource to be created.
+        The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -550,8 +546,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-               this topic in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
@@ -695,8 +690,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[int] max_message_size_in_kilobytes: Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
         :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-               this topic in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] requires_duplicate_detection: Boolean flag which controls whether Changing this forces a new resource to be created.
                the Topic requires duplicate detection. Defaults to false. Changing this forces
                a new resource to be created.
@@ -802,8 +796,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="namespaceId")
     def namespace_id(self) -> pulumi.Output[str]:
         """
-        The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        this topic in. Changing this forces a new resource to be created.
+        The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "namespace_id")
 

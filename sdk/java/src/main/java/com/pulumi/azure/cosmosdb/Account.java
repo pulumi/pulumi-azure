@@ -531,6 +531,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.offerType;
     }
     /**
+     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     * 
+     */
+    @Export(name="partitionMergeEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> partitionMergeEnabled;
+
+    /**
+     * @return Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> partitionMergeEnabled() {
+        return Codegen.optional(this.partitionMergeEnabled);
+    }
+    /**
      * The Primary key for the CosmosDB Account.
      * 
      */

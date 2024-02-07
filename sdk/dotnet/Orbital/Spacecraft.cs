@@ -36,8 +36,8 @@ namespace Pulumi.Azure.Orbital
     ///         {
     ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
     ///             {
-    ///                 BandwidthMhz = 100,
-    ///                 CenterFrequencyMhz = 101,
+    ///                 BandwidthMhz = 30,
+    ///                 CenterFrequencyMhz = 2050,
     ///                 Direction = "Uplink",
     ///                 Polarization = "LHCP",
     ///                 Name = "examplename",

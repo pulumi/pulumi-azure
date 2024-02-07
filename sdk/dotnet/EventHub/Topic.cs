@@ -118,8 +118,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        /// this topic in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
@@ -253,8 +252,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        /// this topic in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
@@ -344,8 +342,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-        /// this topic in. Changing this forces a new resource to be created.
+        /// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }

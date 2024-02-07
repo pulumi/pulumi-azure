@@ -147,7 +147,7 @@ export interface GetAccountBlobContainerSASResult {
     readonly ipAddress?: string;
     readonly permissions: outputs.storage.GetAccountBlobContainerSASPermissions;
     /**
-     * The computed Blob Container Shared Access Signature (SAS).
+     * The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
      */
     readonly sas: string;
     readonly start: string;

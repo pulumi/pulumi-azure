@@ -396,14 +396,14 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      * 
      */
     @Import(name="nodeTaints")
     private @Nullable Output<List<String>> nodeTaints;
 
     /**
-     * @return A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * @return A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      * 
      */
     public Optional<Output<List<String>>> nodeTaints() {
@@ -1297,7 +1297,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
          * 
          * @return builder
          * 
@@ -1308,7 +1308,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
          * 
          * @return builder
          * 
@@ -1318,7 +1318,7 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+         * @param nodeTaints A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
          * 
          * @return builder
          * 

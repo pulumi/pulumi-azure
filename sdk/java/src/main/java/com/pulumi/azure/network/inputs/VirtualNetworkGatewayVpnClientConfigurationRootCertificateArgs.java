@@ -30,14 +30,14 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
     }
 
     /**
-     * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
      * 
      */
     @Import(name="publicCertData", required=true)
     private Output<String> publicCertData;
 
     /**
-     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
      * 
      */
     public Output<String> publicCertData() {
@@ -91,7 +91,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
         }
 
         /**
-         * @param publicCertData The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+         * @param publicCertData The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificateArg
         }
 
         /**
-         * @param publicCertData The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+         * @param publicCertData The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
          * 
          * @return builder
          * 

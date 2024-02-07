@@ -16,23 +16,28 @@ class ChannelEmailArgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  email_address: pulumi.Input[str],
-                 email_password: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 location: Optional[pulumi.Input[str]] = None):
+                 email_password: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 magic_code: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ChannelEmail resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
-        :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] magic_code: The magic code used to set up OAUTH authentication.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "email_password", email_password)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if email_password is not None:
+            pulumi.set(__self__, "email_password", email_password)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if magic_code is not None:
+            pulumi.set(__self__, "magic_code", magic_code)
 
     @property
     @pulumi.getter(name="botName")
@@ -59,18 +64,6 @@ class ChannelEmailArgs:
         pulumi.set(self, "email_address", value)
 
     @property
-    @pulumi.getter(name="emailPassword")
-    def email_password(self) -> pulumi.Input[str]:
-        """
-        The email password that the Bot will authenticate with.
-        """
-        return pulumi.get(self, "email_password")
-
-    @email_password.setter
-    def email_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "email_password", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -81,6 +74,18 @@ class ChannelEmailArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="emailPassword")
+    def email_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email password that the Bot will authenticate with.
+        """
+        return pulumi.get(self, "email_password")
+
+    @email_password.setter
+    def email_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_password", value)
 
     @property
     @pulumi.getter
@@ -94,6 +99,18 @@ class ChannelEmailArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+    @property
+    @pulumi.getter(name="magicCode")
+    def magic_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The magic code used to set up OAUTH authentication.
+        """
+        return pulumi.get(self, "magic_code")
+
+    @magic_code.setter
+    def magic_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "magic_code", value)
+
 
 @pulumi.input_type
 class _ChannelEmailState:
@@ -102,6 +119,7 @@ class _ChannelEmailState:
                  email_address: Optional[pulumi.Input[str]] = None,
                  email_password: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 magic_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ChannelEmail resources.
@@ -109,6 +127,7 @@ class _ChannelEmailState:
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
         :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] magic_code: The magic code used to set up OAUTH authentication.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         if bot_name is not None:
@@ -119,6 +138,8 @@ class _ChannelEmailState:
             pulumi.set(__self__, "email_password", email_password)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if magic_code is not None:
+            pulumi.set(__self__, "magic_code", magic_code)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
 
@@ -171,6 +192,18 @@ class _ChannelEmailState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="magicCode")
+    def magic_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The magic code used to set up OAUTH authentication.
+        """
+        return pulumi.get(self, "magic_code")
+
+    @magic_code.setter
+    def magic_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "magic_code", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -192,6 +225,7 @@ class ChannelEmail(pulumi.CustomResource):
                  email_address: Optional[pulumi.Input[str]] = None,
                  email_password: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 magic_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -234,6 +268,7 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
         :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] magic_code: The magic code used to set up OAUTH authentication.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         ...
@@ -295,6 +330,7 @@ class ChannelEmail(pulumi.CustomResource):
                  email_address: Optional[pulumi.Input[str]] = None,
                  email_password: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 magic_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -311,14 +347,13 @@ class ChannelEmail(pulumi.CustomResource):
             if email_address is None and not opts.urn:
                 raise TypeError("Missing required property 'email_address'")
             __props__.__dict__["email_address"] = email_address
-            if email_password is None and not opts.urn:
-                raise TypeError("Missing required property 'email_password'")
             __props__.__dict__["email_password"] = None if email_password is None else pulumi.Output.secret(email_password)
             __props__.__dict__["location"] = location
+            __props__.__dict__["magic_code"] = None if magic_code is None else pulumi.Output.secret(magic_code)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["emailPassword"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["emailPassword", "magicCode"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelEmail, __self__).__init__(
             'azure:bot/channelEmail:ChannelEmail',
@@ -334,6 +369,7 @@ class ChannelEmail(pulumi.CustomResource):
             email_address: Optional[pulumi.Input[str]] = None,
             email_password: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            magic_code: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None) -> 'ChannelEmail':
         """
         Get an existing ChannelEmail resource's state with the given name, id, and optional extra
@@ -346,6 +382,7 @@ class ChannelEmail(pulumi.CustomResource):
         :param pulumi.Input[str] email_address: The email address that the Bot will authenticate with.
         :param pulumi.Input[str] email_password: The email password that the Bot will authenticate with.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] magic_code: The magic code used to set up OAUTH authentication.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -356,6 +393,7 @@ class ChannelEmail(pulumi.CustomResource):
         __props__.__dict__["email_address"] = email_address
         __props__.__dict__["email_password"] = email_password
         __props__.__dict__["location"] = location
+        __props__.__dict__["magic_code"] = magic_code
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelEmail(resource_name, opts=opts, __props__=__props__)
 
@@ -377,7 +415,7 @@ class ChannelEmail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="emailPassword")
-    def email_password(self) -> pulumi.Output[str]:
+    def email_password(self) -> pulumi.Output[Optional[str]]:
         """
         The email password that the Bot will authenticate with.
         """
@@ -390,6 +428,14 @@ class ChannelEmail(pulumi.CustomResource):
         The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="magicCode")
+    def magic_code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The magic code used to set up OAUTH authentication.
+        """
+        return pulumi.get(self, "magic_code")
 
     @property
     @pulumi.getter(name="resourceGroupName")

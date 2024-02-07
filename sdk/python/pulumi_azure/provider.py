@@ -605,7 +605,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
+            __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.secret(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             __props__.__dict__["client_certificate"] = None if client_certificate is None else pulumi.Output.secret(client_certificate)
             __props__.__dict__["client_certificate_password"] = None if client_certificate_password is None else pulumi.Output.secret(client_certificate_password)
             __props__.__dict__["client_certificate_path"] = None if client_certificate_path is None else pulumi.Output.secret(client_certificate_path)

@@ -24,6 +24,10 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         public readonly ImmutableArray<string> PublicIpAddressIds;
         public readonly ImmutableArray<string> PublicIpAddresses;
         /// <summary>
+        /// Specifies a list of trusted ranges to use for the Network.
+        /// </summary>
+        public readonly ImmutableArray<string> TrustedAddressRanges;
+        /// <summary>
         /// A `vnet_configuration` block as defined below.
         /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration VnetConfiguration;
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.PaloAlto.Outputs
 
             ImmutableArray<string> publicIpAddresses,
 
+            ImmutableArray<string> trustedAddressRanges,
+
             Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration vnetConfiguration)
         {
             EgressNatIpAddressIds = egressNatIpAddressIds;
             EgressNatIpAddresses = egressNatIpAddresses;
             PublicIpAddressIds = publicIpAddressIds;
             PublicIpAddresses = publicIpAddresses;
+            TrustedAddressRanges = trustedAddressRanges;
             VnetConfiguration = vnetConfiguration;
         }
     }

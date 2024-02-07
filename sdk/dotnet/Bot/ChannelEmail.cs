@@ -78,13 +78,19 @@ namespace Pulumi.Azure.Bot
         /// The email password that the Bot will authenticate with.
         /// </summary>
         [Output("emailPassword")]
-        public Output<string> EmailPassword { get; private set; } = null!;
+        public Output<string?> EmailPassword { get; private set; } = null!;
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The magic code used to set up OAUTH authentication.
+        /// </summary>
+        [Output("magicCode")]
+        public Output<string?> MagicCode { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -118,6 +124,7 @@ namespace Pulumi.Azure.Bot
                 AdditionalSecretOutputs =
                 {
                     "emailPassword",
+                    "magicCode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +161,7 @@ namespace Pulumi.Azure.Bot
         [Input("emailAddress", required: true)]
         public Input<string> EmailAddress { get; set; } = null!;
 
-        [Input("emailPassword", required: true)]
+        [Input("emailPassword")]
         private Input<string>? _emailPassword;
 
         /// <summary>
@@ -175,6 +182,22 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("magicCode")]
+        private Input<string>? _magicCode;
+
+        /// <summary>
+        /// The magic code used to set up OAUTH authentication.
+        /// </summary>
+        public Input<string>? MagicCode
+        {
+            get => _magicCode;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _magicCode = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -223,6 +246,22 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("magicCode")]
+        private Input<string>? _magicCode;
+
+        /// <summary>
+        /// The magic code used to set up OAUTH authentication.
+        /// </summary>
+        public Input<string>? MagicCode
+        {
+            get => _magicCode;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _magicCode = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.

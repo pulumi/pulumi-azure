@@ -1186,6 +1186,7 @@ type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile struct {
 	NetworkVirtualApplianceId     string   `pulumi:"networkVirtualApplianceId"`
 	PublicIpAddressIds            []string `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses             []string `pulumi:"publicIpAddresses"`
+	TrustedAddressRanges          []string `pulumi:"trustedAddressRanges"`
 	TrustedSubnetId               *string  `pulumi:"trustedSubnetId"`
 	UntrustedSubnetId             *string  `pulumi:"untrustedSubnetId"`
 	VirtualHubId                  string   `pulumi:"virtualHubId"`
@@ -1209,6 +1210,7 @@ type NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs struct {
 	NetworkVirtualApplianceId     pulumi.StringInput      `pulumi:"networkVirtualApplianceId"`
 	PublicIpAddressIds            pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses             pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	TrustedAddressRanges          pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
 	TrustedSubnetId               pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
 	UntrustedSubnetId             pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
 	VirtualHubId                  pulumi.StringInput      `pulumi:"virtualHubId"`
@@ -1327,6 +1329,12 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) Publ
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileOutput) TrustedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) *string { return v.TrustedSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -1416,6 +1424,15 @@ func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) P
 			return nil
 		}
 		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubLocalRulestackNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -2032,6 +2049,7 @@ type NextGenerationFirewallVirtualHubPanoramaNetworkProfile struct {
 	NetworkVirtualApplianceId     string   `pulumi:"networkVirtualApplianceId"`
 	PublicIpAddressIds            []string `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses             []string `pulumi:"publicIpAddresses"`
+	TrustedAddressRanges          []string `pulumi:"trustedAddressRanges"`
 	TrustedSubnetId               *string  `pulumi:"trustedSubnetId"`
 	UntrustedSubnetId             *string  `pulumi:"untrustedSubnetId"`
 	VirtualHubId                  string   `pulumi:"virtualHubId"`
@@ -2055,6 +2073,7 @@ type NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs struct {
 	NetworkVirtualApplianceId     pulumi.StringInput      `pulumi:"networkVirtualApplianceId"`
 	PublicIpAddressIds            pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses             pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	TrustedAddressRanges          pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
 	TrustedSubnetId               pulumi.StringPtrInput   `pulumi:"trustedSubnetId"`
 	UntrustedSubnetId             pulumi.StringPtrInput   `pulumi:"untrustedSubnetId"`
 	VirtualHubId                  pulumi.StringInput      `pulumi:"virtualHubId"`
@@ -2167,6 +2186,10 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) PublicIpAd
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string { return v.TrustedAddressRanges }).(pulumi.StringArrayOutput)
+}
+
 func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfileOutput) TrustedSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualHubPanoramaNetworkProfile) *string { return v.TrustedSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -2254,6 +2277,15 @@ func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) PublicI
 			return nil
 		}
 		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o NextGenerationFirewallVirtualHubPanoramaNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualHubPanoramaNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -3050,6 +3082,8 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile struct {
 	// Specifies a list of Azure Public IP Address IDs.
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses  []string `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
 	// A `vnetConfiguration` block as defined below.
 	VnetConfiguration NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration `pulumi:"vnetConfiguration"`
 }
@@ -3072,6 +3106,8 @@ type NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs struct
 	// Specifies a list of Azure Public IP Address IDs.
 	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses  pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
 	// A `vnetConfiguration` block as defined below.
 	VnetConfiguration NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationInput `pulumi:"vnetConfiguration"`
 }
@@ -3179,6 +3215,13 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile) []string {
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
 // A `vnetConfiguration` block as defined below.
 func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileOutput) VnetConfiguration() NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile) NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration {
@@ -3245,6 +3288,16 @@ func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutpu
 			return nil
 		}
 		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -4086,6 +4139,8 @@ type NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile struct {
 	// Specifies a list of Azure Public IP Address IDs.
 	PublicIpAddressIds []string `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses  []string `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges []string `pulumi:"trustedAddressRanges"`
 	// A `vnetConfiguration` block as defined below.
 	VnetConfiguration NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration `pulumi:"vnetConfiguration"`
 }
@@ -4108,6 +4163,8 @@ type NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs struct {
 	// Specifies a list of Azure Public IP Address IDs.
 	PublicIpAddressIds pulumi.StringArrayInput `pulumi:"publicIpAddressIds"`
 	PublicIpAddresses  pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// Specifies a list of trusted ranges to use for the Network.
+	TrustedAddressRanges pulumi.StringArrayInput `pulumi:"trustedAddressRanges"`
 	// A `vnetConfiguration` block as defined below.
 	VnetConfiguration NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationInput `pulumi:"vnetConfiguration"`
 }
@@ -4215,6 +4272,13 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) Public
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile) []string {
+		return v.TrustedAddressRanges
+	}).(pulumi.StringArrayOutput)
+}
+
 // A `vnetConfiguration` block as defined below.
 func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileOutput) VnetConfiguration() NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationOutput {
 	return o.ApplyT(func(v NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile) NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration {
@@ -4281,6 +4345,16 @@ func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) Pub
 			return nil
 		}
 		return v.PublicIpAddresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of trusted ranges to use for the Network.
+func (o NextGenerationFirewallVirtualNetworkPanoramaNetworkProfilePtrOutput) TrustedAddressRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedAddressRanges
 	}).(pulumi.StringArrayOutput)
 }
 

@@ -78,14 +78,14 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version of the OpenShift cluster. Changing this forces a new resource to be created.
+     * The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location &lt;region&gt;`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
-     * @return The version of the OpenShift cluster. Changing this forces a new resource to be created.
+     * @return The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location &lt;region&gt;`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> version() {
@@ -205,7 +205,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version of the OpenShift cluster. Changing this forces a new resource to be created.
+         * @param version The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location &lt;region&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param version The version of the OpenShift cluster. Changing this forces a new resource to be created.
+         * @param version The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location &lt;region&gt;`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

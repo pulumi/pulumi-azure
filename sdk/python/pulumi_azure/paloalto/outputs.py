@@ -452,6 +452,8 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
             suggest = "ip_of_trust_for_user_defined_routes"
         elif key == "publicIpAddresses":
             suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
         elif key == "trustedSubnetId":
             suggest = "trusted_subnet_id"
         elif key == "untrustedSubnetId":
@@ -476,6 +478,7 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
                  egress_nat_ip_addresses: Optional[Sequence[str]] = None,
                  ip_of_trust_for_user_defined_routes: Optional[str] = None,
                  public_ip_addresses: Optional[Sequence[str]] = None,
+                 trusted_address_ranges: Optional[Sequence[str]] = None,
                  trusted_subnet_id: Optional[str] = None,
                  untrusted_subnet_id: Optional[str] = None):
         pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
@@ -489,6 +492,8 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
             pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
         if trusted_subnet_id is not None:
             pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
@@ -528,6 +533,11 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile(dict):
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "trusted_address_ranges")
 
     @property
     @pulumi.getter(name="trustedSubnetId")
@@ -735,6 +745,8 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
             suggest = "ip_of_trust_for_user_defined_routes"
         elif key == "publicIpAddresses":
             suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
         elif key == "trustedSubnetId":
             suggest = "trusted_subnet_id"
         elif key == "untrustedSubnetId":
@@ -759,6 +771,7 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
                  egress_nat_ip_addresses: Optional[Sequence[str]] = None,
                  ip_of_trust_for_user_defined_routes: Optional[str] = None,
                  public_ip_addresses: Optional[Sequence[str]] = None,
+                 trusted_address_ranges: Optional[Sequence[str]] = None,
                  trusted_subnet_id: Optional[str] = None,
                  untrusted_subnet_id: Optional[str] = None):
         pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
@@ -772,6 +785,8 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
             pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
         if trusted_subnet_id is not None:
             pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
@@ -811,6 +826,11 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfile(dict):
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "trusted_address_ranges")
 
     @property
     @pulumi.getter(name="trustedSubnetId")
@@ -1154,6 +1174,8 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
             suggest = "egress_nat_ip_addresses"
         elif key == "publicIpAddresses":
             suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile. Access the value via the '{suggest}' property getter instead.")
@@ -1171,11 +1193,13 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
                  vnet_configuration: 'outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration',
                  egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
                  egress_nat_ip_addresses: Optional[Sequence[str]] = None,
-                 public_ip_addresses: Optional[Sequence[str]] = None):
+                 public_ip_addresses: Optional[Sequence[str]] = None,
+                 trusted_address_ranges: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
         :param 'NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs' vnet_configuration: A `vnet_configuration` block as defined below.
         :param Sequence[str] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+        :param Sequence[str] trusted_address_ranges: Specifies a list of trusted ranges to use for the Network.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
         pulumi.set(__self__, "vnet_configuration", vnet_configuration)
@@ -1185,6 +1209,8 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
             pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
 
     @property
     @pulumi.getter(name="publicIpAddressIds")
@@ -1219,6 +1245,14 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile(dict):
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
+        return pulumi.get(self, "trusted_address_ranges")
 
 
 @pulumi.output_type
@@ -1537,6 +1571,8 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
             suggest = "egress_nat_ip_addresses"
         elif key == "publicIpAddresses":
             suggest = "public_ip_addresses"
+        elif key == "trustedAddressRanges":
+            suggest = "trusted_address_ranges"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile. Access the value via the '{suggest}' property getter instead.")
@@ -1554,11 +1590,13 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
                  vnet_configuration: 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration',
                  egress_nat_ip_address_ids: Optional[Sequence[str]] = None,
                  egress_nat_ip_addresses: Optional[Sequence[str]] = None,
-                 public_ip_addresses: Optional[Sequence[str]] = None):
+                 public_ip_addresses: Optional[Sequence[str]] = None,
+                 trusted_address_ranges: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] public_ip_address_ids: Specifies a list of Azure Public IP Address IDs.
         :param 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs' vnet_configuration: A `vnet_configuration` block as defined below.
         :param Sequence[str] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+        :param Sequence[str] trusted_address_ranges: Specifies a list of trusted ranges to use for the Network.
         """
         pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
         pulumi.set(__self__, "vnet_configuration", vnet_configuration)
@@ -1568,6 +1606,8 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
             pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if trusted_address_ranges is not None:
+            pulumi.set(__self__, "trusted_address_ranges", trusted_address_ranges)
 
     @property
     @pulumi.getter(name="publicIpAddressIds")
@@ -1602,6 +1642,14 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile(dict):
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="trustedAddressRanges")
+    def trusted_address_ranges(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of trusted ranges to use for the Network.
+        """
+        return pulumi.get(self, "trusted_address_ranges")
 
 
 @pulumi.output_type

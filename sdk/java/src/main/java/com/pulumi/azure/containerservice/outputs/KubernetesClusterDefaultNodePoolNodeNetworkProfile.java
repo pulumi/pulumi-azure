@@ -3,14 +3,26 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
+    /**
+     * @return One or more `allowed_host_ports` blocks as defined below.
+     * 
+     */
+    private @Nullable List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts;
+    /**
+     * @return A list of Application Security Group IDs which should be associated with this Node Pool.
+     * 
+     */
+    private @Nullable List<String> applicationSecurityGroupIds;
     /**
      * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
@@ -20,6 +32,20 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
     private @Nullable Map<String,String> nodePublicIpTags;
 
     private KubernetesClusterDefaultNodePoolNodeNetworkProfile() {}
+    /**
+     * @return One or more `allowed_host_ports` blocks as defined below.
+     * 
+     */
+    public List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts() {
+        return this.allowedHostPorts == null ? List.of() : this.allowedHostPorts;
+    }
+    /**
+     * @return A list of Application Security Group IDs which should be associated with this Node Pool.
+     * 
+     */
+    public List<String> applicationSecurityGroupIds() {
+        return this.applicationSecurityGroupIds == null ? List.of() : this.applicationSecurityGroupIds;
+    }
     /**
      * @return Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
      * 
@@ -39,13 +65,35 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts;
+        private @Nullable List<String> applicationSecurityGroupIds;
         private @Nullable Map<String,String> nodePublicIpTags;
         public Builder() {}
         public Builder(KubernetesClusterDefaultNodePoolNodeNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowedHostPorts = defaults.allowedHostPorts;
+    	      this.applicationSecurityGroupIds = defaults.applicationSecurityGroupIds;
     	      this.nodePublicIpTags = defaults.nodePublicIpTags;
         }
 
+        @CustomType.Setter
+        public Builder allowedHostPorts(@Nullable List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts) {
+
+            this.allowedHostPorts = allowedHostPorts;
+            return this;
+        }
+        public Builder allowedHostPorts(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort... allowedHostPorts) {
+            return allowedHostPorts(List.of(allowedHostPorts));
+        }
+        @CustomType.Setter
+        public Builder applicationSecurityGroupIds(@Nullable List<String> applicationSecurityGroupIds) {
+
+            this.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            return this;
+        }
+        public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
+            return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
+        }
         @CustomType.Setter
         public Builder nodePublicIpTags(@Nullable Map<String,String> nodePublicIpTags) {
 
@@ -54,6 +102,8 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
         }
         public KubernetesClusterDefaultNodePoolNodeNetworkProfile build() {
             final var _resultValue = new KubernetesClusterDefaultNodePoolNodeNetworkProfile();
+            _resultValue.allowedHostPorts = allowedHostPorts;
+            _resultValue.applicationSecurityGroupIds = applicationSecurityGroupIds;
             _resultValue.nodePublicIpTags = nodePublicIpTags;
             return _resultValue;
         }

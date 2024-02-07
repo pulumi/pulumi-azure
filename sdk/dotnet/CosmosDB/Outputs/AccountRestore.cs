@@ -18,6 +18,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountRestoreDatabase> Databases;
         /// <summary>
+        /// One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccountRestoreGremlinDatabase> GremlinDatabases;
+        /// <summary>
         /// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string RestoreTimestampInUtc;
@@ -27,18 +31,28 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// &gt; **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
         /// </summary>
         public readonly string SourceCosmosdbAccountId;
+        /// <summary>
+        /// A list of specific tables available for restore. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<string> TablesToRestores;
 
         [OutputConstructor]
         private AccountRestore(
             ImmutableArray<Outputs.AccountRestoreDatabase> databases,
 
+            ImmutableArray<Outputs.AccountRestoreGremlinDatabase> gremlinDatabases,
+
             string restoreTimestampInUtc,
 
-            string sourceCosmosdbAccountId)
+            string sourceCosmosdbAccountId,
+
+            ImmutableArray<string> tablesToRestores)
         {
             Databases = databases;
+            GremlinDatabases = gremlinDatabases;
             RestoreTimestampInUtc = restoreTimestampInUtc;
             SourceCosmosdbAccountId = sourceCosmosdbAccountId;
+            TablesToRestores = tablesToRestores;
         }
     }
 }

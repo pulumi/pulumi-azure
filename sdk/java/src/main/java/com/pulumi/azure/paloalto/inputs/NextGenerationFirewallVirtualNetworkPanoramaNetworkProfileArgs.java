@@ -63,6 +63,21 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArg
     }
 
     /**
+     * Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
+    @Import(name="trustedAddressRanges")
+    private @Nullable Output<List<String>> trustedAddressRanges;
+
+    /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
+    public Optional<Output<List<String>>> trustedAddressRanges() {
+        return Optional.ofNullable(this.trustedAddressRanges);
+    }
+
+    /**
      * A `vnet_configuration` block as defined below.
      * 
      */
@@ -84,6 +99,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArg
         this.egressNatIpAddresses = $.egressNatIpAddresses;
         this.publicIpAddressIds = $.publicIpAddressIds;
         this.publicIpAddresses = $.publicIpAddresses;
+        this.trustedAddressRanges = $.trustedAddressRanges;
         this.vnetConfiguration = $.vnetConfiguration;
     }
 
@@ -191,6 +207,37 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArg
 
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
+        }
+
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedAddressRanges(@Nullable Output<List<String>> trustedAddressRanges) {
+            $.trustedAddressRanges = trustedAddressRanges;
+            return this;
+        }
+
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedAddressRanges(List<String> trustedAddressRanges) {
+            return trustedAddressRanges(Output.of(trustedAddressRanges));
+        }
+
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedAddressRanges(String... trustedAddressRanges) {
+            return trustedAddressRanges(List.of(trustedAddressRanges));
         }
 
         /**

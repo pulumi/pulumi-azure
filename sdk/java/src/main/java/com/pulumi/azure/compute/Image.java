@@ -108,7 +108,6 @@ public class Image extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
@@ -116,7 +115,6 @@ public class Image extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
@@ -151,16 +149,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osDisk);
     }
     /**
-     * The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * @return The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {

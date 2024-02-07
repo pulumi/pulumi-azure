@@ -59,6 +59,7 @@ import (
 //				HttpsOnlyEnabled:           pulumi.Bool(false),
 //				PublicNetworkAccessEnabled: pulumi.Bool(true),
 //				InstanceCount:              pulumi.Int(1),
+//				ApiTryOutEnabled:           pulumi.Bool(true),
 //				Sso: &appplatform.SpringCloudApiPortalSsoArgs{
 //					ClientId:     pulumi.String("test"),
 //					ClientSecret: pulumi.String("secret"),
@@ -89,6 +90,8 @@ import (
 type SpringCloudApiPortal struct {
 	pulumi.CustomResourceState
 
+	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+	ApiTryOutEnabled pulumi.BoolPtrOutput `pulumi:"apiTryOutEnabled"`
 	// Specifies a list of Spring Cloud Gateway.
 	GatewayIds pulumi.StringArrayOutput `pulumi:"gatewayIds"`
 	// is only https is allowed?
@@ -140,6 +143,8 @@ func GetSpringCloudApiPortal(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudApiPortal resources.
 type springCloudApiPortalState struct {
+	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+	ApiTryOutEnabled *bool `pulumi:"apiTryOutEnabled"`
 	// Specifies a list of Spring Cloud Gateway.
 	GatewayIds []string `pulumi:"gatewayIds"`
 	// is only https is allowed?
@@ -159,6 +164,8 @@ type springCloudApiPortalState struct {
 }
 
 type SpringCloudApiPortalState struct {
+	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+	ApiTryOutEnabled pulumi.BoolPtrInput
 	// Specifies a list of Spring Cloud Gateway.
 	GatewayIds pulumi.StringArrayInput
 	// is only https is allowed?
@@ -182,6 +189,8 @@ func (SpringCloudApiPortalState) ElementType() reflect.Type {
 }
 
 type springCloudApiPortalArgs struct {
+	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+	ApiTryOutEnabled *bool `pulumi:"apiTryOutEnabled"`
 	// Specifies a list of Spring Cloud Gateway.
 	GatewayIds []string `pulumi:"gatewayIds"`
 	// is only https is allowed?
@@ -200,6 +209,8 @@ type springCloudApiPortalArgs struct {
 
 // The set of arguments for constructing a SpringCloudApiPortal resource.
 type SpringCloudApiPortalArgs struct {
+	// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+	ApiTryOutEnabled pulumi.BoolPtrInput
 	// Specifies a list of Spring Cloud Gateway.
 	GatewayIds pulumi.StringArrayInput
 	// is only https is allowed?
@@ -301,6 +312,11 @@ func (o SpringCloudApiPortalOutput) ToSpringCloudApiPortalOutput() SpringCloudAp
 
 func (o SpringCloudApiPortalOutput) ToSpringCloudApiPortalOutputWithContext(ctx context.Context) SpringCloudApiPortalOutput {
 	return o
+}
+
+// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+func (o SpringCloudApiPortalOutput) ApiTryOutEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudApiPortal) pulumi.BoolPtrOutput { return v.ApiTryOutEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies a list of Spring Cloud Gateway.

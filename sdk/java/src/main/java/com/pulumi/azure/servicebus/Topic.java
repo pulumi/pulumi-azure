@@ -211,16 +211,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
-     * @return The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * @return The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> namespaceId() {

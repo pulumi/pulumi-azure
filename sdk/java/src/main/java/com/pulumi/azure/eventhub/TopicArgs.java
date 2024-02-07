@@ -158,16 +158,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="namespaceId", required=true)
     private Output<String> namespaceId;
 
     /**
-     * @return The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * @return The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> namespaceId() {
@@ -453,8 +451,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-         * this topic in. Changing this forces a new resource to be created.
+         * @param namespaceId The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -465,8 +462,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-         * this topic in. Changing this forces a new resource to be created.
+         * @param namespaceId The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

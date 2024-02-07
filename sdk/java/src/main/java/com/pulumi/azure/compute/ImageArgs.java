@@ -57,7 +57,6 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
@@ -65,7 +64,6 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -103,16 +101,14 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * @return The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -254,7 +250,6 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-         * Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +261,6 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-         * Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -318,8 +312,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create. Changing this forces a new resource to be created.
-         * the image. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -330,8 +323,7 @@ public final class ImageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to create. Changing this forces a new resource to be created.
-         * the image. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group in which to create the image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -19,6 +19,7 @@ namespace Pulumi.Azure.PaloAlto.Outputs
         public readonly string NetworkVirtualApplianceId;
         public readonly ImmutableArray<string> PublicIpAddressIds;
         public readonly ImmutableArray<string> PublicIpAddresses;
+        public readonly ImmutableArray<string> TrustedAddressRanges;
         public readonly string? TrustedSubnetId;
         public readonly string? UntrustedSubnetId;
         public readonly string VirtualHubId;
@@ -37,6 +38,8 @@ namespace Pulumi.Azure.PaloAlto.Outputs
 
             ImmutableArray<string> publicIpAddresses,
 
+            ImmutableArray<string> trustedAddressRanges,
+
             string? trustedSubnetId,
 
             string? untrustedSubnetId,
@@ -49,6 +52,7 @@ namespace Pulumi.Azure.PaloAlto.Outputs
             NetworkVirtualApplianceId = networkVirtualApplianceId;
             PublicIpAddressIds = publicIpAddressIds;
             PublicIpAddresses = publicIpAddresses;
+            TrustedAddressRanges = trustedAddressRanges;
             TrustedSubnetId = trustedSubnetId;
             UntrustedSubnetId = untrustedSubnetId;
             VirtualHubId = virtualHubId;

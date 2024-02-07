@@ -6,12 +6,18 @@ package com.pulumi.azure.streamanalytics.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class JobIdentity {
+    /**
+     * @return The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     */
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -23,12 +29,19 @@ public final class JobIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     private String type;
 
     private JobIdentity() {}
+    /**
+     * @return The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     */
+    public List<String> identityIds() {
+        return this.identityIds == null ? List.of() : this.identityIds;
+    }
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -44,7 +57,7 @@ public final class JobIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     public String type() {
@@ -60,17 +73,28 @@ public final class JobIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(JobIdentity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.identityIds = defaults.identityIds;
     	      this.principalId = defaults.principalId;
     	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder identityIds(@Nullable List<String> identityIds) {
+
+            this.identityIds = identityIds;
+            return this;
+        }
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
+        }
         @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
 
@@ -93,6 +117,7 @@ public final class JobIdentity {
         }
         public JobIdentity build() {
             final var _resultValue = new JobIdentity();
+            _resultValue.identityIds = identityIds;
             _resultValue.principalId = principalId;
             _resultValue.tenantId = tenantId;
             _resultValue.type = type;

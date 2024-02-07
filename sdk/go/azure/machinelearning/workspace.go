@@ -437,7 +437,7 @@ type Workspace struct {
 	Encryption WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 	HighBusinessImpact pulumi.BoolPtrOutput `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityOutput `pulumi:"identity"`
@@ -534,7 +534,7 @@ type workspaceState struct {
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity *WorkspaceIdentity `pulumi:"identity"`
@@ -587,7 +587,7 @@ type WorkspaceState struct {
 	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
-	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityPtrInput
@@ -642,7 +642,7 @@ type workspaceArgs struct {
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 	HighBusinessImpact *bool `pulumi:"highBusinessImpact"`
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentity `pulumi:"identity"`
@@ -692,7 +692,7 @@ type WorkspaceArgs struct {
 	Encryption WorkspaceEncryptionPtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
-	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 	HighBusinessImpact pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity WorkspaceIdentityInput
@@ -847,7 +847,7 @@ func (o WorkspaceOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) HighBusinessImpact() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.HighBusinessImpact }).(pulumi.BoolPtrOutput)
 }

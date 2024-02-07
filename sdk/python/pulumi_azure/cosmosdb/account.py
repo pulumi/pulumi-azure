@@ -43,6 +43,7 @@ class AccountArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 partition_merge_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  restore: Optional[pulumi.Input['AccountRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -86,6 +87,7 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input['AccountRestoreArgs'] restore: A `restore` block as defined below.
                
@@ -143,6 +145,8 @@ class AccountArgs:
             pulumi.set(__self__, "network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
         if network_acl_bypass_ids is not None:
             pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
+        if partition_merge_enabled is not None:
+            pulumi.set(__self__, "partition_merge_enabled", partition_merge_enabled)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if restore is not None:
@@ -487,6 +491,18 @@ class AccountArgs:
         pulumi.set(self, "network_acl_bypass_ids", value)
 
     @property
+    @pulumi.getter(name="partitionMergeEnabled")
+    def partition_merge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "partition_merge_enabled")
+
+    @partition_merge_enabled.setter
+    def partition_merge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partition_merge_enabled", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -568,6 +584,7 @@ class _AccountState:
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
+                 partition_merge_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  primary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_readonly_key: Optional[pulumi.Input[str]] = None,
@@ -627,6 +644,7 @@ class _AccountState:
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
+        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
@@ -705,6 +723,8 @@ class _AccountState:
             pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if offer_type is not None:
             pulumi.set(__self__, "offer_type", offer_type)
+        if partition_merge_enabled is not None:
+            pulumi.set(__self__, "partition_merge_enabled", partition_merge_enabled)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if primary_mongodb_connection_string is not None:
@@ -1091,6 +1111,18 @@ class _AccountState:
         pulumi.set(self, "offer_type", value)
 
     @property
+    @pulumi.getter(name="partitionMergeEnabled")
+    def partition_merge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "partition_merge_enabled")
+
+    @partition_merge_enabled.setter
+    def partition_merge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partition_merge_enabled", value)
+
+    @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1352,6 +1384,7 @@ class Account(pulumi.CustomResource):
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
+                 partition_merge_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
@@ -1455,6 +1488,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
+        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountRestoreArgs']] restore: A `restore` block as defined below.
@@ -1569,6 +1603,7 @@ class Account(pulumi.CustomResource):
                  network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
                  network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
+                 partition_merge_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[pulumi.InputType['AccountRestoreArgs']]] = None,
@@ -1615,6 +1650,7 @@ class Account(pulumi.CustomResource):
             if offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_type'")
             __props__.__dict__["offer_type"] = offer_type
+            __props__.__dict__["partition_merge_enabled"] = partition_merge_enabled
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1678,6 +1714,7 @@ class Account(pulumi.CustomResource):
             network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
             network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             offer_type: Optional[pulumi.Input[str]] = None,
+            partition_merge_enabled: Optional[pulumi.Input[bool]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             primary_mongodb_connection_string: Optional[pulumi.Input[str]] = None,
             primary_readonly_key: Optional[pulumi.Input[str]] = None,
@@ -1742,6 +1779,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If Azure services can bypass ACLs. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
+        :param pulumi.Input[bool] partition_merge_enabled: Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
         :param pulumi.Input[str] primary_key: The Primary key for the CosmosDB Account.
         :param pulumi.Input[str] primary_mongodb_connection_string: Primary Mongodb connection string for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only Key for the CosmosDB Account.
@@ -1796,6 +1834,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
         __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
         __props__.__dict__["offer_type"] = offer_type
+        __props__.__dict__["partition_merge_enabled"] = partition_merge_enabled
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["primary_mongodb_connection_string"] = primary_mongodb_connection_string
         __props__.__dict__["primary_readonly_key"] = primary_readonly_key
@@ -2050,6 +2089,14 @@ class Account(pulumi.CustomResource):
         Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         """
         return pulumi.get(self, "offer_type")
+
+    @property
+    @pulumi.getter(name="partitionMergeEnabled")
+    def partition_merge_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "partition_merge_enabled")
 
     @property
     @pulumi.getter(name="primaryKey")

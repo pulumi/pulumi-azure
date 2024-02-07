@@ -53,6 +53,10 @@ import * as utilities from "../utilities";
  *         issuerUri: "https://www.test.com/issueToken",
  *         scopes: ["read"],
  *     },
+ *     localResponseCachePerInstance: {
+ *         size: "100MB",
+ *         timeToLive: "30s",
+ *     },
  * });
  * ```
  *
@@ -121,6 +125,14 @@ export class SpringCloudGateway extends pulumi.CustomResource {
      */
     public readonly instanceCount!: pulumi.Output<number | undefined>;
     /**
+     * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    public readonly localResponseCachePerInstance!: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance | undefined>;
+    /**
+     * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    public readonly localResponseCachePerRoute!: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute | undefined>;
+    /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
     public readonly name!: pulumi.Output<string>;
@@ -169,6 +181,8 @@ export class SpringCloudGateway extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["localResponseCachePerInstance"] = state ? state.localResponseCachePerInstance : undefined;
+            resourceInputs["localResponseCachePerRoute"] = state ? state.localResponseCachePerRoute : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["quota"] = state ? state.quota : undefined;
@@ -188,6 +202,8 @@ export class SpringCloudGateway extends pulumi.CustomResource {
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["localResponseCachePerInstance"] = args ? args.localResponseCachePerInstance : undefined;
+            resourceInputs["localResponseCachePerRoute"] = args ? args.localResponseCachePerRoute : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["quota"] = args ? args.quota : undefined;
@@ -235,6 +251,14 @@ export interface SpringCloudGatewayState {
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
     instanceCount?: pulumi.Input<number>;
+    /**
+     * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance>;
+    /**
+     * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute>;
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
@@ -297,6 +321,14 @@ export interface SpringCloudGatewayArgs {
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
     instanceCount?: pulumi.Input<number>;
+    /**
+     * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    localResponseCachePerInstance?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance>;
+    /**
+     * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+     */
+    localResponseCachePerRoute?: pulumi.Input<inputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute>;
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */

@@ -95,8 +95,7 @@ type Topic struct {
 	MaxSizeInMegabytes pulumi.IntOutput `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-	// this topic in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Boolean flag which controls whether Changing this forces a new resource to be created.
@@ -163,8 +162,7 @@ type topicState struct {
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-	// this topic in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   *string `pulumi:"namespaceId"`
 	NamespaceName *string `pulumi:"namespaceName"`
 	// Boolean flag which controls whether Changing this forces a new resource to be created.
@@ -199,8 +197,7 @@ type TopicState struct {
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-	// this topic in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId   pulumi.StringPtrInput
 	NamespaceName pulumi.StringPtrInput
 	// Boolean flag which controls whether Changing this forces a new resource to be created.
@@ -239,8 +236,7 @@ type topicArgs struct {
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-	// this topic in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
@@ -274,8 +270,7 @@ type TopicArgs struct {
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-	// this topic in. Changing this forces a new resource to be created.
+	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringInput
 	// Boolean flag which controls whether Changing this forces a new resource to be created.
 	// the Topic requires duplicate detection. Defaults to false. Changing this forces
@@ -421,8 +416,7 @@ func (o TopicOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-// this topic in. Changing this forces a new resource to be created.
+// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
 func (o TopicOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }

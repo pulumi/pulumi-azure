@@ -109,7 +109,7 @@ class ClusterClusterProfile(dict):
                  resource_group_id: Optional[str] = None):
         """
         :param str domain: The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
-        :param str version: The version of the OpenShift cluster. Changing this forces a new resource to be created.
+        :param str version: The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
         :param bool fips_enabled: Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
         :param str pull_secret: The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
         :param str resource_group_id: The resource group that the cluster profile is attached to.
@@ -135,7 +135,7 @@ class ClusterClusterProfile(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The version of the OpenShift cluster. Changing this forces a new resource to be created.
+        The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 

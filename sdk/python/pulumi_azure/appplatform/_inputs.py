@@ -30,6 +30,8 @@ __all__ = [
     'SpringCloudGatewayApiMetadataArgs',
     'SpringCloudGatewayClientAuthorizationArgs',
     'SpringCloudGatewayCorsArgs',
+    'SpringCloudGatewayLocalResponseCachePerInstanceArgs',
+    'SpringCloudGatewayLocalResponseCachePerRouteArgs',
     'SpringCloudGatewayQuotaArgs',
     'SpringCloudGatewayRouteConfigOpenApiArgs',
     'SpringCloudGatewayRouteConfigRouteArgs',
@@ -1501,6 +1503,84 @@ class SpringCloudGatewayCorsArgs:
     @max_age_seconds.setter
     def max_age_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_age_seconds", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayLocalResponseCachePerInstanceArgs:
+    def __init__(__self__, *,
+                 size: Optional[pulumi.Input[str]] = None,
+                 time_to_live: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        :param pulumi.Input[str] time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_live", value)
+
+
+@pulumi.input_type
+class SpringCloudGatewayLocalResponseCachePerRouteArgs:
+    def __init__(__self__, *,
+                 size: Optional[pulumi.Input[str]] = None,
+                 time_to_live: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        :param pulumi.Input[str] time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        return pulumi.get(self, "time_to_live")
+
+    @time_to_live.setter
+    def time_to_live(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_live", value)
 
 
 @pulumi.input_type

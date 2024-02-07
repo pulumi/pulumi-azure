@@ -9,6 +9,8 @@ import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayState;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayApiMetadata;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayClientAuthorization;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayCors;
+import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayLocalResponseCachePerInstance;
+import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayLocalResponseCachePerRoute;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayQuota;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewaySso;
 import com.pulumi.core.Output;
@@ -45,6 +47,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayCorsArgs;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayQuotaArgs;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewaySsoArgs;
+ * import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -97,6 +100,10 @@ import javax.annotation.Nullable;
  *                 .clientSecret(&#34;example secret&#34;)
  *                 .issuerUri(&#34;https://www.test.com/issueToken&#34;)
  *                 .scopes(&#34;read&#34;)
+ *                 .build())
+ *             .localResponseCachePerInstance(SpringCloudGatewayLocalResponseCachePerInstanceArgs.builder()
+ *                 .size(&#34;100MB&#34;)
+ *                 .timeToLive(&#34;30s&#34;)
  *                 .build())
  *             .build());
  * 
@@ -212,6 +219,34 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> instanceCount() {
         return Codegen.optional(this.instanceCount);
+    }
+    /**
+     * A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * 
+     */
+    @Export(name="localResponseCachePerInstance", refs={SpringCloudGatewayLocalResponseCachePerInstance.class}, tree="[0]")
+    private Output</* @Nullable */ SpringCloudGatewayLocalResponseCachePerInstance> localResponseCachePerInstance;
+
+    /**
+     * @return A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * 
+     */
+    public Output<Optional<SpringCloudGatewayLocalResponseCachePerInstance>> localResponseCachePerInstance() {
+        return Codegen.optional(this.localResponseCachePerInstance);
+    }
+    /**
+     * A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * 
+     */
+    @Export(name="localResponseCachePerRoute", refs={SpringCloudGatewayLocalResponseCachePerRoute.class}, tree="[0]")
+    private Output</* @Nullable */ SpringCloudGatewayLocalResponseCachePerRoute> localResponseCachePerRoute;
+
+    /**
+     * @return A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+     * 
+     */
+    public Output<Optional<SpringCloudGatewayLocalResponseCachePerRoute>> localResponseCachePerRoute() {
+        return Codegen.optional(this.localResponseCachePerRoute);
     }
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.

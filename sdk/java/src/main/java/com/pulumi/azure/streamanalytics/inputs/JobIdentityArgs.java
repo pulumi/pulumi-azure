@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final JobIdentityArgs Empty = new JobIdentityArgs();
+
+    /**
+     * The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return The identity id of the user assigned identity to use when type is `UserAssigned`
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID associated with this Managed Service Identity.
@@ -47,14 +63,14 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -64,6 +80,7 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
     private JobIdentityArgs() {}
 
     private JobIdentityArgs(JobIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -85,6 +102,37 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(JobIdentityArgs defaults) {
             $ = new JobIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds The identity id of the user assigned identity to use when type is `UserAssigned`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -130,7 +178,7 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 
@@ -141,7 +189,7 @@ public final class JobIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 

@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     httpsOnlyEnabled: false,
  *     publicNetworkAccessEnabled: true,
  *     instanceCount: 1,
+ *     apiTryOutEnabled: true,
  *     sso: {
  *         clientId: "test",
  *         clientSecret: "secret",
@@ -76,6 +77,10 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     */
+    public readonly apiTryOutEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies a list of Spring Cloud Gateway.
      */
     public readonly gatewayIds!: pulumi.Output<string[] | undefined>;
@@ -121,6 +126,7 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudApiPortalState | undefined;
+            resourceInputs["apiTryOutEnabled"] = state ? state.apiTryOutEnabled : undefined;
             resourceInputs["gatewayIds"] = state ? state.gatewayIds : undefined;
             resourceInputs["httpsOnlyEnabled"] = state ? state.httpsOnlyEnabled : undefined;
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
@@ -134,6 +140,7 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
             if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
+            resourceInputs["apiTryOutEnabled"] = args ? args.apiTryOutEnabled : undefined;
             resourceInputs["gatewayIds"] = args ? args.gatewayIds : undefined;
             resourceInputs["httpsOnlyEnabled"] = args ? args.httpsOnlyEnabled : undefined;
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
@@ -152,6 +159,10 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpringCloudApiPortal resources.
  */
 export interface SpringCloudApiPortalState {
+    /**
+     * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     */
+    apiTryOutEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Spring Cloud Gateway.
      */
@@ -190,6 +201,10 @@ export interface SpringCloudApiPortalState {
  * The set of arguments for constructing a SpringCloudApiPortal resource.
  */
 export interface SpringCloudApiPortalArgs {
+    /**
+     * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     */
+    apiTryOutEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Spring Cloud Gateway.
      */

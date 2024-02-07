@@ -218,6 +218,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly offerType!: pulumi.Output<string>;
     /**
+     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     */
+    public readonly partitionMergeEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Primary key for the CosmosDB Account.
      */
     public /*out*/ readonly primaryKey!: pulumi.Output<string>;
@@ -337,6 +341,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["networkAclBypassForAzureServices"] = state ? state.networkAclBypassForAzureServices : undefined;
             resourceInputs["networkAclBypassIds"] = state ? state.networkAclBypassIds : undefined;
             resourceInputs["offerType"] = state ? state.offerType : undefined;
+            resourceInputs["partitionMergeEnabled"] = state ? state.partitionMergeEnabled : undefined;
             resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
             resourceInputs["primaryMongodbConnectionString"] = state ? state.primaryMongodbConnectionString : undefined;
             resourceInputs["primaryReadonlyKey"] = state ? state.primaryReadonlyKey : undefined;
@@ -396,6 +401,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["networkAclBypassForAzureServices"] = args ? args.networkAclBypassForAzureServices : undefined;
             resourceInputs["networkAclBypassIds"] = args ? args.networkAclBypassIds : undefined;
             resourceInputs["offerType"] = args ? args.offerType : undefined;
+            resourceInputs["partitionMergeEnabled"] = args ? args.partitionMergeEnabled : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restore"] = args ? args.restore : undefined;
@@ -551,6 +557,10 @@ export interface AccountState {
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     offerType?: pulumi.Input<string>;
+    /**
+     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     */
+    partitionMergeEnabled?: pulumi.Input<boolean>;
     /**
      * The Primary key for the CosmosDB Account.
      */
@@ -749,6 +759,10 @@ export interface AccountArgs {
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
     offerType: pulumi.Input<string>;
+    /**
+     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     */
+    partitionMergeEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
      */

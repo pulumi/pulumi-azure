@@ -15,6 +15,11 @@ export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
 export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
 utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
 
+export { FleetUpdateStrategyArgs, FleetUpdateStrategyState } from "./fleetUpdateStrategy";
+export type FleetUpdateStrategy = import("./fleetUpdateStrategy").FleetUpdateStrategy;
+export const FleetUpdateStrategy: typeof import("./fleetUpdateStrategy").FleetUpdateStrategy = null as any;
+utilities.lazyLoad(exports, ["FleetUpdateStrategy"], () => require("./fleetUpdateStrategy"));
+
 export { FluxConfigurationArgs, FluxConfigurationState } from "./fluxConfiguration";
 export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
 export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
@@ -139,6 +144,8 @@ const _module = {
                 return new ClusterTrustedAccessRoleBinding(name, <any>undefined, { urn })
             case "azure:containerservice/connectedRegistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
+            case "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy":
+                return new FleetUpdateStrategy(name, <any>undefined, { urn })
             case "azure:containerservice/fluxConfiguration:FluxConfiguration":
                 return new FluxConfiguration(name, <any>undefined, { urn })
             case "azure:containerservice/group:Group":
@@ -176,6 +183,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "containerservice/clusterTrustedAccessRoleBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/fleetUpdateStrategy", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/fluxConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/group", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/kubernetesCluster", _module)

@@ -24,6 +24,8 @@ class SpringCloudGatewayArgs:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
@@ -39,6 +41,8 @@ class SpringCloudGatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
+        :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs'] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs'] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
@@ -60,6 +64,10 @@ class SpringCloudGatewayArgs:
             pulumi.set(__self__, "https_only", https_only)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
+        if local_response_cache_per_instance is not None:
+            pulumi.set(__self__, "local_response_cache_per_instance", local_response_cache_per_instance)
+        if local_response_cache_per_route is not None:
+            pulumi.set(__self__, "local_response_cache_per_route", local_response_cache_per_route)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -168,6 +176,30 @@ class SpringCloudGatewayArgs:
         pulumi.set(self, "instance_count", value)
 
     @property
+    @pulumi.getter(name="localResponseCachePerInstance")
+    def local_response_cache_per_instance(self) -> Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]:
+        """
+        A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_instance")
+
+    @local_response_cache_per_instance.setter
+    def local_response_cache_per_instance(self, value: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]):
+        pulumi.set(self, "local_response_cache_per_instance", value)
+
+    @property
+    @pulumi.getter(name="localResponseCachePerRoute")
+    def local_response_cache_per_route(self) -> Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']]:
+        """
+        A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_route")
+
+    @local_response_cache_per_route.setter
+    def local_response_cache_per_route(self, value: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']]):
+        pulumi.set(self, "local_response_cache_per_route", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -238,6 +270,8 @@ class _SpringCloudGatewayState:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
@@ -254,6 +288,8 @@ class _SpringCloudGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
+        :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs'] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs'] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input['SpringCloudGatewayQuotaArgs'] quota: A `quota` block as defined below.
@@ -276,6 +312,10 @@ class _SpringCloudGatewayState:
             pulumi.set(__self__, "https_only", https_only)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
+        if local_response_cache_per_instance is not None:
+            pulumi.set(__self__, "local_response_cache_per_instance", local_response_cache_per_instance)
+        if local_response_cache_per_route is not None:
+            pulumi.set(__self__, "local_response_cache_per_route", local_response_cache_per_route)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -376,6 +416,30 @@ class _SpringCloudGatewayState:
         pulumi.set(self, "instance_count", value)
 
     @property
+    @pulumi.getter(name="localResponseCachePerInstance")
+    def local_response_cache_per_instance(self) -> Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]:
+        """
+        A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_instance")
+
+    @local_response_cache_per_instance.setter
+    def local_response_cache_per_instance(self, value: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]):
+        pulumi.set(self, "local_response_cache_per_instance", value)
+
+    @property
+    @pulumi.getter(name="localResponseCachePerRoute")
+    def local_response_cache_per_route(self) -> Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']]:
+        """
+        A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_route")
+
+    @local_response_cache_per_route.setter
+    def local_response_cache_per_route(self, value: Optional[pulumi.Input['SpringCloudGatewayLocalResponseCachePerRouteArgs']]):
+        pulumi.set(self, "local_response_cache_per_route", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -472,6 +536,8 @@ class SpringCloudGateway(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
@@ -524,6 +590,10 @@ class SpringCloudGateway(pulumi.CustomResource):
                 client_secret="example secret",
                 issuer_uri="https://www.test.com/issueToken",
                 scopes=["read"],
+            ),
+            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
+                size="100MB",
+                time_to_live="30s",
             ))
         ```
 
@@ -544,6 +614,8 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
@@ -602,6 +674,10 @@ class SpringCloudGateway(pulumi.CustomResource):
                 client_secret="example secret",
                 issuer_uri="https://www.test.com/issueToken",
                 scopes=["read"],
+            ),
+            local_response_cache_per_instance=azure.appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs(
+                size="100MB",
+                time_to_live="30s",
             ))
         ```
 
@@ -635,6 +711,8 @@ class SpringCloudGateway(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
+                 local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
+                 local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
@@ -657,6 +735,8 @@ class SpringCloudGateway(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["instance_count"] = instance_count
+            __props__.__dict__["local_response_cache_per_instance"] = local_response_cache_per_instance
+            __props__.__dict__["local_response_cache_per_route"] = local_response_cache_per_route
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["quota"] = quota
@@ -685,6 +765,8 @@ class SpringCloudGateway(pulumi.CustomResource):
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
+            local_response_cache_per_instance: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']]] = None,
+            local_response_cache_per_route: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']]] = None,
@@ -706,6 +788,8 @@ class SpringCloudGateway(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerInstanceArgs']] local_response_cache_per_instance: A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayLocalResponseCachePerRouteArgs']] local_response_cache_per_route: A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         :param pulumi.Input[bool] public_network_access_enabled: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param pulumi.Input[pulumi.InputType['SpringCloudGatewayQuotaArgs']] quota: A `quota` block as defined below.
@@ -725,6 +809,8 @@ class SpringCloudGateway(pulumi.CustomResource):
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["instance_count"] = instance_count
+        __props__.__dict__["local_response_cache_per_instance"] = local_response_cache_per_instance
+        __props__.__dict__["local_response_cache_per_route"] = local_response_cache_per_route
         __props__.__dict__["name"] = name
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["quota"] = quota
@@ -789,6 +875,22 @@ class SpringCloudGateway(pulumi.CustomResource):
         Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         """
         return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="localResponseCachePerInstance")
+    def local_response_cache_per_instance(self) -> pulumi.Output[Optional['outputs.SpringCloudGatewayLocalResponseCachePerInstance']]:
+        """
+        A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_instance")
+
+    @property
+    @pulumi.getter(name="localResponseCachePerRoute")
+    def local_response_cache_per_route(self) -> pulumi.Output[Optional['outputs.SpringCloudGatewayLocalResponseCachePerRoute']]:
+        """
+        A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        """
+        return pulumi.get(self, "local_response_cache_per_route")
 
     @property
     @pulumi.getter

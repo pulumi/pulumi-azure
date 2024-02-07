@@ -41,8 +41,8 @@ import (
 //				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{
 //					&orbital.SpacecraftLinkArgs{
-//						BandwidthMhz:       pulumi.Float64(100),
-//						CenterFrequencyMhz: pulumi.Float64(101),
+//						BandwidthMhz:       pulumi.Float64(30),
+//						CenterFrequencyMhz: pulumi.Float64(2050),
 //						Direction:          pulumi.String("Uplink"),
 //						Polarization:       pulumi.String("LHCP"),
 //						Name:               pulumi.String("examplename"),

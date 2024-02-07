@@ -21,6 +21,7 @@ __all__ = [
     'AccountIdentity',
     'AccountRestore',
     'AccountRestoreDatabase',
+    'AccountRestoreGremlinDatabase',
     'AccountVirtualNetworkRule',
     'CassandraClusterIdentity',
     'CassandraKeyspaceAutoscaleSettings',
@@ -540,6 +541,10 @@ class AccountRestore(dict):
             suggest = "restore_timestamp_in_utc"
         elif key == "sourceCosmosdbAccountId":
             suggest = "source_cosmosdb_account_id"
+        elif key == "gremlinDatabases":
+            suggest = "gremlin_databases"
+        elif key == "tablesToRestores":
+            suggest = "tables_to_restores"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AccountRestore. Access the value via the '{suggest}' property getter instead.")
@@ -555,18 +560,26 @@ class AccountRestore(dict):
     def __init__(__self__, *,
                  restore_timestamp_in_utc: str,
                  source_cosmosdb_account_id: str,
-                 databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None):
+                 databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None,
+                 gremlin_databases: Optional[Sequence['outputs.AccountRestoreGremlinDatabase']] = None,
+                 tables_to_restores: Optional[Sequence[str]] = None):
         """
         :param str restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         :param str source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
                
                > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         :param Sequence['AccountRestoreDatabaseArgs'] databases: A `database` block as defined below. Changing this forces a new resource to be created.
+        :param Sequence['AccountRestoreGremlinDatabaseArgs'] gremlin_databases: One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        :param Sequence[str] tables_to_restores: A list of specific tables available for restore. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
         pulumi.set(__self__, "source_cosmosdb_account_id", source_cosmosdb_account_id)
         if databases is not None:
             pulumi.set(__self__, "databases", databases)
+        if gremlin_databases is not None:
+            pulumi.set(__self__, "gremlin_databases", gremlin_databases)
+        if tables_to_restores is not None:
+            pulumi.set(__self__, "tables_to_restores", tables_to_restores)
 
     @property
     @pulumi.getter(name="restoreTimestampInUtc")
@@ -593,6 +606,22 @@ class AccountRestore(dict):
         A `database` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter(name="gremlinDatabases")
+    def gremlin_databases(self) -> Optional[Sequence['outputs.AccountRestoreGremlinDatabase']]:
+        """
+        One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gremlin_databases")
+
+    @property
+    @pulumi.getter(name="tablesToRestores")
+    def tables_to_restores(self) -> Optional[Sequence[str]]:
+        """
+        A list of specific tables available for restore. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tables_to_restores")
 
 
 @pulumi.output_type
@@ -640,6 +669,53 @@ class AccountRestoreDatabase(dict):
         A list of the collection names for the restore request. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "collection_names")
+
+
+@pulumi.output_type
+class AccountRestoreGremlinDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graphNames":
+            suggest = "graph_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRestoreGremlinDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRestoreGremlinDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRestoreGremlinDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 graph_names: Optional[Sequence[str]] = None):
+        """
+        :param str name: The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+        :param Sequence[str] graph_names: A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        if graph_names is not None:
+            pulumi.set(__self__, "graph_names", graph_names)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="graphNames")
+    def graph_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "graph_names")
 
 
 @pulumi.output_type

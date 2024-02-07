@@ -251,7 +251,6 @@ public class Blob extends com.pulumi.resources.CustomResource {
     }
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
@@ -259,7 +258,6 @@ public class Blob extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {

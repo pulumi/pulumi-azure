@@ -305,6 +305,8 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
+     * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> value;
@@ -312,12 +314,16 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
     /**
      * @return The value of the App Configuration Key. This should only be set when type is set to `kv`.
      * 
+     * &gt; **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
+     * 
      */
     public Output<Optional<String>> value() {
         return Codegen.optional(this.value);
     }
     /**
-     * The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+     * 
+     * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
      * 
      * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 
@@ -326,7 +332,9 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> vaultKeyReference;
 
     /**
-     * @return The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`.
+     * @return The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
+     * 
+     * &gt; **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
      * 
      * &gt; **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
      * 

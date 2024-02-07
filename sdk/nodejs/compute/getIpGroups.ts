@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = example.then(example => example.id);
+ * export const ids = example.then(example => example.ids);
  * ```
  */
 /** @deprecated azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */
@@ -79,7 +79,7 @@ export interface GetIpGroupsResult {
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = example.then(example => example.id);
+ * export const ids = example.then(example => example.ids);
  * ```
  */
 /** @deprecated azure.compute/getipgroups.getIpGroups has been deprecated in favor of azure.network/getipgroups.getIpGroups */

@@ -80,6 +80,11 @@ export type ReplicationRecoveryPlan = import("./replicationRecoveryPlan").Replic
 export const ReplicationRecoveryPlan: typeof import("./replicationRecoveryPlan").ReplicationRecoveryPlan = null as any;
 utilities.lazyLoad(exports, ["ReplicationRecoveryPlan"], () => require("./replicationRecoveryPlan"));
 
+export { VmwareReplicatedVmArgs, VmwareReplicatedVmState } from "./vmwareReplicatedVm";
+export type VmwareReplicatedVm = import("./vmwareReplicatedVm").VmwareReplicatedVm;
+export const VmwareReplicatedVm: typeof import("./vmwareReplicatedVm").VmwareReplicatedVm = null as any;
+utilities.lazyLoad(exports, ["VmwareReplicatedVm"], () => require("./vmwareReplicatedVm"));
+
 export { VMWareReplicationPolicyArgs, VMWareReplicationPolicyState } from "./vmwareReplicationPolicy";
 export type VMWareReplicationPolicy = import("./vmwareReplicationPolicy").VMWareReplicationPolicy;
 export const VMWareReplicationPolicy: typeof import("./vmwareReplicationPolicy").VMWareReplicationPolicy = null as any;
@@ -119,6 +124,8 @@ const _module = {
                 return new ReplicationRecoveryPlan(name, <any>undefined, { urn })
             case "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy":
                 return new VMWareReplicationPolicy(name, <any>undefined, { urn })
+            case "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm":
+                return new VmwareReplicatedVm(name, <any>undefined, { urn })
             case "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation":
                 return new VmwareReplicationPolicyAssociation(name, <any>undefined, { urn })
             default:
@@ -138,4 +145,5 @@ pulumi.runtime.registerResourceModule("azure", "siterecovery/replicatedVM", _mod
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/replicationRecoveryPlan", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/vMWareReplicationPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "siterecovery/vmwareReplicatedVm", _module)
 pulumi.runtime.registerResourceModule("azure", "siterecovery/vmwareReplicationPolicyAssociation", _module)

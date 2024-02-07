@@ -120,6 +120,11 @@ export type SpringCloudDynatraceApplicationPerformanceMonitoring = import("./spr
 export const SpringCloudDynatraceApplicationPerformanceMonitoring: typeof import("./springCloudDynatraceApplicationPerformanceMonitoring").SpringCloudDynatraceApplicationPerformanceMonitoring = null as any;
 utilities.lazyLoad(exports, ["SpringCloudDynatraceApplicationPerformanceMonitoring"], () => require("./springCloudDynatraceApplicationPerformanceMonitoring"));
 
+export { SpringCloudElasticApplicationPerformanceMonitoringArgs, SpringCloudElasticApplicationPerformanceMonitoringState } from "./springCloudElasticApplicationPerformanceMonitoring";
+export type SpringCloudElasticApplicationPerformanceMonitoring = import("./springCloudElasticApplicationPerformanceMonitoring").SpringCloudElasticApplicationPerformanceMonitoring;
+export const SpringCloudElasticApplicationPerformanceMonitoring: typeof import("./springCloudElasticApplicationPerformanceMonitoring").SpringCloudElasticApplicationPerformanceMonitoring = null as any;
+utilities.lazyLoad(exports, ["SpringCloudElasticApplicationPerformanceMonitoring"], () => require("./springCloudElasticApplicationPerformanceMonitoring"));
+
 export { SpringCloudGatewayArgs, SpringCloudGatewayState } from "./springCloudGateway";
 export type SpringCloudGateway = import("./springCloudGateway").SpringCloudGateway;
 export const SpringCloudGateway: typeof import("./springCloudGateway").SpringCloudGateway = null as any;
@@ -139,6 +144,11 @@ export { SpringCloudJavaDeploymentArgs, SpringCloudJavaDeploymentState } from ".
 export type SpringCloudJavaDeployment = import("./springCloudJavaDeployment").SpringCloudJavaDeployment;
 export const SpringCloudJavaDeployment: typeof import("./springCloudJavaDeployment").SpringCloudJavaDeployment = null as any;
 utilities.lazyLoad(exports, ["SpringCloudJavaDeployment"], () => require("./springCloudJavaDeployment"));
+
+export { SpringCloudNewRelicApplicationPerformanceMonitoringArgs, SpringCloudNewRelicApplicationPerformanceMonitoringState } from "./springCloudNewRelicApplicationPerformanceMonitoring";
+export type SpringCloudNewRelicApplicationPerformanceMonitoring = import("./springCloudNewRelicApplicationPerformanceMonitoring").SpringCloudNewRelicApplicationPerformanceMonitoring;
+export const SpringCloudNewRelicApplicationPerformanceMonitoring: typeof import("./springCloudNewRelicApplicationPerformanceMonitoring").SpringCloudNewRelicApplicationPerformanceMonitoring = null as any;
+utilities.lazyLoad(exports, ["SpringCloudNewRelicApplicationPerformanceMonitoring"], () => require("./springCloudNewRelicApplicationPerformanceMonitoring"));
 
 export { SpringCloudServiceArgs, SpringCloudServiceState } from "./springCloudService";
 export type SpringCloudService = import("./springCloudService").SpringCloudService;
@@ -197,6 +207,8 @@ const _module = {
                 return new SpringCloudDevToolPortal(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring":
                 return new SpringCloudDynatraceApplicationPerformanceMonitoring(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring":
+                return new SpringCloudElasticApplicationPerformanceMonitoring(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudGateway:SpringCloudGateway":
                 return new SpringCloudGateway(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain":
@@ -205,6 +217,8 @@ const _module = {
                 return new SpringCloudGatewayRouteConfig(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
                 return new SpringCloudJavaDeployment(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring":
+                return new SpringCloudNewRelicApplicationPerformanceMonitoring(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudService:SpringCloudService":
                 return new SpringCloudService(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudStorage:SpringCloudStorage":
@@ -235,9 +249,11 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDom
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomizedAccelerator", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudDevToolPortal", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudDynatraceApplicationPerformanceMonitoring", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudElasticApplicationPerformanceMonitoring", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGatewayRouteConfig", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudJavaDeployment", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudNewRelicApplicationPerformanceMonitoring", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudService", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudStorage", _module)

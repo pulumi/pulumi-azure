@@ -79,11 +79,15 @@ export class ChannelEmail extends pulumi.CustomResource {
     /**
      * The email password that the Bot will authenticate with.
      */
-    public readonly emailPassword!: pulumi.Output<string>;
+    public readonly emailPassword!: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The magic code used to set up OAUTH authentication.
+     */
+    public readonly magicCode!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
@@ -106,6 +110,7 @@ export class ChannelEmail extends pulumi.CustomResource {
             resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
             resourceInputs["emailPassword"] = state ? state.emailPassword : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["magicCode"] = state ? state.magicCode : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as ChannelEmailArgs | undefined;
@@ -115,9 +120,6 @@ export class ChannelEmail extends pulumi.CustomResource {
             if ((!args || args.emailAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if ((!args || args.emailPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'emailPassword'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,10 +127,11 @@ export class ChannelEmail extends pulumi.CustomResource {
             resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
             resourceInputs["emailPassword"] = args?.emailPassword ? pulumi.secret(args.emailPassword) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["magicCode"] = args?.magicCode ? pulumi.secret(args.magicCode) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["emailPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["emailPassword", "magicCode"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelEmail.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,6 +158,10 @@ export interface ChannelEmailState {
      */
     location?: pulumi.Input<string>;
     /**
+     * The magic code used to set up OAUTH authentication.
+     */
+    magicCode?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -175,11 +182,15 @@ export interface ChannelEmailArgs {
     /**
      * The email password that the Bot will authenticate with.
      */
-    emailPassword: pulumi.Input<string>;
+    emailPassword?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The magic code used to set up OAUTH authentication.
+     */
+    magicCode?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
