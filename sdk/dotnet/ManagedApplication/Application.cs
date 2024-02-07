@@ -65,11 +65,11 @@ namespace Pulumi.Azure.ManagedApplication
     ///         Kind = "ServiceCatalog",
     ///         ManagedResourceGroupName = "infrastructureGroup",
     ///         ApplicationDefinitionId = exampleDefinition.Id,
-    ///         ParameterValues = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         ParameterValues = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["location"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["value"] = location,
+    ///                 ["value"] = exampleResourceGroup.Location,
     ///             },
     ///             ["storageAccountNamePrefix"] = new Dictionary&lt;string, object?&gt;
     ///             {

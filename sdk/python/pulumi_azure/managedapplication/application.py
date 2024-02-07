@@ -428,9 +428,9 @@ class Application(pulumi.CustomResource):
             kind="ServiceCatalog",
             managed_resource_group_name="infrastructureGroup",
             application_definition_id=example_definition.id,
-            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+            parameter_values=pulumi.Output.json_dumps({
                 "location": {
-                    "value": location,
+                    "value": example_resource_group.location,
                 },
                 "storageAccountNamePrefix": {
                     "value": "storeNamePrefix",
@@ -438,7 +438,7 @@ class Application(pulumi.CustomResource):
                 "storageAccountType": {
                     "value": "Standard_LRS",
                 },
-            })))
+            }))
         ```
 
         ## Import
@@ -500,9 +500,9 @@ class Application(pulumi.CustomResource):
             kind="ServiceCatalog",
             managed_resource_group_name="infrastructureGroup",
             application_definition_id=example_definition.id,
-            parameter_values=example_resource_group.location.apply(lambda location: json.dumps({
+            parameter_values=pulumi.Output.json_dumps({
                 "location": {
-                    "value": location,
+                    "value": example_resource_group.location,
                 },
                 "storageAccountNamePrefix": {
                     "value": "storeNamePrefix",
@@ -510,7 +510,7 @@ class Application(pulumi.CustomResource):
                 "storageAccountType": {
                     "value": "Standard_LRS",
                 },
-            })))
+            }))
         ```
 
         ## Import

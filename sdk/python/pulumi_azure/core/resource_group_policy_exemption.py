@@ -342,11 +342,11 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
             policy_definition_id=example_policy_defintion.id,
-            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+            parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
-                    "value": [location],
+                    "value": [example_resource_group.location],
                 },
-            })))
+            }))
         example_resource_group_policy_exemption = azure.core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption",
             resource_group_id=example_resource_group.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
@@ -394,11 +394,11 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
             policy_definition_id=example_policy_defintion.id,
-            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+            parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
-                    "value": [location],
+                    "value": [example_resource_group.location],
                 },
-            })))
+            }))
         example_resource_group_policy_exemption = azure.core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption",
             resource_group_id=example_resource_group.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
