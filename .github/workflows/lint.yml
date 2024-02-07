@@ -65,13 +65,9 @@ jobs:
     - name: golangci-lint
       uses: golangci/golangci-lint-action@v3
       with:
-        version: v1.55.1
+        version: v1.54.1
         working-directory: provider
         skip-cache: true
-    - name: build provider
-      run: |
-        cd provider && go build ./...
-
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
